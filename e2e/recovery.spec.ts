@@ -125,7 +125,13 @@ test('M2 actual helper and delivery overlap, reload, cancellation and continued 
     document.addEventListener(
       'click',
       (e) => {
-        if (relevant(e)) Reflect.set(window, 'm2CancelBefore', read());
+        if (relevant(e)) {
+          const c = document.querySelector('canvas');
+          Reflect.set(window, 'm2CancelBefore', {
+            x: Number(c?.dataset.catX),
+            y: Number(c?.dataset.catY),
+          });
+        }
       },
       true,
     );
@@ -139,7 +145,8 @@ test('M2 actual helper and delivery overlap, reload, cancellation and continued 
     before: Reflect.get(window, 'm2CancelBefore'),
     after: Reflect.get(window, 'm2CancelAfter'),
   }));
-  // Compare the same native click, excluding Playwright's actionability delay.
+  // Compare the last rendered point with the command-flushed rule point.
+  // A pre-command storage read can be up to two seconds older than the frame.
   expect(
     Math.hypot(boundary.after.x - boundary.before.x, boundary.after.y - boundary.before.y),
   ).toBeLessThan(0.000001);
