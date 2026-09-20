@@ -46,6 +46,16 @@ export function activate(
   const s = controller.state;
   const selected = dragSource ?? ui.selected;
   const isSource = selected && ('supply' in selected || 'item' in selected);
+  // While carrying something, food on a destination is part of that destination.
+  // An in-flight item must not swallow the next placement and silently select itself.
+  // Pointer, drag and keyboard all take this same route through the rule command.
+  const targetItem = id.startsWith('item-')
+    ? s.items.find((item) => item.id === id.slice(5))
+    : undefined;
+  if (isSource && targetItem && (!('item' in selected) || selected.item !== targetItem.id)) {
+    if (targetItem.location.startsWith('tray:')) id = `tray-${targetItem.location.split(':')[1]}`;
+    else if (targetItem.location.startsWith('machine:')) id = targetItem.location.replace(':', '-');
+  }
   let command: Parameters<GameController['command']>[0] | undefined;
   if (id === 'note') {
     ui.openNote();

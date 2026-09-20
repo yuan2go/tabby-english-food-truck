@@ -140,3 +140,5 @@ M1 当前保存入口仍为 `tabby.foodtruck.save.v1`（key 是命名历史，�
 `ForegroundAudio` 持有所有前景播放器、AudioContext、gain bus、循环与短节点。语音 epoch 防旧回调；状态转换去重触发提交成功/完成声；刷新后的既有任务不补奖励声。所有任务由领域有效时钟推进，语音/动画回调不判单、不奖励、不写库存。
 
 Vite 构建注入真实 `git rev-parse HEAD`、dirty标记、内容m1.2、资源manifest SHA-256与构建时间；暂停页和 main 的只读 data 属性可核验。部署未给出身份时保持 UNKNOWN。Phaser3.90 API依据：[Config源码](https://raw.githubusercontent.com/phaserjs/phaser/v3.90.0/src/core/Config.js)、[Text源码](https://raw.githubusercontent.com/phaserjs/phaser/v3.90.0/src/gameobjects/text/Text.js)，本地锁定源码确认没有 GameConfig.resolution，使用真实缓冲 resize 和 Text.setResolution。
+
+图片与本地语音 URL 统一附带实际资源清单 hash 前缀，避免部署后稳定 public 路径继续命中旧缓存；源码版本与资源版本都可在运行页查看。

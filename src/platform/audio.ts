@@ -1,4 +1,5 @@
 import type { GameState } from '../rules/types';
+import { resourceUrl } from './build';
 import type { GameController } from './controller';
 export const AUDIO_VERSION = 'samantha-dev-1';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
@@ -93,7 +94,7 @@ export class ForegroundAudio {
     if (!this.enabled || !this.settings.voice || document.hidden || this.disposed) return;
     void this.unlock();
     const epoch = ++this.epoch,
-      player = new Audio(`${import.meta.env.BASE_URL}audio/${id}.wav`);
+      player = new Audio(resourceUrl('audio', `${id}.wav`));
     this.player = player;
     this.active = id;
     player.volume = 0.8;

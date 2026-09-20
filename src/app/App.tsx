@@ -5,11 +5,11 @@ import { assetUrl } from '../game/assets';
 import { activate, type ViewState } from '../game/input';
 import { TruckScene } from '../game/TruckScene';
 import { ForegroundAudio, type SoundSetting } from '../platform/audio';
+import { BUILD_INFO } from '../platform/build';
 import { GameController } from '../platform/controller';
 import { Note } from './Note';
 import './app.css';
 
-declare const __BUILD_INFO__: { sha: string; dirty: boolean; assets: string; builtAt: string };
 const modeIds: Mode[] = ['guided', 'practice', 'service'];
 export function App() {
   const [controller] = useState(() => new GameController());
@@ -227,10 +227,10 @@ export function App() {
   const pictureVisible = selectedOrder && (pictures || caption === selectedOrder.id);
   return (
     <main
-      data-build-sha={__BUILD_INFO__.sha}
-      data-build-dirty={String(__BUILD_INFO__.dirty)}
+      data-build-sha={BUILD_INFO.sha}
+      data-build-dirty={String(BUILD_INFO.dirty)}
       data-content-version={CONTENT_VERSION}
-      data-asset-version={__BUILD_INFO__.assets}
+      data-asset-version={BUILD_INFO.assets}
       onPointerDownCapture={(event) => {
         if (event.target instanceof Element && event.target.closest('button:not([data-hotspot])'))
           audio.effect('press');
@@ -593,12 +593,12 @@ export function App() {
                 <details className="build-info">
                   <summary>版本与声音状态</summary>
                   <p>
-                    Build {__BUILD_INFO__.sha}
-                    {__BUILD_INFO__.dirty ? '（工作区含未提交修改）' : ''}
+                    Build {BUILD_INFO.sha}
+                    {BUILD_INFO.dirty ? '（工作区含未提交修改）' : ''}
                     <br />
                     内容 {CONTENT_VERSION}
                     <br />
-                    资源 {__BUILD_INFO__.assets}
+                    资源 {BUILD_INFO.assets}
                     <br />
                     声音：开发合成，未听审。无麦克风。
                   </p>

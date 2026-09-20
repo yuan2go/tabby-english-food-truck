@@ -1,0 +1,26 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep small phone mismatch|both trays full|true touch placement|continuous commands
+
+[WebServer] (node:9549) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:9612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:9648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/game.spec.ts:154:1 › T08/T09 small phone mismatch, full tray, cancellation and recovery (3.1s)
+  ✓  2 e2e/game.spec.ts:284:3 › touch and lifecycle › T09 true touch placement, pointer cancellation, multi-touch and rotate (2.0s)
+  ✓  3 e2e/game.spec.ts:359:1 › T08 both trays full and wrong juice can recover without an empty tray (8.6s)
+(node:9695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 e2e/upgrade.spec.ts:154:3 › M1 true mobile touch and DPR › continuous commands retain live item motion and stable scene entities (8.7s)
+
+  4 passed (29.6s)

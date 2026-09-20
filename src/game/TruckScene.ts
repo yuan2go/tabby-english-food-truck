@@ -52,6 +52,7 @@ export class TruckScene extends Phaser.Scene {
     y: number;
     id: string;
     source: Selection;
+    anchor: Point;
     moved: boolean;
   } | null = null;
   private cancelMotion: {
@@ -105,6 +106,13 @@ export class TruckScene extends Phaser.Scene {
     this.controller.pause('frozen', false);
   };
   private readonly cancelNative = () => this.cancel();
+  private readonly captureLost = (event: PointerEvent) => {
+    // A completed pointer can lose capture after a new gesture has started.
+    if (this.press?.pointerId === event.pointerId) this.cancel();
+  };
+  private readonly otherPointer = (event: PointerEvent) => {
+    if (this.press && this.press.pointerId !== event.pointerId) this.cancel();
+  };
   private readonly key = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       this.cancel();
@@ -145,8 +153,9 @@ export class TruckScene extends Phaser.Scene {
     canvas.addEventListener('pointerdown', this.down);
     canvas.addEventListener('pointermove', this.move);
     canvas.addEventListener('pointerup', this.up);
-    canvas.addEventListener('pointercancel', this.cancelNative);
-    canvas.addEventListener('lostpointercapture', this.cancelNative);
+    canvas.addEventListener('pointercancel', this.captureLost);
+    canvas.addEventListener('lostpointercapture', this.captureLost);
+    document.addEventListener('pointerdown', this.otherPointer, true);
     canvas.addEventListener('contextmenu', this.prevent);
     document.addEventListener('visibilitychange', this.visibility);
     document.addEventListener('freeze', this.freeze);
@@ -165,8 +174,9 @@ export class TruckScene extends Phaser.Scene {
       canvas.removeEventListener('pointerdown', this.down);
       canvas.removeEventListener('pointermove', this.move);
       canvas.removeEventListener('pointerup', this.up);
-      canvas.removeEventListener('pointercancel', this.cancelNative);
-      canvas.removeEventListener('lostpointercapture', this.cancelNative);
+      canvas.removeEventListener('pointercancel', this.captureLost);
+      canvas.removeEventListener('lostpointercapture', this.captureLost);
+      document.removeEventListener('pointerdown', this.otherPointer, true);
       canvas.removeEventListener('contextmenu', this.prevent);
       document.removeEventListener('visibilitychange', this.visibility);
       document.removeEventListener('freeze', this.freeze);
@@ -871,7 +881,8 @@ export class TruckScene extends Phaser.Scene {
     }
     for (const d of this.deliveries) {
       const p = Math.min(1, (s.gameTime - d.start) / RETURN_MS),
-        target = l.guests[d.seat],
+        guest = l.guests[d.seat],
+        target = { x: guest.x, y: guest.y + l.guestHeight * 0.3 },
         home = l.trays[d.tray];
       const q = p < 0.6 ? p / 0.6 : (p - 0.6) / 0.4;
       const from = p < 0.6 ? d.from : target,
@@ -942,9 +953,12 @@ export class TruckScene extends Phaser.Scene {
   ): { group: Phaser.GameObjects.Container; foods: Sprite[] } {
     const l = this.layout,
       group = this.add.container(at.x, at.y).setDepth(20);
-    const plate = this.add
-      .image(0, 0, 'tray')
-      .setDisplaySize(l.trayWidth, (l.trayWidth * 318) / 480);
+    const plate = this.add.image(0, 0, 'tray'),
+      ratio = plate.width / plate.height;
+    plate.setDisplaySize(
+      Math.min(l.trayWidth, l.trayWidth * 0.64 * ratio),
+      Math.min(l.trayWidth * 0.64, l.trayWidth / ratio),
+    );
     group.add(plate);
     const foods = items.map((item) => {
       const slot = Number(item.location.split(':')[2]);
@@ -1001,13 +1015,15 @@ export class TruckScene extends Phaser.Scene {
     if (document.activeElement instanceof HTMLElement && document.activeElement.dataset.hotspot)
       document.activeElement.blur();
     const p = this.point(e),
-      id = this.hit(p.x, p.y)?.id ?? '';
+      id = this.hit(p.x, p.y)?.id ?? '',
+      image = this.images.get(id);
     this.press = {
       pointerId: e.pointerId,
       x: p.x,
       y: p.y,
       id,
       source: sourceFor(id, this.controller.state),
+      anchor: image ? { x: image.x, y: image.y } : p,
       moved: false,
     };
     this.game.canvas.setPointerCapture(e.pointerId);
@@ -1017,6 +1033,7 @@ export class TruckScene extends Phaser.Scene {
     const press = this.press;
     if (!press || press.pointerId !== e.pointerId) return;
     const p = this.point(e);
+    const at = { x: press.anchor.x + p.x - press.x, y: press.anchor.y + p.y - press.y };
     if (Math.hypot(p.x - press.x, p.y - press.y) > 8) press.moved = true;
     if (press.moved && press.source && !this.dragImage) {
       const source = press.source;
@@ -1024,7 +1041,7 @@ export class TruckScene extends Phaser.Scene {
         this.dragImage = this.trayGroup(
           source.tray,
           trayItems(this.controller.state, source.tray),
-          p,
+          at,
         ).group;
       else {
         const product =
@@ -1032,15 +1049,19 @@ export class TruckScene extends Phaser.Scene {
             ? source.supply
             : this.controller.state.items.find((i) => i.id === source.item)?.product;
         if (product) {
-          this.dragImage = this.add.container(p.x, p.y).setDepth(20);
+          this.dragImage = this.add.container(at.x, at.y).setDepth(20);
           const image = this.add.image(0, 0, product);
+          const original = this.images.get(press.id);
           const ratio = image.width / image.height;
-          image.setDisplaySize(Math.min(52, 52 * ratio), Math.min(52, 52 / ratio));
+          image.setDisplaySize(
+            original?.displayWidth ?? Math.min(52, 52 * ratio),
+            original?.displayHeight ?? Math.min(52, 52 / ratio),
+          );
           this.dragImage.add(image);
         }
       }
     }
-    this.dragImage?.setPosition(p.x, p.y - 18);
+    this.dragImage?.setPosition(at.x, at.y);
     this.hideDragged();
   };
   private readonly up = (e: PointerEvent): void => {
@@ -1061,12 +1082,17 @@ export class TruckScene extends Phaser.Scene {
       this.controller.state.items !== before.items &&
       JSON.stringify(this.controller.state.items) !== JSON.stringify(before.items);
     if (press.moved && this.dragImage && !changed) {
+      const source = press.source,
+        returningItem =
+          source && 'item' in source
+            ? before.items.find((item) => item.id === source.item)
+            : undefined;
       this.cancelMotion?.node.destroy();
       this.cancelMotion = {
         node: this.dragImage,
         source: press.source,
         from: { x: this.dragImage.x, y: this.dragImage.y },
-        to: { x: press.x, y: press.y },
+        to: returningItem ? this.itemPoint(returningItem) : press.anchor,
         start: this.controller.state.gameTime,
       };
       this.dragImage = null;

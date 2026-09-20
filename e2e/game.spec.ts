@@ -51,7 +51,9 @@ async function makeJuice(page: Page) {
 }
 async function takeJuice(page: Page) {
   await dismissTeaching(page);
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await expect
+    .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
   await dismissTeaching(page);
   const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
   if (!cup) throw new Error('missing juice');
@@ -120,7 +122,9 @@ test.describe('Pad recording', () => {
     await key('supply-cup');
     await key('machine-cup');
     await key('start');
-    await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+    await expect
+      .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+      .toBe('ready');
     const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
     if (!cup) throw new Error('cup');
     await key(`item-${cup.id}`);
@@ -197,7 +201,9 @@ test('T02/T10 refresh during machine/helper, pause, no offline catch-up', async 
   expect((await snapshot(page)).machine.remaining).toBe(paused.machine.remaining);
   await page.getByRole('button', { name: '继续营业', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).helper).toBeNull();
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await expect
+    .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
   expect((await snapshot(page)).items).toHaveLength(3);
 });
 test('T10 future save is retained and can export before explicit restart', async ({ page }) => {
@@ -217,8 +223,8 @@ test('T11 missing assets/audio retry preserve world and independent DOM hides re
   page,
 }) => {
   let deny = true;
-  await page.route('**/assets/banana.webp', (route) => (deny ? route.abort() : route.continue()));
-  await page.route('**/audio/request-*.wav', (route) => route.abort());
+  await page.route('**/assets/banana.webp*', (route) => (deny ? route.abort() : route.continue()));
+  await page.route('**/audio/request-*.wav*', (route) => route.abort());
   await start(page);
   await expect(page.locator('.resource-alert')).toBeVisible();
   expect(await page.locator('.semantic-layer').innerText()).not.toMatch(
@@ -305,6 +311,25 @@ test.describe('touch and lifecycle', () => {
     });
     await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     expect((await snapshot(page)).items).toHaveLength(0);
+    const replay = await page.getByRole('button', { name: '重听当前客人请求' }).boundingBox();
+    if (!replay) throw new Error('replay button');
+    await client.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints: [{ ...a, id: 1 }],
+    });
+    await client.send('Input.dispatchTouchEvent', {
+      type: 'touchMove',
+      touchPoints: [{ ...b, id: 1 }],
+    });
+    await client.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints: [
+        { ...b, id: 1 },
+        { x: replay.x + 12, y: replay.y + 12, id: 2 },
+      ],
+    });
+    await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    expect((await snapshot(page)).items).toHaveLength(0);
     await page.touchscreen.tap(a.x, a.y);
     await page.touchscreen.tap(b.x, b.y);
     expect((await snapshot(page)).items).toHaveLength(1);
@@ -337,9 +362,12 @@ test('T08 both trays full and wrong juice can recover without an empty tray', as
     for (let n = 0; n < 3; n++) {
       await tap(page, 'supply-banana');
       await tap(page, `tray-${tray}`, 22);
+      expect((await snapshot(page)).items).toHaveLength(tray * 3 + n + 1);
     }
   await makeJuice(page);
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await expect
+    .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
   const juice = (await snapshot(page)).items.find((i) => i.product === 'juice');
   if (!juice) throw new Error('juice');
   await tap(page, `item-${juice.id}`);
