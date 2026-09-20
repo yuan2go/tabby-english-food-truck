@@ -1,0 +1,44 @@
+{
+  "sourceBuild": "36cb8e6ae05759f47de04a6649cbcc273175e182",
+  "dirty": false,
+  "content": "m2.0",
+  "manifestSha256": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
+  "checks": [
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "warnings": 27
+    },
+    {
+      "command": "npm run resources",
+      "exitCode": 0,
+      "files": 124
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 40
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "via": "Playwright webServer command npm run build && npm run preview -- --port 4174 --strictPort"
+    },
+    {
+      "command": "npm run test:browser",
+      "exitCode": 0,
+      "passed": 17
+    }
+  ],
+  "staticAndRuleCheckCommit": "904ed83d46483dbf252d1b9ef5534b900a0e58d1",
+  "followingCommitDifference": "36cb8e6 changes test sampling and evidence only; runtime matches 904ed83",
+  "device": "macOS arm64 Chromium headless; simulated touch/DPR, not physical device",
+  "physicalDevices": "NOT_RUN",
+  "teacherAndListeningReview": "NOT_RUN",
+  "childrenObservation": "NOT_RUN",
+  "deployment": "PENDING_DEPLOYMENT"
+}

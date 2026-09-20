@@ -8,9 +8,9 @@
 
 ## 当前状态
 
-M2 的四类制作、故事、无尽与两类小游戏已接入正式运行入口，当前验证及修整仍在进行。工程证据、准确构建身份与限制见 [STATUS](docs/STATUS.md)。已收到闪现、繁琐操作与暂停混杂反馈，视觉手感 **NEEDS_REVISION**；开发英语未听审，实体设备与儿童观察未执行。本轮明确进入M2完整工作包，仍无课程平台或账号。
+M2 的四类制作、故事、无尽与两类小游戏已贯通正式运行入口，40条规则与17条HTTP浏览器路径通过。工程证据、准确构建身份与限制见 [STATUS](docs/STATUS.md)。已收到闪现、繁琐操作与暂停混杂反馈，对应工程修复已完成，视觉手感 **AWAITING_OWNER_REVIEW**；开发英语未听审，实体设备与儿童观察未执行。本轮明确进入M2完整工作包，仍无课程平台或账号。
 
-[既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 仍是旧版本，线上 SHA UNKNOWN；本轮 **PENDING_DEPLOYMENT**，不以旧站点替代本轮验收。角色原始 PNG 参考已冻结，用户所述 JPEG 原字节未收到，不影响按已选定形象继续制作。
+[既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 仍是旧版本，线上内容m1.1，可信源SHA与资源清单版本NOT_PROVEN；本轮 **PENDING_DEPLOYMENT**，不以旧站点替代本轮验收。角色原始 PNG 参考已冻结，用户所述 JPEG 原字节未收到，不影响按已选定形象继续制作。
 
 ## 运行与检查
 
@@ -59,7 +59,7 @@ npm run dev
 | [游戏设计](docs/02-game-design.md) | 角色分工、订单/食物/设备规则、配方、场次、支持和失败恢复 |
 | [交互、美术与音频设计](docs/03-experience-design.md) | 场景布局、触屏、角色动作、资源生产和体验质量门槛 |
 | [技术设计](docs/04-technical-design.md) | 新工程架构、单一规则核、时间、保存、资源和语言判定 |
-| [交付与验收](docs/05-delivery.md) | 先行双订单体验、分阶段交付、必要验证和发布边界 |
+| [交付与验收](docs/05-delivery.md) | M0/M1历史、M2完整分阶段交付、必要验证和发布边界 |
 | [状态](docs/STATUS.md) | 已实现、已验证、未运行、待审核和实际提交身份 |
 | [开发协作约束](AGENTS.md) | 新仓库隔离、执行顺序、工程与 Git 规则 |
 

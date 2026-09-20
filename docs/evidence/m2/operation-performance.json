@@ -3,16 +3,16 @@
     "chapter": 0,
     "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
     "frameIntervals": {
-      "count": 1279,
+      "count": 1229,
       "medianMs": 33.399999999999636,
       "p95Ms": 50.099999999998545,
-      "maxMs": 149.89999999999964
+      "maxMs": 200
     },
     "pointerUpToTwoFrames": {
       "count": 27,
-      "medianMs": 40.599999994039536,
-      "p95Ms": 54.599999994039536,
-      "maxMs": 60
+      "medianMs": 41.099999994039536,
+      "p95Ms": 48.6000000089407,
+      "maxMs": 61.69999998807907
     },
     "viewport": {
       "width": 393,
@@ -24,291 +24,291 @@
       "height": 1663,
       "scale": "2.500"
     },
-    "build": "e5dca120346f15d872d2a517fda56bf252178d30",
+    "build": "36cb8e6ae05759f47de04a6649cbcc273175e182",
     "dirty": "false",
     "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
     "resources": [
       {
-        "name": "index-Bp9cYBO-.js",
-        "encodedBytes": 100179,
-        "transferBytes": 100479,
-        "durationMs": 19.399999991059303
+        "name": "index-BZETy-kw.js",
+        "encodedBytes": 100209,
+        "transferBytes": 100509,
+        "durationMs": 17.599999994039536
       },
       {
         "name": "phaser-DXXWZowi.js",
         "encodedBytes": 330072,
         "transferBytes": 330372,
-        "durationMs": 45.400000005960464
+        "durationMs": 41
       },
       {
-        "name": "index-QaK3lwJ4.css",
-        "encodedBytes": 8173,
-        "transferBytes": 8473,
-        "durationMs": 8.100000008940697
+        "name": "index-BCTC5vse.css",
+        "encodedBytes": 8186,
+        "transferBytes": 8486,
+        "durationMs": 6.799999997019768
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 118020,
-        "durationMs": 3
+        "durationMs": 3.5
       },
       {
         "name": "courtyard.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 517038,
         "transferBytes": 517338,
-        "durationMs": 4.100000008940697
+        "durationMs": 4.700000002980232
       },
       {
         "name": "cat-idle.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 114458,
         "transferBytes": 114758,
-        "durationMs": 13.900000005960464
+        "durationMs": 11.699999988079071
       },
       {
         "name": "cat-read.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 120194,
         "transferBytes": 120494,
-        "durationMs": 13.899999991059303
+        "durationMs": 12.700000002980232
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 158390,
-        "durationMs": 14.599999994039536
+        "durationMs": 13.400000005960464
       },
       {
         "name": "cat-carry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117812,
         "transferBytes": 118112,
-        "durationMs": 15.099999994039536
+        "durationMs": 13.700000002980232
       },
       {
         "name": "cat-place.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 162614,
         "transferBytes": 162914,
-        "durationMs": 18.400000005960464
-      },
-      {
-        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 114604,
-        "transferBytes": 114904,
-        "durationMs": 18.5
-      },
-      {
-        "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 130356,
-        "transferBytes": 130656,
-        "durationMs": 18.600000008940697
+        "durationMs": 14.200000002980232
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 18.100000008940697
+        "durationMs": 16.5
+      },
+      {
+        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 114604,
+        "transferBytes": 114904,
+        "durationMs": 13.599999994039536
+      },
+      {
+        "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 130356,
+        "transferBytes": 130656,
+        "durationMs": 17.299999997019768
       },
       {
         "name": "cat-step-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 88820,
         "transferBytes": 89120,
-        "durationMs": 18.899999991059303
-      },
-      {
-        "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 82684,
-        "transferBytes": 82984,
-        "durationMs": 19.600000008940697
+        "durationMs": 18.69999998807907
       },
       {
         "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87650,
         "transferBytes": 87950,
-        "durationMs": 20.700000002980232
+        "durationMs": 19.400000005960464
+      },
+      {
+        "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 82684,
+        "transferBytes": 82984,
+        "durationMs": 19.700000002980232
       },
       {
         "name": "cat-step-3.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85924,
         "transferBytes": 86224,
-        "durationMs": 20.799999997019768
+        "durationMs": 19.600000008940697
       },
       {
         "name": "market.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 172060,
         "transferBytes": 172360,
-        "durationMs": 21.099999994039536
+        "durationMs": 19.80000001192093
       },
       {
         "name": "apple.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 32732,
         "transferBytes": 33032,
-        "durationMs": 21.599999994039536
+        "durationMs": 19.5
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 22490,
-        "durationMs": 21.599999994039536
+        "durationMs": 22.600000008940697
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 43206,
-        "durationMs": 21.700000002980232
+        "durationMs": 22.600000008940697
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 33932,
-        "durationMs": 25.200000002980232
+        "durationMs": 22.700000002980232
       },
       {
         "name": "machine.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 68302,
         "transferBytes": 68602,
-        "durationMs": 25.799999997019768
+        "durationMs": 23.200000002980232
       },
       {
         "name": "tray.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 107780,
         "transferBytes": 108080,
-        "durationMs": 26.200000002980232
-      },
-      {
-        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 43526,
-        "transferBytes": 43826,
-        "durationMs": 25.900000005960464
+        "durationMs": 22.799999997019768
       },
       {
         "name": "guest-0-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42746,
         "transferBytes": 43046,
-        "durationMs": 26.100000008940697
+        "durationMs": 23.400000005960464
+      },
+      {
+        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 43526,
+        "transferBytes": 43826,
+        "durationMs": 24
       },
       {
         "name": "guest-0-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 44200,
         "transferBytes": 44500,
-        "durationMs": 26.099999994039536
+        "durationMs": 24.299999997019768
       },
       {
         "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 47408,
         "transferBytes": 47708,
-        "durationMs": 29
-      },
-      {
-        "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 49514,
-        "transferBytes": 49814,
-        "durationMs": 28.700000002980232
+        "durationMs": 24.5
       },
       {
         "name": "guest-1-1.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 48672,
         "transferBytes": 48972,
-        "durationMs": 28.700000002980232
+        "durationMs": 25
+      },
+      {
+        "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 49514,
+        "transferBytes": 49814,
+        "durationMs": 25.299999997019768
       },
       {
         "name": "banana-juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 60024,
         "transferBytes": 60324,
-        "durationMs": 2.5999999940395355
-      },
-      {
-        "name": "elder.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 113300,
-        "transferBytes": 113600,
-        "durationMs": 6.799999997019768
+        "durationMs": 3.2000000029802322
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 300,
-        "durationMs": 6.200000002980232
+        "durationMs": 2.5
+      },
+      {
+        "name": "elder.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 113300,
+        "transferBytes": 113600,
+        "durationMs": 3.2999999970197678
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 2.699999988079071
-      },
-      {
-        "name": "apple.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 32732,
-        "transferBytes": 300,
-        "durationMs": 4.899999991059303
+        "durationMs": 3.5
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 49494,
-        "durationMs": 5.699999988079071
+        "durationMs": 4.800000011920929
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 75170,
-        "durationMs": 6.299999997019768
+        "durationMs": 5
       },
       {
         "name": "burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 92092,
         "transferBytes": 92392,
-        "durationMs": 6.5999999940395355
+        "durationMs": 5.300000011920929
+      },
+      {
+        "name": "apple.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 4.200000002980232
       },
       {
         "name": "request-apple.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 65846,
         "transferBytes": 66146,
-        "durationMs": 7.299999997019768
+        "durationMs": 2.7000000029802322
       },
       {
         "name": "thanks.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 35300,
         "transferBytes": 35600,
-        "durationMs": 12.5
+        "durationMs": 4.299999997019768
       },
       {
         "name": "request-juice.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 76052,
         "transferBytes": 76352,
-        "durationMs": 3
+        "durationMs": 2.7999999970197678
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 300,
-        "durationMs": 1.9000000059604645
+        "durationMs": 1.5999999940395355
       },
       {
         "name": "banana-juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 60024,
         "transferBytes": 300,
-        "durationMs": 6.899999991059303
+        "durationMs": 4.100000008940697
       },
       {
         "name": "request-banana-juice.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 79924,
         "transferBytes": 80224,
-        "durationMs": 4
+        "durationMs": 6.5
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 300,
-        "durationMs": 2.9000000059604645
+        "durationMs": 4.0999999940395355
       },
       {
         "name": "request-fruit.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 94486,
         "transferBytes": 94786,
-        "durationMs": 2.8999999910593033
+        "durationMs": 4.5
       },
       {
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 130656,
-        "durationMs": 4.100000008940697
+        "durationMs": 2.9000000059604645
       }
     ]
   },
@@ -316,16 +316,16 @@
     "chapter": 1,
     "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
     "frameIntervals": {
-      "count": 1226,
-      "medianMs": 33.39999999999418,
-      "p95Ms": 50.09999999999127,
-      "maxMs": 133.3000000000029
+      "count": 1184,
+      "medianMs": 33.40000000000873,
+      "p95Ms": 50.10000000000582,
+      "maxMs": 116.69999999999709
     },
     "pointerUpToTwoFrames": {
       "count": 37,
-      "medianMs": 40.70000000298023,
-      "p95Ms": 49.5,
-      "maxMs": 53.79999999701977
+      "medianMs": 43.6000000089407,
+      "p95Ms": 57.5,
+      "maxMs": 71
     },
     "viewport": {
       "width": 393,
@@ -337,447 +337,429 @@
       "height": 1663,
       "scale": "2.500"
     },
-    "build": "e5dca120346f15d872d2a517fda56bf252178d30",
+    "build": "36cb8e6ae05759f47de04a6649cbcc273175e182",
     "dirty": "false",
     "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
     "resources": [
       {
-        "name": "index-Bp9cYBO-.js",
-        "encodedBytes": 100179,
-        "transferBytes": 100479,
-        "durationMs": 19.399999991059303
+        "name": "index-BZETy-kw.js",
+        "encodedBytes": 100209,
+        "transferBytes": 100509,
+        "durationMs": 17.599999994039536
       },
       {
         "name": "phaser-DXXWZowi.js",
         "encodedBytes": 330072,
         "transferBytes": 330372,
-        "durationMs": 45.400000005960464
+        "durationMs": 41
       },
       {
-        "name": "index-QaK3lwJ4.css",
-        "encodedBytes": 8173,
-        "transferBytes": 8473,
-        "durationMs": 8.100000008940697
+        "name": "index-BCTC5vse.css",
+        "encodedBytes": 8186,
+        "transferBytes": 8486,
+        "durationMs": 6.799999997019768
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 118020,
-        "durationMs": 3
+        "durationMs": 3.5
       },
       {
         "name": "courtyard.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 517038,
         "transferBytes": 517338,
-        "durationMs": 4.100000008940697
+        "durationMs": 4.700000002980232
       },
       {
         "name": "cat-idle.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 114458,
         "transferBytes": 114758,
-        "durationMs": 13.900000005960464
+        "durationMs": 11.699999988079071
       },
       {
         "name": "cat-read.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 120194,
         "transferBytes": 120494,
-        "durationMs": 13.899999991059303
+        "durationMs": 12.700000002980232
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 158390,
-        "durationMs": 14.599999994039536
+        "durationMs": 13.400000005960464
       },
       {
         "name": "cat-carry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117812,
         "transferBytes": 118112,
-        "durationMs": 15.099999994039536
+        "durationMs": 13.700000002980232
       },
       {
         "name": "cat-place.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 162614,
         "transferBytes": 162914,
-        "durationMs": 18.400000005960464
-      },
-      {
-        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 114604,
-        "transferBytes": 114904,
-        "durationMs": 18.5
-      },
-      {
-        "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 130356,
-        "transferBytes": 130656,
-        "durationMs": 18.600000008940697
+        "durationMs": 14.200000002980232
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 18.100000008940697
+        "durationMs": 16.5
+      },
+      {
+        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 114604,
+        "transferBytes": 114904,
+        "durationMs": 13.599999994039536
+      },
+      {
+        "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 130356,
+        "transferBytes": 130656,
+        "durationMs": 17.299999997019768
       },
       {
         "name": "cat-step-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 88820,
         "transferBytes": 89120,
-        "durationMs": 18.899999991059303
-      },
-      {
-        "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 82684,
-        "transferBytes": 82984,
-        "durationMs": 19.600000008940697
+        "durationMs": 18.69999998807907
       },
       {
         "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87650,
         "transferBytes": 87950,
-        "durationMs": 20.700000002980232
+        "durationMs": 19.400000005960464
+      },
+      {
+        "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 82684,
+        "transferBytes": 82984,
+        "durationMs": 19.700000002980232
       },
       {
         "name": "cat-step-3.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85924,
         "transferBytes": 86224,
-        "durationMs": 20.799999997019768
+        "durationMs": 19.600000008940697
       },
       {
         "name": "market.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 172060,
         "transferBytes": 172360,
-        "durationMs": 21.099999994039536
+        "durationMs": 19.80000001192093
       },
       {
         "name": "apple.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 32732,
         "transferBytes": 33032,
-        "durationMs": 21.599999994039536
+        "durationMs": 19.5
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 22490,
-        "durationMs": 21.599999994039536
+        "durationMs": 22.600000008940697
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 43206,
-        "durationMs": 21.700000002980232
+        "durationMs": 22.600000008940697
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 33932,
-        "durationMs": 25.200000002980232
+        "durationMs": 22.700000002980232
       },
       {
         "name": "machine.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 68302,
         "transferBytes": 68602,
-        "durationMs": 25.799999997019768
+        "durationMs": 23.200000002980232
       },
       {
         "name": "tray.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 107780,
         "transferBytes": 108080,
-        "durationMs": 26.200000002980232
-      },
-      {
-        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 43526,
-        "transferBytes": 43826,
-        "durationMs": 25.900000005960464
+        "durationMs": 22.799999997019768
       },
       {
         "name": "guest-0-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42746,
         "transferBytes": 43046,
-        "durationMs": 26.100000008940697
+        "durationMs": 23.400000005960464
+      },
+      {
+        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 43526,
+        "transferBytes": 43826,
+        "durationMs": 24
       },
       {
         "name": "guest-0-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 44200,
         "transferBytes": 44500,
-        "durationMs": 26.099999994039536
+        "durationMs": 24.299999997019768
       },
       {
         "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 47408,
         "transferBytes": 47708,
-        "durationMs": 29
-      },
-      {
-        "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 49514,
-        "transferBytes": 49814,
-        "durationMs": 28.700000002980232
+        "durationMs": 24.5
       },
       {
         "name": "guest-1-1.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 48672,
         "transferBytes": 48972,
-        "durationMs": 28.700000002980232
+        "durationMs": 25
+      },
+      {
+        "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 49514,
+        "transferBytes": 49814,
+        "durationMs": 25.299999997019768
       },
       {
         "name": "banana-juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 60024,
         "transferBytes": 60324,
-        "durationMs": 2.5999999940395355
-      },
-      {
-        "name": "elder.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 113300,
-        "transferBytes": 113600,
-        "durationMs": 6.799999997019768
+        "durationMs": 3.2000000029802322
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 300,
-        "durationMs": 6.200000002980232
+        "durationMs": 2.5
+      },
+      {
+        "name": "elder.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 113300,
+        "transferBytes": 113600,
+        "durationMs": 3.2999999970197678
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 2.699999988079071
-      },
-      {
-        "name": "apple.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 32732,
-        "transferBytes": 300,
-        "durationMs": 4.899999991059303
+        "durationMs": 3.5
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 49494,
-        "durationMs": 5.699999988079071
+        "durationMs": 4.800000011920929
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 75170,
-        "durationMs": 6.299999997019768
+        "durationMs": 5
       },
       {
         "name": "burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 92092,
         "transferBytes": 92392,
-        "durationMs": 6.5999999940395355
+        "durationMs": 5.300000011920929
+      },
+      {
+        "name": "apple.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 4.200000002980232
       },
       {
         "name": "request-apple.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 65846,
         "transferBytes": 66146,
-        "durationMs": 7.299999997019768
+        "durationMs": 2.7000000029802322
       },
       {
         "name": "thanks.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 35300,
         "transferBytes": 35600,
-        "durationMs": 12.5
+        "durationMs": 4.299999997019768
       },
       {
         "name": "request-juice.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 76052,
         "transferBytes": 76352,
-        "durationMs": 3
+        "durationMs": 2.7999999970197678
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 300,
-        "durationMs": 1.9000000059604645
+        "durationMs": 1.5999999940395355
       },
       {
         "name": "banana-juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 60024,
         "transferBytes": 300,
-        "durationMs": 6.899999991059303
+        "durationMs": 4.100000008940697
       },
       {
         "name": "request-banana-juice.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 79924,
         "transferBytes": 80224,
-        "durationMs": 4
+        "durationMs": 6.5
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 300,
-        "durationMs": 2.9000000059604645
+        "durationMs": 4.0999999940395355
       },
       {
         "name": "request-fruit.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 94486,
         "transferBytes": 94786,
-        "durationMs": 2.8999999910593033
+        "durationMs": 4.5
       },
       {
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 130656,
-        "durationMs": 4.100000008940697
+        "durationMs": 2.9000000059604645
       },
       {
         "name": "cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 20778,
         "transferBytes": 21078,
-        "durationMs": 6.700000002980232
+        "durationMs": 31.200000002980232
       },
       {
         "name": "vanilla.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31590,
         "transferBytes": 31890,
-        "durationMs": 6.300000011920929
+        "durationMs": 30.400000005960464
+      },
+      {
+        "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 49194,
+        "transferBytes": 300,
+        "durationMs": 25.5
       },
       {
         "name": "strawberry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 38612,
         "transferBytes": 38912,
-        "durationMs": 6.399999991059303
+        "durationMs": 30.299999997019768
       },
       {
         "name": "strawberry-cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87360,
         "transferBytes": 87660,
-        "durationMs": 7.299999997019768
-      },
-      {
-        "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 49194,
-        "transferBytes": 300,
-        "durationMs": 7
+        "durationMs": 32.900000005960464
       },
       {
         "name": "double-cream.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 91850,
         "transferBytes": 92150,
-        "durationMs": 9.099999994039536
+        "durationMs": 32.69999998807907
       },
       {
         "name": "banana-cream.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 69446,
         "transferBytes": 69746,
-        "durationMs": 9.399999991059303
+        "durationMs": 33.69999998807907
       },
       {
         "name": "ice-station.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87990,
         "transferBytes": 88290,
-        "durationMs": 9.5
+        "durationMs": 34.79999999701977
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 300,
-        "durationMs": 7.299999997019768
+        "durationMs": 32.29999999701977
       },
       {
         "name": "cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 20778,
         "transferBytes": 300,
-        "durationMs": 3.0999999940395355
+        "durationMs": 3.6000000089406967
       },
       {
         "name": "vanilla.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31590,
         "transferBytes": 300,
-        "durationMs": 3.5
+        "durationMs": 4.399999991059303
       },
       {
         "name": "request-vanilla-cone.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 110670,
         "transferBytes": 110970,
-        "durationMs": 5.5999999940395355
+        "durationMs": 6.0999999940395355
       },
       {
         "name": "strawberry-cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87360,
         "transferBytes": 300,
-        "durationMs": 3.9000000059604645
+        "durationMs": 15.900000005960464
       },
       {
         "name": "request-strawberry-cup.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 121360,
         "transferBytes": 121660,
-        "durationMs": 3.6000000089406967
-      },
-      {
-        "name": "cup.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 42906,
-        "transferBytes": 300,
-        "durationMs": 1.5
+        "durationMs": 5.799999997019768
       },
       {
         "name": "strawberry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 38612,
         "transferBytes": 300,
-        "durationMs": 3
+        "durationMs": 3.300000011920929
       },
       {
         "name": "thanks.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 35300,
         "transferBytes": 35600,
-        "durationMs": 3.5
+        "durationMs": 10.5
       },
       {
         "name": "double-cream.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 91850,
         "transferBytes": 300,
-        "durationMs": 1.5
+        "durationMs": 1.7999999970197678
       },
       {
         "name": "request-double-cream.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 146778,
         "transferBytes": 147078,
-        "durationMs": 5.899999991059303
-      },
-      {
-        "name": "cup.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 42906,
-        "transferBytes": 300,
-        "durationMs": 2.6000000089406967
+        "durationMs": 6.0999999940395355
       },
       {
         "name": "vanilla.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31590,
         "transferBytes": 300,
-        "durationMs": 4.600000008940697
-      },
-      {
-        "name": "strawberry.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 38612,
-        "transferBytes": 300,
-        "durationMs": 5
+        "durationMs": 2.3999999910593033
       },
       {
         "name": "banana-cream.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 69446,
         "transferBytes": 300,
-        "durationMs": 2
+        "durationMs": 4.600000008940697
       },
       {
         "name": "request-banana-cream.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 113230,
         "transferBytes": 113530,
-        "durationMs": 3
+        "durationMs": 7.700000002980232
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 300,
-        "durationMs": 1.4000000059604645
+        "durationMs": 6.300000011920929
       },
       {
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 3.7999999970197678
+        "durationMs": 7.9000000059604645
       }
     ]
   },
@@ -785,16 +767,16 @@
     "chapter": 2,
     "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
     "frameIntervals": {
-      "count": 923,
-      "medianMs": 33.40000000000009,
-      "p95Ms": 50.100000000000364,
-      "maxMs": 233.40000000000146
+      "count": 949,
+      "medianMs": 33.399999999999636,
+      "p95Ms": 50,
+      "maxMs": 116.60000000000036
     },
     "pointerUpToTwoFrames": {
       "count": 22,
-      "medianMs": 40.900000005960464,
-      "p95Ms": 49.1000000089407,
-      "maxMs": 51.70000000298023
+      "medianMs": 40.099999994039536,
+      "p95Ms": 52.8999999910593,
+      "maxMs": 56.099999994039536
     },
     "viewport": {
       "width": 393,
@@ -806,109 +788,253 @@
       "height": 1663,
       "scale": "2.500"
     },
-    "build": "e5dca120346f15d872d2a517fda56bf252178d30",
+    "build": "36cb8e6ae05759f47de04a6649cbcc273175e182",
     "dirty": "false",
     "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
     "resources": [
       {
-        "name": "index-Bp9cYBO-.js",
-        "encodedBytes": 100179,
+        "name": "index-BZETy-kw.js",
+        "encodedBytes": 100209,
         "transferBytes": 300,
-        "durationMs": 3.9000000059604645
+        "durationMs": 4.299999997019768
       },
       {
-        "name": "index-QaK3lwJ4.css",
-        "encodedBytes": 8173,
+        "name": "index-BCTC5vse.css",
+        "encodedBytes": 8186,
         "transferBytes": 300,
-        "durationMs": 3.3999999910593033
+        "durationMs": 4.600000008940697
       },
       {
         "name": "phaser-DXXWZowi.js",
         "encodedBytes": 330072,
         "transferBytes": 300,
-        "durationMs": 7.0999999940395355
+        "durationMs": 7.5
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 1.199999988079071
+        "durationMs": 1.2000000029802322
       },
       {
         "name": "courtyard.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 0,
         "transferBytes": 300,
-        "durationMs": 1.7000000029802322
+        "durationMs": 1.3999999910593033
       },
       {
         "name": "cat-idle.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 114458,
         "transferBytes": 300,
-        "durationMs": 5.5999999940395355
+        "durationMs": 5.100000008940697
       },
       {
         "name": "cat-read.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 120194,
         "transferBytes": 300,
-        "durationMs": 5.799999997019768
+        "durationMs": 5
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 300,
-        "durationMs": 6.0999999940395355
+        "durationMs": 5.399999991059303
       },
       {
         "name": "cat-carry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117812,
         "transferBytes": 300,
-        "durationMs": 6
+        "durationMs": 5.199999988079071
       },
       {
         "name": "cat-place.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 162614,
         "transferBytes": 300,
-        "durationMs": 6
+        "durationMs": 5.200000002980232
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 6
+        "durationMs": 5.200000002980232
       },
       {
         "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 114604,
         "transferBytes": 300,
-        "durationMs": 6.299999997019768
+        "durationMs": 5.799999997019768
       },
       {
         "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 6.9000000059604645
-      },
-      {
-        "name": "cat-step-0.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 88820,
-        "transferBytes": 300,
-        "durationMs": 7.200000002980232
-      },
-      {
-        "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 82684,
-        "transferBytes": 300,
-        "durationMs": 8.300000011920929
+        "durationMs": 6.5
       },
       {
         "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87650,
         "transferBytes": 300,
-        "durationMs": 8.600000008940697
+        "durationMs": 5.4000000059604645
+      },
+      {
+        "name": "cat-step-0.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 88820,
+        "transferBytes": 300,
+        "durationMs": 6.9000000059604645
+      },
+      {
+        "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 82684,
+        "transferBytes": 300,
+        "durationMs": 7.100000008940697
+      },
+      {
+        "name": "cat-step-3.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 85924,
+        "transferBytes": 300,
+        "durationMs": 8.5
       },
       {
         "name": "market.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 172060,
+        "transferBytes": 300,
+        "durationMs": 7.299999997019768
+      },
+      {
+        "name": "apple.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 7.5
+      },
+      {
+        "name": "banana.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 22190,
+        "transferBytes": 300,
+        "durationMs": 7.700000002980232
+      },
+      {
+        "name": "cup.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 42906,
+        "transferBytes": 300,
+        "durationMs": 7.899999991059303
+      },
+      {
+        "name": "juice.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 10
+      },
+      {
+        "name": "machine.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 68302,
+        "transferBytes": 300,
+        "durationMs": 8.399999991059303
+      },
+      {
+        "name": "tray.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 107780,
+        "transferBytes": 300,
+        "durationMs": 8.699999988079071
+      },
+      {
+        "name": "guest-0-0.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 42746,
+        "transferBytes": 300,
+        "durationMs": 9
+      },
+      {
+        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 43526,
+        "transferBytes": 300,
+        "durationMs": 9.200000002980232
+      },
+      {
+        "name": "guest-0-2.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 44200,
+        "transferBytes": 300,
+        "durationMs": 9.400000005960464
+      },
+      {
+        "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 47408,
+        "transferBytes": 300,
+        "durationMs": 10
+      },
+      {
+        "name": "guest-1-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 48672,
+        "transferBytes": 300,
+        "durationMs": 10.200000002980232
+      },
+      {
+        "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 49514,
+        "transferBytes": 300,
+        "durationMs": 10.299999997019768
+      },
+      {
+        "name": "bread.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 37626,
+        "transferBytes": 300,
+        "durationMs": 2
+      },
+      {
+        "name": "cheese.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 24540,
+        "transferBytes": 300,
+        "durationMs": 7.200000002980232
+      },
+      {
+        "name": "lettuce.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 37786,
+        "transferBytes": 300,
+        "durationMs": 7.5
+      },
+      {
+        "name": "tomato.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 31382,
+        "transferBytes": 300,
+        "durationMs": 8
+      },
+      {
+        "name": "sandwich.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 8.600000008940697
+      },
+      {
+        "name": "salad-sandwich.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 80092,
+        "transferBytes": 300,
+        "durationMs": 8.700000002980232
+      },
+      {
+        "name": "board-station.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 85072,
+        "transferBytes": 300,
+        "durationMs": 8.599999994039536
+      },
+      {
+        "name": "juice.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 2.2000000029802322
+      },
+      {
+        "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 49194,
+        "transferBytes": 300,
+        "durationMs": 3.199999988079071
+      },
+      {
+        "name": "sandwich.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "burger.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 92092,
         "transferBytes": 300,
         "durationMs": 7.5
       },
@@ -916,199 +1042,55 @@
         "name": "apple.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 32732,
         "transferBytes": 300,
-        "durationMs": 7.700000002980232
-      },
-      {
-        "name": "cat-step-3.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 85924,
-        "transferBytes": 300,
-        "durationMs": 8.799999997019768
-      },
-      {
-        "name": "banana.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 22190,
-        "transferBytes": 300,
-        "durationMs": 10.400000005960464
-      },
-      {
-        "name": "cup.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 42906,
-        "transferBytes": 300,
-        "durationMs": 8.799999997019768
-      },
-      {
-        "name": "juice.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 33632,
-        "transferBytes": 300,
-        "durationMs": 9.099999994039536
-      },
-      {
-        "name": "machine.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 68302,
-        "transferBytes": 300,
-        "durationMs": 9.5
-      },
-      {
-        "name": "tray.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 107780,
-        "transferBytes": 300,
-        "durationMs": 9.900000005960464
-      },
-      {
-        "name": "guest-0-0.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 42746,
-        "transferBytes": 300,
-        "durationMs": 11.700000002980232
-      },
-      {
-        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 43526,
-        "transferBytes": 300,
-        "durationMs": 10.300000011920929
-      },
-      {
-        "name": "guest-0-2.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 44200,
-        "transferBytes": 300,
-        "durationMs": 10.700000002980232
-      },
-      {
-        "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 47408,
-        "transferBytes": 300,
-        "durationMs": 11.200000002980232
-      },
-      {
-        "name": "guest-1-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 48672,
-        "transferBytes": 300,
-        "durationMs": 11.200000002980232
-      },
-      {
-        "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 49514,
-        "transferBytes": 300,
-        "durationMs": 11.799999997019768
-      },
-      {
-        "name": "bread.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 37626,
-        "transferBytes": 300,
-        "durationMs": 2.4000000059604645
-      },
-      {
-        "name": "cheese.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 24540,
-        "transferBytes": 300,
-        "durationMs": 2.6000000089406967
-      },
-      {
-        "name": "lettuce.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 37786,
-        "transferBytes": 300,
-        "durationMs": 3.4000000059604645
-      },
-      {
-        "name": "tomato.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 31382,
-        "transferBytes": 300,
-        "durationMs": 4.200000002980232
-      },
-      {
-        "name": "sandwich.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 74870,
-        "transferBytes": 300,
-        "durationMs": 4.5999999940395355
-      },
-      {
-        "name": "salad-sandwich.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 80092,
-        "transferBytes": 300,
-        "durationMs": 4.9000000059604645
-      },
-      {
-        "name": "board-station.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 85072,
-        "transferBytes": 300,
-        "durationMs": 5.799999997019768
-      },
-      {
-        "name": "juice.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 33632,
-        "transferBytes": 300,
-        "durationMs": 3.5
-      },
-      {
-        "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 49194,
-        "transferBytes": 300,
-        "durationMs": 4.5
-      },
-      {
-        "name": "sandwich.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 74870,
-        "transferBytes": 300,
-        "durationMs": 4.799999997019768
-      },
-      {
-        "name": "burger.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 92092,
-        "transferBytes": 300,
-        "durationMs": 5.5
-      },
-      {
-        "name": "apple.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 32732,
-        "transferBytes": 300,
-        "durationMs": 5.799999997019768
+        "durationMs": 8
       },
       {
         "name": "request-sandwich.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 90396,
         "transferBytes": 90696,
-        "durationMs": 2.5
+        "durationMs": 3.7000000029802322
       },
       {
         "name": "thanks.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 35300,
         "transferBytes": 35600,
-        "durationMs": 1.7000000029802322
+        "durationMs": 1.4000000059604645
       },
       {
         "name": "salad-sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 80092,
         "transferBytes": 300,
-        "durationMs": 2.2999999970197678
+        "durationMs": 2.2000000029802322
       },
       {
         "name": "request-salad-sandwich.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 122682,
         "transferBytes": 122982,
-        "durationMs": 3.0999999940395355
+        "durationMs": 5.399999991059303
       },
       {
         "name": "bread.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37626,
         "transferBytes": 300,
-        "durationMs": 1.7999999970197678
+        "durationMs": 3.6000000089406967
       },
       {
         "name": "lettuce.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37786,
         "transferBytes": 300,
-        "durationMs": 2.5999999940395355
+        "durationMs": 3.7999999970197678
       },
       {
         "name": "tomato.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31382,
         "transferBytes": 300,
-        "durationMs": 3.2000000029802322
+        "durationMs": 4.0999999940395355
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 6
+        "durationMs": 2.2999999970197678
       },
       {
         "name": "banana-juice.webp?v=72bafdb32b5dc6af",
@@ -1120,7 +1102,7 @@
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 2.1000000089406967
+        "durationMs": 5
       }
     ]
   },
@@ -1128,16 +1110,16 @@
     "chapter": 3,
     "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
     "frameIntervals": {
-      "count": 1070,
-      "medianMs": 49.900000000001455,
-      "p95Ms": 66.59999999999854,
-      "maxMs": 100.10000000000218
+      "count": 1180,
+      "medianMs": 33.400000000001455,
+      "p95Ms": 50.099999999998545,
+      "maxMs": 100.09999999999854
     },
     "pointerUpToTwoFrames": {
       "count": 32,
-      "medianMs": 45,
-      "p95Ms": 58.900000005960464,
-      "maxMs": 61.099999994039536
+      "medianMs": 41,
+      "p95Ms": 45.80000001192093,
+      "maxMs": 55.30000001192093
     },
     "viewport": {
       "width": 393,
@@ -1149,345 +1131,351 @@
       "height": 1663,
       "scale": "2.500"
     },
-    "build": "e5dca120346f15d872d2a517fda56bf252178d30",
+    "build": "36cb8e6ae05759f47de04a6649cbcc273175e182",
     "dirty": "false",
     "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
     "resources": [
       {
-        "name": "index-Bp9cYBO-.js",
-        "encodedBytes": 100179,
+        "name": "index-BCTC5vse.css",
+        "encodedBytes": 8186,
         "transferBytes": 300,
-        "durationMs": 3.5999999940395355
+        "durationMs": 3.5
       },
       {
-        "name": "index-QaK3lwJ4.css",
-        "encodedBytes": 8173,
+        "name": "index-BZETy-kw.js",
+        "encodedBytes": 100209,
         "transferBytes": 300,
-        "durationMs": 4.100000008940697
+        "durationMs": 3.7000000029802322
       },
       {
         "name": "phaser-DXXWZowi.js",
         "encodedBytes": 330072,
         "transferBytes": 300,
-        "durationMs": 7
+        "durationMs": 7.299999997019768
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 1.2000000029802322
+        "durationMs": 1.2999999970197678
       },
       {
         "name": "courtyard.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 0,
         "transferBytes": 300,
-        "durationMs": 1.1000000089406967
+        "durationMs": 2
       },
       {
         "name": "cat-idle.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 114458,
         "transferBytes": 300,
-        "durationMs": 8.299999997019768
+        "durationMs": 3.6000000089406967
       },
       {
         "name": "cat-read.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 120194,
         "transferBytes": 300,
-        "durationMs": 8.300000011920929
+        "durationMs": 3.7000000029802322
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 300,
-        "durationMs": 8.400000005960464
+        "durationMs": 3.7999999970197678
       },
       {
         "name": "cat-carry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117812,
         "transferBytes": 300,
-        "durationMs": 8.799999997019768
+        "durationMs": 3.9000000059604645
       },
       {
         "name": "cat-place.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 162614,
         "transferBytes": 300,
-        "durationMs": 9.599999994039536
+        "durationMs": 4
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 9.700000002980232
-      },
-      {
-        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 114604,
-        "transferBytes": 300,
-        "durationMs": 9.700000002980232
+        "durationMs": 5.899999991059303
       },
       {
         "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 9.699999988079071
+        "durationMs": 4.4000000059604645
       },
       {
         "name": "cat-step-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 88820,
         "transferBytes": 300,
-        "durationMs": 10.699999988079071
+        "durationMs": 4.700000002980232
       },
       {
-        "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 87650,
+        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 114604,
         "transferBytes": 300,
-        "durationMs": 9.799999997019768
+        "durationMs": 6.200000002980232
       },
       {
         "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 82684,
         "transferBytes": 300,
-        "durationMs": 10.900000005960464
+        "durationMs": 5.100000008940697
       },
       {
         "name": "cat-step-3.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85924,
         "transferBytes": 300,
-        "durationMs": 13.099999994039536
+        "durationMs": 6.399999991059303
+      },
+      {
+        "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 87650,
+        "transferBytes": 300,
+        "durationMs": 8.5
       },
       {
         "name": "market.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 172060,
         "transferBytes": 300,
-        "durationMs": 14.5
+        "durationMs": 6.9000000059604645
+      },
+      {
+        "name": "apple.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 7.299999997019768
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 300,
-        "durationMs": 11.299999997019768
+        "durationMs": 8.100000008940697
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 300,
-        "durationMs": 11.799999997019768
-      },
-      {
-        "name": "apple.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 32732,
-        "transferBytes": 300,
-        "durationMs": 14.299999997019768
+        "durationMs": 12.099999994039536
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 16.799999997019768
+        "durationMs": 8.900000005960464
       },
       {
         "name": "machine.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 68302,
         "transferBytes": 300,
-        "durationMs": 15.400000005960464
+        "durationMs": 12.299999997019768
       },
       {
         "name": "tray.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 107780,
         "transferBytes": 300,
-        "durationMs": 15.899999991059303
+        "durationMs": 12.400000005960464
       },
       {
         "name": "guest-0-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42746,
         "transferBytes": 300,
-        "durationMs": 16.299999997019768
-      },
-      {
-        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 43526,
-        "transferBytes": 300,
-        "durationMs": 18.099999994039536
-      },
-      {
-        "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 47408,
-        "transferBytes": 300,
-        "durationMs": 16.700000002980232
+        "durationMs": 14.5
       },
       {
         "name": "guest-0-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 44200,
         "transferBytes": 300,
-        "durationMs": 18.299999997019768
+        "durationMs": 12.799999997019768
+      },
+      {
+        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 43526,
+        "transferBytes": 300,
+        "durationMs": 14.599999994039536
+      },
+      {
+        "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 47408,
+        "transferBytes": 300,
+        "durationMs": 13.099999994039536
       },
       {
         "name": "guest-1-1.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 48672,
         "transferBytes": 300,
-        "durationMs": 17
+        "durationMs": 13.599999994039536
       },
       {
         "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49514,
         "transferBytes": 300,
-        "durationMs": 17.299999997019768
+        "durationMs": 13.799999997019768
       },
       {
         "name": "bun.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 35948,
         "transferBytes": 300,
-        "durationMs": 12
+        "durationMs": 3.4000000059604645
       },
       {
         "name": "patty.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37678,
         "transferBytes": 300,
-        "durationMs": 12.799999997019768
+        "durationMs": 4
       },
       {
         "name": "cheese.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 24540,
         "transferBytes": 300,
-        "durationMs": 13.099999994039536
+        "durationMs": 4.5
       },
       {
         "name": "lettuce.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37786,
         "transferBytes": 300,
-        "durationMs": 14.599999994039536
+        "durationMs": 5.4000000059604645
       },
       {
         "name": "tomato.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31382,
         "transferBytes": 300,
-        "durationMs": 14.800000011920929
-      },
-      {
-        "name": "cooked-patty.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 40500,
-        "transferBytes": 300,
-        "durationMs": 15.599999994039536
+        "durationMs": 5.799999997019768
       },
       {
         "name": "burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 92092,
         "transferBytes": 300,
-        "durationMs": 17.899999991059303
+        "durationMs": 4.5999999940395355
+      },
+      {
+        "name": "cooked-patty.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 40500,
+        "transferBytes": 300,
+        "durationMs": 7.0999999940395355
       },
       {
         "name": "cheese-burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85920,
         "transferBytes": 300,
-        "durationMs": 17.100000008940697
-      },
-      {
-        "name": "grill-station.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 63482,
-        "transferBytes": 300,
-        "durationMs": 16.600000008940697
+        "durationMs": 4.9000000059604645
       },
       {
         "name": "board-station.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85072,
         "transferBytes": 300,
-        "durationMs": 17.599999994039536
+        "durationMs": 7.800000011920929
+      },
+      {
+        "name": "grill-station.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 63482,
+        "transferBytes": 300,
+        "durationMs": 8
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 3.9000000059604645
+        "durationMs": 1.5
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 300,
-        "durationMs": 8.200000002980232
+        "durationMs": 1.7000000029802322
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 8.800000011920929
+        "durationMs": 2.7000000029802322
       },
       {
         "name": "burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 92092,
         "transferBytes": 300,
-        "durationMs": 9
+        "durationMs": 2.7999999970197678
       },
       {
         "name": "apple.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 32732,
         "transferBytes": 300,
-        "durationMs": 12.599999994039536
+        "durationMs": 2.7999999970197678
       },
       {
         "name": "cheese-burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85920,
         "transferBytes": 300,
-        "durationMs": 2.699999988079071
+        "durationMs": 1.2000000029802322
       },
       {
         "name": "request-cheese-burger.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 77084,
         "transferBytes": 77384,
-        "durationMs": 2.1000000089406967
+        "durationMs": 1.7000000029802322
       },
       {
         "name": "thanks.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 35300,
         "transferBytes": 35600,
-        "durationMs": 3.7999999970197678
+        "durationMs": 3.0999999940395355
+      },
+      {
+        "name": "burger.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 1.800000011920929
       },
       {
         "name": "request-burger.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 117562,
         "transferBytes": 117862,
-        "durationMs": 6.799999997019768
+        "durationMs": 3.5999999940395355
       },
       {
         "name": "patty.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37678,
         "transferBytes": 300,
-        "durationMs": 5.5
+        "durationMs": 1.6000000089406967
       },
       {
         "name": "cooked-patty.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 40500,
         "transferBytes": 300,
-        "durationMs": 6.200000002980232
+        "durationMs": 1.7999999970197678
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 9.899999991059303
+        "durationMs": 2.2999999970197678
       },
       {
         "name": "bread.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37626,
         "transferBytes": 300,
-        "durationMs": 4
+        "durationMs": 2.7000000029802322
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 4.9000000059604645
+        "durationMs": 2.9000000059604645
       },
       {
         "name": "salad-sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 80092,
         "transferBytes": 300,
-        "durationMs": 5.399999991059303
+        "durationMs": 3.2000000029802322
       },
       {
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 9.5
+        "durationMs": 6
       }
     ]
   },
@@ -1495,16 +1483,16 @@
     "chapter": 4,
     "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
     "frameIntervals": {
-      "count": 1403,
+      "count": 1387,
       "medianMs": 33.40000000000873,
       "p95Ms": 50.10000000000582,
       "maxMs": 200
     },
     "pointerUpToTwoFrames": {
       "count": 39,
-      "medianMs": 43,
-      "p95Ms": 72.79999999701977,
-      "maxMs": 73.20000000298023
+      "medianMs": 43.400000005960464,
+      "p95Ms": 81.09999999403954,
+      "maxMs": 86.8999999910593
     },
     "viewport": {
       "width": 393,
@@ -1516,453 +1504,453 @@
       "height": 1663,
       "scale": "2.500"
     },
-    "build": "e5dca120346f15d872d2a517fda56bf252178d30",
+    "build": "36cb8e6ae05759f47de04a6649cbcc273175e182",
     "dirty": "false",
     "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
     "resources": [
       {
-        "name": "index-Bp9cYBO-.js",
-        "encodedBytes": 100179,
+        "name": "index-BCTC5vse.css",
+        "encodedBytes": 8186,
         "transferBytes": 300,
-        "durationMs": 3.5999999940395355
+        "durationMs": 3.5
       },
       {
-        "name": "index-QaK3lwJ4.css",
-        "encodedBytes": 8173,
+        "name": "index-BZETy-kw.js",
+        "encodedBytes": 100209,
         "transferBytes": 300,
-        "durationMs": 4.100000008940697
+        "durationMs": 3.7000000029802322
       },
       {
         "name": "phaser-DXXWZowi.js",
         "encodedBytes": 330072,
         "transferBytes": 300,
-        "durationMs": 7
+        "durationMs": 7.299999997019768
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 1.2000000029802322
+        "durationMs": 1.2999999970197678
       },
       {
         "name": "courtyard.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 0,
         "transferBytes": 300,
-        "durationMs": 1.1000000089406967
+        "durationMs": 2
       },
       {
         "name": "cat-idle.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 114458,
         "transferBytes": 300,
-        "durationMs": 8.299999997019768
+        "durationMs": 3.6000000089406967
       },
       {
         "name": "cat-read.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 120194,
         "transferBytes": 300,
-        "durationMs": 8.300000011920929
+        "durationMs": 3.7000000029802322
       },
       {
         "name": "cat-reach.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 158090,
         "transferBytes": 300,
-        "durationMs": 8.400000005960464
+        "durationMs": 3.7999999970197678
       },
       {
         "name": "cat-carry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117812,
         "transferBytes": 300,
-        "durationMs": 8.799999997019768
+        "durationMs": 3.9000000059604645
       },
       {
         "name": "cat-place.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 162614,
         "transferBytes": 300,
-        "durationMs": 9.599999994039536
+        "durationMs": 4
       },
       {
         "name": "cat-greet.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 117720,
         "transferBytes": 300,
-        "durationMs": 9.700000002980232
-      },
-      {
-        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 114604,
-        "transferBytes": 300,
-        "durationMs": 9.700000002980232
+        "durationMs": 5.899999991059303
       },
       {
         "name": "cat-celebrate.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 9.699999988079071
+        "durationMs": 4.4000000059604645
       },
       {
         "name": "cat-step-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 88820,
         "transferBytes": 300,
-        "durationMs": 10.699999988079071
+        "durationMs": 4.700000002980232
       },
       {
-        "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 87650,
+        "name": "cat-blocked.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 114604,
         "transferBytes": 300,
-        "durationMs": 9.799999997019768
+        "durationMs": 6.200000002980232
       },
       {
         "name": "cat-step-1.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 82684,
         "transferBytes": 300,
-        "durationMs": 10.900000005960464
+        "durationMs": 5.100000008940697
       },
       {
         "name": "cat-step-3.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85924,
         "transferBytes": 300,
-        "durationMs": 13.099999994039536
+        "durationMs": 6.399999991059303
+      },
+      {
+        "name": "cat-step-2.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 87650,
+        "transferBytes": 300,
+        "durationMs": 8.5
       },
       {
         "name": "market.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 172060,
         "transferBytes": 300,
-        "durationMs": 14.5
+        "durationMs": 6.9000000059604645
+      },
+      {
+        "name": "apple.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 7.299999997019768
       },
       {
         "name": "banana.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 22190,
         "transferBytes": 300,
-        "durationMs": 11.299999997019768
+        "durationMs": 8.100000008940697
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 300,
-        "durationMs": 11.799999997019768
-      },
-      {
-        "name": "apple.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 32732,
-        "transferBytes": 300,
-        "durationMs": 14.299999997019768
+        "durationMs": 12.099999994039536
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 16.799999997019768
+        "durationMs": 8.900000005960464
       },
       {
         "name": "machine.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 68302,
         "transferBytes": 300,
-        "durationMs": 15.400000005960464
+        "durationMs": 12.299999997019768
       },
       {
         "name": "tray.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 107780,
         "transferBytes": 300,
-        "durationMs": 15.899999991059303
+        "durationMs": 12.400000005960464
       },
       {
         "name": "guest-0-0.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42746,
         "transferBytes": 300,
-        "durationMs": 16.299999997019768
-      },
-      {
-        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 43526,
-        "transferBytes": 300,
-        "durationMs": 18.099999994039536
-      },
-      {
-        "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 47408,
-        "transferBytes": 300,
-        "durationMs": 16.700000002980232
+        "durationMs": 14.5
       },
       {
         "name": "guest-0-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 44200,
         "transferBytes": 300,
-        "durationMs": 18.299999997019768
+        "durationMs": 12.799999997019768
+      },
+      {
+        "name": "guest-0-1.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 43526,
+        "transferBytes": 300,
+        "durationMs": 14.599999994039536
+      },
+      {
+        "name": "guest-1-0.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 47408,
+        "transferBytes": 300,
+        "durationMs": 13.099999994039536
       },
       {
         "name": "guest-1-1.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 48672,
         "transferBytes": 300,
-        "durationMs": 17
+        "durationMs": 13.599999994039536
       },
       {
         "name": "guest-1-2.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49514,
         "transferBytes": 300,
-        "durationMs": 17.299999997019768
+        "durationMs": 13.799999997019768
       },
       {
         "name": "bun.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 35948,
         "transferBytes": 300,
-        "durationMs": 12
+        "durationMs": 3.4000000059604645
       },
       {
         "name": "patty.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37678,
         "transferBytes": 300,
-        "durationMs": 12.799999997019768
+        "durationMs": 4
       },
       {
         "name": "cheese.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 24540,
         "transferBytes": 300,
-        "durationMs": 13.099999994039536
+        "durationMs": 4.5
       },
       {
         "name": "lettuce.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37786,
         "transferBytes": 300,
-        "durationMs": 14.599999994039536
+        "durationMs": 5.4000000059604645
       },
       {
         "name": "tomato.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31382,
         "transferBytes": 300,
-        "durationMs": 14.800000011920929
-      },
-      {
-        "name": "cooked-patty.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 40500,
-        "transferBytes": 300,
-        "durationMs": 15.599999994039536
+        "durationMs": 5.799999997019768
       },
       {
         "name": "burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 92092,
         "transferBytes": 300,
-        "durationMs": 17.899999991059303
+        "durationMs": 4.5999999940395355
+      },
+      {
+        "name": "cooked-patty.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 40500,
+        "transferBytes": 300,
+        "durationMs": 7.0999999940395355
       },
       {
         "name": "cheese-burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85920,
         "transferBytes": 300,
-        "durationMs": 17.100000008940697
-      },
-      {
-        "name": "grill-station.webp?v=72bafdb32b5dc6af",
-        "encodedBytes": 63482,
-        "transferBytes": 300,
-        "durationMs": 16.600000008940697
+        "durationMs": 4.9000000059604645
       },
       {
         "name": "board-station.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85072,
         "transferBytes": 300,
-        "durationMs": 17.599999994039536
+        "durationMs": 7.800000011920929
+      },
+      {
+        "name": "grill-station.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 63482,
+        "transferBytes": 300,
+        "durationMs": 8
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 3.9000000059604645
+        "durationMs": 1.5
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 300,
-        "durationMs": 8.200000002980232
+        "durationMs": 1.7000000029802322
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 8.800000011920929
+        "durationMs": 2.7000000029802322
       },
       {
         "name": "burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 92092,
         "transferBytes": 300,
-        "durationMs": 9
+        "durationMs": 2.7999999970197678
       },
       {
         "name": "apple.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 32732,
         "transferBytes": 300,
-        "durationMs": 12.599999994039536
+        "durationMs": 2.7999999970197678
       },
       {
         "name": "cheese-burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85920,
         "transferBytes": 300,
-        "durationMs": 2.699999988079071
+        "durationMs": 1.2000000029802322
       },
       {
         "name": "request-cheese-burger.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 77084,
         "transferBytes": 77384,
-        "durationMs": 2.1000000089406967
+        "durationMs": 1.7000000029802322
       },
       {
         "name": "thanks.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 35300,
         "transferBytes": 35600,
-        "durationMs": 3.7999999970197678
+        "durationMs": 3.0999999940395355
+      },
+      {
+        "name": "burger.webp?v=72bafdb32b5dc6af",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 1.800000011920929
       },
       {
         "name": "request-burger.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 117562,
         "transferBytes": 117862,
-        "durationMs": 6.799999997019768
+        "durationMs": 3.5999999940395355
       },
       {
         "name": "patty.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37678,
         "transferBytes": 300,
-        "durationMs": 5.5
+        "durationMs": 1.6000000089406967
       },
       {
         "name": "cooked-patty.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 40500,
         "transferBytes": 300,
-        "durationMs": 6.200000002980232
+        "durationMs": 1.7999999970197678
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 9.899999991059303
+        "durationMs": 2.2999999970197678
       },
       {
         "name": "bread.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 37626,
         "transferBytes": 300,
-        "durationMs": 4
+        "durationMs": 2.7000000029802322
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 4.9000000059604645
+        "durationMs": 2.9000000059604645
       },
       {
         "name": "salad-sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 80092,
         "transferBytes": 300,
-        "durationMs": 5.399999991059303
+        "durationMs": 3.2000000029802322
       },
       {
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 9.5
+        "durationMs": 6
       },
       {
         "name": "banana-juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 60024,
         "transferBytes": 300,
-        "durationMs": 5.4000000059604645
+        "durationMs": 2
       },
       {
         "name": "juice.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 33632,
         "transferBytes": 300,
-        "durationMs": 3.7999999970197678
+        "durationMs": 1.7999999970197678
       },
       {
         "name": "apple.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 32732,
         "transferBytes": 300,
-        "durationMs": 5.9000000059604645
+        "durationMs": 2.2000000029802322
       },
       {
         "name": "cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 42906,
         "transferBytes": 300,
-        "durationMs": 6.799999997019768
+        "durationMs": 3
       },
       {
         "name": "request-juice.wav?v=72bafdb32b5dc6af",
         "encodedBytes": 76052,
         "transferBytes": 76352,
-        "durationMs": 10.099999994039536
+        "durationMs": 5.100000008940697
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 300,
-        "durationMs": 3.1000000089406967
+        "durationMs": 2.2000000029802322
       },
       {
         "name": "cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 20778,
         "transferBytes": 300,
-        "durationMs": 2.2999999970197678
+        "durationMs": 2.699999988079071
       },
       {
         "name": "vanilla.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 31590,
         "transferBytes": 300,
-        "durationMs": 3.300000011920929
+        "durationMs": 3.0999999940395355
       },
       {
         "name": "strawberry.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 38612,
         "transferBytes": 300,
-        "durationMs": 3.5999999940395355
+        "durationMs": 3.4000000059604645
       },
       {
         "name": "vanilla-cone.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 49194,
         "transferBytes": 300,
-        "durationMs": 4.700000002980232
+        "durationMs": 4.299999997019768
       },
       {
         "name": "strawberry-cup.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87360,
         "transferBytes": 300,
-        "durationMs": 4.700000002980232
+        "durationMs": 4.5999999940395355
       },
       {
         "name": "banana-cream.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 69446,
         "transferBytes": 300,
-        "durationMs": 2.7999999970197678
+        "durationMs": 3.9000000059604645
       },
       {
         "name": "double-cream.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 91850,
         "transferBytes": 300,
-        "durationMs": 4.699999988079071
+        "durationMs": 4.799999997019768
       },
       {
         "name": "ice-station.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 87990,
         "transferBytes": 300,
-        "durationMs": 4.299999997019768
+        "durationMs": 3.5
       },
       {
         "name": "sandwich.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 74870,
         "transferBytes": 300,
-        "durationMs": 6.899999991059303
+        "durationMs": 2
       },
       {
         "name": "cheese-burger.webp?v=72bafdb32b5dc6af",
         "encodedBytes": 85920,
         "transferBytes": 300,
-        "durationMs": 8.599999994039536
-      },
-      {
-        "name": "thanks.wav?v=72bafdb32b5dc6af",
-        "encodedBytes": 35300,
-        "transferBytes": 35600,
-        "durationMs": 3.7999999970197678
+        "durationMs": 10.799999997019768
       },
       {
         "name": "cat-celebrate.webp",
         "encodedBytes": 130356,
         "transferBytes": 300,
-        "durationMs": 3.5
+        "durationMs": 13.299999997019768
       }
     ]
   }

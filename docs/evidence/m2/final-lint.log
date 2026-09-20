@@ -2,347 +2,324 @@
 > tabby-english-food-truck@0.1.0 lint
 > biome check .
 
-src/app/m2.css:357:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:358:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    355 │   z-index: 12;
-    356 │ }
-  > 357 │ .family-tabs button {
+    356 │   z-index: 12;
+    357 │ }
+  > 358 │ .family-tabs button {
         │ ^^^^^^^^^^^^^^^^^^^
-    358 │   font-size: 13px;
-    359 │   padding: 4px 10px;
+    359 │   font-size: 13px;
+    360 │   padding: 4px 10px;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:375:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:376:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    373 │   z-index: 12;
-    374 │ }
-  > 375 │ .prep-selector span {
+    374 │   z-index: 12;
+    375 │ }
+  > 376 │ .prep-selector span {
         │ ^^^^^^^^^^^^^^^^^^^
-    376 │   font-size: 13px;
-    377 │ }
+    377 │   font-size: 13px;
+    378 │ }
   
   i This selector specificity is (0, 1, 2)
   
-    280 │   height: 100px;
-    281 │ }
-  > 282 │ .chapter-pages button span {
+    281 │   height: 100px;
+    282 │ }
+  > 283 │ .chapter-pages button span {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    283 │   font-weight: bold;
-    284 │   font-size: 21px;
+    284 │   font-weight: bold;
+    285 │   font-size: 21px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:378:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:379:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    376 │   font-size: 13px;
-    377 │ }
-  > 378 │ .prep-selector button {
+    377 │   font-size: 13px;
+    378 │ }
+  > 379 │ .prep-selector button {
         │ ^^^^^^^^^^^^^^^^^^^^^
-    379 │   background: #e7ddb8f0;
-    380 │   border: 1px solid #456b45;
+    380 │   background: #e7ddb8f0;
+    381 │   border: 1px solid #456b45;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:396:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:397:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    394 │   pointer-events: none;
-    395 │ }
-  > 396 │ .delivery-actions button {
+    395 │   pointer-events: none;
+    396 │ }
+  > 397 │ .delivery-actions button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^
-    397 │   pointer-events: auto;
-    398 │   background: #315c40f0;
+    398 │   pointer-events: auto;
+    399 │   background: #315c40f0;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:481:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:482:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    479 │   margin: 10px 0;
-    480 │ }
-  > 481 │ .lesson-ingredients > button {
+    480 │   margin: 10px 0;
+    481 │ }
+  > 482 │ .lesson-ingredients > button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    482 │   padding: 3px;
-    483 │   background: transparent;
+    483 │   padding: 3px;
+    484 │   background: transparent;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:500:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:501:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    498 │   margin: 8px 0;
-    499 │ }
-  > 500 │ .lesson-dialog p {
+    499 │   margin: 8px 0;
+    500 │ }
+  > 501 │ .lesson-dialog p {
         │ ^^^^^^^^^^^^^^^^
-    501 │   font-size: 14px;
-    502 │   margin: 8px 0;
+    502 │   font-size: 14px;
+    503 │   margin: 8px 0;
   
   i This selector specificity is (0, 2, 1)
   
-    447 │   z-index: 12;
-    448 │ }
-  > 449 │ .m2-shell .game-feedback p {
+    448 │   z-index: 12;
+    449 │ }
+  > 450 │ .m2-shell .game-feedback p {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    450 │   font-size: 13px;
-    451 │   margin: 0;
+    451 │   font-size: 13px;
+    452 │   margin: 0;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:510:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:511:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    508 │   gap: 10px;
-    509 │ }
-  > 510 │ .lesson-actions button {
+    509 │   gap: 10px;
+    510 │ }
+  > 511 │ .lesson-actions button {
         │ ^^^^^^^^^^^^^^^^^^^^^^
-    511 │   padding: 8px 14px;
-    512 │ }
+    512 │   padding: 8px 14px;
+    513 │ }
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:547:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:548:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    545 │   max-width: 900px;
-    546 │ }
-  > 547 │ .adult-settings p,
+    546 │   max-width: 900px;
+    547 │ }
+  > 548 │ .adult-settings p,
         │ ^^^^^^^^^^^^^^^^^
-    548 │ .adult-settings output {
-    549 │   overflow-wrap: anywhere;
+    549 │ .adult-settings output {
+    550 │   overflow-wrap: anywhere;
   
   i This selector specificity is (0, 2, 1)
   
-    447 │   z-index: 12;
-    448 │ }
-  > 449 │ .m2-shell .game-feedback p {
+    448 │   z-index: 12;
+    449 │ }
+  > 450 │ .m2-shell .game-feedback p {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    450 │   font-size: 13px;
-    451 │   margin: 0;
+    451 │   font-size: 13px;
+    452 │   margin: 0;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:576:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:577:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    574 │   margin: 25px 0;
-    575 │ }
-  > 576 │ .mini-choices > button {
+    575 │   margin: 25px 0;
+    576 │ }
+  > 577 │ .mini-choices > button {
         │ ^^^^^^^^^^^^^^^^^^^^^^
-    577 │   width: 260px;
-    578 │   max-width: 45%;
+    578 │   width: 260px;
+    579 │   max-width: 45%;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:629:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:630:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    627 │   height: 180px;
-    628 │ }
-  > 629 │ .mini-intro p {
+    628 │   height: 180px;
+    629 │ }
+  > 630 │ .mini-intro p {
         │ ^^^^^^^^^^^^^
-    630 │   max-width: 460px;
-    631 │   line-height: 1.7;
+    631 │   max-width: 460px;
+    632 │   line-height: 1.7;
   
   i This selector specificity is (0, 2, 1)
   
-    447 │   z-index: 12;
-    448 │ }
-  > 449 │ .m2-shell .game-feedback p {
+    448 │   z-index: 12;
+    449 │ }
+  > 450 │ .m2-shell .game-feedback p {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    450 │   font-size: 13px;
-    451 │   margin: 0;
+    451 │   font-size: 13px;
+    452 │   margin: 0;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:633:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:634:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    631 │   line-height: 1.7;
-    632 │ }
-  > 633 │ .mini-ending img {
+    632 │   line-height: 1.7;
+    633 │ }
+  > 634 │ .mini-ending img {
         │ ^^^^^^^^^^^^^^^^
-    634 │   height: 200px;
-    635 │ }
+    635 │   height: 200px;
+    636 │ }
   
   i This selector specificity is (0, 2, 1)
   
-    430 │   z-index: 11;
-    431 │ }
-  > 432 │ .m2-shell .request-picture img {
+    431 │   z-index: 11;
+    432 │ }
+  > 433 │ .m2-shell .request-picture img {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    433 │   width: 40px;
-    434 │   height: 40px;
+    434 │   width: 40px;
+    435 │   height: 40px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:636:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:637:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    634 │   height: 200px;
-    635 │ }
-  > 636 │ .mini-ending h2 {
+    635 │   height: 200px;
+    636 │ }
+  > 637 │ .mini-ending h2 {
         │ ^^^^^^^^^^^^^^^
-    637 │   font-size: 26px;
-    638 │ }
+    638 │   font-size: 26px;
+    639 │ }
   
   i This selector specificity is (0, 2, 1)
   
-    519 │   gap: 10px;
-    520 │ }
-  > 521 │ .m2-shell .ending h2 {
+    520 │   gap: 10px;
+    521 │ }
+  > 522 │ .m2-shell .ending h2 {
         │ ^^^^^^^^^^^^^^^^^^^^
-    522 │   font-size: 25px;
-    523 │ }
+    523 │   font-size: 25px;
+    524 │ }
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:639:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:640:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    637 │   font-size: 26px;
-    638 │ }
-  > 639 │ .mini-ending p {
+    638 │   font-size: 26px;
+    639 │ }
+  > 640 │ .mini-ending p {
         │ ^^^^^^^^^^^^^^
-    640 │   font-size: 15px;
-    641 │   max-width: 500px;
+    641 │   font-size: 15px;
+    642 │   max-width: 500px;
   
   i This selector specificity is (0, 2, 1)
   
-    447 │   z-index: 12;
-    448 │ }
-  > 449 │ .m2-shell .game-feedback p {
+    448 │   z-index: 12;
+    449 │ }
+  > 450 │ .m2-shell .game-feedback p {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    450 │   font-size: 13px;
-    451 │   margin: 0;
+    451 │   font-size: 13px;
+    452 │   margin: 0;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:672:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:673:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    670 │   margin: 20px auto;
-    671 │ }
-  > 672 │ .matching-pictures button {
+    671 │   margin: 20px auto;
+    672 │ }
+  > 673 │ .matching-pictures button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^
-    673 │   height: 135px;
-    674 │   background: #fff6df;
+    674 │   height: 135px;
+    675 │   background: #fff6df;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
-  
-  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
-  
-
-src/app/m2.css:698:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
-  
-    696 │   max-width: 660px;
-    697 │ }
-  > 698 │ .letter-draft button,
-        │ ^^^^^^^^^^^^^^^^^^^^
-    699 │ .letter-bank button {
-    700 │   font-size: 29px;
-  
-  i This selector specificity is (0, 2, 1)
-  
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
-        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
@@ -351,118 +328,141 @@ src/app/m2.css:699:1 lint/style/noDescendingSpecificity ━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    697 │ }
-    698 │ .letter-draft button,
-  > 699 │ .letter-bank button {
-        │ ^^^^^^^^^^^^^^^^^^^
-    700 │   font-size: 29px;
-    701 │   font-weight: 800;
-  
-  i This selector specificity is (0, 2, 1)
-  
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
-        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
-  
-  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
-  
-
-src/app/m2.css:716:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
-  
-    714 │   min-height: 80px;
-    715 │ }
-  > 716 │ .letter-draft button {
+    697 │   max-width: 660px;
+    698 │ }
+  > 699 │ .letter-draft button,
         │ ^^^^^^^^^^^^^^^^^^^^
-    717 │   background: #f7d674;
-    718 │ }
+    700 │ .letter-bank button {
+    701 │   font-size: 29px;
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:1101:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:700:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    1099 │   top: 59%;
-    1100 │ }
-  > 1101 │ .delivery-actions button {
+    698 │ }
+    699 │ .letter-draft button,
+  > 700 │ .letter-bank button {
+        │ ^^^^^^^^^^^^^^^^^^^
+    701 │   font-size: 29px;
+    702 │   font-weight: 800;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:717:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    715 │   min-height: 80px;
+    716 │ }
+  > 717 │ .letter-draft button {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    718 │   background: #f7d674;
+    719 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1102:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1100 │   top: 59%;
+    1101 │ }
+  > 1102 │ .delivery-actions button {
          │ ^^^^^^^^^^^^^^^^^^^^^^^^
-    1102 │   transform: none;
-    1103 │ }
+    1103 │   transform: none;
+    1104 │ }
   
   i This selector specificity is (0, 2, 1)
   
-    341 │   z-index: 12;
-    342 │ }
-  > 343 │ .m2-shell .request-tools button {
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    344 │   padding: 5px 10px;
-    345 │   font-size: 15px;
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:1124:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:1125:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    1122 │   background: #ffffff12;
-    1123 │ }
-  > 1124 │ .entry-main > span {
+    1123 │   background: #ffffff12;
+    1124 │ }
+  > 1125 │ .entry-main > span {
          │ ^^^^^^^^^^^^^^^^^^
-    1125 │   font-size: clamp(20px, 2.6vw, 30px);
-    1126 │   font-weight: 900;
+    1126 │   font-size: clamp(20px, 2.6vw, 30px);
+    1127 │   font-weight: 900;
   
   i This selector specificity is (0, 1, 2)
   
-    280 │   height: 100px;
-    281 │ }
-  > 282 │ .chapter-pages button span {
+    281 │   height: 100px;
+    282 │ }
+  > 283 │ .chapter-pages button span {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    283 │   font-weight: bold;
-    284 │   font-size: 21px;
+    284 │   font-weight: bold;
+    285 │   font-size: 21px;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/m2.css:1128:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+src/app/m2.css:1129:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
   
-    1126 │   font-weight: 900;
-    1127 │ }
-  > 1128 │ .entry-main small {
+    1127 │   font-weight: 900;
+    1128 │ }
+  > 1129 │ .entry-main small {
          │ ^^^^^^^^^^^^^^^^^
-    1129 │   font-size: 12px;
-    1130 │   margin-top: 6px;
+    1130 │   font-size: 12px;
+    1131 │   margin-top: 6px;
   
   i This selector specificity is (0, 2, 1)
   
-    451 │   margin: 0;
-    452 │ }
-  > 453 │ .m2-shell .game-feedback small {
+    452 │   margin: 0;
+    453 │ }
+  > 454 │ .m2-shell .game-feedback small {
         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    454 │   font-size: 10px;
-    455 │   color: #ede0bd;
+    455 │   font-size: 10px;
+    456 │   color: #ede0bd;
   
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
 The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
 Diagnostics not shown: 7.
-Checked 77 files in 60ms. No fixes applied.
+Checked 79 files in 264ms. No fixes applied.
 Found 27 warnings.

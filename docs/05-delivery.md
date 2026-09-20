@@ -30,12 +30,14 @@
 
 一个负责人按以下可复核阶段提交，使用既有权威文档，不建平行蓝图：
 
-- [ ] A 动作/输入：`src/game/input.ts`、独立 `src/game/actor.ts` 和规则任务合同；先补教学退出/接续/重复事件/双击回归，执行 `npm test` 定向测试与实际Canvas操作。
-- [ ] B 制作/内容：`src/content/recipes.ts`、`chapters.ts`、`learning.ts`，`src/rules` 设备/组合/订单/快照。按真实命令验证四食谱输入输出、重复命令、满台和读档。
-- [ ] C 贯通：`src/app/Home.tsx`、`Story.tsx`、`Lesson.tsx`、`Settings.tsx` 与营业场景拆分，序章→四章→结局、继续/重玩/解锁，沿正常首页录制。
-- [ ] D 回访：有界无尽生成与保存，`src/rules/minigames.ts` / `src/app/MiniGames.tsx` 有限题组、反馈、结算/重玩/返回；独立目标不泄露。
-- [ ] E 制作与整体修整：独立背景/长辈/食材/设备/动作资源接入，实际hash/Alpha清单，开发语音及过程声；手机/Pad连续录像、加载量与操作段采样。
-- [ ] F 交付：现有typecheck/lint/build/resources/test/test:browser真实退出码；更新STATUS和AI记录；阶段提交推送PR，不合并。核对既有站点版本，未部署写PENDING_DEPLOYMENT。
+- [x] A 动作/输入：`src/game/input.ts`、独立 `src/game/actor.ts` 和规则任务合同；先补教学退出/接续/重复事件/双击回归，执行 `npm test` 定向测试与实际Canvas操作。
+- [x] B 制作/内容：`src/content/recipes.ts`、`chapters.ts`、`learning.ts`，`src/rules` 设备/组合/订单/快照。按真实命令验证四食谱输入输出、重复命令、满台和读档。
+- [x] C 贯通：`src/app/Home.tsx`、`Story.tsx`、`Lesson.tsx`、`Settings.tsx` 与营业场景拆分，序章→四章→结局、继续/重玩/解锁，沿正常首页录制。
+- [x] D 回访：有界无尽生成与保存，`src/rules/minigames.ts` / `src/app/MiniGames.tsx` 有限题组、反馈、结算/重玩/返回；独立目标不泄露。
+- [x] E 制作与整体修整：独立背景/长辈/食材/设备/动作资源接入，实际hash/Alpha清单，开发语音及过程声；手机/Pad连续录像、加载量与操作段采样。
+- [x] F 交付：现有typecheck/lint/build/resources/test/test:browser真实退出码；更新STATUS和AI记录；阶段提交推送PR，不合并。核对既有站点版本，未部署写PENDING_DEPLOYMENT。
+
+已勾选项表示本轮实现/本地证据/PR交付，T12负责人运行确认以及教研、听审、实机、儿童观察仍独立待验，具体结果见STATUS。
 
 ### M3 · 可靠性与体验修整
 
