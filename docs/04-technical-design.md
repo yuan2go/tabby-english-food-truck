@@ -1,6 +1,6 @@
 # 技术设计 · 独立餐车游戏
 
-版本：v0.1，2026-09-20。目标架构，不是当前代码目录或已完成能力。玩法权威见 [02](02-game-design.md)，验收见 [05](05-delivery.md)。M0/M1 的实际实现现已在 src、tests、e2e 与 package.json；完整首包仍是后续设计。实际验证与角色制作阻塞见 STATUS。
+版本：v0.1，2026-09-20。目标架构，不是当前代码目录或已完成能力。玩法权威见 [02](02-game-design.md)，验收见 [05](05-delivery.md)。M0/M1 的实际实现现已在 src、tests、e2e 与 package.json；完整首包仍是后续设计。实际验证与制作审核状态见 STATUS。
 
 ## 1. 技术选择
 
@@ -131,3 +131,12 @@ React 不接收每帧坐标，设备进度由 Phaser 表现更新。动态纹理
 schema 2 / m1.2 定义模式、有限内容变体、累计支持与教学阶段；v1 保留原文导出并明确重新开始，不猜测迁移成绩。规则唯一持有世界；按模式保存仍受同一校验器验证。运行层按稳定 ID 局部同步；每帧仅任务倒计时结构共享，离散事件同步 UI，保存合并并在生命周期退出刷盘。
 
 Phaser 3.90.0 官方源码已定向核验：不猜配置 resolution；采用 Scale.resize + CSS display size + 相机 zoom 的明确定义物理缓冲，游戏/DOM坐标保持 CSS 像素。Text.setResolution 控制文字纹理。DPR 上限与总像素预算及低画质选项限制成本，记录实际数据。
+
+
+M1 当前保存入口仍为 `tabby.foodtruck.save.v1`（key 是命名历史，不代表 schema），另有 `.previous`、`.guided/.practice/.service`。同一控制器只持有一个活动世界；非活动玩法是经校验的序列化快照，拒绝持久存储时本次切换可用内存快照恢复。错模式、坏档和未来版本先阻止覆盖并允许导出，明确重开才清理对应坏数据。
+
+每帧 advance 只复制小型时钟/任务分支，食品与证据共享直到真实事件；离散命令仍克隆一次。场景持有稳定图片/文字/徽标，取消旧 revision 的表现不会反写领域。取消、卸载、读档/重开、方向变化清理捕获/旧表现。保存仅离散操作、2秒检查点与生命周期刷盘，音频事件不单独同步写存储；不存在每帧 JSON 签名或整场销毁。
+
+`ForegroundAudio` 持有所有前景播放器、AudioContext、gain bus、循环与短节点。语音 epoch 防旧回调；状态转换去重触发提交成功/完成声；刷新后的既有任务不补奖励声。所有任务由领域有效时钟推进，语音/动画回调不判单、不奖励、不写库存。
+
+Vite 构建注入真实 `git rev-parse HEAD`、dirty标记、内容m1.2、资源manifest SHA-256与构建时间；暂停页和 main 的只读 data 属性可核验。部署未给出身份时保持 UNKNOWN。Phaser3.90 API依据：[Config源码](https://raw.githubusercontent.com/phaserjs/phaser/v3.90.0/src/core/Config.js)、[Text源码](https://raw.githubusercontent.com/phaserjs/phaser/v3.90.0/src/gameobjects/text/Text.js)，本地锁定源码确认没有 GameConfig.resolution，使用真实缓冲 resize 和 Text.setResolution。

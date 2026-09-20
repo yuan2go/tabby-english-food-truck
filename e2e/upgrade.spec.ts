@@ -93,7 +93,10 @@ test.describe('M1 true mobile touch and DPR', () => {
     await tap(page, 'supply-apple');
     await tap(page, 'machine-apple');
     await tap(page, 'start');
-    await expect.poll(async () => (await state(page)).machine.status).toBe('ready');
+    // Five seconds of active game time; DPR-3 video capture may exceed that in wall time.
+    await expect
+      .poll(async () => (await state(page)).machine.status, { timeout: 10000 })
+      .toBe('ready');
     const cup = (await state(page)).items.find((i) => i.product === 'juice');
     if (!cup) throw Error('juice');
     await tap(page, `item-${cup.id}`);
@@ -106,6 +109,7 @@ test.describe('M1 true mobile touch and DPR', () => {
     page,
   }, info) => {
     await start(page, '小小餐车营业中');
+    await page.screenshot({ path: info.outputPath('after-service-393x665-dpr3.png') });
     await tap(page, 'tray-1', 25);
     await tap(page, 'note');
     for (const word of ['a', 'banana', 'and', 'an', 'apple'])
@@ -133,7 +137,10 @@ test.describe('M1 true mobile touch and DPR', () => {
     await dragTouch(page, 'tray-1', fruit.id, info.outputPath('service-drag-food-touch.png'));
     await lesson(page);
     expect((await state(page)).machine.status).toBe('processing');
-    await expect.poll(async () => (await state(page)).machine.status).toBe('ready');
+    // Five seconds of active game time; DPR-3 video capture may exceed that in wall time.
+    await expect
+      .poll(async () => (await state(page)).machine.status, { timeout: 10000 })
+      .toBe('ready');
     s = await state(page);
     const cup = s.items.find((i) => i.product === 'juice');
     if (!cup) throw Error('juice');
@@ -200,7 +207,10 @@ test.describe('M1 true mobile touch and DPR', () => {
           await tap(page, 'supply-cup');
           await tap(page, 'machine-cup');
           await tap(page, 'start');
-          await expect.poll(async () => (await state(page)).machine.status).toBe('ready');
+          // Five seconds of active game time; DPR-3 video capture may exceed that in wall time.
+          await expect
+            .poll(async () => (await state(page)).machine.status, { timeout: 10000 })
+            .toBe('ready');
           const cup = (await state(page)).items.find((i) => i.product === 'juice');
           if (!cup) throw Error('cup');
           await tap(page, `item-${cup.id}`);
@@ -347,6 +357,9 @@ test('audio layers duck, machine lifecycle, muted settings and voice failure rec
   expect((await sound()).loops).toEqual([]);
   await page.getByRole('button', { name: '打开声音', exact: true }).click();
   await page.getByRole('button', { name: '重听当前客人请求' }).click();
-  await expect.poll(async () => (await state(page)).machine.status).toBe('ready');
+  // Five seconds of active game time; DPR-3 video capture may exceed that in wall time.
+  await expect
+    .poll(async () => (await state(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
   await expect.poll(async () => (await sound()).loops.includes('machine')).toBe(false);
 });

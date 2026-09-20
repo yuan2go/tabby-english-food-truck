@@ -411,3 +411,37 @@ describe('support and revisit evidence', () => {
     expect(validateState(result)).toBe(true);
   });
 });
+
+it('retains inactive mode progress in memory when persistent storage is refused', () => {
+  const c = new GameController(
+    new SaveStore(() => {
+      throw new Error('denied');
+    }),
+    () => `run-${++sequence}`,
+  );
+  c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
+  const original = c.state.items;
+  c.switchMode('service');
+  c.command({ type: 'picture-request', tray: 1, fruits: ['banana'] });
+  const task = c.state.helper;
+  c.switchMode('guided');
+  expect(c.state.items).toEqual(original);
+  c.switchMode('service');
+  expect(c.state.helper).toEqual(task);
+  expect(c.save.issue).toContain('保存失败');
+});
+
+it('preserves wrong-mode snapshots instead of silently overwriting them', () => {
+  const memory = memoryStore();
+  const raw = JSON.stringify(createGame('wrong-mode', 0, {}, 'guided'));
+  memory.setItem(`${SAVE_KEY}.service`, raw);
+  const store = new SaveStore(() => memory);
+  expect(store.loadMode('service')).toBeNull();
+  expect(store.blocked).toBe(true);
+  expect(store.raw).toBe(raw);
+  expect(store.save(createGame('new-service'))).toBe(false);
+  expect(memory.getItem(`${SAVE_KEY}.service`)).toBe(raw);
+  store.reset();
+  expect(store.loadMode('service')).toBeNull();
+  expect(store.blocked).toBe(false);
+});

@@ -131,3 +131,6 @@ toast、juice 的可数性不按 apple 套用；菜单首次说明 toast 是一�
 ## 本轮 M1 三模式合同
 
 首次默认 guided：一客一盘单果目标，场内拿放演示先于孩子操作；下一次明确选择可体验预放杯的果汁引导，标记 guided-preparation。practice：一次一个目标，苹果、香蕉、two、组合、苹果汁有限内容逐步尝试，随时图片/重听帮助。service：保留双单双盘并行与可选词块。三者共享食品、配方、任务和交付。模式切换保存各自未完进度，重玩单独确认；见过的解释、图示与示范跨模式累计，不因刷新洗白。独立听请求必须显式撤去图示、变化座位且语音有成功播放记录；开发语音不代表合格听力证据。
+
+
+当前 M1 有限任务为 guided 的 apple/juice 两个重玩变体、practice 的 5 个顺序请求、service 的 fruit+juice 双并发；`requestsFor` 是内容来源，不另建关卡页面。首次 guided 固定 apple，后续换模式可选有限 variant；service 交换请求与座位，practice 重玩交换起始单果与后续顺序。辅助示范的历史跨模式保留。尝试同时记录 condition（guided / assisted / independent-condition）、visit（first / revisit）和 audioQualified=false；独立条件也不等于已通过听力测评。新知识示范不产生用户尝试，图片助手不冒充词块语言提交，未齐/拖空/忙碌不算语言错误。

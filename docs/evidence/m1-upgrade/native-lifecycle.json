@@ -6,8 +6,8 @@
     "visibilitychange:visible"
   ],
   "offlineMilliseconds": 1800,
-  "beforeHelper": 1950,
-  "afterHelper": 1883.4,
-  "beforeMachine": 4700,
-  "afterMachine": 4633.4
+  "beforeHelper": 1966.7,
+  "afterHelper": 1883.4000000000003,
+  "beforeMachine": 4816.700000000003,
+  "afterMachine": 4733.400000000003
 }

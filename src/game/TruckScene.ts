@@ -449,7 +449,7 @@ export class TruckScene extends Phaser.Scene {
       l.helper.y - 36 * l.scale,
       154 * l.scale,
       170 * l.scale,
-      7,
+      14,
     );
     this.badge(
       'cat-label',
@@ -757,7 +757,8 @@ export class TruckScene extends Phaser.Scene {
         const target = { x: l.trays[h.tray].x + this.slotOffset(slot), y: l.trays[h.tray].y - 7 };
         const t = frame.placing ? Math.min(1, (p - 0.88) / 0.12) : 0;
         image
-          ?.setPosition(
+          ?.setDepth(15)
+          .setPosition(
             Phaser.Math.Linear(anchor.x, target.x, t),
             Phaser.Math.Linear(anchor.y, target.y, t),
           )

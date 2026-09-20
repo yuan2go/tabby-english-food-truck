@@ -181,6 +181,7 @@ export function App() {
     ui.selected = null;
     ui.selectedTray = 0;
     controller.switchMode(mode);
+    if (controller.state.mode !== mode) return;
     ui.selectedGuest = controller.state.orders.find((o) => o.status === 'waiting')?.id ?? 'guest-0';
     setPictures(mode === 'guided');
     setModal(null);
