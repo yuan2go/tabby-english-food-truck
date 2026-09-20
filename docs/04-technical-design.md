@@ -125,3 +125,9 @@ React 不接收每帧坐标，设备进度由 Phaser 表现更新。动态纹理
 - [MDN Autoplay](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay)：浏览器媒体启动限制。
 
 参考读取日期：2026-09-20。文档可能跨引擎版本；这些来源证明工具机制，不证明本项目性能、兼容性、趣味或教学效果。
+
+## 本轮 M1 升级决策
+
+schema 2 / m1.2 定义模式、有限内容变体、累计支持与教学阶段；v1 保留原文导出并明确重新开始，不猜测迁移成绩。规则唯一持有世界；按模式保存仍受同一校验器验证。运行层按稳定 ID 局部同步；每帧仅任务倒计时结构共享，离散事件同步 UI，保存合并并在生命周期退出刷盘。
+
+Phaser 3.90.0 官方源码已定向核验：不猜配置 resolution；采用 Scale.resize + CSS display size + 相机 zoom 的明确定义物理缓冲，游戏/DOM坐标保持 CSS 像素。Text.setResolution 控制文字纹理。DPR 上限与总像素预算及低画质选项限制成本，记录实际数据。
