@@ -1,0 +1,15 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck
+
+(node:30754) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  4 passed (4)
+      Tests  38 passed (38)
+   Start at  03:28:47
+   Duration  594ms (transform 260ms, setup 0ms, import 333ms, tests 358ms, environment 0ms)
+

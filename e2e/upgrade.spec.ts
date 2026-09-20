@@ -1,3 +1,4 @@
+import { writeFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 import { choosePrep, drag, lesson, serve, startEndless, startStory, state, tap } from './helpers';
 
@@ -29,6 +30,7 @@ test('M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause,
         ),
     ),
   ).toBeLessThan(0.08);
+  await writeFile(info.outputPath('teaching-exit-motion.json'), JSON.stringify(teachingPoints));
   await info.attach('teaching-exit-motion', {
     body: JSON.stringify(teachingPoints),
     contentType: 'application/json',
@@ -56,6 +58,7 @@ test('M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause,
     if (a && b) max = Math.max(max, Math.hypot(a.x - b.x, a.y - b.y));
   }
   expect(max).toBeLessThan(0.08);
+  await writeFile(info.outputPath('continuous-actor-samples.json'), JSON.stringify(samples));
   await info.attach('continuous-actor-samples', {
     body: JSON.stringify(samples),
     contentType: 'application/json',
@@ -128,4 +131,26 @@ test('M2 phone DPR and Pad composition, failed asset/audio retry keeps progress'
   expect(await page.evaluate(() => document.documentElement.scrollHeight === innerHeight)).toBe(
     true,
   );
+});
+
+test('M2 teaching practice starts at the courtyard and completes its own five-request session', async ({
+  page,
+}, info) => {
+  test.setTimeout(160000);
+  await page.goto('/');
+  await page.locator('.yard-training .entry-main').tap();
+  await page.getByRole('button', { name: '开始 / 继续', exact: true }).tap();
+  await lesson(page);
+  expect((await state(page)).session.activity).toBe('training');
+  const total = (await state(page)).orders.length;
+  expect(total).toBe(5);
+  for (let n = 0; n < total; n++) await serve(page);
+  await expect(page.locator('.ending')).toBeVisible();
+  const profile = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem('tabby.foodtruck.profile.m2') ?? '{}'),
+  );
+  expect(profile.completed).toEqual([]);
+  await page.screenshot({ path: info.outputPath('training-ending.png') });
+  await page.getByRole('button', { name: '回小院', exact: true }).tap();
+  await expect(page.locator('.yard-story')).toBeVisible();
 });

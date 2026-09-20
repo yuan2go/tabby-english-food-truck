@@ -1,0 +1,84 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:31092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:31176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+(node:31216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/game.spec.ts:13:1 › M2 phone complete click story: prologue through all recipes to community ending (4.3m)
+  ✓   2 e2e/game.spec.ts:52:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery (15.2s)
+  ✓   3 e2e/game.spec.ts:88:1 › M2 pause and homepage resume keep world; tutorials are separate from the session (13.1s)
+(node:31702) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 e2e/minigames.spec.ts:39:3 › M2 match complete four rounds, help, resume, settlement and return (14.5s)
+  ✓   5 e2e/minigames.spec.ts:39:3 › M2 spell complete four rounds, help, resume, settlement and return (29.2s)
+  ✓   6 e2e/minigames.spec.ts:123:1 › M2 bilingual uses explicit support and preserves business inventory (4.8s)
+  ✓   7 e2e/upgrade.spec.ts:5:1 › M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause, rotation (8.8s)
+  ✓   8 e2e/upgrade.spec.ts:72:1 › M2 endless replenishes, restores seed/cursor and bounds active state (1.3m)
+  ✓   9 e2e/upgrade.spec.ts:95:1 › M2 drag and keyboard equivalent; selected guest never changes to correct answer (3.3s)
+  ✓  10 e2e/upgrade.spec.ts:112:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress (3.7s)
+(node:32181) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 e2e/recovery.spec.ts:23:1 › M2 Pad prologue and real processing restore in portrait and landscape (34.5s)
+  ✓  12 e2e/recovery.spec.ts:70:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (20.8s)
+  ✓  13 e2e/recovery.spec.ts:144:1 › M2 touch cancellation and multi-pointer never add, remove or submit food (7.9s)
+  ✓  14 e2e/recovery.spec.ts:173:1 › M2 unsupported snapshot is protected and exported before explicit reset (3.9s)
+  ✘  15 e2e/recovery.spec.ts:196:1 › M2 native background freeze stops clock, helper, machine and audio (4.8s)
+
+
+  1) e2e/recovery.spec.ts:196:1 › M2 native background freeze stops clock, helper, machine and audio 
+
+    Error: Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node scripts/check-lifecycle.mjs http://127.0.0.1:4174/
+    (node:32424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+    (Use `node --trace-warnings ...` to show where the warning was created)
+    node:internal/modules/run_main:107
+        triggerUncaughtException(
+        ^
+
+    AssertionError [ERR_ASSERTION]: paused loops stopped
+    + actual - expected
+
+    + [
+    +   'music',
+    +   'ambience',
+    +   'machine'
+    + ]
+    - []
+
+
+      196 | test('M2 native background freeze stops clock, helper, machine and audio', async () => {
+      197 |   test.setTimeout(60000);
+    > 198 |   execFileSync(process.execPath, ['scripts/check-lifecycle.mjs', 'http://127.0.0.1:4174/'], {
+          |   ^
+      199 |     timeout: 45000,
+      200 |     stdio: 'pipe',
+      201 |   });
+        at file:///Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/scripts/check-lifecycle.mjs:80:10 {
+      generatedMessage: false,
+      code: 'ERR_ASSERTION',
+      actual: [ 'music', 'ambience', 'machine' ],
+      expected: [],
+      operator: 'deepStrictEqual',
+      diff: 'simple'
+    }
+
+    Node.js v26.3.1
+
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/recovery.spec.ts:198:3
+
+    Error Context: test-results/recovery-M2-native-backgro-434eb-ck-helper-machine-and-audio/error-context.md
+
+  1 failed
+    e2e/recovery.spec.ts:196:1 › M2 native background freeze stops clock, helper, machine and audio 
+  14 passed (8.4m)

@@ -1,4 +1,19 @@
 {
+  "pausedAudio": {
+    "active": null,
+    "loops": [],
+    "settings": {
+      "master": true,
+      "voice": true,
+      "music": true,
+      "ambience": true,
+      "effects": true
+    },
+    "context": "running",
+    "musicGain": 0.060793906450271606,
+    "machineGain": 0.06078243628144264,
+    "effects": 0
+  },
   "events": [
     "visibilitychange:hidden",
     "freeze:hidden",
@@ -6,8 +21,8 @@
     "visibilitychange:visible"
   ],
   "offlineMilliseconds": 1800,
-  "beforeHelper": 4726.821139175889,
-  "afterHelper": 4676.821139175889,
-  "beforeMachine": 4766.6,
-  "afterMachine": 4716.6
+  "beforeHelper": 4710.021139175889,
+  "afterHelper": 4660.121139175889,
+  "beforeMachine": 4716.600000000001,
+  "afterMachine": 4666.700000000002
 }

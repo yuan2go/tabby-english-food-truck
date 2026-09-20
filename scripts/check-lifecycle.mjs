@@ -73,6 +73,16 @@ try {
   await page.bringToFront();
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   const after = await state();
+  // React publishes diagnostics after the pause effect stops the audio owner.
+  // Wait for that observable state, then retain the strict stopped assertions.
+  await page.waitForFunction(
+    () => {
+      const raw = document.querySelector('main')?.dataset.audioState;
+      return raw && JSON.parse(raw).loops.length === 0;
+    },
+    null,
+    { timeout: 3000 },
+  );
   const pausedAudio = await page.evaluate(() =>
     JSON.parse(document.querySelector('main').dataset.audioState),
   );
@@ -94,6 +104,12 @@ try {
     'machine must not accrue 1800 ms offline',
   );
   const report = {
+    checkedAt: new Date().toISOString(),
+    build: await page.evaluate(() => ({
+      sha: document.querySelector('main').dataset.buildSha,
+      dirty: document.querySelector('main').dataset.buildDirty,
+      assets: document.querySelector('main').dataset.assetVersion,
+    })),
     pausedAudio,
     events,
     offlineMilliseconds: 1800,

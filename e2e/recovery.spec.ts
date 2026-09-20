@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { writeFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 import { REQUESTS } from '../src/content/catalog';
 import { RAW } from '../src/content/recipes';
@@ -135,6 +136,7 @@ test('M2 actual helper and delivery overlap, reload, cancellation and continued 
   expect(
     Math.max(...samples.map((p) => p.y)) - Math.min(...samples.map((p) => p.y)),
   ).toBeGreaterThan(0.04);
+  await writeFile(info.outputPath('overlap-motion.json'), JSON.stringify(samples));
   await info.attach('overlap-motion', {
     body: JSON.stringify(samples),
     contentType: 'application/json',
