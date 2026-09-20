@@ -1,0 +1,64 @@
+{
+  "date": "2026-09-21",
+  "tool": "OpenAI built-in imagegen",
+  "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+  "sourcePolicy": "Only this repository's frozen reference and new production images. No prior English Quest repository input.",
+  "records": [
+    {
+      "source": "art/source/courtyard.png",
+      "outputId": "exec-eff5b67e-fb51-4b84-8c22-52962786f15e",
+      "promptRecord": "Production intent summary: original warm gouache old-shop courtyard, forest-green truck, ochre awning, clear foreground, blank wooden sign, play stall and recipe book, no characters or baked text.",
+      "references": []
+    },
+    {
+      "source": "art/source/m2-foods.png",
+      "outputId": "exec-aa22e30b-eee4-430a-a111-ae4b1a8b432e",
+      "promptRecord": "Production intent summary: original 4x3 transparent ingredient sheet: bread, cheese, lettuce, tomato; bun, raw patty, cooked patty, cone; vanilla, strawberry, sandwich, burger. Matching painted style, no text.",
+      "references": [],
+      "correction": "Final sandwich and burger exported from recipe-outputs.png because candidate fillings did not match the recipe. Row crops revised to exclude adjacent sprites."
+    },
+    {
+      "source": "art/source/m2-stations.png",
+      "outputId": "exec-ad7de241-21e7-40a9-a09a-0095fe356eb2",
+      "promptRecord": "Production intent summary: three original transparent isolated stations, ice-cream display, sandwich assembly press and simplified safe griddle, same green/brass/wood style, no lettering.",
+      "references": []
+    },
+    {
+      "source": "art/source/elder.png",
+      "outputId": "exec-212fcd49-5171-4b79-94e9-49a1ee437a5f",
+      "promptRecord": "Production intent summary: original elderly grey tabby with golden eyes, pale muzzle, spectacles, ochre vest and olive apron; key in one paw, old green recipe book in the other, isolated alpha.",
+      "references": []
+    },
+    {
+      "source": "art/source/cat-walk.png",
+      "outputId": "exec-299b8332-789c-4b3f-84de-f006890033b4",
+      "promptRecord": "Production intent summary: four 2x2 walking gait phases derived from the frozen approved local reference; preserve brown-grey tabby, gold eyes, pale muzzle, grey collar, green scarf, backpack and exposed white tracker on screen-right neck. No mirroring.",
+      "references": ["art/reference/tabby-approved-received.png"],
+      "method": "Four gait frames with crossfade and distance-based translation. Not skeletal animation or a claim that every intermediate pose was independently drawn."
+    },
+    {
+      "source": "art/source/ice-products.png",
+      "outputId": "exec-0d771653-3a64-4cca-9f90-99776220b50b",
+      "promptRecord": "Production intent summary: four isolated final ice-cream products in a 2x2 alpha sheet: vanilla cone, strawberry cup, vanilla and strawberry two-scoop cup, vanilla cup with banana topping. No text.",
+      "references": []
+    },
+    {
+      "source": "art/source/food-variants.png",
+      "outputId": "exec-a794c6f6-a35f-4698-8709-eddffa1b68a9",
+      "promptRecord": "Create a NEW matching transparent-alpha food sprite sheet in the same warm hand-painted gouache storybook style as the referenced food ingredients. Exactly 3 columns in one horizontal row, generous clean transparent margins, centered separate isolated objects, no text, no shadows outside objects. LEFT: a tall green paper cup of pale creamy yellow banana smoothie/banana juice, without lid, clearly pale yellow and different from orange apple juice. CENTER: triangular sandwich made with two pale brown bread slices, vivid green lettuce and red tomato filling, no cheese, no meat. RIGHT: round cheeseburger, golden bun with sesame, one brown cooked patty and a highly visible square yellow cheese slice, no lettuce or tomato. Every object complete and clearly separated, no extra pieces. High quality original game sprite export sheet, landscape 1536x1024.",
+      "references": ["art/source/m2-foods.png"],
+      "promptKind": "exact"
+    },
+    {
+      "source": "art/source/recipe-outputs.png",
+      "outputId": "exec-e88ca954-0ab6-4293-bd7c-0691db704cab",
+      "promptRecord": "Create a matching game food sprite sheet with EXACTLY TWO isolated foods, side by side, TRUE TRANSPARENT BACKGROUND (alpha outside food must be zero). Same warm gouache illustration, papery painted texture and lighting as reference. Left half: one triangular CHEESE SANDWICH made ONLY of two bread slices and yellow cheese slices between them. Absolutely NO lettuce, no green, no tomatoes, no meat. Right half: one round BURGER made ONLY of golden sesame bun, brown grilled patty, green lettuce and red tomato slices. Absolutely NO cheese, no yellow filling. Both complete with generous clear transparent space around and between objects. No writing, no ground, no props. Wide horizontal canvas. Precise ingredient visibility matters for a children's recipe game.",
+      "references": ["art/source/m2-foods.png"],
+      "promptKind": "exact"
+    }
+  ],
+  "postProcessing": "scripts/export-m2.mjs performs mechanical extraction, alpha trimming, border padding and downscale without enlargement. No pixel repainting, mirroring or low-resolution upscaling.",
+  "dimensionsAlphaHashes": "art/manifest.json",
+  "cropRecord": "art/m2-exports.json",
+  "agentInspection": "All outputs visually inspected; adjacent-sheet fragments and recipe filling mismatches corrected. Not owner acceptance or rights approval."
+}

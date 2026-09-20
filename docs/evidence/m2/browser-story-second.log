@@ -1,0 +1,6 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep complete click story
+
+Error: Process from config.webServer was not able to start. Exit code: 2
+

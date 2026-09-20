@@ -1,0 +1,145 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck
+
+(node:20513) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/rules.test.ts (27 tests | 7 failed) 24ms
+     × creates supply only on valid placement, capacity and command deduplication hold 8ms
+     × reserves all helper slots, binds destination and releases on cancel or completion 1ms
+     × matches a multiset, retains all mismatching food, and never auto-transfers 1ms
+     × serial and interleaved paths both finish; clock permits work during processing 1ms
+     × restores processing and reservations repeatedly without spawning or offline credit 1ms
+     × completes all three modes through public commands and validates every stage 1ms
+     × keeps demonstration and audio qualification separate from language results 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/rules.test.ts > T01–T03 ownership, clocks, recipes and orders > creates supply only on valid placement, capacity and command deduplication hold
+AssertionError: expected [ { id: 'food-1', …(2) } ] to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/rules.test.ts:55:21
+     53|     } as const;
+     54|     s = dispatch(s, e).state;
+     55|     expect(s.items).toHaveLength(0);
+       |                     ^
+     56|     for (let n = 0; n < 4; n++) s = put(s, 'apple', 0);
+     57|     expect(trayItems(s, 0)).toHaveLength(3);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/rules.test.ts > T01–T03 ownership, clocks, recipes and orders > reserves all helper slots, binds destination and releases on cancel or completion
+AssertionError: expected [ { id: 'food-1', …(2) } ] to have a length of 3 but got 1
+
+- Expected
++ Received
+
+- 3
++ 1
+
+ ❯ tests/rules.test.ts:120:36
+    118|     expect(put(s, 'apple', 0).items).toHaveLength(3);
+    119|     const complete = advance(s, 2000);
+    120|     expect(trayItems(complete, 0)).toHaveLength(3);
+       |                                    ^
+    121|     expect(trayItems(complete, 1)).toHaveLength(0);
+    122|     expect(validateState(complete)).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/rules.test.ts > T01–T03 ownership, clocks, recipes and orders > matches a multiset, retains all mismatching food, and never auto-transfers
+AssertionError: expected [ { id: 'food-1', …(2) }, …(1) ] to have a length of +0 but got 2
+
+- Expected
++ Received
+
+- 0
++ 2
+
+ ❯ tests/rules.test.ts:140:21
+    138|     expect(wrong.state.orders.every((o) => o.status === 'waiting')).to…
+    139|     s = send(wrong.state, { type: 'deliver', tray: 0, order: 'guest-1'…
+    140|     expect(s.items).toHaveLength(0);
+       |                     ^
+    141|     expect(s.orders[1]?.status).toBe('leaving');
+    142|     expect(send(s, { type: 'deliver', tray: 0, order: 'guest-1' }).kin…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/rules.test.ts > T01–T03 ownership, clocks, recipes and orders > serial and interleaved paths both finish; clock permits work during processing
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/rules.test.ts:164:58
+    162|       s = send(s, { type: 'deliver', tray: 0, order: 'guest-0' }).stat…
+    163|       s = advance(s, 800);
+    164|       expect(s.orders.every((o) => o.status === 'done')).toBe(true);
+       |                                                          ^
+    165|       expect(validateState(s)).toBe(true);
+    166|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/rules.test.ts > T02/T10 validated snapshots and host clock > restores processing and reservations repeatedly without spawning or offline credit
+AssertionError: expected 3809.397867783604 to be 1150 // Object.is equality
+
+- Expected
++ Received
+
+- 1150
++ 3809.397867783604
+
+ ❯ tests/rules.test.ts:217:33
+    215|     }
+    216|     expect(s.machine.remaining).toBe(4150);
+    217|     expect(s.helper?.remaining).toBe(1150);
+       |                                 ^
+    218|     expect(s.items).toHaveLength(4);
+    219|     s = advance(s, 1150);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/rules.test.ts > M1 three modes and preserved support > completes all three modes through public commands and validates every stage
+Error: No active order
+ ❯ tests/rules.test.ts:288:29
+    286|         while (s.orders.some((o) => o.status !== 'done')) {
+    287|           const order = s.orders.find((o) => o.status === 'waiting');
+    288|           if (!order) throw new Error('No active order');
+       |                             ^
+    289|           for (const product of REQUESTS[order.request].products) {
+    290|             if (product === 'juice') {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  tests/rules.test.ts > support and revisit evidence > keeps demonstration and audio qualification separate from language results
+AssertionError: expected [ 'audio-not-observed' ] to include 'demonstrated'
+ ❯ tests/rules.test.ts:410:41
+    408|       audioQualified: false,
+    409|     });
+    410|     expect(result.attempts[0]?.support).toContain('demonstrated');
+       |                                         ^
+    411|     expect(validateState(result)).toBe(true);
+    412|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  7 failed | 24 passed (31)
+   Start at  02:27:20
+   Duration  374ms (transform 215ms, setup 0ms, import 260ms, tests 30ms, environment 0ms)
+

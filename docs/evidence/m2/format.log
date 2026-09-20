@@ -1,0 +1,447 @@
+
+> tabby-english-food-truck@0.1.0 format
+> biome check --write .
+
+scripts/export-m2.mjs:62:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    60 │     600,
+    61 │   );
+  > 62 │ await writeFile('art/m2-exports.json', JSON.stringify(outputs, null, 2) + '\n');
+       │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    63 │ console.log(outputs);
+    64 │ const iceMeta = await sharp('art/source/ice-products.png').metadata();
+  
+  i Unsafe fix: Use a template literal.
+  
+    60 60 │       600,
+    61 61 │     );
+    62    │ - await·writeFile('art/m2-exports.json',·JSON.stringify(outputs,·null,·2)·+·'\n');
+       62 │ + await·writeFile('art/m2-exports.json',·`${JSON.stringify(outputs,·null,·2)}\n`);
+    63 63 │   console.log(outputs);
+    64 64 │   const iceMeta = await sharp('art/source/ice-products.png').metadata();
+  
+
+scripts/export-m2.mjs:73:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    71 │     480,
+    72 │   );
+  > 73 │ await writeFile('art/m2-exports.json', JSON.stringify(outputs, null, 2) + '\n');
+       │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    74 │ 
+  
+  i Unsafe fix: Use a template literal.
+  
+    71 71 │       480,
+    72 72 │     );
+    73    │ - await·writeFile('art/m2-exports.json',·JSON.stringify(outputs,·null,·2)·+·'\n');
+       73 │ + await·writeFile('art/m2-exports.json',·`${JSON.stringify(outputs,·null,·2)}\n`);
+    74 74 │   
+  
+
+scripts/m2-audio.mjs:70:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    68 │ await writeFile(
+    69 │   'art/m2-audio.json',
+  > 70 │   JSON.stringify({ humanListeningReview: 'NOT_RUN', records }, null, 2) + '\n',
+       │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    71 │ );
+    72 │ console.log(records.length);
+  
+  i Unsafe fix: Use a template literal.
+  
+    68 68 │   await writeFile(
+    69 69 │     'art/m2-audio.json',
+    70    │ - ··JSON.stringify({·humanListeningReview:·'NOT_RUN',·records·},·null,·2)·+·'\n',
+       70 │ + ··`${JSON.stringify({·humanListeningReview:·'NOT_RUN',·records·},·null,·2)}\n`,
+    71 71 │   );
+    72 72 │   console.log(records.length);
+  
+
+src/app/MiniGames.tsx:212:9 lint/complexity/noUselessFragments  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i This fragment is unnecessary.
+  
+    210 │         </div>
+    211 │       ) : (
+  > 212 │         <>
+        │         ^^
+  > 213 │           {state.stage === 'meaning' ? (
+         ...
+  > 399 │           )}
+  > 400 │         </>
+        │         ^^^
+    401 │       )}
+    402 │       <p className="development-note">{issue || '开发语音未听审 · 没有计时与能力评分'}</p>
+  
+  i A fragment is redundant if it contains only one child, or if it is the child of a html element, and is not a keyed fragment.
+  
+  i Unsafe fix: Remove the Fragment
+  
+    210 210 │           </div>
+    211 211 │         ) : (
+    212     │ - ········<>
+    213     │ - ··········{state.stage·===·'meaning'·?·(
+        212 │ + ········state.stage·===·'meaning'·?·(
+    214 213 │               <div className="meaning-stage">
+    215 214 │                 {state.kind === 'match' && state.difficulty === 'independent' ? (
+    ······· │ 
+    397 396 │                 )}
+    398 397 │               </>
+    399     │ - ··········)}
+    400     │ - ········</>
+        398 │ + ··········)
+    401 399 │         )}
+    402 400 │         <p className="development-note">{issue || '开发语音未听审 · 没有计时与能力评分'}</p>
+  
+
+src/app/m2.css:414:19 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    412 │   z-index: 19;
+    413 │   background: #fff0cd;
+  > 414 │   font-size: 13px !important;
+        │                   ^^^^^^^^^^
+    415 │   border: 1px solid #456a40;
+    416 │   padding: 6px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    414 │ ··font-size:·13px·!important;
+        │                  ----------- 
+
+src/app/m2.css:663:19 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    661 │   border-radius: 18px;
+    662 │   border: 2px solid #dabd78;
+  > 663 │   font-size: 23px !important;
+        │                   ^^^^^^^^^^
+    664 │ }
+    665 │ .matching-pictures {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    663 │ ··font-size:·23px·!important;
+        │                  ----------- 
+
+src/app/m2.css:700:19 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    698 │ .letter-draft button,
+    699 │ .letter-bank button {
+  > 700 │   font-size: 29px !important;
+        │                   ^^^^^^^^^^
+    701 │   font-weight: 800;
+    702 │   width: 55px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    700 │ ··font-size:·29px·!important;
+        │                  ----------- 
+
+src/app/m2.css:907:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    905 │     width: 36px;
+    906 │     height: 49px;
+  > 907 │     font-size: 25px !important;
+        │                     ^^^^^^^^^^
+    908 │     min-height: 44px;
+    909 │   }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    907 │ ····font-size:·25px·!important;
+        │                    ----------- 
+
+src/app/m2.css:357:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    355 │   z-index: 12;
+    356 │ }
+  > 357 │ .family-tabs button {
+        │ ^^^^^^^^^^^^^^^^^^^
+    358 │   font-size: 13px;
+    359 │   padding: 4px 10px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:375:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    373 │   z-index: 12;
+    374 │ }
+  > 375 │ .prep-selector span {
+        │ ^^^^^^^^^^^^^^^^^^^
+    376 │   font-size: 13px;
+    377 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    280 │   height: 100px;
+    281 │ }
+  > 282 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    283 │   font-weight: bold;
+    284 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:378:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    376 │   font-size: 13px;
+    377 │ }
+  > 378 │ .prep-selector button {
+        │ ^^^^^^^^^^^^^^^^^^^^^
+    379 │   background: #e7ddb8f0;
+    380 │   border: 1px solid #456b45;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:396:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    394 │   pointer-events: none;
+    395 │ }
+  > 396 │ .delivery-actions button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    397 │   pointer-events: auto;
+    398 │   background: #315c40f0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+e2e/upgrade.spec.ts:30:18 lint/style/noNonNullAssertion  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    28 │     max = Math.max(
+    29 │       max,
+  > 30 │       Math.hypot(samples[i]!.x - samples[i - 1]!.x, samples[i]!.y - samples[i - 1]!.y),
+       │                  ^^^^^^^^^^^
+    31 │     );
+    32 │   expect(max).toBeLessThan(0.08);
+  
+  i Unsafe fix: Replace with optional chain operator ?. This operator includes runtime checks, so it is safer than the compile-only non-null assertion operator
+  
+     28  28 │       max = Math.max(
+     29  29 │         max,
+     30     │ - ······Math.hypot(samples[i]!.x·-·samples[i·-·1]!.x,·samples[i]!.y·-·samples[i·-·1]!.y),
+         30 │ + ······Math.hypot(samples[i]?.x·-·samples[i·-·1]!.x,·samples[i]!.y·-·samples[i·-·1]!.y),
+     31  31 │       );
+     32  32 │     expect(max).toBeLessThan(0.08);
+  
+
+e2e/upgrade.spec.ts:30:34 lint/style/noNonNullAssertion  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    28 │     max = Math.max(
+    29 │       max,
+  > 30 │       Math.hypot(samples[i]!.x - samples[i - 1]!.x, samples[i]!.y - samples[i - 1]!.y),
+       │                                  ^^^^^^^^^^^^^^^
+    31 │     );
+    32 │   expect(max).toBeLessThan(0.08);
+  
+  i Unsafe fix: Replace with optional chain operator ?. This operator includes runtime checks, so it is safer than the compile-only non-null assertion operator
+  
+     28  28 │       max = Math.max(
+     29  29 │         max,
+     30     │ - ······Math.hypot(samples[i]!.x·-·samples[i·-·1]!.x,·samples[i]!.y·-·samples[i·-·1]!.y),
+         30 │ + ······Math.hypot(samples[i]!.x·-·samples[i·-·1]?.x,·samples[i]!.y·-·samples[i·-·1]!.y),
+     31  31 │       );
+     32  32 │     expect(max).toBeLessThan(0.08);
+  
+
+e2e/upgrade.spec.ts:30:53 lint/style/noNonNullAssertion  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    28 │     max = Math.max(
+    29 │       max,
+  > 30 │       Math.hypot(samples[i]!.x - samples[i - 1]!.x, samples[i]!.y - samples[i - 1]!.y),
+       │                                                     ^^^^^^^^^^^
+    31 │     );
+    32 │   expect(max).toBeLessThan(0.08);
+  
+  i Unsafe fix: Replace with optional chain operator ?. This operator includes runtime checks, so it is safer than the compile-only non-null assertion operator
+  
+     28  28 │       max = Math.max(
+     29  29 │         max,
+     30     │ - ······Math.hypot(samples[i]!.x·-·samples[i·-·1]!.x,·samples[i]!.y·-·samples[i·-·1]!.y),
+         30 │ + ······Math.hypot(samples[i]!.x·-·samples[i·-·1]!.x,·samples[i]?.y·-·samples[i·-·1]!.y),
+     31  31 │       );
+     32  32 │     expect(max).toBeLessThan(0.08);
+  
+
+e2e/upgrade.spec.ts:30:69 lint/style/noNonNullAssertion  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    28 │     max = Math.max(
+    29 │       max,
+  > 30 │       Math.hypot(samples[i]!.x - samples[i - 1]!.x, samples[i]!.y - samples[i - 1]!.y),
+       │                                                                     ^^^^^^^^^^^^^^^
+    31 │     );
+    32 │   expect(max).toBeLessThan(0.08);
+  
+  i Unsafe fix: Replace with optional chain operator ?. This operator includes runtime checks, so it is safer than the compile-only non-null assertion operator
+  
+     28  28 │       max = Math.max(
+     29  29 │         max,
+     30     │ - ······Math.hypot(samples[i]!.x·-·samples[i·-·1]!.x,·samples[i]!.y·-·samples[i·-·1]!.y),
+         30 │ + ······Math.hypot(samples[i]!.x·-·samples[i·-·1]!.x,·samples[i]!.y·-·samples[i·-·1]?.y),
+     31  31 │       );
+     32  32 │     expect(max).toBeLessThan(0.08);
+  
+
+src/app/Home.tsx:33:9 lint/a11y/useSemanticElements ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The elements with this role can be changed to the following elements:
+    <button>
+  
+    31 │       </small>
+    32 │       <span
+  > 33 │         role="button"
+       │         ^^^^^^^^^^^^^
+    34 │         tabIndex={0}
+    35 │         className="entry-sound"
+  
+  i For examples and more information, see WAI-ARIA Roles
+  
+  i Replace with one of these elements:
+  
+  - <button>
+  
+
+src/app/Home.tsx:80:7 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    78 │       {entry('training', '教学练习', 'menu-training')}
+    79 │       {entry('mini', '迷你游戏', 'menu-mini')}
+  > 80 │       <div className="yard-growth" aria-label="小院成长">
+       │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    81 │         {profile.completed.length > 0 ? '✿' : ''}
+    82 │         {profile.completed.length > 1 ? ' ⚑' : ''}
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Lesson.tsx:25:26 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    23 │           <button
+    24 │             type="button"
+  > 25 │             key={`${p}-${i}`}
+       │                          ^
+    26 │             onClick={() =>
+    27 │               void audio.play(['apple', 'banana', 'juice'].includes(p) ? p : `word-${p}`)
+  
+  i This is the source of the key value.
+  
+    20 │       <span className="lesson-tab">小猫的食谱 · 看一看，听一听</span>
+    21 │       <div className="lesson-ingredients">
+  > 22 │         {inputs.map((p, i) => (
+       │                         ^
+    23 │           <button
+    24 │             type="button"
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/MiniGames.tsx:294:55 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    292 │                         <button
+    293 │                           type="button"
+  > 294 │                           key={`slot-${state.round}-${i}`}
+        │                                                       ^
+    295 │                           aria-label={`字母位置${i + 1}${id ? ` ${letters(state).find((l) => l.id === id)?.text}` : ''}`}
+    296 │                           disabled={!id || state.fixed.includes(id)}
+  
+  i This is the source of the key value.
+  
+    287 │                   ) : null}
+    288 │                   <div className="letter-draft" data-letter-drop="true">
+  > 289 │                     {Array.from({ length: word.text.replaceAll(' ', '').length }, (_, i) => {
+        │                                                                                       ^
+    290 │                       const id = state.draft[i];
+    291 │                       return (
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Skipped 23 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 22.
+Checked 69 files in 103ms. Fixed 41 files.
+Found 16 errors.
+Found 22 warnings.
+Found 4 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

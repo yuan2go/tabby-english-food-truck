@@ -1,0 +1,22 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep Pad prologue|actual helper
+
+[WebServer] (node:28254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:28319) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:28359) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/recovery.spec.ts:22:1 › M2 Pad prologue and real processing restore in portrait and landscape (35.1s)
+  ✓  2 e2e/recovery.spec.ts:69:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (20.1s)
+
+  2 passed (1.0m)

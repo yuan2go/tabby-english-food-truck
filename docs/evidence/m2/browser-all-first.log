@@ -1,0 +1,151 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:25616) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:25680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:25720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending (4.2m)
+  ✘  2 e2e/game.spec.ts:40:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery (7.2s)
+(node:26049) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/game.spec.ts:75:1 › M2 pause and homepage resume keep world; tutorials are separate from the session (13.2s)
+(node:26079) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 e2e/upgrade.spec.ts:5:1 › M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause, rotation (6.5s)
+  ✘  5 e2e/upgrade.spec.ts:46:1 › M2 endless replenishes, restores seed/cursor and bounds active state (18.6s)
+(node:26104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 e2e/upgrade.spec.ts:69:1 › M2 drag and keyboard equivalent; selected guest never changes to correct answer (3.4s)
+  ✘  7 e2e/upgrade.spec.ts:86:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress (14.4s)
+
+
+  1) e2e/game.spec.ts:40:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 2
+    Received length: 3
+    Received array:  [{"id": "food-1", "location": "tray:0:0", "product": "banana"}, {"id": "food-2", "location": "tray:0:1", "product": "apple"}, {"id": "food-3", "location": "tray:0:2", "product": "apple"}]
+
+      59 |   await page.waitForTimeout(80);
+      60 |   await tap(page, `item-${item.id}`);
+    > 61 |   expect((await state(page)).items).toHaveLength(2);
+         |                                     ^
+      62 |   s = await state(page);
+      63 |   await tap(page, `item-${s.items[0]?.id}`);
+      64 |   await page.getByRole('button', { name: '↩ 放回这份' }).tap();
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/game.spec.ts:61:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-M2-quick-input-immedi-1015f-and-explicit-wrong-delivery/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-M2-quick-input-immedi-1015f-and-explicit-wrong-delivery/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-M2-quick-input-immedi-1015f-and-explicit-wrong-delivery/error-context.md
+
+  2) e2e/upgrade.spec.ts:46:1 › M2 endless replenishes, restores seed/cursor and bounds active state 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "leaving"
+
+    Call Log:
+    - Timeout 18000ms exceeded while waiting on the predicate
+
+       at helpers.ts:122
+
+      120 |       { timeout: 18000 },
+      121 |     )
+    > 122 |     .toBe('done');
+          |      ^
+      123 | }
+      124 | export async function drag(p: Page, from: string, to: string) {
+      125 |   const a = await hot(p, from, from.startsWith('tray') ? 25 : 0),
+        at serve (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:122:6)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/upgrade.spec.ts:52:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/upgrade-M2-endless-repleni-77e4b-sor-and-bounds-active-state/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/upgrade-M2-endless-repleni-77e4b-sor-and-bounds-active-state/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/upgrade-M2-endless-repleni-77e4b-sor-and-bounds-active-state/error-context.md
+
+  3) e2e/upgrade.spec.ts:86:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '我来试试', exact: true })
+        - locator resolved to <button type="button" class="primary">我来试试</button>
+      - attempting tap action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button">使用图示帮助</button> from <div role="alert" class="audio-alert">…</div> subtree intercepts pointer events
+        - retrying tap action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button">使用图示帮助</button> from <div role="alert" class="audio-alert">…</div> subtree intercepts pointer events
+        - retrying tap action
+          - waiting 100ms
+        17 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <button type="button">使用图示帮助</button> from <div role="alert" class="audio-alert">…</div> subtree intercepts pointer events
+         - retrying tap action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+       at helpers.ts:18
+
+      16 | export async function lesson(p: Page) {
+      17 |   const button = p.getByRole('button', { name: '我来试试', exact: true });
+    > 18 |   if (await button.count()) await button.tap();
+         |                                          ^
+      19 |   await expect(p.locator('.loading-page')).toHaveCount(0);
+      20 | }
+      21 | export async function startStory(p: Page) {
+        at lesson (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:18:42)
+        at startStory (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:28:3)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/upgrade.spec.ts:93:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/upgrade-M2-phone-DPR-and-P-b580a--audio-retry-keeps-progress/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/upgrade-M2-phone-DPR-and-P-b580a--audio-retry-keeps-progress/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/upgrade-M2-phone-DPR-and-P-b580a--audio-retry-keeps-progress/error-context.md
+
+  3 failed
+    e2e/game.spec.ts:40:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery 
+    e2e/upgrade.spec.ts:46:1 › M2 endless replenishes, restores seed/cursor and bounds active state 
+    e2e/upgrade.spec.ts:86:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress 
+  4 passed (5.3m)

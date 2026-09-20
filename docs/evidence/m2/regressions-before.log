@@ -1,0 +1,28 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m2-regressions.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck
+
+ ❯ tests/m2-regressions.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m2-regressions.test.ts [ tests/m2-regressions.test.ts ]
+Error: Cannot find module '../src/game/actor' imported from /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/tests/m2-regressions.test.ts
+ ❯ tests/m2-regressions.test.ts:2:1
+      1| import { expect, it } from 'vitest';
+      2| import { ActorScheduler, buildPlan, samplePlan } from '../src/game/act…
+       | ^
+      3| import { DoubleTap } from '../src/game/gestures';
+      4| it('teaching exit and overlapping delivery continue from actual positi…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  02:05:19
+   Duration  184ms (transform 20ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

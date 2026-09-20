@@ -36,7 +36,7 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
         ],
     guestHeight: Math.min(height * 0.245, landscape ? 180 : width * 0.43),
     machine: landscape
-      ? { x: width * 0.18, y: height * 0.56 }
+      ? { x: width * 0.23, y: height * 0.46 }
       : { x: width * 0.27, y: height * 0.455 },
     helper: landscape
       ? { x: width * 0.4, y: height * 0.57 }
@@ -70,12 +70,23 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     },
     trayWidth: width * (landscape ? 0.2 : 0.46),
   };
+  // Stable work positions make actor action anchors and all input paths agree.
+  // Landscape uses a wider counter and separate equipment staging, not a different world.
+  l.helper = { x: width * 0.76, y: height * 0.445 };
+  l.trays = [
+    { x: width * 0.255, y: height * 0.68 },
+    { x: width * 0.745, y: height * 0.68 },
+  ];
+  l.guests = [
+    { x: width * 0.27, y: height * 0.23 },
+    { x: width * 0.73, y: height * 0.23 },
+  ];
   if (mode !== 'service') {
     l.guests = [
       { x: width * 0.5, y: height * 0.225 },
       { x: width * 0.5, y: height * 0.225 },
     ];
-    l.trays[0] = { x: width * (landscape ? 0.72 : 0.5), y: height * (landscape ? 0.59 : 0.68) };
+    l.trays[0] = { x: width * 0.5, y: height * 0.68 };
     l.trayWidth = Math.min(280, width * (landscape ? 0.28 : 0.64));
   }
   l.scale = Math.max(0.72, l.scale);

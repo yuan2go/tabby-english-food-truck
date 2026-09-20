@@ -1,6 +1,6 @@
 # 技术设计 · 独立餐车游戏
 
-版本：v0.1，2026-09-20。目标架构，不是当前代码目录或已完成能力。玩法权威见 [02](02-game-design.md)，验收见 [05](05-delivery.md)。M0/M1 的实际实现现已在 src、tests、e2e 与 package.json；完整首包仍是后续设计。实际验证与制作审核状态见 STATUS。
+版本：v0.3，2026-09-21。当前M2在既有React/TypeScript/Vite/Phaser上实施；以下通用不变量继续有效，M1保存/构建段落保留为历史，M2实现决定见末节。运行证据和审核状态见STATUS。
 
 ## 1. 技术选择
 
@@ -90,7 +90,7 @@ RequestSpec 保存期望商品集合、场景语音、支持资源、学习目�
 
 ## 9. 新存档，无旧包兼容
 
-建议新 key 为 tabby.foodtruck.save.v1，独立设置与导出/清除前缀。采用受校验快照即可，不要求完整事件溯源或旧项目 codec。
+当前 key 为 `tabby.foodtruck.save.m2`，长期成长与设置使用独立前缀。M1 的 `tabby.foodtruck.save.v1` 原文留存，首页明示新故事与导出位置；不把旧 M1 订单推断成新章节完成。采用受校验快照，不要求完整事件溯源或其他项目 codec。
 
 快照保存完整当前归属、订单、剩余任务时间、预留、seed、support 与有限观察记录。实际变更后保存；加工中的进度可每约 2 秒做轻量检查点，恢复最多回到最后成功检查点，不承诺崩溃零损失。
 
@@ -126,14 +126,14 @@ React 不接收每帧坐标，设备进度由 Phaser 表现更新。动态纹理
 
 参考读取日期：2026-09-20。文档可能跨引擎版本；这些来源证明工具机制，不证明本项目性能、兼容性、趣味或教学效果。
 
-## 本轮 M1 升级决策
+## 历史 M1 升级决策
 
 schema 2 / m1.2 定义模式、有限内容变体、累计支持与教学阶段；v1 保留原文导出并明确重新开始，不猜测迁移成绩。规则唯一持有世界；按模式保存仍受同一校验器验证。运行层按稳定 ID 局部同步；每帧仅任务倒计时结构共享，离散事件同步 UI，保存合并并在生命周期退出刷盘。
 
 Phaser 3.90.0 官方源码已定向核验：不猜配置 resolution；采用 Scale.resize + CSS display size + 相机 zoom 的明确定义物理缓冲，游戏/DOM坐标保持 CSS 像素。Text.setResolution 控制文字纹理。DPR 上限与总像素预算及低画质选项限制成本，记录实际数据。
 
 
-M1 当前保存入口仍为 `tabby.foodtruck.save.v1`（key 是命名历史，不代表 schema），另有 `.previous`、`.guided/.practice/.service`。同一控制器只持有一个活动世界；非活动玩法是经校验的序列化快照，拒绝持久存储时本次切换可用内存快照恢复。错模式、坏档和未来版本先阻止覆盖并允许导出，明确重开才清理对应坏数据。
+历史 M1 保存入口为 `tabby.foodtruck.save.v1`（key 是命名历史，不代表 schema），另有 `.previous`、`.guided/.practice/.service`。同一控制器只持有一个活动世界；非活动玩法是经校验的序列化快照，拒绝持久存储时本次切换可用内存快照恢复。错模式、坏档和未来版本先阻止覆盖并允许导出，明确重开才清理对应坏数据。
 
 每帧 advance 只复制小型时钟/任务分支，食品与证据共享直到真实事件；离散命令仍克隆一次。场景持有稳定图片/文字/徽标，取消旧 revision 的表现不会反写领域。取消、卸载、读档/重开、方向变化清理捕获/旧表现。保存仅离散操作、2秒检查点与生命周期刷盘，音频事件不单独同步写存储；不存在每帧 JSON 签名或整场销毁。
 
@@ -147,4 +147,4 @@ Vite 构建注入真实 `git rev-parse HEAD`、dirty标记、内容m1.2、资源
 
 保留锁定 React/TS/Vite/Phaser，不换引擎、不加后端或运行时模型。有限内容新增 recipes/chapters/learning；规则分 station/assembly、story/endless 与小游戏；角色调度独立于 TruckScene；首页/故事导航、教学、设置与小游戏分组件，App 只组合生命周期。
 
-schema 3 / m2.0。长期 progress（章节/已介绍内容）、tutorials、observations、settings 与一个 active session 分离；非活动营业序列化，小游戏不复制库存。保存校验同一份 recipe/request 内容、ID、槽位/预留、任务阶段与成品特征；有界 receipts/observations/队列。M1 schema2 原文保留为旧档导出，无法可靠推断的新故事进度不猜迁移；显式选择新旅程，不静默覆盖。资源按小院/活动食谱加载，DPR预算沿用。
+schema 3 / m2.0。长期 progress（章节/已介绍内容）、tutorials、observations、settings 与一个 active session 分离；非活动营业序列化，小游戏不复制库存。保存校验同一份 recipe/request 内容、ID、槽位/预留、任务阶段与成品特征；有界 receipts/observations/队列。M1 schema2 原文保留为旧档导出，无法可靠推断的新故事进度不猜迁移；首页明确提示新 M2 故事，旧档不覆盖；异常 M2 档须显式选择新旅程。资源按小院/活动食谱加载，DPR预算沿用。

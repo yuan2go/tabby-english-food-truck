@@ -1,7 +1,7 @@
 import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';
-export const AUDIO_VERSION = 'samantha-dev-1';
+export const AUDIO_VERSION = 'samantha-dev-m2-140';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
 export type Effect =
   | 'press'
@@ -193,7 +193,14 @@ export class ForegroundAudio {
         data[i] =
           Math.sin(2 * Math.PI * (1450 * t + 25 * Math.sin(2 * Math.PI * 2 * t))) * env * 0.15 +
           Math.sin(2 * Math.PI * 65 * t) * 0.05;
-      } else
+      } else if (kind === 'ice')
+        data[i] = Math.sin(2 * Math.PI * 220 * t) * Math.exp(-(t % 0.25) * 18) * 0.25;
+      else if (kind === 'board')
+        data[i] = Math.sin(2 * Math.PI * 95 * t) * Math.exp(-(t % 0.5) * 30) * 0.6;
+      else if (kind === 'grill')
+        data[i] =
+          (Math.sin(i * 17.23) + Math.sin(i * 5.71)) * 0.11 * (0.7 + 0.3 * Math.sin(t * 17));
+      else
         data[i] =
           (Math.sin(2 * Math.PI * 75 * t) * 0.5 + Math.sin(2 * Math.PI * 150 * t) * 0.15) *
           (0.75 + 0.25 * Math.sin(2 * Math.PI * 8 * t));
@@ -201,7 +208,10 @@ export class ForegroundAudio {
     this.buffers.set(kind, buffer);
     return buffer;
   }
-  private loop(kind: 'music' | 'ambience' | 'machine', enabled: boolean): void {
+  private loop(
+    kind: 'music' | 'ambience' | 'machine' | 'ice' | 'grill' | 'board',
+    enabled: boolean,
+  ): void {
     const existing = this.loops.get(kind);
     if (!enabled) {
       if (existing) {
@@ -215,7 +225,9 @@ export class ForegroundAudio {
     const source = this.context.createBufferSource();
     source.buffer = this.loopBuffer(kind);
     source.loop = true;
-    source.connect(this.buses[kind]);
+    source.connect(
+      this.buses[kind === 'ice' || kind === 'grill' || kind === 'board' ? 'machine' : kind],
+    );
     source.start();
     this.loops.set(kind, source);
   }
@@ -260,7 +272,22 @@ export class ForegroundAudio {
     this.loop('music', this.settings.music);
     this.loop('ambience', this.settings.ambience);
     this.loop('machine', this.settings.effects && s.machine.status === 'processing');
+    for (const id of ['ice', 'board', 'grill'] as const)
+      this.loop(id, this.settings.effects && s.stations[id].status === 'processing');
     if (old.runId === s.runId) {
+      for (const id of ['ice', 'board', 'grill'] as const) {
+        if (old.stations[id].status !== 'processing' && s.stations[id].status === 'processing')
+          this.effect('start');
+        if (old.stations[id].status === 'processing' && s.stations[id].status === 'ready')
+          this.effect('ready');
+      }
+      const oldDelivery = old.actor.current;
+      if (
+        oldDelivery?.kind === 'delivery' &&
+        oldDelivery.itemIds.length &&
+        !s.items.some((i) => oldDelivery.itemIds.includes(i.id))
+      )
+        void this.play('thanks');
       if (old.machine.status !== 'processing' && s.machine.status === 'processing')
         this.effect('start');
       if (old.machine.status === 'processing' && s.machine.status === 'ready') this.effect('ready');

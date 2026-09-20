@@ -1,18 +1,20 @@
 import Phaser from 'phaser';
+import { JUICE_MS, MODES, PRODUCT_NAMES, type Product } from '../content/catalog';
 import {
-  HELPER_MS,
-  JUICE_MS,
-  MODES,
-  PRODUCT_NAMES,
-  type Product,
-  RETURN_MS,
-} from '../content/catalog';
+  FAMILY_STATIONS,
+  FAMILY_SUPPLIES,
+  foodAsset,
+  RECIPES,
+  type StationId,
+} from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { trayItems } from '../rules/game';
 import type { GameState, Item, Location, TrayId } from '../rules/types';
-import { ASSET_IDS, assetUrl } from './assets';
+import { ActorView } from './ActorView';
+import { assetUrl, CORE_ASSETS } from './assets';
 import { activate, type Hotspot, type Selection, sourceFor, type ViewState } from './input';
+import { KitchenView, stationPoint } from './KitchenView';
 import { type Layout, layoutFor, type Point } from './layout';
 import { renderScale } from './rendering';
 
@@ -22,14 +24,6 @@ interface Motion {
   to: Point;
   start: number;
   duration: number;
-}
-interface Delivery {
-  tray: TrayId;
-  seat: TrayId;
-  start: number;
-  from: Point;
-  group: Phaser.GameObjects.Container;
-  foods: Sprite[];
 }
 export class TruckScene extends Phaser.Scene {
   private layout!: Layout;
@@ -41,7 +35,8 @@ export class TruckScene extends Phaser.Scene {
   private used = new Set<string>();
   private createdEntities = 0;
   private motions = new Map<string, Motion>();
-  private deliveries: Delivery[] = [];
+  private actorView!: ActorView;
+  private kitchen!: KitchenView;
   private progress!: Phaser.GameObjects.Graphics;
   private focusRing!: Phaser.GameObjects.Graphics;
   private decor!: Phaser.GameObjects.Graphics;
@@ -65,14 +60,9 @@ export class TruckScene extends Phaser.Scene {
   private dropOrigin: Point | null = null;
   private failed = new Set<string>();
   private discardDelta = true;
+  private loadingSceneAssets = false;
   private observer: ResizeObserver | null = null;
   private density = 1;
-  private demoTime = 0;
-  private lastTeaching: string | null = null;
-  private catPose = '';
-  private catReactionUntil = 0;
-  private catReturn: Motion | null = null;
-  private catPosition: Point | null = null;
   private readonly resize = () => {
     this.cancel();
     this.discardDelta = true;
@@ -105,7 +95,10 @@ export class TruckScene extends Phaser.Scene {
     this.discardDelta = true;
     this.controller.pause('frozen', false);
   };
-  private readonly cancelNative = () => this.cancel();
+  private readonly cancelNative = () => {
+    this.cancel();
+    this.ui.doubleTap?.cancel();
+  };
   private readonly captureLost = (event: PointerEvent) => {
     // A completed pointer can lose capture after a new gesture has started.
     if (this.press?.pointerId === event.pointerId) this.cancel();
@@ -129,7 +122,7 @@ export class TruckScene extends Phaser.Scene {
   }
   preload(): void {
     this.load.on('loaderror', (file: Phaser.Loader.File) => this.failed.add(file.key));
-    for (const id of ASSET_IDS) this.load.image(id, assetUrl(id));
+    for (const id of CORE_ASSETS) this.load.image(id, assetUrl(id));
   }
   create(): void {
     this.decor = this.add.graphics().setDepth(1);
@@ -171,6 +164,8 @@ export class TruckScene extends Phaser.Scene {
       this.observer?.disconnect();
       this.cancel();
       this.clearCues();
+      this.actorView?.destroy();
+      this.kitchen?.destroy();
       canvas.removeEventListener('pointerdown', this.down);
       canvas.removeEventListener('pointermove', this.move);
       canvas.removeEventListener('pointerup', this.up);
@@ -186,6 +181,8 @@ export class TruckScene extends Phaser.Scene {
       window.removeEventListener('keydown', this.key);
       window.removeEventListener('orientationchange', this.cancelNative);
     });
+    this.actorView = new ActorView(this, this.controller, this.ui);
+    this.kitchen = new KitchenView(this);
     this.draw();
     this.ui.change();
   }
@@ -342,23 +339,62 @@ export class TruckScene extends Phaser.Scene {
       return { x: l.machine.x - 10 * l.scale, y: l.machine.y - 42 * l.scale };
     if (p === 'machine:cup')
       return { x: l.machine.x + 57 * l.scale, y: l.machine.y + 29 * l.scale };
+    if (p.startsWith('station:')) {
+      const [, id, slot] = p.split(':');
+      const center = stationPoint(id as StationId, l);
+      return { x: center.x + (Number(slot) - 1) * 22, y: center.y + 12 };
+    }
     return { ...l.helper };
   }
   private supplyPoint(product: Product): Point {
-    return this.layout.supplies[product === 'apple' ? 0 : product === 'banana' ? 1 : 2];
+    const products = FAMILY_SUPPLIES[this.controller.state.session.family];
+    const index = products.indexOf(product);
+    const count = products.length;
+    return {
+      x: this.layout.width * ((Math.max(0, index) + 0.5) / (count + 1)),
+      y: this.layout.height * 0.85,
+    };
   }
   private clearCues(): void {
     this.motions.clear();
-    this.catReturn = null;
-    this.catPosition = null;
-    for (const d of this.deliveries) d.group.destroy();
-    this.deliveries = [];
+    this.actorView?.reset();
     this.cancelMotion?.node.destroy();
     this.cancelMotion = null;
     this.dropOrigin = null;
   }
+
+  private ensureAssets(): boolean {
+    if (this.loadingSceneAssets) return false;
+    const s = this.controller.state;
+    const required = [
+      ...FAMILY_SUPPLIES[s.session.family].map(foodAsset),
+      ...RECIPES.filter((r) => r.family === s.session.family).map((r) => foodAsset(r.output)),
+      ...FAMILY_STATIONS[s.session.family].map((id) => `${id}-station`),
+      ...s.items.map((i) => foodAsset(i.product)),
+    ];
+    const missing = [...new Set(required)].filter(
+      (id) => !this.textures.exists(id) && !this.failed.has(id),
+    );
+    if (!missing.length) return true;
+    this.loadingSceneAssets = true;
+    this.ui.assetLoading = true;
+    this.controller.pause('assets', true);
+    for (const id of missing) this.load.image(id, assetUrl(id));
+    this.load.once('complete', () => {
+      this.loadingSceneAssets = false;
+      this.ui.assetLoading = false;
+      this.ui.assetFailure = this.failed.size > 0;
+      this.ui.resourceMessage = this.failed.size ? '这页有画面未能加载，可重试。' : '';
+      this.controller.pause('assets', false);
+      this.draw(true);
+      this.ui.change();
+    });
+    this.load.start();
+    this.ui.change();
+    return false;
+  }
   private draw(resized = false): void {
-    if (!this.decor) return;
+    if (!this.decor || !this.ensureAssets()) return;
     const s = this.controller.state,
       previous = this.rendered;
     if (!previous || previous.runId !== s.runId) {
@@ -368,13 +404,6 @@ export class TruckScene extends Phaser.Scene {
     }
     if (resized) this.motions.clear();
     const l = this.layout;
-    if (previous?.helper && !s.helper && this.catPosition)
-      this.catReturn = {
-        from: { ...this.catPosition },
-        to: l.helper,
-        start: s.gameTime,
-        duration: 360,
-      };
     this.used.clear();
     this.decor.clear();
     this.ui.hotspots = [];
@@ -406,7 +435,7 @@ export class TruckScene extends Phaser.Scene {
         this.badge(`label-${o.id}`, 'Thank you!', p.x, p.y + l.guestHeight * 0.47, 120, 36);
       this.hot(
         o.id,
-        `客人${o.seat === 0 ? 'A' : 'B'}：听请求或递出已选托盘`,
+        `客人${o.seat === 0 ? 'A' : 'B'}：选择并重听请求`,
         'guest',
         p.x,
         p.y,
@@ -415,7 +444,7 @@ export class TruckScene extends Phaser.Scene {
       );
     }
     const m = l.machine;
-    const machineVisible = s.mode !== 'guided' || s.orders[0]?.request === 'juice';
+    const machineVisible = s.session.family === 'juice';
     if (machineVisible) {
       this.image('machine', 'machine', m.x, m.y, 123 * l.scale, 145 * l.scale);
       this.hot(
@@ -452,15 +481,7 @@ export class TruckScene extends Phaser.Scene {
       );
       this.hot('start', '启动果汁机', 'start', m.x, m.y + 85 * l.scale, 120 * l.scale, 44);
     }
-    this.image(
-      'cat',
-      'cat-idle',
-      l.helper.x,
-      l.helper.y - 36 * l.scale,
-      154 * l.scale,
-      170 * l.scale,
-      14,
-    );
+    this.kitchen?.draw(s, l, this.ui, this.density);
     this.badge(
       'cat-label',
       s.helper ? '正在帮忙' : '🐾 帮我拿',
@@ -483,11 +504,21 @@ export class TruckScene extends Phaser.Scene {
       const p = l.trays[tray],
         returning = s.trays[tray].remaining > 0;
       this.image(`tray-${tray}`, 'tray', p.x, p.y, l.trayWidth, l.trayWidth * 0.64, 4).setVisible(
-        !returning,
+        !returning ||
+          [...(s.actor.current ? [s.actor.current] : []), ...s.actor.queue].some(
+            (j) =>
+              j.kind === 'delivery' &&
+              j.tray === tray &&
+              (j !== s.actor.current ||
+                j.elapsed <
+                  j.plan.phases
+                    .filter((_, i, all) => i < all.findIndex((p) => p.event === 'lift'))
+                    .reduce((n, p) => n + p.duration, 0)),
+          ),
       );
       this.badge(
         `tray-label-${tray}`,
-        returning ? '回盘中' : `${tray + 1}号盘 · 递出`,
+        returning ? '回盘中' : `${tray + 1}号备餐盘`,
         p.x,
         p.y + l.trayWidth * 0.25,
         Math.min(l.trayWidth - 10, 148),
@@ -506,13 +537,12 @@ export class TruckScene extends Phaser.Scene {
         for (const slot of s.helper.slots)
           this.decor.lineStyle(2, 0xd19638).strokeCircle(p.x + this.slotOffset(slot), p.y - 7, 20);
     }
-    for (const product of ['apple', 'banana', 'cup'] as const) {
-      if (!machineVisible && product === 'cup') continue;
+    for (const product of FAMILY_SUPPLIES[s.session.family]) {
       const p = this.supplyPoint(product);
       this.decor
         .fillStyle(0x163f32, 0.95)
         .fillRoundedRect(p.x - 33 * l.scale, p.y - 33 * l.scale, 66 * l.scale, 72 * l.scale, 12);
-      this.image(`supply-${product}`, product, p.x, p.y, 53 * l.scale, 55 * l.scale);
+      this.image(`supply-${product}`, foodAsset(product), p.x, p.y, 53 * l.scale, 55 * l.scale);
       this.hot(
         `supply-${product}`,
         `拿${PRODUCT_NAMES[product]}`,
@@ -525,30 +555,14 @@ export class TruckScene extends Phaser.Scene {
     }
     this.badge('clear-label', '↩ 放回', l.clear.x, l.clear.y, Math.max(66, 70 * l.scale), 46);
     this.hot('clear', '放回原料或清理成品', 'clear', l.clear.x, l.clear.y, 70 * l.scale, 60);
-    if (previous?.runId === s.runId)
-      for (const o of s.orders) {
-        if (
-          o.status !== 'leaving' ||
-          previous.orders.find((old) => old.id === o.id)?.status !== 'waiting'
-        )
-          continue;
-        const tray = s.trays.findIndex(
-          (t, i) => t.remaining > 0 && !previous.trays[i]?.remaining,
-        ) as TrayId;
-        if (tray !== 0 && tray !== 1) continue;
-        const from = this.dropOrigin ?? l.trays[tray];
-        const { group, foods } = this.trayGroup(tray, trayItems(previous, tray), from);
-        this.deliveries.push({
-          tray,
-          seat: o.seat,
-          start: s.gameTime,
-          from: { ...from },
-          group,
-          foods,
-        });
-        this.catReactionUntil = s.gameTime + RETURN_MS + 1000;
-      }
     for (const item of s.items) {
+      if (item.location === 'helper' || item.location.startsWith('delivery:')) continue;
+      if (
+        item.location.startsWith('station:') &&
+        !FAMILY_STATIONS[s.session.family].includes(item.location.split(':')[1] as StationId)
+      )
+        continue;
+      if (item.location.startsWith('machine:') && !machineVisible) continue;
       const key = `item-${item.id}`,
         to = this.itemPoint(item);
       const prior =
@@ -557,7 +571,6 @@ export class TruckScene extends Phaser.Scene {
       if (
         !resized &&
         previous?.runId === s.runId &&
-        item.location !== 'helper' &&
         (!prior || prior.location !== item.location) &&
         !this.reduced()
       ) {
@@ -565,7 +578,9 @@ export class TruckScene extends Phaser.Scene {
           this.dropOrigin ??
           (currentImage
             ? { x: currentImage.x, y: currentImage.y }
-            : this.supplyPoint(item.product));
+            : prior?.location === 'helper'
+              ? to
+              : this.supplyPoint(item.product));
         this.motions.set(key, {
           from: { ...from },
           to,
@@ -576,17 +591,16 @@ export class TruckScene extends Phaser.Scene {
       const size = item.location.startsWith('tray:')
         ? Math.min(68, Math.max(46, l.trayWidth * 0.23))
         : Math.max(34, 38 * l.scale);
-      const image = this.image(key, item.product, to.x, to.y, size, size, 10);
-      if (item.location !== 'helper')
-        this.hot(
-          key,
-          `${PRODUCT_NAMES[item.product]}，${this.locationLabel(item.location)}`,
-          'item',
-          image.x,
-          image.y,
-          44,
-          44,
-        );
+      const image = this.image(key, foodAsset(item.product), to.x, to.y, size, size, 10);
+      this.hot(
+        key,
+        `${PRODUCT_NAMES[item.product]}，${this.locationLabel(item.location)}`,
+        'item',
+        image.x,
+        image.y,
+        44,
+        44,
+      );
     }
     for (const [key, image] of this.images)
       if (!this.used.has(key)) {
@@ -620,89 +634,6 @@ export class TruckScene extends Phaser.Scene {
   private reduced(): boolean {
     return this.ui.lowGraphics || matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
-  private cat(texture: string, position: Point, phase: number): void {
-    const image = this.images.get('cat');
-    if (!image) return;
-    const key = `cat-${texture}`;
-    if (this.catPose !== key || image.texture.key !== key) {
-      if (this.textures.exists(key)) image.setTexture(key);
-      this.catPose = key;
-    }
-    const h = 170 * this.layout.scale,
-      ratio = image.width / image.height;
-    image
-      .setDisplaySize(h * ratio, h)
-      .setPosition(
-        position.x,
-        position.y - 36 * this.layout.scale + (this.reduced() ? 0 : Math.sin(phase * Math.PI) * -3),
-      );
-    this.catPosition = { ...position };
-    this.game.canvas.dataset.catPose = texture;
-  }
-  private handPoint(pose: string, point: Point): Point {
-    const frame = this.textures.get(`cat-${pose}`).getSourceImage();
-    const h = 170 * this.layout.scale;
-    const anchor =
-      pose === 'reach'
-        ? { x: 0.27, y: 0.82 }
-        : pose === 'place'
-          ? { x: 0.79, y: 0.84 }
-          : { x: 0.72, y: 0.62 };
-    return {
-      x: point.x + ((anchor.x - 0.5) * h * frame.width) / frame.height,
-      y: point.y - 36 * this.layout.scale + (anchor.y - 0.5) * h,
-    };
-  }
-  private reachPoint(supply: Point): Point {
-    const hand = this.handPoint('reach', { x: 0, y: 0 });
-    return { x: supply.x - hand.x, y: supply.y - hand.y - 3 };
-  }
-  private helperFrame(
-    progress: number,
-    products: Product[],
-    destination?: Point,
-  ): { point: Point; pose: string; picked: number; placing: boolean } {
-    const l = this.layout;
-    const travel = (a: Point, b: Point, t: number) => ({
-      x: Phaser.Math.Linear(a.x, b.x, t),
-      y: Phaser.Math.Linear(a.y, b.y, t),
-    });
-    if (progress < 0.15) return { point: l.helper, pose: 'read', picked: 0, placing: false };
-    const first = this.supplyPoint(products[0] ?? 'apple'),
-      second = this.supplyPoint(products[1] ?? products[0] ?? 'apple');
-    const low = (p: Point) => this.reachPoint(p);
-    const a = low(first),
-      b = low(second);
-    if (progress < 0.3)
-      return {
-        point: travel(l.helper, a, (progress - 0.15) / 0.15),
-        pose: 'carry',
-        picked: 0,
-        placing: false,
-      };
-    if (progress < 0.4)
-      return { point: a, pose: 'reach', picked: progress > 0.36 ? 1 : 0, placing: false };
-    if (progress < 0.55 && products.length > 1)
-      return {
-        point: travel(a, b, (progress - 0.4) / 0.15),
-        pose: 'carry',
-        picked: 1,
-        placing: false,
-      };
-    if (progress < 0.64 && products.length > 1)
-      return { point: b, pose: 'reach', picked: progress > 0.6 ? 2 : 1, placing: false };
-    const tray = l.trays[this.controller.state.helper?.tray ?? 0],
-      target = destination ?? { x: tray.x, y: tray.y - 62 * l.scale };
-    const start = products.length > 1 ? 0.64 : 0.4;
-    if (progress < 0.88)
-      return {
-        point: travel(products.length > 1 ? b : a, target, (progress - start) / (0.88 - start)),
-        pose: 'carry',
-        picked: products.length,
-        placing: false,
-      };
-    return { point: target, pose: 'place', picked: products.length, placing: true };
-  }
   update(_time: number, delta: number): void {
     if (this.discardDelta) this.discardDelta = false;
     else this.controller.tick(delta);
@@ -711,13 +642,8 @@ export class TruckScene extends Phaser.Scene {
       l = this.layout;
     this.progress.clear();
     this.focusRing.clear();
-    const teaching = this.ui.teaching;
-    if (teaching !== this.lastTeaching) {
-      this.demoTime = 0;
-      this.lastTeaching = teaching;
-    }
-    if (teaching && !document.hidden && !this.controller.pauses.has('blur'))
-      this.demoTime = Math.min(4200, this.demoTime + Math.min(delta, 100));
+    this.actorView?.update(delta, l);
+    this.kitchen?.update(s, l);
     if (s.machine.status === 'processing') {
       const p = 1 - s.machine.remaining / JUICE_MS;
       this.progress
@@ -748,113 +674,6 @@ export class TruckScene extends Phaser.Scene {
         );
       this.images.get('machine')?.setAngle(this.reduced() ? 0 : Math.sin(s.gameTime / 50) * 0.8);
     } else this.images.get('machine')?.setAngle(0);
-    if (s.helper) {
-      const h = s.helper,
-        p = 1 - h.remaining / HELPER_MS;
-      const items = h.itemIds
-        .map((id) => s.items.find((i) => i.id === id))
-        .filter((i): i is Item => Boolean(i));
-      const frame = this.helperFrame(
-        p,
-        items.map((i) => i.product),
-      );
-      this.cat(frame.pose, frame.point, p * 8);
-      items.forEach((item, i) => {
-        const image = this.images.get(`item-${item.id}`),
-          slot = h.slots[i] ?? 0;
-        const hand = this.handPoint(frame.pose, frame.point);
-        const anchor = { x: hand.x + (i - (items.length - 1) / 2) * 25 * l.scale, y: hand.y };
-        const target = { x: l.trays[h.tray].x + this.slotOffset(slot), y: l.trays[h.tray].y - 7 };
-        const t = frame.placing ? Math.min(1, (p - 0.88) / 0.12) : 0;
-        image
-          ?.setDepth(15)
-          .setPosition(
-            Phaser.Math.Linear(anchor.x, target.x, t),
-            Phaser.Math.Linear(anchor.y, target.y, t),
-          )
-          .setVisible(i < frame.picked);
-      });
-    } else if (teaching) {
-      const p = Math.min(1, this.demoTime / 3600),
-        isJuice = teaching === 'juice';
-      const products: Product[] =
-        teaching === 'banana'
-          ? ['banana']
-          : teaching === 'two'
-            ? ['apple', 'apple']
-            : teaching === 'fruit'
-              ? ['apple', 'banana']
-              : ['apple'];
-      const frame = this.helperFrame(
-        p,
-        products,
-        isJuice ? { x: l.machine.x + 38 * l.scale, y: l.machine.y - 60 * l.scale } : undefined,
-      );
-      this.cat(p > 0.95 ? 'greet' : frame.pose, frame.point, p * 8);
-      products.forEach((product, index) => {
-        const from = this.handPoint(frame.pose, frame.point),
-          target = isJuice
-            ? this.itemPoint({ id: '', product: 'apple', location: 'machine:apple' })
-            : { x: l.trays[0].x + this.slotOffset(index), y: l.trays[0].y - 7 };
-        const t = frame.placing ? Math.min(1, (p - 0.88) / 0.12) : 0;
-        this.image(
-          `demo-${index}`,
-          product,
-          Phaser.Math.Linear(from.x, target.x, t),
-          Phaser.Math.Linear(from.y, target.y, t),
-          48,
-          48,
-          15,
-        ).setAlpha(index < frame.picked ? 0.92 : 0);
-        this.focusRing.lineStyle(3, 0xffdc73).strokeCircle(target.x, target.y, 31);
-      });
-      if (isJuice) {
-        const cup = this.itemPoint({ id: '', product: 'cup', location: 'machine:cup' });
-        this.image('demo-cup', p > 0.9 ? 'juice' : 'cup', cup.x, cup.y, 42, 42, 15);
-      }
-    } else {
-      for (const [key, demo] of this.images)
-        if (key.startsWith('demo-')) {
-          demo.destroy();
-          this.images.delete(key);
-        }
-      const delivery = this.deliveries.at(-1);
-      if (delivery) {
-        const p = Math.min(1, (s.gameTime - delivery.start) / RETURN_MS),
-          target = l.guests[delivery.seat];
-        const q = p < 0.6 ? p / 0.6 : (p - 0.6) / 0.4;
-        const destination = { x: target.x + 52 * l.scale, y: target.y + 68 * l.scale };
-        const from = p < 0.6 ? l.helper : destination,
-          to = p < 0.6 ? destination : l.helper;
-        this.cat(
-          p < 0.5 ? 'greet' : 'place',
-          { x: Phaser.Math.Linear(from.x, to.x, q), y: Phaser.Math.Linear(from.y, to.y, q) },
-          p * 4,
-        );
-      } else if (this.catReturn && s.gameTime - this.catReturn.start < this.catReturn.duration) {
-        const c = this.catReturn,
-          t = (s.gameTime - c.start) / c.duration;
-        this.cat(
-          'carry',
-          {
-            x: Phaser.Math.Linear(c.from.x, c.to.x, t),
-            y: Phaser.Math.Linear(c.from.y, c.to.y, t),
-          },
-          t * 4,
-        );
-      } else {
-        this.catReturn = null;
-        const reaction =
-          s.gameTime < this.catReactionUntil
-            ? 'celebrate'
-            : this.controller.message.includes('留在') || this.controller.message.includes('满了')
-              ? 'blocked'
-              : this.ui.selectedGuest
-                ? 'idle'
-                : 'greet';
-        this.cat(reaction, l.helper, s.gameTime / 1000);
-      }
-    }
     for (const [id, motion] of this.motions) {
       const image = this.images.get(id);
       if (!image) {
@@ -879,32 +698,6 @@ export class TruckScene extends Phaser.Scene {
       }
       if (p === 1) this.motions.delete(id);
     }
-    for (const d of this.deliveries) {
-      const p = Math.min(1, (s.gameTime - d.start) / RETURN_MS),
-        guest = l.guests[d.seat],
-        target = { x: guest.x, y: guest.y + l.guestHeight * 0.3 },
-        home = l.trays[d.tray];
-      const q = p < 0.6 ? p / 0.6 : (p - 0.6) / 0.4;
-      const from = p < 0.6 ? d.from : target,
-        to = p < 0.6 ? target : home;
-      d.group.setPosition(Phaser.Math.Linear(from.x, to.x, q), Phaser.Math.Linear(from.y, to.y, q));
-      d.foods.forEach((i) => {
-        i.setVisible(p < 0.6);
-      });
-      if (p === 1) {
-        d.group.destroy();
-        this.images.get(`tray-${d.tray}`)?.setVisible(true);
-      }
-    }
-    this.deliveries = this.deliveries.filter((d) => s.gameTime - d.start < RETURN_MS);
-    for (const o of s.orders)
-      if (o.status === 'leaving') {
-        const p = 1 - o.remaining / RETURN_MS;
-        this.images
-          .get(o.id)
-          ?.setTexture(`guest-${o.seat}-${p > 0.6 ? 2 : 1}`)
-          .setAlpha(1 - Math.max(0, p - 0.7) / 0.3);
-      }
     if (this.cancelMotion) {
       const c = this.cancelMotion,
         t = Math.min(1, (s.gameTime - c.start) / 180);
@@ -919,6 +712,23 @@ export class TruckScene extends Phaser.Scene {
         this.cancelMotion = null;
         this.cancel();
       }
+    }
+    for (const tray of MODES[s.mode].trays) {
+      const delivery =
+        s.actor.current?.kind === 'delivery' && s.actor.current.tray === tray
+          ? s.actor.current
+          : null;
+      const liftAt = delivery
+        ? delivery.plan.phases
+            .slice(
+              0,
+              delivery.plan.phases.findIndex((p) => p.event === 'lift'),
+            )
+            .reduce((sum, p) => sum + p.duration, 0)
+        : Infinity;
+      this.images
+        .get(`tray-${tray}`)
+        ?.setVisible(!s.trays[tray].remaining || !delivery || delivery.elapsed < liftAt);
     }
     this.hideDragged();
     const selection = this.ui.selected;
@@ -963,7 +773,7 @@ export class TruckScene extends Phaser.Scene {
     const foods = items.map((item) => {
       const slot = Number(item.location.split(':')[2]);
       const size = Math.min(68, Math.max(46, l.trayWidth * 0.23));
-      const image = this.add.image(this.slotOffset(slot), -7, item.product);
+      const image = this.add.image(this.slotOffset(slot), -7, foodAsset(item.product));
       const ratio = image.width / image.height;
       image.setDisplaySize(Math.min(size, size * ratio), Math.min(size, size / ratio));
       group.add(image);
@@ -1007,6 +817,7 @@ export class TruckScene extends Phaser.Scene {
     if (this.controller.pauses.size || this.ui.inputBlocked) return;
     if (this.press || !e.isPrimary) {
       this.cancel();
+      this.ui.doubleTap?.cancel();
       return;
     }
     if (this.cancelMotion) this.cancel();
@@ -1034,7 +845,10 @@ export class TruckScene extends Phaser.Scene {
     if (!press || press.pointerId !== e.pointerId) return;
     const p = this.point(e);
     const at = { x: press.anchor.x + p.x - press.x, y: press.anchor.y + p.y - press.y };
-    if (Math.hypot(p.x - press.x, p.y - press.y) > 8) press.moved = true;
+    if (Math.hypot(p.x - press.x, p.y - press.y) > 8) {
+      press.moved = true;
+      this.ui.doubleTap?.cancel();
+    }
     if (press.moved && press.source && !this.dragImage) {
       const source = press.source;
       if ('tray' in source)
@@ -1050,7 +864,7 @@ export class TruckScene extends Phaser.Scene {
             : this.controller.state.items.find((i) => i.id === source.item)?.product;
         if (product) {
           this.dragImage = this.add.container(at.x, at.y).setDepth(20);
-          const image = this.add.image(0, 0, product);
+          const image = this.add.image(0, 0, foodAsset(product));
           const original = this.images.get(press.id);
           const ratio = image.width / image.height;
           image.setDisplaySize(
@@ -1113,7 +927,7 @@ export class TruckScene extends Phaser.Scene {
     this.dropOrigin = null;
     for (const [id, image] of this.images)
       if (id.startsWith('item-') || id.startsWith('tray-')) image.setVisible(true);
-    for (const d of this.deliveries) this.images.get(`tray-${d.tray}`)?.setVisible(false);
+
     this.hideDragged();
   }
 }

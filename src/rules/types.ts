@@ -1,6 +1,16 @@
 import type { Mode, Product, RequestId } from '../content/catalog';
+import type { Activity, Support } from '../content/chapters';
+import type { Family, StationId } from '../content/recipes';
+import type { ActorPlan, ActorPoint } from '../game/actor';
 export type TrayId = 0 | 1;
-export type Location = `tray:${TrayId}:${0 | 1 | 2}` | 'machine:apple' | 'machine:cup' | 'helper';
+export type Location =
+  | `tray:${TrayId}:${0 | 1 | 2}`
+  | 'machine:apple'
+  | 'machine:cup'
+  | 'helper'
+  | `station:${StationId}:${number}`
+  | `delivery:${TrayId}:${number}`
+  | 'recycle';
 export interface Item {
   id: string;
   product: Product;
@@ -34,7 +44,28 @@ export interface AudioRecord {
   gameTime: number;
 }
 export interface GameState {
-  schemaVersion: 2;
+  schemaVersion: 3;
+  session: {
+    activity: Activity;
+    chapter: number;
+    support: Support;
+    family: Family;
+    unlocked: Family[];
+    seed: number;
+    cursor: number;
+    served: number;
+    lastRequest: string;
+  };
+  stations: Record<
+    StationId,
+    {
+      recipe: string | null;
+      remaining: number;
+      status: 'empty' | 'loaded' | 'processing' | 'ready';
+    }
+  >;
+  actor: { point: ActorPoint; current: ActorJob | null; queue: ActorJob[] };
+  recycle: Item | null;
   mode: Mode;
   history: Partial<Record<RequestId, string[]>>;
   contentVersion: string;
@@ -68,10 +99,15 @@ export type Source = { supply: Product } | { item: string };
 export type Destination =
   | { tray: TrayId }
   | { machine: 'apple' | 'cup' }
+  | { station: StationId }
   | { discard: true; confirmed: boolean };
 export type Command =
   | { type: 'move'; source: Source; destination: Destination }
   | { type: 'start-machine' }
+  | { type: 'start-station'; station: StationId }
+  | { type: 'restore-cleared'; tray: TrayId }
+  | { type: 'family'; family: Family }
+  | { type: 'actor-anchor'; point: ActorPoint }
   | { type: 'deliver'; tray: TrayId; order: string }
   | { type: 'note'; tray: TrayId; tokens: string[] }
   | { type: 'picture-request'; tray: TrayId; fruits: ('apple' | 'banana')[] }
@@ -98,4 +134,13 @@ export interface Result {
     | 'stale'
     | 'confirm';
   message: string;
+}
+
+export interface ActorJob {
+  plan: ActorPlan;
+  elapsed: number;
+  kind: 'helper' | 'delivery' | 'return';
+  tray?: TrayId;
+  order?: string;
+  itemIds: string[];
 }

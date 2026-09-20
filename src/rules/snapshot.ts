@@ -1,12 +1,7 @@
-import {
-  CONTENT_VERSION,
-  HELPER_MS,
-  JUICE_MS,
-  MODES,
-  REQUESTS,
-  RETURN_MS,
-  requestsFor,
-} from '../content/catalog';
+import { CONTENT_VERSION, JUICE_MS, REQUESTS, requestsFor } from '../content/catalog';
+import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
+import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
+import { stationItems } from './cooking';
 import type { GameState } from './types';
 
 const record = (v: unknown): v is Record<string, unknown> =>
@@ -24,7 +19,7 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 2 ||
+    v.schemaVersion !== 3 ||
     v.contentVersion !== CONTENT_VERSION ||
     !['guided', 'practice', 'service'].includes(v.mode as string) ||
     !record(v.history) ||
@@ -39,21 +34,23 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     !Array.isArray(v.items) ||
-    v.items.length > 10 ||
+    v.items.length > 26 ||
     !v.items.every(
       (i) =>
         record(i) &&
         str(i.id) &&
         /^food-\d+$/.test(i.id) &&
-        ['apple', 'banana', 'cup', 'juice'].includes(i.product as string) &&
-        /^(tray:[01]:[012]|machine:(apple|cup)|helper)$/.test(String(i.location)),
+        Object.hasOwn(FOOD, i.product as string) &&
+        /^(tray:[01]:[012]|machine:(apple|cup)|helper|station:(ice|board|grill):[0-4]|delivery:[01]:[012])$/.test(
+          String(i.location),
+        ),
     )
   )
     return false;
   if (
     !Array.isArray(v.orders) ||
     v.orders.length < 1 ||
-    v.orders.length > 5 ||
+    v.orders.length > 8 ||
     !v.orders.every(
       (o) =>
         record(o) &&
@@ -62,7 +59,7 @@ export function validateState(v: unknown): v is GameState {
         Object.keys(REQUESTS).includes(o.request as string) &&
         [0, 1].includes(o.seat as number) &&
         ['queued', 'waiting', 'leaving', 'done'].includes(o.status as string) &&
-        number(o.remaining, RETURN_MS) &&
+        number(o.remaining, 120000) &&
         strings(o.support, 24) &&
         unique(o.support),
     )
@@ -78,7 +75,7 @@ export function validateState(v: unknown): v is GameState {
   if (
     !Array.isArray(v.trays) ||
     v.trays.length !== 2 ||
-    !v.trays.every((t) => record(t) && number(t.remaining, RETURN_MS))
+    !v.trays.every((t) => record(t) && number(t.remaining, 120000))
   )
     return false;
   if (
@@ -94,7 +91,7 @@ export function validateState(v: unknown): v is GameState {
       !strings(v.helper.itemIds, 2) ||
       v.helper.itemIds.length !== v.helper.slots.length ||
       !unique(v.helper.itemIds) ||
-      !number(v.helper.remaining, HELPER_MS) ||
+      !number(v.helper.remaining, 120000) ||
       v.helper.remaining === 0)
   )
     return false;
@@ -139,65 +136,162 @@ export function validateState(v: unknown): v is GameState {
     )
   )
     return false;
-  // Structural checks above establish the typed shape; relation checks below reject impossible worlds.
+  if (
+    !record(v.session) ||
+    !['story', 'endless', 'training'].includes(v.session.activity as string) ||
+    !integer(v.session.chapter, 4) ||
+    !['demonstration', 'pictures', 'less'].includes(v.session.support as string) ||
+    !['juice', 'ice', 'sandwich', 'burger'].includes(v.session.family as string) ||
+    !strings(v.session.unlocked, 4) ||
+    !unique(v.session.unlocked) ||
+    !v.session.unlocked.includes('juice') ||
+    v.session.unlocked.some((f) => !['juice', 'ice', 'sandwich', 'burger'].includes(f)) ||
+    !integer(v.session.seed, 4294967295) ||
+    !integer(v.session.cursor) ||
+    !integer(v.session.served) ||
+    typeof v.session.lastRequest !== 'string'
+  )
+    return false;
+  if (!record(v.stations)) return false;
+  for (const id of ['ice', 'board', 'grill']) {
+    const st = v.stations[id];
+    if (
+      !record(st) ||
+      !['empty', 'loaded', 'processing', 'ready'].includes(st.status as string) ||
+      !number(st.remaining, 5000) ||
+      !(st.recipe === null || RECIPES.some((r) => r.id === st.recipe && r.station === id))
+    )
+      return false;
+  }
+  if (
+    !record(v.actor) ||
+    !point(v.actor.point) ||
+    !Array.isArray(v.actor.queue) ||
+    v.actor.queue.length > 3 ||
+    !v.actor.queue.every(actorJob) ||
+    !(v.actor.current === null || actorJob(v.actor.current))
+  )
+    return false;
+  if (
+    v.recycle !== null &&
+    (!record(v.recycle) ||
+      !str(v.recycle.id) ||
+      !Object.hasOwn(FOOD, v.recycle.product as string) ||
+      RAW.includes(v.recycle.product as never) ||
+      v.recycle.location !== 'recycle')
+  )
+    return false;
   const s = v as unknown as GameState;
+  const ids = s.items.map((i) => i.id);
+  if (s.recycle) ids.push(s.recycle.id);
   if (
-    !unique(s.items.map((i) => i.id)) ||
-    !unique(s.items.filter((i) => i.location !== 'helper').map((i) => i.location))
+    !unique(ids) ||
+    !unique(s.items.filter((i) => i.location !== 'helper').map((i) => i.location)) ||
+    s.items.some((i) => Number(i.id.slice(5)) >= s.nextId)
   )
     return false;
-  if (s.items.some((i) => Number(i.id.slice(5)) >= s.nextId)) return false;
-  const expected = requestsFor(s.mode, s.variant);
   if (
-    s.orders.length !== expected.length ||
-    s.orders.some(
-      (o, i) =>
-        o.request !== expected[i] ||
-        o.id !== `guest-${i}` ||
-        o.seat !== (s.mode === 'service' ? i : s.variant) ||
-        (o.status === 'leaving' ? o.remaining <= 0 : o.remaining !== 0),
-    )
+    !unique(s.orders.map((o) => o.id)) ||
+    s.orders.some((o) => (o.status === 'leaving' ? o.remaining <= 0 : o.remaining !== 0))
   )
     return false;
-  if (s.mode !== 'service') {
-    if (s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving').length > 1)
-      return false;
-    const firstUnfinished = s.orders.findIndex((o) => o.status !== 'done');
+  const active = s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving');
+  if (active.length > (s.mode === 'service' ? 2 : 1) || !unique(active.map((o) => o.seat)))
+    return false;
+  if (s.session.activity === 'story') {
+    const expected = CHAPTERS[s.session.chapter]?.requests;
     if (
-      firstUnfinished >= 0 &&
-      (s.orders[firstUnfinished]?.status === 'queued' ||
-        s.orders.slice(firstUnfinished + 1).some((o) => o.status !== 'queued'))
+      !expected ||
+      s.orders.length !== expected.length ||
+      s.orders.some((o, i) => o.request !== expected[i] || o.id !== `guest-${i}`)
     )
       return false;
+  } else if (s.session.activity === 'endless') {
+    const pool = endlessPool(s.session.unlocked, s.session.support);
     if (
-      s.items.some((i) => i.location.startsWith('tray:1:')) ||
+      s.orders.length > (s.mode === 'service' ? 2 : 1) ||
+      s.orders.some(
+        (o) =>
+          !pool.includes(o.request) ||
+          o.status === 'queued' ||
+          o.status === 'done' ||
+          !/^guest-\d+$/.test(o.id) ||
+          Number(o.id.slice(6)) >= s.session.cursor,
+      )
+    )
+      return false;
+  } else {
+    const actual = s.orders.map((o) => o.request).join('|');
+    if (
+      ![
+        requestsFor(s.mode, s.variant).join('|'),
+        'apple|banana|two|fruit|juice',
+        CHAPTERS[s.session.chapter]?.requests.join('|'),
+      ].includes(actual)
+    )
+      return false;
+  }
+  if (
+    !s.session.unlocked.includes(s.session.family) ||
+    s.orders.some((o) => !s.session.unlocked.includes(requestFamily(o.request)))
+  )
+    return false;
+  if (
+    s.mode !== 'service' &&
+    (s.items.some((i) => i.location.startsWith('tray:1:')) ||
       s.helper?.tray === 1 ||
-      s.trays[1].remaining
-    )
-      return false;
-  } else if (s.orders.some((o) => o.status === 'queued')) return false;
-  if (s.helper && !MODES[s.mode].trays.includes(s.helper.tray)) return false;
-  if (
-    s.items.some(
-      (i) =>
-        (i.location.startsWith('tray:') && i.product === 'cup') ||
-        (i.location === 'machine:apple' && i.product !== 'apple'),
-    )
+      s.trays[1].remaining)
   )
     return false;
-  const apple = s.items.find((i) => i.location === 'machine:apple');
-  const cup = s.items.find((i) => i.location === 'machine:cup');
+  const apple = s.items.find((i) => i.location === 'machine:apple'),
+    cup = s.items.find((i) => i.location === 'machine:cup');
+  if (apple && !['apple', 'banana'].includes(apple.product)) return false;
   if (s.machine.status === 'empty' && (apple || cup)) return false;
   if (s.machine.status === 'loaded' && ((!apple && !cup) || (cup && cup.product !== 'cup')))
     return false;
   if (
     s.machine.status === 'processing' &&
-    (!apple || cup?.product !== 'cup' || !s.machine.jobId || s.machine.remaining <= 0)
+    (!recipeFor('machine', [...(apple ? [apple.product] : []), ...(cup ? [cup.product] : [])]) ||
+      !s.machine.jobId ||
+      s.machine.remaining <= 0)
   )
     return false;
-  if (s.machine.status === 'ready' && (apple || cup?.product !== 'juice')) return false;
+  if (
+    s.machine.status === 'ready' &&
+    (apple || !cup || !['juice', 'banana-juice'].includes(cup.product))
+  )
+    return false;
   if (s.machine.status !== 'processing' && (s.machine.remaining !== 0 || s.machine.jobId !== null))
     return false;
+  for (const id of ['ice', 'board', 'grill'] as const) {
+    const st = s.stations[id],
+      items = stationItems(s, id),
+      recipe = RECIPES.find((r) => r.id === st.recipe);
+    if (st.status === 'empty' && (items.length || st.recipe || st.remaining)) return false;
+    if (
+      st.status === 'loaded' &&
+      (!items.length ||
+        st.remaining ||
+        items.some((i) => !RECIPES.some((r) => r.station === id && r.inputs.includes(i.product))))
+    )
+      return false;
+    if (
+      st.status === 'processing' &&
+      (!recipe ||
+        recipeFor(
+          id,
+          items.map((i) => i.product),
+        )?.id !== recipe.id ||
+        st.remaining <= 0 ||
+        st.remaining > recipe.ms)
+    )
+      return false;
+    if (
+      st.status === 'ready' &&
+      (!recipe || items.length !== 1 || items[0]?.product !== recipe.output || st.remaining !== 0)
+    )
+      return false;
+  }
   const held = s.items.filter((i) => i.location === 'helper');
   if (s.helper) {
     const h = s.helper;
@@ -209,6 +303,82 @@ export function validateState(v: unknown): v is GameState {
     )
       return false;
   } else if (held.length) return false;
+  const jobs = [...(s.actor.current ? [s.actor.current] : []), ...s.actor.queue];
+  if (
+    !unique(jobs.map((j) => j.plan.id)) ||
+    jobs.some((j) => j.itemIds.some((id) => !s.items.some((i) => i.id === id)))
+  )
+    return false;
+  if (
+    s.helper &&
+    !jobs.some(
+      (j) =>
+        j.kind === 'helper' &&
+        j.itemIds.length === s.helper?.itemIds.length &&
+        j.itemIds.every((id) => s.helper?.itemIds.includes(id)),
+    )
+  )
+    return false;
+  if (
+    s.items.some(
+      (i) =>
+        i.location.startsWith('delivery:') &&
+        !jobs.some((j) => j.kind === 'delivery' && j.itemIds.includes(i.id)),
+    )
+  )
+    return false;
+  if (!s.actor.current && s.actor.queue.length) return false;
+  let completion = 0;
+  for (const [index, job] of jobs.entries()) {
+    if (index > 0 && job.elapsed !== 0) return false;
+    completion += job.plan.duration - job.elapsed;
+    if (
+      job.kind === 'helper' &&
+      (!s.helper || job.tray !== s.helper.tray || Math.abs(s.helper.remaining - completion) > 0.05)
+    )
+      return false;
+    if (
+      job.kind === 'return' &&
+      (job.itemIds.length || job.order !== undefined || job.tray !== undefined)
+    )
+      return false;
+    if (job.kind === 'delivery') {
+      const order = s.orders.find((o) => o.id === job.order);
+      if (
+        job.tray === undefined ||
+        !order ||
+        order.status !== 'leaving' ||
+        Math.abs(order.remaining - completion) > 0.05 ||
+        Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+      )
+        return false;
+      if (
+        job.itemIds.some(
+          (id) =>
+            !s.items.some((i) => i.id === id && i.location.startsWith(`delivery:${job.tray}:`)),
+        )
+      )
+        return false;
+      const at = job.plan.phases.findIndex((p) => p.event === 'receive');
+      if (at < 0) return false;
+      const received =
+        job.elapsed >= job.plan.phases.slice(0, at + 1).reduce((n, p) => n + p.duration, 0);
+      if (received ? job.itemIds.length > 0 : job.itemIds.length === 0) return false;
+    }
+  }
+  if (
+    s.orders.some(
+      (o) => o.status === 'leaving' && !jobs.some((j) => j.kind === 'delivery' && j.order === o.id),
+    )
+  )
+    return false;
+  if (!unique(jobs.filter((j) => j.kind === 'delivery').map((j) => j.tray))) return false;
+  if (
+    s.trays.some(
+      (t, index) => t.remaining > 0 && !jobs.some((j) => j.kind === 'delivery' && j.tray === index),
+    )
+  )
+    return false;
   if (
     s.trays.some(
       (t, index) => t.remaining > 0 && s.items.some((i) => i.location.startsWith(`tray:${index}:`)),
@@ -216,6 +386,44 @@ export function validateState(v: unknown): v is GameState {
   )
     return false;
   return true;
+}
+function point(v: unknown): boolean {
+  return record(v) && number(v.x, 1) && number(v.y, 1);
+}
+function actorJob(v: unknown): boolean {
+  if (
+    !record(v) ||
+    !['helper', 'delivery', 'return'].includes(v.kind as string) ||
+    !number(v.elapsed, 120000) ||
+    !strings(v.itemIds, 3) ||
+    !unique(v.itemIds) ||
+    !(v.tray === undefined || v.tray === 0 || v.tray === 1) ||
+    !(v.order === undefined || str(v.order)) ||
+    !record(v.plan) ||
+    !str(v.plan.id) ||
+    !number(v.plan.duration, 30000) ||
+    !Array.isArray(v.plan.phases) ||
+    !v.plan.phases.length ||
+    v.plan.phases.length > 16
+  )
+    return false;
+  if (
+    !v.plan.phases.every(
+      (p) =>
+        record(p) &&
+        point(p.from) &&
+        point(p.to) &&
+        ['idle', 'read', 'reach', 'place', 'carry', 'celebrate', 'greet', 'blocked'].includes(
+          p.pose as string,
+        ) &&
+        number(p.duration, 10000) &&
+        p.duration > 0 &&
+        (p.event === undefined || str(p.event)),
+    )
+  )
+    return false;
+  const duration = v.plan.phases.reduce((sum, p) => sum + Number(p.duration), 0);
+  return Math.abs(duration - Number(v.plan.duration)) < 0.01 && Number(v.elapsed) <= duration;
 }
 export function decodeSnapshot(raw: string): DecodeResult {
   if (raw.length > 160_000) return { ok: false, reason: '存档太大，已保留原文供导出。', raw };

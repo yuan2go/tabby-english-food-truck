@@ -7,16 +7,17 @@ export default defineConfig({
   workers: 1,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:4173',
+    baseURL: 'http://127.0.0.1:4174',
     browserName: 'chromium',
+    actionTimeout: 12000,
     viewport: { width: 390, height: 844 },
     video: { mode: 'on', size: { width: 1024, height: 1024 } },
     screenshot: 'only-on-failure',
-    trace: 'retain-on-failure',
+    trace: 'off',
   },
   webServer: {
-    command: 'npm run build && npm run preview -- --port 4173 --strictPort',
-    url: 'http://127.0.0.1:4173',
+    command: 'npm run build && npm run preview -- --port 4174 --strictPort',
+    url: 'http://127.0.0.1:4174',
     reuseExistingServer: !process.env.CI,
   },
 });

@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
 
 const manifest = JSON.parse(await readFile('art/manifest.json', 'utf8'));
-assert.equal(manifest.version, 'm1.2');
+assert.equal(manifest.version, 'm2.0');
 const ids = new Set();
 for (const asset of manifest.assets) {
   assert(!ids.has(asset.assetId), `duplicate ${asset.assetId}`);
@@ -20,7 +20,7 @@ for (const asset of manifest.assets) {
     assert.equal(m.height, asset.height);
     assert.equal(m.hasAlpha, asset.hasAlpha);
     if (asset.hasAlpha) assert.equal(s.channels.at(-1).min, asset.alphaMin);
-    if (asset.runtime && asset.assetId !== 'market') {
+    if (asset.runtime && !['market', 'courtyard'].includes(asset.assetId)) {
       assert.equal(asset.alphaMin, 0, `${asset.assetId} needs true transparent pixels`);
       assert(asset.effectivePixels.visible > 1000, `${asset.assetId} cannot be empty`);
       assert(
@@ -35,10 +35,12 @@ for (const asset of manifest.assets) {
   assert(asset.source && asset.review && asset.license && asset.derivation);
 }
 const registry = await readFile('src/game/assets.ts', 'utf8');
-for (const id of [...registry.matchAll(/'([a-z][a-z0-9-]+)'/g)]
-  .map((m) => m[1])
-  .filter((id) => !['phaser', 'assets', 'webp'].includes(id)))
-  if (!id.includes('/')) assert(ids.has(id), `missing runtime ${id}`);
+const declared = registry.match(/export const ASSET_IDS = \[([\s\S]*?)\] as const/);
+assert(declared, 'explicit runtime asset registry');
+const runtimeIds = [...declared[1].matchAll(/'([a-z][a-z0-9-]+)'/g)].map((m) => m[1]);
+assert(runtimeIds.length >= 47, 'runtime registry must not be empty or truncated');
+for (const id of [...runtimeIds, 'courtyard', 'elder'])
+  assert(ids.has(id), `missing runtime ${id}`);
 for (const id of [
   'request-apple',
   'request-banana',
@@ -53,6 +55,10 @@ for (const id of [
     manifest.assets.some((a) => a.assetId === `audio-${id}` && a.format === 'wav'),
     `missing local speech ${id}`,
   );
+const speech = JSON.parse(await readFile('art/m2-audio.json', 'utf8'));
+assert(Array.isArray(speech.records) && speech.records.length === 49, 'complete M2 speech list');
+for (const record of speech.records)
+  assert(ids.has(`audio-${record.id}`), `missing M2 speech ${record.id}`);
 console.log(
   `PASS: ${manifest.assets.length} files, actual hashes/dimensions/alpha and runtime registry checked`,
 );

@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-20T18:55:59.476630+00:00",
+  "url": "https://tabby-english-food-truck.yuan576264675.chatgpt.site/",
+  "bundle": "assets/index-DD0KRite.js",
+  "bundleSha256": "4a3c9f080755f6bb89da2aad4ec8a17ea3a6b6839d7678f9a3ea5b00d9f0151e",
+  "identityFragments": [],
+  "contentFragments": [
+    "r Tt=gf();const _d=\"m1.1\",pf=5e3,bf=2e3,Ue=8"
+  ],
+  "M2": "PENDING_DEPLOYMENT",
+  "shaCandidates": [],
+  "exposesBuildSha": false,
+  "exposesAssetVersion": false,
+  "conclusion": "Live bundle identifies m1.1 but exposes no trustworthy source SHA or asset-manifest identity; source SHA NOT_PROVEN. Existing site is not M2."
+}

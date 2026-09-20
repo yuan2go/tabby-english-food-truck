@@ -1,0 +1,67 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep complete click story
+
+[WebServer] (node:22657) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:22724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:22764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending (7.2m)
+
+
+  1) e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending 
+
+    Test timeout of 420000ms exceeded.
+
+    Error: locator.boundingBox: Test timeout of 420000ms exceeded.
+    Call log:
+      - waiting for locator('[data-hotspot="supply-cup"]')
+
+
+       at helpers.ts:8
+
+       6 |   p.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2') ?? '{}'));
+       7 | export async function hot(p: Page, id: string, dy = 0) {
+    >  8 |   const b = await p.locator(`[data-hotspot="${id}"]`).boundingBox();
+         |                                                       ^
+       9 |   if (!b) throw Error(id);
+      10 |   return { x: b.x + b.width / 2, y: b.y + b.height / 2 + dy };
+      11 | }
+        at hot (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:8:55)
+        at tap (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:13:19)
+        at make (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:60:36)
+        at serve (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:100:18)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/game.spec.ts:21:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Slow test file: e2e/game.spec.ts (7.2m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending 

@@ -37,22 +37,23 @@ try {
   page.setDefaultTimeout(8000);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(process.argv[2] ?? 'http://127.0.0.1:4173/');
-  await page.getByRole('button', { name: '小小餐车营业中' }).click();
-  await page.getByRole('button', { name: '开摊啦', exact: true }).click();
+  await page.locator('.yard-endless .entry-main').click();
+  await page.getByRole('button', { name: '少些帮助，听一听' }).click();
+  await page.getByRole('button', { name: '开始 / 继续' }).click();
   await page.getByRole('button', { name: '我来试试' }).click();
   const key = async (id) => page.locator(`[data-hotspot="${id}"]`).press('Enter');
+  await page.locator('.prep-selector').getByRole('button', { name: '果汁机', exact: true }).click();
   await key('supply-apple');
-  await key('machine-apple');
   await key('supply-cup');
-  await key('machine-cup');
   await key('start');
-  await key('tray-1');
   await key('note');
-  await page.locator('.word-bank').getByRole('button', { name: 'two', exact: true }).click();
-  await page.locator('.word-bank').getByRole('button', { name: 'apples', exact: true }).click();
+  await page.getByRole('button', { name: '2号盘', exact: true }).click();
+  await page.getByRole('button', { name: '看图请小猫', exact: true }).click();
+  await page.getByRole('button', { name: '图片 apple', exact: true }).click();
+  await page.getByRole('button', { name: '图片 apple', exact: true }).click();
   await page.getByRole('button', { name: '交给小猫', exact: true }).click();
   const state = () =>
-    page.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.save.v1')));
+    page.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2')));
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   const before = await state();
   assert(before.helper, 'helper before freeze');
@@ -72,6 +73,11 @@ try {
   await page.bringToFront();
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   const after = await state();
+  const pausedAudio = await page.evaluate(() =>
+    JSON.parse(document.querySelector('main').dataset.audioState),
+  );
+  assert.equal(pausedAudio.active, null, 'paused voice stopped');
+  assert.deepEqual(pausedAudio.loops, [], 'paused loops stopped');
   const events = await page.evaluate(() => Reflect.get(window, 'lifecycleEvidence'));
   assert(events.includes('freeze:hidden'), 'actual freeze event');
   assert(
@@ -88,6 +94,7 @@ try {
     'machine must not accrue 1800 ms offline',
   );
   const report = {
+    pausedAudio,
     events,
     offlineMilliseconds: 1800,
     beforeHelper: before.helper.remaining,
@@ -95,11 +102,8 @@ try {
     beforeMachine: before.machine.remaining,
     afterMachine: after.machine.remaining,
   };
-  await writeFile(
-    'docs/evidence/m1-upgrade/native-lifecycle.json',
-    JSON.stringify(report, null, 2),
-  );
-  await page.screenshot({ path: 'docs/evidence/m1-upgrade/native-resume.png', timeout: 5000 });
+  await writeFile('docs/evidence/m2/native-lifecycle.json', JSON.stringify(report, null, 2));
+  await page.screenshot({ path: 'docs/evidence/m2/native-resume.png', timeout: 5000 });
   console.log(JSON.stringify(report));
   await client.detach();
 } finally {
