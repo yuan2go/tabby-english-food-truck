@@ -1,0 +1,36 @@
+{
+  "name": "tabby-english-food-truck",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "resources": "node scripts/check-resources.mjs"
+  },
+  "dependencies": {
+    "phaser": "3.90.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.19.15",
+    "@types/react": "19.1.16",
+    "@types/react-dom": "19.1.9",
+    "sharp": "0.35.4",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vitest": "4.1.11"
+  }
+}
