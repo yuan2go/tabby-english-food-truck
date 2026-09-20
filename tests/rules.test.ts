@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { TOKENS } from '../src/content/catalog';
+import { REQUESTS, TOKENS } from '../src/content/catalog';
 import { parsePhrase, parseTokens } from '../src/content/phrases';
 import { GameController } from '../src/platform/controller';
 import { SAVE_KEY, SaveStore } from '../src/platform/save';
@@ -238,7 +238,7 @@ describe('T02/T10 validated snapshots and host clock', () => {
       mutate(v);
       expect(validateState(v)).toBe(false);
     }
-    expect(decodeSnapshot(JSON.stringify({ ...s, schemaVersion: 2 })).ok).toBe(false);
+    expect(decodeSnapshot(JSON.stringify({ ...s, schemaVersion: 99 })).ok).toBe(false);
     expect(decodeSnapshot(JSON.stringify({ ...s, audio: [{ status: 'fake' }] })).ok).toBe(false);
   });
   it('freezes all tasks on help/background, drops large delta, persists remaining time', () => {
@@ -273,5 +273,114 @@ describe('T02/T10 validated snapshots and host clock', () => {
     expect(refused.load()).toBeNull();
     expect(refused.save(createGame('x'))).toBe(false);
     expect(refused.issue).toContain('导出');
+  });
+});
+
+describe('M1 three modes and preserved support', () => {
+  it('completes all three modes through public commands and validates every stage', () => {
+    for (const mode of ['guided', 'practice', 'service'] as const)
+      for (const variant of [0, 1] as const) {
+        let s = createGame(`mode-${mode}-${variant}`, variant, {}, mode);
+        expect(validateState(s)).toBe(true);
+        let completed = 0;
+        while (s.orders.some((o) => o.status !== 'done')) {
+          const order = s.orders.find((o) => o.status === 'waiting');
+          if (!order) throw new Error('No active order');
+          for (const product of REQUESTS[order.request].products) {
+            if (product === 'juice') {
+              s = send(s, {
+                type: 'move',
+                source: { supply: 'apple' },
+                destination: { machine: 'apple' },
+              }).state;
+              if (!s.items.some((i) => i.location === 'machine:cup'))
+                s = send(s, {
+                  type: 'move',
+                  source: { supply: 'cup' },
+                  destination: { machine: 'cup' },
+                }).state;
+              s = send(s, { type: 'start-machine' }).state;
+              s = advance(s, 5000);
+              const item = s.items.find((i) => i.product === 'juice');
+              if (!item) throw new Error('juice');
+              s = send(s, {
+                type: 'move',
+                source: { item: item.id },
+                destination: { tray: 0 },
+              }).state;
+            } else s = put(s, product, 0);
+            expect(validateState(s)).toBe(true);
+          }
+          const result = send(s, { type: 'deliver', tray: 0, order: order.id });
+          expect(result.kind).toBe('ok');
+          s = advance(result.state, 800);
+          completed++;
+          expect(validateState(s)).toBe(true);
+        }
+        expect(completed).toBe(mode === 'practice' ? 5 : mode === 'service' ? 2 : 1);
+        expect(s.items).toHaveLength(0);
+      }
+  });
+  it('rejects hidden second-tray inventory, queued-order tampering and malformed mode', () => {
+    const s = createGame('single', 0, {}, 'practice');
+    expect(put(s, 'apple', 1).items).toHaveLength(0);
+    expect(send(s, { type: 'picture-request', tray: 1, fruits: ['apple'] }).kind).toBe('blocked');
+    expect(validateState({ ...s, mode: 'unknown' })).toBe(false);
+    expect(
+      validateState({ ...s, orders: s.orders.map((o) => ({ ...o, status: 'waiting' })) }),
+    ).toBe(false);
+    expect(
+      validateState({
+        ...s,
+        nextId: 2,
+        items: [{ id: 'food-1', product: 'apple', location: 'tray:1:0' }],
+      }),
+    ).toBe(false);
+  });
+  it('switches and reloads unfinished sessions without sharing inventory or erasing hints', () => {
+    const memory = memoryStore();
+    const c = new GameController(new SaveStore(() => memory), () => `run-${++sequence}`);
+    expect(c.state.mode).toBe('guided');
+    c.command({ type: 'support', order: 'guest-0', reason: 'mismatch-explanation' });
+    c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
+    const initial = c.state.items;
+    c.switchMode('service');
+    expect(c.state.items).toHaveLength(0);
+    c.command({ type: 'picture-request', tray: 1, fruits: ['banana', 'apple'] });
+    const task = c.state.helper;
+    c.switchMode('guided');
+    expect(c.state.items).toEqual(initial);
+    expect(c.state.orders[0]?.support).toContain('mismatch-explanation');
+    const loaded = new GameController(new SaveStore(() => memory), () => 'new');
+    loaded.switchMode('service');
+    expect(loaded.state.helper).toEqual(task);
+    expect(loaded.state.noteSupport).toContain('picture-request');
+    loaded.switchMode('guided');
+    loaded.restart();
+    loaded.restart();
+    expect(loaded.state.orders[0]?.support).toContain('mismatch-explanation');
+  });
+  it('picture requests use reservations but do not fabricate a word-block language attempt', () => {
+    let s = createGame('picture', 0, {}, 'guided');
+    s = send(s, { type: 'picture-request', tray: 0, fruits: ['banana', 'apple'] }).state;
+    expect(s.items.map((i) => i.product)).toEqual(['banana', 'apple']);
+    expect(s.attempts).toHaveLength(0);
+    expect(freeSlots(s, 0)).toHaveLength(1);
+    s = send(s, { type: 'cancel-helper' }).state;
+    expect(s.items).toHaveLength(0);
+    expect(freeSlots(s, 0)).toHaveLength(3);
+    expect(s.noteSupport).toContain('picture-request');
+  });
+  it('clock frames preserve evidence and item references until a real task completion', () => {
+    const s = juice(),
+      next = advance(s, 10);
+    expect(next.items).toBe(s.items);
+    expect(next.attempts).toBe(s.attempts);
+    expect(next.audio).toBe(s.audio);
+    expect(s.machine.remaining).toBe(5000);
+    expect(next.machine.remaining).toBe(4990);
+    const finished = advance(next, 4990);
+    expect(finished.items).not.toBe(s.items);
+    expect(s.items.find((i) => i.location === 'machine:cup')?.product).toBe('cup');
   });
 });

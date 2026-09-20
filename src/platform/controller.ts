@@ -1,3 +1,4 @@
+import type { Mode, RequestId } from '../content/catalog';
 import { advance, createGame, dispatch } from '../rules/game';
 import type { Command, GameState, Result } from '../rules/types';
 import { SaveStore } from './save';
@@ -17,7 +18,7 @@ export class GameController {
     this.save = save;
     const loaded = save.load();
     this.savedGame = loaded?.ok === true;
-    this.state = loaded?.ok ? loaded.state : createGame(runId(), Math.random() < 0.5 ? 0 : 1);
+    this.state = loaded?.ok ? loaded.state : createGame(runId(), 0, {}, 'guided');
   }
   subscribe = (fn: () => void): (() => void) => {
     this.listeners.add(fn);
@@ -36,7 +37,7 @@ export class GameController {
     });
     this.state = result.state;
     if (result.message) this.message = result.message;
-    this.save.save(this.state);
+    if (command.type !== 'audio') this.save.save(this.state);
     this.notify();
     return result;
   }
@@ -49,7 +50,7 @@ export class GameController {
       this.notify();
     }
     this.checkpoint += delta;
-    if (this.checkpoint >= 1000) {
+    if (this.checkpoint >= 2000) {
       this.checkpoint = 0;
       const issue = this.save.issue;
       this.save.save(this.state);
@@ -63,16 +64,52 @@ export class GameController {
     } else this.pauses.delete(reason);
     this.notify();
   }
+  private history(): GameState['history'] {
+    const history = structuredClone(this.state.history);
+    for (const order of this.state.orders)
+      if (order.status !== 'queued')
+        history[order.request] = [
+          ...new Set([...(history[order.request] ?? []), ...order.support, 'seen-in-prior-run']),
+        ].slice(-24);
+    return history;
+  }
+  switchMode(mode: Mode): void {
+    if (mode === this.state.mode) return;
+    this.save.save(this.state);
+    const history = this.history();
+    const previous = this.save.loadMode(mode);
+    if (this.save.blocked) {
+      this.notify();
+      return;
+    }
+    const next =
+      previous ??
+      createGame(this.runId(), mode === 'guided' ? 0 : Math.random() < 0.5 ? 0 : 1, history, mode);
+    for (const request of Object.keys(history) as RequestId[])
+      next.history[request] = [
+        ...new Set([...(next.history[request] ?? []), ...(history[request] ?? [])]),
+      ].slice(-24);
+    for (const o of next.orders)
+      o.support = [...new Set([...o.support, ...(next.history[o.request] ?? [])])].slice(-24);
+    next.noteSupport = [...new Set([...next.noteSupport, ...this.state.noteSupport])].slice(-24);
+    this.state = next;
+    this.checkpoint = 0;
+    this.savedGame = Boolean(previous);
+    this.message = previous ? '接着上次，食物和小猫都在。' : '先看一看，再亲手试试。';
+    this.save.save(this.state);
+    this.notify();
+  }
   restart(): void {
-    const support = Object.fromEntries(
-      this.state.orders.map((o) => [o.request, [...new Set([...o.support, 'seen-in-prior-run'])]]),
-    );
+    const mode = this.state.mode,
+      history = this.history(),
+      noteSupport = this.state.noteSupport;
     this.save.reset();
-    this.state = createGame(this.runId(), this.state.variant === 0 ? 1 : 0, support);
+    this.state = createGame(this.runId(), this.state.variant === 0 ? 1 : 0, history, mode);
+    this.state.noteSupport = [...noteSupport];
     this.savedGame = false;
     this.pauses.clear();
     this.checkpoint = 0;
-    this.message = '新的一次开摊。两位客人的座位可能换了，先听一听。';
+    this.message = '新的一次开摊。先听一听。';
     this.save.save(this.state);
     this.notify();
   }

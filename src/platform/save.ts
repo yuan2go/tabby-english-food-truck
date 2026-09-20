@@ -1,3 +1,4 @@
+import type { Mode } from '../content/catalog';
 import { type DecodeResult, decodeSnapshot, validateState } from '../rules/snapshot';
 import type { GameState } from '../rules/types';
 export const SAVE_KEY = 'tabby.foodtruck.save.v1';
@@ -11,6 +12,7 @@ export class SaveStore {
   blocked = false;
   issue = '';
   raw: string | null = null;
+  private previousValid: string | null = null;
   constructor(private readonly storage: () => StoragePort) {}
   load(): DecodeResult | null {
     try {
@@ -21,9 +23,26 @@ export class SaveStore {
         this.blocked = true;
         this.issue = result.reason;
       }
+      if (result.ok) this.previousValid = this.raw;
       return result;
     } catch {
       this.issue = '无法读取本地存档。本局可继续，离开前请导出。';
+      return null;
+    }
+  }
+  loadMode(mode: Mode): GameState | null {
+    try {
+      const raw = this.storage().getItem(`${SAVE_KEY}.${mode}`);
+      if (!raw) return null;
+      const decoded = decodeSnapshot(raw);
+      if (!decoded.ok) {
+        this.raw = raw;
+        this.blocked = true;
+        this.issue = `这个玩法的${decoded.reason}`;
+        return null;
+      }
+      return decoded.state.mode === mode ? decoded.state : null;
+    } catch {
       return null;
     }
   }
@@ -35,11 +54,12 @@ export class SaveStore {
     }
     try {
       const store = this.storage();
-      const previous = store.getItem(SAVE_KEY);
-      if (previous && decodeSnapshot(previous).ok) store.setItem(BACKUP_KEY, previous);
+      if (this.previousValid) store.setItem(BACKUP_KEY, this.previousValid);
       const raw = JSON.stringify(s);
       store.setItem(SAVE_KEY, raw);
+      store.setItem(`${SAVE_KEY}.${s.mode}`, raw);
       this.raw = raw;
+      this.previousValid = raw;
       this.issue = '';
       return true;
     } catch {
@@ -56,5 +76,6 @@ export class SaveStore {
     }
     this.blocked = false;
     this.raw = null;
+    this.previousValid = null;
   }
 }

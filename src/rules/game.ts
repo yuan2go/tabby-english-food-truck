@@ -2,9 +2,13 @@ import {
   CONTENT_VERSION,
   HELPER_MS,
   JUICE_MS,
+  MODES,
+  type Mode,
   type Product,
   REQUESTS,
   RETURN_MS,
+  type RequestId,
+  requestsFor,
 } from '../content/catalog';
 import { parseTokens } from '../content/phrases';
 import type {
@@ -20,29 +24,44 @@ import type {
 export function createGame(
   runId: string,
   variant: 0 | 1 = 0,
-  priorSupport: Partial<Record<'juice' | 'fruit', string[]>> = {},
+  priorSupport: Partial<Record<RequestId, string[]>> = {},
+  mode: Mode = 'service',
 ): GameState {
+  const requests = requestsFor(mode, variant);
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     contentVersion: CONTENT_VERSION,
+    mode,
+    history: structuredClone(priorSupport),
     runId,
     revision: 0,
-    nextId: 1,
+    nextId: mode === 'guided' && variant === 1 ? 2 : 1,
     variant,
     gameTime: 0,
-    items: [],
-    orders: ([0, 1] as const).map((seat) => {
-      const request = seat === variant ? 'juice' : 'fruit';
-      return {
-        id: `guest-${seat}`,
-        request,
-        seat,
-        status: 'waiting',
-        remaining: 0,
-        support: [...(priorSupport[request] ?? [])],
-      };
-    }),
-    machine: { status: 'empty', remaining: 0, jobId: null },
+    items:
+      mode === 'guided' && variant === 1
+        ? [{ id: 'food-1', product: 'cup', location: 'machine:cup' }]
+        : [],
+    orders: requests.map((request, index) => ({
+      id: `guest-${index}`,
+      request,
+      seat: mode === 'service' ? (index as TrayId) : variant,
+      status: mode === 'service' || index === 0 ? 'waiting' : 'queued',
+      remaining: 0,
+      support: [
+        ...new Set([
+          ...(priorSupport[request] ?? []),
+          ...(mode === 'guided'
+            ? ['guided', 'picture-request', ...(variant === 1 ? ['guided-preparation'] : [])]
+            : []),
+        ]),
+      ],
+    })),
+    machine: {
+      status: mode === 'guided' && variant === 1 ? 'loaded' : 'empty',
+      remaining: 0,
+      jobId: null,
+    },
     helper: null,
     trays: [{ remaining: 0 }, { remaining: 0 }],
     receipts: [],
@@ -55,6 +74,7 @@ export function createGame(
 export const trayItems = (s: GameState, tray: TrayId) =>
   s.items.filter((i) => i.location.startsWith(`tray:${tray}:`));
 export function freeSlots(s: GameState, tray: TrayId): (0 | 1 | 2)[] {
+  if (!MODES[s.mode].trays.includes(tray)) return [];
   return ([0, 1, 2] as const).filter(
     (slot) =>
       !s.items.some((i) => i.location === `tray:${tray}:${slot}`) &&
@@ -94,6 +114,15 @@ export function dispatch(current: GameState, e: Envelope): Result {
   const s = structuredClone(current);
   s.receipts = [...s.receipts, e.id].slice(-64);
   const result = (kind: Result['kind'], message: string): Result => {
+    for (const o of s.orders)
+      if (o.support.length || o.status !== 'queued')
+        s.history[o.request] = [
+          ...new Set([
+            ...(s.history[o.request] ?? []),
+            ...o.support,
+            ...(o.status !== 'queued' ? ['seen-before'] : []),
+          ]),
+        ].slice(-24);
     s.revision++;
     return { state: s, kind, message };
   };
@@ -168,13 +197,29 @@ export function dispatch(current: GameState, e: Envelope): Result {
     s.helper = null;
     return result('ok', '便签已撤回，水果放回，盘位已释放。');
   }
-  if (c.type === 'note') {
-    const phrase = parseTokens(c.tokens);
+  if (c.type === 'note' || c.type === 'picture-request') {
+    if (!MODES[s.mode].trays.includes(c.tray)) return result('blocked', '这次只用一只托盘。');
+    if (
+      c.type === 'picture-request' &&
+      (!c.fruits.length ||
+        c.fruits.length > 2 ||
+        c.fruits.some((f) => f !== 'apple' && f !== 'banana'))
+    )
+      return result('blocked', '选一份或两份水果。');
+    const phrase =
+      c.type === 'note'
+        ? parseTokens(c.tokens)
+        : { kind: 'valid' as const, fruits: c.fruits, normalized: 'picture-request' };
+    if (c.type === 'picture-request') {
+      s.noteSupport = [...new Set([...s.noteSupport, 'picture-request'])];
+      for (const o of s.orders)
+        if (o.status === 'waiting') o.support = [...new Set([...o.support, 'picture-assistant'])];
+    }
     if (phrase.kind !== 'valid') {
       if (phrase.kind !== 'incomplete')
         attempt(s, {
           activity: 'note',
-          input: c.tokens.join(' '),
+          input: c.type === 'note' ? c.tokens.join(' ') : 'picture-request',
           result: phrase.kind,
           support: [...s.noteSupport],
         });
@@ -190,12 +235,13 @@ export function dispatch(current: GameState, e: Envelope): Result {
         : slots.length < phrase.fruits.length
           ? '托盘不够放。先移走水果，或换一只托盘。'
           : '';
-    attempt(s, {
-      activity: 'note',
-      input: phrase.normalized,
-      result: blocked ? 'world-blocked' : 'completed',
-      support: [...s.noteSupport],
-    });
+    if (c.type === 'note')
+      attempt(s, {
+        activity: 'note',
+        input: phrase.normalized,
+        result: blocked ? 'world-blocked' : 'completed',
+        support: [...s.noteSupport],
+      });
     if (blocked) return result('blocked', blocked);
     const items: Item[] = phrase.fruits.map((product) => ({
       id: nextId(s, 'food'),
@@ -250,6 +296,7 @@ function destination(
   existing: Item | undefined,
 ): Location | { reason: string } {
   if ('tray' in dest) {
+    if (!MODES[s.mode].trays.includes(dest.tray)) return { reason: '这次只用一只托盘。' };
     if (product === 'cup') return { reason: '空杯放到果汁机右侧的杯座。' };
     if (s.trays[dest.tray].remaining > 0) return { reason: '托盘正在回来，试试另一盘。' };
     const slot = freeSlots(s, dest.tray)[0];
@@ -270,13 +317,22 @@ function destination(
 }
 export function advance(current: GameState, milliseconds: number): GameState {
   if (!Number.isFinite(milliseconds) || milliseconds <= 0) return current;
-  const s = structuredClone(current);
-  s.gameTime += milliseconds;
+  // Only the small clock/task branches change per frame. Items and evidence retain identity.
+  const s: GameState = {
+    ...current,
+    gameTime: current.gameTime + milliseconds,
+    machine: { ...current.machine },
+    helper: current.helper ? { ...current.helper } : null,
+    trays: [{ ...current.trays[0] }, { ...current.trays[1] }],
+    orders: current.orders.map((o) => (o.status === 'leaving' ? { ...o } : o)),
+  };
   let changed = false;
   if (s.machine.status === 'processing') {
     s.machine.remaining = Math.max(0, s.machine.remaining - milliseconds);
     if (!s.machine.remaining) {
-      s.items = s.items.filter((i) => i.location !== 'machine:apple');
+      s.items = s.items
+        .filter((i) => i.location !== 'machine:apple')
+        .map((i) => (i.location === 'machine:cup' ? { ...i } : i));
       const cup = s.items.find((i) => i.location === 'machine:cup');
       if (cup) cup.product = 'juice';
       s.machine.status = 'ready';
@@ -288,6 +344,7 @@ export function advance(current: GameState, milliseconds: number): GameState {
     s.helper.remaining = Math.max(0, s.helper.remaining - milliseconds);
     if (!s.helper.remaining) {
       const h = s.helper;
+      s.items = s.items.map((i) => (h.itemIds.includes(i.id) ? { ...i } : i));
       for (const [index, id] of h.itemIds.entries()) {
         const item = s.items.find((i) => i.id === id);
         const slot = h.slots[index];
@@ -310,6 +367,16 @@ export function advance(current: GameState, milliseconds: number): GameState {
         changed = true;
       }
     }
+  if (
+    s.mode !== 'service' &&
+    !s.orders.some((o) => o.status === 'waiting' || o.status === 'leaving')
+  ) {
+    const next = s.orders.findIndex((o) => o.status === 'queued');
+    if (next >= 0) {
+      s.orders = s.orders.map((o, i) => (i === next ? { ...o, status: 'waiting' } : o));
+      changed = true;
+    }
+  }
   if (changed) s.revision++;
   return s;
 }
