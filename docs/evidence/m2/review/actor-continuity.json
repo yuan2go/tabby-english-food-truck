@@ -1,0 +1,15 @@
+{
+  "duration": 9.92,
+  "interval": 0.1,
+  "frames": 99,
+  "pages": [
+    "docs/evidence/m2/review/actor-continuity-1.jpg",
+    "docs/evidence/m2/review/actor-continuity-2.jpg",
+    "docs/evidence/m2/review/actor-continuity-3.jpg",
+    "docs/evidence/m2/review/actor-continuity-4.jpg",
+    "docs/evidence/m2/review/actor-continuity-5.jpg",
+    "docs/evidence/m2/review/actor-continuity-6.jpg",
+    "docs/evidence/m2/review/actor-continuity-7.jpg"
+  ],
+  "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+}

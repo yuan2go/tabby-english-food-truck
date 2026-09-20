@@ -110,16 +110,33 @@ test('M2 actual helper and delivery overlap, reload, cancellation and continued 
     (await state(page)).actor.current?.plan.id,
     ...(await state(page)).actor.queue.map((j) => j.plan.id),
   ]).toEqual(jobs);
-  const before = await state(page);
+  await page.evaluate(() => {
+    const read = () =>
+      JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2') ?? '{}').actor.point;
+    const relevant = (e: Event) =>
+      e.target instanceof Element && e.target.closest('button')?.textContent?.includes('撤回便签');
+    document.addEventListener(
+      'click',
+      (e) => {
+        if (relevant(e)) Reflect.set(window, 'm2CancelBefore', read());
+      },
+      true,
+    );
+    document.addEventListener('click', (e) => {
+      if (relevant(e)) Reflect.set(window, 'm2CancelAfter', read());
+    });
+  });
   await page.getByRole('button', { name: '撤回便签', exact: true }).tap();
-  const after = await state(page);
-  expect(after.helper).toBeNull();
+  expect((await state(page)).helper).toBeNull();
+  const boundary = await page.evaluate(() => ({
+    before: Reflect.get(window, 'm2CancelBefore'),
+    after: Reflect.get(window, 'm2CancelAfter'),
+  }));
+  // Compare the same native click, excluding Playwright's actionability delay.
   expect(
-    Math.hypot(
-      after.actor.point.x - before.actor.point.x,
-      after.actor.point.y - before.actor.point.y,
-    ),
-  ).toBeLessThan(0.08);
+    Math.hypot(boundary.after.x - boundary.before.x, boundary.after.y - boundary.before.y),
+  ).toBeLessThan(0.000001);
+  await writeFile(info.outputPath('cancel-boundary.json'), JSON.stringify(boundary));
   const samples = await page.evaluate(async () => {
     const result = [];
     for (let i = 0; i < 150; i++) {

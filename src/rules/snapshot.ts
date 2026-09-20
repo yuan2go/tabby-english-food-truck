@@ -207,7 +207,9 @@ export function validateState(v: unknown): v is GameState {
     )
       return false;
   } else if (s.session.activity === 'endless') {
-    const pool = endlessPool(s.session.unlocked, s.session.support);
+    // A support change constrains future generation, not the validity of
+    // already accepted orders. Their recipes must still be introduced.
+    const pool = endlessPool(s.session.unlocked, 'less');
     if (
       s.orders.length > (s.mode === 'service' ? 2 : 1) ||
       s.orders.some(

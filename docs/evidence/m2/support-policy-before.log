@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m2-world.test.ts -t support changes
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck
+
+ ❯ tests/m2-world.test.ts (8 tests | 1 failed | 7 skipped) 10ms
+     × support changes preserve existing complex orders and reduce subsequent concurrency 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > support changes preserve existing complex orders and reduce subsequent concurrency
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/m2-world.test.ts:163:30
+    161|     if (!s) throw Error('complex initial order');
+    162|     s.session.support = 'demonstration';
+    163|     expect(validateState(s)).toBe(true);
+       |                              ^
+    164|     const cursor = s.session.cursor;
+    165|     for (let n = 0; n < 2; n++) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 skipped (8)
+   Start at  03:47:00
+   Duration  477ms (transform 192ms, setup 0ms, import 231ms, tests 10ms, environment 0ms)
+

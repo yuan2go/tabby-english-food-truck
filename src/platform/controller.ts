@@ -22,7 +22,16 @@ export class GameController {
     this.save = save;
     const loaded = save.load();
     this.savedGame = loaded?.ok === true;
-    this.state = loaded?.ok ? loaded.state : createGame(runId(), 0, {}, 'guided');
+    this.state = loaded?.ok
+      ? loaded.state
+      : configureSession(
+          createGame(runId(), 0, {}, 'practice'),
+          'training',
+          0,
+          this.profile.value.support,
+          this.profile.value.introduced,
+          1,
+        );
   }
   subscribe = (fn: () => void): (() => void) => {
     this.listeners.add(fn);

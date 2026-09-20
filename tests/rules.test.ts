@@ -342,6 +342,7 @@ describe('M1 three modes and preserved support', () => {
   it('switches and reloads unfinished sessions without sharing inventory or erasing hints', () => {
     const memory = memoryStore();
     const c = new GameController(new SaveStore(() => memory), () => `run-${++sequence}`);
+    c.switchMode('guided');
     expect(c.state.mode).toBe('guided');
     c.command({ type: 'support', order: 'guest-0', reason: 'mismatch-explanation' });
     c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
@@ -422,6 +423,7 @@ it('retains inactive mode progress in memory when persistent storage is refused'
     }),
     () => `run-${++sequence}`,
   );
+  c.switchMode('guided');
   c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
   const original = c.state.items;
   c.switchMode('service');

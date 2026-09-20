@@ -72,7 +72,9 @@ export function replenish(s: GameState): void {
   s.session.served += done.length;
   s.orders = s.orders.filter((o) => o.status !== 'done');
   const pool = endlessPool(s.session.unlocked, s.session.support);
-  const max = s.mode === 'service' ? 2 : 1;
+  // Existing customers stay when support increases; replace them only up to
+  // the new policy's concurrency, without deleting an in-progress order.
+  const max = s.mode === 'service' && s.session.support === 'less' ? 2 : 1;
   while (s.orders.length < max) {
     const cursor = s.session.cursor++;
     let request = pool[Math.floor(randomAt(s.session.seed, cursor) * pool.length)] ?? 'apple';

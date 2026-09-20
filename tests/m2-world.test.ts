@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { REQUESTS } from '../src/content/catalog';
-import { CHAPTERS, type Support } from '../src/content/chapters';
+import { CHAPTERS, endlessPool, type Support } from '../src/content/chapters';
 import { type Family, type Product, RAW, RECIPES } from '../src/content/recipes';
+import { GameController } from '../src/platform/controller';
+import { SaveStore } from '../src/platform/save';
 import { advance, createGame, dispatch, trayItems } from '../src/rules/game';
 import {
   beginRound,
@@ -73,6 +75,30 @@ function make(s: GameState, product: Product): [GameState, Source] {
 }
 const families: Family[] = ['juice', 'ice', 'sandwich', 'burger'];
 describe('M2 content-driven world', () => {
+  it('a fresh homepage saves the real training session rather than a legacy one-order stub', () => {
+    const data = new Map<string, string>();
+    const storage = {
+      getItem: (k: string) => data.get(k) ?? null,
+      setItem: (k: string, v: string) => {
+        data.set(k, v);
+      },
+      removeItem: (k: string) => {
+        data.delete(k);
+      },
+    };
+    const c = new GameController(new SaveStore(() => storage), () => 'fresh-training');
+    c.pause('home', true);
+    c.enter('training', 0, 'pictures');
+    expect(c.state.orders.map((o) => o.request)).toEqual([
+      'apple',
+      'banana',
+      'two',
+      'fruit',
+      'juice',
+    ]);
+    expect(validateState(c.state)).toBe(true);
+  });
+
   it('every recipe consumes real inputs, makes one output and restores mid process', () => {
     for (const r of RECIPES) {
       let s = configureSession(createGame('recipe'), 'story', 4, 'pictures', families, 8);
@@ -153,6 +179,30 @@ describe('M2 content-driven world', () => {
       expect(seen.size).toBeGreaterThan(6);
       expect(s.session.served).toBe(100);
     }
+  });
+  it('support changes preserve existing complex orders and reduce subsequent concurrency', () => {
+    let s = Array.from({ length: 100 }, (_, seed) =>
+      configureSession(createGame(`policy-${seed}`), 'endless', 0, 'less', families, seed),
+    ).find((s) => s.orders.some((o) => o.request === 'double-cream'));
+    if (!s) throw Error('complex initial order');
+    s.session.support = 'demonstration';
+    expect(validateState(s)).toBe(true);
+    const cursor = s.session.cursor;
+    for (let n = 0; n < 2; n++) {
+      const order = s.orders.find((o) => o.status === 'waiting');
+      if (!order) throw Error('waiting');
+      for (const product of REQUESTS[order.request].products) {
+        const [next, source] = make(s, product);
+        s = send(next, { type: 'move', source, destination: { tray: 0 } }).state;
+      }
+      s = send(s, { type: 'deliver', tray: 0, order: order.id }).state;
+      s = advance(s, s.trays[0].remaining);
+      expect(validateState(s)).toBe(true);
+      expect(s.orders).toHaveLength(1);
+      if (n === 0) expect(s.session.cursor).toBe(cursor);
+    }
+    expect(endlessPool(families, 'demonstration')).toContain(s.orders[0]?.request);
+    expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
   });
   it('helper and delivery serialize from current position, reserve only needed tray and survive snapshots', () => {
     let s = createGame('overlap');
