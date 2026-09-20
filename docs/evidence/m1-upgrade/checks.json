@@ -1,0 +1,66 @@
+{
+  "implementationSha": "1bf69a1f0db98bd612f309a1a147d00d0e9ab8d4",
+  "environment": {
+    "node": "v26.3.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "os": "macOS 26.5.2 (25F84)",
+    "npm": "11.16.0",
+    "browser": "Chromium 153.0.8010.12, Playwright 1.63.0",
+    "physicalDevice": "NOT_RUN"
+  },
+  "records": [
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run test",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run resources",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run test:browser",
+      "exitCode": 0,
+      "result": "17/17"
+    },
+    {
+      "command": "node scripts/measure-display.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/performance.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/review-videos.mjs",
+      "exitCode": 0
+    }
+  ],
+  "runtime": {
+    "buildSha": "1bf69a1f0db98bd612f309a1a147d00d0e9ab8d4",
+    "buildDirty": "false",
+    "contentVersion": "m1.2",
+    "assetVersion": "34f8548e8adc45b3b90f6c9c6b2f2a6b9730f28d6d858038003c4aa4d058ca51"
+  },
+  "unitTests": "28/28",
+  "resources": "44 physical files, four synthesized layers and nine procedural cues",
+  "limitations": [
+    "No physical iPhone/Android/iPad run",
+    "No human audio listening or content review",
+    "No children observation",
+    "No deployment of this version",
+    "Videos contain no audio track"
+  ]
+}

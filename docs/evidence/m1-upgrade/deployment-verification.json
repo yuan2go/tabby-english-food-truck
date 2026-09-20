@@ -1,0 +1,24 @@
+{
+  "capturedAt": "2026-09-20T16:50:31.042Z",
+  "url": "https://tabby-english-food-truck.yuan576264675.chatgpt.site/",
+  "httpStatus": 200,
+  "session": "fresh browser context, no imported cookies or authentication",
+  "observed": {
+    "title": "狸花猫的英语餐车",
+    "buildSha": "UNKNOWN",
+    "scripts": [
+      "https://tabby-english-food-truck.yuan576264675.chatgpt.site/assets/index-DD0KRite.js"
+    ],
+    "canvas": [
+      {
+        "width": 393,
+        "height": 665,
+        "cssWidth": 393,
+        "cssHeight": 665
+      }
+    ],
+    "normalGameEntry": true
+  },
+  "newBuildDeployment": "PENDING_DEPLOYMENT",
+  "limitation": "Existing site only. It is not the local M1 upgrade and cannot validate that build."
+}
