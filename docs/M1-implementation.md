@@ -2,7 +2,7 @@
 
 ## 当前包实施顺序
 
-基线 `0b904284131eb425118c0a1baa7a8d0663201c8e`。用户已给定完整范围与自主实施授权，在既有权威文档维护设计，不建立平行蓝图。唯一负责人在 `codex/m1-preschool-production` 执行。
+基线 `0b904284131eb425118c0a1baa7a8d0663201c8e`。用户已给定完整范围与自主实施授权，在既有权威文档维护设计，不建立平行蓝图。唯一负责人在 `codex/m1-preschool-production` 执行，交付 [PR #3](https://github.com/yuan2go/tabby-english-food-truck/pull/3)，未合并/部署。
 
 - [x] 定向文档治理：修正年龄、参考与 PR 状态；冻结实际 PNG；历史证据保留为历史。
 - [x] 规则/快照：catalog 定义 guided/practice/service；createGame 依据模式创建内容与并发，单盘约束进入规则及 snapshot；按模式保存恢复，累计跨模式支持。advance 改结构共享避免每帧全状态克隆。测试三模式完成、切换、坏档、守恒。
