@@ -225,7 +225,7 @@ export class TruckScene extends Phaser.Scene {
       const [, tray, slot] = p.split(':');
       const center = l.trays[Number(tray) as TrayId];
       return {
-        x: center.x + (Number(slot) - 1) * Math.min(48, l.trayWidth * 0.26),
+        x: center.x + (Number(slot) - 1) * Math.min(72, Math.max(44, l.trayWidth * 0.26)),
         y: center.y - 7,
       };
     }
@@ -383,7 +383,11 @@ export class TruckScene extends Phaser.Scene {
         for (const slot of s.helper.slots) {
           const g = this.add.graphics();
           g.lineStyle(2, 0xd19638, 0.9);
-          g.strokeCircle(p.x + (slot - 1) * Math.min(48, l.trayWidth * 0.26), p.y - 7, 18);
+          g.strokeCircle(
+            p.x + (slot - 1) * Math.min(72, Math.max(44, l.trayWidth * 0.26)),
+            p.y - 7,
+            18,
+          );
           this.group.add(g);
         }
     }
@@ -418,7 +422,7 @@ export class TruckScene extends Phaser.Scene {
       }
       const to = this.itemPoint(item);
       const size = item.location.startsWith('tray:')
-        ? Math.min(45, l.trayWidth * 0.27)
+        ? Math.min(64, Math.max(45, l.trayWidth * 0.22))
         : 37 * l.scale;
       const image = this.image(item.product, to.x, to.y, size, size);
       if (item.location === 'machine:apple') this.machineApple = image;
@@ -630,6 +634,9 @@ export class TruckScene extends Phaser.Scene {
   }
   private down(p: Phaser.Input.Pointer): void {
     if (this.controller.pauses.size) return;
+    this.ui.focus = null;
+    if (document.activeElement instanceof HTMLElement && document.activeElement.dataset.hotspot)
+      document.activeElement.blur();
     if (this.press) {
       this.cancel();
       return;

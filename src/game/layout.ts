@@ -50,11 +50,23 @@ export function layoutFor(width: number, height: number): Layout {
           { x: width * 0.745, y: height * 0.68 },
         ],
     supplies: [
-      { x: width * (landscape ? 0.28 : 0.15), y: height * (landscape ? 0.82 : 0.85) },
-      { x: width * (landscape ? 0.44 : 0.39), y: height * (landscape ? 0.82 : 0.85) },
-      { x: width * (landscape ? 0.6 : 0.63), y: height * (landscape ? 0.82 : 0.85) },
+      {
+        x: width * (landscape ? 0.28 : 0.15),
+        y: height * (landscape ? (height < 500 ? 0.77 : 0.82) : 0.85),
+      },
+      {
+        x: width * (landscape ? 0.44 : 0.39),
+        y: height * (landscape ? (height < 500 ? 0.77 : 0.82) : 0.85),
+      },
+      {
+        x: width * (landscape ? 0.6 : 0.63),
+        y: height * (landscape ? (height < 500 ? 0.77 : 0.82) : 0.85),
+      },
     ],
-    clear: { x: width * (landscape ? 0.78 : 0.87), y: height * (landscape ? 0.82 : 0.85) },
+    clear: {
+      x: width * (landscape ? 0.78 : 0.87),
+      y: height * (landscape ? (height < 500 ? 0.77 : 0.82) : 0.85),
+    },
     trayWidth: width * (landscape ? 0.2 : 0.46),
   };
 }

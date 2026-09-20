@@ -41,3 +41,4 @@
 - 运行环境在本轮外部发生 Node 切换：初始探测 22.22.2/npm 10.9.7，后续实际命令为 Homebrew Node 26.3.1/npm 11.16.0。本任务没有安装/升级系统 Node；最终证据注明实测环境。
 - 冻结测试最初因 Playwright 强制焦点模拟而没有实际冻结，最小页证明定时器仍运行且无 freeze 事件。改用独立临时 Chromium default context + noDefaults，确认 hidden/freeze/resume 真实事件后保留离线断言；并按 [Chrome Page Lifecycle](https://developer.chrome.com/docs/web-platform/page-lifecycle-api) 的 document freeze/resume 事件加显式暂停、保存和丢弃恢复首帧，保留原断言修复。
 - 生命周期驱动与主 Playwright runner 分进程：原生 CDP 默认上下文必须禁用焦点覆盖，且不能被 runner 的录屏覆盖重新强制活跃；相同的 freeze/resume、任务剩余时间断言保留在 `scripts/check-lifecycle.mjs`，浏览器测试要求其退出码 0 并附实际事件 JSON。
+- 截图复查后，将 <500px 高的横屏原料行上移，避免反馈栏压到物品；Pad 托盘内食品随尺寸增大，槽间距保持可分辨。Canvas 指针开始时清掉残留的语义键盘焦点。针对手机 Canvas、Pad 键盘/旋转、真实合成触控三条受影响路径回归，3/3 通过，不修改规则或宽松化断言。
