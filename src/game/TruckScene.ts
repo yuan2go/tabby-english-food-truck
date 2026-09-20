@@ -64,6 +64,16 @@ export class TruckScene extends Phaser.Scene {
     this.discardDelta = true;
     this.controller.pause('blur', false);
   };
+  private readonly freeze = () => {
+    this.cancel();
+    this.discardDelta = true;
+    this.controller.pause('frozen', true);
+    this.audio.stop();
+  };
+  private readonly resume = () => {
+    this.discardDelta = true;
+    this.controller.pause('frozen', false);
+  };
   private readonly cancelNative = () => this.cancel();
   private readonly key = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -105,6 +115,8 @@ export class TruckScene extends Phaser.Scene {
     this.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.up(pointer));
     this.input.on('pointerupoutside', this.cancelNative);
     document.addEventListener('visibilitychange', this.visibility);
+    document.addEventListener('freeze', this.freeze);
+    document.addEventListener('resume', this.resume);
     window.addEventListener('blur', this.blur);
     window.addEventListener('focus', this.focus);
     window.addEventListener('keydown', this.key);
@@ -115,6 +127,8 @@ export class TruckScene extends Phaser.Scene {
       this.scale.off('resize', this.resize);
       this.input.removeAllListeners();
       document.removeEventListener('visibilitychange', this.visibility);
+      document.removeEventListener('freeze', this.freeze);
+      document.removeEventListener('resume', this.resume);
       window.removeEventListener('blur', this.blur);
       window.removeEventListener('focus', this.focus);
       window.removeEventListener('keydown', this.key);

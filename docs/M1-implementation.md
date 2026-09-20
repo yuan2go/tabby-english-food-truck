@@ -16,8 +16,8 @@
 
 ## 分阶段工作
 
-- [ ] 规则与 M0：配置/真实锁文件；`src/rules` 命令、时钟、快照；`src/content` 有限语法；`tests` 验证守恒、容量、预留、幂等、支持和恢复。
-- [ ] 可玩场景：`src/game` 布局/输入/表现；`src/app` 薄外围；`src/platform` 音频/存储；正常首页可完成串行与交错路径。
+- [x] 规则与 M0：配置/真实锁文件；`src/rules` 命令、时钟、快照；`src/content` 有限语法；`tests` 验证守恒、容量、预留、幂等、支持和恢复。
+- [x] 可玩场景：`src/game` 布局/输入/表现；`src/app` 薄外围；`src/platform` 音频/存储；正常首页可完成串行与交错路径。
 - [ ] 制作：新背景、独立道具、客人、获准参考后的猫动作；登记真实尺寸/Alpha/hash/来源/审核；资源检查入口。
 - [ ] 验证：typecheck、lint、build、test、resources、HTTP Playwright；Canvas 指针和键盘、手机/Pad/旋转、故障恢复、完整视频与实际性能采样。
 - [ ] 交付：更新 STATUS/README/技术与素材记录、阶段提交、push、PR、不合并不部署，画面手感 AWAITING_OWNER_REVIEW。
@@ -39,3 +39,5 @@
 - 浏览器双路径使用实际 Canvas 指针与键盘。编辑五词便签超过加工时长是合法慢想；交错证据使用先助手备苹果、开机后手动配水果并先交付的自然顺序，断言机器仍在加工。
 - 键盘焦点不覆盖食品，帮助仅对显式打开的当前客人显示；切换客人不把帮助文字自动带过去。教学示例自动登记便签 demonstration，关闭帮助不能洗白。
 - 运行环境在本轮外部发生 Node 切换：初始探测 22.22.2/npm 10.9.7，后续实际命令为 Homebrew Node 26.3.1/npm 11.16.0。本任务没有安装/升级系统 Node；最终证据注明实测环境。
+- 冻结测试最初因 Playwright 强制焦点模拟而没有实际冻结，最小页证明定时器仍运行且无 freeze 事件。改用独立临时 Chromium default context + noDefaults，确认 hidden/freeze/resume 真实事件后保留离线断言；并按 [Chrome Page Lifecycle](https://developer.chrome.com/docs/web-platform/page-lifecycle-api) 的 document freeze/resume 事件加显式暂停、保存和丢弃恢复首帧，保留原断言修复。
+- 生命周期驱动与主 Playwright runner 分进程：原生 CDP 默认上下文必须禁用焦点覆盖，且不能被 runner 的录屏覆盖重新强制活跃；相同的 freeze/resume、任务剩余时间断言保留在 `scripts/check-lifecycle.mjs`，浏览器测试要求其退出码 0 并附实际事件 JSON。

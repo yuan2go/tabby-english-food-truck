@@ -1,3 +1,5 @@
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { expect, type Page, test } from '@playwright/test';
 import type { GameState } from '../src/rules/types';
 
@@ -22,8 +24,8 @@ async function drag(page: Page, from: string, to: string, dy = 0) {
   await page.mouse.move(b.x, b.y, { steps: 12 });
   await page.mouse.up();
 }
-async function start(page: Page) {
-  await page.goto('/');
+async function start(page: Page, url = '/') {
+  await page.goto(url);
   await page.getByRole('button', { name: '开摊啦', exact: true }).click();
   await expect(page.getByRole('dialog', { name: '小食谱' })).toBeVisible();
   await page.getByRole('button', { name: '听 apple', exact: true }).click();
@@ -303,25 +305,15 @@ test.describe('touch and lifecycle', () => {
 });
 
 test('T02 Chromium freeze/resume does not award offline machine or helper time', async ({
-  page,
-}) => {
-  await start(page);
-  await makeJuice(page);
-  await note(page, ['two', 'apples']);
-  await page.getByRole('button', { name: '暂停', exact: true }).click();
-  const before = await snapshot(page);
-  expect(before.helper).not.toBeNull();
-  await page.getByRole('button', { name: '继续营业', exact: true }).click();
-  const client = await page.context().newCDPSession(page);
-  await client.send('Page.setWebLifecycleState', { state: 'frozen' });
-  await new Promise((resolve) => setTimeout(resolve, 1800));
-  await client.send('Page.setWebLifecycleState', { state: 'active' });
-  await page.getByRole('button', { name: '暂停', exact: true }).click();
-  const after = await snapshot(page);
-  expect(after.helper).not.toBeNull();
-  expect((before.helper?.remaining ?? 0) - (after.helper?.remaining ?? 0)).toBeLessThan(600);
-  expect(before.machine.remaining - after.machine.remaining).toBeLessThan(600);
-  await client.detach();
+  browserName,
+}, info) => {
+  expect(browserName).toBe('chromium');
+  // The separate driver avoids the runner's forced focus and screencast overrides.
+  // All lifecycle and remaining-time assertions live in the child and must exit 0.
+  const { stdout } = await promisify(execFile)(process.execPath, ['scripts/check-lifecycle.mjs'], {
+    timeout: 45000,
+  });
+  await info.attach('native-lifecycle', { body: stdout, contentType: 'application/json' });
 });
 
 test('T08 both trays full and wrong juice can recover without an empty tray', async ({ page }) => {
