@@ -1,4 +1,4 @@
-import type { Product, RequestId } from '../content/catalog';
+import type { Mode, Product, RequestId } from '../content/catalog';
 export type TrayId = 0 | 1;
 export type Location = `tray:${TrayId}:${0 | 1 | 2}` | 'machine:apple' | 'machine:cup' | 'helper';
 export interface Item {
@@ -7,14 +7,18 @@ export interface Item {
   location: Location;
 }
 export interface Order {
+  revisit: boolean;
   id: string;
   request: RequestId;
   seat: TrayId;
-  status: 'waiting' | 'leaving' | 'done';
+  status: 'queued' | 'waiting' | 'leaving' | 'done';
   remaining: number;
   support: string[];
 }
 export interface Attempt {
+  condition: 'guided' | 'assisted' | 'independent-condition';
+  visit: 'first' | 'revisit';
+  audioQualified: false;
   runId: string;
   activity: 'delivery' | 'note';
   input: string;
@@ -30,7 +34,9 @@ export interface AudioRecord {
   gameTime: number;
 }
 export interface GameState {
-  schemaVersion: 1;
+  schemaVersion: 2;
+  mode: Mode;
+  history: Partial<Record<RequestId, string[]>>;
   contentVersion: string;
   runId: string;
   revision: number;
@@ -68,6 +74,7 @@ export type Command =
   | { type: 'start-machine' }
   | { type: 'deliver'; tray: TrayId; order: string }
   | { type: 'note'; tray: TrayId; tokens: string[] }
+  | { type: 'picture-request'; tray: TrayId; fruits: ('apple' | 'banana')[] }
   | { type: 'cancel-helper' }
   | { type: 'support'; order: string | 'all'; reason: string }
   | { type: 'lesson'; lesson: string }

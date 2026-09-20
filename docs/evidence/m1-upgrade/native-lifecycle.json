@@ -1,0 +1,13 @@
+{
+  "events": [
+    "visibilitychange:hidden",
+    "freeze:hidden",
+    "resume:hidden",
+    "visibilitychange:visible"
+  ],
+  "offlineMilliseconds": 1800,
+  "beforeHelper": 1966.7,
+  "afterHelper": 1916.7,
+  "beforeMachine": 4833.300000000002,
+  "afterMachine": 4783.300000000002
+}

@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m1-upgrade
+
+
+ Test Files  2 passed (2)
+      Tests  28 passed (28)
+   Start at  00:43:59
+   Duration  421ms (transform 366ms, setup 0ms, import 461ms, tests 19ms, environment 0ms)
+

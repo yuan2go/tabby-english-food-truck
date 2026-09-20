@@ -1,0 +1,108 @@
+[
+  {
+    "name": "baseline",
+    "url": "http://127.0.0.1:5184",
+    "source": "0b904284131eb425118c0a1baa7a8d0663201c8e (git archive, unmodified source)",
+    "status": 200,
+    "data": {
+      "viewport": {
+        "width": 393,
+        "height": 665,
+        "dpr": 3,
+        "visualScale": 1
+      },
+      "canvas": {
+        "width": 393,
+        "height": 665,
+        "cssWidth": 393,
+        "cssHeight": 665,
+        "transform": "none",
+        "world": {
+          "width": "not exposed",
+          "height": "not exposed"
+        }
+      },
+      "textTextures": [
+        {
+          "text": "开始榨汁",
+          "font": "bold 17px \"Trebuchet MS\", \"PingFang SC\", sans-serif",
+          "width": 78,
+          "height": 24,
+          "transformScale": 1
+        },
+        {
+          "text": "1号盘 · 递出",
+          "font": "bold 16px \"Trebuchet MS\", \"PingFang SC\", sans-serif",
+          "width": 99,
+          "height": 23,
+          "transformScale": 1
+        }
+      ],
+      "build": {},
+      "scripts": [
+        "http://127.0.0.1:5184/@vite/client",
+        "http://127.0.0.1:5184/src/main.tsx"
+      ],
+      "minSemanticHit": 44,
+      "scroll": {
+        "width": 393,
+        "height": 665
+      }
+    }
+  },
+  {
+    "name": "after",
+    "url": "http://127.0.0.1:4173",
+    "source": "read from runtime build metadata",
+    "status": 200,
+    "data": {
+      "viewport": {
+        "width": 393,
+        "height": 665,
+        "dpr": 3,
+        "visualScale": 1
+      },
+      "canvas": {
+        "width": 983,
+        "height": 1663,
+        "cssWidth": 393,
+        "cssHeight": 665,
+        "transform": "none",
+        "world": {
+          "width": "393",
+          "height": "665"
+        }
+      },
+      "textTextures": [
+        {
+          "text": "1号盘 · 递出",
+          "font": "bold 18px \"Trebuchet MS\", \"PingFang SC\", sans-serif",
+          "width": 277,
+          "height": 69,
+          "transformScale": 2.5
+        },
+        {
+          "text": "▶ 榨汁",
+          "font": "bold 18px \"Trebuchet MS\", \"PingFang SC\", sans-serif",
+          "width": 170,
+          "height": 69,
+          "transformScale": 2.5
+        }
+      ],
+      "build": {
+        "buildSha": "1bf69a1f0db98bd612f309a1a147d00d0e9ab8d4",
+        "buildDirty": "false",
+        "contentVersion": "m1.2",
+        "assetVersion": "34f8548e8adc45b3b90f6c9c6b2f2a6b9730f28d6d858038003c4aa4d058ca51"
+      },
+      "scripts": [
+        "http://127.0.0.1:4173/assets/index-B-jm2gfp.js"
+      ],
+      "minSemanticHit": 44,
+      "scroll": {
+        "width": 393,
+        "height": 665
+      }
+    }
+  }
+]

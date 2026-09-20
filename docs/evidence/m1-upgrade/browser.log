@@ -1,0 +1,30 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+
+Running 17 tests using 1 worker
+
+(node:10374) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/game.spec.ts:78:1 › T06 phone Canvas interleaved full service, helper binding, visible ending (13.3s)
+  ✓   2 e2e/game.spec.ts:115:3 › Pad recording › T06 Pad serial complete path by keyboard, layout and rotation (14.9s)
+  ✓   3 e2e/game.spec.ts:154:1 › T08/T09 small phone mismatch, full tray, cancellation and recovery (3.0s)
+  ✓   4 e2e/game.spec.ts:187:1 › T02/T10 refresh during machine/helper, pause, no offline catch-up (11.2s)
+  ✓   5 e2e/game.spec.ts:209:1 › T10 future save is retained and can export before explicit restart (1.5s)
+  ✓   6 e2e/game.spec.ts:222:1 › T11 missing assets/audio retry preserve world and independent DOM hides request (1.9s)
+  ✓   7 e2e/game.spec.ts:247:1 › T05 support cannot leak across guests and demonstration persists (2.1s)
+  ✓   8 e2e/game.spec.ts:265:1 › T10 rejected storage keeps game playable and exports in-memory snapshot (1.5s)
+  ✓   9 e2e/game.spec.ts:284:3 › touch and lifecycle › T09 true touch placement, pointer cancellation, multi-touch and rotate (2.2s)
+  ✓  10 e2e/game.spec.ts:347:1 › T02 Chromium freeze/resume does not award offline machine or helper time (5.4s)
+  ✓  11 e2e/game.spec.ts:359:1 › T08 both trays full and wrong juice can recover without an empty tray (8.1s)
+(node:10487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 e2e/upgrade.spec.ts:57:3 › M1 true mobile touch and DPR › guided from normal home through teaching and whole tray touch delivery (25.3s)
+  ✓  13 e2e/upgrade.spec.ts:108:3 › M1 true mobile touch and DPR › double service touch path, banana source and combination binding, interleaved delivery (27.2s)
+  ✓  14 e2e/upgrade.spec.ts:154:3 › M1 true mobile touch and DPR › continuous commands retain live item motion and stable scene entities (8.3s)
+  ✓  15 e2e/upgrade.spec.ts:192:3 › M1 true mobile touch and DPR › practice single-customer variety finishes all five requests and keeps hints on mode switch (50.8s)
+  ✓  16 e2e/upgrade.spec.ts:240:3 › M1 true mobile touch and DPR › note touch reorder distinct duplicate tokens, return, cancel, multi-touch and rotation (17.2s)
+  ✓  17 e2e/upgrade.spec.ts:314:1 › audio layers duck, machine lifecycle, muted settings and voice failure recovery (8.4s)
+
+  17 passed (3.4m)

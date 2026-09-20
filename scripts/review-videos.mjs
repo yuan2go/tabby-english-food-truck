@@ -1,13 +1,14 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
 import sharp from 'sharp';
 
+const root = 'docs/evidence/m1-upgrade';
 const browser = await chromium.launch();
-for (const name of ['phone-interleaved', 'pad-serial']) {
-  const bytes = await readFile(`docs/evidence/${name}.webm`);
+for (const name of ['guided-touch', 'service-touch', 'pad-serial']) {
+  const bytes = await readFile(`${root}/${name}.webm`);
   const page = await browser.newPage({ viewport: { width: 800, height: 800 } });
   await page.setContent(
-    '<html><body style="margin:0"><video muted style="display:block;width:320px"></video></body></html>',
+    '<html><body style="margin:0"><video muted style="display:block;width:384px"></video></body></html>',
   );
   const duration = await page.evaluate(
     async (src) => {
@@ -19,8 +20,27 @@ for (const name of ['phone-interleaved', 'pad-serial']) {
     `data:video/webm;base64,${bytes.toString('base64')}`,
   );
   if (!Number.isFinite(duration)) throw new Error('Video duration unavailable');
-  const images = [];
-  const interval = 0.5;
+  const interval = 0.5,
+    pages = [];
+  let tiles = [],
+    frameCount = 0;
+  await mkdir(`${root}/review`, { recursive: true });
+  const flush = async () => {
+    const file = `${root}/review/${name}-${pages.length + 1}.jpg`;
+    await sharp({
+      create: {
+        width: 768,
+        height: Math.ceil(tiles.length / 2 / 4) * 352,
+        channels: 3,
+        background: '#173e32',
+      },
+    })
+      .composite(tiles)
+      .jpeg({ quality: 85 })
+      .toFile(file);
+    pages.push(file);
+    tiles = [];
+  };
   for (let time = 0.01; time < duration; time += interval) {
     await page.evaluate(
       async (time) => {
@@ -33,56 +53,43 @@ for (const name of ['phone-interleaved', 'pad-serial']) {
       Math.min(time, duration - 0.02),
     );
     const frame = await page.locator('video').screenshot();
-    const image = await sharp(frame)
-      .resize({ width: 160, height: 347, fit: 'contain', background: '#173e32' })
+    const input = await sharp(frame)
+      .resize({ width: 192, height: 330, fit: 'contain', background: '#173e32' })
       .png()
       .toBuffer();
-    images.push({
-      input: image,
-      left: (images.length % 8) * 160,
-      top: Math.floor(images.length / 8) * 365,
-    });
-    const label = Buffer.from(
-      `<svg width="160" height="18"><rect width="160" height="18" fill="#fff4dc"/><text x="8" y="13" font-size="12">${time.toFixed(1)}s</text></svg>`,
+    const n = tiles.length / 2,
+      left = (n % 4) * 192,
+      top = Math.floor(n / 4) * 352;
+    tiles.push(
+      { input, left, top },
+      {
+        input: Buffer.from(
+          `<svg width="192" height="22"><rect width="192" height="22" fill="#fff4dc"/><text x="8" y="16" font-size="14">${name} ${time.toFixed(1)}s</text></svg>`,
+        ),
+        left,
+        top: top + 330,
+      },
     );
-    images.push({ input: label, left: (((images.length - 1) / 2) % 8) * 160, top: 0 });
+    frameCount++;
+    if (tiles.length === 32) await flush();
   }
-  // Reindex paired frame/label entries into a regular contact sheet.
-  const composites = [];
-  for (let index = 0; index < images.length / 2; index++) {
-    const left = (index % 8) * 160,
-      top = Math.floor(index / 8) * 365;
-    composites.push(
-      { ...images[index * 2], left, top },
-      { ...images[index * 2 + 1], left, top: top + 347 },
-    );
-  }
-  await sharp({
-    create: {
-      width: 1280,
-      height: Math.ceil(images.length / 2 / 8) * 365,
-      channels: 3,
-      background: '#173e32',
-    },
-  })
-    .composite(composites)
-    .png()
-    .toFile(`docs/evidence/${name}-review.png`);
+  if (tiles.length) await flush();
   await writeFile(
-    `docs/evidence/${name}-review.json`,
+    `${root}/${name}-review.json`,
     JSON.stringify(
       {
         durationSeconds: duration,
         intervalSeconds: interval,
-        frames: images.length / 2,
+        frames: frameCount,
+        pages,
         method:
-          'Full-duration sequential video frame inspection at 0.5 second intervals; video has no audio track',
+          'Full-duration sequential contact sheets at 0.5-second intervals. Video has no audio track; generation is not human listening or owner approval.',
       },
       null,
       2,
     ),
   );
-  console.log(name, duration, images.length / 2);
+  console.log(name, duration, frameCount, pages.length);
   await page.close();
 }
 await browser.close();

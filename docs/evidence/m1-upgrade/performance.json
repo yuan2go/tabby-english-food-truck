@@ -1,0 +1,427 @@
+{
+  "capturedAt": "2026-09-20T16:49:24.096Z",
+  "environment": "macOS arm64, Chromium Playwright, local production preview HTTP, fresh browser context, no network or CPU throttle",
+  "viewport": {
+    "width": 393,
+    "height": 665
+  },
+  "homeReadyWallMs": 1436,
+  "inputToSecondAnimationFrame": {
+    "samples": 14,
+    "p50": 43,
+    "p95": 59.6000000089407,
+    "max": 59.6000000089407,
+    "limitation": "Pointer-up to second requestAnimationFrame proxy; not direct display latency or Event Timing INP"
+  },
+  "activeOperationFrames": {
+    "samples": 159,
+    "p95Ms": 50.100000000000364,
+    "maxMs": 83.30000000000018
+  },
+  "transferBytes": 2526948,
+  "measurements": {
+    "samples": [
+      47,
+      40.20000000298023,
+      45.20000000298023,
+      40.70000000298023,
+      55.5,
+      43,
+      41.19999998807907,
+      40.5,
+      40.79999999701977,
+      40.70000000298023,
+      50.79999999701977,
+      49.3999999910593,
+      53.8999999910593,
+      59.6000000089407
+    ],
+    "frames": [
+      50,
+      33.40000000000009,
+      33.29999999999973,
+      50,
+      33.30000000000018,
+      50,
+      33.40000000000009,
+      49.899999999999636,
+      33.30000000000018,
+      33.40000000000009,
+      50,
+      50,
+      50,
+      50,
+      33.40000000000009,
+      50,
+      33.19999999999982,
+      50.09999999999991,
+      33.20000000000027,
+      33.5,
+      49.899999999999636,
+      33.30000000000018,
+      50,
+      33.40000000000009,
+      33.29999999999973,
+      33.30000000000018,
+      50,
+      33.40000000000009,
+      50,
+      50,
+      50,
+      33.29999999999973,
+      50,
+      33.30000000000018,
+      50,
+      33.40000000000009,
+      49.90000000000009,
+      33.399999999999636,
+      33.30000000000018,
+      50,
+      33.399999999999636,
+      33.20000000000073,
+      50.099999999999454,
+      33.30000000000018,
+      33.399999999999636,
+      50,
+      33.20000000000073,
+      50.099999999999454,
+      33.30000000000018,
+      50,
+      50,
+      33.30000000000018,
+      50,
+      33.30000000000018,
+      33.399999999999636,
+      50,
+      33.30000000000018,
+      50,
+      33.399999999999636,
+      33.30000000000018,
+      50,
+      33.30000000000018,
+      50,
+      50,
+      33.399999999999636,
+      50,
+      33.19999999999982,
+      50.100000000000364,
+      33.30000000000018,
+      50,
+      33.399999999999636,
+      50,
+      33.30000000000018,
+      66.69999999999982,
+      33.19999999999982,
+      50,
+      33.400000000000546,
+      33.30000000000018,
+      50,
+      33.399999999999636,
+      33.30000000000018,
+      50,
+      49.899999999999636,
+      33.400000000000546,
+      50,
+      33.399999999999636,
+      50,
+      33.30000000000018,
+      33.30000000000018,
+      50,
+      33.29999999999927,
+      33.400000000000546,
+      83.30000000000018,
+      50,
+      66.59999999999945,
+      50.100000000000364,
+      33.30000000000018,
+      66.69999999999982,
+      49.899999999999636,
+      33.400000000000546,
+      50,
+      33.29999999999927,
+      50,
+      33.30000000000018,
+      50.100000000000364,
+      33.30000000000018,
+      49.899999999999636,
+      33.399999999999636,
+      33.400000000000546,
+      49.899999999999636,
+      50.100000000000364,
+      49.899999999999636,
+      33.30000000000018,
+      50.100000000000364,
+      33.29999999999927,
+      50,
+      33.30000000000018,
+      50.100000000000364,
+      33.19999999999982,
+      50,
+      33.399999999999636,
+      33.400000000000546,
+      49.899999999999636,
+      50,
+      50,
+      33.400000000000546,
+      49.899999999999636,
+      50,
+      33.30000000000018,
+      50.099999999999454,
+      33.30000000000018,
+      50,
+      33.30000000000018,
+      33.399999999999636,
+      49.899999999999636,
+      50,
+      50.100000000000364,
+      33.30000000000109,
+      49.899999999999636,
+      50.100000000000364,
+      50,
+      49.899999999999636,
+      50.100000000000364,
+      33.29999999999927,
+      50,
+      33.29999999999927,
+      50,
+      33.30000000000109,
+      50.100000000000364,
+      33.29999999999927,
+      66.60000000000036,
+      33.399999999999636,
+      50,
+      33.29999999999927,
+      33.400000000001455,
+      49.899999999999636,
+      33.399999999999636,
+      50,
+      50
+    ]
+  },
+  "resources": [
+    {
+      "name": "index-B-jm2gfp.js",
+      "transferSize": 83015,
+      "encodedBodySize": 82715,
+      "duration": 19.19999998807907
+    },
+    {
+      "name": "phaser-DXXWZowi.js",
+      "transferSize": 330372,
+      "encodedBodySize": 330072,
+      "duration": 43.79999999701977
+    },
+    {
+      "name": "index-Cj4pzg9s.css",
+      "transferSize": 3925,
+      "encodedBodySize": 3625,
+      "duration": 11.100000008940697
+    },
+    {
+      "name": "cat-greet.webp?v=34f8548e8adc45b3",
+      "transferSize": 118020,
+      "encodedBodySize": 117720,
+      "duration": 1.5
+    },
+    {
+      "name": "cat-idle.webp?v=34f8548e8adc45b3",
+      "transferSize": 114758,
+      "encodedBodySize": 114458,
+      "duration": 21.299999997019768
+    },
+    {
+      "name": "cat-reach.webp?v=34f8548e8adc45b3",
+      "transferSize": 158390,
+      "encodedBodySize": 158090,
+      "duration": 22.69999998807907
+    },
+    {
+      "name": "cat-read.webp?v=34f8548e8adc45b3",
+      "transferSize": 120494,
+      "encodedBodySize": 120194,
+      "duration": 22.19999998807907
+    },
+    {
+      "name": "cat-place.webp?v=34f8548e8adc45b3",
+      "transferSize": 162914,
+      "encodedBodySize": 162614,
+      "duration": 22.200000002980232
+    },
+    {
+      "name": "cat-carry.webp?v=34f8548e8adc45b3",
+      "transferSize": 118112,
+      "encodedBodySize": 117812,
+      "duration": 21.700000002980232
+    },
+    {
+      "name": "cat-blocked.webp?v=34f8548e8adc45b3",
+      "transferSize": 114904,
+      "encodedBodySize": 114604,
+      "duration": 21.400000005960464
+    },
+    {
+      "name": "cat-greet.webp?v=34f8548e8adc45b3",
+      "transferSize": 300,
+      "encodedBodySize": 117720,
+      "duration": 24.100000008940697
+    },
+    {
+      "name": "cat-celebrate.webp?v=34f8548e8adc45b3",
+      "transferSize": 130656,
+      "encodedBodySize": 130356,
+      "duration": 26.100000008940697
+    },
+    {
+      "name": "market.webp?v=34f8548e8adc45b3",
+      "transferSize": 172360,
+      "encodedBodySize": 172060,
+      "duration": 27.599999994039536
+    },
+    {
+      "name": "apple.webp?v=34f8548e8adc45b3",
+      "transferSize": 33032,
+      "encodedBodySize": 32732,
+      "duration": 25.100000008940697
+    },
+    {
+      "name": "banana.webp?v=34f8548e8adc45b3",
+      "transferSize": 22490,
+      "encodedBodySize": 22190,
+      "duration": 25.5
+    },
+    {
+      "name": "cup.webp?v=34f8548e8adc45b3",
+      "transferSize": 43206,
+      "encodedBodySize": 42906,
+      "duration": 26.5
+    },
+    {
+      "name": "juice.webp?v=34f8548e8adc45b3",
+      "transferSize": 33932,
+      "encodedBodySize": 33632,
+      "duration": 26.600000008940697
+    },
+    {
+      "name": "machine.webp?v=34f8548e8adc45b3",
+      "transferSize": 68602,
+      "encodedBodySize": 68302,
+      "duration": 32
+    },
+    {
+      "name": "tray.webp?v=34f8548e8adc45b3",
+      "transferSize": 108080,
+      "encodedBodySize": 107780,
+      "duration": 32.29999999701977
+    },
+    {
+      "name": "guest-0-0.webp?v=34f8548e8adc45b3",
+      "transferSize": 43046,
+      "encodedBodySize": 42746,
+      "duration": 29.299999997019768
+    },
+    {
+      "name": "guest-0-1.webp?v=34f8548e8adc45b3",
+      "transferSize": 43826,
+      "encodedBodySize": 43526,
+      "duration": 29.400000005960464
+    },
+    {
+      "name": "guest-0-2.webp?v=34f8548e8adc45b3",
+      "transferSize": 44500,
+      "encodedBodySize": 44200,
+      "duration": 32.70000000298023
+    },
+    {
+      "name": "guest-1-0.webp?v=34f8548e8adc45b3",
+      "transferSize": 47708,
+      "encodedBodySize": 47408,
+      "duration": 33.20000000298023
+    },
+    {
+      "name": "guest-1-2.webp?v=34f8548e8adc45b3",
+      "transferSize": 49814,
+      "encodedBodySize": 49514,
+      "duration": 33.400000005960464
+    },
+    {
+      "name": "guest-1-1.webp?v=34f8548e8adc45b3",
+      "transferSize": 48972,
+      "encodedBodySize": 48672,
+      "duration": 33.5
+    },
+    {
+      "name": "apple.webp?v=34f8548e8adc45b3",
+      "transferSize": 300,
+      "encodedBodySize": 32732,
+      "duration": 1.5
+    },
+    {
+      "name": "banana.webp?v=34f8548e8adc45b3",
+      "transferSize": 300,
+      "encodedBodySize": 22190,
+      "duration": 1.9000000059604645
+    },
+    {
+      "name": "tray.webp?v=34f8548e8adc45b3",
+      "transferSize": 300,
+      "encodedBodySize": 107780,
+      "duration": 2.2999999970197678
+    },
+    {
+      "name": "note.wav?v=34f8548e8adc45b3",
+      "transferSize": 94786,
+      "encodedBodySize": 94486,
+      "duration": 3.6000000089406967
+    },
+    {
+      "name": "request-fruit.wav?v=34f8548e8adc45b3",
+      "transferSize": 94786,
+      "encodedBodySize": 94486,
+      "duration": 3.5
+    },
+    {
+      "name": "machine.webp?v=34f8548e8adc45b3",
+      "transferSize": 300,
+      "encodedBodySize": 68302,
+      "duration": 2.9000000059604645
+    },
+    {
+      "name": "juice.webp?v=34f8548e8adc45b3",
+      "transferSize": 300,
+      "encodedBodySize": 33632,
+      "duration": 3.2999999970197678
+    },
+    {
+      "name": "juice.wav?v=34f8548e8adc45b3",
+      "transferSize": 44096,
+      "encodedBodySize": 43796,
+      "duration": 3.8999999910593033
+    },
+    {
+      "name": "request-juice.wav?v=34f8548e8adc45b3",
+      "transferSize": 76352,
+      "encodedBodySize": 76052,
+      "duration": 2.7999999970197678
+    }
+  ],
+  "navigation": [
+    {
+      "duration": 353,
+      "domContentLoaded": 195.3999999910593
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "build": {
+    "buildSha": "1bf69a1f0db98bd612f309a1a147d00d0e9ab8d4",
+    "buildDirty": "false",
+    "contentVersion": "m1.2",
+    "assetVersion": "34f8548e8adc45b3b90f6c9c6b2f2a6b9730f28d6d858038003c4aa4d058ca51"
+  },
+  "canvas": {
+    "width": 983,
+    "height": 1663,
+    "cssWidth": 393,
+    "cssHeight": 665,
+    "dpr": 3
+  }
+}

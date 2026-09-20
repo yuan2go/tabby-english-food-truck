@@ -1,4 +1,4 @@
-import type { Product } from '../content/catalog';
+import { type Product, REQUESTS } from '../content/catalog';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { GameState, Source, TrayId } from '../rules/types';
@@ -13,6 +13,10 @@ export interface Hotspot {
   kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note';
 }
 export interface ViewState {
+  elements: Map<string, HTMLButtonElement>;
+  lowGraphics: boolean;
+  inputBlocked: boolean;
+  teaching: string | null;
   selected: Selection;
   selectedTray: TrayId;
   selectedGuest: string;
@@ -42,6 +46,16 @@ export function activate(
   const s = controller.state;
   const selected = dragSource ?? ui.selected;
   const isSource = selected && ('supply' in selected || 'item' in selected);
+  // While carrying something, food on a destination is part of that destination.
+  // An in-flight item must not swallow the next placement and silently select itself.
+  // Pointer, drag and keyboard all take this same route through the rule command.
+  const targetItem = id.startsWith('item-')
+    ? s.items.find((item) => item.id === id.slice(5))
+    : undefined;
+  if (isSource && targetItem && (!('item' in selected) || selected.item !== targetItem.id)) {
+    if (targetItem.location.startsWith('tray:')) id = `tray-${targetItem.location.split(':')[1]}`;
+    else if (targetItem.location.startsWith('machine:')) id = targetItem.location.replace(':', '-');
+  }
   let command: Parameters<GameController['command']>[0] | undefined;
   if (id === 'note') {
     ui.openNote();
@@ -71,15 +85,13 @@ export function activate(
     else {
       ui.selected = null;
       const o = s.orders.find((o) => o.id === id);
-      if (o?.status === 'waiting')
-        void audio.play(o.request === 'juice' ? 'request-juice' : 'request-fruit');
+      if (o?.status === 'waiting') void audio.play(REQUESTS[o.request].audio);
     }
   } else {
     const next = sourceFor(id, s);
     if (next) {
       ui.selected = next;
       controller.message = '拿起来了。点一个位置放下；按 Esc 或空白处取消。';
-      audio.effect('place');
     } else {
       ui.selected = null;
       controller.message = '已取消拿取，物品留在原处。';
@@ -97,10 +109,9 @@ export function activate(
     if (result.kind === 'ok') {
       ui.selected = null;
       if (action.type === 'deliver') void audio.play('thanks');
-      audio.effect(
-        action.type === 'deliver' ? 'success' : action.type === 'start-machine' ? 'start' : 'place',
-      );
-    }
+      if (action.type === 'move')
+        audio.effect('machine' in action.destination ? 'insert' : 'place');
+    } else if (result.kind !== 'confirm') audio.effect('gentle');
   }
   ui.change();
 }

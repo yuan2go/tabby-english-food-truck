@@ -1,4 +1,12 @@
-import { CONTENT_VERSION, HELPER_MS, JUICE_MS, RETURN_MS } from '../content/catalog';
+import {
+  CONTENT_VERSION,
+  HELPER_MS,
+  JUICE_MS,
+  MODES,
+  REQUESTS,
+  RETURN_MS,
+  requestsFor,
+} from '../content/catalog';
 import type { GameState } from './types';
 
 const record = (v: unknown): v is Record<string, unknown> =>
@@ -16,8 +24,11 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 1 ||
+    v.schemaVersion !== 2 ||
     v.contentVersion !== CONTENT_VERSION ||
+    !['guided', 'practice', 'service'].includes(v.mode as string) ||
+    !record(v.history) ||
+    Object.entries(v.history).some(([key, values]) => !(key in REQUESTS) || !strings(values, 24)) ||
     !str(v.runId) ||
     !integer(v.revision) ||
     !integer(v.nextId) ||
@@ -41,14 +52,16 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     !Array.isArray(v.orders) ||
-    v.orders.length !== 2 ||
+    v.orders.length < 1 ||
+    v.orders.length > 5 ||
     !v.orders.every(
       (o) =>
         record(o) &&
+        typeof o.revisit === 'boolean' &&
         str(o.id) &&
-        ['juice', 'fruit'].includes(o.request as string) &&
+        Object.keys(REQUESTS).includes(o.request as string) &&
         [0, 1].includes(o.seat as number) &&
-        ['waiting', 'leaving', 'done'].includes(o.status as string) &&
+        ['queued', 'waiting', 'leaving', 'done'].includes(o.status as string) &&
         number(o.remaining, RETURN_MS) &&
         strings(o.support, 24) &&
         unique(o.support),
@@ -98,6 +111,9 @@ export function validateState(v: unknown): v is GameState {
     !v.attempts.every(
       (a) =>
         record(a) &&
+        ['guided', 'assisted', 'independent-condition'].includes(a.condition as string) &&
+        ['first', 'revisit'].includes(a.visit as string) &&
+        a.audioQualified === false &&
         str(a.runId) &&
         ['delivery', 'note'].includes(a.activity as string) &&
         str(a.input) &&
@@ -131,17 +147,36 @@ export function validateState(v: unknown): v is GameState {
   )
     return false;
   if (s.items.some((i) => Number(i.id.slice(5)) >= s.nextId)) return false;
+  const expected = requestsFor(s.mode, s.variant);
   if (
-    !unique(s.orders.map((o) => o.request)) ||
-    !unique(s.orders.map((o) => o.seat)) ||
+    s.orders.length !== expected.length ||
     s.orders.some(
-      (o) =>
-        o.id !== `guest-${o.seat}` ||
-        o.request !== (o.seat === s.variant ? 'juice' : 'fruit') ||
+      (o, i) =>
+        o.request !== expected[i] ||
+        o.id !== `guest-${i}` ||
+        o.seat !== (s.mode === 'service' ? i : s.variant) ||
         (o.status === 'leaving' ? o.remaining <= 0 : o.remaining !== 0),
     )
   )
     return false;
+  if (s.mode !== 'service') {
+    if (s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving').length > 1)
+      return false;
+    const firstUnfinished = s.orders.findIndex((o) => o.status !== 'done');
+    if (
+      firstUnfinished >= 0 &&
+      (s.orders[firstUnfinished]?.status === 'queued' ||
+        s.orders.slice(firstUnfinished + 1).some((o) => o.status !== 'queued'))
+    )
+      return false;
+    if (
+      s.items.some((i) => i.location.startsWith('tray:1:')) ||
+      s.helper?.tray === 1 ||
+      s.trays[1].remaining
+    )
+      return false;
+  } else if (s.orders.some((o) => o.status === 'queued')) return false;
+  if (s.helper && !MODES[s.mode].trays.includes(s.helper.tray)) return false;
   if (
     s.items.some(
       (i) =>

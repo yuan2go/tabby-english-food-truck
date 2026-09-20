@@ -24,19 +24,20 @@ async function drag(page: Page, from: string, to: string, dy = 0) {
   await page.mouse.move(b.x, b.y, { steps: 12 });
   await page.mouse.up();
 }
+async function dismissTeaching(page: Page) {
+  if (await page.getByRole('button', { name: '我来试试' }).count())
+    await page.getByRole('button', { name: '我来试试' }).click();
+}
 async function start(page: Page, url = '/') {
   await page.goto(url);
+  await page.getByRole('button', { name: '小小餐车营业中' }).click();
   await page.getByRole('button', { name: '开摊啦', exact: true }).click();
-  await expect(page.getByRole('dialog', { name: '小食谱' })).toBeVisible();
-  await page.getByRole('button', { name: '听 apple', exact: true }).click();
-  await page.getByRole('button', { name: '明白了，继续' }).click();
-  await page.getByRole('button', { name: '明白了，继续' }).click();
-  await page.getByRole('button', { name: '开始接待' }).click();
-  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
+  await dismissTeaching(page);
 }
 async function identify(page: Page) {
   await tap(page, 'guest-0');
-  await page.getByRole('button', { name: '文字帮助', exact: true }).click();
+  await page.getByRole('button', { name: '图示帮助', exact: true }).click();
   const juice = (await page.locator('.request-caption').innerText()).includes('Apple juice')
     ? 'guest-0'
     : 'guest-1';
@@ -49,7 +50,11 @@ async function makeJuice(page: Page) {
   await tap(page, 'start');
 }
 async function takeJuice(page: Page) {
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await dismissTeaching(page);
+  await expect
+    .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
+  await dismissTeaching(page);
   const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
   if (!cup) throw new Error('missing juice');
   await drag(page, `item-${cup.id}`, 'tray-0', 22);
@@ -57,6 +62,7 @@ async function takeJuice(page: Page) {
 async function deliver(page: Page, tray: 0 | 1, guest: string) {
   await tap(page, `tray-${tray}`, 25);
   await tap(page, guest);
+  await dismissTeaching(page);
 }
 async function note(page: Page, words: string[]) {
   await tap(page, 'tray-1', 25);
@@ -116,20 +122,25 @@ test.describe('Pad recording', () => {
     await key('supply-cup');
     await key('machine-cup');
     await key('start');
-    await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+    await expect
+      .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+      .toBe('ready');
     const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
     if (!cup) throw new Error('cup');
     await key(`item-${cup.id}`);
     await key('tray-0');
     await key('tray-0');
     await key(guests.juice);
+    await dismissTeaching(page);
     await key('supply-banana');
     await key('tray-1');
     await key('supply-apple');
     await key('tray-1');
     await page.screenshot({ path: info.outputPath('pad-portrait.png') });
     await page.setViewportSize({ width: 1024, height: 768 });
-    await expect(page.locator('canvas')).toHaveJSProperty('width', 1024);
+    await expect
+      .poll(async () => page.locator('canvas').evaluate((c) => c.getBoundingClientRect().width))
+      .toBe(1024);
     await page.screenshot({ path: info.outputPath('pad-landscape.png') });
     await key('tray-1');
     await key(guests.fruit);
@@ -190,7 +201,9 @@ test('T02/T10 refresh during machine/helper, pause, no offline catch-up', async 
   expect((await snapshot(page)).machine.remaining).toBe(paused.machine.remaining);
   await page.getByRole('button', { name: '继续营业', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).helper).toBeNull();
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await expect
+    .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
   expect((await snapshot(page)).items).toHaveLength(3);
 });
 test('T10 future save is retained and can export before explicit restart', async ({ page }) => {
@@ -204,14 +217,14 @@ test('T10 future save is retained and can export before explicit restart', async
   expect((await download).suggestedFilename()).toContain('tabby');
   await page.getByRole('button', { name: '开摊啦', exact: true }).click();
   await page.getByRole('button', { name: '确认重新开始' }).click();
-  await expect(page.getByRole('dialog', { name: '小食谱' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
 });
 test('T11 missing assets/audio retry preserve world and independent DOM hides request', async ({
   page,
 }) => {
   let deny = true;
-  await page.route('**/assets/banana.webp', (route) => (deny ? route.abort() : route.continue()));
-  await page.route('**/audio/request-*.wav', (route) => route.abort());
+  await page.route('**/assets/banana.webp*', (route) => (deny ? route.abort() : route.continue()));
+  await page.route('**/audio/request-*.wav*', (route) => route.abort());
   await start(page);
   await expect(page.locator('.resource-alert')).toBeVisible();
   expect(await page.locator('.semantic-layer').innerText()).not.toMatch(
@@ -233,9 +246,9 @@ test('T11 missing assets/audio retry preserve world and independent DOM hides re
 
 test('T05 support cannot leak across guests and demonstration persists', async ({ page }) => {
   await start(page);
-  expect((await snapshot(page)).noteSupport).toContain('demonstration');
+  expect((await snapshot(page)).orders.some((o) => o.support.includes('demonstrated'))).toBe(true);
   await tap(page, 'guest-0');
-  await page.getByRole('button', { name: '文字帮助', exact: true }).click();
+  await page.getByRole('button', { name: '图示帮助', exact: true }).click();
   await expect(page.locator('.request-caption')).toBeVisible();
   // Click the other customer's lower receiving area, outside the help bubble.
   await tap(page, 'guest-1', 45);
@@ -298,12 +311,33 @@ test.describe('touch and lifecycle', () => {
     });
     await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     expect((await snapshot(page)).items).toHaveLength(0);
+    const replay = await page.getByRole('button', { name: '重听当前客人请求' }).boundingBox();
+    if (!replay) throw new Error('replay button');
+    await client.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints: [{ ...a, id: 1 }],
+    });
+    await client.send('Input.dispatchTouchEvent', {
+      type: 'touchMove',
+      touchPoints: [{ ...b, id: 1 }],
+    });
+    await client.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints: [
+        { ...b, id: 1 },
+        { x: replay.x + 12, y: replay.y + 12, id: 2 },
+      ],
+    });
+    await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    expect((await snapshot(page)).items).toHaveLength(0);
     await page.touchscreen.tap(a.x, a.y);
     await page.touchscreen.tap(b.x, b.y);
     expect((await snapshot(page)).items).toHaveLength(1);
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.setViewportSize({ width: 844, height: 390 });
-    await expect(page.locator('canvas')).toHaveJSProperty('width', 844);
+    await expect
+      .poll(async () => page.locator('canvas').evaluate((c) => c.getBoundingClientRect().width))
+      .toBe(844);
     expect((await snapshot(page)).items).toHaveLength(1);
     await page.screenshot({ path: info.outputPath('phone-landscape-touch.png') });
     await client.detach();
@@ -328,9 +362,12 @@ test('T08 both trays full and wrong juice can recover without an empty tray', as
     for (let n = 0; n < 3; n++) {
       await tap(page, 'supply-banana');
       await tap(page, `tray-${tray}`, 22);
+      expect((await snapshot(page)).items).toHaveLength(tray * 3 + n + 1);
     }
   await makeJuice(page);
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await expect
+    .poll(async () => (await snapshot(page)).machine.status, { timeout: 10000 })
+    .toBe('ready');
   const juice = (await snapshot(page)).items.find((i) => i.product === 'juice');
   if (!juice) throw new Error('juice');
   await tap(page, `item-${juice.id}`);

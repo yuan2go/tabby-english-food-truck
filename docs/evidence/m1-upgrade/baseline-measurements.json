@@ -1,0 +1,58 @@
+[
+  {
+    "name": "baseline",
+    "url": "http://127.0.0.1:5185",
+    "status": 200,
+    "title": "狸花猫的英语餐车",
+    "data": {
+      "viewport": {
+        "width": 393,
+        "height": 665,
+        "dpr": 3
+      },
+      "canvas": [
+        {
+          "width": 393,
+          "height": 665,
+          "css": {
+            "width": 393,
+            "height": 665
+          }
+        }
+      ],
+      "body": "Ⅱ\n小小餐车 0 / 2\n♫\n?\n客人A：听请求或递出已选托盘\n客人B：听请求或递出已选托盘\n果汁机苹果入口\n果汁机杯座\n启动果汁机\n打开小猫便签\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n放回原料或清理成品\n↻ 重听\n文字帮助\n\n先认识，再动手。\n\n开发语音 · 未听审",
+      "scripts": [
+        "http://127.0.0.1:5185/@vite/client",
+        "http://127.0.0.1:5185/src/main.tsx"
+      ]
+    }
+  },
+  {
+    "name": "deployed",
+    "url": "https://tabby-english-food-truck.yuan576264675.chatgpt.site/",
+    "status": 200,
+    "title": "狸花猫的英语餐车",
+    "data": {
+      "viewport": {
+        "width": 393,
+        "height": 665,
+        "dpr": 3
+      },
+      "canvas": [
+        {
+          "width": 393,
+          "height": 665,
+          "css": {
+            "width": 393,
+            "height": 665
+          }
+        }
+      ],
+      "body": "Ⅱ\n小小餐车 0 / 2\n♫\n?\n客人A：听请求或递出已选托盘\n客人B：听请求或递出已选托盘\n果汁机苹果入口\n果汁机杯座\n启动果汁机\n打开小猫便签\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n放回原料或清理成品\n↻ 重听\n文字帮助\n\n先认识，再动手。\n\n开发语音 · 未听审",
+      "scripts": [
+        "https://tabby-english-food-truck.yuan576264675.chatgpt.site/assets/index-DD0KRite.js",
+        ""
+      ]
+    }
+  }
+]

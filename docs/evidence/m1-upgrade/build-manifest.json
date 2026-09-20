@@ -1,0 +1,187 @@
+{
+  "runtime": {
+    "buildSha": "1bf69a1f0db98bd612f309a1a147d00d0e9ab8d4",
+    "buildDirty": "false",
+    "contentVersion": "m1.2",
+    "assetVersion": "34f8548e8adc45b3b90f6c9c6b2f2a6b9730f28d6d858038003c4aa4d058ca51"
+  },
+  "localPreview": "http://127.0.0.1:4173/",
+  "files": [
+    {
+      "path": "dist/assets/apple.webp",
+      "bytes": 32732,
+      "sha256": "b8cbb5582b5f95ef41c3ef1e100bd0ea14681aab28ba7b5aa0fe18efa1210171"
+    },
+    {
+      "path": "dist/assets/banana.webp",
+      "bytes": 22190,
+      "sha256": "16c75a3c1bd9afd5d153b3a6b74d69cabf9e78a8500b60bbf68f93afe0b883c3"
+    },
+    {
+      "path": "dist/assets/cat-blocked.webp",
+      "bytes": 114604,
+      "sha256": "9b6542a20e76eb7b306deca881a009f197ab5f2ce85c0d3bf6828fc237f10d8a"
+    },
+    {
+      "path": "dist/assets/cat-carry.webp",
+      "bytes": 117812,
+      "sha256": "c55f5cac06ee21c63d1af8f82d8c080f9bab74a2c8b6d20b7fcdd39c3496b66e"
+    },
+    {
+      "path": "dist/assets/cat-celebrate.webp",
+      "bytes": 130356,
+      "sha256": "35025413c55b721966304ab2dbb142a7a810fd19e0b8231e341a647eedd879ec"
+    },
+    {
+      "path": "dist/assets/cat-greet.webp",
+      "bytes": 117720,
+      "sha256": "3a3f93d852b3440eb2ac3343772dcf869f5397de6668e823899f01d71eb94470"
+    },
+    {
+      "path": "dist/assets/cat-idle.webp",
+      "bytes": 114458,
+      "sha256": "65bcdfc5ea5fa624c0ea66659efac7eaecd155214c89156482f51652b13e1b32"
+    },
+    {
+      "path": "dist/assets/cat-place.webp",
+      "bytes": 162614,
+      "sha256": "7fcba576693e5e54fde2e5c0b87339cab2b9fcc4fbccf96f6232d5ded00d8b38"
+    },
+    {
+      "path": "dist/assets/cat-reach.webp",
+      "bytes": 158090,
+      "sha256": "fe198ee1634c43ad0fe66c7f1cac157a67e2b168dd1397ffb89128afdf44316c"
+    },
+    {
+      "path": "dist/assets/cat-read.webp",
+      "bytes": 120194,
+      "sha256": "60d11acfbb1f3e366dce580398f27470059f38c021b5b0d7f59e5b19db349763"
+    },
+    {
+      "path": "dist/assets/cup.webp",
+      "bytes": 42906,
+      "sha256": "def511cb8b548e67308c8e98374a750c9adbb57df241713e97e209362d213e21"
+    },
+    {
+      "path": "dist/assets/guest-0-0.webp",
+      "bytes": 42746,
+      "sha256": "66bbafbe3c45839a0f68d0afe08221e8cd6836e6c4e0a52439fe12407af4f672"
+    },
+    {
+      "path": "dist/assets/guest-0-1.webp",
+      "bytes": 43526,
+      "sha256": "1f56855f7fc81a40f27f92803e6753b077b861be7bd1cef9e631b68e2e8de342"
+    },
+    {
+      "path": "dist/assets/guest-0-2.webp",
+      "bytes": 44200,
+      "sha256": "864026b7d095c98f8b6d8b4068281e2d1ead190d4d2b171ffb18ea03a2ff89bc"
+    },
+    {
+      "path": "dist/assets/guest-1-0.webp",
+      "bytes": 47408,
+      "sha256": "0a856f75239fdc654a4d97999b85f9631c44ef22b7928dc558075ecdbc5a8167"
+    },
+    {
+      "path": "dist/assets/guest-1-1.webp",
+      "bytes": 48672,
+      "sha256": "299970661a194818c37002460a64fa108a42fe008c3988be6a917aab22d8deaa"
+    },
+    {
+      "path": "dist/assets/guest-1-2.webp",
+      "bytes": 49514,
+      "sha256": "8928ada1390a8e9196b5f4999330fd0e387e6da1555e06f37ae73e3e257eb549"
+    },
+    {
+      "path": "dist/assets/index-B-jm2gfp.js",
+      "bytes": 257973,
+      "sha256": "f86c325bfe45c94e43dfd48935713582f07d3cd395932b65ba455f296b378bc2"
+    },
+    {
+      "path": "dist/assets/index-Cj4pzg9s.css",
+      "bytes": 12336,
+      "sha256": "6834dcdab4c76135c8bedc102abca2427fcf2838d8079675a5cfea98f40f448e"
+    },
+    {
+      "path": "dist/assets/juice.webp",
+      "bytes": 33632,
+      "sha256": "6e0cb8f4f78de0899a771f425151313247bd5fc48838b6fa8c8752e7cd7f58ae"
+    },
+    {
+      "path": "dist/assets/machine.webp",
+      "bytes": 68302,
+      "sha256": "a6515aeba319ce000d3e0c42cd654fa6c5ef9da6ec34eef8b5d9946e24e187db"
+    },
+    {
+      "path": "dist/assets/market.webp",
+      "bytes": 172060,
+      "sha256": "d4b2a27ad648333da08605f7ed51634890693f9c1a0f6715edd6dc37fa73a7ff"
+    },
+    {
+      "path": "dist/assets/phaser-DXXWZowi.js",
+      "bytes": 1208050,
+      "sha256": "9031f79935ba598df03915ec937779c0480dc35b2e58e0cb9f95b910e56df425"
+    },
+    {
+      "path": "dist/assets/tray.webp",
+      "bytes": 107780,
+      "sha256": "5d97f403bbb3028af0ea0133ee4e1511444545afcc9844da84cdce3591404074"
+    },
+    {
+      "path": "dist/audio/apple.wav",
+      "bytes": 25364,
+      "sha256": "9549ec38ff333cf84edc5765d91cbf5926f972d7a19240be54406ff86f33c4b3"
+    },
+    {
+      "path": "dist/audio/banana.wav",
+      "bytes": 28212,
+      "sha256": "7381d4a2b099e383bdc22ca995475a0802ba937cf8cfec83eb301610199663a7"
+    },
+    {
+      "path": "dist/audio/juice.wav",
+      "bytes": 43796,
+      "sha256": "5cec6ce9778ae75b2c0c700c1cd38390a9dbe0b09bd8b975092235e52691cded"
+    },
+    {
+      "path": "dist/audio/note.wav",
+      "bytes": 94486,
+      "sha256": "7dad03990e0dd01bcf635db5111b9d673cb34d3a747d27b61f37ada96eee053c"
+    },
+    {
+      "path": "dist/audio/request-apple.wav",
+      "bytes": 65846,
+      "sha256": "2b7e9e22b603e3c1cdd784349be1ddf729d7817e73947d64089e98cca767566d"
+    },
+    {
+      "path": "dist/audio/request-banana.wav",
+      "bytes": 66328,
+      "sha256": "8e9de6aa7a53c3d7791bae98f8df96f9376c0a561f1fea45ae56a836487ee1d7"
+    },
+    {
+      "path": "dist/audio/request-fruit.wav",
+      "bytes": 94486,
+      "sha256": "7dad03990e0dd01bcf635db5111b9d673cb34d3a747d27b61f37ada96eee053c"
+    },
+    {
+      "path": "dist/audio/request-juice.wav",
+      "bytes": 76052,
+      "sha256": "df584a36f988e930c365ce414b241ec58375fee447d7cfe177089760a02ad8a1"
+    },
+    {
+      "path": "dist/audio/thanks.wav",
+      "bytes": 35300,
+      "sha256": "08fd51473a2c38810e2107902dbd9b97848de7b7ba304f369501ef671d75eb17"
+    },
+    {
+      "path": "dist/audio/two.wav",
+      "bytes": 42842,
+      "sha256": "3f5d11404589e3ea3b81760dc4aa4c925a9b8a81472ecaf5e08d77674bc6c42f"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 609,
+      "sha256": "7f3905161ca1938885e19aef7fab492c0b5ea6094f9f900b23245f06c196b59e"
+    }
+  ],
+  "deployment": "PENDING_DEPLOYMENT"
+}

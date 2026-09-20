@@ -1,0 +1,41 @@
+{
+  "version": "web-audio-m1.2",
+  "sourceFile": "src/platform/audio.ts",
+  "source": "Original procedural Web Audio synthesis written for this repository; no sampled recordings, microphone, remote service or external composition",
+  "review": "PENDING_OWNER_SOUND_AND_CONTENT_REVIEW",
+  "humanListeningReview": "NOT_RUN",
+  "layers": [
+    {
+      "id": "music",
+      "method": "16 second mono pentatonic sine/mallet loop with decaying envelopes",
+      "gain": 0.09,
+      "speechGain": 0.025
+    },
+    {
+      "id": "ambience",
+      "method": "8 second mono outdoor chirp and low rustle approximation synthesized from sine waves; not a field recording",
+      "gain": 0.045,
+      "speechGain": 0.018
+    },
+    {
+      "id": "machine",
+      "method": "1 second periodic 75/150 Hz motor with 8 Hz modulation; strictly foreground PROCESSING",
+      "gain": 0.09,
+      "speechGain": 0.025
+    },
+    {
+      "id": "effects",
+      "method": "Short sine frequency sweeps with exponential gain envelope, at most six simultaneous nodes",
+      "gain": 0.2,
+      "speechGain": 0.1
+    }
+  ],
+  "cues": ["press", "place", "insert", "start", "success", "ready", "arrive", "cat", "gentle"],
+  "speech": {
+    "files": "public/audio/*.wav",
+    "registry": "art/manifest.json",
+    "source": "macOS say Samantha; request-apple/request-banana at 145 wpm, prior files at 150 wpm; afconvert LEI16@22050",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED",
+    "distributionRights": "PENDING_VERIFICATION"
+  }
+}

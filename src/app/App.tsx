@@ -1,23 +1,28 @@
 import Phaser from 'phaser';
-import { useEffect, useReducer, useRef, useState } from 'react';
-import { REQUESTS, type RequestId } from '../content/catalog';
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
+import { CONTENT_VERSION, MODES, type Mode, REQUESTS } from '../content/catalog';
 import { assetUrl } from '../game/assets';
 import { activate, type ViewState } from '../game/input';
 import { TruckScene } from '../game/TruckScene';
-import { ForegroundAudio } from '../platform/audio';
+import { ForegroundAudio, type SoundSetting } from '../platform/audio';
+import { BUILD_INFO } from '../platform/build';
 import { GameController } from '../platform/controller';
 import { Note } from './Note';
 import './app.css';
+
+const modeIds: Mode[] = ['guided', 'practice', 'service'];
 export function App() {
   const [controller] = useState(() => new GameController());
   const [audio] = useState(() => new ForegroundAudio(controller));
-  const [, refresh] = useReducer((n) => n + 1, 0);
+  const [, refresh] = useReducer((n: number) => n + 1, 0);
   const [screen, setScreen] = useState<'home' | 'game'>('home');
-  const [modal, setModal] = useState<'lesson' | 'pause' | 'restart' | 'clear' | null>(null);
-  const [lesson, setLesson] = useState(0);
+  const [modal, setModal] = useState<'pause' | 'restart' | 'clear' | null>(null);
+  const [teaching, setTeaching] = useState<string | null>(null);
   const [note, setNote] = useState(false);
   const [caption, setCaption] = useState<string | null>(null);
+  const [pictures, setPictures] = useState(controller.state.mode === 'guided');
   const [ui] = useState<ViewState>(() => ({
+    elements: new Map(),
     selected: null,
     selectedTray: 0,
     selectedGuest: 'guest-0',
@@ -26,17 +31,38 @@ export function App() {
     ready: false,
     assetFailure: false,
     resourceMessage: '',
+    lowGraphics: (() => {
+      try {
+        return localStorage.getItem('tabby.foodtruck.lowGraphics') === 'true';
+      } catch {
+        return false;
+      }
+    })(),
+    inputBlocked: false,
+    teaching: null,
     openNote: () => {},
     confirmClear: () => {},
     change: () => {},
   }));
-  const host = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<TruckScene | null>(null);
-  const confirmAction = useRef<() => void>(() => {});
-  const dialog = useRef<HTMLDivElement>(null);
+  const host = useRef<HTMLDivElement>(null),
+    sceneRef = useRef<TruckScene | null>(null);
+  const confirmAction = useRef<() => void>(() => {}),
+    dialog = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
+  const state = controller.state;
+  const activeOrder = state.orders.find((o) => o.status === 'waiting');
+  const selectedOrder =
+    state.orders.find((o) => o.id === ui.selectedGuest && o.status === 'waiting') ?? activeOrder;
+  const done = state.orders.every((o) => o.status === 'done');
+  const fulfilled = state.orders.filter(
+    (o) => o.status === 'done' || o.status === 'leaving',
+  ).length;
   ui.change = refresh;
-  ui.openNote = () => setNote(true);
+  ui.teaching = teaching;
+  ui.inputBlocked = note || Boolean(modal) || Boolean(teaching);
+  ui.openNote = () => {
+    setNote(true);
+  };
   ui.confirmClear = (action) => {
     confirmAction.current = action;
     setModal('clear');
@@ -49,21 +75,24 @@ export function App() {
       type: Phaser.AUTO,
       parent: host.current,
       backgroundColor: '#173e32',
-      transparent: false,
       scale: {
-        mode: Phaser.Scale.RESIZE,
+        mode: Phaser.Scale.NONE,
         width: host.current.clientWidth,
         height: host.current.clientHeight,
+        autoRound: false,
       },
-
       render: { antialias: true, roundPixels: false },
       audio: { noAudio: true },
       scene: [scene],
       banner: false,
       fps: { smoothStep: false },
+      input: { mouse: false, touch: false },
     });
     const unsubscribe = controller.subscribe(refresh);
+    const flush = () => controller.save.save(controller.state);
+    window.addEventListener('pagehide', flush);
     return () => {
+      window.removeEventListener('pagehide', flush);
       unsubscribe();
       audio.destroy();
       controller.destroy();
@@ -82,48 +111,93 @@ export function App() {
     dialog.current?.querySelector<HTMLButtonElement>('button')?.focus();
     return () => previousFocus.current?.focus();
   }, [modal]);
-  const start = (fresh: boolean) => {
-    if (fresh) controller.restart();
-    setScreen('game');
-    controller.pause('home', false);
-    if (!controller.state.lessons.includes('meaning-m1')) {
-      setLesson(0);
-      setModal('lesson');
-    } else void audio.play(REQUESTS[controller.state.orders[0]?.request ?? 'juice'].audio);
-  };
+  const teach = useCallback(
+    (request: string) => {
+      controller.pause('teaching', true);
+      controller.command({ type: 'lesson', lesson: `meaning-${request}` });
+      if (selectedOrder)
+        controller.command({ type: 'support', order: selectedOrder.id, reason: 'demonstrated' });
+      setTeaching(request);
+      const sound =
+        request === 'juice'
+          ? 'juice'
+          : request === 'banana'
+            ? 'banana'
+            : request === 'two'
+              ? 'two'
+              : request === 'fruit'
+                ? 'note'
+                : 'apple';
+      void audio.play(sound);
+    },
+    [audio, controller, selectedOrder],
+  );
+  // Only a newly encountered active request opens its short scene demonstration.
+  // This does not manufacture an attempt or a real inventory item.
+  useEffect(() => {
+    if (screen !== 'game' || modal || teaching || !activeOrder) return;
+    ui.selectedGuest = selectedOrder?.id ?? activeOrder.id;
+    if (!controller.state.lessons.includes(`meaning-${activeOrder.request}`))
+      teach(activeOrder.request);
+  }, [screen, activeOrder, modal, teaching, selectedOrder, controller, ui, teach]);
   useEffect(() => {
     if (
-      modal === 'lesson' &&
-      lesson === 2 &&
-      !controller.state.noteSupport.includes('demonstration')
+      screen === 'game' &&
+      pictures &&
+      selectedOrder &&
+      !selectedOrder.support.includes('picture-request')
     )
-      controller.command({ type: 'note-support', reason: 'demonstration' });
-  }, [modal, lesson, controller]);
-  const closeLesson = () => {
-    controller.command({ type: 'lesson', lesson: 'meaning-m1' });
-    setModal(null);
-    void audio.play(
-      REQUESTS[controller.state.orders.find((o) => o.id === ui.selectedGuest)?.request ?? 'juice']
-        .audio,
-    );
+      controller.command({ type: 'support', order: selectedOrder.id, reason: 'picture-request' });
+  }, [pictures, screen, selectedOrder, controller]);
+  const closeTeaching = () => {
+    setTeaching(null);
+    ui.teaching = null;
+    controller.pause('teaching', false);
+    controller.message = '轮到你啦：点水果，再点盘子。';
+    if (selectedOrder) void audio.play(REQUESTS[selectedOrder.request].audio);
   };
-  const selectedOrder = controller.state.orders.find((o) => o.id === ui.selectedGuest);
-  const done = controller.state.orders.every((o) => o.status === 'done');
-  const fulfilled = controller.state.orders.filter((o) => o.status !== 'waiting').length;
+  const start = (fresh: boolean) => {
+    if (fresh) controller.restart();
+    ui.selectedGuest = controller.state.orders.find((o) => o.status === 'waiting')?.id ?? 'guest-0';
+    ui.selected = null;
+    setScreen('game');
+    controller.pause('home', false);
+    void audio.unlock();
+    audio.effect('arrive');
+    if (
+      controller.state.lessons.includes(`meaning-${controller.state.orders[0]?.request}`) &&
+      selectedOrder
+    )
+      void audio.play(REQUESTS[selectedOrder.request].audio);
+  };
+  const chooseMode = (mode: Mode) => {
+    audio.stop();
+    sceneRef.current?.cancel();
+    setTeaching(null);
+    ui.teaching = null;
+    controller.pause('teaching', false);
+    setCaption(null);
+    setNote(false);
+    ui.selected = null;
+    ui.selectedTray = 0;
+    controller.switchMode(mode);
+    if (controller.state.mode !== mode) return;
+    ui.selectedGuest = controller.state.orders.find((o) => o.status === 'waiting')?.id ?? 'guest-0';
+    setPictures(mode === 'guided');
+    setModal(null);
+  };
   const support = () => {
-    controller.command({ type: 'support', order: ui.selectedGuest, reason: 'text-request' });
-    setCaption(ui.selectedGuest);
+    if (!selectedOrder) return;
+    controller.command({ type: 'support', order: selectedOrder.id, reason: 'text-request' });
+    controller.command({ type: 'support', order: selectedOrder.id, reason: 'picture-request' });
+    setCaption(selectedOrder.id);
   };
   const exportSave = () => {
-    const blob = new Blob(
-      [
-        controller.save.blocked && controller.save.raw
-          ? controller.save.raw
-          : JSON.stringify(controller.state, null, 2),
-      ],
-      { type: 'application/json' },
-    );
-    const url = URL.createObjectURL(blob);
+    const raw =
+      controller.save.blocked && controller.save.raw
+        ? controller.save.raw
+        : JSON.stringify(controller.state, null, 2);
+    const url = URL.createObjectURL(new Blob([raw], { type: 'application/json' }));
     const a = document.createElement('a');
     a.href = url;
     a.download = 'tabby-foodtruck-save.json';
@@ -132,11 +206,45 @@ export function App() {
   };
   const toggleAudio = () => {
     audio.enabled = !audio.enabled;
-    if (!audio.enabled) audio.stop();
+    if (audio.enabled) void audio.unlock();
     refresh();
   };
+  const modePicker = (
+    <fieldset className="mode-picker" aria-label="选择玩法">
+      {modeIds.map((mode) => (
+        <button
+          type="button"
+          key={mode}
+          aria-pressed={state.mode === mode}
+          onClick={() => chooseMode(mode)}
+        >
+          <span>{MODES[mode].icon}</span>
+          {MODES[mode].name}
+        </button>
+      ))}
+    </fieldset>
+  );
+  const pictureVisible = selectedOrder && (pictures || caption === selectedOrder.id);
   return (
-    <main className="game-shell">
+    <main
+      data-build-sha={BUILD_INFO.sha}
+      data-build-dirty={String(BUILD_INFO.dirty)}
+      data-content-version={CONTENT_VERSION}
+      data-asset-version={BUILD_INFO.assets}
+      onPointerDownCapture={(event) => {
+        if (event.target instanceof Element && event.target.closest('button:not([data-hotspot])'))
+          audio.effect('press');
+      }}
+      onKeyDownCapture={(event) => {
+        if (
+          (event.key === 'Enter' || event.key === ' ') &&
+          event.target instanceof HTMLButtonElement
+        )
+          audio.effect('press');
+      }}
+      className={`game-shell mode-${state.mode}`}
+      data-audio-state={JSON.stringify(audio.diagnostics())}
+    >
       <div className="canvas-host" ref={host} role="img" aria-label="英语餐车游戏画面" />
       {screen === 'game' ? (
         <>
@@ -145,7 +253,10 @@ export function App() {
               Ⅱ
             </button>
             <span className="service-count">
-              小小餐车 <b>{fulfilled} / 2</b>
+              {MODES[state.mode].icon} 小小餐车{' '}
+              <b>
+                {fulfilled} / {state.orders.length}
+              </b>
             </span>
             <button
               type="button"
@@ -156,10 +267,7 @@ export function App() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                setLesson(0);
-                setModal('lesson');
-              }}
+              onClick={() => selectedOrder && teach(selectedOrder.request)}
               aria-label="打开小食谱"
             >
               ?
@@ -170,10 +278,14 @@ export function App() {
               <button
                 type="button"
                 key={h.id}
+                ref={(element) => {
+                  if (element) ui.elements.set(h.id, element);
+                  else ui.elements.delete(h.id);
+                }}
                 data-hotspot={h.id}
                 aria-label={h.label}
-                tabIndex={modal || note || done ? -1 : 0}
-                disabled={Boolean(modal) || done}
+                tabIndex={modal || note || teaching || done ? -1 : 0}
+                disabled={Boolean(modal || teaching) || done}
                 style={{
                   left: h.x - h.width / 2,
                   top: h.y - h.height / 2,
@@ -194,33 +306,77 @@ export function App() {
               </button>
             ))}
           </fieldset>
-          {!done ? (
+          {!done && !teaching ? (
             <div className="request-tools">
               <button
                 type="button"
                 onClick={() => {
-                  if (selectedOrder?.status === 'waiting')
-                    void audio.play(REQUESTS[selectedOrder.request].audio);
+                  if (selectedOrder) void audio.play(REQUESTS[selectedOrder.request].audio);
                 }}
                 aria-label="重听当前客人请求"
               >
                 ↻ 重听
               </button>
               <button type="button" onClick={support}>
-                文字帮助
+                图示帮助
               </button>
-              {controller.state.helper ? (
+              {state.helper ? (
                 <button type="button" onClick={() => controller.command({ type: 'cancel-helper' })}>
                   撤回便签
                 </button>
               ) : null}
             </div>
           ) : null}
-          {caption === ui.selectedGuest && selectedOrder?.status === 'waiting' ? (
-            <div className="request-caption" role="status">
+          {pictureVisible && !teaching ? (
+            <section className="request-picture" aria-label="有图示支持的请求">
+              {REQUESTS[selectedOrder.request].products.map((product, index) => (
+                <img
+                  key={`${selectedOrder.id}-${product}-${REQUESTS[selectedOrder.request].products.slice(0, index).filter((p) => p === product).length}`}
+                  src={assetUrl(product)}
+                  alt={product}
+                />
+              ))}
+              {caption === selectedOrder.id ? (
+                <button type="button" aria-label="收起文字帮助" onClick={() => setCaption(null)}>
+                  ×
+                </button>
+              ) : null}
+            </section>
+          ) : null}
+          {caption === selectedOrder?.id && selectedOrder && !teaching ? (
+            <div className="request-caption">
               <span>{REQUESTS[selectedOrder.request].text}</span>
-              <button type="button" aria-label="收起文字帮助" onClick={() => setCaption(null)}>
-                ×
+            </div>
+          ) : null}
+          {teaching ? (
+            <div className="scene-teaching" role="dialog" aria-label="场景小教学">
+              <div className="teaching-sequence">
+                <img src={assetUrl(teaching === 'banana' ? 'banana' : 'apple')} alt="" />
+                {teaching === 'two' ? (
+                  <img src={assetUrl('apple')} alt="" />
+                ) : teaching === 'fruit' ? (
+                  <img src={assetUrl('banana')} alt="" />
+                ) : null}
+                <span>→</span>
+                <img src={assetUrl(teaching === 'juice' ? 'machine' : 'tray')} alt="" />
+                {teaching === 'juice' ? (
+                  <>
+                    <span>→</span>
+                    <img src={assetUrl('juice')} alt="" />
+                  </>
+                ) : null}
+              </div>
+              <p>
+                {teaching === 'juice'
+                  ? '苹果＋杯子，按一下，等果汁。'
+                  : teaching === 'two'
+                    ? '一、二。两份苹果放一盘。'
+                    : teaching === 'fruit'
+                      ? '苹果和香蕉，一起放一盘。'
+                      : '看小猫拿起来，放进盘子。'}
+              </p>
+              <button type="button" className="primary" onClick={closeTeaching}>
+                我来试试
               </button>
             </div>
           ) : null}
@@ -231,6 +387,7 @@ export function App() {
           {note ? (
             <Note
               controller={controller}
+              feedback={() => audio.effect('gentle')}
               initialTray={ui.selectedTray}
               close={() => {
                 setNote(false);
@@ -241,14 +398,14 @@ export function App() {
           {done ? (
             <div className="ending">
               <span className="ending-flower">✺</span>
-              <p>两份心意，都送到了。</p>
+              <p>心意送到了。</p>
               <h2>谢谢款待！</h2>
-              <p className="ending-small">机器忙的时候，水果也可以先上桌。</p>
+              <p className="ending-small">给今天的小主厨一朵小花。</p>
               <button type="button" className="primary" onClick={() => setModal('restart')}>
                 再开一次小摊
               </button>
               <button type="button" onClick={() => setModal('pause')}>
-                保存与离开
+                保存与换玩法
               </button>
             </div>
           ) : null}
@@ -262,16 +419,10 @@ export function App() {
               <br />
               <em>英语餐车</em>
             </h1>
-            <p className="home-copy">
-              听懂一份请求，
-              <br />
-              亲手准备一份小小的快乐。
-            </p>
-            <div className="home-food">
-              <img src={assetUrl('apple')} alt="" />
-              <img src={assetUrl('juice')} alt="" />
-              <img src={assetUrl('banana')} alt="" />
+            <div className="home-cat">
+              <img src={assetUrl('cat-greet')} alt="戴绿围巾、背小背包的狸花猫" />
             </div>
+            {modePicker}
             <button
               type="button"
               className="primary start-button"
@@ -280,15 +431,10 @@ export function App() {
             >
               {!ui.ready ? '餐车准备中…' : controller.savedGame ? '继续摆摊' : '开摊啦'}
             </button>
-            {controller.savedGame ? (
-              <button type="button" onClick={() => setModal('restart')}>
-                重新开始
-              </button>
-            ) : null}
             <button type="button" className="sound-option" onClick={toggleAudio}>
               {audio.enabled ? '♫ 声音已开' : '♪ 安静模式'} · 可随时切换
             </button>
-            <small>开发语音未听审 · 角色参考待确认</small>
+            <small>开发素材与语音待审核</small>
           </section>
         </div>
       )}
@@ -334,11 +480,11 @@ export function App() {
       {modal ? (
         <div className="modal-backdrop">
           <div
-            className={`modal ${modal === 'lesson' ? 'recipe-book' : ''}`}
+            className="modal"
             ref={dialog}
             role="dialog"
             aria-modal="true"
-            aria-label={modal === 'lesson' ? '小食谱' : modal === 'pause' ? '休息一下' : '确认操作'}
+            aria-label={modal === 'pause' ? '休息一下' : '确认操作'}
             onKeyDown={(e) => {
               if (e.key === 'Escape') {
                 e.stopPropagation();
@@ -346,12 +492,12 @@ export function App() {
               }
               if (e.key === 'Tab') {
                 const buttons = [
-                  ...(dialog.current?.querySelectorAll<HTMLElement>(
-                    'button:not(:disabled),a,input',
-                  ) ?? []),
-                ];
-                const first = buttons[0];
-                const last = buttons.at(-1);
+                    ...(dialog.current?.querySelectorAll<HTMLElement>(
+                      'button:not(:disabled),input',
+                    ) ?? []),
+                  ],
+                  first = buttons[0],
+                  last = buttons.at(-1);
                 if (e.shiftKey && document.activeElement === first) {
                   e.preventDefault();
                   last?.focus();
@@ -362,92 +508,64 @@ export function App() {
               }
             }}
           >
-            {modal === 'lesson' ? (
+            {modal === 'pause' ? (
               <>
-                <p className="eyebrow">开摊前的小食谱 · {lesson + 1} / 3</p>
-                <h2>{['先认识好吃的', '苹果变成一杯果汁', '让小猫帮你拿'][lesson]}</h2>
-                {lesson === 0 ? (
-                  <>
-                    <div className="meaning-pair">
-                      {(['apple', 'banana'] as const).map((id) => (
-                        <button
-                          type="button"
-                          key={id}
-                          aria-label={`听 ${id}`}
-                          onClick={() => void audio.play(id)}
-                        >
-                          <img src={assetUrl(id)} alt={id === 'apple' ? '苹果' : '香蕉'} />
-                          <span>{id} ♫</span>
-                        </button>
-                      ))}
-                    </div>
-                    <p>点一点，听听它的名字。拿起水果，再点托盘放下。</p>
-                  </>
-                ) : lesson === 1 ? (
-                  <>
-                    <div className="recipe-flow">
-                      <img src={assetUrl('apple')} alt="苹果" />
-                      <span>＋</span>
-                      <img src={assetUrl('cup')} alt="空杯" />
-                      <span>→</span>
-                      <button type="button" onClick={() => void audio.play('juice')}>
-                        <img src={assetUrl('juice')} alt="苹果汁" />
-                      </button>
-                    </div>
-                    <h3>apple juice ♫</h3>
-                    <p>苹果放上面，空杯放右边，按下机器。等果汁时，也能准备另一盘水果。</p>
-                  </>
-                ) : (
-                  <>
-                    <div className="meaning-pair">
-                      <img src={assetUrl('apple')} alt="苹果" />
-                      <img src={assetUrl('apple')} alt="第二个苹果" />
-                    </div>
-                    <button
-                      type="button"
-                      className="example"
-                      onClick={() => {
-                        controller.command({ type: 'note-support', reason: 'demonstration' });
-                        void audio.play('two');
-                      }}
-                    >
-                      Two apples, please. ♫
-                    </button>
-                    <p>
-                      小猫一次能拿一份或两份水果。便签里的 <b>and</b>{' '}
-                      把两种水果连起来。先选目的地，再交给小猫。
-                    </p>
-                  </>
-                )}
-                <div className="modal-actions">
-                  {lesson > 0 ? (
-                    <button type="button" onClick={() => setLesson((n) => n - 1)}>
-                      前一页
-                    </button>
-                  ) : null}
-                  <button
-                    type="button"
-                    className="primary"
-                    onClick={() => {
-                      audio.stop();
-                      if (lesson < 2) setLesson((n) => n + 1);
-                      else closeLesson();
-                    }}
-                  >
-                    {lesson < 2 ? '明白了，继续' : '开始接待'}
-                  </button>
-                </div>
-                <small>这里暂停营业 · 示例是学习支持，不是测验</small>
-              </>
-            ) : modal === 'pause' ? (
-              <>
-                <p className="eyebrow">TAKE A LITTLE BREAK</p>
                 <h2>歇一歇，食物会等你。</h2>
-                <p>机器和小猫都已暂停。回来接着做。</p>
+                <button type="button" className="primary" onClick={() => setModal(null)}>
+                  继续营业
+                </button>
+                <p>换玩法会保存每一局的食品与任务。</p>
+                {modePicker}
+                <div className="sound-settings">
+                  {(Object.keys(audio.settings) as SoundSetting[]).map((key) => (
+                    <label key={key}>
+                      <input
+                        type="checkbox"
+                        checked={audio.settings[key]}
+                        onChange={(e) => {
+                          audio.set(key, e.target.checked);
+                          if (e.target.checked) void audio.unlock();
+                          refresh();
+                        }}
+                      />
+                      {
+                        {
+                          master: '全部声音',
+                          voice: '英语语音',
+                          music: '背景音乐',
+                          ambience: '集市环境',
+                          effects: '动作和机器声音',
+                        }[key]
+                      }
+                    </label>
+                  ))}
+                </div>
+                <label className="setting-line">
+                  <input
+                    type="checkbox"
+                    checked={pictures}
+                    onChange={(e) => setPictures(e.target.checked)}
+                  />
+                  图片支持（关闭后可只听请求）
+                </label>
+                <label className="setting-line">
+                  <input
+                    type="checkbox"
+                    checked={ui.lowGraphics}
+                    onChange={(e) => {
+                      ui.lowGraphics = e.target.checked;
+                      try {
+                        localStorage.setItem('tabby.foodtruck.lowGraphics', String(ui.lowGraphics));
+                      } catch {
+                        /* Keep session preference. */
+                      }
+                      sceneRef.current?.setQuality();
+                      refresh();
+                    }}
+                  />
+                  省电画面
+                </label>
                 <div className="pause-actions">
-                  <button type="button" className="primary" onClick={() => setModal(null)}>
-                    继续营业
-                  </button>
                   <button type="button" onClick={exportSave}>
                     导出当前进度
                   </button>
@@ -468,17 +586,29 @@ export function App() {
                   </button>
                 </div>
                 <p className="record-summary">
-                  本局交付尝试{' '}
-                  {controller.state.attempts.filter((a) => a.activity === 'delivery').length}{' '}
-                  次；便签提交{' '}
-                  {controller.state.attempts.filter((a) => a.activity === 'note').length}{' '}
-                  次。支持记录保留，不显示能力评分。
+                  本局交付尝试 {state.attempts.filter((a) => a.activity === 'delivery').length}{' '}
+                  次；便签提交 {state.attempts.filter((a) => a.activity === 'note').length}{' '}
+                  次。教学、示范、辅助与回访支持保留，不显示能力评分。
                 </p>
+                <details className="build-info">
+                  <summary>版本与声音状态</summary>
+                  <p>
+                    Build {BUILD_INFO.sha}
+                    {BUILD_INFO.dirty ? '（工作区含未提交修改）' : ''}
+                    <br />
+                    内容 {CONTENT_VERSION}
+                    <br />
+                    资源 {BUILD_INFO.assets}
+                    <br />
+                    声音：开发合成，未听审。无麦克风。
+                  </p>
+                  <output data-audio-diagnostics>{JSON.stringify(audio.diagnostics())}</output>
+                </details>
               </>
             ) : modal === 'restart' ? (
               <>
                 <h2>重新开摊？</h2>
-                <p>当前食品和任务会清空。看过的帮助仍会保留记录。</p>
+                <p>这个玩法的食品和任务会重新准备，看过的帮助仍保留。其他玩法进度保留。</p>
                 {controller.save.blocked ? (
                   <button type="button" onClick={exportSave}>
                     先导出原始存档
@@ -493,7 +623,7 @@ export function App() {
                     className="primary"
                     onClick={() => {
                       audio.stop();
-                      ui.selected = null;
+                      setTeaching(null);
                       setCaption(null);
                       setNote(false);
                       setModal(null);
@@ -507,7 +637,7 @@ export function App() {
             ) : (
               <>
                 <h2>重新准备这杯果汁？</h2>
-                <p>这杯会清理掉，苹果不会倒回原来。</p>
+                <p>杯里的果汁会清理掉，其他食物保留。</p>
                 <div className="modal-actions">
                   <button type="button" onClick={() => setModal(null)}>
                     保留果汁
@@ -531,4 +661,3 @@ export function App() {
     </main>
   );
 }
-export const requestText = (id: RequestId): string => REQUESTS[id].text;

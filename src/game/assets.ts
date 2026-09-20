@@ -1,4 +1,13 @@
+import { resourceUrl } from '../platform/build';
 export const ASSET_IDS = [
+  'cat-idle',
+  'cat-read',
+  'cat-reach',
+  'cat-carry',
+  'cat-place',
+  'cat-greet',
+  'cat-blocked',
+  'cat-celebrate',
   'market',
   'apple',
   'banana',
@@ -13,4 +22,4 @@ export const ASSET_IDS = [
   'guest-1-1',
   'guest-1-2',
 ] as const;
-export const assetUrl = (id: string) => `${import.meta.env.BASE_URL}assets/${id}.webp`;
+export const assetUrl = (id: string) => resourceUrl('assets', `${id}.webp`);

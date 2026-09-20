@@ -1,0 +1,122 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+
+Running 17 tests using 1 worker
+
+(node:8902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/game.spec.ts:76:1 › T06 phone Canvas interleaved full service, helper binding, visible ending (16.7s)
+  ✓   2 e2e/game.spec.ts:113:3 › Pad recording › T06 Pad serial complete path by keyboard, layout and rotation (16.1s)
+  ✘   3 e2e/game.spec.ts:150:1 › T08/T09 small phone mismatch, full tray, cancellation and recovery (8.4s)
+(node:8982) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 e2e/game.spec.ts:183:1 › T02/T10 refresh during machine/helper, pause, no offline catch-up (10.9s)
+  ✓   5 e2e/game.spec.ts:203:1 › T10 future save is retained and can export before explicit restart (1.3s)
+  ✓   6 e2e/game.spec.ts:216:1 › T11 missing assets/audio retry preserve world and independent DOM hides request (2.1s)
+  ✓   7 e2e/game.spec.ts:241:1 › T05 support cannot leak across guests and demonstration persists (2.6s)
+  ✓   8 e2e/game.spec.ts:259:1 › T10 rejected storage keeps game playable and exports in-memory snapshot (1.4s)
+  ✓   9 e2e/game.spec.ts:278:3 › touch and lifecycle › T09 true touch placement, pointer cancellation, multi-touch and rotate (1.8s)
+  ✓  10 e2e/game.spec.ts:322:1 › T02 Chromium freeze/resume does not award offline machine or helper time (5.6s)
+  ✘  11 e2e/game.spec.ts:334:1 › T08 both trays full and wrong juice can recover without an empty tray (15.8s)
+(node:9139) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 e2e/upgrade.spec.ts:57:3 › M1 true mobile touch and DPR › guided from normal home through teaching and whole tray touch delivery (25.1s)
+  ✓  13 e2e/upgrade.spec.ts:108:3 › M1 true mobile touch and DPR › double service touch path, banana source and combination binding, interleaved delivery (28.6s)
+  ✓  14 e2e/upgrade.spec.ts:154:3 › M1 true mobile touch and DPR › continuous commands retain live item motion and stable scene entities (8.2s)
+  ✓  15 e2e/upgrade.spec.ts:192:3 › M1 true mobile touch and DPR › practice single-customer variety finishes all five requests and keeps hints on mode switch (50.4s)
+  ✓  16 e2e/upgrade.spec.ts:240:3 › M1 true mobile touch and DPR › note touch reorder distinct duplicate tokens, return, cancel, multi-touch and rotation (16.2s)
+  ✓  17 e2e/upgrade.spec.ts:314:1 › audio layers duck, machine lifecycle, muted settings and voice failure recovery (8.3s)
+
+
+  1) e2e/game.spec.ts:150:1 › T08/T09 small phone mismatch, full tray, cancellation and recovery ───
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.game-feedback')
+    Expected substring: "满了"
+    Received string:    "放好了。开发语音 · 未听审"
+    Timeout: 6000ms
+
+    Call log:
+      - Expect "toContainText" locator('.game-feedback') with timeout 6000ms
+      - waiting for locator('.game-feedback')
+        16 × locator resolved to <footer class="game-feedback">…</footer>
+           - unexpected value "放好了。开发语音 · 未听审"
+
+
+      160 |   await tap(page, 'supply-apple');
+      161 |   await tap(page, 'tray-0', 22);
+    > 162 |   await expect(page.locator('.game-feedback')).toContainText('满了');
+          |                                                ^
+      163 |   await page.keyboard.press('Escape');
+      164 |   await deliver(page, 0, guests.juice);
+      165 |   await expect(page.locator('.game-feedback')).toContainText('苹果汁');
+        at /Users/yuan/.codex/worktrees/tabby-m1-upgrade/e2e/game.spec.ts:162:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-T08-T09-small-phone-m-0297d-y-cancellation-and-recovery/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-T08-T09-small-phone-m-0297d-y-cancellation-and-recovery/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-T08-T09-small-phone-m-0297d-y-cancellation-and-recovery/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/game-T08-T09-small-phone-m-0297d-y-cancellation-and-recovery/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/game-T08-T09-small-phone-m-0297d-y-cancellation-and-recovery/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e/game.spec.ts:334:1 › T08 both trays full and wrong juice can recover without an empty tray 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.game-feedback')
+    Expected substring: "满了"
+    Received string:    "放好了。开发语音 · 未听审"
+    Timeout: 6000ms
+
+    Call log:
+      - Expect "toContainText" locator('.game-feedback') with timeout 6000ms
+      - waiting for locator('.game-feedback')
+        16 × locator resolved to <footer class="game-feedback">…</footer>
+           - unexpected value "放好了。开发语音 · 未听审"
+
+
+      345 |   // The separate driver avoids the runner's forced focus and screencast overrides.
+      346 |   // All lifecycle and remaining-time assertions live in the child and must exit 0.
+    > 347 |   const { stdout } = await promisify(execFile)(process.execPath, ['scripts/check-lifecycle.mjs'], {
+          |                                                ^
+      348 |     timeout: 45000,
+      349 |   });
+      350 |   await info.attach('native-lifecycle', { body: stdout, contentType: 'application/json' });
+        at /Users/yuan/.codex/worktrees/tabby-m1-upgrade/e2e/game.spec.ts:347:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-T08-both-trays-full-a-f1972-cover-without-an-empty-tray/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-T08-both-trays-full-a-f1972-cover-without-an-empty-tray/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-T08-both-trays-full-a-f1972-cover-without-an-empty-tray/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/game-T08-both-trays-full-a-f1972-cover-without-an-empty-tray/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/game-T08-both-trays-full-a-f1972-cover-without-an-empty-tray/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    e2e/game.spec.ts:150:1 › T08/T09 small phone mismatch, full tray, cancellation and recovery ────
+    e2e/game.spec.ts:334:1 › T08 both trays full and wrong juice can recover without an empty tray ─
+  15 passed (3.7m)
