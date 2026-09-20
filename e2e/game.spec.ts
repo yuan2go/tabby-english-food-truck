@@ -102,38 +102,44 @@ test('T06 phone Canvas interleaved full service, helper binding, visible ending'
   expect(errors).toEqual([]);
   expect((await snapshot(page)).orders.every((o) => o.status === 'done')).toBe(true);
 });
-test('T06 Pad serial complete path by keyboard, layout and rotation', async ({ page }, info) => {
-  await page.setViewportSize({ width: 768, height: 1024 });
-  await start(page);
-  const guests = await identify(page);
-  const key = async (id: string) => page.locator(`[data-hotspot="${id}"]`).press('Enter');
-  await key('supply-apple');
-  await key('machine-apple');
-  await key('supply-cup');
-  await key('machine-cup');
-  await key('start');
-  await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
-  const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
-  if (!cup) throw new Error('cup');
-  await key(`item-${cup.id}`);
-  await key('tray-0');
-  await key('tray-0');
-  await key(guests.juice);
-  await key('supply-banana');
-  await key('tray-1');
-  await key('supply-apple');
-  await key('tray-1');
-  await page.screenshot({ path: info.outputPath('pad-portrait.png') });
-  await page.setViewportSize({ width: 1024, height: 768 });
-  await expect(page.locator('canvas')).toHaveJSProperty('width', 1024);
-  await page.screenshot({ path: info.outputPath('pad-landscape.png') });
-  await key('tray-1');
-  await key(guests.fruit);
-  await expect(page.getByRole('heading', { name: '谢谢款待！' })).toBeVisible();
-  expect(await page.evaluate(() => document.documentElement.scrollHeight === innerHeight)).toBe(
-    true,
-  );
+test.describe('Pad recording', () => {
+  test.use({
+    viewport: { width: 768, height: 1024 },
+  });
+  test('T06 Pad serial complete path by keyboard, layout and rotation', async ({ page }, info) => {
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await start(page);
+    const guests = await identify(page);
+    const key = async (id: string) => page.locator(`[data-hotspot="${id}"]`).press('Enter');
+    await key('supply-apple');
+    await key('machine-apple');
+    await key('supply-cup');
+    await key('machine-cup');
+    await key('start');
+    await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+    const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
+    if (!cup) throw new Error('cup');
+    await key(`item-${cup.id}`);
+    await key('tray-0');
+    await key('tray-0');
+    await key(guests.juice);
+    await key('supply-banana');
+    await key('tray-1');
+    await key('supply-apple');
+    await key('tray-1');
+    await page.screenshot({ path: info.outputPath('pad-portrait.png') });
+    await page.setViewportSize({ width: 1024, height: 768 });
+    await expect(page.locator('canvas')).toHaveJSProperty('width', 1024);
+    await page.screenshot({ path: info.outputPath('pad-landscape.png') });
+    await key('tray-1');
+    await key(guests.fruit);
+    await expect(page.getByRole('heading', { name: '谢谢款待！' })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollHeight === innerHeight)).toBe(
+      true,
+    );
+  });
 });
+
 test('T08/T09 small phone mismatch, full tray, cancellation and recovery', async ({
   page,
 }, info) => {

@@ -10,7 +10,7 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:4173',
     browserName: 'chromium',
     viewport: { width: 390, height: 844 },
-    video: 'on',
+    video: { mode: 'on', size: { width: 1024, height: 1024 } },
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
   },
