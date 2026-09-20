@@ -1,11 +1,17 @@
 # 项目状态
 
+## 2026-09-21 Git 同步（按要求不测试）
+
+负责人明确要求提交并推送全部本地分支、通过 PR 合并到 main。本次初始核对 3 个本地分支、3 个工作区均干净；main 基线为 `0b904284131eb425118c0a1baa7a8d0663201c8e`，新增实现分支 `codex/m1-preschool-production` 的初始 head 为 `b8f81bd31deeb6abb0569742b96f94d33b659c75`，含 7 个已推送、尚未合入 main 的提交。复用 PR #3，本次仅补充此状态记录，不修改运行代码；最终合并结果和完整 SHA 以 PR 及交付报告为准。
+
+本次测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 NOT_RUN，退出码不适用，提交/推送跳过 Git hooks。当前仓库没有 GitHub Actions 工作流，未启用工作流或修改权限。下方验证与浏览器材料来自实现阶段，本次未重跑；代码合并不代表负责人接受画面、完成真机/内容/权利审核或授权部署。
+
 ## 当前工作包 · 2026-09-21
 
-M1 完整制作、低龄化玩法与移动端体验升级。一个实现负责人在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m1-upgrade`、分支 `codex/m1-preschool-production` 执行。未读取或迁移旧英语仓库，未启用工作流、改权限、合并或部署。
+M1 完整制作、低龄化玩法与移动端体验升级。一个实现负责人在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m1-upgrade`、分支 `codex/m1-preschool-production` 执行。实现阶段未读取或迁移旧英语仓库，未启用工作流、改权限、合并或部署；后续 Git 合并授权见上方同步记录。
 
 - baseline/default main：`0b904284131eb425118c0a1baa7a8d0663201c8e`，开工 fetch 后完整 SHA，初始 git status 干净。PR #1/#2 已合并，旧 PR 状态只作历史。
-- 已推送并建立 [PR #3](https://github.com/yuan2go/tabby-english-food-truck/pull/3)，状态 OPEN / AWAITING_OWNER_REVIEW，未合并、未部署。
+- 已推送并建立 [PR #3](https://github.com/yuan2go/tabby-english-food-truck/pull/3)，本次按负责人明确授权合并；视觉与手感仍 AWAITING_OWNER_REVIEW，未部署。实际 Git 状态以 PR 为准。
 - 本轮受测生产代码：`1bf69a1f0db98bd612f309a1a147d00d0e9ab8d4`。从干净工作区构建，运行页显示完整 SHA / dirty=false / 内容 m1.2 / 资源清单 SHA。之后只提交验证证据与文档；最终提交 SHA 与 PR 见交付消息及 PR head，不在提交内部伪造自身 hash。
 - 当前本包工程与本地回归已通过，结果见下方本轮记录；下面独立的“历史记录”不继承 PASS。
 
