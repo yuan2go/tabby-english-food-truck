@@ -31,3 +31,11 @@
 ## 依赖依据
 
 2026-09-20 查阅 [Phaser 安装](https://docs.phaser.io/phaser/getting-started/installation)、[Vite 版本要求](https://vite.dev/guide/)、[React 宿主集成](https://react.dev/learn/add-react-to-an-existing-project)，并核对 npm 元数据。Node 22.22.2 满足 Vite 7 的 >=22.12；采用 Phaser 3.90.0、Vite 7.3.6、React 19.1.1、TypeScript 5.9.3 的固定版本，避免无必要跨大版本升级。手写工程配置，不克隆模板；无模板遥测脚本。
+
+## 实施修整
+
+- Vitest 初选 3.2.4 后审计发现漏洞；3.2.7 仍有 mocker 告警，核对 Node/Vite peer 兼容后锁定 4.1.11，audit 为零。未启动 Vitest UI/server。
+- Phaser 默认平滑 delta 在负载下拖长配方等待，改 `fps.smoothStep=false`；仍使用同一规则时钟，后台/失焦/帮助冻结，恢复丢弃大 delta，不修改 5 秒配方去迎合测试。
+- 浏览器双路径使用实际 Canvas 指针与键盘。编辑五词便签超过加工时长是合法慢想；交错证据使用先助手备苹果、开机后手动配水果并先交付的自然顺序，断言机器仍在加工。
+- 键盘焦点不覆盖食品，帮助仅对显式打开的当前客人显示；切换客人不把帮助文字自动带过去。教学示例自动登记便签 demonstration，关闭帮助不能洗白。
+- 运行环境在本轮外部发生 Node 切换：初始探测 22.22.2/npm 10.9.7，后续实际命令为 Homebrew Node 26.3.1/npm 11.16.0。本任务没有安装/升级系统 Node；最终证据注明实测环境。
