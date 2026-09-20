@@ -1,12 +1,23 @@
 # 项目状态
 
+## 当前 M2 · 2026-09-21
+
+基线/远端默认main：`1c502bcac2ca7fecbd77a67d7284e6b445a4328a`，fetch已核对；初始工作区干净。PR #1/#2/#3均已合并，无开放相关PR。独立worktree `tabby-m2-story/tabby-english-food-truck`，分支 `codex/m2-story-learning`。
+
+负责人已授权整个M2和具体实现自主决定，包含故事/四食谱/无尽/小游戏，替代旧M1扩展门槛。已收到闪现、繁琐操作、暂停页混杂反馈，均 **NEEDS_REVISION**。历史M1工程证据保留，不代表本轮PASS。当前工程 IN_PROGRESS；视觉手感 NEEDS_REVISION；教研/听审、实机、儿童观察 NOT_RUN；权利 PENDING；新版本 PENDING_DEPLOYMENT。
+
+当前执行顺序与验收见05。未读取或迁移旧英语仓库，未改变依赖版本、权限或工作流。
+
+## 历史证据（截至 M1，本轮不继承）
+
+
 ## 2026-09-21 Git 同步（按要求不测试）
 
 负责人明确要求提交并推送全部本地分支、通过 PR 合并到 main。本次初始核对 3 个本地分支、3 个工作区均干净；main 基线为 `0b904284131eb425118c0a1baa7a8d0663201c8e`，新增实现分支 `codex/m1-preschool-production` 的初始 head 为 `b8f81bd31deeb6abb0569742b96f94d33b659c75`，含 7 个已推送、尚未合入 main 的提交。复用 PR #3，本次仅补充此状态记录，不修改运行代码；最终合并结果和完整 SHA 以 PR 及交付报告为准。
 
 本次测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 NOT_RUN，退出码不适用，提交/推送跳过 Git hooks。当前仓库没有 GitHub Actions 工作流，未启用工作流或修改权限。下方验证与浏览器材料来自实现阶段，本次未重跑；代码合并不代表负责人接受画面、完成真机/内容/权利审核或授权部署。
 
-## 当前工作包 · 2026-09-21
+## 历史 M1 工作包 · 2026-09-21（不继承 PASS）
 
 M1 完整制作、低龄化玩法与移动端体验升级。一个实现负责人在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m1-upgrade`、分支 `codex/m1-preschool-production` 执行。实现阶段未读取或迁移旧英语仓库，未启用工作流、改权限、合并或部署；后续 Git 合并授权见上方同步记录。
 

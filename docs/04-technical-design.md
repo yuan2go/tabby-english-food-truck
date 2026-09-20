@@ -142,3 +142,9 @@ M1 当前保存入口仍为 `tabby.foodtruck.save.v1`（key 是命名历史，�
 Vite 构建注入真实 `git rev-parse HEAD`、dirty标记、内容m1.2、资源manifest SHA-256与构建时间；暂停页和 main 的只读 data 属性可核验。部署未给出身份时保持 UNKNOWN。Phaser3.90 API依据：[Config源码](https://raw.githubusercontent.com/phaserjs/phaser/v3.90.0/src/core/Config.js)、[Text源码](https://raw.githubusercontent.com/phaserjs/phaser/v3.90.0/src/gameobjects/text/Text.js)，本地锁定源码确认没有 GameConfig.resolution，使用真实缓冲 resize 和 Text.setResolution。
 
 图片与本地语音 URL 统一附带实际资源清单 hash 前缀，避免部署后稳定 public 路径继续命中旧缓存；源码版本与资源版本都可在运行页查看。
+
+## M2 当前架构决定
+
+保留锁定 React/TS/Vite/Phaser，不换引擎、不加后端或运行时模型。有限内容新增 recipes/chapters/learning；规则分 station/assembly、story/endless 与小游戏；角色调度独立于 TruckScene；首页/故事导航、教学、设置与小游戏分组件，App 只组合生命周期。
+
+schema 3 / m2.0。长期 progress（章节/已介绍内容）、tutorials、observations、settings 与一个 active session 分离；非活动营业序列化，小游戏不复制库存。保存校验同一份 recipe/request 内容、ID、槽位/预留、任务阶段与成品特征；有界 receipts/observations/队列。M1 schema2 原文保留为旧档导出，无法可靠推断的新故事进度不猜迁移；显式选择新旅程，不静默覆盖。资源按小院/活动食谱加载，DPR预算沿用。
