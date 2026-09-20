@@ -20,7 +20,7 @@
 - [x] 可玩场景：`src/game` 布局/输入/表现；`src/app` 薄外围；`src/platform` 音频/存储；正常首页可完成串行与交错路径。
 - [ ] 制作：新背景、独立道具、客人、获准参考后的猫动作；登记真实尺寸/Alpha/hash/来源/审核；资源检查入口。
 - [x] 验证：typecheck、lint、build、test、resources、HTTP Playwright；Canvas 指针和键盘、手机/Pad/旋转、故障恢复、完整视频与实际性能采样。
-- [ ] 交付：更新 STATUS/README/技术与素材记录、阶段提交、push、PR、不合并不部署，画面手感 AWAITING_OWNER_REVIEW。
+- [x] 当前工程与证据交付：更新 STATUS/README/技术与素材记录、阶段提交、push、[Draft PR #2](https://github.com/yuan2go/tabby-english-food-truck/pull/2)，不合并不部署。整包制作仍受上述参考阻塞，画面手感 AWAITING_OWNER_REVIEW。
 
 ## 边界接口
 

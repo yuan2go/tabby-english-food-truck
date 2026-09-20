@@ -8,6 +8,7 @@
 - baseline：`85585137e82bd24e3c3e4d61a972243dbaa683d5`，开工 fetch 后最新 origin/main，初始 git status 干净。
 - PR #1 已合并；文档分支 docs/product-design-v0-1 的 head 为 `558e1521ffa2829a003fcaf099ddeb0e0693c359`。
 - 实现分支：`codex/m0-m1-food-truck`，独立 worktree。完整最终提交身份以本轮交付报告及 PR head 为准，不在提交内部猜写自身 SHA。
+- 已推送并建立 [Draft PR #2](https://github.com/yuan2go/tabby-english-food-truck/pull/2)；PR #1 已合并为基线，不存在未合并的文档依赖。保持草稿直到缺失制作及负责人审核完成。
 - 完整阅读 README、AGENTS、STATUS、01–05。有效未来设计保留，只更新真实状态与实施细节。未读取、复制或导入旧仓库。
 
 ## 当前可玩行为
