@@ -18,7 +18,7 @@ const props = {
 for (const [id, [left, top, width, height]] of Object.entries(props))
   await sharp('art/source/props.png')
     .extract({ left, top, width, height })
-    .resize({ width: id === 'tray' ? 480 : 320 })
+    .resize({ width: id === 'machine' ? 480 : id === 'tray' ? 480 : 320, withoutEnlargement: true })
     .webp({ quality: 90, alphaQuality: 100 })
     .toFile(`public/assets/${id}.webp`);
 for (let row = 0; row < 2; row++)
@@ -30,6 +30,11 @@ for (let row = 0; row < 2; row++)
         width: 512,
         height: row === 0 ? 528 : 494,
       })
-      .resize({ height: 420 })
+      .resize({ height: 494, withoutEnlargement: true })
       .webp({ quality: 88, alphaQuality: 100 })
       .toFile(`public/assets/guest-${row}-${column}.webp`);
+
+await sharp('art/source/tray-hd.png')
+  .resize({ width: 960, withoutEnlargement: true })
+  .webp({ quality: 92, alphaQuality: 100 })
+  .toFile('public/assets/tray.webp');

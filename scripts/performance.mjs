@@ -2,7 +2,12 @@ import { writeFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
 
 const browser = await chromium.launch();
-const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+const context = await browser.newContext({
+  viewport: { width: 393, height: 665 },
+  deviceScaleFactor: 3,
+  isMobile: true,
+  hasTouch: true,
+});
 const page = await context.newPage();
 await page.addInitScript(() => {
   const samples = [];
@@ -27,17 +32,16 @@ await page.addInitScript(() => {
   requestAnimationFrame(frame);
 });
 const started = Date.now();
-await page.goto('http://127.0.0.1:4180');
+await page.goto(process.argv[2] ?? 'http://127.0.0.1:4173');
+await page.getByRole('button', { name: '小小餐车营业中' }).tap();
 await page.getByRole('button', { name: '开摊啦', exact: true }).waitFor();
 const homeReady = Date.now() - started;
-await page.getByRole('button', { name: '开摊啦', exact: true }).click();
-await page.getByRole('button', { name: '明白了，继续' }).click();
-await page.getByRole('button', { name: '明白了，继续' }).click();
-await page.getByRole('button', { name: '开始接待' }).click();
+await page.getByRole('button', { name: '开摊啦', exact: true }).tap();
+await page.getByRole('button', { name: '我来试试' }).tap();
 async function click(id, dy = 0) {
   const box = await page.locator(`[data-hotspot="${id}"]`).boundingBox();
   if (!box) throw new Error(id);
-  await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2 + dy);
+  await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2 + dy);
 }
 await page.evaluate(() => {
   window.tabbyMeasurements.samples.length = 0;
@@ -48,14 +52,22 @@ await click('machine-apple');
 await click('supply-cup');
 await click('machine-cup');
 await click('start');
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
   await click(i % 2 ? 'supply-banana' : 'supply-apple');
   await click('tray-1', 22);
 }
 await click('tray-1', 22);
-await click('guest-0');
-await page.getByRole('button', { name: '暂停', exact: true }).click();
-await page.getByRole('button', { name: '继续营业', exact: true }).click();
+const fruit = await page.evaluate(
+  () =>
+    JSON.parse(localStorage.getItem('tabby.foodtruck.save.v1')).orders.find(
+      (o) => o.request === 'fruit',
+    ).id,
+);
+await click(fruit);
+if (await page.getByRole('button', { name: '我来试试' }).count())
+  await page.getByRole('button', { name: '我来试试' }).tap();
+await page.getByRole('button', { name: '暂停', exact: true }).tap();
+await page.getByRole('button', { name: '继续营业', exact: true }).tap();
 await page.waitForTimeout(300);
 const data = await page.evaluate(() => ({
   measurements: window.tabbyMeasurements,
@@ -69,6 +81,14 @@ const data = await page.evaluate(() => ({
     .getEntriesByType('navigation')
     .map((e) => ({ duration: e.duration, domContentLoaded: e.domContentLoadedEventEnd })),
   userAgent: navigator.userAgent,
+  build: { ...document.querySelector('main').dataset, audioState: undefined },
+  canvas: {
+    width: document.querySelector('canvas').width,
+    height: document.querySelector('canvas').height,
+    cssWidth: document.querySelector('canvas').clientWidth,
+    cssHeight: document.querySelector('canvas').clientHeight,
+    dpr: devicePixelRatio,
+  },
 }));
 const percentile = (a, p) =>
   [...a].sort((x, y) => x - y)[Math.min(a.length - 1, Math.ceil(a.length * p) - 1)];
@@ -76,7 +96,7 @@ const report = {
   capturedAt: new Date().toISOString(),
   environment:
     'macOS arm64, Chromium Playwright, local production preview HTTP, fresh browser context, no network or CPU throttle',
-  viewport: { width: 390, height: 844 },
+  viewport: { width: 393, height: 665 },
   homeReadyWallMs: homeReady,
   inputToSecondAnimationFrame: {
     samples: data.measurements.samples.length,
@@ -94,6 +114,6 @@ const report = {
   transferBytes: data.resources.reduce((n, e) => n + e.transferSize, 0),
   ...data,
 };
-await writeFile('docs/evidence/performance.json', JSON.stringify(report, null, 2));
+await writeFile('docs/evidence/m1-upgrade/performance.json', JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ ...report, measurements: undefined, resources: undefined }, null, 2));
 await browser.close();

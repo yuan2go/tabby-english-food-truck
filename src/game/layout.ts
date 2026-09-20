@@ -1,3 +1,4 @@
+import type { Mode } from '../content/catalog';
 export interface Point {
   x: number;
   y: number;
@@ -16,10 +17,10 @@ export interface Layout {
   guestHeight: number;
   scale: number;
 }
-export function layoutFor(width: number, height: number): Layout {
+export function layoutFor(width: number, height: number, mode: Mode = 'service'): Layout {
   const landscape = width > height * 1.15;
   const scale = Math.min(width / (landscape ? 900 : 390), height / (landscape ? 640 : 780), 1.45);
-  return {
+  const l: Layout = {
     width,
     height,
     landscape,
@@ -69,4 +70,14 @@ export function layoutFor(width: number, height: number): Layout {
     },
     trayWidth: width * (landscape ? 0.2 : 0.46),
   };
+  if (mode !== 'service') {
+    l.guests = [
+      { x: width * 0.5, y: height * 0.225 },
+      { x: width * 0.5, y: height * 0.225 },
+    ];
+    l.trays[0] = { x: width * (landscape ? 0.72 : 0.5), y: height * (landscape ? 0.59 : 0.68) };
+    l.trayWidth = Math.min(280, width * (landscape ? 0.28 : 0.64));
+  }
+  l.scale = Math.max(0.72, l.scale);
+  return l;
 }

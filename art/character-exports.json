@@ -1,0 +1,306 @@
+[
+  {
+    "source": "art/source/cat-blocked.png",
+    "output": "public/assets/cat-blocked.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 140,
+      "top": 10,
+      "width": 885,
+      "height": 1230,
+      "visible": 586064
+    },
+    "crop": {
+      "left": 135,
+      "top": 5,
+      "width": 895,
+      "height": 1240
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 462,
+      "height": 640,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 462,
+        "height": 640
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-carry.png",
+    "output": "public/assets/cat-carry.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 131,
+      "top": 15,
+      "width": 939,
+      "height": 1220,
+      "visible": 573852
+    },
+    "crop": {
+      "left": 126,
+      "top": 10,
+      "width": 949,
+      "height": 1230
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 494,
+      "height": 640,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 494,
+        "height": 640
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-celebrate.png",
+    "output": "public/assets/cat-celebrate.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 136,
+      "top": 9,
+      "width": 974,
+      "height": 1175,
+      "visible": 607563
+    },
+    "crop": {
+      "left": 131,
+      "top": 4,
+      "width": 984,
+      "height": 1185
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 531,
+      "height": 640,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 531,
+        "height": 640
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-greet.png",
+    "output": "public/assets/cat-greet.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 180,
+      "top": 10,
+      "width": 992,
+      "height": 1227,
+      "visible": 586744
+    },
+    "crop": {
+      "left": 175,
+      "top": 5,
+      "width": 1002,
+      "height": 1237
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 518,
+      "height": 640,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 518,
+        "height": 640
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-idle.png",
+    "output": "public/assets/cat-idle.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 153,
+      "top": 10,
+      "width": 862,
+      "height": 1231,
+      "visible": 570201
+    },
+    "crop": {
+      "left": 148,
+      "top": 5,
+      "width": 872,
+      "height": 1241
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 450,
+      "height": 640,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 450,
+        "height": 640
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-place.png",
+    "output": "public/assets/cat-place.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 42,
+      "top": 109,
+      "width": 1136,
+      "height": 1093,
+      "visible": 682252
+    },
+    "crop": {
+      "left": 37,
+      "top": 104,
+      "width": 1146,
+      "height": 1103
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 640,
+      "height": 616,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 640,
+        "height": 616
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-reach.png",
+    "output": "public/assets/cat-reach.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 45,
+      "top": 138,
+      "width": 1193,
+      "height": 1054,
+      "visible": 726854
+    },
+    "crop": {
+      "left": 40,
+      "top": 133,
+      "width": 1203,
+      "height": 1064
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 640,
+      "height": 566,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 640,
+        "height": 566
+      }
+    }
+  },
+  {
+    "source": "art/source/cat-read.png",
+    "output": "public/assets/cat-read.webp",
+    "native": {
+      "width": 1254,
+      "height": 1254
+    },
+    "effectivePixels": {
+      "left": 157,
+      "top": 10,
+      "width": 877,
+      "height": 1231,
+      "visible": 599820
+    },
+    "crop": {
+      "left": 152,
+      "top": 5,
+      "width": 887,
+      "height": 1241
+    },
+    "export": {
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 457,
+      "height": 640,
+      "space": "srgb",
+      "channels": 4,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": true,
+      "autoOrient": {
+        "width": 457,
+        "height": 640
+      }
+    }
+  }
+]

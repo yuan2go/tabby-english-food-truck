@@ -4,7 +4,7 @@
 
 M1 完整制作、低龄化玩法与移动端体验升级 IN_PROGRESS。baseline `0b904284131eb425118c0a1baa7a8d0663201c8e`，fetch 后默认 main、工作区干净；PR #2 已于 2026-09-20 合并。分支 `codex/m1-preschool-production`，独立 worktree，一个实现负责人。三模式全部纳入本轮。
 
-角色 PNG 附件已收到并冻结，原 JPEG 与所述手机问题截图未收到。现有站点 https://tabby-english-food-truck.yuan576264675.chatgpt.site/ 已提供，当前版本待实时核验，本轮 PENDING_DEPLOYMENT；未授权发布本轮版本，不另建站点。工程验证尚待执行，不能沿用下面的历史 PASS。
+角色 PNG 附件已收到并冻结，原 JPEG 字节未收到；手机问题截图随后已收到，原样保存在 evidence/m1-upgrade/owner-phone-before.png。现有站点 https://tabby-english-food-truck.yuan576264675.chatgpt.site/ 已提供，已通过未登录 Chromium HTTP200 正常入口核验，旧站点未公开 SHA，版本 UNKNOWN，本轮 PENDING_DEPLOYMENT；未授权发布本轮版本，不另建站点。工程验证尚待执行，不能沿用下面的历史 PASS。
 
 ## 历史记录（本轮不继承 PASS）
 

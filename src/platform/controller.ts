@@ -105,7 +105,7 @@ export class GameController {
       noteSupport = this.state.noteSupport;
     this.save.reset();
     this.state = createGame(this.runId(), this.state.variant === 0 ? 1 : 0, history, mode);
-    this.state.noteSupport = [...noteSupport];
+    this.state.noteSupport = [...new Set([...noteSupport, 'seen-in-prior-run'])].slice(-24);
     this.savedGame = false;
     this.pauses.clear();
     this.checkpoint = 0;

@@ -1,4 +1,12 @@
 export const ASSET_IDS = [
+  'cat-idle',
+  'cat-read',
+  'cat-reach',
+  'cat-carry',
+  'cat-place',
+  'cat-greet',
+  'cat-blocked',
+  'cat-celebrate',
   'market',
   'apple',
   'banana',

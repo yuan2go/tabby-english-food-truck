@@ -7,6 +7,7 @@ export interface Item {
   location: Location;
 }
 export interface Order {
+  revisit: boolean;
   id: string;
   request: RequestId;
   seat: TrayId;
@@ -15,6 +16,9 @@ export interface Order {
   support: string[];
 }
 export interface Attempt {
+  condition: 'guided' | 'assisted' | 'independent-condition';
+  visit: 'first' | 'revisit';
+  audioQualified: false;
   runId: string;
   activity: 'delivery' | 'note';
   input: string;

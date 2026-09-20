@@ -384,3 +384,30 @@ describe('M1 three modes and preserved support', () => {
     expect(s.items.find((i) => i.location === 'machine:cup')?.product).toBe('cup');
   });
 });
+
+describe('support and revisit evidence', () => {
+  it('keeps demonstration and audio qualification separate from language results', () => {
+    let s = createGame('supported', 0, {}, 'practice');
+    s = send(s, { type: 'support', order: 'guest-0', reason: 'demonstrated' }).state;
+    s = put(s, 'apple', 0);
+    s = send(s, { type: 'deliver', tray: 0, order: 'guest-0' }).state;
+    expect(s.attempts[0]).toMatchObject({
+      condition: 'assisted',
+      visit: 'first',
+      audioQualified: false,
+    });
+    const replay = createGame('revisit', 0, s.history, 'practice');
+    const result = send(put(replay, 'apple', 0), {
+      type: 'deliver',
+      tray: 0,
+      order: 'guest-0',
+    }).state;
+    expect(result.attempts[0]).toMatchObject({
+      condition: 'assisted',
+      visit: 'revisit',
+      audioQualified: false,
+    });
+    expect(result.attempts[0]?.support).toContain('demonstrated');
+    expect(validateState(result)).toBe(true);
+  });
+});

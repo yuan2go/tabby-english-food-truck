@@ -24,19 +24,20 @@ async function drag(page: Page, from: string, to: string, dy = 0) {
   await page.mouse.move(b.x, b.y, { steps: 12 });
   await page.mouse.up();
 }
+async function dismissTeaching(page: Page) {
+  if (await page.getByRole('button', { name: '我来试试' }).count())
+    await page.getByRole('button', { name: '我来试试' }).click();
+}
 async function start(page: Page, url = '/') {
   await page.goto(url);
+  await page.getByRole('button', { name: '小小餐车营业中' }).click();
   await page.getByRole('button', { name: '开摊啦', exact: true }).click();
-  await expect(page.getByRole('dialog', { name: '小食谱' })).toBeVisible();
-  await page.getByRole('button', { name: '听 apple', exact: true }).click();
-  await page.getByRole('button', { name: '明白了，继续' }).click();
-  await page.getByRole('button', { name: '明白了，继续' }).click();
-  await page.getByRole('button', { name: '开始接待' }).click();
-  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
+  await dismissTeaching(page);
 }
 async function identify(page: Page) {
   await tap(page, 'guest-0');
-  await page.getByRole('button', { name: '文字帮助', exact: true }).click();
+  await page.getByRole('button', { name: '图示帮助', exact: true }).click();
   const juice = (await page.locator('.request-caption').innerText()).includes('Apple juice')
     ? 'guest-0'
     : 'guest-1';
@@ -49,7 +50,9 @@ async function makeJuice(page: Page) {
   await tap(page, 'start');
 }
 async function takeJuice(page: Page) {
+  await dismissTeaching(page);
   await expect.poll(async () => (await snapshot(page)).machine.status).toBe('ready');
+  await dismissTeaching(page);
   const cup = (await snapshot(page)).items.find((i) => i.product === 'juice');
   if (!cup) throw new Error('missing juice');
   await drag(page, `item-${cup.id}`, 'tray-0', 22);
@@ -57,6 +60,7 @@ async function takeJuice(page: Page) {
 async function deliver(page: Page, tray: 0 | 1, guest: string) {
   await tap(page, `tray-${tray}`, 25);
   await tap(page, guest);
+  await dismissTeaching(page);
 }
 async function note(page: Page, words: string[]) {
   await tap(page, 'tray-1', 25);
@@ -123,13 +127,16 @@ test.describe('Pad recording', () => {
     await key('tray-0');
     await key('tray-0');
     await key(guests.juice);
+    await dismissTeaching(page);
     await key('supply-banana');
     await key('tray-1');
     await key('supply-apple');
     await key('tray-1');
     await page.screenshot({ path: info.outputPath('pad-portrait.png') });
     await page.setViewportSize({ width: 1024, height: 768 });
-    await expect(page.locator('canvas')).toHaveJSProperty('width', 1024);
+    await expect
+      .poll(async () => page.locator('canvas').evaluate((c) => c.getBoundingClientRect().width))
+      .toBe(1024);
     await page.screenshot({ path: info.outputPath('pad-landscape.png') });
     await key('tray-1');
     await key(guests.fruit);
@@ -204,7 +211,7 @@ test('T10 future save is retained and can export before explicit restart', async
   expect((await download).suggestedFilename()).toContain('tabby');
   await page.getByRole('button', { name: '开摊啦', exact: true }).click();
   await page.getByRole('button', { name: '确认重新开始' }).click();
-  await expect(page.getByRole('dialog', { name: '小食谱' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
 });
 test('T11 missing assets/audio retry preserve world and independent DOM hides request', async ({
   page,
@@ -233,9 +240,9 @@ test('T11 missing assets/audio retry preserve world and independent DOM hides re
 
 test('T05 support cannot leak across guests and demonstration persists', async ({ page }) => {
   await start(page);
-  expect((await snapshot(page)).noteSupport).toContain('demonstration');
+  expect((await snapshot(page)).orders.some((o) => o.support.includes('demonstrated'))).toBe(true);
   await tap(page, 'guest-0');
-  await page.getByRole('button', { name: '文字帮助', exact: true }).click();
+  await page.getByRole('button', { name: '图示帮助', exact: true }).click();
   await expect(page.locator('.request-caption')).toBeVisible();
   // Click the other customer's lower receiving area, outside the help bubble.
   await tap(page, 'guest-1', 45);
@@ -303,7 +310,9 @@ test.describe('touch and lifecycle', () => {
     expect((await snapshot(page)).items).toHaveLength(1);
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.setViewportSize({ width: 844, height: 390 });
-    await expect(page.locator('canvas')).toHaveJSProperty('width', 844);
+    await expect
+      .poll(async () => page.locator('canvas').evaluate((c) => c.getBoundingClientRect().width))
+      .toBe(844);
     expect((await snapshot(page)).items).toHaveLength(1);
     await page.screenshot({ path: info.outputPath('phone-landscape-touch.png') });
     await client.detach();

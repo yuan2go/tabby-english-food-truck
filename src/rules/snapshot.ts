@@ -57,6 +57,7 @@ export function validateState(v: unknown): v is GameState {
     !v.orders.every(
       (o) =>
         record(o) &&
+        typeof o.revisit === 'boolean' &&
         str(o.id) &&
         Object.keys(REQUESTS).includes(o.request as string) &&
         [0, 1].includes(o.seat as number) &&
@@ -110,6 +111,9 @@ export function validateState(v: unknown): v is GameState {
     !v.attempts.every(
       (a) =>
         record(a) &&
+        ['guided', 'assisted', 'independent-condition'].includes(a.condition as string) &&
+        ['first', 'revisit'].includes(a.visit as string) &&
+        a.audioQualified === false &&
         str(a.runId) &&
         ['delivery', 'note'].includes(a.activity as string) &&
         str(a.input) &&

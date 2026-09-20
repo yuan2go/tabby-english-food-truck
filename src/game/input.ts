@@ -1,4 +1,4 @@
-import type { Product } from '../content/catalog';
+import { type Product, REQUESTS } from '../content/catalog';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { GameState, Source, TrayId } from '../rules/types';
@@ -13,6 +13,10 @@ export interface Hotspot {
   kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note';
 }
 export interface ViewState {
+  elements: Map<string, HTMLButtonElement>;
+  lowGraphics: boolean;
+  inputBlocked: boolean;
+  teaching: string | null;
   selected: Selection;
   selectedTray: TrayId;
   selectedGuest: string;
@@ -71,15 +75,13 @@ export function activate(
     else {
       ui.selected = null;
       const o = s.orders.find((o) => o.id === id);
-      if (o?.status === 'waiting')
-        void audio.play(o.request === 'juice' ? 'request-juice' : 'request-fruit');
+      if (o?.status === 'waiting') void audio.play(REQUESTS[o.request].audio);
     }
   } else {
     const next = sourceFor(id, s);
     if (next) {
       ui.selected = next;
       controller.message = '拿起来了。点一个位置放下；按 Esc 或空白处取消。';
-      audio.effect('place');
     } else {
       ui.selected = null;
       controller.message = '已取消拿取，物品留在原处。';
@@ -97,10 +99,9 @@ export function activate(
     if (result.kind === 'ok') {
       ui.selected = null;
       if (action.type === 'deliver') void audio.play('thanks');
-      audio.effect(
-        action.type === 'deliver' ? 'success' : action.type === 'start-machine' ? 'start' : 'place',
-      );
-    }
+      if (action.type === 'move')
+        audio.effect('machine' in action.destination ? 'insert' : 'place');
+    } else if (result.kind !== 'confirm') audio.effect('gentle');
   }
   ui.change();
 }

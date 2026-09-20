@@ -37,10 +37,9 @@ try {
   page.setDefaultTimeout(8000);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(process.argv[2] ?? 'http://127.0.0.1:4173/');
+  await page.getByRole('button', { name: '小小餐车营业中' }).click();
   await page.getByRole('button', { name: '开摊啦', exact: true }).click();
-  await page.getByRole('button', { name: '明白了，继续' }).click();
-  await page.getByRole('button', { name: '明白了，继续' }).click();
-  await page.getByRole('button', { name: '开始接待' }).click();
+  await page.getByRole('button', { name: '我来试试' }).click();
   const key = async (id) => page.locator(`[data-hotspot="${id}"]`).press('Enter');
   await key('supply-apple');
   await key('machine-apple');
@@ -96,8 +95,11 @@ try {
     beforeMachine: before.machine.remaining,
     afterMachine: after.machine.remaining,
   };
-  await writeFile('docs/evidence/native-lifecycle.json', JSON.stringify(report, null, 2));
-  await page.screenshot({ path: 'docs/evidence/native-resume.png', timeout: 5000 });
+  await writeFile(
+    'docs/evidence/m1-upgrade/native-lifecycle.json',
+    JSON.stringify(report, null, 2),
+  );
+  await page.screenshot({ path: 'docs/evidence/m1-upgrade/native-resume.png', timeout: 5000 });
   console.log(JSON.stringify(report));
   await client.detach();
 } finally {

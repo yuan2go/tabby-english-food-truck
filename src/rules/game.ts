@@ -43,6 +43,7 @@ export function createGame(
         ? [{ id: 'food-1', product: 'cup', location: 'machine:cup' }]
         : [],
     orders: requests.map((request, index) => ({
+      revisit: Boolean(priorSupport[request]?.length),
       id: `guest-${index}`,
       request,
       seat: mode === 'service' ? (index as TrayId) : variant,
@@ -90,9 +91,23 @@ export function matchProducts(actual: readonly Product[], expected: readonly Pro
 function nextId(s: GameState, prefix: string): string {
   return `${prefix}-${s.nextId++}`;
 }
-function attempt(s: GameState, a: Omit<Attempt, 'runId' | 'gameTime' | 'retry'>): void {
+function attempt(
+  s: GameState,
+  a: Omit<Attempt, 'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified'>,
+): void {
   s.attempts.push({
     ...a,
+    condition:
+      s.mode === 'guided' ? 'guided' : a.support.length ? 'assisted' : 'independent-condition',
+    visit:
+      a.activity === 'delivery'
+        ? s.orders.find((o) => a.input.startsWith(`${o.id}:`))?.revisit
+          ? 'revisit'
+          : 'first'
+        : s.noteSupport.includes('seen-in-prior-run')
+          ? 'revisit'
+          : 'first',
+    audioQualified: false,
     runId: s.runId,
     gameTime: s.gameTime,
     retry: s.attempts.filter(
@@ -142,6 +157,10 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '便签帮助已记录。');
   }
   if (c.type === 'audio') {
+    if (c.audio.status === 'failed')
+      for (const o of s.orders)
+        if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id)
+          o.support = [...new Set([...o.support, 'audio-unavailable'])].slice(-24);
     s.audio = [...s.audio, { ...c.audio, gameTime: s.gameTime }].slice(-80);
     return result('ok', '');
   }
@@ -267,6 +286,14 @@ export function dispatch(current: GameState, e: Envelope): Result {
     const items = trayItems(s, c.tray);
     const expected = REQUESTS[order.request].products;
     if (items.length < expected.length) return result('incomplete', '盘里还没准备齐，可以接着放。');
+    if (
+      !s.audio.some(
+        (a) =>
+          a.id === REQUESTS[order.request].audio &&
+          (a.status === 'started' || a.status === 'completed'),
+      )
+    )
+      order.support = [...new Set([...order.support, 'audio-not-observed'])].slice(-24);
     const match = matchProducts(
       items.map((i) => i.product),
       expected,
