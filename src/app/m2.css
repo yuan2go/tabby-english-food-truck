@@ -1431,9 +1431,12 @@
 }
 @media (orientation: landscape) {
   .delivery-actions {
-    left: 3%;
-    right: 3%;
+    left: 50%;
+    right: auto;
     top: 57%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    width: max-content;
   }
   .delivery-actions button {
     transform: none;

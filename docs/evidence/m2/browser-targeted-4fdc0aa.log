@@ -1,0 +1,66 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep quick input|teaching practice|actual helper|native background|increased support
+
+[WebServer] (node:36686) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:36754) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:36795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/game.spec.ts:52:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery (16.2s)
+(node:36826) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/policy.spec.ts:6:1 › M2 increased support preserves active orders, reduces new concurrency and survives reload (37.4s)
+  ✓  3 e2e/upgrade.spec.ts:136:1 › M2 teaching practice starts at the courtyard and completes its own five-request session (37.2s)
+(node:36918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (24.1s)
+(node:36962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 e2e/recovery.spec.ts:215:1 › M2 native background freeze stops clock, helper, machine and audio (5.6s)
+
+
+  1) e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ready"
+    Received: "loaded"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at helpers.ts:116
+
+      114 |       { timeout: 15000 },
+      115 |     )
+    > 116 |     .toBe('ready');
+          |      ^
+      117 |   const s = await state(p),
+      118 |     item = s.items.find(
+      119 |       (i) =>
+        at make (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:116:6)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/recovery.spec.ts:84:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/error-context.md
+
+  1 failed
+    e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+  4 passed (2.2m)

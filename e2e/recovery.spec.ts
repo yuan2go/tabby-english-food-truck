@@ -74,6 +74,13 @@ test('M2 actual helper and delivery overlap, reload, cancellation and continued 
   test.setTimeout(90000);
   await startEndless(page);
   await lesson(page);
+  const startPoint = await hot(page, 'start');
+  expect(
+    await page.evaluate(
+      ({ x, y }) => document.elementFromPoint(x, y)?.closest('.delivery-actions') !== null,
+      startPoint,
+    ),
+  ).toBe(false);
   const first = (await state(page)).orders.find((o) => o.status === 'waiting');
   if (!first) throw Error('order');
   for (const p of REQUESTS[first.request].products) {

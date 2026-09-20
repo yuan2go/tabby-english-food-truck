@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-09-20T19:52:13.809Z",
+  "checkedAt": "2026-09-20T19:58:15.429Z",
   "build": {
-    "sha": "e5dca120346f15d872d2a517fda56bf252178d30",
+    "sha": "4fdc0aafbe611abe300f02b353be7578b3c6c20e",
     "dirty": "false",
     "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef"
   },
@@ -16,8 +16,8 @@
       "effects": true
     },
     "context": "running",
-    "musicGain": 0.06078677251935005,
-    "machineGain": 0.060767967253923416,
+    "musicGain": 0.06444288045167923,
+    "machineGain": 0.06441881507635117,
     "effects": 0
   },
   "events": [
@@ -27,8 +27,8 @@
     "visibilitychange:visible"
   ],
   "offlineMilliseconds": 1800,
-  "beforeHelper": 4726.821139175889,
-  "afterHelper": 4676.921139175888,
-  "beforeMachine": 4766.7,
-  "afterMachine": 4716.8
+  "beforeHelper": 4726.82113917589,
+  "afterHelper": 4676.8211391758905,
+  "beforeMachine": 4750.000000000001,
+  "afterMachine": 4700.000000000002
 }
