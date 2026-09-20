@@ -1,12 +1,18 @@
 # 项目状态
 
+## 2026-09-21 M2 Git 同步（按要求不测试）
+
+负责人明确授权提交、推送全部本地分支，并通过 PR 合并到 main。本次初始核对 4 个本地分支、4 个工作区均干净；main 基线为 `1c502bcac2ca7fecbd77a67d7284e6b445a4328a`，`codex/m2-story-learning` 初始 head 为 `a781c02f7e95b0919b23c897ca96b4f7322028d8`，含 7 个已推送、尚未合入 main 的提交。复用 PR #4，撤销此前保持草稿、不合并的安排；最终结果与完整 SHA 以 PR 和交付报告为准。
+
+本次仅更新同步状态及交付授权记录，不改变运行代码。测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 NOT_RUN，退出码不适用；提交及推送跳过 Git hooks。当前仓库无 GitHub Actions 工作流，不启用工作流或修改权限。下方验证与浏览器证据均来自实现阶段，本次未重跑；合并不代表运行效果已被接受、外部审核通过或授权部署。
+
 ## 当前 M2 · 2026-09-21
 
 本包完整运行范围已实现：小院四入口、长辈交接、四类食谱故事与社区小食会、教学练习、持续无尽营业、配对及 WordSpell。先更新权威文档再写代码，未读取或迁移旧英语奇旅仓库。历史 M1 证据不继承。
 
 - baseline / 执行时默认分支 origin/main：`1c502bcac2ca7fecbd77a67d7284e6b445a4328a`。开工及交付前 fetch 核对，原 main 工作区干净且未修改。PR #1/#2/#3 已合并。
 - 分支：`codex/m2-story-learning`；独立 worktree：`/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck`。一个实现负责人，无重叠实现代理。
-- 本包 PR：[PR #4](https://github.com/yuan2go/tabby-english-food-truck/pull/4)（草稿）。按本轮授权分阶段提交、推送、建 PR；未合并、强推、改权限、启用工作流或部署。
+- 本包 PR：[PR #4](https://github.com/yuan2go/tabby-english-food-truck/pull/4)。实现阶段已分阶段提交、推送并建草稿 PR；现按负责人明确授权转为正式 PR 并合并，实际结果以 PR 为准。不强推、改权限、启用工作流或部署。
 - 最终完整 HTTP 受测构建：`36cb8e6ae05759f47de04a6649cbcc273175e182`，dirty=false，内容 `m2.0`；资源 manifest SHA-256：`72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef`。之后只提交证据/文档；最终 full SHA 见 PR head 与交付消息，不在提交内部伪造自身 hash。
 
 ## 本包实际功能与教学覆盖
@@ -40,7 +46,7 @@
 
 49条本机 Samantha 开发语音记录，界面标“未听审”；设备过程、取放/组合/递交反馈、音乐/环境由本项目合成，英语优先压低背景。播放失败/静音/暂停/后台/重开/首手势有回归。提供 [可听样本](evidence/m2/audio/index.html)，包含实际语音及按运行算法生成的分轨，非现场混音录音。WebM没有音轨，不能作为听审。
 
-## 实际验证与退出码
+## 实现阶段验证与退出码（本次 Git 同步未重跑）
 
 环境：macOS26.5.2 arm64，Node26.3.1 / npm11.16.0，锁定 React19.1.1 / Phaser3.90.0 / Vite7.3.6 / TypeScript5.9.3 / Playwright1.63.0。依赖版本未改；Chromium headless，真实合成触控、DPR与Pad视口模拟，非实体设备。
 

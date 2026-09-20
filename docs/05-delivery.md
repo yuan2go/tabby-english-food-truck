@@ -35,7 +35,7 @@
 - [x] C 贯通：`src/app/Home.tsx`、`Story.tsx`、`Lesson.tsx`、`Settings.tsx` 与营业场景拆分，序章→四章→结局、继续/重玩/解锁，沿正常首页录制。
 - [x] D 回访：有界无尽生成与保存，`src/rules/minigames.ts` / `src/app/MiniGames.tsx` 有限题组、反馈、结算/重玩/返回；独立目标不泄露。
 - [x] E 制作与整体修整：独立背景/长辈/食材/设备/动作资源接入，实际hash/Alpha清单，开发语音及过程声；手机/Pad连续录像、加载量与操作段采样。
-- [x] F 交付：现有typecheck/lint/build/resources/test/test:browser真实退出码；更新STATUS和AI记录；阶段提交推送PR，不合并。核对既有站点版本，未部署写PENDING_DEPLOYMENT。
+- [x] F 交付：实现阶段记录typecheck/lint/build/resources/test/test:browser真实退出码，更新STATUS和AI记录，阶段提交推送PR。负责人随后明确授权不测试合并，执行口径见STATUS；历史验证不作为本次重跑结果。核对既有站点版本，未部署写PENDING_DEPLOYMENT。
 
 已勾选项表示本轮实现/本地证据/PR交付，T12负责人运行确认以及教研、听审、实机、儿童观察仍独立待验，具体结果见STATUS。
 
