@@ -5,7 +5,12 @@ import type { ViewState } from './input';
 import type { Layout, Point } from './layout';
 export function stationPoint(id: StationId, l: Layout): Point {
   const r = l.regions.work;
-  return { x: r.x + r.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.64 : 0.32), y: r.y + 56 };
+  return { x: r.x + r.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.64 : 0.32), y: r.y + 44 };
+}
+export function stationSlotPoint(id: StationId, slot: number, l: Layout): Point {
+  const p = stationPoint(id, l);
+  if (id === 'grill') return p;
+  return { x: p.x + ((slot % 3) - 1) * 48, y: p.y + (slot < 3 ? -22 : 26) };
 }
 export class KitchenView {
   private nodes: Phaser.GameObjects.GameObject[] = [];
@@ -27,7 +32,7 @@ export class KitchenView {
       const text = this.scene.add
         .text(
           p.x,
-          l.regions.work.y + l.regions.work.height - 26,
+          l.regions.work.y + l.regions.work.height - 22,
           st.status === 'processing'
             ? '制作中…'
             : st.status === 'ready'
@@ -64,7 +69,7 @@ export class KitchenView {
           kind: 'start',
           label: `${label}开始制作`,
           x: p.x,
-          y: l.regions.work.y + l.regions.work.height - 26,
+          y: l.regions.work.y + l.regions.work.height - 22,
           width: Math.max(110, 120 * l.scale),
           height: 44,
         },

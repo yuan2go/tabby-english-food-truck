@@ -2,6 +2,7 @@ import type { RequestId } from './catalog';
 import { FOOD_REQUESTS } from './food-orders';
 import type { Family } from './recipes';
 export type Activity = 'story' | 'endless' | 'training';
+export type Language = 'flavor' | 'container' | 'combined';
 export type Support = 'demonstration' | 'pictures' | 'less';
 export interface Chapter {
   id: number;
@@ -31,7 +32,7 @@ export const CHAPTERS: readonly Chapter[] = [
     title: '树荫冰淇淋',
     subtitle: '一球、两球，都是好心情',
     family: 'ice',
-    requests: ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'],
+    requests: ['vanilla-cup', 'strawberry-cup', 'vanilla-cone', 'double-cream', 'banana-cream'],
     introduced: ['ice-cream', 'one', 'two', 'and'],
     gift: '彩色遮阳旗',
     line: '午后的树荫下，朋友们想尝不同口味。',
@@ -74,21 +75,39 @@ export const CHAPTERS: readonly Chapter[] = [
 export const requestFamily = (request: RequestId): Family =>
   request in FOOD_REQUESTS
     ? 'ready'
-    : ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'].includes(request)
+    : [
+          'cup-vanilla',
+          'cone-vanilla',
+          'vanilla-cup',
+          'strawberry-cup',
+          'vanilla-cone',
+          'double-cream',
+          'banana-cream',
+        ].includes(request)
       ? 'ice'
       : ['sandwich', 'salad-sandwich'].includes(request)
         ? 'sandwich'
         : ['burger', 'cheese-burger'].includes(request)
           ? 'burger'
           : 'juice';
-export function endlessPool(families: readonly Family[], support: Support): RequestId[] {
+export function endlessPool(families: readonly Family[], language: Language): RequestId[] {
   const pool: RequestId[] = ['apple', 'banana', 'juice', 'banana-juice'];
-  if (support !== 'demonstration') pool.push('two', 'fruit');
+  if (language === 'combined') pool.push('two', 'fruit');
   if (families.includes('ice'))
     pool.push(
-      'vanilla-cone',
-      'strawberry-cup',
-      ...(support === 'less' ? ['double-cream' as const, 'banana-cream' as const] : []),
+      ...(language === 'flavor'
+        ? (['vanilla-cup', 'strawberry-cup'] as const)
+        : language === 'container'
+          ? (['cup-vanilla', 'cone-vanilla'] as const)
+          : ([
+              'cup-vanilla',
+              'cone-vanilla',
+              'vanilla-cup',
+              'vanilla-cone',
+              'strawberry-cup',
+              'double-cream',
+              'banana-cream',
+            ] as const)),
     );
   if (families.includes('sandwich')) pool.push('sandwich', 'salad-sandwich');
   if (families.includes('burger')) pool.push('burger', 'cheese-burger');

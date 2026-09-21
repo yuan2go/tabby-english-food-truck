@@ -147,6 +147,15 @@ export function activate(
       };
     else {
       ui.selected = { item: targetItem.id };
+      // The occupied work object remains a direct target for the next ingredient.
+      // Selection does not move, replace or consume the existing food.
+      if (targetItem.location.startsWith('station:'))
+        ui.prep = targetItem.location.split(':')[1] as StationId;
+      else if (targetItem.location.startsWith('machine:')) ui.prep = 'machine';
+      else if (targetItem.location.startsWith('tray:')) {
+        ui.prep = 'tray';
+        ui.selectedTray = Number(targetItem.location.split(':')[1]) as TrayId;
+      }
       controller.message = isFinished(targetItem.product)
         ? '成品已选中：点盘子接取；清理需要确认。'
         : '已选中。再点同一份可退回，也可以点旁边的放回。';

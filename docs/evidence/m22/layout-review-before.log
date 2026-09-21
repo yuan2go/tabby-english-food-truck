@@ -1,0 +1,72 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-layout.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck
+
+ ❯ tests/m22-layout.test.ts (4 tests | 4 failed) 5ms
+   × short landscape 300 leaves separate trays with room for 44px food and handles 4ms
+   × short landscape 342 leaves separate trays with room for 44px food and handles 0ms
+   × short landscape 393 leaves separate trays with room for 44px food and handles 0ms
+   × phone idle cat has its own space clear of the five board food positions 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m22-layout.test.ts > short landscape 300 leaves separate trays with room for 44px food and handles
+ FAIL  tests/m22-layout.test.ts > short landscape 342 leaves separate trays with room for 44px food and handles
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/m22-layout.test.ts:8:69
+      6|  const l=layoutFor(852,height,'service');
+      7|  const [a,b]=l.trays;
+      8|  expect(Math.abs(a.x-b.x)>=l.trayWidth+8 || Math.abs(a.y-b.y)>=108).to…
+       |                                                                     ^
+      9|  for(const p of l.trays) {expect(p.x-l.trayWidth/2).toBeGreaterThanOrE…
+     10| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/m22-layout.test.ts > short landscape 393 leaves separate trays with room for 44px food and handles
+AssertionError: expected 261 to be less than or equal to 239
+ ❯ tests/m22-layout.test.ts:9:145
+      7|  const [a,b]=l.trays;
+      8|  expect(Math.abs(a.x-b.x)>=l.trayWidth+8 || Math.abs(a.y-b.y)>=108).to…
+      9|  for(const p of l.trays) {expect(p.x-l.trayWidth/2).toBeGreaterThanOrE…
+       |                                                                                                                                                 ^
+     10| });
+     11| it('phone idle cat has its own space clear of the five board food posi…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/m22-layout.test.ts > phone idle cat has its own space clear of the five board food positions
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/m22-layout.test.ts:15:71
+     13|  const board=stationPoint('board',l);
+     14|  const cat=projectActor({x:.73,y:.43},l);
+     15|  expect(Math.abs(cat.y-board.y)>=118 || Math.abs(cat.x-board.x)>=160).…
+       |                                                                       ^
+     16| });
+     17|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  20:47:49
+   Duration  160ms (transform 27ms, setup 0ms, import 35ms, tests 5ms, environment 0ms)
+

@@ -1,4 +1,4 @@
-import records from './foods.json';
+import records from './foods.json' with { type: 'json' };
 export const FOODS = records;
 export const FOOD_GROUPS = [
   { id: 'fruit', name: '水果篮', audio: 'basket-fruit' },
@@ -9,3 +9,7 @@ export const FOOD_GROUPS = [
 ] as const;
 export const foodConcept = (id: string) => FOODS.find((f) => f.id === id);
 export const foodBatch = (id: string) => FOODS.filter((f) => f.batch === id);
+
+/** Recipe variants retain a single food concept; containers never become foods. */
+export const conceptForProduct = (product: string) =>
+  FOODS.find((f) => f.productionObjects.includes(product));

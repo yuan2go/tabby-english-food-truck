@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { REQUESTS, type RequestId } from '../content/catalog';
+import { requestFamily } from '../content/chapters';
 import { FOOD_GROUPS, FOODS, foodBatch } from '../content/foods';
 import type { Product } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
@@ -119,12 +121,18 @@ export function FoodBaskets({
           >
             ▶ 听一听，找朋友
           </button>
-          {['direct', 'prepared'].includes(food.role) ? (
+          {['direct', 'prepared'].includes(food.role) || ['apple', 'banana'].includes(food.id) ? (
             <button
               type="button"
               onClick={() => {
-                controller.profile.introduce('ready');
-                controller.profile.present(`menu:food-${food.id}`);
+                const request = (Object.keys(REQUESTS) as RequestId[]).find(
+                  (id) =>
+                    REQUESTS[id].products.length === 1 && REQUESTS[id].products[0] === food.product,
+                );
+                if (!request) return;
+                controller.profile.introduce(requestFamily(request));
+                controller.profile.present(`menu:${request}`);
+                controller.profile.present(`request:${request}`);
                 audio.stop();
                 serve();
               }}

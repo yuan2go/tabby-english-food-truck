@@ -1,4 +1,4 @@
-import speech from '../content/speech.json';
+import speech from '../content/speech.json' with { type: 'json' };
 import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';

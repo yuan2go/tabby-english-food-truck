@@ -1504,27 +1504,27 @@
     {
       "assetId": "source-vanilla-cup",
       "path": "art/source/vanilla-cup.png",
-      "bytes": 1719122,
-      "sha256": "ebd296320a5ed403ff6bb7a88e42dbd3284a22fc82dbf6dcda30537d3a24413f",
+      "bytes": 1980100,
+      "sha256": "a646b68997c6a82da741ad15c59cf1cc50dc63cad227e1706e38712a538663ce",
       "runtime": false,
       "source": "OpenAI built-in imagegen, original generation for this repository",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
       "derivation": "original production output",
       "license": "AI-generated candidate; rights and owner visual review pending",
-      "width": 1254,
-      "height": 1254,
+      "width": 1202,
+      "height": 1309,
       "format": "png",
       "hasAlpha": true,
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "left": 125,
-        "top": 51,
-        "width": 1007,
-        "height": 1157,
-        "visible": 761447
+        "left": 13,
+        "top": 15,
+        "width": 1180,
+        "height": 1288,
+        "visible": 1161107
       },
-      "edgeAlpha": [0, 0, 1, 0]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "apple",
@@ -3702,6 +3702,31 @@
       "edgeAlpha": [0, 0, 0, 0]
     },
     {
+      "assetId": "vanilla-cup",
+      "path": "public/assets/vanilla-cup.webp",
+      "bytes": 71996,
+      "sha256": "11252fca08114343418b2bfadb1a3647abc964400b4c8623a79e51c39edfc7c3",
+      "runtime": true,
+      "source": "OpenAI built-in imagegen, original generation for this repository",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "Reference edit of strawberry-cup; source unchanged, proportional downscale only; art/m22-vanilla-cup.json",
+      "license": "AI-generated candidate; rights and owner visual review pending",
+      "width": 441,
+      "height": 480,
+      "format": "webp",
+      "hasAlpha": true,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "effectivePixels": {
+        "left": 5,
+        "top": 5,
+        "width": 433,
+        "height": 473,
+        "visible": 156391
+      },
+      "edgeAlpha": [0, 0, 0, 0]
+    },
+    {
       "assetId": "vanilla",
       "path": "public/assets/vanilla.webp",
       "bytes": 31590,
@@ -5300,6 +5325,32 @@
       "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
     },
     {
+      "assetId": "audio-menu-ice-container",
+      "path": "public/audio/menu-ice-container.wav",
+      "bytes": 135684,
+      "sha256": "7fde90c7dba5c63d739e1c19aa034ee634f7b575e1058e5f804a57b35ba4a56e",
+      "runtime": true,
+      "source": "macOS say / Samantha, development synthesis",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "original production output",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-menu-ice-flavor",
+      "path": "public/audio/menu-ice-flavor.wav",
+      "bytes": 148486,
+      "sha256": "27f15aaed0e01a5620cb439baebe5365b69230512e0ec20db272596cee509104",
+      "runtime": true,
+      "source": "macOS say / Samantha, development synthesis",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "original production output",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
       "assetId": "audio-menu-mini",
       "path": "public/audio/menu-mini.wav",
       "bytes": 117714,
@@ -5560,6 +5611,32 @@
       "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
     },
     {
+      "assetId": "audio-request-cone-vanilla",
+      "path": "public/audio/request-cone-vanilla.wav",
+      "bytes": 69962,
+      "sha256": "80fff12001c2f3f9b1ccac56e0f40637c2a46c5332327ba11510f395da239193",
+      "runtime": true,
+      "source": "macOS say / Samantha, development synthesis",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "original production output",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-request-cup-vanilla",
+      "path": "public/audio/request-cup-vanilla.wav",
+      "bytes": 68426,
+      "sha256": "5ee029f4e9b4992e82ee946f0376557212e267de7b84a818cccf69a549bf7427",
+      "runtime": true,
+      "source": "macOS say / Samantha, development synthesis",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "original production output",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
       "assetId": "audio-request-double-cream",
       "path": "public/audio/request-double-cream.wav",
       "bytes": 146778,
@@ -5627,8 +5704,8 @@
     {
       "assetId": "audio-request-strawberry-cup",
       "path": "public/audio/request-strawberry-cup.wav",
-      "bytes": 121360,
-      "sha256": "d35d9687d3a22eea92933196f705965ee8b3f50b042f3d569393af2b9ad11ca6",
+      "bytes": 99856,
+      "sha256": "f704c339299180f689a2943b4981b57cd302004dc69ea5af2d8551454bf36280",
       "runtime": true,
       "source": "macOS say / Samantha, development synthesis",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -5642,6 +5719,19 @@
       "path": "public/audio/request-vanilla-cone.wav",
       "bytes": 110670,
       "sha256": "c9e34d4d3f8f405a1f5c1e0d63b8ee6765f5545034857f73a6781d8280e3b615",
+      "runtime": true,
+      "source": "macOS say / Samantha, development synthesis",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "original production output",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-request-vanilla-cup",
+      "path": "public/audio/request-vanilla-cup.wav",
+      "bytes": 87630,
+      "sha256": "425c35cd3d20b16706f1515d36d327eec03b55a22de1a7783fdb781d623e9756",
       "runtime": true,
       "source": "macOS say / Samantha, development synthesis",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -6186,6 +6276,19 @@
     {
       "assetId": "audio-word-vanilla-cone",
       "path": "public/audio/word-vanilla-cone.wav",
+      "bytes": 55378,
+      "sha256": "2d2db4403bd2a2682119997dc4b50231c9e4ec0db819c87ada8cdaa32716948e",
+      "runtime": true,
+      "source": "macOS say / Samantha, development synthesis",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "original production output",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-word-vanilla-cup",
+      "path": "public/audio/word-vanilla-cup.wav",
       "bytes": 55378,
       "sha256": "2d2db4403bd2a2682119997dc4b50231c9e4ec0db819c87ada8cdaa32716948e",
       "runtime": true,

@@ -1,0 +1,23 @@
+
+> tabby-english-food-truck@0.1.0 build
+> npm run typecheck && vite build
+
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 81 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.61 kB │ gzip:   0.42 kB
+dist/assets/index-RnHvll2o.css     33.42 kB │ gzip:   8.37 kB
+dist/assets/index-Bhk1Zx0m.js     407.34 kB │ gzip: 119.92 kB
+dist/assets/phaser-DXXWZowi.js  1,208.05 kB │ gzip: 330.07 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.89s

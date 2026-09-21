@@ -1,0 +1,14 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m22.spec.ts e2e/m22-growth.spec.ts e2e/m22-foods.spec.ts --output=/tmp/m22-webkit-dev
+
+
+Running 3 tests using 1 worker
+
+(node:40849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m22-foods.spec.ts:9:1 › all 50 foods are reachable by visible baskets and the selected food enters listening practice (13.1s)
+  ✓  2 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (12.6s)
+  ✓  3 e2e/m22.spec.ts:10:1 › M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies (19.6s)
+
+  3 passed (46.8s)

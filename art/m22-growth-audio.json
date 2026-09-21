@@ -1,0 +1,42 @@
+{
+  "source": "macOS say / Samantha 140 wpm, PCM 22050 Hz",
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "records": [
+    {
+      "id": "request-cup-vanilla",
+      "text": "In a cup, please.",
+      "kind": "request"
+    },
+    {
+      "id": "request-cone-vanilla",
+      "text": "In a cone, please.",
+      "kind": "request"
+    },
+    {
+      "id": "word-vanilla-cup",
+      "text": "vanilla ice cream",
+      "kind": "word"
+    },
+    {
+      "id": "request-vanilla-cup",
+      "text": "Vanilla ice cream, please.",
+      "kind": "request"
+    },
+    {
+      "id": "request-strawberry-cup",
+      "text": "Strawberry ice cream, please.",
+      "kind": "request"
+    },
+    {
+      "id": "menu-ice-flavor",
+      "text": "One scoop in a cup. Choose vanilla or strawberry.",
+      "kind": "instruction"
+    },
+    {
+      "id": "menu-ice-container",
+      "text": "One scoop of vanilla. Choose a cup or a cone.",
+      "kind": "instruction"
+    }
+  ]
+}

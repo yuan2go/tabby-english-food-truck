@@ -133,6 +133,17 @@ export async function make(
       } else await choosePrep(p, prep);
     }
   }
+  if (recipe.station === 'board') {
+    for (const item of (await state(p)).items.filter((i) =>
+      i.location.startsWith('station:board:'),
+    )) {
+      await tap(p, `item-${item.id}`);
+      await expect(p.locator(`[data-hotspot="item-${item.id}"]`)).toHaveAttribute(
+        'aria-pressed',
+        'true',
+      );
+    }
+  }
   await tap(p, recipe.station === 'machine' ? 'start' : `start-station-${recipe.station}`);
   if (restore?.has(recipe.station)) {
     restore.delete(recipe.station);
@@ -143,6 +154,7 @@ export async function make(
     expect(
       recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status,
     ).toBe('processing');
+    if (recipe.station === 'grill') await p.setViewportSize({ width: 768, height: 1024 });
     await p.reload();
     await p.locator('.yard-story .entry-main').tap();
     await p.getByRole('button', { name: chapter.title, exact: true }).tap();

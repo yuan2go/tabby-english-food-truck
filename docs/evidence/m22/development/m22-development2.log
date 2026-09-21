@@ -1,0 +1,83 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m22-boundaries.spec.ts e2e/game.spec.ts -g phone complete|audio loading|phone wrong
+
+[WebServer] (node:39562) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:39629) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:39669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending (4.3m)
+(node:40245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/m22-boundaries.spec.ts:4:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (7.0s)
+(node:40286) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/m22-boundaries.spec.ts:52:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (7.0s)
+
+
+  1) e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      103 |     await page.getByRole('button', { name: '下一位朋友', exact: true }).tap();
+      104 |   }
+    > 105 |   expect(sawPhrase).toBe(true);
+          |                     ^
+      106 | });
+      107 | test('M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery', async ({
+      108 |   page,
+        at /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck/e2e/game.spec.ts:105:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/error-context.md
+
+  2) e2e/m22-boundaries.spec.ts:4:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "request-mismatch"
+    Received: undefined
+
+      10 | test('phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory', async ({
+      11 |   page,
+    > 12 | }, info) => {
+         |              ^
+      13 |   await startStory(page);
+      14 |   await page.getByRole('button', { name: '暂停', exact: true }).tap();
+      15 |   await page.getByRole('button', { name: '设置', exact: true }).tap();
+        at /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:12:54
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  2 failed
+    e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending 
+    e2e/m22-boundaries.spec.ts:4:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  1 passed (4.6m)

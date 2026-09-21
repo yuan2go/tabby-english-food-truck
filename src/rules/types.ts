@@ -1,5 +1,5 @@
 import type { Mode, Product, RequestId } from '../content/catalog';
-import type { Activity, Support } from '../content/chapters';
+import type { Activity, Language, Support } from '../content/chapters';
 import type { Family, StationId } from '../content/recipes';
 import type { ActorPlan, ActorPoint } from '../game/actor';
 import type { Routing } from './routing';
@@ -47,7 +47,7 @@ export interface AudioRecord {
   gameTime: number;
 }
 export interface GameState {
-  schemaVersion: 5;
+  schemaVersion: 6;
   routing: Routing;
   session: {
     activity: Activity;
@@ -56,6 +56,7 @@ export interface GameState {
     concurrency: 1 | 2;
     menu: RequestId[];
     supplyPage: number;
+    language: Language;
     family: Family;
     unlocked: Family[];
     seed: number;
@@ -115,6 +116,7 @@ export type Command =
   | { type: 'restore-cleared'; tray: TrayId }
   | { type: 'family'; family: Family }
   | { type: 'policy'; support: Support; concurrency: 1 | 2 }
+  | { type: 'language'; language: Language }
   | { type: 'prepare-cup' }
   | { type: 'supply-page'; page: number }
   | { type: 'menu'; requests: RequestId[]; families: Family[] }

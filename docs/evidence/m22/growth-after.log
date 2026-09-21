@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-growth.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  20:46:52
+   Duration  209ms (transform 76ms, setup 0ms, import 90ms, tests 5ms, environment 0ms)
+

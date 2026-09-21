@@ -167,6 +167,7 @@ export class GameController {
         Math.floor(Math.random() * 4294967296),
         concurrency,
         this.profile.menu(),
+        this.profile.value.language,
       );
     // Assistance belongs to the unfinished request, even after replay or a support change.
     if (stored) {
@@ -183,6 +184,7 @@ export class GameController {
     if (activity === 'story') this.profile.introduce(family);
     this.state.session.unlocked = [...this.profile.value.introduced];
     this.state.session.menu = this.profile.menu();
+    this.state.session.language = this.profile.value.language;
     applyPolicy(this.state, support, concurrency);
     this.savedGame = Boolean(previous);
     this.checkpoint = 0;
@@ -208,6 +210,13 @@ export class GameController {
         const request = this.state.orders.find((o) => a.input.startsWith(`${o.id}:`))?.request;
         if (request) {
           this.profile.present(`menu:${request}`);
+          const order = this.state.orders.find((o) => a.input.startsWith(`${o.id}:`));
+          const key = `${this.state.runId}:${order?.id}`;
+          const lesson = this.profile.value.lessons[key];
+          if (lesson?.phase === 'practice') {
+            this.profile.lesson(key, { ...lesson, phase: 'done' });
+            this.profile.tutorial(`request-${request}`);
+          }
           this.state.session.menu = this.profile.menu();
         }
       }

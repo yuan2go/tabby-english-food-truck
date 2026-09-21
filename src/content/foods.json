@@ -767,7 +767,7 @@
     "entry": "training/food-baskets",
     "practice": "match-listen",
     "review": "PENDING_TEACHING_AND_LISTENING_REVIEW",
-    "productionObjects": ["vanilla"]
+    "productionObjects": ["vanilla-pod", "vanilla"]
   },
   {
     "id": "chocolate",
@@ -899,12 +899,12 @@
     "entry": "training/food-baskets",
     "practice": "match-listen",
     "review": "PENDING_TEACHING_AND_LISTENING_REVIEW",
-    "productionObjects": ["juice"]
+    "productionObjects": ["juice", "banana-juice"]
   },
   {
     "id": "smoothie",
     "text": "smoothie",
-    "chinese": "果昔（思慕雪）",
+    "chinese": "水果冰沙",
     "plural": "smoothies",
     "unit": "a glass of smoothie",
     "group": "ready",
@@ -965,7 +965,13 @@
     "entry": "training/food-baskets",
     "practice": "match-listen",
     "review": "PENDING_TEACHING_AND_LISTENING_REVIEW",
-    "productionObjects": ["vanilla-cone"]
+    "productionObjects": [
+      "vanilla-cup",
+      "vanilla-cone",
+      "strawberry-cup",
+      "double-cream",
+      "banana-cream"
+    ]
   },
   {
     "id": "sandwich",
@@ -987,7 +993,7 @@
     "entry": "training/food-baskets",
     "practice": "match-listen",
     "review": "PENDING_TEACHING_AND_LISTENING_REVIEW",
-    "productionObjects": ["sandwich"]
+    "productionObjects": ["sandwich", "salad-sandwich"]
   },
   {
     "id": "burger",
@@ -1009,7 +1015,7 @@
     "entry": "training/food-baskets",
     "practice": "match-listen",
     "review": "PENDING_TEACHING_AND_LISTENING_REVIEW",
-    "productionObjects": ["burger"]
+    "productionObjects": ["burger", "cheese-burger"]
   },
   {
     "id": "pizza",

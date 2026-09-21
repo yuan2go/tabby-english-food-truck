@@ -42,7 +42,8 @@
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
   },
   "request-strawberry-cup": {
-    "text": "Strawberry ice cream in a cup, please.",
+    "id": "request-strawberry-cup",
+    "text": "Strawberry ice cream, please.",
     "kind": "request",
     "path": "audio/request-strawberry-cup.wav",
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
@@ -1137,6 +1138,48 @@
     "text": "Banana juice. Choose a banana. Make juice.",
     "kind": "instruction",
     "path": "audio/grow-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-vanilla-cup": {
+    "id": "word-vanilla-cup",
+    "text": "vanilla ice cream",
+    "kind": "word",
+    "path": "audio/word-vanilla-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-vanilla-cup": {
+    "id": "request-vanilla-cup",
+    "text": "Vanilla ice cream, please.",
+    "kind": "request",
+    "path": "audio/request-vanilla-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-ice-flavor": {
+    "id": "menu-ice-flavor",
+    "text": "One scoop in a cup. Choose vanilla or strawberry.",
+    "kind": "instruction",
+    "path": "audio/menu-ice-flavor.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-ice-container": {
+    "id": "menu-ice-container",
+    "text": "One scoop of vanilla. Choose a cup or a cone.",
+    "kind": "instruction",
+    "path": "audio/menu-ice-container.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-cup-vanilla": {
+    "id": "request-cup-vanilla",
+    "text": "In a cup, please.",
+    "kind": "request",
+    "path": "audio/request-cup-vanilla.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-cone-vanilla": {
+    "id": "request-cone-vanilla",
+    "text": "In a cone, please.",
+    "kind": "request",
+    "path": "audio/request-cone-vanilla.wav",
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
   }
 }

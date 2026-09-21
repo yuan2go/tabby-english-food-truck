@@ -1,5 +1,12 @@
 import type { RequestId } from '../content/catalog';
-import { type Activity, CHAPTERS, endlessPool, randomAt, type Support } from '../content/chapters';
+import {
+  type Activity,
+  CHAPTERS,
+  endlessPool,
+  type Language,
+  randomAt,
+  type Support,
+} from '../content/chapters';
 import type { Family } from '../content/recipes';
 import type { GameState, Order, TrayId } from './types';
 export function orderFor(
@@ -34,6 +41,7 @@ export function configureSession(
   seed: number,
   concurrency: 1 | 2 = 1,
   menu?: RequestId[],
+  language: Language = 'flavor',
 ): GameState {
   s.session = {
     activity,
@@ -41,7 +49,8 @@ export function configureSession(
     support,
     concurrency,
     supplyPage: 0,
-    menu: menu ?? endlessPool(unlocked, 'less'),
+    language,
+    menu: menu ?? endlessPool(unlocked, 'combined'),
     family: CHAPTERS[chapter]?.family ?? 'juice',
     unlocked: [...unlocked],
     seed: seed >>> 0,
@@ -77,7 +86,7 @@ export function replenish(s: GameState): void {
   const done = s.orders.filter((o) => o.status === 'done');
   s.session.served += done.length;
   s.orders = s.orders.filter((o) => o.status !== 'done');
-  const pool = endlessPool(s.session.unlocked, s.session.support).filter((r) =>
+  const pool = endlessPool(s.session.unlocked, s.session.language).filter((r) =>
     s.session.menu.includes(r),
   );
   if (!pool.length) return;

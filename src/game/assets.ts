@@ -70,6 +70,7 @@ export const ASSET_IDS = [
   'ice-station',
   'board-station',
   'grill-station',
+  'vanilla-cup',
   'vanilla-cone',
   'strawberry-cup',
   'double-cream',

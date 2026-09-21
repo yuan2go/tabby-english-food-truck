@@ -1,5 +1,5 @@
 import { REQUESTS, type RequestId } from '../content/catalog';
-import { CHAPTERS } from '../content/chapters';
+import { CHAPTERS, type Language } from '../content/chapters';
 import type { Family } from '../content/recipes';
 import type { StoragePort } from './save';
 export interface Observation {
@@ -15,14 +15,15 @@ export interface LessonProgress {
   request: RequestId;
   units: string[];
   index: number;
-  phase: 'meaning' | 'try' | 'recipe' | 'done' | 'skipped';
+  phase: 'meaning' | 'try' | 'practice' | 'recipe' | 'done' | 'skipped';
   step: number;
   tries: number;
   nextAttempt: number;
   support: string[];
 }
 export interface Profile {
-  version: 2;
+  version: 3;
+  language: Language;
   concurrency: 1 | 2;
   observedIds: string[];
   presented: string[];
@@ -37,7 +38,8 @@ export interface Profile {
   support: 'demonstration' | 'pictures' | 'less';
 }
 export const emptyProfile = (): Profile => ({
-  version: 2,
+  version: 3,
+  language: 'flavor',
   concurrency: 1,
   observedIds: [],
   presented: [],
@@ -66,7 +68,8 @@ export class ProfileStore {
         if (v && typeof v === 'object' && Reflect.get(v, 'version') === 1) {
           const migrated = {
             ...v,
-            version: 2,
+            version: 3,
+            language: 'flavor',
             concurrency: 1,
             observedIds: [] as string[],
             presented: [],
@@ -77,6 +80,46 @@ export class ProfileStore {
           if (validProfile(migrated)) {
             migrated.observedIds = migrated.observations.map((o) => o.id);
             migrated.tutorials = migrated.tutorials.map((t) => `legacy-opened:${t}`);
+            this.value = migrated;
+          } else {
+            this.blocked = true;
+            this.issue = '旧成长记录未通过校验，原文已保留。';
+          }
+        } else if (v && typeof v === 'object' && Reflect.get(v, 'version') === 2) {
+          const migrated = { ...v, version: 3, language: 'flavor' };
+          if (validProfile(migrated)) {
+            const renamed: Record<string, string> = {
+              strawberry: 'strawberry-scoop',
+              vanilla: 'vanilla-flavor',
+            };
+            const iceRequests = new Set([
+              'vanilla-cone',
+              'strawberry-cup',
+              'double-cream',
+              'banana-cream',
+            ]);
+            const confirmed = new Set<string>();
+            for (const [key, lesson] of Object.entries(migrated.lessons)) {
+              if (!iceRequests.has(lesson.request)) continue;
+              lesson.units = lesson.units.map((id) => {
+                if (renamed[id]) confirmed.add(id);
+                return renamed[id] ?? id;
+              });
+              for (const observation of migrated.observations) {
+                if (observation.id.startsWith(`lesson:${key}:`) && renamed[observation.target])
+                  observation.target = renamed[observation.target] ?? observation.target;
+              }
+            }
+            // Unscoped v2 display/learning flags cannot distinguish plant, fruit and flavor.
+            // Keep them as legacy evidence, never infer new concept knowledge from them.
+            const migrateFlag = (id: string) =>
+              renamed[id] ? (confirmed.has(id) ? (renamed[id] ?? id) : `legacy-v2:${id}`) : id;
+            migrated.learnedUnits = migrated.learnedUnits.map(migrateFlag);
+            migrated.presented = migrated.presented.flatMap((id) =>
+              renamed[id]
+                ? [`legacy-v2:${id}`, ...(confirmed.has(id) ? [renamed[id] ?? id] : [])]
+                : [id],
+            );
             this.value = migrated;
           } else {
             this.blocked = true;
@@ -105,13 +148,10 @@ export class ProfileStore {
     }
   }
   menu(): RequestId[] {
-    // A new endless run always has a tiny spoken foundation: apple, banana, and
-    // the basic juice. The active order's Lesson introduces the meaning before
-    // any other food can appear; later basket choices add explicit menu items.
-    const foundation = new Set<RequestId>(['apple', 'banana', 'juice']);
+    // Introduction is explicit; a displayed or generated answer does not grant mastery.
     return (Object.keys(REQUESTS) as RequestId[]).filter(
       (id) =>
-        foundation.has(id) ||
+        id === 'apple' ||
         this.value.tutorials.includes(`request-${id}`) ||
         this.value.presented.includes(`menu:${id}`),
     );
@@ -152,7 +192,8 @@ export function validProfile(v: unknown): v is Profile {
   if (!v || typeof v !== 'object') return false;
   const p = v as Partial<Profile>;
   return (
-    p.version === 2 &&
+    p.version === 3 &&
+    ['flavor', 'container', 'combined'].includes(p.language ?? '') &&
     Array.isArray(p.observedIds) &&
     p.observedIds.length <= 1200 &&
     p.observedIds.every((x) => typeof x === 'string' && x.length < 160) &&
@@ -176,7 +217,7 @@ export function validProfile(v: unknown): v is Profile {
         Number.isInteger(l.index) &&
         l.index >= 0 &&
         l.index <= l.units.length &&
-        ['meaning', 'try', 'recipe', 'done', 'skipped'].includes(l.phase) &&
+        ['meaning', 'try', 'practice', 'recipe', 'done', 'skipped'].includes(l.phase) &&
         Number.isInteger(l.step) &&
         l.step >= 0 &&
         l.step < 4 &&

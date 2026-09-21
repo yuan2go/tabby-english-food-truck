@@ -40,7 +40,7 @@ export function createGame(
 ): GameState {
   const requests = requestsFor(mode, variant);
   return {
-    schemaVersion: 5,
+    schemaVersion: 6,
     routing: emptyRouting(),
     session: {
       activity: 'training',
@@ -49,6 +49,7 @@ export function createGame(
       concurrency: mode === 'service' ? 2 : 1,
       menu: Object.keys(REQUESTS) as RequestId[],
       supplyPage: 0,
+      language: 'flavor',
       family: 'juice',
       unlocked: ['juice'],
       seed: 1,
@@ -194,6 +195,12 @@ export function dispatch(current: GameState, e: Envelope): Result {
     s.session.menu = [...new Set([...s.session.menu, ...c.requests.filter((r) => r in REQUESTS)])];
     s.session.unlocked = [...new Set([...s.session.unlocked, ...c.families])];
     return result('ok', '新菜单已经介绍，下一位客人可以选择。');
+  }
+  if (c.type === 'language') {
+    if (!['flavor', 'container', 'combined'].includes(c.language))
+      return result('blocked', '请选择一种请求方式。');
+    s.session.language = c.language;
+    return result('ok', '只调整新请求，已接的客人和食物保留。');
   }
   if (c.type === 'policy') {
     applyPolicy(s, c.support, c.concurrency);
@@ -594,24 +601,36 @@ export function advance(current: GameState, milliseconds: number): GameState {
         changed = true;
       }
     }
+  if (
+    s.session.concurrency === 2 &&
+    s.mode !== 'service' &&
+    !s.actor.current &&
+    !s.helper &&
+    !s.trays.some((t) => t.remaining)
+  ) {
+    applyPolicy(s, s.session.support, s.session.concurrency);
+    changed = true;
+  }
   if (s.session.activity === 'endless') {
-    if (
-      s.orders.some((o) => o.status === 'done') ||
-      (s.session.concurrency === 2 &&
-        s.mode !== 'service' &&
-        !s.actor.current &&
-        !s.helper &&
-        !s.trays.some((t) => t.remaining))
-    ) {
+    if (s.orders.some((o) => o.status === 'done')) {
       applyPolicy(s, s.session.support, s.session.concurrency);
       changed = true;
     }
   } else {
-    const max = s.session.concurrency;
+    const max = s.mode === 'service' ? s.session.concurrency : 1;
     while (s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving').length < max) {
       const next = s.orders.findIndex((o) => o.status === 'queued');
       if (next < 0) break;
-      s.orders = s.orders.map((o, i) => (i === next ? { ...o, status: 'waiting' } : o));
+      const seat = ([0, 1] as const).find(
+        (seat) =>
+          !s.orders.some(
+            (o) => (o.status === 'waiting' || o.status === 'leaving') && o.seat === seat,
+          ),
+      );
+      if (seat === undefined) break;
+      s.orders = s.orders.map((o, i) =>
+        i === next ? { ...o, seat: s.mode === 'service' ? seat : s.variant, status: 'waiting' } : o,
+      );
       changed = true;
     }
   }

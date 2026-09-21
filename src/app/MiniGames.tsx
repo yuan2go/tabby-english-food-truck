@@ -147,8 +147,29 @@ export function MiniGames({
         setFreshKind(kind);
         return;
       }
-      setState(saved);
-      latest.current = saved;
+      if (
+        collection &&
+        targetWord(saved).id === collection.focus &&
+        ['intro', 'meaning', 'play'].includes(saved.stage)
+      ) {
+        update({
+          ...saved,
+          support: [...new Set([...saved.support, 'meaning-picture', 'collection-preview'])],
+          carry: {
+            ...saved.carry,
+            [collection.focus]: [
+              ...new Set([
+                ...(saved.carry[collection.focus] ?? []),
+                'meaning-picture',
+                'collection-preview',
+              ]),
+            ],
+          },
+        });
+      } else {
+        setState(saved);
+        latest.current = saved;
+      }
       return;
     }
     const known = collection?.ids ?? introducedWords(controller.profile.value.presented);
@@ -169,6 +190,15 @@ export function MiniGames({
     else if (collection && kind === 'match')
       fresh.words = [collection.focus, ...fresh.words.slice(0, 3)];
     if (saved) fresh.carry = restartMini(saved, fresh.id).carry;
+    if (collection && fresh.words[0] === collection.focus)
+      fresh.carry[collection.focus] = [
+        ...new Set([
+          ...(fresh.carry[collection.focus] ?? []),
+          'meaning-picture',
+          'collection-preview',
+          ...(kind === 'spell' ? ['word-model'] : []),
+        ]),
+      ];
     setFreshKind(null);
     update(fresh);
     void audio.play(kind === 'match' ? 'mini-match' : 'mini-spell');

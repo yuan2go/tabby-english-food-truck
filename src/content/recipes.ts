@@ -1,3 +1,4 @@
+import foodRecords from './foods.json' with { type: 'json' };
 export const FOOD = {
   apple: ['苹果', 'apple'],
   banana: ['香蕉', 'banana'],
@@ -14,6 +15,7 @@ export const FOOD = {
   cone: ['蛋筒', 'cone'],
   vanilla: ['香草球', 'vanilla'],
   strawberry: ['草莓球', 'strawberry'],
+  'vanilla-cup': ['香草冰淇淋杯', 'vanilla ice cream'],
   'vanilla-cone': ['香草蛋筒', 'vanilla ice cream'],
   'strawberry-cup': ['草莓冰淇淋杯', 'strawberry ice cream'],
   'double-cream': ['双球冰淇淋', 'two scoops of ice cream'],
@@ -55,7 +57,7 @@ export const FOOD = {
   jam: ['果酱', 'jam'],
   coconut: ['椰子', 'coconut'],
   raisin: ['葡萄干', 'raisin'],
-  smoothie: ['思慕雪', 'smoothie'],
+  smoothie: ['水果冰沙', 'smoothie'],
   milkshake: ['奶昔', 'milkshake'],
   pizza: ['比萨饼', 'pizza'],
   salad: ['沙拉', 'salad'],
@@ -75,6 +77,15 @@ export interface Recipe {
   action: string;
 }
 export const RECIPES: readonly Recipe[] = [
+  {
+    id: 'vanilla-cup',
+    family: 'ice',
+    station: 'ice',
+    inputs: ['cup', 'vanilla'],
+    output: 'vanilla-cup',
+    ms: 1000,
+    action: '接好冰淇淋',
+  },
   {
     id: 'juice',
     family: 'juice',
@@ -226,59 +237,8 @@ export const FAMILY_STATIONS: Record<Family, readonly StationId[]> = {
   sandwich: ['board'],
   burger: ['grill', 'board'],
 };
-export const foodAsset = (product: Product): string => FOOD_OBJECT_ASSETS[product] ?? product;
-const FOOD_OBJECT_ASSETS: Partial<Record<Product, string>> = {
-  apple: 'apple',
-  banana: 'banana',
-  orange: 'food-orange',
-  pear: 'food-pear',
-  peach: 'food-peach',
-  'fresh-strawberry': 'food-strawberry',
-  grape: 'food-grape',
-  watermelon: 'food-watermelon',
-  mango: 'food-mango',
-  pineapple: 'food-pineapple',
-  tomato: 'tomato',
-  cucumber: 'food-cucumber',
-  carrot: 'food-carrot',
-  potato: 'food-potato',
-  lettuce: 'lettuce',
-  corn: 'food-corn',
-  broccoli: 'food-broccoli',
-  mushroom: 'food-mushroom',
-  pumpkin: 'food-pumpkin',
-  pea: 'food-pea',
-  bread: 'bread',
-  bun: 'bun',
-  rice: 'food-rice',
-  noodles: 'food-noodles',
-  egg: 'food-egg',
-  chicken: 'food-chicken',
-  beef: 'food-beef',
-  fish: 'food-fish',
-  cheese: 'cheese',
-  tofu: 'food-tofu',
-  milk: 'food-milk',
-  yogurt: 'food-yogurt',
-  butter: 'food-butter',
-  cream: 'food-cream',
-  'vanilla-pod': 'food-vanilla',
-  chocolate: 'food-chocolate',
-  honey: 'food-honey',
-  jam: 'food-jam',
-  coconut: 'food-coconut',
-  raisin: 'food-raisin',
-  juice: 'juice',
-  smoothie: 'food-smoothie',
-  milkshake: 'food-milkshake',
-  'vanilla-cone': 'vanilla-cone',
-  sandwich: 'sandwich',
-  burger: 'burger',
-  pizza: 'food-pizza',
-  salad: 'food-salad',
-  cake: 'food-cake',
-  cookie: 'food-cookie',
-};
+export const foodAsset = (product: Product): string =>
+  foodRecords.find((f) => f.product === product)?.image ?? product;
 
 export const SUPPLY_PAGES: readonly (readonly Product[])[] = [
   ['orange', 'pear', 'peach', 'fresh-strawberry'],

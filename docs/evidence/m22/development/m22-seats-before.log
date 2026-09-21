@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-growth.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck
+
+ ❯ tests/m22-growth.test.ts (6 tests | 1 failed) 8ms
+   × promoting a single-customer story allocates free seats and produces a restorable snapshot 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m22-growth.test.ts > promoting a single-customer story allocates free seats and produces a restorable snapshot
+AssertionError: expected 1 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ tests/m22-growth.test.ts:120:80
+    118|  s=advance(s,16);
+    119|  expect(s.orders[0]).toEqual(accepted);
+    120|  expect(new Set(s.orders.filter(o=>o.status==='waiting').map(o=>o.seat…
+       |                                                                                ^
+    121|  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+    122| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  21:05:59
+   Duration  210ms (transform 73ms, setup 0ms, import 88ms, tests 8ms, environment 0ms)
+

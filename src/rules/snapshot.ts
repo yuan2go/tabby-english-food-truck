@@ -20,7 +20,7 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 5 ||
+    v.schemaVersion !== 6 ||
     v.contentVersion !== CONTENT_VERSION ||
     !['guided', 'practice', 'service'].includes(v.mode as string) ||
     !record(v.history) ||
@@ -156,6 +156,7 @@ export function validateState(v: unknown): v is GameState {
     !v.session.unlocked.includes('juice') ||
     v.session.unlocked.some((f) => !['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(f)) ||
     !integer(v.session.seed, 4294967295) ||
+    !['flavor', 'container', 'combined'].includes(v.session.language as string) ||
     !integer(v.session.supplyPage, 3) ||
     !integer(v.session.cursor) ||
     !integer(v.session.served) ||
@@ -218,7 +219,11 @@ export function validateState(v: unknown): v is GameState {
   if (active.length > (s.mode === 'service' ? 2 : 1) || !unique(active.map((o) => o.seat)))
     return false;
   if (s.session.activity === 'story') {
-    const expected = CHAPTERS[s.session.chapter]?.requests;
+    const oldIce = ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'];
+    const expected =
+      s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
+        ? oldIce
+        : CHAPTERS[s.session.chapter]?.requests;
     if (
       !expected ||
       s.orders.length !== expected.length ||
@@ -228,7 +233,7 @@ export function validateState(v: unknown): v is GameState {
   } else if (s.session.activity === 'endless') {
     // A support change constrains future generation, not the validity of
     // already accepted orders. Their recipes must still be introduced.
-    const pool = endlessPool(s.session.unlocked, 'less');
+    const pool = endlessPool(s.session.unlocked, 'combined');
     if (
       s.orders.length > (s.mode === 'service' ? 2 : 1) ||
       s.orders.some(
@@ -248,6 +253,9 @@ export function validateState(v: unknown): v is GameState {
         requestsFor(s.mode, s.variant).join('|'),
         'apple|banana|two|fruit|juice',
         CHAPTERS[s.session.chapter]?.requests.join('|'),
+        ...(s.session.chapter === 1
+          ? ['vanilla-cone|strawberry-cup|double-cream|banana-cream']
+          : []),
       ].includes(actual)
     )
       return false;
@@ -480,7 +488,7 @@ export function decodeSnapshot(raw: string): DecodeResult {
       value.session.concurrency =
         value.mode === 'service' && value.session.support === 'less' ? 2 : 1;
       value.session.menu = Array.isArray(value.session.unlocked)
-        ? endlessPool(value.session.unlocked as GameState['session']['unlocked'], 'less')
+        ? endlessPool(value.session.unlocked as GameState['session']['unlocked'], 'combined')
         : [];
       if (Array.isArray(value.orders)) for (const o of value.orders) if (record(o)) o.heard = false;
       if (Array.isArray(value.attempts))
@@ -495,8 +503,18 @@ export function decodeSnapshot(raw: string): DecodeResult {
     ) {
       value.schemaVersion = 5;
       value.session.supplyPage = 0;
+      value.session.language = 'flavor';
       value.contentVersion = CONTENT_VERSION;
       value.routing = emptyRouting();
+    }
+    if (
+      record(value) &&
+      value.schemaVersion === 5 &&
+      value.contentVersion === CONTENT_VERSION &&
+      record(value.session)
+    ) {
+      value.schemaVersion = 6;
+      value.session.language = 'flavor';
     }
     return validateState(value)
       ? { ok: true, state: value }

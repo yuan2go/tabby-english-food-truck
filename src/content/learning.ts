@@ -32,6 +32,7 @@ export const ITEM_AUDIO: Record<Product, string> = {
   cone: 'word-cone',
   vanilla: 'word-vanilla',
   strawberry: 'word-strawberry',
+  'vanilla-cup': 'word-vanilla-cup',
   'vanilla-cone': 'word-vanilla-cone',
   'strawberry-cup': 'word-strawberry-cup',
   'double-cream': 'word-double-cream',

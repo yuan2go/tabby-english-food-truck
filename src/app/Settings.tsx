@@ -87,6 +87,41 @@ export function Settings({
           </button>
         ))}
       </fieldset>
+      <fieldset className="choice-row">
+        <legend>新订单表达（和帮助、忙碌分开）</legend>
+        {(['flavor', 'container', 'combined'] as const).map((language, i) => (
+          <button
+            type="button"
+            key={language}
+            aria-pressed={controller.profile.value.language === language}
+            onClick={() => {
+              controller.profile.value.language = language;
+              controller.profile.save();
+              controller.command({ type: 'language', language });
+              if (language === 'container' && controller.profile.value.introduced.includes('ice')) {
+                controller.profile.present('menu:cup-vanilla');
+                controller.profile.present('menu:cone-vanilla');
+                controller.command({
+                  type: 'menu',
+                  requests: ['cup-vanilla', 'cone-vanilla'],
+                  families: [],
+                });
+                void audio.play('menu-ice-container');
+              } else if (
+                language === 'flavor' &&
+                controller.profile.value.introduced.includes('ice')
+              )
+                void audio.play('menu-ice-flavor');
+              refresh();
+            }}
+          >
+            {['先练口味', '再练容器', '数量与配料组合'][i]}
+          </button>
+        ))}
+      </fieldset>
+      <p>
+        先练口味：一球装杯。再练容器：固定一球香草，听杯子或蛋筒。组合阶段再加数量与配料；已接订单保留。
+      </p>
       <div className="sound-settings">
         {(Object.keys(audio.settings) as SoundSetting[]).map((key) => (
           <label key={key}>

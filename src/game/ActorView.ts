@@ -76,7 +76,7 @@ export class ActorView {
     const projected = projectActor(frame.point, l);
     const x = projected.x,
       y = projected.y - 28 * l.scale,
-      height = 150 * l.scale;
+      height = l.actorHeight;
     for (const node of [this.sprite, this.blend])
       node
         .setDisplaySize((height * node.width) / node.height, height)

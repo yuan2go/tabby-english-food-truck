@@ -14,7 +14,7 @@ import type { GameState, Item, Location, TrayId } from '../rules/types';
 import { ActorView } from './ActorView';
 import { assetUrl, CORE_ASSETS } from './assets';
 import { activate, type Hotspot, type Selection, sourceFor, type ViewState } from './input';
-import { KitchenView, stationPoint } from './KitchenView';
+import { KitchenView, stationSlotPoint } from './KitchenView';
 import { type Layout, layoutFor, type Point, supplyPoint } from './layout';
 import { renderScale } from './rendering';
 
@@ -341,8 +341,7 @@ export class TruckScene extends Phaser.Scene {
       return { x: l.machine.x + 57 * l.scale, y: l.machine.y + 29 * l.scale };
     if (p.startsWith('station:')) {
       const [, id, slot] = p.split(':');
-      const center = stationPoint(id as StationId, l);
-      return { x: center.x + (Number(slot) - 1) * 22, y: center.y + 12 };
+      return stationSlotPoint(id as StationId, Number(slot), l);
     }
     return { ...l.helper };
   }
@@ -422,6 +421,12 @@ export class TruckScene extends Phaser.Scene {
     const cover = Math.max(l.width / background.width, l.height / background.height);
     background.setScale(cover);
     this.decor.fillStyle(0x173e32, 0.12).fillRect(0, 0, l.width, 60);
+    if (!l.landscape)
+      this.decor
+        .fillStyle(0x725032, 0.6)
+        .fillRoundedRect(8, l.regions.guests.y + l.regions.guests.height - 3, l.width - 16, 8, 4)
+        .fillStyle(0xd9ae70)
+        .fillRoundedRect(8, l.regions.guests.y + l.regions.guests.height - 6, l.width - 16, 5, 2);
     for (const o of s.orders) {
       if (o.status === 'queued' || o.status === 'done') continue;
       const p = l.guests[o.seat];
@@ -621,7 +626,11 @@ export class TruckScene extends Phaser.Scene {
         ? '机器入口'
         : location === 'machine:cup'
           ? '杯座'
-          : '小猫手里';
+          : location.startsWith('station:')
+            ? { ice: '冰淇淋台', board: '组合板', grill: '煎台' }[
+                location.split(':')[1] as StationId
+              ]
+            : '送餐途中';
   }
   private reduced(): boolean {
     return this.ui.lowGraphics || matchMedia('(prefers-reduced-motion: reduce)').matches;

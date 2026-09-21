@@ -15,6 +15,7 @@ import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { Home } from './Home';
 import { Lesson } from './Lesson';
+import { MenuGrowth } from './MenuGrowth';
 import { MiniGames } from './MiniGames';
 import { Note } from './Note';
 import { ServiceControls } from './ServiceControls';
@@ -27,7 +28,7 @@ import './m2.css';
 import './service.css';
 
 type Screen = 'foods' | 'home' | 'story' | 'game' | 'mini' | 'setup' | 'settings';
-type Modal = 'help' | 'audio' | 'pause' | 'clear' | 'restart' | null;
+type Modal = 'issues' | 'help' | 'audio' | 'pause' | 'clear' | 'restart' | null;
 export function App() {
   const [controller] = useState(() => new GameController()),
     [audio] = useState(() => new ForegroundAudio(controller));
@@ -48,7 +49,6 @@ export function App() {
       : controller.profile.value.concurrency,
   );
   const announced = useRef('');
-  useDialogFocus(modal ?? (teaching ? 'teaching' : note ? 'note' : null));
   const [settingsBack, setSettingsBack] = useState<Screen>('home');
   const [ui] = useState<ViewState>(() => ({
     elements: new Map(),
@@ -84,7 +84,38 @@ export function App() {
   const s = controller.state;
   const waiting = s.orders.filter((o) => o.status === 'waiting');
   const active = waiting[0];
+  const growthId = (['banana', 'juice', 'banana-juice'] as const).find(
+    (id) => !controller.profile.menu().includes(id),
+  );
+  const growthKey = `growth:${s.session.served}`;
   const actorBusy = Boolean(s.actor.current && s.actor.current.kind !== 'return');
+  const growth =
+    screen === 'game' &&
+    s.session.activity === 'endless' &&
+    s.session.served > 0 &&
+    !actorBusy &&
+    !teaching &&
+    !modal &&
+    growthId &&
+    !s.lessons.includes(growthKey)
+      ? growthId
+      : null;
+  useEffect(() => {
+    controller.pause('growth', !!growth);
+    return () => controller.pause('growth', false);
+  }, [controller, growth]);
+  useDialogFocus(
+    modal ??
+      (teaching
+        ? 'teaching'
+        : growth
+          ? 'growth'
+          : opening !== null
+            ? 'opening'
+            : note
+              ? 'note'
+              : null),
+  );
   const selected = waiting.find((o) => o.id === ui.selectedGuest) ?? active;
   const done = s.session.activity !== 'endless' && s.orders.every((o) => o.status === 'done');
   ui.change = refresh;
@@ -93,6 +124,7 @@ export function App() {
     screen !== 'game' ||
     !!modal ||
     !!teaching ||
+    !!growth ||
     opening !== null ||
     note ||
     done ||
@@ -175,6 +207,7 @@ export function App() {
       screen !== 'game' ||
       modal ||
       teaching ||
+      growth ||
       opening !== null ||
       !activeId ||
       !activeRequest ||
@@ -185,7 +218,7 @@ export function App() {
     const offered = `offered:${activeId}`;
     const pendingLesson = controller.profile.value.lessons[key];
     if (
-      (pendingLesson && !['done', 'skipped'].includes(pendingLesson.phase)) ||
+      (pendingLesson && !['done', 'skipped', 'practice'].includes(pendingLesson.phase)) ||
       (!s.lessons.includes(offered) &&
         !controller.profile.value.presented.includes(`request:${activeRequest}`))
     ) {
@@ -204,6 +237,7 @@ export function App() {
     screen,
     modal,
     teaching,
+    growth,
     opening,
     activeId,
     activeRequest,
@@ -218,7 +252,7 @@ export function App() {
     setTeaching(null);
     ui.teaching = null;
     controller.pause('teaching', false);
-    controller.message = '选好备餐位置，点食材添加。准备好后点送餐。';
+    controller.message = '点食物直接放盘；做果汁先点机器。准备好后点送餐。';
     announced.current = '';
   };
   const home = () => {
@@ -452,6 +486,11 @@ export function App() {
                   : `${s.orders.filter((o) => o.status === 'done').length} / ${s.orders.length}`}
               </b>
             </span>
+            {ui.assetFailure || controller.save.issue || controller.profile.issue ? (
+              <button type="button" aria-label="保存与画面状态" onClick={() => setModal('issues')}>
+                !
+              </button>
+            ) : null}
             {audio.failure ? (
               <button type="button" aria-label="声音状态" onClick={() => setModal('audio')}>
                 ♫!
@@ -464,6 +503,13 @@ export function App() {
                 type="button"
                 key={h.id}
                 data-hotspot={h.id}
+                aria-pressed={
+                  h.kind === 'item'
+                    ? Boolean(
+                        ui.selected && 'item' in ui.selected && h.id === `item-${ui.selected.item}`,
+                      )
+                    : undefined
+                }
                 aria-label={h.label}
                 ref={(el) => {
                   if (el) ui.elements.set(h.id, el);
@@ -491,7 +537,7 @@ export function App() {
               </button>
             ))}
           </fieldset>
-          {!done && !teaching && !modal && !note && opening === null ? (
+          {!done && !teaching && !growth && !modal && !note && opening === null ? (
             <ServiceControls
               controller={controller}
               audio={audio}
@@ -520,6 +566,26 @@ export function App() {
                 跳过开场
               </button>
             </section>
+          ) : null}
+          {growth ? (
+            <MenuGrowth
+              request={growth}
+              audio={audio}
+              close={(add) => {
+                controller.command({ type: 'lesson', lesson: growthKey });
+                if (add) {
+                  controller.profile.present(`menu:${growth}`);
+                  controller.profile.present(`request:${growth}`);
+                  controller.command({
+                    type: 'menu',
+                    requests: controller.profile.menu(),
+                    families: controller.profile.value.introduced,
+                  });
+                }
+                audio.stop();
+                refresh();
+              }}
+            />
           ) : null}
           {teaching ? (
             <Lesson
@@ -620,6 +686,24 @@ export function App() {
                   保存并回到首页
                 </button>
               </>
+            ) : modal === 'issues' ? (
+              <>
+                <h2>餐车状态</h2>
+                <p role="status">
+                  {controller.save.issue || controller.profile.issue || ui.resourceMessage}
+                </p>
+                {ui.assetFailure ? (
+                  <button type="button" onClick={() => scene.current?.retry()}>
+                    重试画面
+                  </button>
+                ) : null}
+                <button type="button" onClick={() => showSettings(screen)}>
+                  导出进度与设置
+                </button>
+                <button type="button" onClick={() => setModal(null)}>
+                  继续营业
+                </button>
+              </>
             ) : modal === 'help' ? (
               <>
                 <h2>小猫陪你一起做</h2>
@@ -649,6 +733,15 @@ export function App() {
                   }}
                 >
                   请小猫帮我拿
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModal(null);
+                    setScreen('foods');
+                  }}
+                >
+                  认识新食物，添菜单
                 </button>
                 {s.helper ? (
                   <button
@@ -731,32 +824,18 @@ export function App() {
           </section>
         </div>
       ) : null}
-      {ui.assetFailure ? (
-        <div className="resource-alert" role="alert">
-          {ui.resourceMessage}
-          <button type="button" onClick={() => scene.current?.retry()}>
-            重试画面
-          </button>
-        </div>
-      ) : null}
-      {audio.failure && screen !== 'game' ? (
-        <button
-          type="button"
-          className="sound-status"
-          onClick={() => {
-            const id = audio.failedRequest ?? audio.lastRequested;
-            if (id) void audio.play(id);
-          }}
-        >
-          ♫! 重试声音
-        </button>
-      ) : null}
-      {controller.save.issue || controller.profile.issue ? (
-        <div className="storage-alert" role="alert">
-          {controller.save.issue || controller.profile.issue}
-          <button type="button" onClick={() => showSettings(screen)}>
-            导出进度
-          </button>
+      {screen !== 'game' ? (
+        <div className="platform-status">
+          {audio.failure ? (
+            <button type="button" aria-label="声音状态" onClick={() => setModal('audio')}>
+              ♫!
+            </button>
+          ) : null}
+          {ui.assetFailure || controller.save.issue || controller.profile.issue ? (
+            <button type="button" aria-label="保存与画面状态" onClick={() => setModal('issues')}>
+              !
+            </button>
+          ) : null}
         </div>
       ) : null}
     </main>

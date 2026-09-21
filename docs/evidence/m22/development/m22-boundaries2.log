@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m22-boundaries.spec.ts --output=/tmp/m22-boundaries-results
+
+
+Running 2 tests using 1 worker
+
+(node:40817) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (32.6s)
+  ✓  2 e2e/m22-boundaries.spec.ts:96:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (7.2s)
+
+  2 passed (40.5s)

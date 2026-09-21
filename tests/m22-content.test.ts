@@ -105,7 +105,7 @@ it.each(Object.keys(FOOD_REQUESTS) as (keyof typeof FOOD_REQUESTS)[])(
     expect(validateState(s)).toBe(true);
   },
 );
-it('new endless starts with a spoken three-item foundation and grows without deleting accepted work', () => {
+it('explicitly introduced three-item foundation varies and grows without deleting accepted work', () => {
   let s = configureSession(createGame('growth'), 'endless', 0, 'less', ['juice'], 99, 1, [
     'apple',
     'banana',
@@ -122,4 +122,17 @@ it('new endless starts with a spoken three-item foundation and grows without del
     expect(s.items.map((x) => x.id)).toEqual(before);
   }
   expect([...seen]).toEqual(expect.arrayContaining(['apple', 'banana', 'juice']));
+});
+it('concept mappings include every recipe variant, and fresh strawberry teaching is never a scoop', async () => {
+  const { conceptForProduct } = await import('../src/content/foods');
+  const { UNITS } = await import('../src/content/teaching');
+  for (const [product, concept] of [
+    ['banana-juice', 'juice'],
+    ['double-cream', 'ice-cream'],
+    ['salad-sandwich', 'sandwich'],
+    ['cheese-burger', 'burger'],
+  ] as const)
+    expect(conceptForProduct(product)?.id).toBe(concept);
+  for (const f of FOODS) for (const p of f.productionObjects) expect(p in FOOD).toBe(true);
+  expect(UNITS[REQUEST_UNITS['food-strawberry'][0] ?? '']?.products).toEqual(['fresh-strawberry']);
 });
