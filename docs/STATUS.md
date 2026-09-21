@@ -2,7 +2,7 @@
 
 ## 当前 M2.2 · LOCAL_VERIFIED / NEEDS_REVISION
 
-2026-09-21 在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck` 的 `codex/m22-phone-foods` 实现并验证了三阶段候选。基线完整 SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；布局阶段提交 `bb9069a`，后续代码阶段提交 `bb9069a`、`0f23d9b`、`828593a`，本次最终文档提交随后生成；PR 为 PENDING_CREATE；不自动合并。用户三张本轮真机原图尚未提供，记录为 PENDING_INPUT；历史图不冒充本次。
+2026-09-21 在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck` 的 `codex/m22-phone-foods` 实现并验证了三阶段候选。基线完整 SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；布局阶段提交 `bb9069a`，后续代码阶段提交 `bb9069a`、`0f23d9b`、`828593a`，本次最终文档提交随后生成；已建立 [PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，不自动合并。用户三张本轮真机原图尚未提供，记录为 PENDING_INPUT；历史图不冒充本次。
 
 本地结果：`npm run build` PASS/0，`npm run lint` PASS/0，`npm test` 176/176 PASS/0，`npm run resources` PASS/0；50词条参数化规则120/120 PASS，手机食品篮浏览器1/1 PASS，手机布局/水果两点/果汁四点/暂停/横竖屏1/1 PASS。证据在 `docs/evidence/m22/`。构建含 Phaser 大块提示，未以性能目标通过替代实测。
 
