@@ -1,3 +1,4 @@
+import { REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS } from '../content/chapters';
 import type { Family } from '../content/recipes';
 import type { StoragePort } from './save';
@@ -10,8 +11,23 @@ export interface Observation {
   visit: 'first' | 'revisit';
   audioQualified: false;
 }
+export interface LessonProgress {
+  request: RequestId;
+  units: string[];
+  index: number;
+  phase: 'meaning' | 'try' | 'recipe' | 'done' | 'skipped';
+  step: number;
+  tries: number;
+  nextAttempt: number;
+  support: string[];
+}
 export interface Profile {
-  version: 1;
+  version: 2;
+  concurrency: 1 | 2;
+  observedIds: string[];
+  presented: string[];
+  learnedUnits: string[];
+  lessons: Record<string, LessonProgress>;
   prologue: boolean;
   completed: number[];
   introduced: Family[];
@@ -21,7 +37,12 @@ export interface Profile {
   support: 'demonstration' | 'pictures' | 'less';
 }
 export const emptyProfile = (): Profile => ({
-  version: 1,
+  version: 2,
+  concurrency: 1,
+  observedIds: [],
+  presented: [],
+  learnedUnits: [],
+  lessons: {},
   prologue: false,
   completed: [],
   introduced: ['juice'],
@@ -42,7 +63,26 @@ export class ProfileStore {
       this.raw = raw;
       if (raw) {
         const v: unknown = JSON.parse(raw);
-        if (validProfile(v)) this.value = v;
+        if (v && typeof v === 'object' && Reflect.get(v, 'version') === 1) {
+          const migrated = {
+            ...v,
+            version: 2,
+            concurrency: 1,
+            observedIds: [] as string[],
+            presented: [],
+            learnedUnits: [],
+            lessons: {},
+          };
+          // Old tutorial flags meant "opened", not completed; retain their original raw export.
+          if (validProfile(migrated)) {
+            migrated.observedIds = migrated.observations.map((o) => o.id);
+            migrated.tutorials = migrated.tutorials.map((t) => `legacy-opened:${t}`);
+            this.value = migrated;
+          } else {
+            this.blocked = true;
+            this.issue = '旧成长记录未通过校验，原文已保留。';
+          }
+        } else if (validProfile(v)) this.value = v;
         else {
           this.blocked = true;
           this.issue = '成长记录版本不受支持，原文已保留。';
@@ -64,6 +104,25 @@ export class ProfileStore {
       this.issue = '成长记录仅保留在本次会话，请导出。';
     }
   }
+  menu(): RequestId[] {
+    return (Object.keys(REQUESTS) as RequestId[]).filter(
+      (id) =>
+        id === 'apple' ||
+        this.value.tutorials.includes(`request-${id}`) ||
+        this.value.presented.includes(`menu:${id}`),
+    );
+  }
+  present(id: string): void {
+    if (this.value.presented.includes(id)) return;
+    this.value.presented = [...this.value.presented, id].slice(-80);
+    this.save();
+  }
+  lesson(key: string, value: LessonProgress): void {
+    this.value.lessons[key] = value;
+    const keys = Object.keys(this.value.lessons);
+    for (const old of keys.slice(0, Math.max(0, keys.length - 40))) delete this.value.lessons[old];
+    this.save();
+  }
   introduce(family: Family): void {
     if (!this.value.introduced.includes(family)) this.value.introduced.push(family);
     this.save();
@@ -73,7 +132,8 @@ export class ProfileStore {
     this.save();
   }
   observe(value: Observation): void {
-    if (this.value.observations.some((o) => o.id === value.id)) return;
+    if (this.value.observedIds.includes(value.id)) return;
+    this.value.observedIds = [...this.value.observedIds, value.id].slice(-1200);
     this.value.observations = [...this.value.observations, value].slice(-160);
     this.value.exposure = [...new Set([...this.value.exposure, value.target])].slice(-80);
     this.save();
@@ -88,7 +148,43 @@ export function validProfile(v: unknown): v is Profile {
   if (!v || typeof v !== 'object') return false;
   const p = v as Partial<Profile>;
   return (
-    p.version === 1 &&
+    p.version === 2 &&
+    Array.isArray(p.observedIds) &&
+    p.observedIds.length <= 1200 &&
+    p.observedIds.every((x) => typeof x === 'string' && x.length < 160) &&
+    [1, 2].includes(p.concurrency ?? 0) &&
+    Array.isArray(p.presented) &&
+    p.presented.length <= 80 &&
+    p.presented.every((x) => typeof x === 'string' && x.length < 100) &&
+    Array.isArray(p.learnedUnits) &&
+    p.learnedUnits.length <= 80 &&
+    p.learnedUnits.every((x) => typeof x === 'string' && x.length < 100) &&
+    !!p.lessons &&
+    typeof p.lessons === 'object' &&
+    Object.keys(p.lessons).length <= 40 &&
+    Object.values(p.lessons).every(
+      (l) =>
+        l &&
+        l.request in REQUESTS &&
+        Array.isArray(l.units) &&
+        l.units.length <= 12 &&
+        l.units.every((u) => typeof u === 'string' && u.length < 100) &&
+        Number.isInteger(l.index) &&
+        l.index >= 0 &&
+        l.index <= l.units.length &&
+        ['meaning', 'try', 'recipe', 'done', 'skipped'].includes(l.phase) &&
+        Number.isInteger(l.step) &&
+        l.step >= 0 &&
+        l.step < 4 &&
+        Number.isInteger(l.nextAttempt) &&
+        l.nextAttempt >= 0 &&
+        l.nextAttempt < 1e9 &&
+        Number.isInteger(l.tries) &&
+        l.tries >= 0 &&
+        Array.isArray(l.support) &&
+        l.support.length <= 24 &&
+        l.support.every((x) => typeof x === 'string'),
+    ) &&
     typeof p.prologue === 'boolean' &&
     Array.isArray(p.completed) &&
     p.completed.length <= 5 &&

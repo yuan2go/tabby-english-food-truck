@@ -1,0 +1,536 @@
+src/app/Lesson.tsx:212:14 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected a semicolon or an implicit semicolon after a statement, but found none
+  
+    210 │                 <span>{w.text}</span>
+    211 │               </button>
+  > 212 │             ))}
+        │              ^
+    213 │             <span>→</span>
+    214 │             <button
+  
+  i An explicit or implicit semicolon is expected here...
+  
+    210 │                 <span>{w.text}</span>
+    211 │               </button>
+  > 212 │             ))}
+        │              ^
+    213 │             <span>→</span>
+    214 │             <button
+  
+  i ...Which is required to end this statement
+  
+    201 │           <h2>{current?.action ?? '摆到盘里'}</h2>
+    202 │           <div className="lesson-ingredients">
+  > 203 │             {teachingFigures(current?.inputs ?? spec.products).map(({id,product}) => { const w = lessonWords([product])[0]; if (!w) return null; return (
+        │                                                                                                                                                  ^^^^^^^^
+  > 204 │               <button
+         ...
+  > 211 │               </button>
+  > 212 │             ))}
+        │             ^^
+    213 │             <span>→</span>
+    214 │             <button
+  
+
+src/app/Lesson.tsx:213:13 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `<`
+  
+    211 │               </button>
+    212 │             ))}
+  > 213 │             <span>→</span>
+        │             ^
+    214 │             <button
+    215 │               type="button"
+  
+  i Remove <
+  
+
+src/app/Lesson.tsx:215:15 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `type`
+  
+    213 │             <span>→</span>
+    214 │             <button
+  > 215 │               type="button"
+        │               ^^^^
+    216 │               aria-label="听成品名称"
+    217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+  
+  i Remove type
+  
+
+src/app/Lesson.tsx:216:15 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `aria`
+  
+    214 │             <button
+    215 │               type="button"
+  > 216 │               aria-label="听成品名称"
+        │               ^^^^
+    217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+    218 │             >
+  
+  i Remove aria
+  
+
+src/app/Lesson.tsx:217:15 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `onClick`
+  
+    215 │               type="button"
+    216 │               aria-label="听成品名称"
+  > 217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+        │               ^^^^^^^
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  
+  i Remove onClick
+  
+
+src/app/Lesson.tsx:217:24 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected a property, a shorthand property, a getter, a setter, or a method but instead found '('.
+  
+    215 │               type="button"
+    216 │               aria-label="听成品名称"
+  > 217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+        │                        ^
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  
+  i Expected a property, a shorthand property, a getter, a setter, or a method here.
+  
+    215 │               type="button"
+    216 │               aria-label="听成品名称"
+  > 217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+        │                        ^
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  
+
+src/app/Lesson.tsx:217:27 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected a function body but instead found '=>'.
+  
+    215 │               type="button"
+    216 │               aria-label="听成品名称"
+  > 217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+        │                           ^^
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  
+  i Expected a function body here.
+  
+    215 │               type="button"
+    216 │               aria-label="听成品名称"
+  > 217 │               onClick={() => void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]])}
+        │                           ^^
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  
+
+src/app/Lesson.tsx:220:26 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `[`
+  
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  > 220 │               <span>{FOOD[current?.output ?? spec.products[0]][1]}</span>
+        │                          ^
+    221 │             </button>
+    222 │           </div>
+  
+  i Remove [
+  
+
+src/app/Lesson.tsx:220:63 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `:` but instead found `[`
+  
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  > 220 │               <span>{FOOD[current?.output ?? spec.products[0]][1]}</span>
+        │                                                               ^
+    221 │             </button>
+    222 │           </div>
+  
+  i Remove [
+  
+
+src/app/Lesson.tsx:220:67 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `<`
+  
+    218 │             >
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+  > 220 │               <span>{FOOD[current?.output ?? spec.products[0]][1]}</span>
+        │                                                                   ^
+    221 │             </button>
+    222 │           </div>
+  
+  i Remove <
+  
+
+src/app/Lesson.tsx:221:13 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `<`
+  
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+    220 │               <span>{FOOD[current?.output ?? spec.products[0]][1]}</span>
+  > 221 │             </button>
+        │             ^
+    222 │           </div>
+    223 │           <div className="lesson-process">
+  
+  i Remove <
+  
+
+src/app/Lesson.tsx:202:11 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected corresponding JSX closing tag for 'div'.
+  
+    200 │         <>
+    201 │           <h2>{current?.action ?? '摆到盘里'}</h2>
+  > 202 │           <div className="lesson-ingredients">
+        │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    203 │             {teachingFigures(current?.inputs ?? spec.products).map(({id,product}) => { const w = lessonWords([product])[0]; if (!w) return null; return (
+    204 │               <button
+  
+  i Opening tag
+  
+    200 │         <>
+    201 │           <h2>{current?.action ?? '摆到盘里'}</h2>
+  > 202 │           <div className="lesson-ingredients">
+        │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    203 │             {teachingFigures(current?.inputs ?? spec.products).map(({id,product}) => { const w = lessonWords([product])[0]; if (!w) return null; return (
+    204 │               <button
+  
+  i closing tag
+  
+    219 │               <Food product={current?.output ?? spec.products[0]} />
+    220 │               <span>{FOOD[current?.output ?? spec.products[0]][1]}</span>
+  > 221 │             </button>
+        │             ^^^^^^^^^
+    222 │           </div>
+    223 │           <div className="lesson-process">
+  
+
+src/app/Lesson.tsx:200:9 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × JSX fragment has no corresponding closing tag.
+  
+    198 │         </>
+    199 │       ) : (
+  > 200 │         <>
+        │         ^^
+    201 │           <h2>{current?.action ?? '摆到盘里'}</h2>
+    202 │           <div className="lesson-ingredients">
+  
+  i Opening fragment
+  
+    198 │         </>
+    199 │       ) : (
+  > 200 │         <>
+        │         ^^
+    201 │           <h2>{current?.action ?? '摆到盘里'}</h2>
+    202 │           <div className="lesson-ingredients">
+  
+  i Closing tag
+  
+    220 │               <span>{FOOD[current?.output ?? spec.products[0]][1]}</span>
+    221 │             </button>
+  > 222 │           </div>
+        │             ^^^
+    223 │           <div className="lesson-process">
+    224 │             <span>
+  
+
+src/app/Lesson.tsx:223:16 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `)` but instead found `className`
+  
+    221 │             </button>
+    222 │           </div>
+  > 223 │           <div className="lesson-process">
+        │                ^^^^^^^^^
+    224 │             <span>
+    225 │               {current
+  
+  i Remove className
+  
+
+src/app/Lesson.tsx:108:5 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected corresponding JSX closing tag for 'section'.
+  
+    106 │   };
+    107 │   return (
+  > 108 │     <section className="lesson-dialog short-lesson" role="dialog" aria-label="场景小教学">
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    109 │       <div className="lesson-heading">
+    110 │         <span>小猫的食谱 · 一次学一点</span>
+  
+  i Opening tag
+  
+    106 │   };
+    107 │   return (
+  > 108 │     <section className="lesson-dialog short-lesson" role="dialog" aria-label="场景小教学">
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    109 │       <div className="lesson-heading">
+    110 │         <span>小猫的食谱 · 一次学一点</span>
+  
+  i closing tag
+  
+    230 │             </span>
+    231 │             <span>→ {current?.action ?? '摆好'} → 接取</span>
+  > 232 │           </div>steps.length > 1 ? (
+        │           ^^^^^^
+    233 │             <div className="lesson-stepper">
+    234 │               {steps.map((r, i) => (
+  
+
+src/app/Lesson.tsx:223:42 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Unexpected token. Did you mean `{'>'}` or `&gt;`?
+  
+    221 │             </button>
+    222 │           </div>
+  > 223 │           <div className="lesson-process">
+        │                                          ^
+    224 │             <span>
+    225 │               {current
+  
+
+src/app/Lesson.tsx:232:17 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `)` but instead found `steps`
+  
+    230 │             </span>
+    231 │             <span>→ {current?.action ?? '摆好'} → 接取</span>
+  > 232 │           </div>steps.length > 1 ? (
+        │                 ^^^^^
+    233 │             <div className="lesson-stepper">
+    234 │               {steps.map((r, i) => (
+  
+  i Remove steps
+  
+
+src/app/Lesson.tsx:271:22 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected a property, a shorthand property, a getter, a setter, or a method but instead found '('.
+  
+    269 │             type="button"
+    270 │             className="primary"
+  > 271 │             onClick={() => {
+        │                      ^
+    272 │               if (progress.step < steps.length - 1)
+    273 │                 update({ ...progress, step: progress.step + 1 });
+  
+  i Expected a property, a shorthand property, a getter, a setter, or a method here.
+  
+    269 │             type="button"
+    270 │             className="primary"
+  > 271 │             onClick={() => {
+        │                      ^
+    272 │               if (progress.step < steps.length - 1)
+    273 │                 update({ ...progress, step: progress.step + 1 });
+  
+
+src/app/Lesson.tsx:271:25 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected a function body but instead found '=>'.
+  
+    269 │             type="button"
+    270 │             className="primary"
+  > 271 │             onClick={() => {
+        │                         ^^
+    272 │               if (progress.step < steps.length - 1)
+    273 │                 update({ ...progress, step: progress.step + 1 });
+  
+  i Expected a function body here.
+  
+    269 │             type="button"
+    270 │             className="primary"
+  > 271 │             onClick={() => {
+        │                         ^^
+    272 │               if (progress.step < steps.length - 1)
+    273 │                 update({ ...progress, step: progress.step + 1 });
+  
+
+src/app/Lesson.tsx:272:15 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `if`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │               ^^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove if
+  
+
+src/app/Lesson.tsx:272:27 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `.`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                           ^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove .
+  
+
+src/app/Lesson.tsx:272:28 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `step`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                            ^^^^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove step
+  
+
+src/app/Lesson.tsx:272:33 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `<`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                                 ^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove <
+  
+
+src/app/Lesson.tsx:272:35 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `steps`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                                   ^^^^^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove steps
+  
+
+src/app/Lesson.tsx:272:40 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `.`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                                        ^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove .
+  
+
+src/app/Lesson.tsx:272:41 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `length`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                                         ^^^^^^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove length
+  
+
+src/app/Lesson.tsx:272:48 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `-`
+  
+    270 │             className="primary"
+    271 │             onClick={() => {
+  > 272 │               if (progress.step < steps.length - 1)
+        │                                                ^
+    273 │                 update({ ...progress, step: progress.step + 1 });
+    274 │               else finish(true);
+  
+  i Remove -
+  
+
+src/app/Lesson.tsx:273:17 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected a function body but instead found 'update'.
+  
+    271 │             onClick={() => {
+    272 │               if (progress.step < steps.length - 1)
+  > 273 │                 update({ ...progress, step: progress.step + 1 });
+        │                 ^^^^^^
+    274 │               else finish(true);
+    275 │             }}
+  
+  i Expected a function body here.
+  
+    271 │             onClick={() => {
+    272 │               if (progress.step < steps.length - 1)
+  > 273 │                 update({ ...progress, step: progress.step + 1 });
+        │                 ^^^^^^
+    274 │               else finish(true);
+    275 │             }}
+  
+
+src/app/Lesson.tsx:273:26 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × rest element must be the last element
+  
+    271 │             onClick={() => {
+    272 │               if (progress.step < steps.length - 1)
+  > 273 │                 update({ ...progress, step: progress.step + 1 });
+        │                          ^^^^^^^^^^^
+    274 │               else finish(true);
+    275 │             }}
+  
+  i Move the rest element to the end of the pattern, right before the closing '}'
+  
+
+src/app/Lesson.tsx:273:53 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × expected `,` but instead found `.`
+  
+    271 │             onClick={() => {
+    272 │               if (progress.step < steps.length - 1)
+  > 273 │                 update({ ...progress, step: progress.step + 1 });
+        │                                                     ^
+    274 │               else finish(true);
+    275 │             }}
+  
+  i Remove .
+  
+
+Skipped 6 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 23.
+Checked 8 files in 18ms. Fixed 5 files.
+Found 46 errors.
+Found 5 warnings.
+Found 2 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

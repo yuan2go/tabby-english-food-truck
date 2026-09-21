@@ -21,6 +21,10 @@ test('M2 increased support preserves active orders, reduces new concurrency and 
     before.orders.map((o) => [o.id, o.request]),
   );
   expect(assisted.session.support).toBe('demonstration');
+  expect(assisted.session.concurrency).toBe(2);
+  await page.getByRole('button', { name: '暂停', exact: true }).tap();
+  await page.getByRole('button', { name: '一位一位来', exact: true }).tap();
+  await page.getByRole('button', { name: '继续营业', exact: true }).tap();
   await serve(page);
   await lesson(page);
   expect((await state(page)).orders).toHaveLength(1);
@@ -38,6 +42,15 @@ test('M2 increased support preserves active orders, reduces new concurrency and 
   expect(['apple', 'banana', 'juice', 'banana-juice']).toContain(
     (await state(page)).orders[0]?.request,
   );
+  await page.getByRole('button', { name: '暂停', exact: true }).tap();
+  const preserved = await state(page);
+  await page.getByRole('button', { name: '两位一起招呼', exact: true }).tap();
+  await page.getByRole('button', { name: '少些帮助，听一听', exact: true }).tap();
+  await page.getByRole('button', { name: '继续营业', exact: true }).tap();
+  const raised = await state(page);
+  expect(raised.orders).toHaveLength(2);
+  expect(raised.session.seed).toBe(preserved.session.seed);
+  expect(raised.orders.some((o) => o.id === preserved.orders[0]?.id)).toBe(true);
   await page.screenshot({ path: info.outputPath('support-policy.png') });
   const root = page.locator('main');
   await writeFile(

@@ -1,0 +1,1 @@
+{"label":"final","identity":{"sha":"c0fe89e5e1d81036c702f0431b33799e99cd9367","dirty":"false"},"viewport":{"width":393,"height":665,"dpr":3},"recording":false,"coldTransfer":3170183,"warmTransfer":9300,"frames":{"n":426,"p50":33.30000000000109,"p95":50,"max":50.100000000000364},"inputToSecondRaf":{"n":8,"p95":47.5},"longTasks":[50,63,50],"cpu":null}

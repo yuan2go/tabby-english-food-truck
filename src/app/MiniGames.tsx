@@ -1,23 +1,29 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { wordById } from '../content/learning';
+import { introducedWords } from '../content/teaching';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import { miniKey } from '../platform/minis';
 import {
   beginRound,
   createMini,
   type Difficulty,
+  editLetter,
+  type Foundation,
   letters,
   type MatchMode,
+  type MiniKind,
   type MiniState,
   nextRound,
   options,
   playRound,
+  restartMini,
   submitMini,
   targetWord,
-  validateMini,
+  wordGroups,
 } from '../rules/minigames';
 import { Food } from './Food';
 
-const KEY = 'tabby.foodtruck.minigame.m2';
 export function MiniGames({
   controller,
   audio,
@@ -27,64 +33,44 @@ export function MiniGames({
   audio: ForegroundAudio;
   home: () => void;
 }) {
-  const [loaded] = useState((): { value: MiniState | null; blocked: boolean } => {
-    let raw: string | null = null;
-    try {
-      raw = localStorage.getItem(KEY);
-      if (raw) {
-        const value: unknown = JSON.parse(raw);
-        if (validateMini(value)) return { value, blocked: false };
-        return { value: null, blocked: true };
-      }
-    } catch {
-      return { value: null, blocked: raw !== null };
-    }
-    return { value: null, blocked: false };
-  });
-  const [state, setState] = useState<MiniState | null>(loaded.value);
-  const [difficulty, setDifficulty] = useState<Difficulty>('demo'),
-    [mode, setMode] = useState<MatchMode>('listen');
-  const [issue, setIssue] = useState(
-    loaded.blocked ? '原小游戏存档未通过校验，已保护原文。本次可临时玩；设置导出包含原档。' : '',
-  );
+  const store = controller.minis;
+  const [state, setState] = useState<MiniState | null>(null);
+  const latest = useRef(state);
+  latest.current = state;
+  const [difficulty, setDifficulty] = useState<Difficulty>('demo');
+  const [mode, setMode] = useState<MatchMode>('listen');
+  const [foundation, setFoundation] = useState<Foundation>('new');
+  const [restart, setRestart] = useState(false);
+  const [freshKind, setFreshKind] = useState<MiniKind | null>(null);
+  const [slot, setSlot] = useState<number | null>(null);
+  const [issue, showIssue] = useState(store.issue);
   const gesture = useRef<{
     id: string;
     pointer: number;
     x: number;
     y: number;
-    fromDraft: boolean;
+    moved: boolean;
+    node: HTMLButtonElement;
   } | null>(null);
-  const ignore = useRef(false);
-  const ghost = useRef<HTMLDivElement>(null);
-  const update = (next: MiniState) => {
-    setState(next);
-    if (loaded.blocked) return;
-    try {
-      localStorage.setItem(KEY, JSON.stringify(next));
-    } catch {
-      setIssue('本轮暂存在内存，离开前可在设置中导出。');
-    }
-  };
+  const ignore = useRef(false),
+    ghost = useRef<HTMLDivElement>(null);
+  const update = useCallback(
+    (next: MiniState) => {
+      store.save(next);
+      latest.current = next;
+      setState(next);
+      showIssue(store.issue);
+    },
+    [store],
+  );
+  const cancel = useCallback(() => {
+    const g = gesture.current;
+    gesture.current = null;
+    if (g?.node.hasPointerCapture(g.pointer)) g.node.releasePointerCapture(g.pointer);
+    if (ghost.current) ghost.current.style.display = 'none';
+    ignore.current = true;
+  }, []);
   useEffect(() => {
-    if (!state) return;
-    for (const [index, a] of state.attempts.entries())
-      controller.profile.observe({
-        id: `mini-${state.seed}-${state.kind}-${index}`,
-        dimension:
-          state.kind === 'spell' ? 'spelling' : state.mode === 'listen' ? 'listening' : 'meaning',
-        target: a.target,
-        result: a.result ? 'completed' : 'adjust',
-        support: a.support,
-        visit: controller.profile.value.exposure.includes(a.target) ? 'revisit' : 'first',
-        audioQualified: false,
-      });
-  }, [state, controller]);
-  useEffect(() => {
-    const cancel = () => {
-      gesture.current = null;
-      if (ghost.current) ghost.current.style.display = 'none';
-      ignore.current = true;
-    };
     const other = (e: PointerEvent) => {
       if (gesture.current && gesture.current.pointer !== e.pointerId) cancel();
     };
@@ -93,108 +79,241 @@ export function MiniGames({
     window.addEventListener('resize', cancel);
     window.addEventListener('blur', cancel);
     return () => {
+      cancel();
+      audio.stop();
       document.removeEventListener('pointerdown', other, true);
       document.removeEventListener('visibilitychange', cancel);
       window.removeEventListener('resize', cancel);
       window.removeEventListener('blur', cancel);
     };
-  }, []);
-  const exit = () => {
+  }, [audio, cancel]);
+  useEffect(() => {
+    if (!state) return;
+    for (const a of state.attempts)
+      controller.profile.observe({
+        id: a.id,
+        dimension:
+          state.kind === 'spell' ? 'spelling' : state.mode === 'listen' ? 'listening' : 'meaning',
+        target: a.target,
+        result: a.result ? 'completed' : 'adjust',
+        support: a.support,
+        visit:
+          controller.profile.value.observations.find(
+            (o) => o.id === state.attempts.find((first) => first.round === a.round)?.id,
+          )?.visit ?? (controller.profile.value.exposure.includes(a.target) ? 'revisit' : 'first'),
+        audioQualified: false,
+      });
+  }, [state, controller]);
+  const say = useCallback(() => {
+    const current = latest.current;
+    if (!current) return;
+    const id = current.id,
+      round = current.round,
+      word = targetWord(current);
+    void audio.play(word.audio, () => {
+      const now = latest.current;
+      if (now?.id === id && now.round === round) update({ ...now, heard: true });
+    });
+  }, [audio, update]);
+  const question = state ? `${state.id}:${state.round}:${state.stage}` : '';
+  // Only a real phase/question transition starts speech; draft edits and audio notifications do not.
+  useEffect(() => {
+    if (!question || !['meaning', 'play'].includes(latest.current?.stage ?? '')) return;
+    say();
+    return () => audio.stop();
+    // The stable question identity intentionally excludes current draft and support.
+  }, [question, audio, say]);
+  const lobby = () => {
+    cancel();
     audio.stop();
-    home();
+    setSlot(null);
+    latest.current = null;
+    setState(null);
+    setRestart(false);
+  };
+  const open = (kind: MiniKind, replace = false) => {
+    audio.stop();
+    const key = miniKey(kind, mode),
+      saved = store.sessions[key];
+    if (saved && !replace) {
+      setState(saved);
+      latest.current = saved;
+      return;
+    }
+    const known = introducedWords(controller.profile.value.presented);
+    const fresh = createMini(
+      kind,
+      difficulty,
+      Date.now() >>> 0,
+      mode,
+      known,
+      foundation,
+      crypto.randomUUID(),
+    );
+    if (saved) fresh.carry = restartMini(saved, fresh.id).carry;
+    setFreshKind(null);
+    update(fresh);
+    void audio.play(kind === 'match' ? 'mini-match' : 'mini-spell');
+  };
+  const begin = (value: MiniState) => {
+    const next = beginRound(value),
+      word = targetWord(next);
+    const previously = controller.profile.value.presented.includes(word.id);
+    const reveals = next.difficulty !== 'independent' || !previously;
+    if (reveals) {
+      controller.profile.present(word.id);
+      next.support = [
+        ...new Set([
+          ...next.support,
+          'meaning-picture',
+          ...(next.kind === 'spell' ? ['word-model'] : []),
+        ]),
+      ];
+    }
+    update(next);
+    setSlot(null);
   };
   if (!state)
     return (
       <section className="mini-lobby" aria-label="游戏小摊">
-        <button type="button" className="corner-back" onClick={exit}>
+        <button
+          type="button"
+          className="corner-back"
+          onClick={() => {
+            audio.stop();
+            home();
+          }}
+        >
           ← 小院
         </button>
         <h2>食物朋友的小摊</h2>
+        <p>随时回来，字母和这一题都会等你。</p>
         {issue ? <p role="status">{issue}</p> : null}
-        <p>听一听，找朋友；动动手，拼食物。</p>
         <div className="mini-choices">
-          <button
-            type="button"
-            onClick={() => {
-              update(createMini('match', difficulty, Date.now() >>> 0, mode));
-              void audio.play('mini-match');
-            }}
-          >
+          <button type="button" onClick={() => open('match')}>
             <Food product="apple" />
             <strong>食物找朋友</strong>
-            <span>点两项，连成一对</span>
+            <span>
+              {mode === 'listen'
+                ? '听一题，选一张图'
+                : mode === 'word-picture'
+                  ? '看英文，选图片'
+                  : '看中文，选英文'}
+            </span>
+            {store.sessions[miniKey('match', mode)] ? <small>继续上次</small> : null}
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              update(createMini('spell', difficulty, Date.now() >>> 0));
-              void audio.play('mini-spell');
-            }}
-          >
+          <button type="button" onClick={() => open('spell')}>
             <span className="letter-sign">A B C</span>
             <strong>WordSpell 拼食物</strong>
             <span>听发音，摆字母</span>
+            {store.sessions.spell ? <small>继续上次</small> : null}
           </button>
         </div>
-        <fieldset className="choice-row">
-          <legend>需要怎样的帮助？</legend>
-          {(['demo', 'partial', 'independent'] as const).map((d, i) => (
+        <details className="mini-options">
+          <summary>换帮助或玩法</summary>
+          <fieldset className="choice-row">
+            <legend>新活动需要怎样的帮助？</legend>
+            {(['demo', 'partial', 'independent'] as const).map((d, i) => (
+              <button
+                type="button"
+                key={d}
+                aria-pressed={difficulty === d}
+                onClick={() => setDifficulty(d)}
+              >
+                {['先看示范', '帮一部分', '我自己试'][i]}
+              </button>
+            ))}
+          </fieldset>
+          <fieldset className="choice-row">
+            <legend>字母准备到哪一步？</legend>
+            {(['new', 'letters', 'phrases'] as const).map((f, i) => (
+              <button
+                type="button"
+                key={f}
+                aria-pressed={foundation === f}
+                onClick={() => setFoundation(f)}
+              >
+                {['刚认识字母', '熟悉字母了', '也试多词短语'][i]}
+              </button>
+            ))}
+          </fieldset>
+          <fieldset className="choice-row">
+            <legend>找朋友怎么玩？</legend>
+            {(['listen', 'word-picture', 'bilingual'] as const).map((m, i) => (
+              <button type="button" key={m} aria-pressed={mode === m} onClick={() => setMode(m)}>
+                {['听词找图', '英文配图片', '中英配对（识字后）'][i]}
+              </button>
+            ))}
+          </fieldset>
+          <div className="mini-fresh-actions">
             <button
               type="button"
-              key={d}
-              aria-pressed={difficulty === d}
-              onClick={() => setDifficulty(d)}
+              onClick={() =>
+                store.sessions[miniKey('match', mode)] ? setFreshKind('match') : open('match', true)
+              }
             >
-              {['先看示范', '帮一部分', '我自己试'][i]}
+              按新设置找朋友
             </button>
-          ))}
-        </fieldset>
-        <fieldset className="choice-row">
-          <legend>找朋友怎么玩？</legend>
-          {(['listen', 'word-picture', 'bilingual'] as const).map((m, i) => (
-            <button type="button" key={m} aria-pressed={mode === m} onClick={() => setMode(m)}>
-              {['听词找图', '英文配图片', '中英配对（识字后）'][i]}
+            <button
+              type="button"
+              onClick={() => (store.sessions.spell ? setFreshKind('spell') : open('spell', true))}
+            >
+              按新设置拼字母
             </button>
-          ))}
-        </fieldset>
+          </div>
+        </details>
+        {freshKind ? (
+          <div className="mini-confirm" role="dialog" aria-label="新开活动">
+            <p>新开一组会替换这项活动的草稿；没完成的题已用帮助仍保留。</p>
+            <button type="button" onClick={() => open(freshKind, true)}>
+              确认新开一组
+            </button>
+            <button type="button" onClick={() => setFreshKind(null)}>
+              继续保留
+            </button>
+          </div>
+        ) : null}
+        <small>
+          前两种从图片开始。中英文字配对供已识字玩家选择。继续活动保留原来的帮助与题目。
+        </small>
       </section>
     );
-  const word = targetWord(state);
-  const say = () => void audio.play(word.audio);
-  const selectLetter = (id: string) => {
-    if (!state.draft.includes(id)) update({ ...state, draft: [...state.draft, id], feedback: '' });
+  const word = targetWord(state),
+    bank = letters(state);
+  const commitLetter = (id: string, to: number | null) => {
+    const next = editLetter(state, id, to);
+    if (next !== state) update(next);
   };
-  const remove = (id: string) => {
-    if (!state.fixed.includes(id)) update({ ...state, draft: state.draft.filter((x) => x !== id) });
-  };
-  const bindLetter = (id: string, fromDraft: boolean) => ({
+  const bindLetter = (id: string, from: number | null) => ({
     onPointerDown: (e: React.PointerEvent<HTMLButtonElement>) => {
-      if (gesture.current || !e.isPrimary) {
-        gesture.current = null;
-        ignore.current = true;
+      if (!e.isPrimary || gesture.current) {
+        cancel();
         return;
       }
       ignore.current = false;
-      gesture.current = { id, pointer: e.pointerId, x: e.clientX, y: e.clientY, fromDraft };
+      gesture.current = {
+        id,
+        pointer: e.pointerId,
+        x: e.clientX,
+        y: e.clientY,
+        moved: false,
+        node: e.currentTarget,
+      };
       e.currentTarget.setPointerCapture(e.pointerId);
     },
     onPointerMove: (e: React.PointerEvent<HTMLButtonElement>) => {
       const g = gesture.current;
-      if (
-        !g ||
-        g.pointer !== e.pointerId ||
-        Math.hypot(e.clientX - g.x, e.clientY - g.y) < 8 ||
-        !ghost.current
-      )
-        return;
-      ghost.current.textContent = letters(state).find((l) => l.id === id)?.text ?? '';
-      ghost.current.style.display = 'grid';
-      ghost.current.style.transform = `translate(${e.clientX - 25}px,${e.clientY - 30}px)`;
+      if (!g || g.pointer !== e.pointerId) return;
+      if (Math.hypot(e.clientX - g.x, e.clientY - g.y) > 8) g.moved = true;
+      if (g.moved && ghost.current) {
+        ghost.current.textContent = bank.find((l) => l.id === id)?.text ?? '';
+        ghost.current.style.display = 'grid';
+        ghost.current.style.transform = `translate(${e.clientX - 25}px,${e.clientY - 30}px)`;
+      }
     },
-    onPointerCancel: () => {
-      gesture.current = null;
-      ignore.current = true;
-      if (ghost.current) ghost.current.style.display = 'none';
+    onPointerCancel: cancel,
+    onLostPointerCapture: () => {
+      if (gesture.current) cancel();
     },
     onPointerUp: (e: React.PointerEvent<HTMLButtonElement>) => {
       const g = gesture.current;
@@ -203,56 +322,100 @@ export function MiniGames({
       if (!g || g.pointer !== e.pointerId) return;
       if (e.currentTarget.hasPointerCapture(e.pointerId))
         e.currentTarget.releasePointerCapture(e.pointerId);
-      if (Math.hypot(e.clientX - g.x, e.clientY - g.y) > 8) {
-        ignore.current = true;
-        const target = document.elementFromPoint(e.clientX, e.clientY);
-        if (!g.fromDraft && target?.closest('[data-letter-drop]')) selectLetter(g.id);
-        if (g.fromDraft && target?.closest('.letter-bank')) remove(g.id);
-      }
+      if (!g.moved) return;
+      ignore.current = true;
+      const target = document.elementFromPoint(e.clientX, e.clientY);
+      const cell = target?.closest<HTMLElement>('[data-letter-slot]');
+      if (cell) commitLetter(g.id, Number(cell.dataset.letterSlot));
+      else if (target?.closest('.letter-bank')) commitLetter(g.id, null);
+      else if (target?.closest('[data-letter-drop]'))
+        commitLetter(
+          g.id,
+          state.draft.findIndex((x) => !x),
+        );
     },
     onClick: () => {
       if (ignore.current) {
         ignore.current = false;
         return;
       }
-      if (fromDraft) remove(id);
-      else selectLetter(id);
+      if (from !== null) {
+        commitLetter(id, null);
+        setSlot(from);
+      } else {
+        const index = slot !== null ? slot : state.draft.findIndex((x) => !x);
+        commitLetter(id, index);
+        setSlot(null);
+      }
+    },
+    onKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (from !== null && e.altKey && ['ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+        commitLetter(id, from + (e.key === 'ArrowLeft' ? -1 : 1));
+      }
     },
   });
   const submit = (answer?: string) => {
     const next = submitMini(state, answer);
     update(next);
-    audio.effect(next.correct ? 'success' : 'gentle');
-    if (next.correct) say();
+    if (next.attempts.length > state.attempts.length)
+      audio.effect(next.correct ? 'success' : 'gentle');
   };
+  const shown =
+    state.difficulty !== 'independent' ||
+    state.support.includes('word-model') ||
+    state.support.includes('meaning-picture');
   return (
     <section
       className={`mini-play mini-${state.kind}`}
+      data-mini-key={miniKey(state.kind, state.mode)}
       aria-label={state.kind === 'match' ? '食物找朋友' : 'WordSpell拼食物'}
     >
-      <button className="corner-back" type="button" onClick={exit}>
-        ← 小院
+      <button type="button" className="corner-back" onClick={lobby}>
+        ← 回游戏小摊
+      </button>
+      <button type="button" className="mini-restart" onClick={() => setRestart(true)}>
+        重新开始
       </button>
       <div className="mini-progress">
-        {state.kind === 'match' ? '食物找朋友' : 'WordSpell'} · {state.round + 1} / 4
+        {state.kind === 'spell'
+          ? 'WordSpell'
+          : state.mode === 'listen'
+            ? '听词找图'
+            : state.mode === 'word-picture'
+              ? '英文配图片'
+              : '中英文字配对'}{' '}
+        · {state.round + 1} / 4
       </div>
+      {restart ? (
+        <div className="mini-confirm" role="dialog" aria-label="重新开始小游戏">
+          <p>重新摆这一组，已经用过的帮助仍会保留。</p>
+          <button
+            type="button"
+            onClick={() => {
+              audio.stop();
+              update(restartMini(state, crypto.randomUUID()));
+              setRestart(false);
+              setSlot(null);
+            }}
+          >
+            确认重新开始
+          </button>
+          <button type="button" onClick={() => setRestart(false)}>
+            继续这一题
+          </button>
+        </div>
+      ) : null}
       {state.stage === 'intro' ? (
         <div className="mini-intro">
           <Food product="apple" />
-          <h2>{state.kind === 'match' ? '给食物找朋友' : '把声音变成字母'}</h2>
+          <h2>{state.kind === 'match' ? '给食物找朋友' : '一起摆字母'}</h2>
           <p>
             {state.kind === 'match'
-              ? '点喇叭听一听，再点一张图片。英文配图和中英配对，也只要点两项。'
-              : '先看食物，听发音。点大字母放进空位，点已放字母可撤回。拼好后告诉小猫。'}
+              ? '听到后直接选图。随时重听或请小猫帮忙。每次只找一位朋友。'
+              : '空格已经留好。点字母放入；点已放的字母撤回，再选空位重排，也能拖动。'}
           </p>
-          <button
-            type="button"
-            className="primary"
-            onClick={() => {
-              update(beginRound(state));
-              say();
-            }}
-          >
+          <button type="button" className="primary" onClick={() => begin(state)}>
             开始玩
           </button>
         </div>
@@ -260,51 +423,45 @@ export function MiniGames({
         <div className="mini-ending">
           <img src="/assets/cat-celebrate.webp" alt="小猫庆祝" />
           <h2>四份心意，都找到了！</h2>
-          <p>今天遇见：{state.words.join(' · ')}。可以回餐车用一用。</p>
+          <p>遇见：{[...new Set(state.words)].map((id) => wordById(id)?.text).join(' · ')}</p>
           <button
             type="button"
             className="primary"
-            onClick={() =>
-              update(createMini(state.kind, state.difficulty, (state.seed + 1) >>> 0, state.mode))
-            }
+            onClick={() => {
+              const fresh = createMini(
+                state.kind,
+                state.difficulty,
+                (state.seed + 1) >>> 0,
+                state.mode,
+                state.vocabulary,
+                state.foundation,
+                crypto.randomUUID(),
+              );
+              update(fresh);
+            }}
           >
             再玩一组
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              setState(null);
-              try {
-                if (!loaded.blocked) localStorage.removeItem(KEY);
-              } catch {}
-            }}
-          >
+          <button type="button" onClick={lobby}>
             回游戏小摊
           </button>
         </div>
       ) : state.stage === 'meaning' ? (
         <div className="meaning-stage">
-          {state.kind === 'match' && state.difficulty === 'independent' ? (
+          {shown ? (
+            <Food product={word.image} />
+          ) : (
             <div className="all-food-intro">
               {options(state).map((w) => (
                 <Food key={w.id} product={w.image} />
               ))}
             </div>
-          ) : (
-            <Food product={word.image} />
           )}
-          <h2>{state.difficulty === 'independent' ? '听听这位食物朋友的名字' : word.text}</h2>
+          <h2>{shown ? word.text : '听听食物朋友的名字'}</h2>
           <button type="button" onClick={say}>
             ♫ 听发音
           </button>
-          <button
-            type="button"
-            className="primary"
-            onClick={() => {
-              update(playRound(state));
-              say();
-            }}
-          >
+          <button type="button" className="primary" onClick={() => update(playRound(state))}>
             我来找 / 拼
           </button>
         </div>
@@ -312,15 +469,7 @@ export function MiniGames({
         <>
           <div className="mini-prompt">
             {state.kind === 'spell' ? <Food product={word.image} /> : null}
-            <button
-              type="button"
-              className="sound-tile"
-              aria-pressed={state.selected === 'target'}
-              onClick={() => {
-                say();
-                update({ ...state, selected: 'target' });
-              }}
-            >
+            <button type="button" className="sound-tile" onClick={say}>
               {state.kind === 'match' && state.mode === 'word-picture'
                 ? word.text
                 : state.kind === 'match' && state.mode === 'bilingual'
@@ -330,66 +479,66 @@ export function MiniGames({
           </div>
           {state.kind === 'match' ? (
             <div className="matching-pictures">
-              {options(state)
-                .filter(
-                  (w, i, list) =>
-                    state.difficulty !== 'partial' ||
-                    w.id === word.id ||
-                    i !== list.findIndex((x) => x.id !== word.id),
-                )
-                .map((w) => (
-                  <button
-                    type="button"
-                    key={w.id}
-                    aria-label={state.mode === 'bilingual' ? w.text : w.chinese}
-                    disabled={state.stage === 'feedback'}
-                    onClick={() => {
-                      if (state.selected !== 'target') {
-                        update({ ...state, feedback: '先点上面的词或喇叭，再选朋友。' });
-                        return;
-                      }
-                      submit(w.id);
-                    }}
-                  >
-                    {state.mode === 'bilingual' ? (
-                      <strong>{w.text}</strong>
-                    ) : (
-                      <Food product={w.image} />
-                    )}
-                  </button>
-                ))}
+              {options(state).map((w) => (
+                <button
+                  type="button"
+                  key={w.id}
+                  aria-label={state.mode === 'bilingual' ? w.text : w.chinese}
+                  disabled={state.stage === 'feedback'}
+                  onClick={() => submit(w.id)}
+                >
+                  {state.mode === 'bilingual' ? (
+                    <strong>{w.text}</strong>
+                  ) : (
+                    <Food product={w.image} />
+                  )}
+                </button>
+              ))}
             </div>
           ) : (
             <div className="spelling-table">
               {state.difficulty === 'demo' || state.support.includes('answer-help') ? (
                 <p className="spell-model">{word.text.toUpperCase()}</p>
               ) : null}
-              <div className="letter-draft" data-letter-drop="true">
-                {[...letters(state)]
-                  .sort((a, b) => a.id.localeCompare(b.id))
-                  .map((slot, i) => {
-                    const id = state.draft[i];
-                    return (
-                      <button
-                        type="button"
-                        key={`slot-${slot.id}`}
-                        aria-label={`字母位置${i + 1}${id ? ` ${letters(state).find((l) => l.id === id)?.text}` : ''}`}
-                        disabled={!id || state.fixed.includes(id)}
-                        {...(id ? bindLetter(id, true) : {})}
-                      >
-                        {id ? letters(state).find((l) => l.id === id)?.text : '·'}
-                      </button>
-                    );
-                  })}
-              </div>
+              <section
+                className="letter-draft"
+                data-letter-drop="true"
+                aria-label="拼写区，词间空格固定"
+              >
+                {wordGroups(state).map((group, g) => (
+                  <section
+                    className="letter-word"
+                    key={group.join('-')}
+                    aria-label={`第${g + 1}个词`}
+                  >
+                    {group.map((i) => {
+                      const id = state.draft[i] ?? '';
+                      return (
+                        <button
+                          type="button"
+                          data-letter-slot={i}
+                          key={`slot-${i}`}
+                          aria-pressed={slot === i}
+                          aria-label={`字母位置${i + 1}${id ? ` ${bank.find((l) => l.id === id)?.text}` : ''}`}
+                          disabled={state.fixed.includes(id) || state.stage === 'feedback'}
+                          {...(id ? bindLetter(id, i) : { onClick: () => setSlot(i) })}
+                        >
+                          {id ? bank.find((l) => l.id === id)?.text : '·'}
+                        </button>
+                      );
+                    })}
+                  </section>
+                ))}
+              </section>
+              {wordGroups(state).length > 1 ? <small>两个词，中间的空格已经留好了。</small> : null}
               <div className="letter-bank">
-                {letters(state).map((l) => (
+                {bank.map((l) => (
                   <button
                     type="button"
                     key={l.id}
                     aria-label={`字母 ${l.text} ${l.id}`}
                     disabled={state.draft.includes(l.id) || state.stage === 'feedback'}
-                    {...bindLetter(l.id, false)}
+                    {...bindLetter(l.id, null)}
                   >
                     {l.text}
                   </button>
@@ -408,7 +557,7 @@ export function MiniGames({
               <span>{word.text}</span>
             </div>
           ) : null}
-          <div className="letter-ghost" ref={ghost} aria-hidden="true" />
+          <div ref={ghost} className="letter-ghost" aria-hidden="true" />
           <p role="status" className="mini-feedback">
             {state.feedback}
           </p>
@@ -418,8 +567,8 @@ export function MiniGames({
               className="primary"
               onClick={() => {
                 const next = nextRound(state);
-                update(next);
-                if (next.stage !== 'done') void audio.play(targetWord(next).audio);
+                if (next.stage === 'done') update(next);
+                else begin({ ...next, stage: 'intro' });
               }}
             >
               下一位朋友
@@ -431,10 +580,7 @@ export function MiniGames({
                 update({
                   ...state,
                   support: [...new Set([...state.support, 'answer-help'])],
-                  feedback:
-                    state.kind === 'match'
-                      ? `看看${word.chinese}，听听 ${word.text}。`
-                      : '一起看看字母，接着试。',
+                  feedback: '看看这位朋友，接着试。',
                 });
                 say();
               }}

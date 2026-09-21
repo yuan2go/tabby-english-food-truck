@@ -1,7 +1,9 @@
+import speech from '../content/speech.json';
 import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';
-export const AUDIO_VERSION = 'samantha-dev-m2-140';
+export const AUDIO_VERSION = 'samantha-dev-m21-140';
+export type PlaybackResult = 'completed' | 'interrupted' | 'failed' | 'muted';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
 export type Effect =
   | 'press'
@@ -28,6 +30,9 @@ export class ForegroundAudio {
   active: string | null = null;
   private player: HTMLAudioElement | null = null;
   private epoch = 0;
+  private flow = 0;
+  private settle: ((result: PlaybackResult) => void) | null = null;
+  lastRequested: string | null = null;
   private context: AudioContext | null = null;
   private buses: Record<'music' | 'ambience' | 'machine' | 'effects', GainNode> | null = null;
   private loops = new Map<string, AudioBufferSourceNode>();
@@ -89,57 +94,75 @@ export class ForegroundAudio {
       this.controller.notify();
     }
   }
-  async play(id: string): Promise<void> {
-    this.stop();
-    if (!this.enabled || !this.settings.voice || document.hidden || this.disposed) return;
+  /** Explicit user playback replaces the foreground sequence. */
+  play(id: string, started?: () => void): Promise<PlaybackResult> {
+    this.flow++;
+    return this.clip(id, started);
+  }
+  async sequence(ids: readonly string[]): Promise<'completed' | 'cancelled'> {
+    const flow = ++this.flow;
+    for (const id of ids) {
+      if (flow !== this.flow || this.disposed || document.hidden) return 'cancelled';
+      await this.clip(id);
+    }
+    return flow === this.flow ? 'completed' : 'cancelled';
+  }
+  private clip(id: string, started?: () => void): Promise<PlaybackResult> {
+    this.stopPlayer();
+    this.lastRequested = id;
+    if (!this.enabled || !this.settings.voice || document.hidden || this.disposed)
+      return Promise.resolve('muted');
+    if (!Object.hasOwn(speech, id)) {
+      this.failure = '这段声音暂时缺少，可以看图继续。';
+      this.record(id, 'failed');
+      return Promise.resolve('failed');
+    }
     void this.unlock();
-    const epoch = ++this.epoch,
-      player = new Audio(resourceUrl('audio', `${id}.wav`));
+    const epoch = ++this.epoch;
+    const entry = speech[id as keyof typeof speech];
+    const player = new Audio(resourceUrl('audio', entry.path.slice('audio/'.length)));
     this.player = player;
     this.active = id;
     player.volume = 0.8;
     player.preload = 'auto';
     this.duck();
-    player.onended = () => {
-      if (epoch !== this.epoch) return;
-      this.player = null;
-      this.active = null;
-      this.record(id, 'completed');
-      this.duck();
-    };
-    player.onerror = () => {
-      if (epoch === this.epoch) this.fail(id);
-    };
-    try {
-      await player.play();
-      if (epoch !== this.epoch) {
+    return new Promise((resolve) => {
+      this.settle = resolve;
+      const finish = (status: 'completed' | 'failed') => {
+        if (epoch !== this.epoch) return;
+        this.epoch++;
+        player.onended = null;
+        player.onerror = null;
         player.pause();
-        return;
-      }
-      this.failure = '';
-      this.record(id, 'started');
-    } catch {
-      if (epoch === this.epoch) this.fail(id);
-    }
-  }
-  private fail(id: string): void {
-    this.epoch++;
-    if (this.player) {
-      this.player.pause();
-      this.player.onended = null;
-      this.player.onerror = null;
-    }
-    this.player = null;
-    this.active = null;
-    this.failure = '声音没有播放成功。可以重听，或点“图示帮助”。';
-    this.record(id, 'failed');
-    this.duck();
+        this.player = null;
+        this.active = null;
+        this.settle = null;
+        if (status === 'failed') this.failure = '声音暂不可用，可看图继续。';
+        this.record(id, status);
+        this.duck();
+        resolve(status);
+      };
+      player.onended = () => finish('completed');
+      player.onerror = () => finish('failed');
+      void player
+        .play()
+        .then(() => {
+          if (epoch !== this.epoch) {
+            player.pause();
+            return;
+          }
+          this.failure = '';
+          this.record(id, 'started');
+          started?.();
+        })
+        .catch(() => finish('failed'));
+    });
   }
   private record(id: string, status: 'started' | 'completed' | 'interrupted' | 'failed'): void {
     if (!this.disposed)
       this.controller.command({ type: 'audio', audio: { id, version: AUDIO_VERSION, status } });
   }
-  stop(): void {
+  private stopPlayer(): void {
     const id = this.active;
     this.epoch++;
     this.active = null;
@@ -151,8 +174,15 @@ export class ForegroundAudio {
       this.player.load();
     }
     this.player = null;
+    const settle = this.settle;
+    this.settle = null;
+    settle?.('interrupted');
     if (id) this.record(id, 'interrupted');
     this.duck();
+  }
+  stop(): void {
+    this.flow++;
+    this.stopPlayer();
     if (document.hidden || this.controller.pauses.size) {
       this.stopLoops();
       this.stopEffects();
@@ -286,8 +316,9 @@ export class ForegroundAudio {
         oldDelivery?.kind === 'delivery' &&
         oldDelivery.itemIds.length &&
         !s.items.some((i) => oldDelivery.itemIds.includes(i.id))
-      )
-        void this.play('thanks');
+      ) {
+        if (!this.active) void this.play('thanks');
+      }
       if (old.machine.status !== 'processing' && s.machine.status === 'processing')
         this.effect('start');
       if (old.machine.status === 'processing' && s.machine.status === 'ready') this.effect('ready');

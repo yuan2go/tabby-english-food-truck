@@ -1,0 +1,72 @@
+{
+  "reviewer": "implementation agent, not owner",
+  "runtime": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+  "actuallyViewed": "All 16 ordered contact-sheet pages across 216 samples, plus original-size phone spelling and lesson/lobby images. Original continuous WebM and rAF position samples retained. This is sampled visual inspection, not realtime human video review or listening.",
+  "finding": "Teaching resumes at same anchor; helper/delivery follows continuous stages through pause, reload and cancellation; carried food remains with action. Cross-fades are visible, not skeletal animation. Phone spelling bank touch size problem found and fixed in 229073b.",
+  "ownerAcceptance": "PENDING",
+  "recordingsHaveAudio": false,
+  "reports": [
+    {
+      "clip": "actor-continuity",
+      "duration": 9.76,
+      "interval": 0.1,
+      "frames": 98,
+      "pages": [
+        "docs/evidence/m21/review/actor-continuity-1.jpg",
+        "docs/evidence/m21/review/actor-continuity-2.jpg",
+        "docs/evidence/m21/review/actor-continuity-3.jpg",
+        "docs/evidence/m21/review/actor-continuity-4.jpg",
+        "docs/evidence/m21/review/actor-continuity-5.jpg",
+        "docs/evidence/m21/review/actor-continuity-6.jpg",
+        "docs/evidence/m21/review/actor-continuity-7.jpg"
+      ],
+      "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+    },
+    {
+      "clip": "helper-overlap",
+      "duration": 20.4,
+      "interval": 0.25,
+      "frames": 82,
+      "pages": [
+        "docs/evidence/m21/review/helper-overlap-1.jpg",
+        "docs/evidence/m21/review/helper-overlap-2.jpg",
+        "docs/evidence/m21/review/helper-overlap-3.jpg",
+        "docs/evidence/m21/review/helper-overlap-4.jpg",
+        "docs/evidence/m21/review/helper-overlap-5.jpg",
+        "docs/evidence/m21/review/helper-overlap-6.jpg"
+      ],
+      "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+    },
+    {
+      "clip": "pad-processing",
+      "duration": 35.36,
+      "interval": 1,
+      "frames": 36,
+      "pages": [
+        "docs/evidence/m21/review/pad-processing-1.jpg",
+        "docs/evidence/m21/review/pad-processing-2.jpg",
+        "docs/evidence/m21/review/pad-processing-3.jpg"
+      ],
+      "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+    },
+    {
+      "samples": "browser/upgrade-M2-actor-continuit-0756e-erlap-cancel-pause-rotation/teaching-exit-motion.json",
+      "count": 150,
+      "maxNormalizedStep": 0.0
+    },
+    {
+      "samples": "browser/recovery-M2-actual-helper--5db68-lation-and-continued-motion/overlap-motion.json",
+      "count": 150,
+      "maxNormalizedStep": 0.02328836278292916
+    }
+  ],
+  "lastLayoutReview": {
+    "runtime": "229073b3829b00e991c509067b8f53565f14270c",
+    "actuallyViewed": [
+      "final-layout/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/multiword-restored.png",
+      "final-layout/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/pad-portrait-collected.png",
+      "final-layout/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/pad-landscape-after.png"
+    ],
+    "finding": "ICE CREAM retains two groups; bank letters are centered with 44px targets and wrap. All enabled core buttons within 393x665 asserted. Pad actions remain reachable after rotation and processing restore."
+  }
+}

@@ -121,7 +121,7 @@ for (const folder of ['art/reference', 'art/source', 'public/assets', 'public/au
 }
 await writeFile(
   'art/manifest.json',
-  `${JSON.stringify({ version: 'm2.0', assets: entries }, null, 2)}\n`,
+  `${JSON.stringify({ version: 'm2.1', assets: entries }, null, 2)}\n`,
 );
 console.log(
   `Registered ${entries.length} files, including reference and individual production poses`,

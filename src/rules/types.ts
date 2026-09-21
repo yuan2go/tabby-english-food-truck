@@ -18,6 +18,7 @@ export interface Item {
 }
 export interface Order {
   revisit: boolean;
+  heard: boolean;
   id: string;
   request: RequestId;
   seat: TrayId;
@@ -26,6 +27,7 @@ export interface Order {
   support: string[];
 }
 export interface Attempt {
+  id: string;
   condition: 'guided' | 'assisted' | 'independent-condition';
   visit: 'first' | 'revisit';
   audioQualified: false;
@@ -44,11 +46,13 @@ export interface AudioRecord {
   gameTime: number;
 }
 export interface GameState {
-  schemaVersion: 3;
+  schemaVersion: 4;
   session: {
     activity: Activity;
     chapter: number;
     support: Support;
+    concurrency: 1 | 2;
+    menu: RequestId[];
     family: Family;
     unlocked: Family[];
     seed: number;
@@ -107,6 +111,8 @@ export type Command =
   | { type: 'start-station'; station: StationId }
   | { type: 'restore-cleared'; tray: TrayId }
   | { type: 'family'; family: Family }
+  | { type: 'policy'; support: Support; concurrency: 1 | 2 }
+  | { type: 'prepare-cup' }
   | { type: 'actor-anchor'; point: ActorPoint }
   | { type: 'deliver'; tray: TrayId; order: string }
   | { type: 'note'; tray: TrayId; tokens: string[] }

@@ -49,3 +49,10 @@
 Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前食谱按需加载新增原料、设备与成品；ActorView 使用4相步态、旧有效动作姿态、110ms交叉过渡和规则阶段插值。手持食品与托盘是独立图层；没有骨骼动画或完整逐帧角色制作的夸大声明。花盆、旗、桌布、灯串为本轮原创 DOM/CSS 装饰，合影组合已登记的角色，依章节完成在小院出现。全部新图实装仍待负责人视觉/权利审核。
 
 `m2-audio.json` 登记49条本机 Samantha、140 wpm、22050Hz PCM 开发语音，包括请求、食品、菜单、序章、章节和小游戏介绍；其中 two.wav 更新为本次速度。冰淇淋台、组合板和煎台加入独立原创过程波形，统一音频生命周期与英语 duck。播放事件、生成成功及无音轨录像不等于听审；正式发音、教材适龄性与声音分发权均未审核。
+
+
+## M2.1 名称与小尝试语音
+
+本包不重生图片。补充27个WAV并修正mini-match，共28条制作记录见[m21-audio.json](m21-audio.json)；`scripts/m21-audio.mjs` 使用本机macOS say / Samantha，140wpm，PCM 22050Hz。`speech.json` 的80个显式引用包含原有剧情/请求与新的物品、数量/组合、操作提示；151文件总清单记录真实bytes/hash与现有图片尺寸/Alpha。新增资源经运行Lesson/MiniGames/ForegroundAudio引用，不以入库当接入。
+
+所有新语音标DEVELOPMENT_TTS_UNREVIEWED，人类听审NOT_RUN，分发权利PENDING。脚本生成文本不等于真人口音、音量或教学适龄审核；不虚构审核者。旧M2音频登记保留为历史，其中mini-match文字已由本节更正为可直接选图。

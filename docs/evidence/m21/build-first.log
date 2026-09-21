@@ -1,0 +1,12 @@
+
+> tabby-english-food-truck@0.1.0 build
+> npm run typecheck && vite build
+
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/content/teaching.ts(25,42): error TS2345: Argument of type '"juice"' is not assignable to parameter of type '"apple" | "banana" | "cup" | "apple juice" | "banana juice" | "bread" | "cheese" | "lettuce" | "tomato" | "bun" | "patty" | "cooked patty" | "cone" | "vanilla" | "strawberry" | ... 8 more ... | undefined'.
+src/content/teaching.ts(26,59): error TS2345: Argument of type '"ice cream"' is not assignable to parameter of type '"apple" | "banana" | "cup" | "apple juice" | "banana juice" | "bread" | "cheese" | "lettuce" | "tomato" | "bun" | "patty" | "cooked patty" | "cone" | "vanilla" | "strawberry" | ... 8 more ... | undefined'.
+src/content/teaching.ts(33,49): error TS2345: Argument of type '"sandwich"' is not assignable to parameter of type '"apple" | "banana" | "cup" | "apple juice" | "banana juice" | "bread" | "cheese" | "lettuce" | "tomato" | "bun" | "patty" | "cooked patty" | "cone" | "vanilla" | "strawberry" | ... 8 more ... | undefined'.
+src/rules/game.ts(23,23): error TS6133: 'replenish' is declared but its value is never read.

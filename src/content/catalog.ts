@@ -2,7 +2,7 @@ import { FOOD, type Product } from './recipes';
 
 export type { Product } from './recipes';
 export type Fruit = 'apple' | 'banana';
-export const CONTENT_VERSION = 'm2.0';
+export const CONTENT_VERSION = 'm2.1';
 export type Mode = 'guided' | 'practice' | 'service';
 export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (0 | 1)[] }> = {
   guided: { name: '跟着小猫做', icon: '🐾', trays: [0] },

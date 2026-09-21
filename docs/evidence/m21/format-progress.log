@@ -1,0 +1,582 @@
+scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │   await writeFile(
+    59 │     'art/m21-audio.json',
+  > 60 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 61 │       {
+        ...
+  > 68 │       2,
+  > 69 │     ) + '\n',
+       │     ^^^^^^^^
+    70 │   );
+    71 │   console.log(`Generated ${ids.length} registered development clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    58 58 │     await writeFile(
+    59 59 │       'art/m21-audio.json',
+    60    │ - ····JSON.stringify(
+       60 │ + ····`${JSON.stringify(
+    61 61 │         {
+    62 62 │           humanListeningReview: 'NOT_RUN',
+    ····· │ 
+    67 67 │         null,
+    68 68 │         2,
+    69    │ - ····)·+·'\n',
+       69 │ + ····)}\n`,
+    70 70 │     );
+    71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+  
+
+src/app/m2.css:358:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    356 │   z-index: 12;
+    357 │ }
+  > 358 │ .family-tabs button {
+        │ ^^^^^^^^^^^^^^^^^^^
+    359 │   font-size: 13px;
+    360 │   padding: 4px 10px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    342 │   z-index: 12;
+    343 │ }
+  > 344 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    345 │   padding: 5px 10px;
+    346 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+scripts/measure-m21.mjs:15:14 lint/suspicious/noAssignInExpressions ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The assignment should not be in an expression.
+  
+    13 │ const page = await context.newPage();
+    14 │ await page.addInitScript(() => {
+  > 15 │   const m = (window.m21measure = { frames: [], long: [], inputs: [], running: false, last: 0 });
+       │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    16 │   new PerformanceObserver((list) => {
+    17 │     if (m.running) for (const x of list.getEntries()) m.long.push(x.duration);
+  
+  i The use of assignments in expressions is confusing.
+    Expressions are often considered as side-effect free.
+  
+
+src/app/App.tsx:132:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies more dependencies than necessary: audio.
+  
+    130 │     };
+    131 │   }, [controller, audio, ui]);
+  > 132 │   useEffect(() => {
+        │   ^^^^^^^^^
+    133 │     controller.pause('home', screen !== 'game');
+    134 │   }, [screen, controller, audio]);
+  
+  i This dependency can be removed from the list.
+  
+    132 │   useEffect(() => {
+    133 │     controller.pause('home', screen !== 'game');
+  > 134 │   }, [screen, controller, audio]);
+        │                           ^^^^^
+    135 │   useEffect(() => {
+    136 │     controller.pause('modal', !!modal);
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Specifying more dependencies than required can lead to unnecessary re-rendering
+    and degraded performance.
+  
+  i Unsafe fix: Remove the extra dependencies from the list.
+  
+    134 │ ··},·[screen,·controller,·audio]);
+        │                         -------   
+
+src/app/App.tsx:162:3 lint/correctness/useExhaustiveDependencies ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies a dependency more specific than its captures: active?.request
+  
+    160 │     };
+    161 │   }, [opening, screen, audio, controller]);
+  > 162 │   useEffect(() => {
+        │   ^^^^^^^^^
+    163 │     if (screen !== 'game' || modal || teaching || opening !== null || !active || actorBusy) return;
+    164 │     const key = `${s.runId}:${active.id}`;
+  
+  i This capture is more generic than...
+  
+    161 │   }, [opening, screen, audio, controller]);
+    162 │   useEffect(() => {
+  > 163 │     if (screen !== 'game' || modal || teaching || opening !== null || !active || actorBusy) return;
+        │                                                                        ^^^^^^
+    164 │     const key = `${s.runId}:${active.id}`;
+    165 │     const offered = `offered:${active.id}`;
+  
+  i ...this dependency.
+  
+    185 │     opening,
+    186 │     active?.id,
+  > 187 │     active?.request,
+        │     ^^^^^^^^^^^^^^^
+    188 │     actorBusy,
+    189 │     s.runId,
+  
+
+src/app/App.tsx:162:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × This hook does not specify its dependency on active.
+  
+    160 │     };
+    161 │   }, [opening, screen, audio, controller]);
+  > 162 │   useEffect(() => {
+        │   ^^^^^^^^^
+    163 │     if (screen !== 'game' || modal || teaching || opening !== null || !active || actorBusy) return;
+    164 │     const key = `${s.runId}:${active.id}`;
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    161 │   }, [opening, screen, audio, controller]);
+    162 │   useEffect(() => {
+  > 163 │     if (screen !== 'game' || modal || teaching || opening !== null || !active || actorBusy) return;
+        │                                                                        ^^^^^^
+    164 │     const key = `${s.runId}:${active.id}`;
+    165 │     const offered = `offered:${active.id}`;
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+  
+  i Unsafe fix: Add the missing dependency active to the list.
+  
+    180 180 │       }
+    181 181 │     }, [
+    182     │ - ····screen,
+    183     │ - ····modal,
+    184     │ - ····teaching,
+    185     │ - ····opening,
+    186     │ - ····active?.id,
+    187     │ - ····active?.request,
+    188     │ - ····actorBusy,
+    189     │ - ····s.runId,
+    190     │ - ····s.lessons,
+    191     │ - ····controller,
+    192     │ - ····audio,
+        182 │ + ····screen,·
+        183 │ + ····modal,·
+        184 │ + ····teaching,·
+        185 │ + ····opening,·
+        186 │ + ····active?.id,·
+        187 │ + ····active?.request,·
+        188 │ + ····actorBusy,·
+        189 │ + ····s.runId,·
+        190 │ + ····s.lessons,·
+        191 │ + ····controller,·
+        192 │ + ····audio,·active
+    193 193 │     ]);
+    194 194 │     const closeTeaching = () => {
+  
+
+src/app/Lesson.tsx:117:11 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    115 │       {progress.phase !== 'recipe' && unit ? (
+    116 │         <>
+  > 117 │           <div
+        │           ^^^^
+  > 118 │             className="lesson-beads"
+  > 119 │             aria-label={`认识食物 ${progress.index + 1}/${progress.units.length}`}
+  > 120 │           >
+        │           ^
+    121 │             {progress.units.map((id, i) => (
+    122 │               <span key={id} className={i <= progress.index ? 'filled' : ''} />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Lesson.tsx:54:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies more dependencies than necessary: progress.index.
+  
+    52 │     setProgress(next);
+    53 │   };
+  > 54 │   useEffect(() => {
+       │   ^^^^^^^^^
+    55 │     if (progress.phase === 'meaning' && unit) {
+    56 │       profile.present(unit.id);
+  
+  i This dependency can be removed from the list.
+  
+    60 │       void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]]);
+    61 │     return () => audio.stop();
+  > 62 │   }, [audio, profile, progress.phase, progress.index, unit, current?.output, spec.products]);
+       │                                       ^^^^^^^^^^^^^^
+    63 │   useEffect(() => {
+    64 │     view.lessonProducts =
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Specifying more dependencies than required can lead to unnecessary re-rendering
+    and degraded performance.
+  
+  i Unsafe fix: Remove the extra dependencies from the list.
+  
+    62 │ ··},·[audio,·profile,·progress.phase,·progress.index,·unit,·current?.output,·spec.products]);
+       │                                       ----------------                                       
+
+src/app/Lesson.tsx:135:40 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    133 │                 <span className="meaning-products">
+    134 │                   {unit.products.map((p, i) => (
+  > 135 │                     <Food key={`${p}-${i}`} product={p} />
+        │                                        ^
+    136 │                   ))}
+    137 │                 </span>
+  
+  i This is the source of the key value.
+  
+    132 │               >
+    133 │                 <span className="meaning-products">
+  > 134 │                   {unit.products.map((p, i) => (
+        │                                          ^
+    135 │                     <Food key={`${p}-${i}`} product={p} />
+    136 │                   ))}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/Lesson.tsx:178:44 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    176 │                     >
+    177 │                       {choice.products.map((p, i) => (
+  > 178 │                         <Food key={`${p}-${i}`} product={p} />
+        │                                            ^
+    179 │                       ))}
+    180 │                     </button>
+  
+  i This is the source of the key value.
+  
+    175 │                       aria-label={choice.products.map((p) => FOOD[p][0]).join('、')}
+    176 │                     >
+  > 177 │                       {choice.products.map((p, i) => (
+        │                                                ^
+    178 │                         <Food key={`${p}-${i}`} product={p} />
+    179 │                       ))}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/Lesson.tsx:206:38 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    204 │               <button
+    205 │                 type="button"
+  > 206 │                 key={`${w.product}-${i}`}
+        │                                      ^
+    207 │                 onClick={() => void audio.play(w.audio)}
+    208 │               >
+  
+  i This is the source of the key value.
+  
+    201 │           <h2>{current?.action ?? '摆到盘里'}</h2>
+    202 │           <div className="lesson-ingredients">
+  > 203 │             {lessonWords(current?.inputs ?? spec.products).map((w, i) => (
+        │                                                                    ^
+    204 │               <button
+    205 │                 type="button"
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/MiniGames.tsx:457:15 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    455 │                 <p className="spell-model">{word.text.toUpperCase()}</p>
+    456 │               ) : null}
+  > 457 │               <div
+        │               ^^^^
+  > 458 │                 className="letter-draft"
+  > 459 │                 data-letter-drop="true"
+  > 460 │                 aria-label="拼写区，词间空格固定"
+  > 461 │               >
+        │               ^
+    462 │                 {wordGroups(state).map((group, g) => (
+    463 │                   <div className="letter-word" key={`word-${g}`} aria-label={`第${g + 1}个词`}>
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/MiniGames.tsx:463:19 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    461 │               >
+    462 │                 {wordGroups(state).map((group, g) => (
+  > 463 │                   <div className="letter-word" key={`word-${g}`} aria-label={`第${g + 1}个词`}>
+        │                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    464 │                     {group.map((i) => {
+    465 │                       const id = state.draft[i] ?? '';
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/MiniGames.tsx:69:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━━
+
+  × This hook does not specify its dependency on cancel.
+  
+    67 │     ignore.current = true;
+    68 │   };
+  > 69 │   useEffect(() => {
+       │   ^^^^^^^^^
+    70 │     const other = (e: PointerEvent) => {
+    71 │       if (gesture.current && gesture.current.pointer !== e.pointerId) cancel();
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    74 │     document.addEventListener('visibilitychange', cancel);
+    75 │     window.addEventListener('resize', cancel);
+  > 76 │     window.addEventListener('blur', cancel);
+       │                                     ^^^^^^
+    77 │     return () => {
+    78 │       cancel();
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    73 │     document.addEventListener('pointerdown', other, true);
+    74 │     document.addEventListener('visibilitychange', cancel);
+  > 75 │     window.addEventListener('resize', cancel);
+       │                                       ^^^^^^
+    76 │     window.addEventListener('blur', cancel);
+    77 │     return () => {
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    72 │     };
+    73 │     document.addEventListener('pointerdown', other, true);
+  > 74 │     document.addEventListener('visibilitychange', cancel);
+       │                                                   ^^^^^^
+    75 │     window.addEventListener('resize', cancel);
+    76 │     window.addEventListener('blur', cancel);
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    81 │       document.removeEventListener('visibilitychange', cancel);
+    82 │       window.removeEventListener('resize', cancel);
+  > 83 │       window.removeEventListener('blur', cancel);
+       │                                          ^^^^^^
+    84 │     };
+    85 │   }, [audio]);
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    80 │       document.removeEventListener('pointerdown', other, true);
+    81 │       document.removeEventListener('visibilitychange', cancel);
+  > 82 │       window.removeEventListener('resize', cancel);
+       │                                            ^^^^^^
+    83 │       window.removeEventListener('blur', cancel);
+    84 │     };
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    79 │       audio.stop();
+    80 │       document.removeEventListener('pointerdown', other, true);
+  > 81 │       document.removeEventListener('visibilitychange', cancel);
+       │                                                        ^^^^^^
+    82 │       window.removeEventListener('resize', cancel);
+    83 │       window.removeEventListener('blur', cancel);
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    76 │     window.addEventListener('blur', cancel);
+    77 │     return () => {
+  > 78 │       cancel();
+       │       ^^^^^^
+    79 │       audio.stop();
+    80 │       document.removeEventListener('pointerdown', other, true);
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    69 │   useEffect(() => {
+    70 │     const other = (e: PointerEvent) => {
+  > 71 │       if (gesture.current && gesture.current.pointer !== e.pointerId) cancel();
+       │                                                                       ^^^^^^
+    72 │     };
+    73 │     document.addEventListener('pointerdown', other, true);
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+  
+  i Unsafe fix: Add the missing dependency cancel to the list.
+  
+    85 │ ··},·[audio,·cancel]);
+       │            ++++++++   
+
+src/app/MiniGames.tsx:112:3 lint/correctness/useExhaustiveDependencies ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies a dependency more specific than its captures: state?.stage
+  
+    110 │   };
+    111 │   // Only a real phase/question transition starts speech; draft edits and audio notifications do not.
+  > 112 │   useEffect(() => {
+        │   ^^^^^^^^^
+    113 │     if (!state || !['meaning', 'play'].includes(state.stage)) return;
+    114 │     say();
+  
+  i This capture is more generic than...
+  
+    111 │   // Only a real phase/question transition starts speech; draft edits and audio notifications do not.
+    112 │   useEffect(() => {
+  > 113 │     if (!state || !['meaning', 'play'].includes(state.stage)) return;
+        │          ^^^^^
+    114 │     say();
+    115 │     return () => audio.stop();
+  
+  i ...this dependency.
+  
+    115 │     return () => audio.stop();
+    116 │     // The stable question identity intentionally excludes current draft and support.
+  > 117 │   }, [state?.id, state?.round, state?.stage, audio]);
+        │                                ^^^^^^^^^^^^
+    118 │   const lobby = () => {
+    119 │     cancel();
+  
+
+src/app/MiniGames.tsx:112:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━
+
+  × This hook does not specify its dependency on say.
+  
+    110 │   };
+    111 │   // Only a real phase/question transition starts speech; draft edits and audio notifications do not.
+  > 112 │   useEffect(() => {
+        │   ^^^^^^^^^
+    113 │     if (!state || !['meaning', 'play'].includes(state.stage)) return;
+    114 │     say();
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    112 │   useEffect(() => {
+    113 │     if (!state || !['meaning', 'play'].includes(state.stage)) return;
+  > 114 │     say();
+        │     ^^^
+    115 │     return () => audio.stop();
+    116 │     // The stable question identity intentionally excludes current draft and support.
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+  
+  i Unsafe fix: Add the missing dependency say to the list.
+  
+    117 │ ··},·[state?.id,·state?.round,·state?.stage,·audio,·say]);
+        │                                                   +++++   
+
+src/app/MiniGames.tsx:112:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━
+
+  × This hook does not specify its dependency on state.
+  
+    110 │   };
+    111 │   // Only a real phase/question transition starts speech; draft edits and audio notifications do not.
+  > 112 │   useEffect(() => {
+        │   ^^^^^^^^^
+    113 │     if (!state || !['meaning', 'play'].includes(state.stage)) return;
+    114 │     say();
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    111 │   // Only a real phase/question transition starts speech; draft edits and audio notifications do not.
+    112 │   useEffect(() => {
+  > 113 │     if (!state || !['meaning', 'play'].includes(state.stage)) return;
+        │          ^^^^^
+    114 │     say();
+    115 │     return () => audio.stop();
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+  
+  i Unsafe fix: Add the missing dependency state to the list.
+  
+    117 │ ··},·[state?.id,·state?.round,·state?.stage,·audio,·state]);
+        │                                                   +++++++   
+
+src/app/MiniGames.tsx:463:61 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    461 │               >
+    462 │                 {wordGroups(state).map((group, g) => (
+  > 463 │                   <div className="letter-word" key={`word-${g}`} aria-label={`第${g + 1}个词`}>
+        │                                                             ^
+    464 │                     {group.map((i) => {
+    465 │                       const id = state.draft[i] ?? '';
+  
+  i This is the source of the key value.
+  
+    460 │                 aria-label="拼写区，词间空格固定"
+    461 │               >
+  > 462 │                 {wordGroups(state).map((group, g) => (
+        │                                                ^
+    463 │                   <div className="letter-word" key={`word-${g}`} aria-label={`第${g + 1}个词`}>
+    464 │                     {group.map((i) => {
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+tests/m21-contracts.test.ts:59:17 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    57 │   for (const l of movable) s = editLetter(s, l.id, l.index);
+    58 │   expect(validateMini(s)).toBe(true);
+  > 59 │   const first = movable[0]!;
+       │                 ^^^^^^^^^^^
+    60 │   s = editLetter(s, first.id, null);
+    61 │   expect(submitMini(s).attempts).toHaveLength(0);
+  
+
+tests/m21-contracts.test.ts:130:13 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    128 │   const items = structuredClone(s.items),
+    129 │     seed = s.session.seed,
+  > 130 │     order = s.orders[0]!;
+        │             ^^^^^^^^^^^^
+    131 │   applyPolicy(s, 'less', 2);
+    132 │   expect(s.orders).toHaveLength(2);
+  
+
+Skipped 9 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 36.
+Checked 35 files in 71ms. Fixed 27 files.
+Found 19 errors.
+Found 36 warnings.
+Found 1 info.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

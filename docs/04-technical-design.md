@@ -1,6 +1,8 @@
 # 技术设计 · 独立餐车游戏
 
-版本：v0.3，2026-09-21。当前M2在既有React/TypeScript/Vite/Phaser上实施；以下通用不变量继续有效，M1保存/构建段落保留为历史，M2实现决定见末节。运行证据和审核状态见STATUS。
+
+**当前 M2.1 合同（2026-09-21）**：沿用锁定栈；内容显式登记名称/中间产物/成品/请求/剧情提示音频。前景播放采用可取消完成结果，组件不各自争抢。schema4明确迁移schema3世界；小游戏按活动保存并保护旧原文。
+版本：v0.4，2026-09-21。M2.1沿用既有React/TypeScript/Vite/Phaser；以下通用不变量继续有效，M1保存/构建段落保留为历史，M2基础及M2.1实现决定见末节。运行证据和审核状态见STATUS。
 
 ## 1. 技术选择
 
@@ -32,7 +34,7 @@ React 与 Phaser 通过小型有类型接口通信：开始/暂停/设置/命令
 
 游戏业务事实保存在一个 GameState。Phaser display object 的坐标、React state 和动画结束事件都不能单独决定库存、任务完成或语言结果。规则不需要从旧仓库迁移，在本项目全新实现。
 
-推荐状态包含 schemaVersion、contentVersion、sessionId、runId、revision、场次与 seed/variant、订单、物品、托盘槽位、设备任务、助手任务、帮助和有限学习记录。UI 的选中、指针坐标、词块草稿和短暂拖影另存，默认不持久化。
+推荐状态包含 schemaVersion、contentVersion、sessionId、runId、revision、场次与 seed/variant、订单、物品、托盘槽位、设备任务、助手任务、帮助和有限学习记录。UI 的选中、指针坐标和短暂拖影默认不持久化；M2.1小游戏字母草稿、词界所属题目、固定补全与帮助属于活动进度，必须持久化。
 
 revision 只在离散业务变化时递增，不每帧增加。命令包含稳定 commandId 与当前 runId；异步任务回执须匹配 jobId/epoch，旧场次或旧任务回调不得更改当前世界。短小的去重回执即可，不要求全量命令日志重放平台。
 
@@ -143,8 +145,20 @@ Vite 构建注入真实 `git rev-parse HEAD`、dirty标记、内容m1.2、资源
 
 图片与本地语音 URL 统一附带实际资源清单 hash 前缀，避免部署后稳定 public 路径继续命中旧缓存；源码版本与资源版本都可在运行页查看。
 
-## M2 当前架构决定
+## M2 基础架构（M2.1增量见后）
 
 保留锁定 React/TS/Vite/Phaser，不换引擎、不加后端或运行时模型。有限内容新增 recipes/chapters/learning；规则分 station/assembly、story/endless 与小游戏；角色调度独立于 TruckScene；首页/故事导航、教学、设置与小游戏分组件，App 只组合生命周期。
 
 schema 3 / m2.0。长期 progress（章节/已介绍内容）、tutorials、observations、settings 与一个 active session 分离；非活动营业序列化，小游戏不复制库存。保存校验同一份 recipe/request 内容、ID、槽位/预留、任务阶段与成品特征；有界 receipts/observations/队列。M1 schema2 原文保留为旧档导出，无法可靠推断的新故事进度不猜迁移；首页明确提示新 M2 故事，旧档不覆盖；异常 M2 档须显式选择新旅程。资源按小院/活动食谱加载，DPR预算沿用。
+
+
+## M2.1 实现决定
+
+- `content/speech.json` 是80条前景音频的显式资源注册表；`learning.ITEM_AUDIO` 与 `WORDS` 分别定义物料/成品名称与核心词；`teaching.UNITS/REQUEST_UNITS` 定义目标、图音、操作前提、选择语义、支持与反馈。删除未被运行引用的旧 `LANGUAGE_UNITS/LEARNING_MAP`，含义迁入实际单元与本文件，不保留第二套假教学源。
+- `ForegroundAudio.play` 返回 completed/interrupted/failed/muted；sequence持有取消代次。Story首句由挂载明确触发；App只在章节/题目身份改变时安排开场→短教学→请求。玩家重听替换前景，跳过/离开/后台使旧回调失效，失败和静音仍可推进。单前景、背景压低、设备循环保留，音频不发奖或判单。
+- 世界schema4 / m2.1增加 `session.concurrency/menu`、逐客人 `heard` 与尝试ID。schema3保留世界、seed/cursor、订单、设备及动作剩余时间，按旧mode/support迁移旧实际客流；旧播放无法证明当前题听音，heard=false。已有复杂任务继续有效；后续菜单从已教学或已实际做过的菜式生成。旧M1另键原文保留，不猜成绩。
+- Profile v2分开呈现、单元小尝试、食谱指导完成、实际操作与稳定观察收据；v1旧tutorial标记只是“打开过”，改为legacy-opened，不升级成完成或掌握。教学进度按run/order保存；单元再次进入使用递增尝试ID，刷新不重复统计。
+- Mini v2保留分词槽位、独立字母身份、固定补全、草稿、题目、逐题播放证据和未完成帮助；MiniStore envelope v1按spell、match-listen、match-word-picture、match-bilingual保存。旧m2键保留原文；可映射紧凑草稿按位置迁移，历史播放条件标记unverified，错误档阻止覆盖但允许内存继续及导出。
+- 帮助与一/双客分别配置，所有入口共用applyPolicy；减少客流等待已有任务收束，增加客流在合法空位接客。物理双托盘不因降低客流删除；旧单盘布局在动作空闲边界升级。切回故事不会改写无尽偏好。已有物料、助手预留及动作计划不随帮助变化重建。
+- 首次默认备餐盘；类别切换按操作流程选台，与隐藏请求答案无关。已实际练过cup后，玩家明确选果汁机可由prepare-cup登记唯一空杯，仍不选水果/制作/递交。工作台选中边框、物料、进度/接取提示共同表达状态。
+- 角色计划在创建/排队时生成；每帧只复制可变任务外壳，计划与不变食品共享。该改动源于规则微采样，不能据此推论设备60fps。主性能采样关闭录屏；录像和可听材料另做。

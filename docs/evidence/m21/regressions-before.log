@@ -1,0 +1,66 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m21-regressions.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck
+
+(node:95462) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/m21-regressions.test.ts (3 tests | 3 failed) 8ms
+   × object names never substitute a full request or guessed missing word resource 4ms
+   × returning to endless can increase concurrency without clearing its accepted order 2ms
+   × returning to the same mini attempt cannot clear its help 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m21-regressions.test.ts > object names never substitute a full request or guessed missing word resource
+AssertionError: expected 'word-sandwich' to be 'name-cheese-sandwich' // Object.is equality
+
+Expected: "name-cheese-sandwich"
+Received: "word-sandwich"
+
+ ❯ tests/m21-regressions.test.ts:8:47
+      6|
+      7| it('object names never substitute a full request or guessed missing wo…
+      8|   expect(lessonWords(['sandwich'])[0]?.audio).toBe('name-cheese-sandwi…
+       |                                               ^
+      9| });
+     10| it('returning to endless can increase concurrency without clearing its…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/m21-regressions.test.ts > returning to endless can increase concurrency without clearing its accepted order
+AssertionError: expected 'practice' to be 'service' // Object.is equality
+
+Expected: "service"
+Received: "practice"
+
+ ❯ tests/m21-regressions.test.ts:22:24
+     20|   // The eventual contract explicitly selects load; this baseline asse…
+     21|   // old support-coupled UI choice and will be replaced by the indepen…
+     22|   expect(c.state.mode).toBe('service');
+       |                        ^
+     23|   expect(c.state.orders).toContainEqual(original);
+     24| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/m21-regressions.test.ts > returning to the same mini attempt cannot clear its help
+AssertionError: expected [] to include 'answer-help'
+ ❯ tests/m21-regressions.test.ts:27:32
+     25| it('returning to the same mini attempt cannot clear its help', () => {
+     26|   const s = { ...playRound(beginRound(createMini('spell', 'independent…
+     27|   expect(playRound(s).support).toContain('answer-help');
+       |                                ^
+     28| });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  10:47:36
+   Duration  235ms (transform 81ms, setup 0ms, import 97ms, tests 8ms, environment 0ms)
+

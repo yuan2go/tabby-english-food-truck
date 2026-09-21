@@ -21,6 +21,7 @@ export interface ViewState {
   lowGraphics: boolean;
   inputBlocked: boolean;
   teaching: string | null;
+  lessonProducts?: readonly Product[];
   selected: Selection;
   selectedTray: TrayId;
   selectedGuest: string;
@@ -108,7 +109,13 @@ export function activate(
       };
     else {
       ui.selected = null;
-      controller.message = '果汁机已选中：点水果，再点空杯。';
+      if (
+        controller.profile.value.learnedUnits.includes('cup') &&
+        !s.items.some((i) => i.location === 'machine:cup') &&
+        ['empty', 'loaded'].includes(s.machine.status)
+      )
+        command = { type: 'prepare-cup' };
+      else controller.message = '果汁机已选中：点水果，再点空杯。';
     }
   } else if (id.startsWith('station-')) {
     const station = id.slice(8) as StationId;

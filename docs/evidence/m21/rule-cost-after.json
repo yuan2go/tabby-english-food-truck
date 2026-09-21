@@ -1,0 +1,15 @@
+{
+  "environment": "node v26.3.1 darwin/arm64",
+  "actorPhases": 6,
+  "iterations": 10000,
+  "measurements": {
+    "actorClone": {
+      "meanMs": 0.010212341600000015,
+      "maxBatchMeanMs": 0.010625833
+    },
+    "advance": {
+      "meanMs": 0.0005049209000000018,
+      "maxBatchMeanMs": 0.0005671250000000328
+    }
+  }
+}

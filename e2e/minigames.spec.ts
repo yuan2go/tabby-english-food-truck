@@ -3,7 +3,12 @@ import { FOOD } from '../src/content/recipes';
 import { letters, type MiniState, targetWord } from '../src/rules/minigames';
 
 const mini = (p: import('@playwright/test').Page): Promise<MiniState> =>
-  p.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.minigame.m2') ?? '{}'));
+  p.evaluate(
+    () =>
+      JSON.parse(localStorage.getItem('tabby.foodtruck.minigame.m21') ?? '{}').sessions[
+        document.querySelector<HTMLElement>('[data-mini-key]')?.dataset.miniKey ?? ''
+      ],
+  );
 async function dragLetter(p: Page, from: Locator, to: Locator) {
   const a = await from.boundingBox(),
     b = await to.boundingBox();
@@ -42,12 +47,13 @@ for (const kind of ['match', 'spell'] as const)
     test.setTimeout(90000);
     await page.goto('/');
     await page.locator('.yard-mini .entry-main').tap();
+    await page.getByText('换帮助或玩法', { exact: true }).tap();
     await page.getByRole('button', { name: '我自己试', exact: true }).tap();
     await page
       .getByRole('button', {
         name:
           kind === 'match'
-            ? '食物找朋友 点两项，连成一对'
+            ? '食物找朋友 听一题，选一张图'
             : 'A B C WordSpell 拼食物 听发音，摆字母',
       })
       .tap();
@@ -65,31 +71,39 @@ for (const kind of ['match', 'spell'] as const)
           .first();
         if (n === 0) {
           await wrong.tap();
-          await expect(page.getByRole('status')).toContainText('还不是一对');
+          await expect(page.getByRole('status')).toContainText('再听一听');
         }
         await page
           .locator('.matching-pictures button')
           .filter({ has: page.locator(`img[alt="${FOOD[word.image][0]}"]`) })
           .tap();
       } else {
+        const tileSizes = await page.locator('.letter-bank button').evaluateAll((nodes) =>
+          nodes.map((node) => ({
+            width: node.getBoundingClientRect().width,
+            height: node.getBoundingClientRect().height,
+          })),
+        );
+        expect(tileSizes.every((size) => size.width >= 44 && size.height >= 44)).toBe(true);
         if (n === 0) {
           await page.getByRole('button', { name: '小猫帮帮我' }).tap();
           await page.reload();
           await page.locator('.yard-mini .entry-main').tap();
+          await page.getByRole('button', { name: /A B C WordSpell/ }).tap();
           expect((await mini(page)).support).toContain('answer-help');
         }
         const current = await mini(page),
           bank = letters(current);
         // Each repeated letter is a separate observed DOM entity, not injected state.
-        for (let i = current.draft.length; i < word.text.replaceAll(' ', '').length; i++) {
+        for (let i = 0; i < word.text.replaceAll(' ', '').length; i++) {
           const letter = bank.find((l) => l.id === `letter-${n}-${i}`);
           if (!letter) throw Error('letter');
           const tile = page.getByRole('button', {
             name: `字母 ${letter.text} ${letter.id}`,
             exact: true,
           });
-          if (n === 0 && i === current.draft.length) {
-            await dragLetter(page, tile, page.locator('[data-letter-drop]'));
+          if (n === 0 && i === 0) {
+            await dragLetter(page, tile, page.locator('[data-letter-slot="0"]'));
             expect((await mini(page)).draft).toContain(letter.id);
             await dragLetter(
               page,
@@ -117,6 +131,7 @@ for (const kind of ['match', 'spell'] as const)
     expect((await mini(page)).attempts.filter((a) => a.result)).toHaveLength(4);
     await page.getByRole('button', { name: '再玩一组', exact: true }).tap();
     await expect(page.getByRole('button', { name: '开始玩', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: '← 回游戏小摊', exact: true }).tap();
     await page.getByRole('button', { name: '← 小院', exact: true }).tap();
     await expect(page.locator('.yard-story')).toBeVisible();
   });
@@ -126,8 +141,9 @@ test('M2 bilingual uses explicit support and preserves business inventory', asyn
     () => JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2') ?? '{}').items,
   );
   await page.locator('.yard-mini .entry-main').tap();
+  await page.getByText('换帮助或玩法', { exact: true }).tap();
   await page.getByRole('button', { name: '中英配对（识字后）', exact: true }).tap();
-  await page.getByRole('button', { name: '食物找朋友 点两项，连成一对' }).tap();
+  await page.getByRole('button', { name: /食物找朋友 看中文，选英文/ }).tap();
   await page.getByRole('button', { name: '开始玩', exact: true }).tap();
   await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
   const word = targetWord(await mini(page));

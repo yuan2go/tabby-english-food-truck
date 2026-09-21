@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
 import sharp from 'sharp';
 
-const root = 'docs/evidence/m2';
+const root = process.env.EVIDENCE_DIR ?? 'docs/evidence/m2';
 const names = process.argv.slice(2);
 const browser = await chromium.launch();
 await mkdir(`${root}/review`, { recursive: true });

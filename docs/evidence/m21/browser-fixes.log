@@ -1,0 +1,24 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m21.spec.ts e2e/policy.spec.ts
+
+[WebServer] (node:3055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:3119) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:3159) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m21.spec.ts:10:1 › M21 first prologue starts, opening can skip, short lesson records only real choices (6.9s)
+  ✓  2 e2e/m21.spec.ts:58:1 › M21 matching accepts direct picture after playback and switches activities without losing drafts (7.7s)
+  ✓  3 e2e/m21.spec.ts:103:1 › M21 failed speech permits opening skip and exact object retry without blocking play (5.0s)
+  ✓  4 e2e/policy.spec.ts:6:1 › M2 increased support preserves active orders, reduces new concurrency and survives reload (32.9s)
+
+  4 passed (59.1s)

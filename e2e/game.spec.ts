@@ -1,5 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
+import { letters, type MiniState, targetWord } from '../src/rules/minigames';
 import { choosePrep, hot, lesson, serve, startStory, state, tap } from './helpers';
 import { endMeasure, installMeasure, startMeasure } from './measure';
 
@@ -48,6 +49,58 @@ test('M2 phone complete click story: prologue through all recipes to community e
   );
   await page.getByRole('button', { name: '回小院', exact: true }).tap();
   await page.screenshot({ path: info.outputPath('grown-yard.png') });
+  await page.locator('.yard-mini .entry-main').tap();
+  await page.getByText('换帮助或玩法', { exact: true }).tap();
+  await page.getByRole('button', { name: '帮一部分', exact: true }).tap();
+  await page.getByRole('button', { name: '也试多词短语', exact: true }).tap();
+  await page.getByRole('button', { name: /A B C WordSpell/ }).tap();
+  await page.getByRole('button', { name: '开始玩', exact: true }).tap();
+  const mini = (): Promise<MiniState> =>
+    page.evaluate(
+      () => JSON.parse(localStorage.getItem('tabby.foodtruck.minigame.m21') ?? '{}').sessions.spell,
+    );
+  let sawPhrase = false;
+  for (let n = 0; n < 4; n++) {
+    await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
+    const current = await mini();
+    if (targetWord(current).text === 'ice cream') {
+      sawPhrase = true;
+      await expect(page.locator('.letter-word')).toHaveCount(2);
+      expect(
+        await page
+          .locator('.letter-word')
+          .evaluateAll((nodes) => nodes.map((n) => n.querySelectorAll('button').length)),
+      ).toEqual([3, 5]);
+      await page.getByRole('button', { name: '小猫帮帮我' }).tap();
+      await expect(page.locator('.spell-model')).toHaveText('ICE CREAM');
+      await page.reload();
+      await page.locator('.yard-mini .entry-main').tap();
+      await page.getByRole('button', { name: /A B C WordSpell/ }).tap();
+      await expect(page.locator('.letter-word')).toHaveCount(2);
+      expect((await mini()).support).toContain('answer-help');
+      const layout = await page.locator('.mini-play button').evaluateAll((nodes) =>
+        nodes
+          .filter((n) => !(n as HTMLButtonElement).disabled)
+          .map((n) => {
+            const b = n.getBoundingClientRect();
+            return {
+              width: b.width,
+              height: b.height,
+              inside: b.x >= 0 && b.right <= innerWidth && b.y >= 0 && b.bottom <= innerHeight,
+            };
+          }),
+      );
+      expect(layout.every((b) => b.width >= 44 && b.height >= 44 && b.inside)).toBe(true);
+      await page.screenshot({ path: info.outputPath('multiword-restored.png') });
+      break;
+    }
+    for (const l of letters(current).sort((a, b) => a.index - b.index))
+      if (!current.fixed.includes(l.id))
+        await page.getByRole('button', { name: `字母 ${l.text} ${l.id}`, exact: true }).tap();
+    await page.getByRole('button', { name: '拼好了', exact: true }).tap();
+    await page.getByRole('button', { name: '下一位朋友', exact: true }).tap();
+  }
+  expect(sawPhrase).toBe(true);
 });
 test('M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery', async ({
   page,
@@ -89,6 +142,7 @@ test('M2 pause and homepage resume keep world; tutorials are separate from the s
   page,
 }) => {
   await startStory(page);
+  await choosePrep(page, '果汁机');
   await tap(page, 'supply-apple');
   await tap(page, 'supply-cup');
   await tap(page, 'start');

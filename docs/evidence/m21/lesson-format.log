@@ -1,0 +1,43 @@
+src/app/Lesson.tsx:232:30 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Unexpected token. Did you mean `{'>'}` or `&gt;`?
+  
+    230 │             </span>
+    231 │             <span>→ {current?.action ?? '摆好'} → 接取</span>
+  > 232 │           </div>steps.length > 1 ? (
+        │                              ^
+    233 │             <div className="lesson-stepper">
+    234 │               {steps.map((r, i) => (
+  
+
+src/app/Lesson.tsx:118:38 lint/a11y/useSemanticElements ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The elements with this role can be changed to the following elements:
+    <fieldset>
+  
+    116 │         <>
+    117 │           <div
+  > 118 │             className="lesson-beads" role="group"
+        │                                      ^^^^^^^^^^^^
+    119 │             aria-label={`认识食物 ${progress.index + 1}/${progress.units.length}`}
+    120 │           >
+  
+  i For examples and more information, see WAI-ARIA Roles
+  
+  i Replace with one of these elements:
+  
+  - <fieldset>
+  
+
+src/app/Lesson.tsx format ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Code formatting aborted due to parsing errors. To format code with errors, enable the 'formatter.formatWithErrors' option.
+  
+
+Checked 1 file in 8ms. No fixes applied.
+Found 3 errors.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

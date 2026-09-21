@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-09-21T03:56:19.646Z",
+  "build": {
+    "sha": "229073b3829b00e991c509067b8f53565f14270c",
+    "dirty": "false",
+    "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b"
+  },
+  "pausedAudio": {
+    "active": null,
+    "loops": [],
+    "settings": {
+      "master": true,
+      "voice": true,
+      "music": true,
+      "ambience": true,
+      "effects": true
+    },
+    "context": "running",
+    "musicGain": 0.06445445865392685,
+    "machineGain": 0.06442397087812424,
+    "effects": 0
+  },
+  "events": [
+    "visibilitychange:hidden",
+    "freeze:hidden",
+    "resume:hidden",
+    "visibilitychange:visible"
+  ],
+  "offlineMilliseconds": 1800,
+  "beforeHelper": 4726.821139175889,
+  "afterHelper": 4676.821139175889,
+  "beforeMachine": 4766.7,
+  "afterMachine": 4716.700000000001
+}
