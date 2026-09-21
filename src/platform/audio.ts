@@ -1,8 +1,8 @@
-import speech from '../content/speech.json';
+import speech from '../content/speech.json' with { type: 'json' };
 import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';
-export const AUDIO_VERSION = 'samantha-dev-m21-140';
+export const AUDIO_VERSION = 'samantha-dev-m22-140';
 export type PlaybackResult = 'completed' | 'interrupted' | 'failed' | 'muted';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
 export type Effect =
@@ -27,6 +27,8 @@ const SETTINGS_KEY = 'tabby.foodtruck.audio.v2';
 export class ForegroundAudio {
   settings = { ...defaults };
   failure = '';
+  failedRequest: string | null = null;
+  failureDetail: { kind: string; message: string; mediaCode: number; id: string } | null = null;
   active: string | null = null;
   private player: HTMLAudioElement | null = null;
   private epoch = 0;
@@ -89,7 +91,13 @@ export class ForegroundAudio {
       if (this.disposed) return;
       this.unlocked = this.context.state === 'running';
       this.sync();
-    } catch {
+    } catch (error) {
+      this.failureDetail = {
+        kind: error instanceof Error ? error.name : 'context',
+        message: error instanceof Error ? error.message : String(error),
+        mediaCode: 0,
+        id: 'context',
+      };
       this.failure = '声音暂时无法启动。可再次打开声音，或用图示帮助。';
       this.controller.notify();
     }
@@ -113,6 +121,8 @@ export class ForegroundAudio {
     if (!this.enabled || !this.settings.voice || document.hidden || this.disposed)
       return Promise.resolve('muted');
     if (!Object.hasOwn(speech, id)) {
+      this.failedRequest = id;
+      this.failureDetail = { kind: 'missing-registration', message: id, mediaCode: 0, id };
       this.failure = '这段声音暂时缺少，可以看图继续。';
       this.record(id, 'failed');
       return Promise.resolve('failed');
@@ -128,7 +138,7 @@ export class ForegroundAudio {
     this.duck();
     return new Promise((resolve) => {
       this.settle = resolve;
-      const finish = (status: 'completed' | 'failed') => {
+      const finish = (status: 'completed' | 'failed', error?: unknown) => {
         if (epoch !== this.epoch) return;
         this.epoch++;
         player.onended = null;
@@ -137,7 +147,36 @@ export class ForegroundAudio {
         this.player = null;
         this.active = null;
         this.settle = null;
-        if (status === 'failed') this.failure = '声音暂不可用，可看图继续。';
+        if (status === 'failed') {
+          const kind =
+            error instanceof Error
+              ? error.name
+              : player.error?.code === 2
+                ? 'network'
+                : player.error?.code === 3
+                  ? 'decode'
+                  : player.error?.code === 4
+                    ? 'unsupported'
+                    : 'unknown';
+          this.failedRequest = id;
+          this.failureDetail = {
+            kind,
+            message:
+              error instanceof Error
+                ? error.message
+                : (player.error?.message ?? 'Media playback failed'),
+            mediaCode: player.error?.code ?? 0,
+            id,
+          };
+          this.failure =
+            kind === 'NotAllowedError'
+              ? '点一下重试声音，或看图继续。'
+              : kind === 'network'
+                ? '这段声音没有载入，可以重试或看图继续。'
+                : kind === 'decode' || kind === 'unsupported'
+                  ? '这段声音无法播放，可以重试或看图继续。'
+                  : '声音暂不可用，可看图继续。';
+        }
         this.record(id, status);
         this.duck();
         resolve(status);
@@ -152,10 +191,12 @@ export class ForegroundAudio {
             return;
           }
           this.failure = '';
+          this.failedRequest = null;
+          this.failureDetail = null;
           this.record(id, 'started');
           started?.();
         })
-        .catch(() => finish('failed'));
+        .catch((error: unknown) => finish('failed', error));
     });
   }
   private record(id: string, status: 'started' | 'completed' | 'interrupted' | 'failed'): void {
@@ -387,6 +428,7 @@ export class ForegroundAudio {
   diagnostics(): object {
     return {
       active: this.active,
+      failure: this.failureDetail,
       loops: [...this.loops.keys()],
       settings: this.settings,
       context: this.context?.state ?? 'not-created',

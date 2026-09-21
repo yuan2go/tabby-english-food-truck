@@ -9,7 +9,7 @@ import {
   requestsFor,
 } from '../content/catalog';
 import { parseTokens } from '../content/phrases';
-import { isFinished, recipeFor } from '../content/recipes';
+import { isFinished, recipeFor, SUPPLY_PAGES } from '../content/recipes';
 import { HOME } from '../game/actor';
 import { advanceActor, cancelHelperActor, queueActor, supplyAnchor, trayAnchor } from './actions';
 import {
@@ -20,6 +20,7 @@ import {
   stationDestination,
   syncStations,
 } from './cooking';
+import { emptyRouting, reserved, reserveOutput, routeReady } from './routing';
 import { applyPolicy } from './sessions';
 import type {
   Attempt,
@@ -39,13 +40,16 @@ export function createGame(
 ): GameState {
   const requests = requestsFor(mode, variant);
   return {
-    schemaVersion: 4,
+    schemaVersion: 6,
+    routing: emptyRouting(),
     session: {
       activity: 'training',
       chapter: 0,
       support: mode === 'guided' ? 'demonstration' : 'less',
       concurrency: mode === 'service' ? 2 : 1,
       menu: Object.keys(REQUESTS) as RequestId[],
+      supplyPage: 0,
+      language: 'flavor',
       family: 'juice',
       unlocked: ['juice'],
       seed: 1,
@@ -109,6 +113,7 @@ export function freeSlots(s: GameState, tray: TrayId): (0 | 1 | 2)[] {
   return ([0, 1, 2] as const).filter(
     (slot) =>
       !s.items.some((i) => i.location === `tray:${tray}:${slot}`) &&
+      !reserved(s, `tray:${tray}:${slot}`) &&
       !(s.helper?.tray === tray && s.helper.slots.includes(slot)),
   );
 }
@@ -180,6 +185,23 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'supply-page') {
+    if (!Number.isInteger(c.page) || !SUPPLY_PAGES[c.page])
+      return result('blocked', '这篮没有供货。');
+    s.session.supplyPage = c.page;
+    return result('ok', '换一篮，盘中食物仍保留。');
+  }
+  if (c.type === 'menu') {
+    s.session.menu = [...new Set([...s.session.menu, ...c.requests.filter((r) => r in REQUESTS)])];
+    s.session.unlocked = [...new Set([...s.session.unlocked, ...c.families])];
+    return result('ok', '新菜单已经介绍，下一位客人可以选择。');
+  }
+  if (c.type === 'language') {
+    if (!['flavor', 'container', 'combined'].includes(c.language))
+      return result('blocked', '请选择一种请求方式。');
+    s.session.language = c.language;
+    return result('ok', '只调整新请求，已接的客人和食物保留。');
+  }
   if (c.type === 'policy') {
     applyPolicy(s, c.support, c.concurrency);
     return result(
@@ -249,7 +271,10 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '备餐台已换好，原来的食物与设备会等你。');
   }
   if (c.type === 'start-station') {
+    if (c.tray !== undefined && !reserveOutput(s, c.station, c.tray))
+      return result('blocked', '先在目的盘或组合板腾一个位置，再开始。');
     const r = startStation(s, c.station);
+    if (!r.ok) s.routing[c.station] = null;
     return result(r.ok ? 'ok' : 'blocked', r.message);
   }
   if (c.type === 'restore-cleared') {
@@ -283,6 +308,9 @@ export function dispatch(current: GameState, e: Envelope): Result {
       if (isFinished(product) && !c.destination.confirmed)
         return result('confirm', '要收起这份成品并重新准备吗？');
       if (isFinished(product)) s.recycle = { ...existing, location: 'recycle' };
+      if (existing.location.startsWith('machine:')) s.routing.machine = null;
+      if (existing.location.startsWith('station:'))
+        s.routing[existing.location.split(':')[1] as 'ice' | 'board' | 'grill'] = null;
       s.items = s.items.filter((i) => i.id !== existing.id);
       if (s.machine.status === 'ready' && existing.location === 'machine:cup')
         s.machine = { status: 'empty', remaining: 0, jobId: null };
@@ -297,6 +325,9 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if (typeof location !== 'string') return result('blocked', location.reason);
     if (existing) {
       const fromMachine = existing.location === 'machine:cup' && s.machine.status === 'ready';
+      if (existing.location.startsWith('machine:')) s.routing.machine = null;
+      if (existing.location.startsWith('station:'))
+        s.routing[existing.location.split(':')[1] as 'ice' | 'board' | 'grill'] = null;
       existing.location = location;
       if (fromMachine) s.machine = { status: 'empty', remaining: 0, jobId: null };
     } else s.items.push({ id: nextId(s, 'food'), product, location });
@@ -315,6 +346,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
       return result('blocked', '先把水果放进上面的入口。');
     if (!s.items.some((i) => i.location === 'machine:cup' && i.product === 'cup'))
       return result('blocked', '还缺一个空杯，放到出汁口下。');
+    if (c.tray !== undefined && !reserveOutput(s, 'machine', c.tray))
+      return result('blocked', '先在这只盘里腾一个位置，再启动。');
     s.machine = { status: 'processing', remaining: JUICE_MS, jobId: nextId(s, 'juice') };
     return result('ok', '果汁机开始了。现在也能准备水果。');
   }
@@ -407,6 +440,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
     const order = s.orders.find((o) => o.id === c.order);
     if (order?.status !== 'waiting') return result('blocked', '这位客人已经收到食物。');
     if (s.trays[c.tray].remaining > 0) return result('blocked', '托盘还在回来。');
+    if (Object.values(s.routing).some((t) => t && 'tray' in t && t.tray === c.tray))
+      return result('blocked', '这只盘正等机器的成品。可等做好，或先使用另一盘。');
     if (s.helper?.tray === c.tray)
       return result('blocked', '小猫预留了这只托盘。等它放好，或撤回便签。');
     const items = trayItems(s, c.tray);
@@ -489,6 +524,7 @@ export function advance(current: GameState, milliseconds: number): GameState {
   const s: GameState = {
     ...current,
     gameTime: current.gameTime + milliseconds,
+    routing: { ...current.routing },
     machine: { ...current.machine },
     session: { ...current.session },
     stations: {
@@ -525,6 +561,7 @@ export function advance(current: GameState, milliseconds: number): GameState {
       changed = true;
     }
   }
+  changed = routeReady(s) || changed;
   if (s.helper) {
     s.helper.remaining = Math.max(0, s.helper.remaining - milliseconds);
     if (!s.helper.remaining) {
@@ -564,24 +601,36 @@ export function advance(current: GameState, milliseconds: number): GameState {
         changed = true;
       }
     }
+  if (
+    s.session.concurrency === 2 &&
+    s.mode !== 'service' &&
+    !s.actor.current &&
+    !s.helper &&
+    !s.trays.some((t) => t.remaining)
+  ) {
+    applyPolicy(s, s.session.support, s.session.concurrency);
+    changed = true;
+  }
   if (s.session.activity === 'endless') {
-    if (
-      s.orders.some((o) => o.status === 'done') ||
-      (s.session.concurrency === 2 &&
-        s.mode !== 'service' &&
-        !s.actor.current &&
-        !s.helper &&
-        !s.trays.some((t) => t.remaining))
-    ) {
+    if (s.orders.some((o) => o.status === 'done')) {
       applyPolicy(s, s.session.support, s.session.concurrency);
       changed = true;
     }
   } else {
-    const max = s.session.concurrency;
+    const max = s.mode === 'service' ? s.session.concurrency : 1;
     while (s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving').length < max) {
       const next = s.orders.findIndex((o) => o.status === 'queued');
       if (next < 0) break;
-      s.orders = s.orders.map((o, i) => (i === next ? { ...o, status: 'waiting' } : o));
+      const seat = ([0, 1] as const).find(
+        (seat) =>
+          !s.orders.some(
+            (o) => (o.status === 'waiting' || o.status === 'leaving') && o.seat === seat,
+          ),
+      );
+      if (seat === undefined) break;
+      s.orders = s.orders.map((o, i) =>
+        i === next ? { ...o, seat: s.mode === 'service' ? seat : s.variant, status: 'waiting' } : o,
+      );
       changed = true;
     }
   }

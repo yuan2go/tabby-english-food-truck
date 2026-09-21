@@ -2,6 +2,7 @@ import { CONTENT_VERSION, JUICE_MS, REQUESTS, requestsFor } from '../content/cat
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
 import { stationItems } from './cooking';
+import { emptyRouting, targetLocation } from './routing';
 import type { GameState } from './types';
 
 const record = (v: unknown): v is Record<string, unknown> =>
@@ -19,7 +20,7 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 4 ||
+    v.schemaVersion !== 6 ||
     v.contentVersion !== CONTENT_VERSION ||
     !['guided', 'practice', 'service'].includes(v.mode as string) ||
     !record(v.history) ||
@@ -142,24 +143,35 @@ export function validateState(v: unknown): v is GameState {
   if (
     !record(v.session) ||
     ![1, 2].includes(v.session.concurrency as number) ||
-    !strings(v.session.menu, 20) ||
+    !strings(v.session.menu, 50) ||
     !v.session.menu.length ||
     !unique(v.session.menu) ||
     v.session.menu.some((r) => !(r in REQUESTS)) ||
     !['story', 'endless', 'training'].includes(v.session.activity as string) ||
     !integer(v.session.chapter, 4) ||
     !['demonstration', 'pictures', 'less'].includes(v.session.support as string) ||
-    !['juice', 'ice', 'sandwich', 'burger'].includes(v.session.family as string) ||
-    !strings(v.session.unlocked, 4) ||
+    !['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(v.session.family as string) ||
+    !strings(v.session.unlocked, 5) ||
     !unique(v.session.unlocked) ||
     !v.session.unlocked.includes('juice') ||
-    v.session.unlocked.some((f) => !['juice', 'ice', 'sandwich', 'burger'].includes(f)) ||
+    v.session.unlocked.some((f) => !['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(f)) ||
     !integer(v.session.seed, 4294967295) ||
+    !['flavor', 'container', 'combined'].includes(v.session.language as string) ||
+    !integer(v.session.supplyPage, 3) ||
     !integer(v.session.cursor) ||
     !integer(v.session.served) ||
     typeof v.session.lastRequest !== 'string'
   )
     return false;
+  if (!record(v.routing) || Object.keys(v.routing).length !== 4) return false;
+  for (const id of ['machine', 'ice', 'board', 'grill']) {
+    const t = v.routing[id];
+    if (t === null) continue;
+    if (!record(t)) return false;
+    if ('tray' in t) {
+      if (![0, 1].includes(t.tray as number) || ![0, 1, 2].includes(t.slot as number)) return false;
+    } else if (id !== 'grill' || t.station !== 'board' || !integer(t.slot, 4)) return false;
+  }
   if (!record(v.stations)) return false;
   for (const id of ['ice', 'board', 'grill']) {
     const st = v.stations[id];
@@ -207,7 +219,11 @@ export function validateState(v: unknown): v is GameState {
   if (active.length > (s.mode === 'service' ? 2 : 1) || !unique(active.map((o) => o.seat)))
     return false;
   if (s.session.activity === 'story') {
-    const expected = CHAPTERS[s.session.chapter]?.requests;
+    const oldIce = ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'];
+    const expected =
+      s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
+        ? oldIce
+        : CHAPTERS[s.session.chapter]?.requests;
     if (
       !expected ||
       s.orders.length !== expected.length ||
@@ -217,7 +233,7 @@ export function validateState(v: unknown): v is GameState {
   } else if (s.session.activity === 'endless') {
     // A support change constrains future generation, not the validity of
     // already accepted orders. Their recipes must still be introduced.
-    const pool = endlessPool(s.session.unlocked, 'less');
+    const pool = endlessPool(s.session.unlocked, 'combined');
     if (
       s.orders.length > (s.mode === 'service' ? 2 : 1) ||
       s.orders.some(
@@ -237,6 +253,9 @@ export function validateState(v: unknown): v is GameState {
         requestsFor(s.mode, s.variant).join('|'),
         'apple|banana|two|fruit|juice',
         CHAPTERS[s.session.chapter]?.requests.join('|'),
+        ...(s.session.chapter === 1
+          ? ['vanilla-cone|strawberry-cup|double-cream|banana-cream']
+          : []),
       ].includes(actual)
     )
       return false;
@@ -253,6 +272,24 @@ export function validateState(v: unknown): v is GameState {
       s.trays[1].remaining)
   )
     return false;
+  const targets = Object.values(s.routing).filter((t) => t !== null);
+  if (!unique(targets.map(targetLocation))) return false;
+  for (const [id, target] of Object.entries(s.routing)) {
+    if (!target) continue;
+    const device = id === 'machine' ? s.machine : s.stations[id as 'ice' | 'board' | 'grill'];
+    if (
+      !['processing', 'ready'].includes(device.status) ||
+      s.items.some((i) => i.location === targetLocation(target))
+    )
+      return false;
+    if (
+      'tray' in target &&
+      (s.trays[target.tray].remaining ||
+        (s.mode !== 'service' && target.tray !== 0) ||
+        (s.helper?.tray === target.tray && s.helper.slots.includes(target.slot)))
+    )
+      return false;
+  }
   const apple = s.items.find((i) => i.location === 'machine:apple'),
     cup = s.items.find((i) => i.location === 'machine:cup');
   if (apple && !['apple', 'banana'].includes(apple.product)) return false;
@@ -446,20 +483,38 @@ export function decodeSnapshot(raw: string): DecodeResult {
       record(value.session)
     ) {
       // M2 encoded load in mode + support. Preserve the actual old policy, never infer scores.
-      const legacy = structuredClone(value);
       value.schemaVersion = 4;
-      value.contentVersion = CONTENT_VERSION;
+      value.contentVersion = 'm2.1';
       value.session.concurrency =
         value.mode === 'service' && value.session.support === 'less' ? 2 : 1;
       value.session.menu = Array.isArray(value.session.unlocked)
-        ? endlessPool(value.session.unlocked as GameState['session']['unlocked'], 'less')
+        ? endlessPool(value.session.unlocked as GameState['session']['unlocked'], 'combined')
         : [];
       if (Array.isArray(value.orders)) for (const o of value.orders) if (record(o)) o.heard = false;
       if (Array.isArray(value.attempts))
         for (const [i, a] of value.attempts.entries())
           if (record(a)) a.id = `${value.runId}:legacy:${i}`;
-      if (!validateState(value))
-        return { ok: false, reason: '旧档关系校验失败，已保留原文。', raw: JSON.stringify(legacy) };
+    }
+    if (
+      record(value) &&
+      value.schemaVersion === 4 &&
+      value.contentVersion === 'm2.1' &&
+      record(value.session)
+    ) {
+      value.schemaVersion = 5;
+      value.session.supplyPage = 0;
+      value.session.language = 'flavor';
+      value.contentVersion = CONTENT_VERSION;
+      value.routing = emptyRouting();
+    }
+    if (
+      record(value) &&
+      value.schemaVersion === 5 &&
+      value.contentVersion === CONTENT_VERSION &&
+      record(value.session)
+    ) {
+      value.schemaVersion = 6;
+      value.session.language = 'flavor';
     }
     return validateState(value)
       ? { ok: true, state: value }

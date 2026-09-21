@@ -4,6 +4,7 @@ import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { GameState, Source, TrayId } from '../rules/types';
 import type { DoubleTap } from './gestures';
+import type { Layout } from './layout';
 export type Selection = Source | { tray: TrayId } | null;
 export interface Hotspot {
   id: string;
@@ -15,6 +16,8 @@ export interface Hotspot {
   kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note' | 'station';
 }
 export interface ViewState {
+  layout?: Layout;
+  openHelp: () => void;
   prep?: 'tray' | 'machine' | StationId;
   doubleTap?: DoubleTap;
   elements: Map<string, HTMLButtonElement>;
@@ -66,12 +69,12 @@ export function activate(
     else if (targetItem.location.startsWith('machine:')) id = targetItem.location.replace(':', '-');
   }
   if (id === 'note') {
-    ui.openNote();
+    ui.openHelp();
     return;
   }
-  if (id === 'start') command = { type: 'start-machine' };
+  if (id === 'start') command = { type: 'start-machine', tray: ui.selectedTray };
   else if (id.startsWith('start-station-'))
-    command = { type: 'start-station', station: id.slice(14) as StationId };
+    command = { type: 'start-station', station: id.slice(14) as StationId, tray: ui.selectedTray };
   else if (id.startsWith('send-'))
     command = { type: 'deliver', tray: ui.selectedTray, order: id.slice(5) };
   else if (id === 'restore') command = { type: 'restore-cleared', tray: ui.selectedTray };
@@ -110,7 +113,7 @@ export function activate(
     else {
       ui.selected = null;
       if (
-        controller.profile.value.learnedUnits.includes('cup') &&
+        !ui.teaching &&
         !s.items.some((i) => i.location === 'machine:cup') &&
         ['empty', 'loaded'].includes(s.machine.status)
       )
@@ -144,6 +147,15 @@ export function activate(
       };
     else {
       ui.selected = { item: targetItem.id };
+      // The occupied work object remains a direct target for the next ingredient.
+      // Selection does not move, replace or consume the existing food.
+      if (targetItem.location.startsWith('station:'))
+        ui.prep = targetItem.location.split(':')[1] as StationId;
+      else if (targetItem.location.startsWith('machine:')) ui.prep = 'machine';
+      else if (targetItem.location.startsWith('tray:')) {
+        ui.prep = 'tray';
+        ui.selectedTray = Number(targetItem.location.split(':')[1]) as TrayId;
+      }
       controller.message = isFinished(targetItem.product)
         ? '成品已选中：点盘子接取；清理需要确认。'
         : '已选中。再点同一份可退回，也可以点旁边的放回。';

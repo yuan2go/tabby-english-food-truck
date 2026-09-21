@@ -1,0 +1,34 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-growth.test.ts tests/m21-contracts.test.ts tests/m21-regressions.test.ts tests/m2-world.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck
+
+(node:38461) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:38459) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/m2-world.test.ts (9 tests | 1 failed) 344ms
+     × support changes preserve existing complex orders and reduce subsequent concurrency 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > support changes preserve existing complex orders and reduce subsequent concurrency
+Error: complex initial order
+ ❯ tests/m2-world.test.ts:187:19
+    185|       configureSession(createGame(`policy-${seed}`), 'endless', 0, 'le…
+    186|     ).find((s) => s.orders.some((o) => o.request === 'double-cream'));
+    187|     if (!s) throw Error('complex initial order');
+       |                   ^
+    188|     applyPolicy(s, 'demonstration', 1);
+    189|     expect(validateState(s)).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 24 passed (25)
+   Start at  20:52:31
+   Duration  586ms (transform 313ms, setup 0ms, import 431ms, tests 373ms, environment 0ms)
+

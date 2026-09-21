@@ -1,0 +1,83 @@
+{
+  "id": "vanilla-cup",
+  "createdAt": "2026-09-21T12:45:00.200Z",
+  "purpose": "One scoop of vanilla ice cream in a green paper cup for the vanilla cup recipe output. Distinct from the vanilla ingredient concept image.",
+  "tool": "Built-in image_gen.imagegen",
+  "sourceOrigin": "/Users/yuan/.codex-claude-b/generated_images/01a0c3fd-e7ce-7ec1-be04-833c1406942c/exec-6d857e25-512c-49e5-b7d1-d41fa8f33328.png",
+  "reference": "public/assets/strawberry-cup.webp",
+  "prompt": "Use case: precise-object-edit. Asset type: transparent food sprite for a preschool cooking game. The supplied image is the edit target and style/container reference. Create a matching vanilla ice cream cup by changing only the pink strawberry ice cream into one pale warm ivory vanilla scoop. Preserve the small green textured paper cup, cream rim, framing, paper-craft texture, three-quarter front view, simple child-readable silhouette and soft light. The scoop is plain vanilla, with subtly sculpted paper-like creamy folds; remove all red fruit pieces and pink color. One scoop in one green cup only, no toppings, no vanilla flowers/pods, no other food, no text, no watermark, no ground shadow. Isolate the complete object on a genuinely transparent alpha background with a little transparent padding, no checkerboard pixels.",
+  "processing": "Source copied unchanged; sharp resize inside 480 x 480 without enlargement; WebP quality 92 alphaQuality 100. No recoloring, compositing, background removal or retouching.",
+  "source": {
+    "path": "art/source/vanilla-cup.png",
+    "width": 1202,
+    "height": 1309,
+    "format": "png",
+    "hasAlpha": true,
+    "bytes": 1980100,
+    "sha256": "a646b68997c6a82da741ad15c59cf1cc50dc63cad227e1706e38712a538663ce",
+    "alphaBounds": {
+      "1": {
+        "x": 0,
+        "y": 0,
+        "width": 1202,
+        "height": 1309,
+        "pixels": 1181195
+      },
+      "16": {
+        "x": 13,
+        "y": 15,
+        "width": 1180,
+        "height": 1286,
+        "pixels": 1159734
+      },
+      "128": {
+        "x": 14,
+        "y": 16,
+        "width": 1178,
+        "height": 1285,
+        "pixels": 1156289
+      }
+    },
+    "transparentPixels": 392223
+  },
+  "runtime": {
+    "path": "public/assets/vanilla-cup.webp",
+    "width": 441,
+    "height": 480,
+    "format": "webp",
+    "hasAlpha": true,
+    "bytes": 71996,
+    "sha256": "11252fca08114343418b2bfadb1a3647abc964400b4c8623a79e51c39edfc7c3",
+    "alphaBounds": {
+      "1": {
+        "x": 0,
+        "y": 0,
+        "width": 441,
+        "height": 480,
+        "pixels": 158764
+      },
+      "16": {
+        "x": 5,
+        "y": 5,
+        "width": 433,
+        "height": 473,
+        "pixels": 156305
+      },
+      "128": {
+        "x": 5,
+        "y": 6,
+        "width": 432,
+        "height": 471,
+        "pixels": 155463
+      }
+    },
+    "transparentPixels": 52916
+  },
+  "review": {
+    "agentVisualInspection": "PASS: one ivory vanilla scoop in a green paper cup; no fruit, toppings or text; matches supplied container and paper texture.",
+    "humanVisual": "PENDING",
+    "rights": "PENDING",
+    "educational": "PENDING",
+    "publicRelease": "PENDING"
+  }
+}

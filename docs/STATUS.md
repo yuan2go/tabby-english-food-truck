@@ -1,12 +1,60 @@
 # 项目状态
 
+## 2026-09-21 M2.2 Git 同步（按要求不测试）
+
+负责人明确授权提交、推送全部本地分支，并通过 PR 合并到 main，同时上传完整报告、截图与录像。初始核对 6 个本地分支、6 个工作区均干净，全部与远端一致；默认 main 基线为 `c105ec8478de5f1f0a03d38ca03255b7938e92f8`。四个旧阶段分支均已合入 main；`codex/m22-phone-foods` 初始 head 为 `4d8c662a0f7a1645927135be99ea9f521ea5b70a`，有 13 个已推送、尚未合入 main 的提交。本次追加 1 个同步文档提交，复用 [PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6) 按授权合并，替代此前保持 OPEN 的安排；实际合并结果及最终完整 SHA 以 PR 和交付消息为准。保留全部分支与工作区，不强推。
+
+完整证据 `docs/evidence/m22/` 已纳入 Git：178 个文件，含 67 张 PNG、15 段 WebM，以及完整报告、HTML 索引、日志和数据。只核对 Git 对象与远端上传，不重新生成截图或录像。
+
+本次只更新同步记录，不改运行代码。测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 **NOT_RUN**，退出码不适用；提交、推送与本地同步跳过 Git hooks。仓库没有 GitHub Actions 工作流，本次不启用工作流或修改权限。下方实现阶段证据本次未重跑；合并不改变真机 NEEDS_REVISION、人工审核和部署待办，也不执行部署。
+
+## 当前 M2.2 · IMPLEMENTED / LOCAL_VERIFIED · 真机 NEEDS_REVISION
+
+2026-09-21续做完成“布局与操作→50食品→无尽及教学”整个运行包，保留接手时9个未提交文件的有效修改，补齐真实缺口。baseline/main完整SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；接手 `7593dff08ab90b5cb36d65db17344666c1208ba7`。分支 `codex/m22-phone-foods`，[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，已推送，现按负责人明确授权通过PR合并到main，实际结果见PR及本次交付消息。
+
+最后运行代码 **`3a73ee42ec39255bc9f22b38d10ffc22d794ed0b`**，生产构建dirty=false；之后仅证据/文档提交，最终Git head见PR及交付消息。content m2.2，资源SHA-256 `024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36`。世界schema6、Profile v3，旧任务/预留/帮助/原文导出保留。
+
+[完整检查与限制](evidence/m22/README.md) · [同尺寸截图与连续录像](evidence/m22/review.html)。本次并非重复首轮PASS：修复制作台五实体命中、横屏双盘/猫求助空间、撤回按钮截获启动触点、单客升级双客座位；真实原料教学直接落到玩家选择的位置，配方帮助可随时展开；食品篮预览支持不能洗白；鲜草莓/香草植物与口味分开，旧教学按上下文迁移。新无尽从apple经明确介绍扩展banana/juice/banana-juice；帮助、语言负荷、并发独立，不删除已接任务。
+
+50项都可经首页→教学→五篮食物学习和进入实际找图；注册主角色为8直接水果、8配料、4成品配方、8预制供应、22仅认知，认知项不出无法供应订单。347真实资源、196语音引用通过校验；新语音/图片仍未人工审核。正常水果路径实测2→2次，首次果汁7→4次；暂停一级只留3项，重复重听/选择器/远处放回/单食谱切换已移除。
+
+集中检查在干净fb9d4c0：build（含typecheck）/lint/resources退出0，188/188规则退出0；关键Chromium 8/9退出1、WebKit 3/4退出1。失败保留日志并修真实触点/缩窗时机；中间dbe65ad Chromium2/4仍有失败，不隐藏。最后3a73ee4 build/lint退出0，受影响Chromium **4/4退出0**，WebKit **19单完整故事1/1退出0**；先前WebKit缩窗专项1/1退出0。不把分次结果写成一次全套通过。lint仍有23 warnings/7 infos，Phaser大块提示保留。
+
+浏览器HTTP 127.0.0.1:4174：手机393×565/665/759 DPR3、横屏852×300/342/393、Pad1024×768↔768×1024、桌面1440×900键盘/鼠标。覆盖19单/四配方/逐实体选择、制作中刷新、双客满盘/预留/纠错、成品恢复、取消与多指、音频失败重试、50食品、无尽成长、小游戏切换与多词恢复、坏档导出、真实后台freeze。仅可见图片与正式帮助的独立走查完成苹果/果汁；没有可听输入，人工声音体验NOT_RUN。
+
+无录屏主采样：424帧p50=33.3/p95=33.4/max=66.7ms，点击至第二rAF代理p95=48.1ms，冷3,181,587/暖9,300 bytes。**60fps预算NOT_MET**；另次CPU诊断主要为native(program)，没有足够证据把开销归到具体源码，不凭猜测降清晰度或改规则。
+
+三张用户真机原图本次未定位，PENDING_INPUT；iPhone 15 Pro＋Chrome遮挡/繁琐/按钮堆叠反馈仍 **NEEDS_REVISION / AWAITING_OWNER_REVIEW**。真实浏览器栏/安全区、实体iPhone/Pad、视觉手感、教研/听审、资源权利、儿童观察分别PENDING/NOT_RUN，公开发布BLOCKED。真机声音失败具体根因需原图/设备日志，本地只证明加载失败恢复合同。
+
+线上实查HTTP200仍为build `5f39d12cbfa6b1a4cd4d295b1cbe91421e0bc1fd`、content m2.1、旧资源hash；本包 **PENDING_DEPLOYMENT**。未新建站点或部署，不用旧线上证明M2.2通过。
+
+## 历史 M2.2 首轮候选 · LOCAL_VERIFIED / NEEDS_REVISION
+
+2026-09-21 在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck` 的 `codex/m22-phone-foods` 实现并验证了三阶段候选。基线完整 SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；布局阶段提交 `bb9069a`，后续代码阶段提交 `bb9069a`、`0f23d9b`、`828593a`，本次最终文档提交随后生成；已建立 [PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，不自动合并。用户三张本轮真机原图尚未提供，记录为 PENDING_INPUT；历史图不冒充本次。
+
+本地结果：`npm run build` PASS/0，`npm run lint` PASS/0，`npm test` 176/176 PASS/0，`npm run resources` PASS/0；50词条参数化规则120/120 PASS，手机食品篮浏览器1/1 PASS，手机布局/水果两点/果汁四点/暂停/横竖屏1/1 PASS。证据在 `docs/evidence/m22/`。构建含 Phaser 大块提示，未以性能目标通过替代实测。
+
+已交付：共享测量 Layout 与 visualViewport/safe-area 宿主，删除常驻重复选择器和远处放回；点食品→送餐、点机器→选水果→启动→送餐；启动时预留目的盘/组合板并在规则时钟完成后就近落盘；保存 schema5 路由迁移、双击原料退回与成品回收确认。新增五个5项食品篮，50项统一ID/中英文/单位/情境/图片/两段语音/角色/练习/入口；39个新增独立透明食品源稿和导出，预制食品只作为预制供应，认知项不进订单。小游戏共享全50词并保存批次；无尽初始菜单固定 apple/banana/juice 基础，加入菜单后的订单池可扩展且保留 seed/cursor 和进行中任务。
+
+仍未证明：iPhone 15 Pro＋Chrome 实体复核、三张截图对应的同视口对比、Pad实体、人工听审/教研、资源权利、儿童观察、公开发布和线上新版本。站点核对于 2026-09-21 HTTP200，仍是旧 build `5f39d12cbfa6b1a4cd4d295b1cbe91421e0bc1fd`、content `m2.1`、dirty=false；本包 `PENDING_DEPLOYMENT`，旧站点不作通过证据。新素材/开发TTS 的 review 与 rights 保留 `PENDING`，未宣称已审核。
+
+
+## 历史 M2.2 开工 · IN_PROGRESS / NEEDS_REVISION
+
+2026-09-21开工。默认main与origin/main完整SHA均为 `c105ec8478de5f1f0a03d38ca03255b7938e92f8`，原工作区干净，PR #1–#5均已合并，无开放PR。独立worktree `/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck`，分支 `codex/m22-phone-foods`。仅本餐车仓库，一个实现负责人。
+
+当前授权总计50食品，替代M2.1不扩食品限制。先文档治理，后布局与操作、50食品、无尽与教学三阶段；当前代码检查NOT_RUN。iPhone 15 Pro＋Chrome遮挡/繁琐/按钮堆叠登记NEEDS_REVISION，新候选必须原设备复核。三张本轮原图尚未定位，已请求路径，PENDING_INPUT；历史图片不冒充本次。
+
+部署PENDING_DEPLOYMENT（当前授权不含发布）；既有站点身份待本轮读取。工程、视觉手感、真机、教研/听审、权利、儿童观察和公开发布分别验收，不继承下方历史结论。
+
+
 ## 2026-09-21 M2.1 Git 同步（按要求不测试）
 
 负责人明确授权提交、推送全部本地分支，并通过 PR 合并到 main。初始核对 5 个本地分支、5 个工作区均干净；main 基线为 `20382877cc9711765b91ada2e081d19be0e81bfb`，`codex/m21-learning-revisit` 初始 head 为 `ff6591fa3911561950b80400d9dc8a7e6a9b4ebd`，含 8 个已推送、尚未合入 main 的提交。复用 PR #5，替代此前保持 OPEN 的安排；最终结果及完整 SHA 以 PR 和交付报告为准。
 
 本次只补充同步状态，不改运行代码。测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 NOT_RUN，退出码不适用，提交/推送跳过 Git hooks。当前仓库无 GitHub Actions 工作流，不启用工作流或修改权限。下方实现阶段记录本次未重跑，包括失败及后续定向结果；代码合并不改变性能、运行接受、教研/听审/权利、实体设备和儿童观察的状态，也不授权部署。
 
-## 当前 M2.1 · 2026-09-21 · IMPLEMENTED / LOCAL_VERIFIED
+## 历史 M2.1 · 2026-09-21 · IMPLEMENTED / LOCAL_VERIFIED
 
 工作包“教学与语音准确性、低龄操作及回访体验完善”运行实现已交付；工程检查按下表报告，外部验收仍分项待完成。用户反馈 **已落实工程修订 / AWAITING_OWNER_REVIEW**，不写尚未收到反馈，不把本地结果当用户接受。
 

@@ -262,7 +262,7 @@ export function validateMini(v: unknown): v is MiniState {
   if (
     !s.carry ||
     typeof s.carry !== 'object' ||
-    Object.keys(s.carry).length > 8 ||
+    Object.keys(s.carry).length > 50 ||
     Object.entries(s.carry).some(([k, v]) => !wordById(k) || !ids(v, 24)) ||
     s.version !== 2 ||
     typeof s.id !== 'string' ||
@@ -281,7 +281,7 @@ export function validateMini(v: unknown): v is MiniState {
     !ids(s.words, 4) ||
     s.words.length !== 4 ||
     s.words.some((w) => !wordById(w)) ||
-    !ids(s.vocabulary, 8) ||
+    !ids(s.vocabulary, 50) ||
     s.vocabulary.length < 1 ||
     s.vocabulary.some((w) => !wordById(w)) ||
     s.words.some((w) => !s.vocabulary?.includes(w)) ||

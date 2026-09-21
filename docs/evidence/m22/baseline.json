@@ -1,0 +1,758 @@
+{
+  "baseline": "c105ec8478de5f1f0a03d38ca03255b7938e92f8",
+  "runtime": "baseline source with documentation-only b11f589",
+  "portrait": {
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3,
+      "visual": {
+        "width": 393,
+        "height": 665,
+        "scale": 1
+      }
+    },
+    "canvas": [
+      {
+        "buffer": [
+          983,
+          1663
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 665,
+          "top": 0,
+          "right": 393,
+          "bottom": 665,
+          "left": 0
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "label": "暂停",
+        "rect": {
+          "x": 12,
+          "y": 6,
+          "width": 44,
+          "height": 44,
+          "top": 6,
+          "right": 56,
+          "bottom": 50,
+          "left": 12
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "关闭声音",
+        "rect": {
+          "x": 285,
+          "y": 6,
+          "width": 44,
+          "height": 44,
+          "top": 6,
+          "right": 329,
+          "bottom": 50,
+          "left": 285
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "打开小食谱",
+        "rect": {
+          "x": 337,
+          "y": 6,
+          "width": 44,
+          "height": 44,
+          "top": 6,
+          "right": 381,
+          "bottom": 50,
+          "left": 337
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "客人B：选择并重听请求",
+        "rect": {
+          "x": 127.25,
+          "y": 68.15625,
+          "width": 138.484375,
+          "height": 162.921875,
+          "top": 68.15625,
+          "right": 265.734375,
+          "bottom": 231.078125,
+          "left": 127.25
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "果汁机苹果入口",
+        "rect": {
+          "x": 70.078125,
+          "y": 240.90625,
+          "width": 55,
+          "height": 50,
+          "top": 240.90625,
+          "right": 125.078125,
+          "bottom": 290.90625,
+          "left": 70.078125
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "果汁机杯座",
+        "rect": {
+          "x": 130.703125,
+          "y": 301.296875,
+          "width": 48,
+          "height": 52,
+          "top": 301.296875,
+          "right": 178.703125,
+          "bottom": 353.296875,
+          "left": 130.703125
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "启动果汁机",
+        "rect": {
+          "x": 54.953125,
+          "y": 353.03125,
+          "width": 102.296875,
+          "height": 44,
+          "top": 353.03125,
+          "right": 157.25,
+          "bottom": 397.03125,
+          "left": 54.953125
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "打开小猫便签",
+        "rect": {
+          "x": 249.65625,
+          "y": 336.15625,
+          "width": 98.03125,
+          "height": 44,
+          "top": 336.15625,
+          "right": 347.6875,
+          "bottom": 380.15625,
+          "left": 249.65625
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "1号托盘：放入食品或选择整盘",
+        "rect": {
+          "x": 70.734375,
+          "y": 403.3125,
+          "width": 251.515625,
+          "height": 125.75,
+          "top": 403.3125,
+          "right": 322.25,
+          "bottom": 529.0625,
+          "left": 70.734375
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "拿苹果",
+        "rect": {
+          "x": 19.125,
+          "y": 534.546875,
+          "width": 60,
+          "height": 61.375,
+          "top": 534.546875,
+          "right": 79.125,
+          "bottom": 595.921875,
+          "left": 19.125
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "拿香蕉",
+        "rect": {
+          "x": 117.375,
+          "y": 534.546875,
+          "width": 60,
+          "height": 61.375,
+          "top": 534.546875,
+          "right": 177.375,
+          "bottom": 595.921875,
+          "left": 117.375
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "拿空杯",
+        "rect": {
+          "x": 215.625,
+          "y": 534.546875,
+          "width": 60,
+          "height": 61.375,
+          "top": 534.546875,
+          "right": 275.625,
+          "bottom": 595.921875,
+          "left": 215.625
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "放回原料或清理成品",
+        "rect": {
+          "x": 312.0625,
+          "y": 535.25,
+          "width": 59.671875,
+          "height": 60,
+          "top": 535.25,
+          "right": 371.734375,
+          "bottom": 595.25,
+          "left": 312.0625
+        },
+        "top": "CANVAS:",
+        "semantic": true
+      },
+      {
+        "label": "↻ 重听",
+        "rect": {
+          "x": 118.71875,
+          "y": 66.5,
+          "width": 65.5625,
+          "height": 44,
+          "top": 66.5,
+          "right": 184.28125,
+          "bottom": 110.5,
+          "left": 118.71875
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "图示帮助",
+        "rect": {
+          "x": 192.28125,
+          "y": 66.5,
+          "width": 82,
+          "height": 44,
+          "top": 66.5,
+          "right": 274.28125,
+          "bottom": 110.5,
+          "left": 192.28125
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "果汁",
+        "rect": {
+          "x": 163.5,
+          "y": 219.4375,
+          "width": 66,
+          "height": 44,
+          "top": 219.4375,
+          "right": 229.5,
+          "bottom": 263.4375,
+          "left": 163.5
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "● 1号盘",
+        "rect": {
+          "x": 142.046875,
+          "y": 498.75,
+          "width": 70.890625,
+          "height": 44,
+          "top": 498.75,
+          "right": 212.9375,
+          "bottom": 542.75,
+          "left": 142.046875
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "果汁机",
+        "rect": {
+          "x": 217.9375,
+          "y": 498.75,
+          "width": 64,
+          "height": 44,
+          "top": 498.75,
+          "right": 281.9375,
+          "bottom": 542.75,
+          "left": 217.9375
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "送给客人 ↗",
+        "rect": {
+          "x": 142.734375,
+          "y": 392.34375,
+          "width": 107.53125,
+          "height": 42,
+          "top": 392.34375,
+          "right": 250.265625,
+          "bottom": 434.34375,
+          "left": 142.734375
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      }
+    ]
+  },
+  "pause": {
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3,
+      "visual": {
+        "width": 393,
+        "height": 665,
+        "scale": 1
+      }
+    },
+    "canvas": [
+      {
+        "buffer": [
+          983,
+          1663
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 665,
+          "top": 0,
+          "right": 393,
+          "bottom": 665,
+          "left": 0
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "label": "暂停",
+        "rect": {
+          "x": 12,
+          "y": 6,
+          "width": 44,
+          "height": 44,
+          "top": 6,
+          "right": 56,
+          "bottom": 50,
+          "left": 12
+        },
+        "top": "DIV:modal-backdrop",
+        "semantic": false
+      },
+      {
+        "label": "关闭声音",
+        "rect": {
+          "x": 285,
+          "y": 6,
+          "width": 44,
+          "height": 44,
+          "top": 6,
+          "right": 329,
+          "bottom": 50,
+          "left": 285
+        },
+        "top": "DIV:modal-backdrop",
+        "semantic": false
+      },
+      {
+        "label": "打开小食谱",
+        "rect": {
+          "x": 337,
+          "y": 6,
+          "width": 44,
+          "height": 44,
+          "top": 6,
+          "right": 381,
+          "bottom": 50,
+          "left": 337
+        },
+        "top": "DIV:modal-backdrop",
+        "semantic": false
+      },
+      {
+        "label": "客人B：选择并重听请求",
+        "rect": {
+          "x": 127.25,
+          "y": 68.15625,
+          "width": 138.484375,
+          "height": 162.921875,
+          "top": 68.15625,
+          "right": 265.734375,
+          "bottom": 231.078125,
+          "left": 127.25
+        },
+        "top": "BUTTON:primary",
+        "semantic": true
+      },
+      {
+        "label": "果汁机苹果入口",
+        "rect": {
+          "x": 70.078125,
+          "y": 240.90625,
+          "width": 55,
+          "height": 50,
+          "top": 240.90625,
+          "right": 125.078125,
+          "bottom": 290.90625,
+          "left": 70.078125
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "果汁机杯座",
+        "rect": {
+          "x": 130.703125,
+          "y": 301.296875,
+          "width": 48,
+          "height": 52,
+          "top": 301.296875,
+          "right": 178.703125,
+          "bottom": 353.296875,
+          "left": 130.703125
+        },
+        "top": "LEGEND:",
+        "semantic": true
+      },
+      {
+        "label": "启动果汁机",
+        "rect": {
+          "x": 54.953125,
+          "y": 353.03125,
+          "width": 102.296875,
+          "height": 44,
+          "top": 353.03125,
+          "right": 157.25,
+          "bottom": 397.03125,
+          "left": 54.953125
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "打开小猫便签",
+        "rect": {
+          "x": 249.65625,
+          "y": 336.15625,
+          "width": 98.03125,
+          "height": 44,
+          "top": 336.15625,
+          "right": 347.6875,
+          "bottom": 380.15625,
+          "left": 249.65625
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "1号托盘：放入食品或选择整盘",
+        "rect": {
+          "x": 70.734375,
+          "y": 403.3125,
+          "width": 251.515625,
+          "height": 125.75,
+          "top": 403.3125,
+          "right": 322.25,
+          "bottom": 529.0625,
+          "left": 70.734375
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "拿苹果",
+        "rect": {
+          "x": 19.125,
+          "y": 534.546875,
+          "width": 60,
+          "height": 61.375,
+          "top": 534.546875,
+          "right": 79.125,
+          "bottom": 595.921875,
+          "left": 19.125
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "拿香蕉",
+        "rect": {
+          "x": 117.375,
+          "y": 534.546875,
+          "width": 60,
+          "height": 61.375,
+          "top": 534.546875,
+          "right": 177.375,
+          "bottom": 595.921875,
+          "left": 117.375
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "拿空杯",
+        "rect": {
+          "x": 215.625,
+          "y": 534.546875,
+          "width": 60,
+          "height": 61.375,
+          "top": 534.546875,
+          "right": 275.625,
+          "bottom": 595.921875,
+          "left": 215.625
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "放回原料或清理成品",
+        "rect": {
+          "x": 312.0625,
+          "y": 535.25,
+          "width": 59.671875,
+          "height": 60,
+          "top": 535.25,
+          "right": 371.734375,
+          "bottom": 595.25,
+          "left": 312.0625
+        },
+        "top": "BUTTON:",
+        "semantic": true
+      },
+      {
+        "label": "↻ 重听",
+        "rect": {
+          "x": 118.71875,
+          "y": 66.5,
+          "width": 65.5625,
+          "height": 44,
+          "top": 66.5,
+          "right": 184.28125,
+          "bottom": 110.5,
+          "left": 118.71875
+        },
+        "top": "H2:",
+        "semantic": false
+      },
+      {
+        "label": "图示帮助",
+        "rect": {
+          "x": 192.28125,
+          "y": 66.5,
+          "width": 82,
+          "height": 44,
+          "top": 66.5,
+          "right": 274.28125,
+          "bottom": 110.5,
+          "left": 192.28125
+        },
+        "top": "H2:",
+        "semantic": false
+      },
+      {
+        "label": "果汁",
+        "rect": {
+          "x": 163.5,
+          "y": 219.4375,
+          "width": 66,
+          "height": 44,
+          "top": 219.4375,
+          "right": 229.5,
+          "bottom": 263.4375,
+          "left": 163.5
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "● 1号盘",
+        "rect": {
+          "x": 142.046875,
+          "y": 498.75,
+          "width": 70.890625,
+          "height": 44,
+          "top": 498.75,
+          "right": 212.9375,
+          "bottom": 542.75,
+          "left": 142.046875
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "果汁机",
+        "rect": {
+          "x": 217.9375,
+          "y": 498.75,
+          "width": 64,
+          "height": 44,
+          "top": 498.75,
+          "right": 281.9375,
+          "bottom": 542.75,
+          "left": 217.9375
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "送给客人 ↗",
+        "rect": {
+          "x": 142.734375,
+          "y": 392.34375,
+          "width": 107.53125,
+          "height": 42,
+          "top": 392.34375,
+          "right": 250.265625,
+          "bottom": 434.34375,
+          "left": 142.734375
+        },
+        "top": "FIELDSET:support-options",
+        "semantic": false
+      },
+      {
+        "label": "继续营业",
+        "rect": {
+          "x": 44,
+          "y": 143,
+          "width": 305,
+          "height": 44,
+          "top": 143,
+          "right": 349,
+          "bottom": 187,
+          "left": 44
+        },
+        "top": "BUTTON:primary",
+        "semantic": false
+      },
+      {
+        "label": "关闭声音",
+        "rect": {
+          "x": 44,
+          "y": 199,
+          "width": 305,
+          "height": 44,
+          "top": 199,
+          "right": 349,
+          "bottom": 243,
+          "left": 44
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "看食谱帮助",
+        "rect": {
+          "x": 44,
+          "y": 255,
+          "width": 305,
+          "height": 44,
+          "top": 255,
+          "right": 349,
+          "bottom": 299,
+          "left": 44
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "▶ 先看小猫做",
+        "rect": {
+          "x": 70.875,
+          "y": 358.59375,
+          "width": 120.734375,
+          "height": 49,
+          "top": 358.59375,
+          "right": 191.609375,
+          "bottom": 407.59375,
+          "left": 70.875
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "▧ 图片陪我做",
+        "rect": {
+          "x": 201.609375,
+          "y": 358.59375,
+          "width": 120.515625,
+          "height": 49,
+          "top": 358.59375,
+          "right": 322.125,
+          "bottom": 407.59375,
+          "left": 201.609375
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "♫ 少些帮助，听一听",
+        "rect": {
+          "x": 112.734375,
+          "y": 417.59375,
+          "width": 167.53125,
+          "height": 51,
+          "top": 417.59375,
+          "right": 280.265625,
+          "bottom": 468.59375,
+          "left": 112.734375
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "保存并回到首页",
+        "rect": {
+          "x": 44,
+          "y": 490.59375,
+          "width": 305,
+          "height": 44,
+          "top": 490.59375,
+          "right": 349,
+          "bottom": 534.59375,
+          "left": 44
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      },
+      {
+        "label": "更多设置与学习观察",
+        "rect": {
+          "x": 44,
+          "y": 546.59375,
+          "width": 305,
+          "height": 44,
+          "top": 546.59375,
+          "right": 349,
+          "bottom": 590.59375,
+          "left": 44
+        },
+        "top": "BUTTON:",
+        "semantic": false
+      }
+    ]
+  }
+}

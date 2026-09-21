@@ -1,0 +1,109 @@
+.food-baskets {
+  position: absolute;
+  inset: 0;
+  background: #f4e6c5;
+  color: #234838;
+  overflow: auto;
+  padding: max(12px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom));
+  overscroll-behavior: contain;
+}
+.food-baskets header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  background: #f4e6c5;
+  z-index: 1;
+}
+.food-baskets h2 {
+  margin: 8px 0;
+  font-size: 26px;
+}
+.food-baskets button {
+  min-width: 48px;
+  min-height: 48px;
+  border: 2px solid #687756;
+  border-radius: 20px;
+  background: #fff7de;
+  color: #234838;
+  padding: 8px;
+  font-size: 18px;
+}
+.food-baskets button[aria-pressed="true"] {
+  border: 4px solid #d88736;
+  background: #fff3ad;
+}
+.food-baskets nav {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin: 12px auto;
+  max-width: 680px;
+}
+.food-baskets nav button {
+  flex: 1;
+  min-width: 0;
+  padding: 4px;
+  font-size: 14px;
+}
+.food-baskets nav .food-art {
+  width: 44px;
+  height: 44px;
+  display: block;
+  margin: auto;
+  object-fit: contain;
+}
+.basket-foods {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 640px;
+  margin: 10px auto;
+}
+.basket-foods button {
+  padding: 6px;
+  aspect-ratio: 1.15;
+}
+.basket-foods .food-art {
+  width: 100%;
+  height: 100%;
+  max-height: 150px;
+  object-fit: contain;
+}
+.basket-page {
+  display: block;
+  margin: 10px auto;
+}
+.food-meaning {
+  max-width: 640px;
+  margin: auto;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.food-meaning p {
+  width: 100%;
+  margin: 4px;
+  font-size: 16px;
+}
+.food-meaning .primary {
+  background: #315a40;
+  color: white;
+  flex: 1;
+}
+.food-baskets small {
+  display: block;
+  text-align: center;
+  margin: 16px;
+  font-size: 13px;
+}
+.food-basket-entry .food-art {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}

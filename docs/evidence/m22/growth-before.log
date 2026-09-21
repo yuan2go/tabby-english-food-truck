@@ -1,0 +1,60 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-growth.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck
+
+ ❯ tests/m22-growth.test.ts (4 tests | 2 failed) 8ms
+   × migrates schema5 with real reserved juice without losing or duplicating the destination 5ms
+   × flavor pool fixes cup; container pool fixes vanilla, independently of assistance 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m22-growth.test.ts > migrates schema5 with real reserved juice without losing or duplicating the destination
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/m22-growth.test.ts:19:22
+     17|   Reflect.deleteProperty(old.session, 'language');
+     18|   const decoded = decodeSnapshot(JSON.stringify(old));
+     19|   expect(decoded.ok).toBe(true);
+       |                      ^
+     20|   if (!decoded.ok) throw Error(decoded.reason);
+     21|   expect(decoded.state.items).toEqual(s.items);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/m22-growth.test.ts > flavor pool fixes cup; container pool fixes vanilla, independently of assistance
+AssertionError: expected [ 'vanilla-cone', 'strawberry-cup' ] to deeply equal [ 'vanilla-cup', 'strawberry-cup' ]
+
+- Expected
++ Received
+
+  [
+-   "vanilla-cup",
++   "vanilla-cone",
+    "strawberry-cup",
+  ]
+
+ ❯ tests/m22-growth.test.ts:28:18
+     26|   const flavor = endlessPool(['juice','ice'], 'flavor').filter(id => i…
+     27|   const container = endlessPool(['juice','ice'], 'container').filter(i…
+     28|   expect(flavor).toEqual(['vanilla-cup','strawberry-cup']);
+       |                  ^
+     29|   expect(container).toEqual(['vanilla-cup','vanilla-cone']);
+     30| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  20:43:59
+   Duration  225ms (transform 82ms, setup 0ms, import 96ms, tests 8ms, environment 0ms)
+

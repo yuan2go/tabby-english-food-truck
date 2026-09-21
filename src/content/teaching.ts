@@ -1,4 +1,6 @@
 import type { RequestId } from './catalog';
+import type { FOOD_REQUESTS } from './food-orders';
+import { FOODS, foodBatch } from './foods';
 import { ITEM_AUDIO, WORDS } from './learning';
 import { FOOD, type Product, RECIPES } from './recipes';
 
@@ -40,12 +42,24 @@ const pair = (
   feedback: '就是这位食物朋友。',
 });
 export const UNITS: Record<string, LearningUnit> = {
+  ...Object.fromEntries(
+    FOODS.map((f) => [
+      f.id,
+      pair(
+        f.id,
+        f.product as Product,
+        (foodBatch(f.batch).find((x) => x.id !== f.id)?.product ?? 'apple') as Product,
+        f.text,
+        f.audio,
+      ),
+    ]),
+  ),
   apple: pair('apple', 'apple', 'banana'),
   banana: pair('banana', 'banana', 'apple'),
   juice: pair('juice', 'juice', 'apple', 'juice', 'name-juice'),
   'ice-cream': pair('ice-cream', 'vanilla-cone', 'juice', 'ice cream', 'word-ice-cream'),
-  vanilla: pair('vanilla', 'vanilla', 'strawberry'),
-  strawberry: pair('strawberry', 'strawberry', 'vanilla'),
+  'vanilla-flavor': { ...pair('vanilla', 'vanilla', 'strawberry'), id: 'vanilla-flavor' },
+  'strawberry-scoop': { ...pair('strawberry', 'strawberry', 'vanilla'), id: 'strawberry-scoop' },
   cup: pair('cup', 'cup', 'cone'),
   cone: pair('cone', 'cone', 'cup'),
   bread: pair('bread', 'bread', 'cheese'),
@@ -97,16 +111,25 @@ export const UNITS: Record<string, LearningUnit> = {
   },
 };
 export const REQUEST_UNITS: Record<RequestId, readonly string[]> = {
+  ...(Object.fromEntries(
+    FOODS.filter((f) => ['direct', 'prepared'].includes(f.role)).map((f) => [
+      'food-' + f.id,
+      [f.id],
+    ]),
+  ) as Record<keyof typeof FOOD_REQUESTS, string[]>),
   apple: ['apple'],
   banana: ['banana'],
   two: ['apple', 'one', 'two'],
   fruit: ['apple', 'banana', 'and'],
   juice: ['apple', 'juice', 'cup'],
   'banana-juice': ['banana', 'juice', 'cup'],
-  'vanilla-cone': ['ice-cream', 'vanilla', 'cone'],
-  'strawberry-cup': ['strawberry', 'cup'],
-  'double-cream': ['vanilla', 'strawberry', 'one', 'two', 'and', 'cup'],
-  'banana-cream': ['vanilla', 'banana', 'cup'],
+  'cup-vanilla': ['vanilla-flavor', 'cup'],
+  'cone-vanilla': ['vanilla-flavor', 'cone'],
+  'vanilla-cup': ['ice-cream', 'vanilla-flavor', 'cup'],
+  'vanilla-cone': ['ice-cream', 'vanilla-flavor', 'cone'],
+  'strawberry-cup': ['strawberry-scoop', 'cup'],
+  'double-cream': ['vanilla-flavor', 'strawberry-scoop', 'one', 'two', 'and', 'cup'],
+  'banana-cream': ['vanilla-flavor', 'banana', 'cup'],
   sandwich: ['bread', 'cheese', 'sandwich'],
   'salad-sandwich': ['lettuce', 'tomato', 'and', 'sandwich'],
   burger: ['bun', 'patty', 'cooked-patty', 'lettuce', 'tomato', 'burger'],
@@ -131,4 +154,9 @@ export function teachingFigures(products: readonly Product[]) {
     counts.set(product, occurrence + 1);
     return { id: `${product}-${occurrence}`, product };
   });
+}
+
+for (const f of FOODS) {
+  const unit = UNITS[f.id];
+  if (unit && unit.audio === f.audio) unit.prompt = f.audio;
 }

@@ -1,8 +1,9 @@
+import { FOOD_REQUESTS } from './food-orders';
 import { FOOD, type Product } from './recipes';
 
 export type { Product } from './recipes';
 export type Fruit = 'apple' | 'banana';
-export const CONTENT_VERSION = 'm2.1';
+export const CONTENT_VERSION = 'm2.2';
 export type Mode = 'guided' | 'practice' | 'service';
 export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (0 | 1)[] }> = {
   guided: { name: '跟着小猫做', icon: '🐾', trays: [0] },
@@ -11,6 +12,7 @@ export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (
 };
 export const JUICE_MS = 5000;
 export const REQUESTS = {
+  ...FOOD_REQUESTS,
   apple: {
     text: 'An apple, please.',
     products: ['apple'],
@@ -47,6 +49,24 @@ export const REQUESTS = {
     explanation: '这位客人想要香蕉汁。',
     audio: 'request-banana-juice',
   },
+  'cup-vanilla': {
+    text: 'In a cup, please.',
+    products: ['vanilla-cup'],
+    explanation: '这页固定一球香草，孩子选择杯子。',
+    audio: 'request-cup-vanilla',
+  },
+  'cone-vanilla': {
+    text: 'In a cone, please.',
+    products: ['vanilla-cone'],
+    explanation: '这页固定一球香草，孩子选择蛋筒。',
+    audio: 'request-cone-vanilla',
+  },
+  'vanilla-cup': {
+    text: 'Vanilla ice cream, please.',
+    products: ['vanilla-cup'],
+    explanation: '一球香草，用菜单上的杯子装。',
+    audio: 'request-vanilla-cup',
+  },
   'vanilla-cone': {
     text: 'Vanilla ice cream in a cone, please.',
     products: ['vanilla-cone'],
@@ -54,7 +74,7 @@ export const REQUESTS = {
     audio: 'request-vanilla-cone',
   },
   'strawberry-cup': {
-    text: 'Strawberry ice cream in a cup, please.',
+    text: 'Strawberry ice cream, please.',
     products: ['strawberry-cup'],
     explanation: '草莓冰淇淋，装在杯里。',
     audio: 'request-strawberry-cup',

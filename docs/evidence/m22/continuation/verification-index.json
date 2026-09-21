@@ -1,0 +1,27 @@
+{
+  "baseline": "c105ec8478de5f1f0a03d38ca03255b7938e92f8",
+  "initialCandidate": "fb9d4c07566b559b3deb712dc4eeb59ca75d7148",
+  "runtimeCandidate": "3a73ee42ec39255bc9f22b38d10ffc22d794ed0b",
+  "content": "m2.2",
+  "assets": "024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36",
+  "commands": {
+    "webkit": 1,
+    "story-webkit": 0,
+    "resources": 0,
+    "affected-browser": 1,
+    "lifecycle": 0,
+    "build-touch": 0,
+    "rules": 0,
+    "cpu": 0,
+    "touch-browser": 0,
+    "lint": 0,
+    "performance": 0,
+    "browser": 1,
+    "lint-touch": 0,
+    "build": 0,
+    "affected-webkit": 0,
+    "build-fix": 0,
+    "lint-fix": 0
+  },
+  "laterChanges": "evidence and documentation only"
+}

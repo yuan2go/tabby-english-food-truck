@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { REQUESTS, type RequestId } from '../content/catalog';
 import { ITEM_AUDIO, lessonWords } from '../content/learning';
-import { FOOD } from '../content/recipes';
+import { FOOD, RAW } from '../content/recipes';
 import {
   acceptsChoice,
   preparationSteps,
@@ -14,9 +14,10 @@ import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { LessonProgress } from '../platform/profile';
 import { shuffle } from '../rules/minigames';
+import type { Destination } from '../rules/types';
 import { Food } from './Food';
 
-/** A teaching projection has no inventory. Its small choices use the content semantics. */
+/** Meaning first; a child-selected raw choice uses the same real inventory command as the scene. */
 export function Lesson({
   request,
   audio,
@@ -50,6 +51,7 @@ export function Lesson({
     };
   });
   const [feedback, setFeedback] = useState('');
+  const [destination, setDestination] = useState<Destination>({ tray: view.selectedTray });
   const unit = UNITS[progress.units[progress.index] ?? ''];
   const spec = REQUESTS[request];
   const steps = preparationSteps(spec.products[0]);
@@ -61,12 +63,18 @@ export function Lesson({
   useEffect(() => {
     if (progress.phase === 'meaning' && unit) {
       profile.present(unit.id);
-      void audio.play(unit.audio);
+      void audio.sequence(
+        request === 'vanilla-cup' || request === 'strawberry-cup'
+          ? ['menu-ice-flavor', unit.audio]
+          : ['vanilla-cone', 'cup-vanilla', 'cone-vanilla'].includes(request)
+            ? ['menu-ice-container', unit.audio]
+            : [unit.audio],
+      );
     } else if (progress.phase === 'try' && unit) void audio.play(unit.prompt);
     else if (progress.phase === 'recipe')
       void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]]);
     return () => audio.stop();
-  }, [audio, profile, progress.phase, unit, current?.output, spec.products]);
+  }, [audio, profile, progress.phase, unit, current?.output, spec.products, request]);
   useEffect(() => {
     view.lessonProducts =
       progress.phase === 'recipe' ? [current?.output ?? spec.products[0]] : (unit?.products ?? []);
@@ -79,8 +87,28 @@ export function Lesson({
     if (completed) profile.tutorial(`request-${request}`);
     close();
   };
+  const practice = () => {
+    update({ ...progress, phase: 'practice' });
+    close();
+  };
+  const physical =
+    unit &&
+    unit.choices.every((c) => c.products.length === 1 && c.products.every((p) => RAW.includes(p)));
   const choose = (choice: string) => {
     if (!unit) return;
+    const chosen = unit.choices.find((c) => c.id === choice);
+    if (!chosen) return;
+    if (physical && chosen.products[0]) {
+      const result = controller.command({
+        type: 'move',
+        source: { supply: chosen.products[0] },
+        destination,
+      });
+      if (result.kind !== 'ok') {
+        setFeedback(result.message);
+        return;
+      }
+    }
     const correct = acceptsChoice(unit, choice);
     profile.observe({
       id: `lesson:${lessonKey}:${progress.nextAttempt}`,
@@ -91,6 +119,34 @@ export function Lesson({
       visit: profile.value.learnedUnits.includes(unit.id) ? 'revisit' : 'first',
       audioQualified: false,
     });
+    if (physical) {
+      update({
+        ...progress,
+        phase: 'practice',
+        nextAttempt: progress.nextAttempt + 1,
+        support: [...new Set([...progress.support, ...(!correct ? ['difference-feedback'] : [])])],
+      });
+      view.prep =
+        'machine' in destination
+          ? 'machine'
+          : 'station' in destination
+            ? destination.station
+            : 'tray';
+      if (!correct)
+        controller.command({
+          type: 'support',
+          order:
+            view.selectedGuest ||
+            controller.state.orders.find((o) => o.status === 'waiting')?.id ||
+            '',
+          reason: 'difference-feedback',
+        });
+      close();
+      controller.message = correct
+        ? '刚才选的食物已放好，接着制作或送餐。'
+        : '刚才选的食物保留了；点它可以放回，再听一听。';
+      return;
+    }
     if (!correct) {
       update({
         ...progress,
@@ -114,13 +170,37 @@ export function Lesson({
     audio.effect('place');
   };
   return (
-    <section className="lesson-dialog short-lesson" role="dialog" aria-label="场景小教学">
+    <section
+      className="lesson-dialog short-lesson"
+      role="dialog"
+      aria-modal="true"
+      aria-label="场景小教学"
+    >
       <div className="lesson-heading">
         <span>小猫的食谱 · 一次学一点</span>
         <button type="button" onClick={() => finish(false)} aria-label="我来试试">
           先到餐车试试 ↗
         </button>
       </div>
+      {['vanilla-cup', 'strawberry-cup'].includes(request) ? (
+        <p>这一页：一球，装杯；选你听到的口味。</p>
+      ) : ['vanilla-cone', 'cup-vanilla', 'cone-vanilla'].includes(request) ? (
+        <p>这一页：一球香草；选杯子或蛋筒。</p>
+      ) : null}
+      {progress.phase !== 'recipe' && steps.length > 0 ? (
+        <button
+          type="button"
+          onClick={() =>
+            update({
+              ...progress,
+              phase: 'recipe',
+              support: [...new Set([...progress.support, 'recipe-help'])],
+            })
+          }
+        >
+          看看怎么做
+        </button>
+      ) : null}
       {progress.phase !== 'recipe' && unit ? (
         <>
           <div
@@ -160,10 +240,11 @@ export function Lesson({
                 className="primary"
                 onClick={() => {
                   setFeedback('');
-                  update({ ...progress, phase: 'try' });
+                  if (physical) update({ ...progress, phase: 'try' });
+                  else practice();
                 }}
               >
-                来试一下 →
+                {physical ? '来试一下 →' : '回餐车，亲手做 ↗'}
               </button>
             </>
           ) : (
@@ -175,6 +256,56 @@ export function Lesson({
               >
                 ♫ 再听一遍
               </button>
+              {physical ? (
+                <fieldset className="choice-row">
+                  <legend>选一个工作对象，食物会真的放进去</legend>
+                  <button
+                    type="button"
+                    aria-pressed={'tray' in destination}
+                    onClick={() => setDestination({ tray: view.selectedTray })}
+                  >
+                    备餐盘
+                  </button>
+                  {controller.state.session.family === 'juice' ? (
+                    <button
+                      type="button"
+                      aria-pressed={'machine' in destination}
+                      onClick={() =>
+                        setDestination({ machine: unit?.id === 'cup' ? 'cup' : 'apple' })
+                      }
+                    >
+                      果汁机
+                    </button>
+                  ) : null}
+                  {controller.state.session.family === 'ice' ? (
+                    <button
+                      type="button"
+                      aria-pressed={'station' in destination}
+                      onClick={() => setDestination({ station: 'ice' })}
+                    >
+                      冰淇淋台
+                    </button>
+                  ) : null}
+                  {['sandwich', 'burger'].includes(controller.state.session.family) ? (
+                    <button
+                      type="button"
+                      aria-pressed={'station' in destination && destination.station === 'board'}
+                      onClick={() => setDestination({ station: 'board' })}
+                    >
+                      组合板
+                    </button>
+                  ) : null}
+                  {controller.state.session.family === 'burger' ? (
+                    <button
+                      type="button"
+                      aria-pressed={'station' in destination && destination.station === 'grill'}
+                      onClick={() => setDestination({ station: 'grill' })}
+                    >
+                      煎台
+                    </button>
+                  ) : null}
+                </fieldset>
+              ) : null}
               <div className="meaning-choices">
                 {shuffle(unit.choices, controller.state.session.seed + progress.index).map(
                   (choice) => (
@@ -238,7 +369,10 @@ export function Lesson({
                   ]
                 : '● 备餐盘'}
             </span>
-            <span>→ {current?.action ?? '摆好'} → 接取</span>
+            <span>
+              → {current?.action ?? '摆好'} →{' '}
+              {current?.station === 'grill' ? '自动到组合板' : '自动到绑定托盘'}
+            </span>
           </div>
           {steps.length > 1 ? (
             <div className="lesson-stepper">

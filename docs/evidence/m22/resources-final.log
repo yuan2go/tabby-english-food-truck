@@ -1,0 +1,8 @@
+
+> tabby-english-food-truck@0.1.0 resources
+> node scripts/check-resources.mjs
+
+PASS: 340 files, actual hashes/dimensions/alpha and runtime registry checked
+PASS: four procedural audio layers and nine cues registered; listening review remains NOT_RUN
+PASS: 190 explicit speech references; no guessed item paths
+PASS: all 50 food concepts resolve real independent images and both speech clips

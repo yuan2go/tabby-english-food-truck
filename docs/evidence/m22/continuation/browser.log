@@ -1,0 +1,57 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/game.spec.ts e2e/m22.spec.ts e2e/m22-foods.spec.ts e2e/m22-growth.spec.ts e2e/m22-boundaries.spec.ts e2e/m22-visible-walk.spec.ts e2e/recovery.spec.ts e2e/m21.spec.ts -g phone complete|M22|all 50|teaching fruit|phone wrong|audio loading|visible interface|unsupported snapshot|matching accepts --output=/tmp/m22-final/chromium
+
+
+Running 9 tests using 1 worker
+
+(node:41523) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending (1.8m)
+(node:41662) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/m21.spec.ts:58:1 › M21 matching accepts direct picture after playback and switches activities without losing drafts (10.6s)
+  ✓  3 e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (26.2s)
+  ✓  4 e2e/m22-boundaries.spec.ts:96:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (6.8s)
+  ✓  5 e2e/m22-foods.spec.ts:9:1 › all 50 foods are reachable by visible baskets and the selected food enters listening practice (43.3s)
+  ✓  6 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (19.1s)
+  ✓  7 e2e/m22-visible-walk.spec.ts:12:1 › visible interface and formal help walk: apple and juice without hidden answers (23.5s)
+  ✓  8 e2e/m22.spec.ts:10:1 › M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies (28.5s)
+(node:41932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  9 e2e/recovery.spec.ts:206:1 › M2 unsupported snapshot is protected and exported before explicit reset (3.8s)
+
+
+  1) e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "processing"
+    Received: "loaded"
+
+       at helpers.ts:156
+
+      154 |     expect(
+      155 |       recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status,
+    > 156 |     ).toBe('processing');
+          |       ^
+      157 |     if (recipe.station === 'grill') await p.setViewportSize({ width: 768, height: 1024 });
+      158 |     await p.reload();
+      159 |     await p.locator('.yard-story .entry-main').tap();
+        at make (/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck/e2e/helpers.ts:156:7)
+        at serve (/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck/e2e/helpers.ts:208:18)
+        at /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck/e2e/game.spec.ts:30:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/m22-final/chromium/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/m22-final/chromium/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/m22-final/chromium/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/error-context.md
+
+  1 failed
+    e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending 
+  8 passed (4.5m)

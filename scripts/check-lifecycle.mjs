@@ -43,11 +43,11 @@ try {
   await page.getByRole('button', { name: '开始 / 继续' }).click();
   await page.getByRole('button', { name: '我来试试' }).click();
   const key = async (id) => page.locator(`[data-hotspot="${id}"]`).press('Enter');
-  await page.locator('.prep-selector').getByRole('button', { name: '果汁机', exact: true }).click();
+  await key('machine-apple');
   await key('supply-apple');
-  await key('supply-cup');
   await key('start');
   await key('note');
+  await page.getByRole('button', { name: '请小猫帮我拿', exact: true }).click();
   await page.getByRole('button', { name: '2号盘', exact: true }).click();
   await page.getByRole('button', { name: '看图请小猫', exact: true }).click();
   await page.getByRole('button', { name: '图片 apple', exact: true }).click();

@@ -2,10 +2,10 @@ import Phaser from 'phaser';
 import { JUICE_MS, MODES, PRODUCT_NAMES, type Product } from '../content/catalog';
 import {
   FAMILY_STATIONS,
-  FAMILY_SUPPLIES,
   foodAsset,
   RECIPES,
   type StationId,
+  suppliesFor,
 } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -14,8 +14,8 @@ import type { GameState, Item, Location, TrayId } from '../rules/types';
 import { ActorView } from './ActorView';
 import { assetUrl, CORE_ASSETS } from './assets';
 import { activate, type Hotspot, type Selection, sourceFor, type ViewState } from './input';
-import { KitchenView, stationPoint } from './KitchenView';
-import { type Layout, layoutFor, type Point } from './layout';
+import { KitchenView, stationSlotPoint } from './KitchenView';
+import { type Layout, layoutFor, type Point, supplyPoint } from './layout';
 import { renderScale } from './rendering';
 
 type Sprite = Phaser.GameObjects.Image;
@@ -341,20 +341,15 @@ export class TruckScene extends Phaser.Scene {
       return { x: l.machine.x + 57 * l.scale, y: l.machine.y + 29 * l.scale };
     if (p.startsWith('station:')) {
       const [, id, slot] = p.split(':');
-      const center = stationPoint(id as StationId, l);
-      return { x: center.x + (Number(slot) - 1) * 22, y: center.y + 12 };
+      return stationSlotPoint(id as StationId, Number(slot), l);
     }
     return { ...l.helper };
   }
   private supplyPoint(product: Product): Point {
-    const products = FAMILY_SUPPLIES[this.controller.state.session.family];
-    const index = products.indexOf(product);
-    const count = products.length;
-    return {
-      x: this.layout.width * ((Math.max(0, index) + 0.5) / (count + 1)),
-      y: this.layout.height * 0.85,
-    };
+    const products = suppliesFor(this.controller.state.session);
+    return supplyPoint(this.layout, Math.max(0, products.indexOf(product)), products.length);
   }
+
   private clearCues(): void {
     this.motions.clear();
     this.actorView?.reset();
@@ -367,7 +362,7 @@ export class TruckScene extends Phaser.Scene {
     if (this.loadingSceneAssets) return false;
     const s = this.controller.state;
     const required = [
-      ...FAMILY_SUPPLIES[s.session.family].map(foodAsset),
+      ...suppliesFor(s.session).map(foodAsset),
       ...RECIPES.filter((r) => r.family === s.session.family).map((r) => foodAsset(r.output)),
       ...FAMILY_STATIONS[s.session.family].map((id) => `${id}-station`),
       ...s.items.map((i) => foodAsset(i.product)),
@@ -405,7 +400,12 @@ export class TruckScene extends Phaser.Scene {
     if (previous?.mode !== s.mode)
       this.layout = layoutFor(this.layout.width, this.layout.height, s.mode);
     if (resized) this.motions.clear();
+    if (previous?.routing.machine && !s.routing.machine && this.ui.prep === 'machine')
+      this.ui.prep = 'tray';
+    for (const id of ['ice', 'board'] as const)
+      if (previous?.routing[id] && !s.routing[id] && this.ui.prep === id) this.ui.prep = 'tray';
     const l = this.layout;
+    this.ui.layout = l;
     this.used.clear();
     this.decor.clear();
     this.ui.hotspots = [];
@@ -421,6 +421,12 @@ export class TruckScene extends Phaser.Scene {
     const cover = Math.max(l.width / background.width, l.height / background.height);
     background.setScale(cover);
     this.decor.fillStyle(0x173e32, 0.12).fillRect(0, 0, l.width, 60);
+    if (!l.landscape)
+      this.decor
+        .fillStyle(0x725032, 0.6)
+        .fillRoundedRect(8, l.regions.guests.y + l.regions.guests.height - 3, l.width - 16, 8, 4)
+        .fillStyle(0xd9ae70)
+        .fillRoundedRect(8, l.regions.guests.y + l.regions.guests.height - 6, l.width - 16, 5, 2);
     for (const o of s.orders) {
       if (o.status === 'queued' || o.status === 'done') continue;
       const p = l.guests[o.seat];
@@ -478,30 +484,21 @@ export class TruckScene extends Phaser.Scene {
             ? '果汁好了'
             : '▶ 榨汁',
         m.x,
-        m.y + 85 * l.scale,
+        l.regions.work.y + l.regions.work.height - 26,
         Math.max(108, 120 * l.scale),
       );
-      this.hot('start', '启动果汁机', 'start', m.x, m.y + 85 * l.scale, 120 * l.scale, 44);
+      this.hot(
+        'start',
+        '启动果汁机',
+        'start',
+        m.x,
+        l.regions.work.y + l.regions.work.height - 26,
+        120 * l.scale,
+        44,
+      );
     }
     this.kitchen?.draw(s, l, this.ui, this.density);
-    this.badge(
-      'cat-label',
-      s.helper ? '正在帮忙' : '🐾 帮我拿',
-      l.helper.x,
-      l.helper.y + 73 * l.scale,
-      Math.max(112, 115 * l.scale),
-      38,
-      Boolean(s.helper),
-    );
-    this.hot(
-      'note',
-      '打开小猫便签',
-      'note',
-      l.helper.x,
-      l.helper.y + 73 * l.scale,
-      115 * l.scale,
-      44,
-    );
+    this.hot('note', '请小猫帮忙', 'note', l.helper.x, l.helper.y - 20, 64, 88);
     for (const tray of MODES[s.mode].trays) {
       const p = l.trays[tray],
         returning = s.trays[tray].remaining > 0;
@@ -522,7 +519,7 @@ export class TruckScene extends Phaser.Scene {
         `tray-label-${tray}`,
         returning ? '回盘中' : `${tray + 1}号备餐盘`,
         p.x,
-        p.y + l.trayWidth * 0.25,
+        p.y + 32,
         Math.min(l.trayWidth - 10, 148),
         36,
       );
@@ -539,7 +536,7 @@ export class TruckScene extends Phaser.Scene {
         for (const slot of s.helper.slots)
           this.decor.lineStyle(2, 0xd19638).strokeCircle(p.x + this.slotOffset(slot), p.y - 7, 20);
     }
-    for (const product of FAMILY_SUPPLIES[s.session.family]) {
+    for (const product of suppliesFor(s.session)) {
       const p = this.supplyPoint(product);
       this.decor
         .fillStyle(0x163f32, 0.95)
@@ -555,8 +552,6 @@ export class TruckScene extends Phaser.Scene {
         Math.max(60, 72 * l.scale),
       );
     }
-    this.badge('clear-label', '↩ 放回', l.clear.x, l.clear.y, Math.max(66, 70 * l.scale), 46);
-    this.hot('clear', '放回原料或清理成品', 'clear', l.clear.x, l.clear.y, 70 * l.scale, 60);
     for (const item of s.items) {
       if (item.location === 'helper' || item.location.startsWith('delivery:')) continue;
       if (
@@ -631,7 +626,11 @@ export class TruckScene extends Phaser.Scene {
         ? '机器入口'
         : location === 'machine:cup'
           ? '杯座'
-          : '小猫手里';
+          : location.startsWith('station:')
+            ? { ice: '冰淇淋台', board: '组合板', grill: '煎台' }[
+                location.split(':')[1] as StationId
+              ]
+            : '送餐途中';
   }
   private reduced(): boolean {
     return this.ui.lowGraphics || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -812,6 +811,17 @@ export class TruckScene extends Phaser.Scene {
     if ('item' in source) this.images.get(`item-${source.item}`)?.setVisible(false);
   }
   private hit(x: number, y: number): Hotspot | undefined {
+    // A travelling ingredient may cross a start control for a few frames.
+    // It is presentation, not a replacement for that stationary control.
+    const start = this.ui.hotspots.find(
+      (h) =>
+        h.kind === 'start' &&
+        x >= h.x - h.width / 2 &&
+        x <= h.x + h.width / 2 &&
+        y >= h.y - h.height / 2 &&
+        y <= h.y + h.height / 2,
+    );
+    if (start) return start;
     for (let i = this.ui.hotspots.length - 1; i >= 0; i--) {
       const h = this.ui.hotspots[i];
       if (

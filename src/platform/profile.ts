@@ -1,5 +1,5 @@
 import { REQUESTS, type RequestId } from '../content/catalog';
-import { CHAPTERS } from '../content/chapters';
+import { CHAPTERS, type Language } from '../content/chapters';
 import type { Family } from '../content/recipes';
 import type { StoragePort } from './save';
 export interface Observation {
@@ -15,14 +15,15 @@ export interface LessonProgress {
   request: RequestId;
   units: string[];
   index: number;
-  phase: 'meaning' | 'try' | 'recipe' | 'done' | 'skipped';
+  phase: 'meaning' | 'try' | 'practice' | 'recipe' | 'done' | 'skipped';
   step: number;
   tries: number;
   nextAttempt: number;
   support: string[];
 }
 export interface Profile {
-  version: 2;
+  version: 3;
+  language: Language;
   concurrency: 1 | 2;
   observedIds: string[];
   presented: string[];
@@ -37,7 +38,8 @@ export interface Profile {
   support: 'demonstration' | 'pictures' | 'less';
 }
 export const emptyProfile = (): Profile => ({
-  version: 2,
+  version: 3,
+  language: 'flavor',
   concurrency: 1,
   observedIds: [],
   presented: [],
@@ -66,7 +68,8 @@ export class ProfileStore {
         if (v && typeof v === 'object' && Reflect.get(v, 'version') === 1) {
           const migrated = {
             ...v,
-            version: 2,
+            version: 3,
+            language: 'flavor',
             concurrency: 1,
             observedIds: [] as string[],
             presented: [],
@@ -77,6 +80,46 @@ export class ProfileStore {
           if (validProfile(migrated)) {
             migrated.observedIds = migrated.observations.map((o) => o.id);
             migrated.tutorials = migrated.tutorials.map((t) => `legacy-opened:${t}`);
+            this.value = migrated;
+          } else {
+            this.blocked = true;
+            this.issue = '旧成长记录未通过校验，原文已保留。';
+          }
+        } else if (v && typeof v === 'object' && Reflect.get(v, 'version') === 2) {
+          const migrated = { ...v, version: 3, language: 'flavor' };
+          if (validProfile(migrated)) {
+            const renamed: Record<string, string> = {
+              strawberry: 'strawberry-scoop',
+              vanilla: 'vanilla-flavor',
+            };
+            const iceRequests = new Set([
+              'vanilla-cone',
+              'strawberry-cup',
+              'double-cream',
+              'banana-cream',
+            ]);
+            const confirmed = new Set<string>();
+            for (const [key, lesson] of Object.entries(migrated.lessons)) {
+              if (!iceRequests.has(lesson.request)) continue;
+              lesson.units = lesson.units.map((id) => {
+                if (renamed[id]) confirmed.add(id);
+                return renamed[id] ?? id;
+              });
+              for (const observation of migrated.observations) {
+                if (observation.id.startsWith(`lesson:${key}:`) && renamed[observation.target])
+                  observation.target = renamed[observation.target] ?? observation.target;
+              }
+            }
+            // Unscoped v2 display/learning flags cannot distinguish plant, fruit and flavor.
+            // Keep them as legacy evidence, never infer new concept knowledge from them.
+            const migrateFlag = (id: string) =>
+              renamed[id] ? (confirmed.has(id) ? (renamed[id] ?? id) : `legacy-v2:${id}`) : id;
+            migrated.learnedUnits = migrated.learnedUnits.map(migrateFlag);
+            migrated.presented = migrated.presented.flatMap((id) =>
+              renamed[id]
+                ? [`legacy-v2:${id}`, ...(confirmed.has(id) ? [renamed[id] ?? id] : [])]
+                : [id],
+            );
             this.value = migrated;
           } else {
             this.blocked = true;
@@ -105,6 +148,7 @@ export class ProfileStore {
     }
   }
   menu(): RequestId[] {
+    // Introduction is explicit; a displayed or generated answer does not grant mastery.
     return (Object.keys(REQUESTS) as RequestId[]).filter(
       (id) =>
         id === 'apple' ||
@@ -114,7 +158,7 @@ export class ProfileStore {
   }
   present(id: string): void {
     if (this.value.presented.includes(id)) return;
-    this.value.presented = [...this.value.presented, id].slice(-80);
+    this.value.presented = [...this.value.presented, id].slice(-240);
     this.save();
   }
   lesson(key: string, value: LessonProgress): void {
@@ -128,14 +172,14 @@ export class ProfileStore {
     this.save();
   }
   tutorial(id: string): void {
-    this.value.tutorials = [...new Set([...this.value.tutorials, id])].slice(-80);
+    this.value.tutorials = [...new Set([...this.value.tutorials, id])].slice(-240);
     this.save();
   }
   observe(value: Observation): void {
     if (this.value.observedIds.includes(value.id)) return;
     this.value.observedIds = [...this.value.observedIds, value.id].slice(-1200);
     this.value.observations = [...this.value.observations, value].slice(-160);
-    this.value.exposure = [...new Set([...this.value.exposure, value.target])].slice(-80);
+    this.value.exposure = [...new Set([...this.value.exposure, value.target])].slice(-240);
     this.save();
   }
   complete(chapter: number): void {
@@ -148,13 +192,14 @@ export function validProfile(v: unknown): v is Profile {
   if (!v || typeof v !== 'object') return false;
   const p = v as Partial<Profile>;
   return (
-    p.version === 2 &&
+    p.version === 3 &&
+    ['flavor', 'container', 'combined'].includes(p.language ?? '') &&
     Array.isArray(p.observedIds) &&
     p.observedIds.length <= 1200 &&
     p.observedIds.every((x) => typeof x === 'string' && x.length < 160) &&
     [1, 2].includes(p.concurrency ?? 0) &&
     Array.isArray(p.presented) &&
-    p.presented.length <= 80 &&
+    p.presented.length <= 240 &&
     p.presented.every((x) => typeof x === 'string' && x.length < 100) &&
     Array.isArray(p.learnedUnits) &&
     p.learnedUnits.length <= 80 &&
@@ -172,7 +217,7 @@ export function validProfile(v: unknown): v is Profile {
         Number.isInteger(l.index) &&
         l.index >= 0 &&
         l.index <= l.units.length &&
-        ['meaning', 'try', 'recipe', 'done', 'skipped'].includes(l.phase) &&
+        ['meaning', 'try', 'practice', 'recipe', 'done', 'skipped'].includes(l.phase) &&
         Number.isInteger(l.step) &&
         l.step >= 0 &&
         l.step < 4 &&
@@ -191,15 +236,18 @@ export function validProfile(v: unknown): v is Profile {
     p.completed.every((n, i) => n === i) &&
     Array.isArray(p.introduced) &&
     p.introduced.length > 0 &&
-    p.introduced.length <= 4 &&
-    p.introduced.every((f, i) => f === ['juice', 'ice', 'sandwich', 'burger'][i]) &&
-    p.introduced.every((f) => ['juice', 'ice', 'sandwich', 'burger'].includes(f)) &&
+    p.introduced.length <= 5 &&
+    p.introduced
+      .filter((f) => f !== 'ready')
+      .every((f, i) => f === ['juice', 'ice', 'sandwich', 'burger'][i]) &&
+    new Set(p.introduced).size === p.introduced.length &&
+    p.introduced.every((f) => ['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(f)) &&
     Array.isArray(p.tutorials) &&
-    p.tutorials.length <= 80 &&
+    p.tutorials.length <= 240 &&
     new Set(p.tutorials).size === p.tutorials.length &&
     p.tutorials.every((t) => typeof t === 'string' && t.length < 100) &&
     Array.isArray(p.exposure) &&
-    p.exposure.length <= 80 &&
+    p.exposure.length <= 240 &&
     new Set(p.exposure).size === p.exposure.length &&
     p.exposure.every((t) => typeof t === 'string' && t.length < 100) &&
     ['demonstration', 'pictures', 'less'].includes(p.support ?? '') &&

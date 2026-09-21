@@ -56,3 +56,9 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 本包不重生图片。补充27个WAV并修正mini-match，共28条制作记录见[m21-audio.json](m21-audio.json)；`scripts/m21-audio.mjs` 使用本机macOS say / Samantha，140wpm，PCM 22050Hz。`speech.json` 的80个显式引用包含原有剧情/请求与新的物品、数量/组合、操作提示；151文件总清单记录真实bytes/hash与现有图片尺寸/Alpha。新增资源经运行Lesson/MiniGames/ForegroundAudio引用，不以入库当接入。
 
 所有新语音标DEVELOPMENT_TTS_UNREVIEWED，人类听审NOT_RUN，分发权利PENDING。脚本生成文本不等于真人口音、音量或教学适龄审核；不虚构审核者。旧M2音频登记保留为历史，其中mini-match文字已由本节更正为可直接选图。
+
+## M2.2 五十食品与固定杯口味
+
+50个概念注册见 `src/content/foods.json`；39个新增独立源稿和运行WebP见 [m22-production.json](m22-production.json)，名称/情境/导航开发语音见 [m22-audio.json](m22-audio.json)。水果、原料和预制品真实接入食品篮、小游戏、合法菜单/配方；认知项不出不可供应订单。素材按场景及当前批次加载，未扩大CORE_ASSETS为50图首包。
+
+续做新增一球香草杯的独立透明图，源稿1202×1309、运行441×480，裁区、Alpha、SHA、提示词见 [m22-vanilla-cup.json](m22-vanilla-cup.json)。固定杯练口味、固定香草练杯筒的7项音频制作见 [m22-growth-audio.json](m22-growth-audio.json)。完整manifest从文件读取实际尺寸/hash，未用占位图或放大合集。所有新图视觉/权利审核PENDING；所有macOS Samantha开发语音听审NOT_RUN、分发权利PENDING。

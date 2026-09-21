@@ -22,6 +22,8 @@ test('M2 phone complete click story: prologue through all recipes to community e
   const measurements = [];
   const restore = new Set(['grill', 'board']);
   for (let chapter = 0; chapter < 5; chapter++) {
+    if (chapter === 3) await page.setViewportSize({ width: 1024, height: 768 });
+    if (chapter === 4) await page.setViewportSize({ width: 393, height: 665 });
     await startMeasure(page);
     const count = (await state(page)).orders.length;
     for (let n = 0; n < count; n++) {
@@ -49,7 +51,11 @@ test('M2 phone complete click story: prologue through all recipes to community e
   );
   await page.getByRole('button', { name: '回小院', exact: true }).tap();
   await page.screenshot({ path: info.outputPath('grown-yard.png') });
-  await page.locator('.yard-mini .entry-main').tap();
+  await page.locator('.yard-training .entry-main').tap();
+  await page.getByRole('button', { name: /五篮食物朋友/ }).tap();
+  await page.getByRole('button', { name: '点心篮', exact: true }).tap();
+  await page.getByRole('button', { name: '认识冰淇淋', exact: true }).tap();
+  await page.getByRole('button', { name: /听一听，找朋友/ }).tap();
   await page.getByText('换帮助或玩法', { exact: true }).tap();
   await page.getByRole('button', { name: '帮一部分', exact: true }).tap();
   await page.getByRole('button', { name: '也试多词短语', exact: true }).tap();
@@ -112,7 +118,7 @@ test('M2 quick input: immediate taps, same-entity double tap, nearby removal and
   await tap(page, 'supply-apple');
   await tap(page, 'supply-apple');
   expect((await state(page)).items).toHaveLength(3);
-  await page.getByRole('button', { name: '送给客人 ↗' }).tap();
+  await page.getByRole('button', { name: '送餐 ↗' }).tap();
   let s = await state(page);
   expect(s.attempts.at(-1)?.result).toBe('request-mismatch');
   expect(s.items).toHaveLength(3);
@@ -132,7 +138,7 @@ test('M2 quick input: immediate taps, same-entity double tap, nearby removal and
   const attempts = (await state(page)).attempts.length;
   await tap(page, 'guest-0');
   expect((await state(page)).attempts).toHaveLength(attempts);
-  await page.getByRole('button', { name: '送给客人 ↗' }).tap();
+  await page.getByRole('button', { name: '送餐 ↗' }).tap();
   await expect
     .poll(async () => (await state(page)).orders[0]?.status, { timeout: 18000 })
     .toBe('done');

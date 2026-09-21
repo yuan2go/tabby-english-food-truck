@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-routing.test.ts tests/m21-audio.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck
+
+
+ Test Files  2 passed (2)
+      Tests  6 passed (6)
+   Start at  13:20:25
+   Duration  230ms (transform 153ms, setup 0ms, import 187ms, tests 11ms, environment 0ms)
+

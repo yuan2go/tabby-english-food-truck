@@ -1,0 +1,12 @@
+{
+  "method": "VISIBLE_UI_AND_FORMAL_HELP",
+  "hiddenAnswers": false,
+  "gameplayClicks": {
+    "apple": 2,
+    "juice": 4
+  },
+  "extraRecipeHelpClicks": 2,
+  "audibleHumanListening": "NOT_RUN",
+  "result": "two real deliveries",
+  "remaining": "owner/child usability review"
+}

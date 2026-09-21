@@ -1,0 +1,398 @@
+{
+  "tool": "OpenAI built-in imagegen",
+  "style": "Independent layered cut-paper food sprites, upper-left soft light, transparent alpha, no text or logos",
+  "character": "Frozen character files unchanged",
+  "records": [
+    {
+      "concept": "orange",
+      "source": "art/source/food-orange.png",
+      "output": "public/assets/food-orange.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "4a1ff60293a245442bb64b31d3e089f43ff966d8060e77e3457e3e58c56dbf63",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "pear",
+      "source": "art/source/food-pear.png",
+      "output": "public/assets/food-pear.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "7280f413734e9147a401046c28ff3a4929e0e1e6f1a833b65cc48bd1c5ef6835",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "peach",
+      "source": "art/source/food-peach.png",
+      "output": "public/assets/food-peach.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "486399527baf3ac997dddfbc3977d509c7230107d1fec057e7024639f0c1eb8f",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "strawberry",
+      "source": "art/source/food-strawberry.png",
+      "output": "public/assets/food-strawberry.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0ffe8a351bbe1fe37defbf96a69f18269f27f25ce1eb076d83d8145cc772ccf6",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "grape",
+      "source": "art/source/food-grape.png",
+      "output": "public/assets/food-grape.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "c62ce4cacd62e6168cec5eba765d3e6a2e5ae57fde9d2086d168af1769a2cfeb",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "watermelon",
+      "source": "art/source/food-watermelon.png",
+      "output": "public/assets/food-watermelon.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0db6c5565e9b84c086b82e34966d3396cd4f78df92247df50d950df22ce57398",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "mango",
+      "source": "art/source/food-mango.png",
+      "output": "public/assets/food-mango.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "57e0caffad12fd28be598e14db27ae934d3fee79b727d50140c7de42bd1335b8",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "pineapple",
+      "source": "art/source/food-pineapple.png",
+      "output": "public/assets/food-pineapple.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "3663093e17e0d48d355554ec33a97a78cf200e70b3407907b4451041ad8e366e",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "cucumber",
+      "source": "art/source/food-cucumber.png",
+      "output": "public/assets/food-cucumber.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "6a68bd0ab63fe1f29babcb29a23f6bfecc82804fac1ff7d8328620671c64141f",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "carrot",
+      "source": "art/source/food-carrot.png",
+      "output": "public/assets/food-carrot.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "f78b95ea61c6b6bbc89bc015edaa70e617f8d22447bb6c414eb28c957f202416",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "potato",
+      "source": "art/source/food-potato.png",
+      "output": "public/assets/food-potato.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "11e0a27fda2692a3f0873c8ec91921b2e19870ec942a37a71e267b4cb8d6d085",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "corn",
+      "source": "art/source/food-corn.png",
+      "output": "public/assets/food-corn.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ab105fe6f39dd81f4913f0f366f8fb79fc4a59dc1ae97acb87fb3cc2b5f78989",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "broccoli",
+      "source": "art/source/food-broccoli.png",
+      "output": "public/assets/food-broccoli.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "11c2b4aa6f0f01a15bd811eb33d66fe5666bcc97a90346b8a8bdb04f3be81c26",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "mushroom",
+      "source": "art/source/food-mushroom.png",
+      "output": "public/assets/food-mushroom.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "b5bebf68f85cec84cba38d57fc39d544c53f3fc4952c9737246c663611c1db33",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "pumpkin",
+      "source": "art/source/food-pumpkin.png",
+      "output": "public/assets/food-pumpkin.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0c762a9adb93d6bf09b86d6409392ea2126de96792e41150fb20ccc29d8a2807",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "pea",
+      "source": "art/source/food-pea.png",
+      "output": "public/assets/food-pea.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "903b83be55394f3198efed451113f8d88caf3838e50f2b216a3d4bf6991d03ce",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "rice",
+      "source": "art/source/food-rice.png",
+      "output": "public/assets/food-rice.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0891b02a92f9ac5a230ca67631e0ff9f3c9a1e677bccc60c7dfbd3093cf3bcb3",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "noodles",
+      "source": "art/source/food-noodles.png",
+      "output": "public/assets/food-noodles.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "06259406ea8382a9f4ff4602d33592951c6287abb0b8725a81f62101a15bbea1",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "egg",
+      "source": "art/source/food-egg.png",
+      "output": "public/assets/food-egg.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ccf17954645c8cd1c9e78cae3ab12add1c84675363269dfed4fb5091b6f0bbdc",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "chicken",
+      "source": "art/source/food-chicken.png",
+      "output": "public/assets/food-chicken.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "806ad7f87e0181f2b9b70e05147559108564378129789b4f6500df954f2aaee9",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "beef",
+      "source": "art/source/food-beef.png",
+      "output": "public/assets/food-beef.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "75f50d879baaeac9ff7230d2bc6a63b1e9d869fdc3153c1bafba3d3e194337b0",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "fish",
+      "source": "art/source/food-fish.png",
+      "output": "public/assets/food-fish.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1ce8657d1421ad29c1d4a455f6df2bc3d6c41f97a0086f003a4a79870f68785d",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "tofu",
+      "source": "art/source/food-tofu.png",
+      "output": "public/assets/food-tofu.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "17188670d88651218648bad089e8c308f7f67315c03b97c88dba4e2a973fa04d",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "milk",
+      "source": "art/source/food-milk.png",
+      "output": "public/assets/food-milk.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "5b4cfb5875bf560d40fa0676406c63ab7061b1120ba6ccb16d0e9d6639756bd2",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "yogurt",
+      "source": "art/source/food-yogurt.png",
+      "output": "public/assets/food-yogurt.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "9df8497cf405802c7670b9534cc5a67f32738a881caba208e9eca33517e75437",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "butter",
+      "source": "art/source/food-butter.png",
+      "output": "public/assets/food-butter.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "723d1f1bf63fa3d22b0aa7e230d8293ba96232b720e48b05b0ab4f25ffb9e3af",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "cream",
+      "source": "art/source/food-cream.png",
+      "output": "public/assets/food-cream.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "2f44e7a79b5d15c556ec29f3a079a33f0d5549a916f884f45372b9b8cb292966",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "vanilla",
+      "source": "art/source/food-vanilla.png",
+      "output": "public/assets/food-vanilla.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "6f4e86e50e0889a6449b2cb02404ca71e140a66b4a474a525328c206b1d4366f",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "chocolate",
+      "source": "art/source/food-chocolate.png",
+      "output": "public/assets/food-chocolate.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "367685b091c3c083294431752fde6711d3d119e975ee3e49eb03db50daa78ddd",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "honey",
+      "source": "art/source/food-honey.png",
+      "output": "public/assets/food-honey.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d130c89cb421a5ac6907d11e13960cace73c37380b7c0443421fb8a8efa5c7f9",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "jam",
+      "source": "art/source/food-jam.png",
+      "output": "public/assets/food-jam.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1328b160ef07fd93781d219b5ab8bed5ff4fecb174fb6fc6a37b32cd3f252610",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "coconut",
+      "source": "art/source/food-coconut.png",
+      "output": "public/assets/food-coconut.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "eac9de5fa75f9c7cb1346ba815ec6d4333cb666d22b0e014b97d0c9206ec670a",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "raisin",
+      "source": "art/source/food-raisin.png",
+      "output": "public/assets/food-raisin.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d11bd103f129a8e5457dd77177f39269a111f19a99e70419ed7a788fcdd70e55",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "smoothie",
+      "source": "art/source/food-smoothie.png",
+      "output": "public/assets/food-smoothie.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "66f969f19be8fc9f655ea151dc48a8c705c02b5068ebe2d9f714f51f24e2f4e5",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "milkshake",
+      "source": "art/source/food-milkshake.png",
+      "output": "public/assets/food-milkshake.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ddf2413608e3bb83cfe783ee89d6d00aba1ddfd86b1f7e145be8979a911a4a2b",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "pizza",
+      "source": "art/source/food-pizza.png",
+      "output": "public/assets/food-pizza.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "9be78ab2d7af9a2f6e5248d7a94e225aade50cceeef3f4b2c5fc6462c540e4b2",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "salad",
+      "source": "art/source/food-salad.png",
+      "output": "public/assets/food-salad.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "6f24e098c7d02dffa50fd381c82fd866e7343bed4d5ef497ecbbd215839e95dd",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "cake",
+      "source": "art/source/food-cake.png",
+      "output": "public/assets/food-cake.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "09c2e067ed3f49cd1ca4fda3094086ec2a84fb00fa40c642d9b657d672e9935b",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    },
+    {
+      "concept": "cookie",
+      "source": "art/source/food-cookie.png",
+      "output": "public/assets/food-cookie.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1bf46c0121c62de7f4f3d2b0435da53eeafb6c9290af1d1e9e0b97e5336b1634",
+      "derivation": "Independent original, alpha crop and downscale only; no upscaling or mirroring",
+      "review": "PENDING_OWNER_RIGHTS_TEACHING_REVIEW"
+    }
+  ],
+  "missing": []
+}

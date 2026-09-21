@@ -28,10 +28,14 @@ export function MiniGames({
   controller,
   audio,
   home,
+  collection,
+  baskets,
 }: {
   controller: GameController;
   audio: ForegroundAudio;
   home: () => void;
+  collection?: { ids: string[]; focus: string } | null;
+  baskets?: () => void;
 }) {
   const store = controller.minis;
   const [state, setState] = useState<MiniState | null>(null);
@@ -136,11 +140,39 @@ export function MiniGames({
     const key = miniKey(kind, mode),
       saved = store.sessions[key];
     if (saved && !replace) {
-      setState(saved);
-      latest.current = saved;
+      if (
+        collection &&
+        (saved.vocabulary.join() !== collection.ids.join() || saved.words[0] !== collection.focus)
+      ) {
+        setFreshKind(kind);
+        return;
+      }
+      if (
+        collection &&
+        targetWord(saved).id === collection.focus &&
+        ['intro', 'meaning', 'play'].includes(saved.stage)
+      ) {
+        update({
+          ...saved,
+          support: [...new Set([...saved.support, 'meaning-picture', 'collection-preview'])],
+          carry: {
+            ...saved.carry,
+            [collection.focus]: [
+              ...new Set([
+                ...(saved.carry[collection.focus] ?? []),
+                'meaning-picture',
+                'collection-preview',
+              ]),
+            ],
+          },
+        });
+      } else {
+        setState(saved);
+        latest.current = saved;
+      }
       return;
     }
-    const known = introducedWords(controller.profile.value.presented);
+    const known = collection?.ids ?? introducedWords(controller.profile.value.presented);
     const fresh = createMini(
       kind,
       difficulty,
@@ -150,7 +182,23 @@ export function MiniGames({
       foundation,
       crypto.randomUUID(),
     );
+    if (collection && fresh.words.includes(collection.focus))
+      fresh.words = [
+        collection.focus,
+        ...fresh.words.filter((_, i) => i !== fresh.words.indexOf(collection.focus)),
+      ];
+    else if (collection && kind === 'match')
+      fresh.words = [collection.focus, ...fresh.words.slice(0, 3)];
     if (saved) fresh.carry = restartMini(saved, fresh.id).carry;
+    if (collection && fresh.words[0] === collection.focus)
+      fresh.carry[collection.focus] = [
+        ...new Set([
+          ...(fresh.carry[collection.focus] ?? []),
+          'meaning-picture',
+          'collection-preview',
+          ...(kind === 'spell' ? ['word-model'] : []),
+        ]),
+      ];
     setFreshKind(null);
     update(fresh);
     void audio.play(kind === 'match' ? 'mini-match' : 'mini-spell');
@@ -187,7 +235,15 @@ export function MiniGames({
           ← 小院
         </button>
         <h2>食物朋友的小摊</h2>
-        <p>随时回来，字母和这一题都会等你。</p>
+        <p>
+          {collection ? '这一篮的食物朋友，听一听，再找一找。' : '随时回来，字母和这一题都会等你。'}
+        </p>
+        {baskets ? (
+          <button type="button" className="food-basket-entry" onClick={baskets}>
+            <Food product="orange" />
+            打开五篮食物朋友
+          </button>
+        ) : null}
         {issue ? <p role="status">{issue}</p> : null}
         <div className="mini-choices">
           <button type="button" onClick={() => open('match')}>

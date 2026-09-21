@@ -182,7 +182,17 @@ describe('M2 content-driven world', () => {
   });
   it('support changes preserve existing complex orders and reduce subsequent concurrency', () => {
     let s = Array.from({ length: 100 }, (_, seed) =>
-      configureSession(createGame(`policy-${seed}`), 'endless', 0, 'less', families, seed, 2),
+      configureSession(
+        createGame(`policy-${seed}`),
+        'endless',
+        0,
+        'less',
+        families,
+        seed,
+        2,
+        undefined,
+        'combined',
+      ),
     ).find((s) => s.orders.some((o) => o.request === 'double-cream'));
     if (!s) throw Error('complex initial order');
     applyPolicy(s, 'demonstration', 1);
@@ -201,7 +211,7 @@ describe('M2 content-driven world', () => {
       expect(s.orders).toHaveLength(1);
       if (n === 0) expect(s.session.cursor).toBe(cursor);
     }
-    expect(endlessPool(families, 'demonstration')).toContain(s.orders[0]?.request);
+    expect(endlessPool(families, s.session.language)).toContain(s.orders[0]?.request);
     expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
   });
   it('helper and delivery serialize from current position, reserve only needed tray and survive snapshots', () => {

@@ -1,0 +1,57 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m22-growth.spec.ts
+
+[WebServer] (node:36687) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:36751) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:36791) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/m22-growth.spec.ts:4:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (8.2s)
+
+
+  1) e2e/m22-growth.spec.ts:4:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 1
+
+    - Array [
+    -   "apple",
+    - ]
+    + Array []
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+       9 |   await page.getByRole('button',{name:'来试一下 →',exact:true}).tap();
+      10 |   await page.getByRole('button',{name:'苹果',exact:true}).tap();
+    > 11 |   await expect.poll(async()=> (await state(page)).items.map(i=>i.product)).toEqual(['apple']);
+         |                                                                            ^
+      12 |   await expect(page.getByRole('dialog',{name:'场景小教学'})).toHaveCount(0);
+      13 |   await page.getByRole('button',{name:'送餐 ↗',exact:true}).tap();
+      14 |   const growth = page.getByRole('dialog',{name:'今日新菜单'});
+        at /Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck/e2e/m22-growth.spec.ts:11:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-growth-teaching-fruit--4ede0-ntroduces-banana-then-juice/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-growth-teaching-fruit--4ede0-ntroduces-banana-then-juice/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-growth-teaching-fruit--4ede0-ntroduces-banana-then-juice/error-context.md
+
+  1 failed
+    e2e/m22-growth.spec.ts:4:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice 

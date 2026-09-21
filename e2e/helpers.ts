@@ -61,7 +61,20 @@ export async function startEndless(p: Page, less = true) {
   await lesson(p);
 }
 export async function choosePrep(p: Page, name: string) {
-  await p.locator('.prep-selector').getByRole('button', { name, exact: true }).tap();
+  await tap(
+    p,
+    name.includes('盘')
+      ? name.includes('2')
+        ? 'tray-1'
+        : 'tray-0'
+      : name === '果汁机'
+        ? 'machine-apple'
+        : name === '冰淇淋台'
+          ? 'station-ice'
+          : name === '煎台'
+            ? 'station-grill'
+            : 'station-board',
+  );
 }
 export async function make(
   p: Page,
@@ -74,10 +87,20 @@ export async function make(
   }
   const recipe = RECIPES.find((r) => r.output === product);
   if (!recipe) throw Error(product);
-  const family = { juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[
-    recipe.family
-  ];
-  await p.locator('.family-tabs').getByRole('button', { name: family, exact: true }).tap();
+  const family = {
+    juice: '果汁',
+    ice: '冰淇淋',
+    sandwich: '三明治',
+    burger: '汉堡',
+    ready: '水果与预制点心',
+  }[recipe.family];
+  if ((await state(p)).session.family !== recipe.family) {
+    await p.getByRole('button', { name: '选择食谱', exact: true }).tap();
+    await p
+      .getByRole('group', { name: '选择食谱工作台' })
+      .getByRole('button', { name: family, exact: true })
+      .tap();
+  }
   await expect(p.locator('.loading-page')).toHaveCount(0);
   const prep =
     recipe.station === 'machine'
@@ -89,12 +112,38 @@ export async function make(
           : '组合板';
   await choosePrep(p, prep);
   for (const input of recipe.inputs) {
-    if (RAW.includes(input)) await tap(p, `supply-${input}`);
-    else {
+    if (RAW.includes(input)) {
+      if (
+        input !== 'cup' ||
+        !(await state(p)).items.some(
+          (i) => i.location === 'machine:cup' && recipe.station === 'machine',
+        )
+      )
+        await tap(p, `supply-${input}`);
+    } else {
       const id = await make(p, input, restore);
       if (!id) throw Error(input);
-      await tap(p, `item-${id}`);
-      await choosePrep(p, prep);
+      if (
+        !(await state(p)).items
+          .find((i) => i.id === id)
+          ?.location.startsWith(`station:${recipe.station}:`)
+      ) {
+        await tap(p, `item-${id}`);
+        await choosePrep(p, prep);
+      } else await choosePrep(p, prep);
+    }
+  }
+  if (recipe.station === 'board') {
+    // Inspect settled ingredient slots, not an ingredient crossing the counter in transit.
+    await p.waitForTimeout(260);
+    for (const item of (await state(p)).items.filter((i) =>
+      i.location.startsWith('station:board:'),
+    )) {
+      await tap(p, `item-${item.id}`);
+      await expect(p.locator(`[data-hotspot="item-${item.id}"]`)).toHaveAttribute(
+        'aria-pressed',
+        'true',
+      );
     }
   }
   await tap(p, recipe.station === 'machine' ? 'start' : `start-station-${recipe.station}`);
@@ -107,6 +156,7 @@ export async function make(
     expect(
       recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status,
     ).toBe('processing');
+    if (recipe.station === 'grill') await p.setViewportSize({ width: 768, height: 1024 });
     await p.reload();
     await p.locator('.yard-story .entry-main').tap();
     await p.getByRole('button', { name: chapter.title, exact: true }).tap();
@@ -126,21 +176,24 @@ export async function make(
 
   await expect
     .poll(
-      async () => {
-        const s = await state(p);
-        return recipe.station === 'machine' ? s.machine.status : s.stations[recipe.station].status;
-      },
+      async () =>
+        (await state(p)).items.some(
+          (i) =>
+            i.product === product &&
+            (recipe.station === 'grill'
+              ? i.location.startsWith('station:board:')
+              : i.location.startsWith('tray:')),
+        ),
       { timeout: 15000 },
     )
-    .toBe('ready');
-  const s = await state(p),
-    item = s.items.find(
-      (i) =>
-        i.product === product &&
-        (recipe.station === 'machine'
-          ? i.location === 'machine:cup'
-          : i.location.startsWith(`station:${recipe.station}:`)),
-    );
+    .toBe(true);
+  const item = (await state(p)).items.find(
+    (i) =>
+      i.product === product &&
+      (recipe.station === 'grill'
+        ? i.location.startsWith('station:board:')
+        : i.location.startsWith('tray:')),
+  );
   if (!item) throw Error(product);
   return item.id;
 }
@@ -155,17 +208,21 @@ export async function serve(p: Page, restore?: Set<string>) {
       await make(p, product);
     } else {
       const id = await make(p, product, restore);
-      await tap(p, `item-${id}`);
-      await choosePrep(p, '● 1号盘');
+      if (!(await state(p)).items.find((i) => i.id === id)?.location.startsWith('tray:0:')) {
+        await tap(p, `item-${id}`);
+        await choosePrep(p, '● 1号盘');
+      }
     }
   }
   // Explicit target chosen without a UI correctness gate. Tests read state; never inject it.
   const label =
     s.orders.filter((o) => o.status === 'waiting').length === 1
-      ? '送给客人 ↗'
+      ? '送餐 ↗'
       : order.seat === 0
         ? '送给左边客人 ↗'
         : '送给右边客人 ↗';
+  if (s.orders.filter((o) => o.status === 'waiting').length > 1)
+    await p.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await p.getByRole('button', { name: label, exact: true }).tap();
   await expect
     .poll(

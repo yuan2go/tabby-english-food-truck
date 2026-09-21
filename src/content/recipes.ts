@@ -1,3 +1,4 @@
+import foodRecords from './foods.json' with { type: 'json' };
 export const FOOD = {
   apple: ['苹果', 'apple'],
   banana: ['香蕉', 'banana'],
@@ -14,6 +15,7 @@ export const FOOD = {
   cone: ['蛋筒', 'cone'],
   vanilla: ['香草球', 'vanilla'],
   strawberry: ['草莓球', 'strawberry'],
+  'vanilla-cup': ['香草冰淇淋杯', 'vanilla ice cream'],
   'vanilla-cone': ['香草蛋筒', 'vanilla ice cream'],
   'strawberry-cup': ['草莓冰淇淋杯', 'strawberry ice cream'],
   'double-cream': ['双球冰淇淋', 'two scoops of ice cream'],
@@ -22,9 +24,48 @@ export const FOOD = {
   'salad-sandwich': ['蔬菜三明治', 'lettuce and tomato sandwich'],
   burger: ['汉堡', 'burger'],
   'cheese-burger': ['芝士汉堡', 'cheeseburger'],
+  orange: ['橙子', 'orange'],
+  pear: ['梨', 'pear'],
+  peach: ['桃子', 'peach'],
+  'fresh-strawberry': ['草莓', 'strawberry'],
+  grape: ['葡萄', 'grape'],
+  watermelon: ['西瓜', 'watermelon'],
+  mango: ['芒果', 'mango'],
+  pineapple: ['菠萝', 'pineapple'],
+  cucumber: ['黄瓜', 'cucumber'],
+  carrot: ['胡萝卜', 'carrot'],
+  potato: ['土豆', 'potato'],
+  corn: ['玉米', 'corn'],
+  broccoli: ['西兰花', 'broccoli'],
+  mushroom: ['蘑菇', 'mushroom'],
+  pumpkin: ['南瓜', 'pumpkin'],
+  pea: ['豌豆', 'pea'],
+  rice: ['米饭', 'rice'],
+  noodles: ['面条', 'noodles'],
+  egg: ['鸡蛋', 'egg'],
+  chicken: ['鸡肉', 'chicken'],
+  beef: ['牛肉', 'beef'],
+  fish: ['鱼肉', 'fish'],
+  tofu: ['豆腐', 'tofu'],
+  milk: ['牛奶', 'milk'],
+  yogurt: ['酸奶', 'yogurt'],
+  butter: ['黄油', 'butter'],
+  cream: ['奶油', 'cream'],
+  'vanilla-pod': ['香草', 'vanilla'],
+  chocolate: ['巧克力', 'chocolate'],
+  honey: ['蜂蜜', 'honey'],
+  jam: ['果酱', 'jam'],
+  coconut: ['椰子', 'coconut'],
+  raisin: ['葡萄干', 'raisin'],
+  smoothie: ['水果冰沙', 'smoothie'],
+  milkshake: ['奶昔', 'milkshake'],
+  pizza: ['比萨饼', 'pizza'],
+  salad: ['沙拉', 'salad'],
+  cake: ['蛋糕', 'cake'],
+  cookie: ['曲奇饼干', 'cookie'],
 } as const;
 export type Product = keyof typeof FOOD;
-export type Family = 'juice' | 'ice' | 'sandwich' | 'burger';
+export type Family = 'juice' | 'ice' | 'sandwich' | 'burger' | 'ready';
 export type StationId = 'ice' | 'board' | 'grill';
 export interface Recipe {
   id: string;
@@ -36,6 +77,15 @@ export interface Recipe {
   action: string;
 }
 export const RECIPES: readonly Recipe[] = [
+  {
+    id: 'vanilla-cup',
+    family: 'ice',
+    station: 'ice',
+    inputs: ['cup', 'vanilla'],
+    output: 'vanilla-cup',
+    ms: 1000,
+    action: '接好冰淇淋',
+  },
   {
     id: 'juice',
     family: 'juice',
@@ -143,6 +193,14 @@ export const recipeFor = (station: Recipe['station'], products: readonly Product
 export const RAW: readonly Product[] = [
   'apple',
   'banana',
+  'orange',
+  'pear',
+  'peach',
+  'fresh-strawberry',
+  'grape',
+  'watermelon',
+  'mango',
+  'pineapple',
   'cup',
   'bread',
   'cheese',
@@ -154,17 +212,41 @@ export const RAW: readonly Product[] = [
   'vanilla',
   'strawberry',
 ];
+export const PREPARED: readonly Product[] = [
+  'milk',
+  'yogurt',
+  'smoothie',
+  'milkshake',
+  'pizza',
+  'salad',
+  'cake',
+  'cookie',
+];
 export const isFinished = (product: Product) => !RAW.includes(product);
 export const FAMILY_SUPPLIES: Record<Family, readonly Product[]> = {
+  ready: ['orange', 'pear', 'peach', 'milk', 'cookie'],
   juice: ['apple', 'banana', 'cup'],
   ice: ['cone', 'cup', 'vanilla', 'strawberry', 'banana'],
   sandwich: ['bread', 'cheese', 'lettuce', 'tomato'],
   burger: ['bun', 'patty', 'cheese', 'lettuce', 'tomato'],
 };
 export const FAMILY_STATIONS: Record<Family, readonly StationId[]> = {
+  ready: [],
   juice: [],
   ice: ['ice'],
   sandwich: ['board'],
   burger: ['grill', 'board'],
 };
-export const foodAsset = (product: Product): string => product;
+export const foodAsset = (product: Product): string =>
+  foodRecords.find((f) => f.product === product)?.image ?? product;
+
+export const SUPPLY_PAGES: readonly (readonly Product[])[] = [
+  ['orange', 'pear', 'peach', 'fresh-strawberry'],
+  ['grape', 'watermelon', 'mango', 'pineapple'],
+  ['milk', 'yogurt', 'smoothie', 'milkshake'],
+  ['pizza', 'salad', 'cake', 'cookie'],
+];
+export const suppliesFor = (session: { family: Family; supplyPage: number }) =>
+  session.family === 'ready'
+    ? (SUPPLY_PAGES[session.supplyPage] ?? SUPPLY_PAGES[0] ?? [])
+    : FAMILY_SUPPLIES[session.family];
