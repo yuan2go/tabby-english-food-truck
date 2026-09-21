@@ -5,7 +5,7 @@
 工作包“教学与语音准确性、低龄操作及回访体验完善”运行实现已交付；工程检查按下表报告，外部验收仍分项待完成。用户反馈 **已落实工程修订 / AWAITING_OWNER_REVIEW**，不写尚未收到反馈，不把本地结果当用户接受。
 
 - baseline与交付前fetch的默认分支main：`20382877cc9711765b91ada2e081d19be0e81bfb`；原工作区干净，PR #1–#4已合并。
-- 独立分支 `codex/m21-learning-revisit`，worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。阶段提交、推送与PR交付，不自动合并或部署；PR与最终完整SHA见交付消息。
+- 独立分支 `codex/m21-learning-revisit`，worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。已分阶段提交、推送并建立 [PR #5](https://github.com/yuan2go/tabby-english-food-truck/pull/5)，保持OPEN，未自动合并或部署；最终完整SHA见PR head与交付消息。
 - 同一干净生产构建合并检查：`c0fe89e5e1d81036c702f0431b33799e99cd9367`。最后运行提交 `229073b3829b00e991c509067b8f53565f14270c`（dirty=false），仅追加拼写触控尺寸/间距CSS；之后只修测试格式、归档证据和文档，规则/内容/保存/声音未再改。
 - content `m2.1`；manifest SHA-256 `170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b`。最终提交可直接干净构建；构建身份应显示实际构建SHA，不把旧dist冒充新head。
 

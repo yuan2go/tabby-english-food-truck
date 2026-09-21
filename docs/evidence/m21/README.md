@@ -5,7 +5,7 @@ M2.1运行实现已完成；本地工程结论与外部验收分列。完整范�
 ## 版本与环境
 
 - 开始和交付前fetch的默认分支：main，baseline `20382877cc9711765b91ada2e081d19be0e81bfb`。原主工作区干净，PR #1–#4均已合并；开工时无开放PR。
-- 分支 `codex/m21-learning-revisit`，独立worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。
+- [PR #5](https://github.com/yuan2go/tabby-english-food-truck/pull/5)已创建并推送，未合并。分支 `codex/m21-learning-revisit`，独立worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。
 - 合并检查的干净实现：`c0fe89e5e1d81036c702f0431b33799e99cd9367`，dirty=false，content=m2.1，manifest SHA-256 `170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b`。原始命令 [commands.json](commands.json)。
 - 最后运行实现：`229073b3829b00e991c509067b8f53565f14270c`，干净构建。相对c0fe的运行差异只有拼写页CSS：至少44px字母、长词布局和提示间距；TypeScript、规则、音频、内容、保存及资源未再改变。其后只修测试格式、整理证据及文档；最终Git SHA见PR head与交付消息，避免在提交内伪造自身hash。
 - macOS26.5.2 arm64 / Node26.3.1 / npm11.16.0；锁文件中的React19.1.1、Phaser3.90.0、TS5.9.3、Vite7.3.6、Playwright1.63.0不升级。npm ci成功，audit 0。
