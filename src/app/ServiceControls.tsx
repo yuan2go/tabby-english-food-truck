@@ -131,17 +131,37 @@ export function ServiceControls({
       {selectedItem
         ? (() => {
             const h = ui.hotspots.find((h) => h.id === `item-${selectedItem.id}`);
+            const inWork = selectedItem.location.startsWith('station:');
             return h ? (
               <button
                 type="button"
                 className="near-remove"
+                aria-label={
+                  inWork
+                    ? isFinished(selectedItem.product)
+                      ? '收起'
+                      : '↩'
+                    : isFinished(selectedItem.product)
+                      ? '收起成品'
+                      : '↩ 放回这份'
+                }
                 style={{
-                  left: Math.max(8, Math.min(l.width - 148, h.x - 70)),
-                  top: Math.max(l.regions.trays.y - 20, h.y - 54),
+                  left: inWork
+                    ? l.regions.work.x + l.regions.work.width - 48
+                    : Math.max(8, Math.min(l.width - 148, h.x - 70)),
+                  top: inWork ? h.y - 24 : Math.max(l.regions.trays.y - 20, h.y - 54),
+                  width: inWork ? 48 : undefined,
+                  padding: inWork ? 0 : undefined,
                 }}
                 onClick={() => activate('clear', controller, audio, ui)}
               >
-                {isFinished(selectedItem.product) ? '收起成品' : '↩ 放回这份'}
+                {inWork
+                  ? isFinished(selectedItem.product)
+                    ? '收起'
+                    : '↩'
+                  : isFinished(selectedItem.product)
+                    ? '收起成品'
+                    : '↩ 放回这份'}
               </button>
             ) : null;
           })()

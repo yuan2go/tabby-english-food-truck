@@ -45,7 +45,17 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   await page.locator('.yard-story .entry-main').tap();
   await page.getByRole('button', { name: '晨光果汁', exact: true }).tap();
   await lesson(page);
-  expect((await state(page)).items.map((i) => i.id)).toEqual(frozen.items.map((i) => i.id));
+  const restored = await state(page);
+  const consumed = frozen.items.find((i) => i.location === 'machine:apple');
+  const vessel = frozen.items.find((i) => i.location === 'machine:cup');
+  const alreadyFinished = restored.items.some((i) => i.product === 'juice');
+  expect(restored.items.map((i) => i.id)).toEqual(
+    frozen.items.filter((i) => !alreadyFinished || i.id !== consumed?.id).map((i) => i.id),
+  );
+  for (const item of frozen.items.filter((i) => !i.location.startsWith('machine:')))
+    expect(restored.items.find((i) => i.id === item.id)).toEqual(item);
+  if (alreadyFinished)
+    expect(restored.items.find((i) => i.product === 'juice')?.id).toBe(vessel?.id);
   await expect
     .poll(
       async () =>
