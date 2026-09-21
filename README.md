@@ -8,7 +8,7 @@
 
 ## 当前状态
 
-当前工作包为 **M2.1：教学与语音准确性、低龄操作及回访体验完善**，基线 main `20382877cc9711765b91ada2e081d19be0e81bfb`（PR #4 已合并）。已落实图音映射、语音衔接、短小教学、小游戏分别保存与中途切换、支持/并发双向调整及首单备餐修复。当前为 **IMPLEMENTED / LOCAL_VERIFIED**；用户反馈的运行效果仍 **AWAITING_OWNER_REVIEW**。本轮失败、修正、受测版本与限制见 [M2.1证据](docs/evidence/m21/README.md)，没有继承M2的PASS。
+当前工作包为 **M2.2：iPhone操作界面简化与50个食品元素实装**，基线main `c105ec8478de5f1f0a03d38ca03255b7938e92f8`，PR #5已合并。本包IN_PROGRESS，手机反馈NEEDS_REVISION。当前运行代码仍是M2.1，以下操作说明为开工基线；50食品、简化操作与渐进菜单按[05](docs/05-delivery.md)实施，证据与验收见[STATUS](docs/STATUS.md)。
 
 [既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 已由负责人更新；过去 m1.1 检查只描述当时的部署。本轮重新读取实际 build SHA、内容和资源身份，结果见 [STATUS](docs/STATUS.md)。M2.1 新改动在实际部署前为 **PENDING_DEPLOYMENT**。冻结角色参考继续使用，听审、教研、权利、实体设备和儿童观察分别验收。
 
