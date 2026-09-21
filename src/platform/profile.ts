@@ -105,16 +105,20 @@ export class ProfileStore {
     }
   }
   menu(): RequestId[] {
+    // A new endless run always has a tiny spoken foundation: apple, banana, and
+    // the basic juice. The active order's Lesson introduces the meaning before
+    // any other food can appear; later basket choices add explicit menu items.
+    const foundation = new Set<RequestId>(['apple', 'banana', 'juice']);
     return (Object.keys(REQUESTS) as RequestId[]).filter(
       (id) =>
-        id === 'apple' ||
+        foundation.has(id) ||
         this.value.tutorials.includes(`request-${id}`) ||
         this.value.presented.includes(`menu:${id}`),
     );
   }
   present(id: string): void {
     if (this.value.presented.includes(id)) return;
-    this.value.presented = [...this.value.presented, id].slice(-80);
+    this.value.presented = [...this.value.presented, id].slice(-240);
     this.save();
   }
   lesson(key: string, value: LessonProgress): void {
@@ -128,14 +132,14 @@ export class ProfileStore {
     this.save();
   }
   tutorial(id: string): void {
-    this.value.tutorials = [...new Set([...this.value.tutorials, id])].slice(-80);
+    this.value.tutorials = [...new Set([...this.value.tutorials, id])].slice(-240);
     this.save();
   }
   observe(value: Observation): void {
     if (this.value.observedIds.includes(value.id)) return;
     this.value.observedIds = [...this.value.observedIds, value.id].slice(-1200);
     this.value.observations = [...this.value.observations, value].slice(-160);
-    this.value.exposure = [...new Set([...this.value.exposure, value.target])].slice(-80);
+    this.value.exposure = [...new Set([...this.value.exposure, value.target])].slice(-240);
     this.save();
   }
   complete(chapter: number): void {
@@ -154,7 +158,7 @@ export function validProfile(v: unknown): v is Profile {
     p.observedIds.every((x) => typeof x === 'string' && x.length < 160) &&
     [1, 2].includes(p.concurrency ?? 0) &&
     Array.isArray(p.presented) &&
-    p.presented.length <= 80 &&
+    p.presented.length <= 240 &&
     p.presented.every((x) => typeof x === 'string' && x.length < 100) &&
     Array.isArray(p.learnedUnits) &&
     p.learnedUnits.length <= 80 &&
@@ -191,15 +195,18 @@ export function validProfile(v: unknown): v is Profile {
     p.completed.every((n, i) => n === i) &&
     Array.isArray(p.introduced) &&
     p.introduced.length > 0 &&
-    p.introduced.length <= 4 &&
-    p.introduced.every((f, i) => f === ['juice', 'ice', 'sandwich', 'burger'][i]) &&
-    p.introduced.every((f) => ['juice', 'ice', 'sandwich', 'burger'].includes(f)) &&
+    p.introduced.length <= 5 &&
+    p.introduced
+      .filter((f) => f !== 'ready')
+      .every((f, i) => f === ['juice', 'ice', 'sandwich', 'burger'][i]) &&
+    new Set(p.introduced).size === p.introduced.length &&
+    p.introduced.every((f) => ['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(f)) &&
     Array.isArray(p.tutorials) &&
-    p.tutorials.length <= 80 &&
+    p.tutorials.length <= 240 &&
     new Set(p.tutorials).size === p.tutorials.length &&
     p.tutorials.every((t) => typeof t === 'string' && t.length < 100) &&
     Array.isArray(p.exposure) &&
-    p.exposure.length <= 80 &&
+    p.exposure.length <= 240 &&
     new Set(p.exposure).size === p.exposure.length &&
     p.exposure.every((t) => typeof t === 'string' && t.length < 100) &&
     ['demonstration', 'pictures', 'less'].includes(p.support ?? '') &&
