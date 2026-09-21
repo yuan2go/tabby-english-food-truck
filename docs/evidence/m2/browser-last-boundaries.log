@@ -1,0 +1,56 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep native background|spell complete|actor continuity
+
+[WebServer] (node:29867) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:29933) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:29974) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/minigames.spec.ts:39:3 › M2 spell complete four rounds, help, resume, settlement and return (8.6s)
+(node:30011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/upgrade.spec.ts:5:1 › M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause, rotation (9.2s)
+(node:30023) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/recovery.spec.ts:196:1 › M2 native background freeze stops clock, helper, machine and audio (6.3s)
+
+
+  1) e2e/minigames.spec.ts:39:3 › M2 spell complete four rounds, help, resume, settlement and return 
+
+    Error: expect(received).not.toContain(expected) // indexOf
+
+    Expected value: not "letter-0-0"
+    Received array:     ["letter-0-0"]
+
+       97 |               page.locator('.letter-bank'),
+       98 |             );
+    >  99 |             expect((await mini(page)).draft).not.toContain(letter.id);
+          |                                                  ^
+      100 |           }
+      101 |           await tile.tap();
+      102 |         }
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/minigames.spec.ts:99:50
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/error-context.md
+
+  1 failed
+    e2e/minigames.spec.ts:39:3 › M2 spell complete four rounds, help, resume, settlement and return 
+  2 passed (31.6s)

@@ -1,6 +1,8 @@
-export type Product = 'apple' | 'banana' | 'cup' | 'juice';
+import { FOOD, type Product } from './recipes';
+
+export type { Product } from './recipes';
 export type Fruit = 'apple' | 'banana';
-export const CONTENT_VERSION = 'm1.2';
+export const CONTENT_VERSION = 'm2.0';
 export type Mode = 'guided' | 'practice' | 'service';
 export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (0 | 1)[] }> = {
   guided: { name: '跟着小猫做', icon: '🐾', trays: [0] },
@@ -8,8 +10,6 @@ export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (
   service: { name: '小小餐车营业中', icon: '☀', trays: [0, 1] },
 };
 export const JUICE_MS = 5000;
-export const HELPER_MS = 2000;
-export const RETURN_MS = 800;
 export const REQUESTS = {
   apple: {
     text: 'An apple, please.',
@@ -41,14 +41,65 @@ export const REQUESTS = {
     explanation: '这位客人想要一个苹果和一根香蕉。',
     audio: 'request-fruit',
   },
+  'banana-juice': {
+    text: 'Banana juice, please.',
+    products: ['banana-juice'],
+    explanation: '这位客人想要香蕉汁。',
+    audio: 'request-banana-juice',
+  },
+  'vanilla-cone': {
+    text: 'Vanilla ice cream in a cone, please.',
+    products: ['vanilla-cone'],
+    explanation: '香草冰淇淋，装在蛋筒里。',
+    audio: 'request-vanilla-cone',
+  },
+  'strawberry-cup': {
+    text: 'Strawberry ice cream in a cup, please.',
+    products: ['strawberry-cup'],
+    explanation: '草莓冰淇淋，装在杯里。',
+    audio: 'request-strawberry-cup',
+  },
+  'double-cream': {
+    text: 'Two scoops, vanilla and strawberry, please.',
+    products: ['double-cream'],
+    explanation: '杯里放一球香草、一球草莓。',
+    audio: 'request-double-cream',
+  },
+  'banana-cream': {
+    text: 'Vanilla ice cream with banana, please.',
+    products: ['banana-cream'],
+    explanation: '杯里放香草和香蕉配料。',
+    audio: 'request-banana-cream',
+  },
+  sandwich: {
+    text: 'A cheese sandwich, please.',
+    products: ['sandwich'],
+    explanation: '两片面包夹芝士。',
+    audio: 'request-sandwich',
+  },
+  'salad-sandwich': {
+    text: 'A lettuce and tomato sandwich, please.',
+    products: ['salad-sandwich'],
+    explanation: '两片面包夹生菜和番茄。',
+    audio: 'request-salad-sandwich',
+  },
+  burger: {
+    text: 'A burger with lettuce and tomato, please.',
+    products: ['burger'],
+    explanation: '圆面包夹熟饼、生菜和番茄。',
+    audio: 'request-burger',
+  },
+  'cheese-burger': {
+    text: 'A cheeseburger, please.',
+    products: ['cheese-burger'],
+    explanation: '圆面包夹熟饼和芝士。',
+    audio: 'request-cheese-burger',
+  },
 } as const;
 export type RequestId = keyof typeof REQUESTS;
-export const PRODUCT_NAMES: Record<Product, string> = {
-  apple: '苹果',
-  banana: '香蕉',
-  cup: '空杯',
-  juice: '苹果汁',
-};
+export const PRODUCT_NAMES = Object.fromEntries(
+  Object.entries(FOOD).map(([id, names]) => [id, names[0]]),
+) as Record<Product, string>;
 export const WORDS = [
   'an',
   'a',

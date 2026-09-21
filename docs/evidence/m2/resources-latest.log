@@ -1,0 +1,19 @@
+
+> tabby-english-food-truck@0.1.0 resources
+> node scripts/check-resources.mjs
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: missing runtime cat-
+    at file:///Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/scripts/check-resources.mjs:41:26 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v26.3.1

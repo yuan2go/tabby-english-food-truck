@@ -1,0 +1,74 @@
+{
+  "build": "36cb8e6ae05759f47de04a6649cbcc273175e182",
+  "reviewer": "Codex agent",
+  "humanOwnerAcceptance": "PENDING",
+  "humanListeningReview": "NOT_RUN",
+  "method": "All sequential contact sheets from the continuous recordings were visually inspected; sampling is not every decoded frame or physical-device testing.",
+  "videos": [
+    {
+      "name": "actor-continuity",
+      "duration": 10.08,
+      "interval": 0.1,
+      "frames": 101,
+      "pages": [
+        "docs/evidence/m2/review/actor-continuity-1.jpg",
+        "docs/evidence/m2/review/actor-continuity-2.jpg",
+        "docs/evidence/m2/review/actor-continuity-3.jpg",
+        "docs/evidence/m2/review/actor-continuity-4.jpg",
+        "docs/evidence/m2/review/actor-continuity-5.jpg",
+        "docs/evidence/m2/review/actor-continuity-6.jpg",
+        "docs/evidence/m2/review/actor-continuity-7.jpg"
+      ],
+      "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+    },
+    {
+      "name": "helper-overlap",
+      "duration": 24,
+      "interval": 0.25,
+      "frames": 96,
+      "pages": [
+        "docs/evidence/m2/review/helper-overlap-1.jpg",
+        "docs/evidence/m2/review/helper-overlap-2.jpg",
+        "docs/evidence/m2/review/helper-overlap-3.jpg",
+        "docs/evidence/m2/review/helper-overlap-4.jpg",
+        "docs/evidence/m2/review/helper-overlap-5.jpg",
+        "docs/evidence/m2/review/helper-overlap-6.jpg"
+      ],
+      "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+    },
+    {
+      "name": "pad-processing",
+      "duration": 35.68,
+      "interval": 1,
+      "frames": 36,
+      "pages": [
+        "docs/evidence/m2/review/pad-processing-1.jpg",
+        "docs/evidence/m2/review/pad-processing-2.jpg",
+        "docs/evidence/m2/review/pad-processing-3.jpg"
+      ],
+      "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+    }
+  ],
+  "teaching-exit-motion": {
+    "count": 150,
+    "maxStep": 0.004323785866535779
+  },
+  "continuous-actor-samples": {
+    "count": 120,
+    "maxStep": 0.0065183342625128975
+  },
+  "overlap-motion": {
+    "count": 150,
+    "maxStep": 0.04403843749943349
+  },
+  "cancel-boundary": {
+    "before": {
+      "x": 0.55200398739133,
+      "y": 0.7136461206138047
+    },
+    "after": {
+      "x": 0.55200398739133,
+      "y": 0.7136461206138047
+    }
+  }
+}

@@ -1,0 +1,93 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep Pad prologue|actual helper|touch cancellation|unsupported snapshot
+
+[WebServer] (node:27719) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:27796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:27836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/recovery.spec.ts:22:1 › M2 Pad prologue and real processing restore in portrait and landscape (25.8s)
+(node:27854) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/recovery.spec.ts:69:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (21.5s)
+(node:27909) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/recovery.spec.ts:143:1 › M2 touch cancellation and multi-pointer never add, remove or submit food (7.5s)
+  ✓  4 e2e/recovery.spec.ts:172:1 › M2 unsupported snapshot is protected and exported before explicit reset (3.8s)
+
+
+  1) e2e/recovery.spec.ts:22:1 › M2 Pad prologue and real processing restore in portrait and landscape 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for locator('.prep-selector').getByRole('button', { name: '果汁机', exact: true })
+
+
+       at helpers.ts:38
+
+      36 | }
+      37 | export async function choosePrep(p: Page, name: string) {
+    > 38 |   await p.locator('.prep-selector').getByRole('button', { name, exact: true }).tap();
+         |                                                                                ^
+      39 | }
+      40 | export async function make(p: Page, product: Product): Promise<string | null> {
+      41 |   if (RAW.includes(product)) {
+        at choosePrep (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:38:80)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/recovery.spec.ts:36:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/error-context.md
+
+  2) e2e/recovery.spec.ts:69:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ready"
+    Received: "loaded"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at helpers.ts:79
+
+      77 |       { timeout: 15000 },
+      78 |     )
+    > 79 |     .toBe('ready');
+         |      ^
+      80 |   const s = await state(p),
+      81 |     item = s.items.find(
+      82 |       (i) =>
+        at make (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:79:6)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/recovery.spec.ts:82:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/error-context.md
+
+  2 failed
+    e2e/recovery.spec.ts:22:1 › M2 Pad prologue and real processing restore in portrait and landscape 
+    e2e/recovery.spec.ts:69:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+  2 passed (1.1m)

@@ -1,0 +1,397 @@
+{
+  "humanListeningReview": "NOT_RUN",
+  "records": [
+    {
+      "id": "request-apple",
+      "text": "An apple, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-apple.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-banana",
+      "text": "A banana, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-banana.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "two",
+      "text": "Two apples, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/two.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-juice",
+      "text": "Apple juice, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-fruit",
+      "text": "An apple and a banana, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-fruit.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-banana-juice",
+      "text": "Banana juice, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-banana-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-vanilla-cone",
+      "text": "Vanilla ice cream in a cone, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-vanilla-cone.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-strawberry-cup",
+      "text": "Strawberry ice cream in a cup, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-strawberry-cup.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-double-cream",
+      "text": "Two scoops, vanilla and strawberry, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-double-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-banana-cream",
+      "text": "Vanilla ice cream with banana, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-banana-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-sandwich",
+      "text": "A cheese sandwich, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-salad-sandwich",
+      "text": "A lettuce and tomato sandwich, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-salad-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-burger",
+      "text": "A burger with lettuce and tomato, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "request-cheese-burger",
+      "text": "A cheeseburger, please.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/request-cheese-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-bread",
+      "text": "bread",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-bread.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-cheese",
+      "text": "cheese",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-cheese.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-lettuce",
+      "text": "lettuce",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-lettuce.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-tomato",
+      "text": "tomato",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-tomato.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-bun",
+      "text": "bun",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-bun.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-patty",
+      "text": "patty",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-patty.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-cooked-patty",
+      "text": "cooked patty",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-cooked-patty.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-cone",
+      "text": "cone",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-cone.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-cup",
+      "text": "cup",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-cup.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-vanilla",
+      "text": "vanilla",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-vanilla.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-strawberry",
+      "text": "strawberry",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-strawberry.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-sandwich",
+      "text": "sandwich",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-burger",
+      "text": "burger",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-ice-cream",
+      "text": "ice cream",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-ice-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-vanilla-cone",
+      "text": "vanilla ice cream",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-vanilla-cone.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-strawberry-cup",
+      "text": "strawberry ice cream",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-strawberry-cup.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-double-cream",
+      "text": "two scoops of ice cream",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-double-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-banana-cream",
+      "text": "ice cream with banana",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-banana-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-banana-juice",
+      "text": "banana juice",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-banana-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-salad-sandwich",
+      "text": "lettuce and tomato sandwich",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-salad-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "word-cheese-burger",
+      "text": "cheeseburger",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/word-cheese-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "menu-story",
+      "text": "Story time. Help Tabby open the food truck.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/menu-story.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "menu-endless",
+      "text": "Welcome! Let us serve our friends.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/menu-endless.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "menu-mini",
+      "text": "Find food friends. Listen and play.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/menu-mini.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "menu-training",
+      "text": "Watch Tabby. Then you try.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/menu-training.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "prologue-0",
+      "text": "This little key is yours, Tabby.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/prologue-0.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "prologue-1",
+      "text": "Here is our old recipe book.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/prologue-1.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "prologue-2",
+      "text": "Make something nice for our friends.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/prologue-2.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "chapter-juice",
+      "text": "Good morning! Apple juice or banana juice?",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/chapter-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "chapter-ice",
+      "text": "It is a warm afternoon. Let us make ice cream.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/chapter-ice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "chapter-sandwich",
+      "text": "A picnic! Bread and cheese make a sandwich.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/chapter-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "chapter-burger",
+      "text": "First cook the patty. Then make a burger.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/chapter-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "chapter-picnic",
+      "text": "All our friends are here. Thank you, Tabby!",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/chapter-picnic.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "mini-match",
+      "text": "Listen to the word. Tap the sound, then find its picture.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/mini-match.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "mini-spell",
+      "text": "Look at the food. Listen. Tap the letters. You can take them back.",
+      "voice": "macOS Samantha",
+      "rate": 140,
+      "path": "public/audio/mini-spell.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "source": "src/platform/audio.ts",
+  "sourceSha256": "a2aaae4b530992041bbb02fb8f5dd96b132c09088f82258f331c43a5e1be1946",
+  "method": "Exact loop synthesis body rendered at 22050Hz and normal no-voice bus gain. Individual stems, not a live mixed recording.",
+  "humanListeningReview": "NOT_RUN",
+  "records": [
+    {
+      "kind": "music",
+      "path": "docs/evidence/m2/audio/music.wav",
+      "gain": 0.09,
+      "seconds": 16,
+      "sha256": "1d97972b2ea753dfa0e1521be0f22b203409c95c92aa2c270cd55847ab8798ec"
+    },
+    {
+      "kind": "ambience",
+      "path": "docs/evidence/m2/audio/ambience.wav",
+      "gain": 0.045,
+      "seconds": 8,
+      "sha256": "37d392782fe4a82efffafe5439a5b7306bbf9aaccc306d2e0f0411059e3c17e5"
+    },
+    {
+      "kind": "machine",
+      "path": "docs/evidence/m2/audio/machine.wav",
+      "gain": 0.09,
+      "seconds": 3,
+      "sha256": "cdb5f63bbbea4433ce5c54d5feef111fd6207312ba4cd21f88dc3dec4410cc6d"
+    },
+    {
+      "kind": "ice",
+      "path": "docs/evidence/m2/audio/ice.wav",
+      "gain": 0.09,
+      "seconds": 3,
+      "sha256": "ace9e78408fe0fc7edbf42bb4b2823789b8c5295f5c5630c44c6055489e2b7e7"
+    },
+    {
+      "kind": "board",
+      "path": "docs/evidence/m2/audio/board.wav",
+      "gain": 0.09,
+      "seconds": 3,
+      "sha256": "f8a5d62a8fbc2892485bae54dc947bcba723a57f87ac00114e9b26431551369d"
+    },
+    {
+      "kind": "grill",
+      "path": "docs/evidence/m2/audio/grill.wav",
+      "gain": 0.09,
+      "seconds": 3,
+      "sha256": "2dd637056acc0b9dfcf6201bdc30f21fa888b1a07f7352196e64c59b579e1ff7"
+    }
+  ]
+}

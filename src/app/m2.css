@@ -1,0 +1,1467 @@
+/* Paper, timber and garden green belong to the truck; menus are scene objects. */
+.m2-shell {
+  --forest: #244a38;
+  --leaf: #728759;
+  --ochre: #ecc15c;
+  --paper: #fff1cc;
+  --ink: #243c2e;
+  --rose: #bc6954;
+  color: var(--ink);
+}
+.m2-shell :where(button) {
+  touch-action: manipulation;
+  min-height: 44px;
+  font-size: clamp(15px, 2vw, 19px);
+}
+.m2-shell button:focus-visible {
+  outline: 4px solid #f8c540;
+  outline-offset: 3px;
+}
+.m2-shell button[aria-pressed="true"] {
+  background: #f3c863;
+  color: #233d2d;
+  box-shadow: inset 0 0 0 2px #254a36;
+}
+.m2-shell .primary {
+  background: #315c40;
+  color: #fff5da;
+  border: 2px solid #dcc58a;
+  box-shadow: 0 5px 0 #193c2b;
+}
+.food-art {
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+.courtyard,
+.story-stage,
+.recipe-book,
+.mini-lobby,
+.mini-play,
+.setup-board,
+.adult-settings {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  overflow: hidden;
+}
+.courtyard {
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+.courtyard:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(#193e2945, transparent 32%, transparent 85%, #15392480);
+}
+.yard-title {
+  position: absolute;
+  left: 5%;
+  top: 4%;
+  color: #fff5cf;
+  text-shadow: 0 2px 4px #263d24;
+}
+.yard-title span {
+  font:
+    700 12px / 1.5 "Trebuchet MS",
+    sans-serif;
+  letter-spacing: 0.18em;
+}
+.yard-title h1 {
+  font:
+    800 clamp(27px, 4.4vw, 54px) / 1.18 "Trebuchet MS",
+    "PingFang SC",
+    sans-serif;
+  margin: 4px 0;
+}
+.yard-title p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+.yard-cat {
+  position: absolute;
+  height: 37%;
+  width: 28%;
+  object-fit: contain;
+  left: 37%;
+  top: 43%;
+  filter: drop-shadow(0 7px 3px #20301944);
+  animation: cat-breathe 4s ease-in-out infinite;
+}
+.yard-settings {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  width: 50px;
+  background: #ffedbfdd;
+  border-radius: 50%;
+}
+.yard-entry {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 35px 14px 18px;
+  border: 3px solid #6e502d;
+  background: #efd499ed;
+  border-radius: 9px 15px 12px 6px;
+  box-shadow:
+    0 6px 0 #4a3826,
+    0 9px 12px #283a2c33;
+  color: #243c2e;
+  transform: rotate(-2deg);
+  min-width: 170px;
+  max-width: 29%;
+  text-align: center;
+}
+.yard-entry > span:first-child {
+  font-size: clamp(19px, 2.9vw, 31px);
+  font-weight: 900;
+}
+.yard-entry small {
+  font-size: 12px;
+  margin-top: 6px;
+}
+.entry-sound {
+  position: absolute;
+  right: 5px;
+  bottom: 8px;
+  padding: 9px;
+  font-size: 18px;
+}
+.yard-story {
+  left: 26%;
+  top: 42%;
+  background: #315e43ed;
+  color: #fff1ba;
+  border-color: #eac47b;
+  min-width: 210px;
+  transform: rotate(0);
+}
+.yard-endless {
+  right: 7%;
+  top: 19%;
+  background: #eec68b;
+  transform: rotate(3deg);
+}
+.yard-training {
+  left: 4%;
+  bottom: 12%;
+  background: #fff0cfee;
+  transform: rotate(-5deg);
+}
+.yard-mini {
+  right: 4%;
+  bottom: 17%;
+  transform: rotate(2deg);
+  background: #d4dfb5;
+}
+.development-note {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #f7eed4;
+  text-shadow: 0 1px 2px #213c2a;
+  pointer-events: none;
+}
+.yard-growth {
+  position: absolute;
+  right: 34%;
+  bottom: 8%;
+  font-size: 34px;
+}
+.corner-back {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  left: 16px;
+  z-index: 3;
+  background: #fff0d5e8;
+  padding: 8px 14px;
+  border: 1px solid #36563a;
+  border-radius: 18px;
+}
+.story-stage {
+  background-size: cover;
+  background-position: center;
+}
+.elder,
+.heir {
+  position: absolute;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 6px #30432144);
+  transition:
+    transform 900ms ease,
+    height 900ms ease;
+  bottom: 24%;
+  height: 58%;
+  max-width: 45%;
+}
+.elder {
+  left: 12%;
+}
+.heir {
+  right: 15%;
+  height: 48%;
+}
+.heir.beat-1 {
+  transform: translateX(-10%);
+}
+.heir.beat-2 {
+  transform: translateY(-8px);
+}
+.story-line {
+  position: absolute;
+  bottom: 4%;
+  left: 8%;
+  right: 8%;
+  text-align: center;
+  padding: 20px;
+  background: #fff0d4ee;
+  border: 3px solid #567445;
+  border-radius: 20px;
+}
+.story-line p {
+  font-size: clamp(20px, 3vw, 30px);
+  margin: 4px 0 16px;
+}
+.story-line button {
+  margin: 0 5px;
+}
+.recipe-book {
+  background:
+    repeating-linear-gradient(0deg, #d6b17b0a 0px, #d6b17b0a 2px, transparent 2px, transparent 5px),
+    #fff0cf;
+  padding: 65px 5% 20px;
+  text-align: center;
+  box-shadow: inset 20px 0 40px #996c4438;
+}
+.recipe-book h2,
+.mini-lobby h2,
+.setup-board h2 {
+  font-size: clamp(24px, 3.7vw, 38px);
+  margin: 6px 0;
+}
+.recipe-book > p {
+  margin: 5px 0 18px;
+}
+.chapter-pages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 950px;
+  margin: 0 auto 18px;
+}
+.chapter-pages button {
+  background: #fff8e4;
+  border: 1px solid #c3a06f;
+  border-radius: 4px;
+  padding: 14px 10px;
+  box-shadow: 4px 5px 0 #cba9704a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28%;
+  transform: rotate(-1deg);
+}
+.chapter-pages button:nth-child(even) {
+  transform: rotate(2deg);
+}
+.chapter-pages .food-art {
+  width: 100px;
+  height: 100px;
+}
+.chapter-pages button span {
+  font-weight: bold;
+  font-size: 21px;
+}
+.chapter-pages button small {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.chapter-pages button:disabled {
+  filter: grayscale(0.7);
+  opacity: 0.6;
+}
+.setup-board,
+.mini-lobby,
+.mini-play {
+  background: radial-gradient(ellipse at center, #ffefd1 35%, #e3cb99 100%);
+  padding: 70px 6% 35px;
+  text-align: center;
+}
+.setup-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.support-options,
+.choice-row {
+  border: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.support-options button,
+.choice-row button {
+  border: 2px solid #aa8757;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff6d9;
+}
+.support-options legend,
+.choice-row legend {
+  padding: 10px;
+  font-size: 16px;
+}
+.setup-board > .primary {
+  align-self: center;
+  padding: 12px 40px;
+}
+.m2-shell .game-toolbar {
+  z-index: 10;
+}
+.m2-shell .request-tools {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: auto;
+  white-space: nowrap;
+  z-index: 12;
+}
+.m2-shell .request-tools button {
+  padding: 5px 10px;
+  font-size: 15px;
+}
+.family-tabs {
+  position: absolute;
+  top: 33%;
+  left: 3%;
+  right: 3%;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  z-index: 12;
+}
+.family-tabs button {
+  font-size: 13px;
+  padding: 4px 10px;
+  background: #fff0d3e8;
+  min-height: 32px;
+  border-radius: 14px;
+}
+.prep-selector {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 75%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+}
+.prep-selector span {
+  font-size: 13px;
+}
+.prep-selector button {
+  background: #e7ddb8f0;
+  border: 1px solid #456b45;
+  padding: 5px 10px;
+  font-size: 14px;
+  min-height: 36px;
+}
+.delivery-actions {
+  position: absolute;
+  top: 63%;
+  left: 3%;
+  right: 3%;
+  display: flex;
+  justify-content: space-around;
+  gap: 6px;
+  z-index: 12;
+  pointer-events: none;
+}
+.delivery-actions button {
+  pointer-events: auto;
+  background: #315c40f0;
+  color: #fff5d8;
+  border: 2px solid #e4be69;
+  border-radius: 18px;
+  padding: 5px 12px;
+  min-height: 42px;
+  font-size: 15px;
+  transform: translateY(48px);
+}
+.near-remove,
+.restore-food {
+  position: absolute;
+  right: 3%;
+  top: 57%;
+  z-index: 19;
+  background: #fff0cd;
+  font-size: 13px;
+  border: 1px solid #456a40;
+  padding: 6px;
+}
+.restore-food {
+  left: 3%;
+  right: auto;
+  top: 57%;
+}
+.m2-shell .request-picture {
+  top: 26%;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff3cfea;
+  padding: 3px 10px;
+  z-index: 11;
+}
+.m2-shell .request-picture img {
+  width: 40px;
+  height: 40px;
+}
+.m2-shell .request-caption {
+  top: 18%;
+  font-size: 17px;
+  z-index: 15;
+}
+.m2-shell .game-feedback {
+  min-height: 45px;
+  background: #204531ed;
+  color: #fff2ce;
+  padding: 6px 12px;
+  bottom: 0;
+  z-index: 12;
+}
+.m2-shell .game-feedback p {
+  font-size: 13px;
+  margin: 0;
+}
+.m2-shell .game-feedback small {
+  font-size: 10px;
+  color: #ede0bd;
+}
+.lesson-dialog {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 5%;
+  z-index: 30;
+  background: #fff3d9f5;
+  border: 3px solid #47714d;
+  border-radius: 16px;
+  padding: 15px 14px;
+  text-align: center;
+  box-shadow: 0 10px 40px #122a2455;
+}
+.lesson-tab {
+  font-size: 13px;
+  color: #496745;
+}
+.lesson-ingredients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0;
+}
+.lesson-ingredients > button {
+  padding: 3px;
+  background: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lesson-ingredients .food-art {
+  height: 65px;
+  width: 60px;
+}
+.lesson-ingredients button span {
+  font-size: 12px;
+}
+.lesson-dialog h2 {
+  font-size: 20px;
+  margin: 8px 0;
+}
+.lesson-dialog p {
+  font-size: 14px;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+.lesson-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.lesson-actions button {
+  padding: 8px 14px;
+}
+.m2-shell .ending img {
+  height: 130px;
+  object-fit: contain;
+}
+.m2-shell .ending {
+  z-index: 25;
+  gap: 10px;
+}
+.m2-shell .ending h2 {
+  font-size: 25px;
+}
+.m2-shell .ending p {
+  font-size: 16px;
+  max-width: 400px;
+}
+.m2-shell .modal {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+}
+.m2-shell .modal h2 {
+  font-size: 22px;
+}
+.adult-settings {
+  background: #f7edd5;
+  padding: 65px max(6%, 20px) 30px;
+  overflow: auto;
+}
+.adult-settings details {
+  margin-top: 20px;
+  max-width: 900px;
+}
+.adult-settings p,
+.adult-settings output {
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  font-size: 13px;
+}
+.adult-settings .sound-settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.adult-settings > label {
+  display: block;
+  margin: 20px 0;
+}
+.adult-settings li {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.adult-settings summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+.mini-choices {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin: 25px 0;
+}
+.mini-choices > button {
+  width: 260px;
+  max-width: 45%;
+  background: #fff7df;
+  border: 3px solid #68855d;
+  border-radius: 12px 35px 15px 30px;
+  box-shadow: 0 7px 0 #ab8c54;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.mini-choices .food-art {
+  width: 110px;
+  height: 110px;
+}
+.mini-choices strong {
+  font-size: 23px;
+  margin-top: 15px;
+}
+.mini-choices span:not(.letter-sign) {
+  font-size: 13px;
+  margin: 10px 0;
+}
+.letter-sign {
+  font-size: 44px;
+  font-weight: 900;
+  color: #456b40;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.07em;
+}
+.mini-progress {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 0 15px;
+}
+.mini-intro,
+.mini-ending,
+.meaning-stage {
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.mini-intro .food-art,
+.meaning-stage .food-art {
+  width: 180px;
+  height: 180px;
+}
+.mini-intro p {
+  max-width: 460px;
+  line-height: 1.7;
+}
+.mini-ending img {
+  height: 200px;
+}
+.mini-ending h2 {
+  font-size: 26px;
+}
+.mini-ending p {
+  font-size: 15px;
+  max-width: 500px;
+}
+.mini-play .primary {
+  padding: 9px 25px;
+}
+.mini-prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  min-height: 85px;
+}
+.mini-prompt .food-art {
+  height: 100px;
+  width: 100px;
+}
+.sound-tile {
+  background: #3e6848;
+  color: #fff4cc;
+  padding: 16px 25px;
+  border-radius: 18px;
+  border: 2px solid #dabd78;
+  font-size: 23px;
+}
+.matching-pictures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(90px, 180px));
+  gap: 15px;
+  justify-content: center;
+  margin: 20px auto;
+}
+.matching-pictures button {
+  height: 135px;
+  background: #fff6df;
+  border: 3px solid #b39765;
+  border-radius: 22px;
+}
+.matching-pictures .food-art {
+  height: 110px;
+  width: 110px;
+}
+.matching-pictures strong {
+  font-size: 24px;
+}
+.mini-feedback {
+  min-height: 28px;
+  font-size: 16px;
+}
+.letter-draft,
+.letter-bank {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 15px auto;
+  max-width: 660px;
+}
+.letter-draft button,
+.letter-bank button {
+  font-size: 29px;
+  font-weight: 800;
+  width: 55px;
+  height: 58px;
+  border-radius: 9px;
+  background: #fff9e7;
+  border: 2px solid #759165;
+  box-shadow: 0 4px 0 #bb9d60;
+  touch-action: none;
+}
+.letter-draft {
+  padding: 16px 10px;
+  background: #c1d3a78c;
+  border-radius: 12px;
+  min-height: 80px;
+}
+.letter-draft button {
+  background: #f7d674;
+}
+.letter-draft button:disabled {
+  opacity: 1;
+}
+.letter-bank button:disabled {
+  opacity: 0.25;
+}
+.spell-model {
+  font-size: 25px;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+.mini-play .development-note {
+  color: #56694b;
+  text-shadow: none;
+}
+@keyframes cat-breathe {
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+@media (max-width: 600px) {
+  .courtyard {
+    background-size: auto 100%;
+    background-position: 44% center;
+  }
+  .yard-title {
+    top: 6%;
+    left: 7%;
+    right: 15%;
+  }
+  .yard-title h1 {
+    font-size: 29px;
+    max-width: 260px;
+  }
+  .yard-title p {
+    font-size: 14px;
+  }
+  .yard-title span {
+    font-size: 10px;
+  }
+  .yard-cat {
+    height: 28%;
+    width: 48%;
+    left: 22%;
+    top: 32%;
+  }
+  .yard-entry {
+    min-width: 0;
+    max-width: none;
+    width: 43%;
+    padding: 12px 25px 12px 8px;
+  }
+  .yard-entry > span:first-child {
+    font-size: 21px;
+  }
+  .yard-entry small {
+    font-size: 11px;
+  }
+  .yard-story {
+    left: 17%;
+    top: 55%;
+    width: 66%;
+    padding: 13px 35px;
+  }
+  .yard-endless {
+    top: 70%;
+    right: 5%;
+    width: 43%;
+  }
+  .yard-training {
+    left: 5%;
+    bottom: 17%;
+    width: 43%;
+  }
+  .yard-mini {
+    left: 18%;
+    right: auto;
+    bottom: 4%;
+    width: 64%;
+  }
+  .yard-growth {
+    bottom: 28%;
+    right: 6%;
+    font-size: 25px;
+  }
+  .chapter-pages {
+    gap: 10px;
+  }
+  .chapter-pages button {
+    width: 44%;
+    padding: 8px;
+  }
+  .chapter-pages .food-art {
+    width: 65px;
+    height: 65px;
+  }
+  .chapter-pages button span {
+    font-size: 19px;
+  }
+  .chapter-pages button small {
+    font-size: 11px;
+  }
+  .recipe-book {
+    padding-top: 65px;
+  }
+  .recipe-book > p {
+    margin-bottom: 12px;
+  }
+  .elder {
+    left: 1%;
+    max-width: 56%;
+    height: 49%;
+    bottom: 30%;
+  }
+  .heir {
+    right: 0;
+    max-width: 53%;
+    height: 39%;
+    bottom: 29%;
+  }
+  .story-line {
+    left: 4%;
+    right: 4%;
+    padding: 17px 9px;
+  }
+  .story-line p {
+    font-size: 21px;
+  }
+  .mini-lobby {
+    padding: 65px 4% 24px;
+  }
+  .mini-lobby > p {
+    font-size: 14px;
+  }
+  .mini-choices {
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .mini-choices > button {
+    padding: 14px 6px;
+    max-width: 48%;
+    width: 48%;
+  }
+  .mini-choices strong {
+    font-size: 19px;
+  }
+  .mini-choices .food-art,
+  .letter-sign {
+    height: 75px;
+    width: 80px;
+  }
+  .letter-sign {
+    font-size: 29px;
+  }
+  .choice-row {
+    gap: 5px;
+  }
+  .choice-row button {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .choice-row legend {
+    font-size: 14px;
+    padding: 5px;
+  }
+  .mini-play {
+    padding: 65px 4% 28px;
+  }
+  .matching-pictures {
+    grid-template-columns: repeat(2, minmax(100px, 150px));
+    gap: 12px;
+  }
+  .matching-pictures button {
+    height: 120px;
+  }
+  .matching-pictures .food-art {
+    height: 95px;
+    width: 100px;
+  }
+  .letter-draft,
+  .letter-bank {
+    gap: 5px;
+    max-width: 350px;
+  }
+  .letter-draft button,
+  .letter-bank button {
+    width: 36px;
+    height: 49px;
+    font-size: 25px;
+    min-height: 44px;
+  }
+  .letter-draft {
+    padding: 12px 4px;
+  }
+  .spell-model {
+    font-size: 21px;
+  }
+  .lesson-ingredients .food-art {
+    width: 43px;
+    height: 48px;
+  }
+  .lesson-ingredients button span {
+    font-size: 10px;
+  }
+  .lesson-dialog {
+    padding: 10px;
+  }
+  .m2-shell .ending {
+    padding: 20px;
+  }
+  .m2-shell .ending img {
+    height: 100px;
+  }
+}
+@media (max-height: 690px) and (orientation: portrait) {
+  .yard-title {
+    top: 4%;
+  }
+  .yard-title h1 {
+    font-size: 25px;
+  }
+  .yard-title p {
+    display: none;
+  }
+  .yard-cat {
+    top: 25%;
+  }
+  .yard-story {
+    top: 49%;
+  }
+  .yard-endless {
+    top: 64%;
+  }
+  .yard-training {
+    bottom: 20%;
+  }
+  .yard-mini {
+    bottom: 5%;
+  }
+  .yard-entry > span:first-child {
+    font-size: 19px;
+  }
+  .yard-entry small {
+    font-size: 10px;
+  }
+  .chapter-pages .food-art {
+    height: 40px;
+    width: 40px;
+  }
+  .chapter-pages button small {
+    font-size: 10px;
+  }
+  .chapter-pages {
+    gap: 7px;
+  }
+  .chapter-pages button span {
+    font-size: 17px;
+  }
+  .recipe-book h2 {
+    font-size: 22px;
+  }
+  .mini-prompt {
+    min-height: 65px;
+  }
+  .mini-prompt .food-art {
+    height: 65px;
+    width: 65px;
+  }
+  .matching-pictures {
+    margin: 12px auto;
+  }
+  .matching-pictures button {
+    height: 90px;
+  }
+  .matching-pictures .food-art {
+    height: 75px;
+    width: 75px;
+  }
+  .mini-feedback {
+    font-size: 13px;
+  }
+  .mini-choices {
+    margin: 10px 0;
+  }
+  .mini-lobby .choice-row button {
+    padding: 4px;
+  }
+  .mini-lobby .choice-row legend {
+    padding: 3px;
+  }
+  .mini-lobby .mini-choices strong {
+    font-size: 16px;
+  }
+}
+@media (orientation: landscape) {
+  .m2-shell .request-tools {
+    top: 12%;
+    left: 48%;
+  }
+  .family-tabs {
+    top: 33%;
+    left: 3%;
+    right: 55%;
+  }
+  .prep-selector {
+    top: 73%;
+    left: 46%;
+    right: 2%;
+  }
+  .delivery-actions {
+    top: 55%;
+    left: 48%;
+    right: 1%;
+  }
+  .m2-shell .request-picture {
+    top: 23%;
+    left: 85%;
+  }
+  .m2-shell .request-caption {
+    left: 43%;
+    top: 22%;
+    max-width: 45%;
+  }
+  .lesson-dialog {
+    left: 45%;
+    right: 3%;
+    bottom: 7%;
+    max-width: 600px;
+  }
+  .m2-shell .near-remove {
+    top: 76%;
+    right: 3%;
+  }
+  .mini-play .matching-pictures {
+    display: flex;
+    margin: 10px;
+  }
+  .matching-pictures button {
+    width: 135px;
+  }
+  .mini-play .mini-prompt {
+    min-height: 70px;
+  }
+  .mini-intro,
+  .meaning-stage {
+    gap: 8px;
+  }
+  .mini-intro .food-art,
+  .meaning-stage .food-art {
+    height: 120px;
+    width: 120px;
+  }
+  .recipe-book .chapter-pages {
+    flex-wrap: nowrap;
+  }
+  .chapter-pages button {
+    width: 18%;
+  }
+  .story-line {
+    padding: 12px;
+    bottom: 3%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .yard-cat {
+    animation: none;
+  }
+  .elder,
+  .heir {
+    transition: none;
+  }
+}
+
+.m2-shell .game-feedback p,
+.m2-shell .game-feedback small {
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+}
+.delivery-actions {
+  top: 59%;
+}
+.delivery-actions button {
+  transform: none;
+}
+.m2-shell .request-caption button {
+  pointer-events: auto;
+}
+
+.yard-entry {
+  padding: 0;
+}
+.entry-main {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 32px 15px 12px;
+  color: inherit;
+}
+.entry-main:hover {
+  background: #ffffff12;
+}
+.entry-main > span {
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 900;
+}
+.entry-main small {
+  font-size: 12px;
+  margin-top: 6px;
+}
+.entry-sound {
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  right: 0;
+  bottom: 4px;
+  color: inherit;
+}
+.all-food-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 300px;
+}
+.all-food-intro .food-art {
+  width: 110px;
+  height: 110px;
+}
+.family-tabs,
+.prep-selector,
+.delivery-actions,
+.request-picture {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+.loading-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  background: #224c3acd;
+  color: #fff4d3;
+  z-index: 60;
+}
+.chapter-moment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #cab88e;
+}
+.chapter-moment p {
+  flex: 1;
+  font-size: 14px;
+}
+.chapter-moment button {
+  padding: 6px 12px;
+}
+.lesson-process,
+.lesson-stepper {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+.lesson-stepper button {
+  padding: 6px 10px;
+  min-height: 36px;
+  font-size: 13px;
+}
+.lesson-stepper [aria-pressed="true"] {
+  background: #f2cc69;
+}
+.language-focus {
+  color: #426a43;
+  font-weight: bold;
+}
+@media (max-height: 700px) {
+  .lesson-dialog {
+    padding: 9px 10px;
+    bottom: 2%;
+  }
+  .lesson-ingredients .food-art {
+    height: 45px;
+    width: 43px;
+  }
+  .lesson-dialog h2 {
+    font-size: 17px;
+  }
+  .lesson-dialog p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+}
+.letter-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 50px;
+  height: 58px;
+  place-content: center;
+  background: #f6ce6e;
+  border: 2px solid #254e38;
+  border-radius: 12px;
+  font-size: 32px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 90;
+  box-shadow: 0 8px 12px #203b2c55;
+}
+.answer-help {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.answer-help .food-art {
+  height: 50px;
+  width: 50px;
+}
+.m2-shell .audio-alert.during-lesson {
+  bottom: auto;
+  top: 13%;
+  left: 3%;
+  right: 3%;
+  font-size: 12px;
+}
+.recipe-book .support-options {
+  padding: 4px;
+  margin: 0 auto 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  max-width: 620px;
+}
+.recipe-book .support-options button {
+  padding: 5px 8px;
+  font-size: 12px;
+  min-height: 38px;
+}
+.recipe-book .support-options legend {
+  font-size: 12px;
+  padding: 2px 6px;
+}
+.training-recipes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+}
+.training-recipes button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  max-width: 90px;
+  padding: 8px;
+}
+.training-recipes .food-art {
+  width: 45px;
+  height: 45px;
+}
+.yard-planter {
+  position: absolute;
+  left: 9%;
+  bottom: 34%;
+  width: 75px;
+  height: 30px;
+  border-radius: 3px 3px 17px 17px;
+  background: linear-gradient(90deg, #795335, #b8894c, #795335);
+  box-shadow: 0 6px 8px #243a3640;
+  pointer-events: none;
+}
+.flower {
+  position: absolute;
+  bottom: 22px;
+  left: 18px;
+  width: 4px;
+  height: 39px;
+  background: #407244;
+  transform: rotate(-12deg);
+}
+.flower-middle {
+  left: 38px;
+  height: 51px;
+  transform: rotate(5deg);
+}
+.flower-right {
+  left: 57px;
+  transform: rotate(17deg);
+}
+.flower b {
+  position: absolute;
+  top: -5px;
+  left: -4px;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background: #c17c33;
+  box-shadow:
+    0 -9px 0 1px #f8e6a7,
+    9px 0 0 1px #f8e6a7,
+    0 9px 0 1px #f8e6a7,
+    -9px 0 0 1px #f8e6a7;
+}
+.yard-bunting {
+  position: absolute;
+  left: 18%;
+  right: 30%;
+  top: 28%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #75623b;
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+.yard-bunting i {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 25px solid #c86c48;
+}
+.yard-bunting i:nth-child(2n) {
+  border-top-color: #4e8463;
+}
+.yard-bunting i:nth-child(3n) {
+  border-top-color: #e3b95b;
+}
+.yard-picnic {
+  position: absolute;
+  left: 3%;
+  bottom: 51%;
+  width: 90px;
+  height: 25px;
+  background: repeating-conic-gradient(#d79863 0% 25%, #f8e9c3 0% 50%) 0 / 20px 20px;
+  transform: skew(-15deg);
+  box-shadow: 0 9px 0 #785535;
+  pointer-events: none;
+}
+.yard-lights {
+  position: absolute;
+  top: 20%;
+  left: 13%;
+  right: 14%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #624d30;
+  padding-bottom: 8px;
+  transform: rotate(2deg);
+  pointer-events: none;
+}
+.yard-lights i {
+  width: 10px;
+  height: 14px;
+  border-radius: 4px 4px 50% 50%;
+  background: #ffe7a2;
+  box-shadow: 0 0 13px 5px #ffe095aa;
+}
+.yard-photo {
+  position: absolute;
+  top: 32%;
+  right: 9%;
+  width: 140px;
+  height: 105px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  border: 7px solid #f4e8c9;
+  background: #7f9b78;
+  transform: rotate(6deg);
+  box-shadow: 2px 3px 5px #152f2640;
+  pointer-events: none;
+}
+.yard-photo img {
+  width: 38px;
+  height: 70px;
+  object-fit: contain;
+}
+.yard-photo span {
+  position: absolute;
+  bottom: -20px;
+  font-size: 12px;
+  background: #f4e8c9;
+  width: calc(100% + 14px);
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .yard-planter {
+    left: 29%;
+    bottom: 35%;
+    transform: scale(1.3);
+  }
+  .yard-picnic {
+    left: auto;
+    right: 14%;
+    bottom: 28%;
+    width: 170px;
+    height: 50px;
+  }
+  .yard-photo {
+    right: 22%;
+    top: 31%;
+    transform: rotate(6deg) scale(1.3);
+  }
+}
+@media (orientation: landscape) {
+  .delivery-actions {
+    left: 50%;
+    right: auto;
+    top: 57%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    width: max-content;
+  }
+  .delivery-actions button {
+    transform: none;
+  }
+  .prep-selector {
+    left: 3%;
+    right: 3%;
+    top: 76%;
+  }
+  .m2-shell .request-caption {
+    left: 50%;
+    top: 22%;
+    transform: translateX(-50%);
+  }
+}
+
+.legacy-note {
+  position: absolute;
+  top: 19%;
+  left: 5%;
+  width: 70%;
+  padding: 8px 12px;
+  color: #fff6df;
+  background: #214b3ced;
+  border-radius: 12px;
+  font-size: 12px;
+  z-index: 8;
+}

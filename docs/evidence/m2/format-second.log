@@ -1,0 +1,598 @@
+src/app/m2.css:357:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    355 │   z-index: 12;
+    356 │ }
+  > 357 │ .family-tabs button {
+        │ ^^^^^^^^^^^^^^^^^^^
+    358 │   font-size: 13px;
+    359 │   padding: 4px 10px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:375:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    373 │   z-index: 12;
+    374 │ }
+  > 375 │ .prep-selector span {
+        │ ^^^^^^^^^^^^^^^^^^^
+    376 │   font-size: 13px;
+    377 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    280 │   height: 100px;
+    281 │ }
+  > 282 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    283 │   font-weight: bold;
+    284 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:378:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    376 │   font-size: 13px;
+    377 │ }
+  > 378 │ .prep-selector button {
+        │ ^^^^^^^^^^^^^^^^^^^^^
+    379 │   background: #e7ddb8f0;
+    380 │   border: 1px solid #456b45;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:396:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    394 │   pointer-events: none;
+    395 │ }
+  > 396 │ .delivery-actions button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    397 │   pointer-events: auto;
+    398 │   background: #315c40f0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:481:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    479 │   margin: 10px 0;
+    480 │ }
+  > 481 │ .lesson-ingredients > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    482 │   padding: 3px;
+    483 │   background: transparent;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:500:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    498 │   margin: 8px 0;
+    499 │ }
+  > 500 │ .lesson-dialog p {
+        │ ^^^^^^^^^^^^^^^^
+    501 │   font-size: 14px;
+    502 │   margin: 8px 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    447 │   z-index: 12;
+    448 │ }
+  > 449 │ .m2-shell .game-feedback p {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    450 │   font-size: 13px;
+    451 │   margin: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:510:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    508 │   gap: 10px;
+    509 │ }
+  > 510 │ .lesson-actions button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    511 │   padding: 8px 14px;
+    512 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:547:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    545 │   max-width: 900px;
+    546 │ }
+  > 547 │ .adult-settings p,
+        │ ^^^^^^^^^^^^^^^^^
+    548 │ .adult-settings output {
+    549 │   overflow-wrap: anywhere;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    447 │   z-index: 12;
+    448 │ }
+  > 449 │ .m2-shell .game-feedback p {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    450 │   font-size: 13px;
+    451 │   margin: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:576:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    574 │   margin: 25px 0;
+    575 │ }
+  > 576 │ .mini-choices > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    577 │   width: 260px;
+    578 │   max-width: 45%;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:629:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    627 │   height: 180px;
+    628 │ }
+  > 629 │ .mini-intro p {
+        │ ^^^^^^^^^^^^^
+    630 │   max-width: 460px;
+    631 │   line-height: 1.7;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    447 │   z-index: 12;
+    448 │ }
+  > 449 │ .m2-shell .game-feedback p {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    450 │   font-size: 13px;
+    451 │   margin: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:633:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    631 │   line-height: 1.7;
+    632 │ }
+  > 633 │ .mini-ending img {
+        │ ^^^^^^^^^^^^^^^^
+    634 │   height: 200px;
+    635 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    430 │   z-index: 11;
+    431 │ }
+  > 432 │ .m2-shell .request-picture img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    433 │   width: 40px;
+    434 │   height: 40px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:636:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    634 │   height: 200px;
+    635 │ }
+  > 636 │ .mini-ending h2 {
+        │ ^^^^^^^^^^^^^^^
+    637 │   font-size: 26px;
+    638 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    519 │   gap: 10px;
+    520 │ }
+  > 521 │ .m2-shell .ending h2 {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    522 │   font-size: 25px;
+    523 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:639:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    637 │   font-size: 26px;
+    638 │ }
+  > 639 │ .mini-ending p {
+        │ ^^^^^^^^^^^^^^
+    640 │   font-size: 15px;
+    641 │   max-width: 500px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    447 │   z-index: 12;
+    448 │ }
+  > 449 │ .m2-shell .game-feedback p {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    450 │   font-size: 13px;
+    451 │   margin: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:672:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    670 │   margin: 20px auto;
+    671 │ }
+  > 672 │ .matching-pictures button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^
+    673 │   height: 135px;
+    674 │   background: #fff6df;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:698:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    696 │   max-width: 660px;
+    697 │ }
+  > 698 │ .letter-draft button,
+        │ ^^^^^^^^^^^^^^^^^^^^
+    699 │ .letter-bank button {
+    700 │   font-size: 29px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:699:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    697 │ }
+    698 │ .letter-draft button,
+  > 699 │ .letter-bank button {
+        │ ^^^^^^^^^^^^^^^^^^^
+    700 │   font-size: 29px;
+    701 │   font-weight: 800;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:716:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    714 │   min-height: 80px;
+    715 │ }
+  > 716 │ .letter-draft button {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    717 │   background: #f7d674;
+    718 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1101:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1099 │   top: 59%;
+    1100 │ }
+  > 1101 │ .delivery-actions button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    1102 │   transform: none;
+    1103 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    341 │   z-index: 12;
+    342 │ }
+  > 343 │ .m2-shell .request-tools button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    344 │   padding: 5px 10px;
+    345 │   font-size: 15px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/App.tsx:365:15 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    363 │                 ) : null}
+    364 │               </div>
+  > 365 │               <div className="family-tabs" aria-label="选择食谱工作台">
+        │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    366 │                 {s.session.unlocked.map((f) => (
+    367 │                   <button
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/App.tsx:377:15 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    375 │                 ))}
+    376 │               </div>
+  > 377 │               <div className="prep-selector" aria-label="当前备餐位置">
+        │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    378 │                 <span>放到</span>
+    379 │                 <button
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/App.tsx:419:15 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    417 │                 )}
+    418 │               </div>
+  > 419 │               <div className="delivery-actions" aria-label="送餐">
+        │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    420 │                 {waiting.map((o) => (
+    421 │                   <button
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/App.tsx:452:17 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    450 │               ) : null}
+    451 │               {picture ? (
+  > 452 │                 <div className="request-picture" aria-label="有图示支持的请求">
+        │                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    453 │                   {REQUESTS[selected.request].products.map((p, i) => (
+    454 │                     <Food key={`${p}-${i}`} product={p} />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/App.tsx:454:40 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    452 │                 <div className="request-picture" aria-label="有图示支持的请求">
+    453 │                   {REQUESTS[selected.request].products.map((p, i) => (
+  > 454 │                     <Food key={`${p}-${i}`} product={p} />
+        │                                        ^
+    455 │                   ))}
+    456 │                 </div>
+  
+  i This is the source of the key value.
+  
+    451 │               {picture ? (
+    452 │                 <div className="request-picture" aria-label="有图示支持的请求">
+  > 453 │                   {REQUESTS[selected.request].products.map((p, i) => (
+        │                                                                ^
+    454 │                     <Food key={`${p}-${i}`} product={p} />
+    455 │                   ))}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/Home.tsx:33:9 lint/a11y/useSemanticElements ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The elements with this role can be changed to the following elements:
+    <button>
+  
+    31 │       </small>
+    32 │       <span
+  > 33 │         role="button"
+       │         ^^^^^^^^^^^^^
+    34 │         tabIndex={0}
+    35 │         className="entry-sound"
+  
+  i For examples and more information, see WAI-ARIA Roles
+  
+  i Replace with one of these elements:
+  
+  - <button>
+  
+
+src/app/Home.tsx:80:7 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    78 │       {entry('training', '教学练习', 'menu-training')}
+    79 │       {entry('mini', '迷你游戏', 'menu-mini')}
+  > 80 │       <div className="yard-growth" aria-label="小院成长">
+       │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    81 │         {profile.completed.length > 0 ? '✿' : ''}
+    82 │         {profile.completed.length > 1 ? ' ⚑' : ''}
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Lesson.tsx:25:26 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    23 │           <button
+    24 │             type="button"
+  > 25 │             key={`${p}-${i}`}
+       │                          ^
+    26 │             onClick={() =>
+    27 │               void audio.play(['apple', 'banana', 'juice'].includes(p) ? p : `word-${p}`)
+  
+  i This is the source of the key value.
+  
+    20 │       <span className="lesson-tab">小猫的食谱 · 看一看，听一听</span>
+    21 │       <div className="lesson-ingredients">
+  > 22 │         {inputs.map((p, i) => (
+       │                         ^
+    23 │           <button
+    24 │             type="button"
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/MiniGames.tsx:292:51 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    290 │                     <button
+    291 │                       type="button"
+  > 292 │                       key={`slot-${state.round}-${i}`}
+        │                                                   ^
+    293 │                       aria-label={`字母位置${i + 1}${id ? ` ${letters(state).find((l) => l.id === id)?.text}` : ''}`}
+    294 │                       disabled={!id || state.fixed.includes(id)}
+  
+  i This is the source of the key value.
+  
+    285 │               ) : null}
+    286 │               <div className="letter-draft" data-letter-drop="true">
+  > 287 │                 {Array.from({ length: word.text.replaceAll(' ', '').length }, (_, i) => {
+        │                                                                                   ^
+    288 │                   const id = state.draft[i];
+    289 │                   return (
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/rules/minigames.ts:57:86 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    55 │   };
+    56 │ }
+  > 57 │ export const targetWord = (s: MiniState) => wordById(s.words[s.round] ?? 'apple') ?? WORDS[0]!;
+       │                                                                                      ^^^^^^^^^
+    58 │ export const letters = (s: MiniState) =>
+    59 │   shuffle(
+  
+
+Checked 55 files in 195ms. Fixed 10 files.
+Found 10 errors.
+Found 18 warnings.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

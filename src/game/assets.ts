@@ -8,6 +8,32 @@ export const ASSET_IDS = [
   'cat-greet',
   'cat-blocked',
   'cat-celebrate',
+  'cat-step-0',
+  'cat-step-1',
+  'cat-step-2',
+  'cat-step-3',
+  'bread',
+  'cheese',
+  'lettuce',
+  'tomato',
+  'bun',
+  'patty',
+  'cooked-patty',
+  'cone',
+  'vanilla',
+  'strawberry',
+  'sandwich',
+  'burger',
+  'banana-juice',
+  'salad-sandwich',
+  'cheese-burger',
+  'ice-station',
+  'board-station',
+  'grill-station',
+  'vanilla-cone',
+  'strawberry-cup',
+  'double-cream',
+  'banana-cream',
   'market',
   'apple',
   'banana',
@@ -23,3 +49,10 @@ export const ASSET_IDS = [
   'guest-1-2',
 ] as const;
 export const assetUrl = (id: string) => resourceUrl('assets', `${id}.webp`);
+
+export const CORE_ASSETS = ASSET_IDS.filter(
+  (id) =>
+    id.startsWith('cat-') ||
+    id.startsWith('guest-') ||
+    ['market', 'tray', 'machine', 'apple', 'banana', 'cup', 'juice'].includes(id),
+);

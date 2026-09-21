@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { REQUESTS, TOKENS } from '../src/content/catalog';
+import { type Product, REQUESTS, TOKENS } from '../src/content/catalog';
 import { parsePhrase, parseTokens } from '../src/content/phrases';
 import { GameController } from '../src/platform/controller';
 import { SAVE_KEY, SaveStore } from '../src/platform/save';
@@ -10,7 +10,7 @@ import type { Command, GameState, TrayId } from '../src/rules/types';
 let sequence = 0;
 const send = (s: GameState, command: Command) =>
   dispatch(s, { runId: s.runId, id: `test-${++sequence}`, command });
-const put = (s: GameState, supply: 'apple' | 'banana', tray: TrayId) =>
+const put = (s: GameState, supply: Product, tray: TrayId) =>
   send(s, { type: 'move', source: { supply }, destination: { tray } }).state;
 function juice(s = createGame('test')): GameState {
   s = send(s, {
@@ -49,7 +49,7 @@ describe('T01–T03 ownership, clocks, recipes and orders', () => {
     const e = {
       id: 'same',
       runId: 'r',
-      command: { type: 'move', source: { supply: 'banana' }, destination: { machine: 'apple' } },
+      command: { type: 'move', source: { supply: 'cheese' }, destination: { machine: 'apple' } },
     } as const;
     s = dispatch(s, e).state;
     expect(s.items).toHaveLength(0);
@@ -116,7 +116,7 @@ describe('T01–T03 ownership, clocks, recipes and orders', () => {
     expect(send(s, { type: 'deliver', tray: 0, order: 'guest-1' }).kind).toBe('blocked');
     expect(send(s, { type: 'note', tray: 1, tokens: tokens('an apple') }).kind).toBe('blocked');
     expect(put(s, 'apple', 0).items).toHaveLength(3);
-    const complete = advance(s, 2000);
+    const complete = advance(s, s.helper?.remaining ?? 0);
     expect(trayItems(complete, 0)).toHaveLength(3);
     expect(trayItems(complete, 1)).toHaveLength(0);
     expect(validateState(complete)).toBe(true);
@@ -137,7 +137,8 @@ describe('T01–T03 ownership, clocks, recipes and orders', () => {
     expect(wrong.state.items).toHaveLength(2);
     expect(wrong.state.orders.every((o) => o.status === 'waiting')).toBe(true);
     s = send(wrong.state, { type: 'deliver', tray: 0, order: 'guest-1' }).state;
-    expect(s.items).toHaveLength(0);
+    expect(s.items.every((i) => i.location.startsWith('delivery:'))).toBe(true);
+    expect(trayItems(s, 0)).toHaveLength(0);
     expect(s.orders[1]?.status).toBe('leaving');
     expect(send(s, { type: 'deliver', tray: 0, order: 'guest-1' }).kind).toBe('blocked');
     expect(validateState(s)).toBe(true);
@@ -160,7 +161,7 @@ describe('T01–T03 ownership, clocks, recipes and orders', () => {
       if (!cup) throw new Error('juice');
       s = send(s, { type: 'move', source: { item: cup.id }, destination: { tray: 0 } }).state;
       s = send(s, { type: 'deliver', tray: 0, order: 'guest-0' }).state;
-      s = advance(s, 800);
+      s = advance(s, Math.max(...s.trays.map((t) => t.remaining)));
       expect(s.orders.every((o) => o.status === 'done')).toBe(true);
       expect(validateState(s)).toBe(true);
     }
@@ -207,6 +208,7 @@ describe('T04–T05 finite language and honest support', () => {
 describe('T02/T10 validated snapshots and host clock', () => {
   it('restores processing and reservations repeatedly without spawning or offline credit', () => {
     let s = send(juice(), { type: 'note', tray: 1, tokens: tokens('an apple and a banana') }).state;
+    const helperDuration = s.helper?.remaining ?? 0;
     s = advance(s, 850);
     for (let i = 0; i < 3; i++) {
       const decoded = decodeSnapshot(JSON.stringify(s));
@@ -214,9 +216,9 @@ describe('T02/T10 validated snapshots and host clock', () => {
       s = decoded.state;
     }
     expect(s.machine.remaining).toBe(4150);
-    expect(s.helper?.remaining).toBe(1150);
+    expect(s.helper?.remaining).toBe(helperDuration - 850);
     expect(s.items).toHaveLength(4);
-    s = advance(s, 1150);
+    s = advance(s, helperDuration - 850);
     expect(trayItems(s, 1)).toHaveLength(2);
     expect(validateState(s)).toBe(true);
   });
@@ -313,7 +315,7 @@ describe('M1 three modes and preserved support', () => {
           }
           const result = send(s, { type: 'deliver', tray: 0, order: order.id });
           expect(result.kind).toBe('ok');
-          s = advance(result.state, 800);
+          s = advance(result.state, Math.max(...result.state.trays.map((t) => t.remaining)));
           completed++;
           expect(validateState(s)).toBe(true);
         }
@@ -340,6 +342,7 @@ describe('M1 three modes and preserved support', () => {
   it('switches and reloads unfinished sessions without sharing inventory or erasing hints', () => {
     const memory = memoryStore();
     const c = new GameController(new SaveStore(() => memory), () => `run-${++sequence}`);
+    c.switchMode('guided');
     expect(c.state.mode).toBe('guided');
     c.command({ type: 'support', order: 'guest-0', reason: 'mismatch-explanation' });
     c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
@@ -407,7 +410,8 @@ describe('support and revisit evidence', () => {
       visit: 'revisit',
       audioQualified: false,
     });
-    expect(result.attempts[0]?.support).toContain('demonstrated');
+    expect(result.attempts[0]?.support).not.toContain('demonstrated');
+    expect(replay.history.apple).toContain('demonstrated');
     expect(validateState(result)).toBe(true);
   });
 });
@@ -419,6 +423,7 @@ it('retains inactive mode progress in memory when persistent storage is refused'
     }),
     () => `run-${++sequence}`,
   );
+  c.switchMode('guided');
   c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
   const original = c.state.items;
   c.switchMode('service');

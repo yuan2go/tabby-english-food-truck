@@ -1,0 +1,64 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep complete click story
+
+[WebServer] (node:24389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:24453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:24510) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending (3.3m)
+
+
+  1) e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ready"
+    Received: "loaded"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at helpers.ts:78
+
+      76 |       { timeout: 15000 },
+      77 |     )
+    > 78 |     .toBe('ready');
+         |      ^
+      79 |   const s = await state(p),
+      80 |     item = s.items.find(
+      81 |       (i) =>
+        at make (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:78:6)
+        at serve (/Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/helpers.ts:100:18)
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/game.spec.ts:21:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/game-M2-phone-complete-cli-afae4-recipes-to-community-ending/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    e2e/game.spec.ts:11:1 › M2 phone complete click story: prologue through all recipes to community ending 

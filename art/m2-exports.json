@@ -1,0 +1,348 @@
+[
+  {
+    "source": "art/source/elder.png",
+    "id": "elder",
+    "box": null,
+    "width": 938,
+    "height": 1513,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "bread",
+    "box": {
+      "left": 0,
+      "top": 0,
+      "width": 384,
+      "height": 341
+    },
+    "width": 309,
+    "height": 306,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "cheese",
+    "box": {
+      "left": 384,
+      "top": 0,
+      "width": 384,
+      "height": 341
+    },
+    "width": 268,
+    "height": 252,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "lettuce",
+    "box": {
+      "left": 768,
+      "top": 0,
+      "width": 384,
+      "height": 341
+    },
+    "width": 329,
+    "height": 316,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "tomato",
+    "box": {
+      "left": 1152,
+      "top": 0,
+      "width": 384,
+      "height": 341
+    },
+    "width": 291,
+    "height": 280,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "bun",
+    "box": {
+      "left": 0,
+      "top": 341,
+      "width": 384,
+      "height": 305
+    },
+    "width": 335,
+    "height": 286,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "patty",
+    "box": {
+      "left": 384,
+      "top": 341,
+      "width": 384,
+      "height": 305
+    },
+    "width": 320,
+    "height": 272,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "cooked-patty",
+    "box": {
+      "left": 768,
+      "top": 341,
+      "width": 384,
+      "height": 305
+    },
+    "width": 316,
+    "height": 263,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "cone",
+    "box": {
+      "left": 1152,
+      "top": 341,
+      "width": 384,
+      "height": 305
+    },
+    "width": 222,
+    "height": 296,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "vanilla",
+    "box": {
+      "left": 0,
+      "top": 650,
+      "width": 384,
+      "height": 374
+    },
+    "width": 327,
+    "height": 300,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-foods.png",
+    "id": "strawberry",
+    "box": {
+      "left": 384,
+      "top": 650,
+      "width": 384,
+      "height": 374
+    },
+    "width": 321,
+    "height": 299,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-stations.png",
+    "id": "ice-station",
+    "box": {
+      "left": 0,
+      "top": 0,
+      "width": 512,
+      "height": 1024
+    },
+    "width": 480,
+    "height": 519,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-stations.png",
+    "id": "board-station",
+    "box": {
+      "left": 512,
+      "top": 0,
+      "width": 512,
+      "height": 1024
+    },
+    "width": 493,
+    "height": 592,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/m2-stations.png",
+    "id": "grill-station",
+    "box": {
+      "left": 1024,
+      "top": 0,
+      "width": 512,
+      "height": 1024
+    },
+    "width": 492,
+    "height": 395,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/cat-walk.png",
+    "id": "cat-step-0",
+    "box": {
+      "left": 0,
+      "top": 0,
+      "width": 627,
+      "height": 627
+    },
+    "width": 442,
+    "height": 607,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/cat-walk.png",
+    "id": "cat-step-1",
+    "box": {
+      "left": 627,
+      "top": 0,
+      "width": 627,
+      "height": 627
+    },
+    "width": 445,
+    "height": 579,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/cat-walk.png",
+    "id": "cat-step-2",
+    "box": {
+      "left": 0,
+      "top": 627,
+      "width": 627,
+      "height": 627
+    },
+    "width": 462,
+    "height": 596,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/cat-walk.png",
+    "id": "cat-step-3",
+    "box": {
+      "left": 627,
+      "top": 627,
+      "width": 627,
+      "height": 627
+    },
+    "width": 453,
+    "height": 604,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/ice-products.png",
+    "id": "vanilla-cone",
+    "box": {
+      "left": 0,
+      "top": 0,
+      "width": 627,
+      "height": 627
+    },
+    "width": 360,
+    "height": 601,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/ice-products.png",
+    "id": "strawberry-cup",
+    "box": {
+      "left": 627,
+      "top": 0,
+      "width": 627,
+      "height": 627
+    },
+    "width": 451,
+    "height": 492,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/ice-products.png",
+    "id": "double-cream",
+    "box": {
+      "left": 0,
+      "top": 627,
+      "width": 627,
+      "height": 627
+    },
+    "width": 532,
+    "height": 526,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/ice-products.png",
+    "id": "banana-cream",
+    "box": {
+      "left": 627,
+      "top": 627,
+      "width": 627,
+      "height": 627
+    },
+    "width": 443,
+    "height": 534,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/food-variants.png",
+    "id": "banana-juice",
+    "box": {
+      "left": 0,
+      "top": 0,
+      "width": 470,
+      "height": 1024
+    },
+    "width": 381,
+    "height": 575,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/food-variants.png",
+    "id": "salad-sandwich",
+    "box": {
+      "left": 470,
+      "top": 0,
+      "width": 570,
+      "height": 1024
+    },
+    "width": 532,
+    "height": 469,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/food-variants.png",
+    "id": "cheese-burger",
+    "box": {
+      "left": 1040,
+      "top": 0,
+      "width": 496,
+      "height": 1024
+    },
+    "width": 435,
+    "height": 455,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/recipe-outputs.png",
+    "id": "sandwich",
+    "box": {
+      "left": 0,
+      "top": 0,
+      "width": 887,
+      "height": 887
+    },
+    "width": 687,
+    "height": 593,
+    "method": "mechanical crop and downscale only"
+  },
+  {
+    "source": "art/source/recipe-outputs.png",
+    "id": "burger",
+    "box": {
+      "left": 887,
+      "top": 0,
+      "width": 887,
+      "height": 887
+    },
+    "width": 755,
+    "height": 635,
+    "method": "mechanical crop and downscale only"
+  }
+]

@@ -1,7 +1,9 @@
 import { type Product, REQUESTS } from '../content/catalog';
+import { isFinished, type StationId } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { GameState, Source, TrayId } from '../rules/types';
+import type { DoubleTap } from './gestures';
 export type Selection = Source | { tray: TrayId } | null;
 export interface Hotspot {
   id: string;
@@ -10,9 +12,11 @@ export interface Hotspot {
   y: number;
   width: number;
   height: number;
-  kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note';
+  kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note' | 'station';
 }
 export interface ViewState {
+  prep?: 'tray' | 'machine' | StationId;
+  doubleTap?: DoubleTap;
   elements: Map<string, HTMLButtonElement>;
   lowGraphics: boolean;
   inputBlocked: boolean;
@@ -24,6 +28,7 @@ export interface ViewState {
   focus: string | null;
   ready: boolean;
   assetFailure: boolean;
+  assetLoading?: boolean;
   resourceMessage: string;
   openNote: () => void;
   confirmClear: (action: () => void) => void;
@@ -43,75 +48,117 @@ export function activate(
   ui: ViewState,
   dragSource?: Selection,
 ): void {
-  const s = controller.state;
-  const selected = dragSource ?? ui.selected;
-  const isSource = selected && ('supply' in selected || 'item' in selected);
-  // While carrying something, food on a destination is part of that destination.
-  // An in-flight item must not swallow the next placement and silently select itself.
-  // Pointer, drag and keyboard all take this same route through the rule command.
-  const targetItem = id.startsWith('item-')
-    ? s.items.find((item) => item.id === id.slice(5))
-    : undefined;
-  if (isSource && targetItem && (!('item' in selected) || selected.item !== targetItem.id)) {
+  const s = controller.state,
+    selected = dragSource ?? ui.selected;
+  const source = selected && ('supply' in selected || 'item' in selected) ? selected : null;
+  let command: Parameters<GameController['command']>[0] | undefined;
+  const targetItem = id.startsWith('item-') ? s.items.find((i) => i.id === id.slice(5)) : undefined;
+  if (
+    dragSource &&
+    targetItem &&
+    source &&
+    (!('item' in source) || source.item !== targetItem.id)
+  ) {
     if (targetItem.location.startsWith('tray:')) id = `tray-${targetItem.location.split(':')[1]}`;
+    else if (targetItem.location.startsWith('station:'))
+      id = `station-${targetItem.location.split(':')[1]}`;
     else if (targetItem.location.startsWith('machine:')) id = targetItem.location.replace(':', '-');
   }
-  let command: Parameters<GameController['command']>[0] | undefined;
   if (id === 'note') {
     ui.openNote();
     return;
   }
   if (id === 'start') command = { type: 'start-machine' };
-  else if (id === 'clear' && isSource)
-    command = { type: 'move', source: selected, destination: { discard: true, confirmed: false } };
-  else if (id.startsWith('machine-') && isSource)
+  else if (id.startsWith('start-station-'))
+    command = { type: 'start-station', station: id.slice(14) as StationId };
+  else if (id.startsWith('send-'))
+    command = { type: 'deliver', tray: ui.selectedTray, order: id.slice(5) };
+  else if (id === 'restore') command = { type: 'restore-cleared', tray: ui.selectedTray };
+  else if (id === 'clear' && source)
+    command = { type: 'move', source, destination: { discard: true, confirmed: false } };
+  else if (id.startsWith('supply-') && !dragSource) {
+    const product = id.slice(7) as Product;
+    const prep = ui.prep ?? 'tray';
     command = {
       type: 'move',
-      source: selected,
-      destination: { machine: id === 'machine-apple' ? 'apple' : 'cup' },
+      source: { supply: product },
+      destination:
+        prep === 'tray'
+          ? { tray: ui.selectedTray }
+          : prep === 'machine'
+            ? { machine: product === 'cup' ? 'cup' : 'apple' }
+            : { station: prep },
     };
-  else if (id.startsWith('tray-')) {
+  } else if (id.startsWith('tray-')) {
     const tray = Number(id.slice(5)) as TrayId;
     ui.selectedTray = tray;
-    if (isSource) command = { type: 'move', source: selected, destination: { tray } };
+    ui.prep = 'tray';
+    if (source) command = { type: 'move', source, destination: { tray } };
     else {
       ui.selected = { tray };
-      controller.message = `${tray + 1}号托盘已选中。点客人递出整盘，或点盘里的食品调整。`;
+      controller.message = `${tray + 1}号盘是当前备餐位置，点食材添加。`;
+    }
+  } else if (id.startsWith('machine-')) {
+    ui.prep = 'machine';
+    if (source)
+      command = {
+        type: 'move',
+        source,
+        destination: { machine: id === 'machine-cup' ? 'cup' : 'apple' },
+      };
+    else {
+      ui.selected = null;
+      controller.message = '果汁机已选中：点水果，再点空杯。';
+    }
+  } else if (id.startsWith('station-')) {
+    const station = id.slice(8) as StationId;
+    ui.prep = station;
+    if (source) command = { type: 'move', source, destination: { station } };
+    else {
+      ui.selected = null;
+      controller.message = '备餐台已选中，点食材放到这里。';
     }
   } else if (id.startsWith('guest-')) {
     ui.selectedGuest = id;
-    if (selected && 'tray' in selected)
-      command = { type: 'deliver', tray: selected.tray, order: id };
+    if (dragSource && 'tray' in dragSource)
+      command = { type: 'deliver', tray: dragSource.tray, order: id };
     else {
-      ui.selected = null;
-      const o = s.orders.find((o) => o.id === id);
-      if (o?.status === 'waiting') void audio.play(REQUESTS[o.request].audio);
+      const order = s.orders.find((o) => o.id === id);
+      if (order?.status === 'waiting') void audio.play(REQUESTS[order.request].audio);
+      controller.message = '听这位客人的请求；准备好后点送餐。';
+    }
+  } else if (targetItem) {
+    if (targetItem.location.startsWith('delivery:')) return;
+    if (ui.doubleTap?.tap(targetItem.id, performance.now()) && !isFinished(targetItem.product))
+      command = {
+        type: 'move',
+        source: { item: targetItem.id },
+        destination: { discard: true, confirmed: false },
+      };
+    else {
+      ui.selected = { item: targetItem.id };
+      controller.message = isFinished(targetItem.product)
+        ? '成品已选中：点盘子接取；清理需要确认。'
+        : '已选中。再点同一份可退回，也可以点旁边的放回。';
     }
   } else {
-    const next = sourceFor(id, s);
-    if (next) {
-      ui.selected = next;
-      controller.message = '拿起来了。点一个位置放下；按 Esc 或空白处取消。';
-    } else {
-      ui.selected = null;
-      controller.message = '已取消拿取，物品留在原处。';
-    }
+    ui.selected = null;
+    ui.doubleTap?.cancel();
+    controller.message = '已取消选择，食物仍在原处。';
   }
   if (command) {
-    const action = command;
-    const result = controller.command(action);
-    if (result.kind === 'confirm' && action.type === 'move')
+    const action = command,
+      r = controller.command(action);
+    if (r.kind === 'confirm' && action.type === 'move')
       ui.confirmClear(() => {
         controller.command({ ...action, destination: { discard: true, confirmed: true } });
         ui.selected = null;
         ui.change();
       });
-    if (result.kind === 'ok') {
+    if (r.kind === 'ok') {
       ui.selected = null;
-      if (action.type === 'deliver') void audio.play('thanks');
-      if (action.type === 'move')
-        audio.effect('machine' in action.destination ? 'insert' : 'place');
-    } else if (result.kind !== 'confirm') audio.effect('gentle');
+      if (action.type === 'move') audio.effect('place');
+    } else if (r.kind !== 'confirm') audio.effect('gentle');
   }
   ui.change();
 }

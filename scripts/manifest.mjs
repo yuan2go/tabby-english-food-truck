@@ -30,7 +30,7 @@ for (const folder of ['art/reference', 'art/source', 'public/assets', 'public/au
         : sound
           ? 'macOS say / Samantha, development synthesis'
           : cat
-            ? 'OpenAI built-in imagegen, derived from approved received reference; 2026-09-20'
+            ? `OpenAI built-in imagegen, derived from approved received reference; ${id.startsWith('cat-step-') || id === 'cat-walk' ? '2026-09-21' : '2026-09-20'}`
             : 'OpenAI built-in imagegen, original generation for this repository',
       review: reference
         ? 'IDENTITY_REFERENCE_SELECTED_DERIVATIVES_UNREVIEWED'
@@ -39,10 +39,39 @@ for (const folder of ['art/reference', 'art/source', 'public/assets', 'public/au
         ? 'Byte-for-byte copy, RGB no Alpha; never loaded by game'
         : runtime && !sound
           ? cat
-            ? 'scripts/export-character.mjs: alpha bounding crop and downscale only; 1254px individual originals'
-            : id === 'tray'
-              ? 'scripts/export-assets.mjs: independent 1536x1024 tray-hd original, downscale only'
-              : 'scripts/export-assets.mjs; crop/downscale original source'
+            ? id.startsWith('cat-step-')
+              ? 'scripts/export-m2.mjs: original walk sheet crop and downscale only, no mirroring'
+              : 'scripts/export-character.mjs: alpha bounding crop and downscale only; 1254px individual originals'
+            : [
+                  'courtyard',
+                  'elder',
+                  'bread',
+                  'cheese',
+                  'lettuce',
+                  'tomato',
+                  'bun',
+                  'patty',
+                  'cooked-patty',
+                  'cone',
+                  'vanilla',
+                  'strawberry',
+                  'sandwich',
+                  'burger',
+                  'banana-juice',
+                  'salad-sandwich',
+                  'cheese-burger',
+                  'ice-station',
+                  'board-station',
+                  'grill-station',
+                  'vanilla-cone',
+                  'strawberry-cup',
+                  'double-cream',
+                  'banana-cream',
+                ].includes(id)
+              ? 'scripts/export-m2.mjs: original production sheet crop and downscale only; actual exports in art/m2-exports.json'
+              : id === 'tray'
+                ? 'scripts/export-assets.mjs: independent 1536x1024 tray-hd original, downscale only'
+                : 'scripts/export-assets.mjs; crop/downscale original source'
           : 'original production output',
       license: reference
         ? 'User authorized use as this project character production reference; no assertion about derivative approval'
@@ -92,7 +121,7 @@ for (const folder of ['art/reference', 'art/source', 'public/assets', 'public/au
 }
 await writeFile(
   'art/manifest.json',
-  `${JSON.stringify({ version: 'm1.2', assets: entries }, null, 2)}\n`,
+  `${JSON.stringify({ version: 'm2.0', assets: entries }, null, 2)}\n`,
 );
 console.log(
   `Registered ${entries.length} files, including reference and individual production poses`,

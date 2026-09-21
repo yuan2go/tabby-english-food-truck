@@ -1,10 +1,14 @@
 import type { Mode, RequestId } from '../content/catalog';
+import { type Activity, CHAPTERS, type Support } from '../content/chapters';
 import { advance, createGame, dispatch } from '../rules/game';
+import { configureSession } from '../rules/sessions';
 import type { Command, GameState, Result } from '../rules/types';
+import { ProfileStore } from './profile';
 import { SaveStore } from './save';
 export class GameController {
   state: GameState;
   readonly save: SaveStore;
+  readonly profile = new ProfileStore(() => localStorage);
   readonly pauses = new Set<string>(['home']);
   message = '听一听，准备好，再把整盘递给客人。';
   savedGame = false;
@@ -18,7 +22,16 @@ export class GameController {
     this.save = save;
     const loaded = save.load();
     this.savedGame = loaded?.ok === true;
-    this.state = loaded?.ok ? loaded.state : createGame(runId(), 0, {}, 'guided');
+    this.state = loaded?.ok
+      ? loaded.state
+      : configureSession(
+          createGame(runId(), 0, {}, 'practice'),
+          'training',
+          0,
+          this.profile.value.support,
+          this.profile.value.introduced,
+          1,
+        );
   }
   subscribe = (fn: () => void): (() => void) => {
     this.listeners.add(fn);
@@ -38,6 +51,25 @@ export class GameController {
     this.state = result.state;
     if (result.message) this.message = result.message;
     if (command.type !== 'audio') this.save.save(this.state);
+    this.recordAttempts();
+    if (
+      result.kind === 'ok' &&
+      (command.type === 'start-machine' || command.type === 'start-station')
+    ) {
+      const target =
+        command.type === 'start-machine'
+          ? 'juice'
+          : (this.state.stations[command.station].recipe ?? command.station);
+      this.profile.observe({
+        id: `operation:${this.state.runId}:${this.state.revision}`,
+        dimension: 'operation',
+        target,
+        result: 'process-started',
+        support: [],
+        visit: this.profile.value.exposure.includes(target) ? 'revisit' : 'first',
+        audioQualified: false,
+      });
+    }
     this.notify();
     return result;
   }
@@ -45,6 +77,12 @@ export class GameController {
     if (this.pauses.size || delta <= 0 || delta > 250) return;
     const previous = this.state.revision;
     this.state = advance(this.state, delta);
+    if (
+      this.state.session.activity === 'story' &&
+      this.state.orders.every((o) => o.status === 'done') &&
+      !this.profile.value.completed.includes(this.state.session.chapter)
+    )
+      this.profile.complete(this.state.session.chapter);
     if (this.state.revision !== previous) {
       this.save.save(this.state);
       this.notify();
@@ -66,6 +104,8 @@ export class GameController {
   }
   private history(): GameState['history'] {
     const history = structuredClone(this.state.history);
+    if (!this.state.gameTime && !this.state.attempts.length && !this.state.lessons.length)
+      return history;
     for (const order of this.state.orders)
       if (order.status !== 'queued')
         history[order.request] = [
@@ -89,9 +129,6 @@ export class GameController {
       next.history[request] = [
         ...new Set([...(next.history[request] ?? []), ...(history[request] ?? [])]),
       ].slice(-24);
-    for (const o of next.orders)
-      o.support = [...new Set([...o.support, ...(next.history[o.request] ?? [])])].slice(-24);
-    next.noteSupport = [...new Set([...next.noteSupport, ...this.state.noteSupport])].slice(-24);
     this.state = next;
     this.checkpoint = 0;
     this.savedGame = Boolean(previous);
@@ -99,13 +136,90 @@ export class GameController {
     this.save.save(this.state);
     this.notify();
   }
+  enter(
+    activity: Activity,
+    chapter = 0,
+    support: Support = this.profile.value.support,
+    replay = false,
+  ): void {
+    this.save.save(this.state);
+    this.profile.value.support = support;
+    this.profile.save();
+    const key = `${activity}-${chapter}`;
+    const stored = this.save.loadSession(key);
+    const previous = replay ? null : stored;
+    if (this.save.blocked) return;
+    const history = this.history();
+    this.state =
+      previous ??
+      configureSession(
+        createGame(this.runId(), Math.random() < 0.5 ? 0 : 1, history, 'practice'),
+        activity,
+        chapter,
+        support,
+        this.profile.value.introduced,
+        Math.floor(Math.random() * 4294967296),
+      );
+    // Assistance belongs to the unfinished request, even after replay or a support change.
+    if (stored) {
+      this.state.noteSupport = [...new Set([...this.state.noteSupport, ...stored.noteSupport])];
+      for (const order of this.state.orders) {
+        const prior = stored.orders.find(
+          (o) => o.id === order.id && o.request === order.request && o.status !== 'done',
+        );
+        if (prior) order.support = [...new Set([...order.support, ...prior.support])].slice(-24);
+      }
+    }
+    this.state.session.support = support;
+    for (const order of this.state.orders.filter((o) => o.status === 'waiting')) {
+      if (support !== 'less')
+        order.support = [
+          ...new Set([
+            ...order.support,
+            'picture-request',
+            ...(support === 'demonstration' ? ['guided'] : []),
+          ]),
+        ].slice(-24);
+    }
+    // Introduced content is a preparation entitlement, never an assessment result.
+    const family = CHAPTERS[chapter]?.family ?? 'juice';
+    if (activity === 'story') this.profile.introduce(family);
+    this.state.session.unlocked = [...this.profile.value.introduced];
+    this.savedGame = Boolean(previous);
+    this.checkpoint = 0;
+    this.message = '选好备餐位置，点食材就能放进去。';
+    this.save.save(this.state);
+    this.notify();
+  }
+  private recordAttempts(): void {
+    for (const a of this.state.attempts)
+      this.profile.observe({
+        id: `${a.runId}:${a.gameTime}:${a.activity}:${a.retry}:${a.input.slice(0, 40)}`,
+        dimension: a.activity === 'delivery' ? 'listening' : 'structure',
+        target:
+          a.activity === 'delivery'
+            ? (this.state.orders.find((o) => a.input.startsWith(`${o.id}:`))?.request ?? 'request')
+            : 'fruit-request',
+        result: a.result,
+        support: a.support,
+        visit: a.visit,
+        audioQualified: false,
+      });
+  }
   restart(): void {
     const mode = this.state.mode,
       history = this.history(),
       noteSupport = this.state.noteSupport;
     this.save.reset();
     this.state = createGame(this.runId(), this.state.variant === 0 ? 1 : 0, history, mode);
-    this.state.noteSupport = [...new Set([...noteSupport, 'seen-in-prior-run'])].slice(-24);
+    this.state.noteSupport = [...new Set([...noteSupport])].slice(-24);
+    for (const o of this.state.orders)
+      o.support = [
+        ...new Set([
+          ...o.support,
+          ...(history[o.request] ?? []).filter((v) => !v.startsWith('seen-')),
+        ]),
+      ];
     this.savedGame = false;
     this.pauses.clear();
     this.checkpoint = 0;

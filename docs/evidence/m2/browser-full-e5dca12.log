@@ -1,0 +1,98 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:35342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:35410) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:35450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/game.spec.ts:13:1 › M2 phone complete click story: prologue through all recipes to community ending (4.4m)
+  ✓   2 e2e/game.spec.ts:52:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery (16.4s)
+  ✓   3 e2e/game.spec.ts:88:1 › M2 pause and homepage resume keep world; tutorials are separate from the session (13.7s)
+(node:35972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 e2e/minigames.spec.ts:39:3 › M2 match complete four rounds, help, resume, settlement and return (15.8s)
+  ✓   5 e2e/minigames.spec.ts:39:3 › M2 spell complete four rounds, help, resume, settlement and return (34.1s)
+  ✓   6 e2e/minigames.spec.ts:123:1 › M2 bilingual uses explicit support and preserves business inventory (5.3s)
+  ✓   7 e2e/upgrade.spec.ts:6:1 › M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause, rotation (9.3s)
+  ✓   8 e2e/upgrade.spec.ts:75:1 › M2 endless replenishes, restores seed/cursor and bounds active state (1.0m)
+  ✓   9 e2e/upgrade.spec.ts:98:1 › M2 drag and keyboard equivalent; selected guest never changes to correct answer (2.9s)
+  ✓  10 e2e/upgrade.spec.ts:115:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress (3.6s)
+  ✘  11 e2e/upgrade.spec.ts:136:1 › M2 teaching practice starts at the courtyard and completes its own five-request session (1.4s)
+(node:36217) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 e2e/recovery.spec.ts:24:1 › M2 Pad prologue and real processing restore in portrait and landscape (36.8s)
+  ✘  13 e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (14.0s)
+(node:36268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 e2e/recovery.spec.ts:146:1 › M2 touch cancellation and multi-pointer never add, remove or submit food (9.7s)
+  ✓  15 e2e/recovery.spec.ts:175:1 › M2 unsupported snapshot is protected and exported before explicit reset (4.7s)
+  ✓  16 e2e/recovery.spec.ts:198:1 › M2 native background freeze stops clock, helper, machine and audio (5.9s)
+
+
+  1) e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0.08
+    Received:   0.08123726263248987
+
+      120 |       after.actor.point.y - before.actor.point.y,
+      121 |     ),
+    > 122 |   ).toBeLessThan(0.08);
+          |     ^
+      123 |   const samples = await page.evaluate(async () => {
+      124 |     const result = [];
+      125 |     for (let i = 0; i < 150; i++) {
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/recovery.spec.ts:122:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/error-context.md
+
+  2) e2e/upgrade.spec.ts:136:1 › M2 teaching practice starts at the courtyard and completes its own five-request session 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 5
+    Received: 1
+
+      144 |   expect((await state(page)).session.activity).toBe('training');
+      145 |   const total = (await state(page)).orders.length;
+    > 146 |   expect(total).toBe(5);
+          |                 ^
+      147 |   for (let n = 0; n < total; n++) await serve(page);
+      148 |   await expect(page.locator('.ending')).toBeVisible();
+      149 |   const profile = await page.evaluate(() =>
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/upgrade.spec.ts:146:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/upgrade-M2-teaching-practi-30af9-ts-own-five-request-session/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/upgrade-M2-teaching-practi-30af9-ts-own-five-request-session/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/upgrade-M2-teaching-practi-30af9-ts-own-five-request-session/error-context.md
+
+  2 failed
+    e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+    e2e/upgrade.spec.ts:136:1 › M2 teaching practice starts at the courtyard and completes its own five-request session 
+  14 passed (8.5m)

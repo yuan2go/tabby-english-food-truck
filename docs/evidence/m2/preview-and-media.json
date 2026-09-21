@@ -1,0 +1,112 @@
+{
+  "preview": "http://127.0.0.1:5193/",
+  "evidence": "http://127.0.0.1:5194/docs/evidence/m2/review.html",
+  "build": {
+    "buildSha": "36cb8e6ae05759f47de04a6649cbcc273175e182",
+    "buildDirty": "false",
+    "contentVersion": "m2.0",
+    "assetVersion": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef",
+    "audioState": "{\"active\":\"request-apple\",\"loops\":[],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.08192218840122223,\"machineGain\":0.025468450039625168,\"effects\":0}"
+  },
+  "videos": [
+    {
+      "src": "phone-story.webm",
+      "duration": 266.04,
+      "error": null
+    },
+    {
+      "src": "pad-processing.webm",
+      "duration": 35.68,
+      "error": null
+    },
+    {
+      "src": "helper-overlap.webm",
+      "duration": 24,
+      "error": null
+    },
+    {
+      "src": "actor-continuity.webm",
+      "duration": 10.08,
+      "error": null
+    },
+    {
+      "src": "endless.webm",
+      "duration": 75.16,
+      "error": null
+    },
+    {
+      "src": "training.webm",
+      "duration": 38.52,
+      "error": null
+    },
+    {
+      "src": "match.webm",
+      "duration": 16.6,
+      "error": null
+    },
+    {
+      "src": "wordspell.webm",
+      "duration": 36.08,
+      "error": null
+    }
+  ],
+  "audio": [
+    {
+      "file": "prologue-0.wav",
+      "status": 200,
+      "bytes": 102728
+    },
+    {
+      "file": "request-apple.wav",
+      "status": 200,
+      "bytes": 65846
+    },
+    {
+      "file": "request-double-cream.wav",
+      "status": 200,
+      "bytes": 146778
+    },
+    {
+      "file": "request-sandwich.wav",
+      "status": 200,
+      "bytes": 90396
+    },
+    {
+      "file": "request-cheese-burger.wav",
+      "status": 200,
+      "bytes": 77084
+    },
+    {
+      "file": "music.wav",
+      "status": 200,
+      "bytes": 705644
+    },
+    {
+      "file": "ambience.wav",
+      "status": 200,
+      "bytes": 352844
+    },
+    {
+      "file": "machine.wav",
+      "status": 200,
+      "bytes": 132344
+    },
+    {
+      "file": "ice.wav",
+      "status": 200,
+      "bytes": 132344
+    },
+    {
+      "file": "board.wav",
+      "status": 200,
+      "bytes": 132344
+    },
+    {
+      "file": "grill.wav",
+      "status": 200,
+      "bytes": 132344
+    }
+  ],
+  "listening": "NOT_RUN",
+  "purpose": "Preview identity and playable media delivery, not a new gameplay or listening acceptance claim"
+}

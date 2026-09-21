@@ -24,7 +24,12 @@ export function parsePhrase(input: string): PhraseResult {
   if (parts.length > 2) return { kind: 'outside', message: '小猫一次最多拿两份水果。' };
   const fruits: Fruit[] = [];
   for (const part of parts) {
-    const [det, noun, extra] = part.split(' ');
+    const pieces = part.split(' ');
+    if (pieces.length === 1 && ['apple', 'banana'].includes(pieces[0] ?? '')) {
+      fruits.push(pieces[0] as Fruit);
+      continue;
+    }
+    const [det, noun, extra] = pieces;
     if (!noun) return { kind: 'incomplete', message: '再告诉小猫要什么水果。' };
     if (extra || !det) return { kind: 'outside', message: '试试一个数量词配一个水果词。' };
     const fruit: Fruit | undefined =

@@ -1,0 +1,51 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep actual helper|Pad prologue
+
+[WebServer] (node:37381) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:37449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:37489) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/recovery.spec.ts:24:1 › M2 Pad prologue and real processing restore in portrait and landscape (39.3s)
+  ✘  2 e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (14.0s)
+
+
+  1) e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0.000001
+    Received:   0.04836624696910752
+
+      143 |   expect(
+      144 |     Math.hypot(boundary.after.x - boundary.before.x, boundary.after.y - boundary.before.y),
+    > 145 |   ).toBeLessThan(0.000001);
+          |     ^
+      146 |   await writeFile(info.outputPath('cancel-boundary.json'), JSON.stringify(boundary));
+      147 |   const samples = await page.evaluate(async () => {
+      148 |     const result = [];
+        at /Users/yuan/.codex/worktrees/tabby-m2-story/tabby-english-food-truck/e2e/recovery.spec.ts:145:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/error-context.md
+
+  1 failed
+    e2e/recovery.spec.ts:71:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+  1 passed (1.0m)
