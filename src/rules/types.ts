@@ -2,6 +2,7 @@ import type { Mode, Product, RequestId } from '../content/catalog';
 import type { Activity, Support } from '../content/chapters';
 import type { Family, StationId } from '../content/recipes';
 import type { ActorPlan, ActorPoint } from '../game/actor';
+import type { Routing } from './routing';
 export type TrayId = 0 | 1;
 export type Location =
   | `tray:${TrayId}:${0 | 1 | 2}`
@@ -46,7 +47,8 @@ export interface AudioRecord {
   gameTime: number;
 }
 export interface GameState {
-  schemaVersion: 4;
+  schemaVersion: 5;
+  routing: Routing;
   session: {
     activity: Activity;
     chapter: number;
@@ -107,8 +109,8 @@ export type Destination =
   | { discard: true; confirmed: boolean };
 export type Command =
   | { type: 'move'; source: Source; destination: Destination }
-  | { type: 'start-machine' }
-  | { type: 'start-station'; station: StationId }
+  | { type: 'start-machine'; tray?: TrayId }
+  | { type: 'start-station'; station: StationId; tray?: TrayId }
   | { type: 'restore-cleared'; tray: TrayId }
   | { type: 'family'; family: Family }
   | { type: 'policy'; support: Support; concurrency: 1 | 2 }

@@ -4,10 +4,8 @@ import type { GameState } from '../rules/types';
 import type { ViewState } from './input';
 import type { Layout, Point } from './layout';
 export function stationPoint(id: StationId, l: Layout): Point {
-  return {
-    x: l.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.52 : 0.32),
-    y: l.height * 0.46,
-  };
+  const r = l.regions.work;
+  return { x: r.x + r.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.53 : 0.32), y: r.y + 56 };
 }
 export class KitchenView {
   private nodes: Phaser.GameObjects.GameObject[] = [];
@@ -22,14 +20,14 @@ export class KitchenView {
       const p = stationPoint(id, l),
         st = s.stations[id];
       const sprite = this.scene.add.image(p.x, p.y, `${id}-station`).setDepth(4);
-      const h = 132 * l.scale;
+      const h = 108 * l.scale;
       sprite.setDisplaySize((h * sprite.width) / sprite.height, h);
       this.nodes.push(sprite);
       const label = id === 'ice' ? '冰淇淋台' : id === 'board' ? '组合板' : '煎台';
       const text = this.scene.add
         .text(
           p.x,
-          p.y + 67 * l.scale,
+          l.regions.work.y + l.regions.work.height - 26,
           st.status === 'processing'
             ? '制作中…'
             : st.status === 'ready'
@@ -66,7 +64,7 @@ export class KitchenView {
           kind: 'start',
           label: `${label}开始制作`,
           x: p.x,
-          y: p.y + 67 * l.scale,
+          y: l.regions.work.y + l.regions.work.height - 26,
           width: Math.max(110, 120 * l.scale),
           height: 44,
         },

@@ -50,143 +50,6 @@ button.primary {
 button.primary:hover {
   background: #326746;
 }
-.game-shell {
-  position: relative;
-  width: 100%;
-  height: 100dvh;
-  max-width: 1440px;
-  margin: auto;
-  isolation: isolate;
-  overflow: hidden;
-}
-.canvas-host {
-  position: absolute;
-  inset: 0;
-  touch-action: none;
-}
-.canvas-host canvas {
-  display: block;
-}
-.game-toolbar {
-  position: absolute;
-  z-index: 3;
-  top: max(8px, env(safe-area-inset-top));
-  left: max(12px, env(safe-area-inset-left));
-  right: max(12px, env(safe-area-inset-right));
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  pointer-events: none;
-}
-.game-toolbar button {
-  pointer-events: auto;
-  width: 44px;
-  padding: 0;
-  border-radius: 50%;
-  box-shadow: 0 3px 8px #183c3530;
-  font-size: 22px;
-}
-.service-count {
-  margin-right: auto;
-  color: #fff8df;
-  text-shadow: 0 2px 4px #123322;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-.service-count b {
-  display: inline-block;
-  margin-left: 10px;
-  background: #1a3e31c9;
-  border-radius: 20px;
-  padding: 8px 12px;
-  font-size: 17px;
-}
-.semantic-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
-}
-.semantic-layer button {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  padding: 3px;
-  font-size: 13px;
-}
-.semantic-layer button:focus-visible {
-  opacity: 1;
-  background: transparent;
-  color: transparent;
-  outline: 3px solid #d79717;
-}
-.request-tools {
-  position: absolute;
-  top: 34%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  white-space: nowrap;
-  z-index: 3;
-}
-.request-tools button {
-  min-height: 34px;
-  padding: 4px 10px;
-  font-size: 13px;
-  background: #fbf3e6eb;
-  border-radius: 18px;
-}
-.request-caption {
-  position: absolute;
-  z-index: 8;
-  top: 14%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  background: #fff9e9;
-  border: 2px solid #e6c488;
-  border-radius: 16px;
-  padding: 12px 8px 12px 16px;
-  width: min(340px, 88%);
-  box-shadow: 0 6px 24px #16332b30;
-  font-size: 20px;
-}
-.request-caption button {
-  padding: 0;
-  min-width: 44px;
-  background: none;
-  border: 0;
-  font-size: 22px;
-}
-.game-feedback {
-  position: absolute;
-  bottom: max(4px, env(safe-area-inset-bottom));
-  left: 12px;
-  right: 12px;
-  text-align: center;
-  pointer-events: none;
-  color: #244532;
-  z-index: 3;
-}
-.game-feedback p {
-  font-size: 13px;
-  line-height: 1.35;
-  max-width: 650px;
-  margin: 0 auto 3px;
-  padding: 6px 10px;
-  background: #fbf0d4e8;
-  border-radius: 16px;
-  box-shadow: 0 2px 4px #62452e20;
-}
-.game-feedback small {
-  font-size: 10px;
-  background: #fdf2d5ab;
-  padding: 2px 7px;
-  border-radius: 10px;
-}
 .home-shade {
   position: absolute;
   inset: 0;
@@ -458,7 +321,6 @@ h3 {
   width: 100%;
 }
 .resource-alert,
-.audio-alert,
 .storage-alert {
   position: absolute;
   left: 10px;
@@ -475,14 +337,10 @@ h3 {
 .resource-alert {
   top: 65px;
 }
-.audio-alert {
-  bottom: 60px;
-}
 .storage-alert {
   top: 110px;
 }
 .resource-alert button,
-.audio-alert button,
 .storage-alert button {
   font-size: 12px;
   margin-left: 8px;
@@ -503,28 +361,11 @@ h3 {
     height: 85px;
     width: 85px;
   }
-  .game-feedback p {
-    font-size: 11px;
-  }
-  .game-feedback small {
-    font-size: 9px;
-  }
   .modal {
     padding: 18px;
   }
   .modal p {
     font-size: 13px;
-  }
-  .game-toolbar {
-    top: 6px;
-  }
-  .request-tools {
-    top: 34.2%;
-  }
-  .request-tools button {
-    font-size: 12px;
-    padding: 3px 8px;
-    min-height: 32px;
   }
   .note-sheet {
     padding: 9px;
@@ -543,10 +384,6 @@ h3 {
   }
 }
 @media (orientation: landscape) {
-  .request-tools {
-    top: 36%;
-    left: 53%;
-  }
   .note-sheet {
     right: 3%;
     bottom: 9%;
@@ -595,13 +432,6 @@ h3 {
     transition: none;
   }
 }
-
-.semantic-layer {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  min-width: 0;
-}
 .draft {
   margin-left: 0;
   margin-right: 0;
@@ -609,16 +439,10 @@ h3 {
   border-right: 0;
   min-width: 0;
 }
-
-/* M1 touch-sized stage controls. The game world remains in CSS pixels. */
-.canvas-host,
 .note-sheet {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-}
-.canvas-host canvas {
-  touch-action: none;
 }
 .mode-picker {
   display: flex;
@@ -658,47 +482,6 @@ h3 {
 }
 .home-sign h1 {
   font-size: clamp(29px, 4vw, 44px);
-}
-.request-tools {
-  top: 33%;
-}
-.request-tools button {
-  min-height: 44px;
-  font-size: 14px;
-}
-.game-feedback p {
-  font-size: 14px;
-}
-.request-picture {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  padding: 4px 10px;
-  background: #fff5dfef;
-  border: 2px solid #d5b96e;
-  border-radius: 24px;
-  z-index: 9;
-  pointer-events: none;
-}
-.request-picture img {
-  width: 42px;
-  height: 45px;
-  object-fit: contain;
-}
-.request-picture button {
-  pointer-events: auto;
-}
-.request-caption {
-  top: 6.5%;
-  padding: 4px 12px;
-  width: auto;
-  max-width: 92%;
-  text-align: center;
-  font-size: 18px;
-  pointer-events: none;
 }
 .scene-teaching {
   position: absolute;
@@ -835,16 +618,6 @@ input[type="checkbox"] {
   .mode-picker {
     margin-bottom: 10px;
   }
-  .game-feedback p {
-    font-size: 13px;
-  }
-  .request-tools {
-    top: 32%;
-  }
-  .request-tools button {
-    min-height: 44px;
-    font-size: 13px;
-  }
 }
 @media (orientation: landscape) {
   .home-sign {
@@ -880,26 +653,11 @@ input[type="checkbox"] {
     left: 75%;
     width: min(340px, 42%);
   }
-  .request-tools {
-    top: 36%;
-  }
-  .request-picture {
-    top: 14%;
-    left: 52%;
-  }
-  .request-caption {
-    top: 8%;
-  }
 }
 .mode-picker {
   border: 0;
   padding: 0;
   min-width: 0;
-}
-.mode-guided .request-picture,
-.mode-practice .request-picture {
-  left: 23%;
-  top: 16%;
 }
 .storage-alert {
   top: auto;

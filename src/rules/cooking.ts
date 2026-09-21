@@ -6,6 +6,7 @@ import {
   recipeFor,
   type StationId,
 } from '../content/recipes';
+import { reserved } from './routing';
 import type { GameState, Item, Location } from './types';
 export const stationItems = (s: GameState, id: StationId) =>
   s.items.filter((i) => i.location.startsWith(`station:${id}:`));
@@ -26,7 +27,10 @@ export function stationDestination(
     )
   )
     return { reason: '这份食物不放在这里，可放到托盘或退回。' };
-  const slot = [0, 1, 2, 3, 4].find((n) => !items.some((i) => i.location === `station:${id}:${n}`));
+  const slot = [0, 1, 2, 3, 4].find(
+    (n) =>
+      !items.some((i) => i.location === `station:${id}:${n}`) && !reserved(s, `station:${id}:${n}`),
+  );
   if (slot === undefined) return { reason: '台面满了。' };
   return `station:${id}:${slot}`;
 }

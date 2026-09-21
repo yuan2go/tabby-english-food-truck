@@ -4,6 +4,7 @@ import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { GameState, Source, TrayId } from '../rules/types';
 import type { DoubleTap } from './gestures';
+import type { Layout } from './layout';
 export type Selection = Source | { tray: TrayId } | null;
 export interface Hotspot {
   id: string;
@@ -15,6 +16,8 @@ export interface Hotspot {
   kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note' | 'station';
 }
 export interface ViewState {
+  layout?: Layout;
+  openHelp: () => void;
   prep?: 'tray' | 'machine' | StationId;
   doubleTap?: DoubleTap;
   elements: Map<string, HTMLButtonElement>;
@@ -66,12 +69,12 @@ export function activate(
     else if (targetItem.location.startsWith('machine:')) id = targetItem.location.replace(':', '-');
   }
   if (id === 'note') {
-    ui.openNote();
+    ui.openHelp();
     return;
   }
-  if (id === 'start') command = { type: 'start-machine' };
+  if (id === 'start') command = { type: 'start-machine', tray: ui.selectedTray };
   else if (id.startsWith('start-station-'))
-    command = { type: 'start-station', station: id.slice(14) as StationId };
+    command = { type: 'start-station', station: id.slice(14) as StationId, tray: ui.selectedTray };
   else if (id.startsWith('send-'))
     command = { type: 'deliver', tray: ui.selectedTray, order: id.slice(5) };
   else if (id === 'restore') command = { type: 'restore-cleared', tray: ui.selectedTray };
@@ -110,7 +113,7 @@ export function activate(
     else {
       ui.selected = null;
       if (
-        controller.profile.value.learnedUnits.includes('cup') &&
+        !ui.teaching &&
         !s.items.some((i) => i.location === 'machine:cup') &&
         ['empty', 'loaded'].includes(s.machine.status)
       )

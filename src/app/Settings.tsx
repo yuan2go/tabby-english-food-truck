@@ -2,6 +2,7 @@ import { CONTENT_VERSION } from '../content/catalog';
 import type { ForegroundAudio, SoundSetting } from '../platform/audio';
 import { BUILD_INFO } from '../platform/build';
 import type { GameController } from '../platform/controller';
+import { SupportChoice } from './SupportChoice';
 export function Settings({
   controller,
   audio,
@@ -51,6 +52,41 @@ export function Settings({
         </p>
       ) : null}
       {controller.profile.issue ? <p role="status">{controller.profile.issue}</p> : null}
+      <SupportChoice
+        value={controller.state.session.support}
+        change={(support) => {
+          controller.profile.value.support = support;
+          controller.profile.save();
+          controller.command({
+            type: 'policy',
+            support,
+            concurrency: controller.state.session.concurrency,
+          });
+          refresh();
+        }}
+      />
+      <fieldset className="choice-row">
+        <legend>营业忙碌程度</legend>
+        {([1, 2] as const).map((n) => (
+          <button
+            type="button"
+            key={n}
+            aria-pressed={controller.state.session.concurrency === n}
+            onClick={() => {
+              controller.profile.value.concurrency = n;
+              controller.profile.save();
+              controller.command({
+                type: 'policy',
+                support: controller.state.session.support,
+                concurrency: n,
+              });
+              refresh();
+            }}
+          >
+            {n === 1 ? '一位一位来' : '两位一起招呼'}
+          </button>
+        ))}
+      </fieldset>
       <div className="sound-settings">
         {(Object.keys(audio.settings) as SoundSetting[]).map((key) => (
           <label key={key}>

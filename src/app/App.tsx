@@ -19,11 +19,13 @@ import { ServiceControls } from './ServiceControls';
 import { Settings } from './Settings';
 import { Story } from './Story';
 import { SupportChoice } from './SupportChoice';
+import { useViewport } from './viewport';
 import './app.css';
 import './m2.css';
+import './service.css';
 
 type Screen = 'home' | 'story' | 'game' | 'mini' | 'setup' | 'settings';
-type Modal = 'pause' | 'clear' | 'restart' | null;
+type Modal = 'help' | 'audio' | 'pause' | 'clear' | 'restart' | null;
 export function App() {
   const [controller] = useState(() => new GameController()),
     [audio] = useState(() => new ForegroundAudio(controller));
@@ -67,9 +69,12 @@ export function App() {
     prep: 'tray',
     doubleTap: new DoubleTap(),
     openNote: () => {},
+    openHelp: () => {},
     confirmClear: () => {},
     change: () => {},
   }));
+  const shell = useRef<HTMLElement>(null);
+  useViewport(shell);
   const host = useRef<HTMLDivElement>(null),
     scene = useRef<TruckScene | null>(null),
     confirm = useRef<() => void>(() => {});
@@ -90,6 +95,7 @@ export function App() {
     done ||
     !!ui.assetLoading;
   ui.openNote = () => setNote(true);
+  ui.openHelp = () => setModal('help');
   ui.confirmClear = (action) => {
     confirm.current = action;
     setModal('clear');
@@ -262,7 +268,7 @@ export function App() {
   };
   const family = (f: Family) => {
     controller.command({ type: 'family', family: f });
-    ui.prep = f === 'juice' ? 'tray' : f === 'ice' ? 'ice' : f === 'burger' ? 'grill' : 'board';
+    ui.prep = 'tray';
     ui.doubleTap?.cancel();
     ui.selected = null;
     refresh();
@@ -280,6 +286,7 @@ export function App() {
   const picture = selected && (s.session.support !== 'less' || caption === selected.id);
   return (
     <main
+      ref={shell}
       className={`game-shell m2-shell screen-${screen}`}
       data-build-sha={BUILD_INFO.sha}
       data-build-dirty={String(BUILD_INFO.dirty)}
@@ -384,7 +391,7 @@ export function App() {
           <small>教学不要求识字；拼写不会挡住故事。</small>
         </section>
       ) : (
-        <>
+        <div className="service-surface">
           <header className="game-toolbar">
             <button type="button" aria-label="暂停" onClick={() => setModal('pause')}>
               Ⅱ
@@ -401,24 +408,11 @@ export function App() {
                   : `${s.orders.filter((o) => o.status === 'done').length} / ${s.orders.length}`}
               </b>
             </span>
-            <button
-              type="button"
-              aria-label={audio.enabled ? '关闭声音' : '打开声音'}
-              onClick={() => {
-                audio.enabled = !audio.enabled;
-                if (audio.enabled) void audio.unlock();
-                refresh();
-              }}
-            >
-              ♫
-            </button>
-            <button
-              type="button"
-              aria-label="打开小食谱"
-              onClick={() => selected && teach(selected.request)}
-            >
-              ?
-            </button>
+            {audio.failure ? (
+              <button type="button" aria-label="声音状态" onClick={() => setModal('audio')}>
+                ♫!
+              </button>
+            ) : null}
           </header>
           <fieldset className="semantic-layer" aria-label="餐车操作">
             {ui.hotspots.map((h) => (
@@ -453,7 +447,7 @@ export function App() {
               </button>
             ))}
           </fieldset>
-          {!done && !teaching && opening === null ? (
+          {!done && !teaching && !modal && !note && opening === null ? (
             <ServiceControls
               controller={controller}
               audio={audio}
@@ -499,9 +493,20 @@ export function App() {
               食谱翻页中…
             </div>
           ) : null}
-          <footer className="game-feedback">
+          <footer
+            className="game-feedback"
+            style={
+              ui.layout
+                ? {
+                    left: ui.layout.regions.feedback.x,
+                    top: ui.layout.regions.feedback.y,
+                    width: ui.layout.regions.feedback.width,
+                    height: ui.layout.regions.feedback.height,
+                  }
+                : undefined
+            }
+          >
             <p role="status">{controller.message}</p>
-            <small>开发语音 · 未听审</small>
           </footer>
           {note ? (
             <Note
@@ -548,7 +553,7 @@ export function App() {
               </button>
             </section>
           ) : null}
-        </>
+        </div>
       )}
       {modal ? (
         <div className="modal-backdrop">
@@ -564,14 +569,24 @@ export function App() {
                 <button type="button" className="primary" onClick={() => setModal(null)}>
                   继续营业
                 </button>
+                <button type="button" onClick={() => showSettings('game')}>
+                  设置
+                </button>
+                <button type="button" onClick={home}>
+                  保存并回到首页
+                </button>
+              </>
+            ) : modal === 'help' ? (
+              <>
+                <h2>小猫陪你一起做</h2>
                 <button
                   type="button"
                   onClick={() => {
-                    audio.enabled = !audio.enabled;
-                    refresh();
+                    setModal(null);
+                    help();
                   }}
                 >
-                  {audio.enabled ? '关闭声音' : '打开声音'}
+                  看看客人想要什么
                 </button>
                 <button
                   type="button"
@@ -580,50 +595,57 @@ export function App() {
                     if (selected) teach(selected.request);
                   }}
                 >
-                  看食谱帮助
+                  看食谱与示范
                 </button>
-                <SupportChoice
-                  value={s.session.support}
-                  change={(v) => {
-                    setSupport(v);
-                    controller.profile.value.support = v;
-                    controller.profile.save();
-                    controller.command({
-                      type: 'policy',
-                      support: v,
-                      concurrency: s.session.concurrency,
-                    });
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModal(null);
+                    setNote(true);
                   }}
-                />
-                {s.session.activity === 'endless' ? (
-                  <fieldset className="choice-row">
-                    <legend>营业忙碌程度</legend>
-                    {([1, 2] as const).map((n) => (
-                      <button
-                        key={n}
-                        type="button"
-                        aria-pressed={s.session.concurrency === n}
-                        onClick={() => {
-                          setConcurrency(n);
-                          controller.profile.value.concurrency = n;
-                          controller.profile.save();
-                          controller.command({
-                            type: 'policy',
-                            support: s.session.support,
-                            concurrency: n,
-                          });
-                        }}
-                      >
-                        {n === 1 ? '一位一位来' : '两位一起招呼'}
-                      </button>
-                    ))}
-                  </fieldset>
-                ) : null}
-                <button type="button" onClick={home}>
-                  保存并回到首页
+                >
+                  请小猫帮我拿
                 </button>
-                <button type="button" onClick={() => showSettings('game')}>
-                  更多设置与学习观察
+                {s.helper ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      controller.command({ type: 'cancel-helper' });
+                      setModal(null);
+                    }}
+                  >
+                    撤回便签
+                  </button>
+                ) : null}
+                <button type="button" className="primary" onClick={() => setModal(null)}>
+                  继续营业
+                </button>
+              </>
+            ) : modal === 'audio' ? (
+              <>
+                <h2>声音小提示</h2>
+                <p>{audio.failure || '可以继续看图制作。'}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const id = audio.failedRequest ?? audio.lastRequested;
+                    setModal(null);
+                    if (id) void audio.play(id);
+                  }}
+                >
+                  重试声音
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    help();
+                    setModal(null);
+                  }}
+                >
+                  使用图示帮助
+                </button>
+                <button type="button" onClick={() => setModal(null)}>
+                  继续营业
                 </button>
               </>
             ) : modal === 'clear' ? (
@@ -673,26 +695,17 @@ export function App() {
           </button>
         </div>
       ) : null}
-      {audio.failure ? (
-        <div className={`audio-alert ${teaching ? 'during-lesson' : ''}`} role="alert">
-          {audio.failure}
-          <button
-            type="button"
-            onClick={() => audio.lastRequested && audio.play(audio.lastRequested)}
-          >
-            重试声音
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              if (screen === 'game') help();
-              audio.failure = '';
-              refresh();
-            }}
-          >
-            {screen === 'game' ? '使用图示帮助' : '看图继续'}
-          </button>
-        </div>
+      {audio.failure && screen !== 'game' ? (
+        <button
+          type="button"
+          className="sound-status"
+          onClick={() => {
+            const id = audio.failedRequest ?? audio.lastRequested;
+            if (id) void audio.play(id);
+          }}
+        >
+          ♫! 重试声音
+        </button>
       ) : null}
       {controller.save.issue || controller.profile.issue ? (
         <div className="storage-alert" role="alert">

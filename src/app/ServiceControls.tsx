@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { REQUESTS } from '../content/catalog';
-import { FAMILY_STATIONS, type Family, isFinished } from '../content/recipes';
+import { type Family, isFinished } from '../content/recipes';
 import { activate, type ViewState } from '../game/input';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -29,147 +30,130 @@ export function ServiceControls({
   picture,
   caption,
   setCaption,
-  help,
   family,
 }: Props) {
-  const s = controller.state;
+  const [menu, setMenu] = useState(false),
+    [targets, setTargets] = useState(false);
+  const s = controller.state,
+    l = ui.layout;
+  if (!l) return null;
+  const send = (o: Order) => {
+    ui.selectedGuest = o.id;
+    activate(`send-${o.id}`, controller, audio, ui);
+    setTargets(false);
+  };
+  const r = l.regions.action,
+    g = selected ? l.guests[selected.seat] : l.guests[0];
   return (
     <>
-      <div className="request-tools">
-        <button
-          type="button"
-          onClick={() => selected && audio.play(REQUESTS[selected.request].audio)}
+      {s.session.unlocked.length > 1 ? (
+        <div
+          className="recipe-switch"
+          style={{ left: l.regions.work.x, top: l.regions.work.y - 2 }}
         >
-          ↻ 重听
-        </button>
-        <button type="button" onClick={help}>
-          图示帮助
-        </button>
-        {s.helper ? (
-          <button type="button" onClick={() => controller.command({ type: 'cancel-helper' })}>
-            撤回便签
-          </button>
-        ) : null}
-      </div>
-      <fieldset className="family-tabs" aria-label="选择食谱工作台">
-        {s.session.unlocked.map((f) => (
           <button
             type="button"
-            key={f}
-            aria-label={{ juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[f]}
-            aria-pressed={s.session.family === f}
-            onClick={() => family(f)}
+            aria-label="选择食谱"
+            aria-expanded={menu}
+            onClick={() => setMenu(!menu)}
           >
-            <Food
-              product={
-                { juice: 'apple', ice: 'vanilla-cone', sandwich: 'sandwich', burger: 'burger' }[
-                  f
-                ] as 'apple' | 'vanilla-cone' | 'sandwich' | 'burger'
-              }
-            />
-            {{ juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[f]}
+            ▤
           </button>
-        ))}
-      </fieldset>
-      <fieldset className="prep-selector" aria-label="当前备餐位置">
-        <span>放到</span>
-        <button
-          type="button"
-          aria-pressed={ui.prep === 'tray'}
-          onClick={() => {
-            activate(`tray-${ui.selectedTray}`, controller, audio, ui);
-          }}
-        >
-          ● {ui.selectedTray + 1}号盘
-        </button>
-        {s.session.family === 'juice' ? (
-          <button
-            type="button"
-            aria-pressed={ui.prep === 'machine'}
-            onClick={() => {
-              activate(
-                selectedItem?.product === 'cup' ? 'machine-cup' : 'machine-apple',
-                controller,
-                audio,
-                ui,
-              );
-            }}
-          >
-            果汁机
-          </button>
-        ) : (
-          FAMILY_STATIONS[s.session.family].map((id) => (
-            <button
-              type="button"
-              key={id}
-              aria-pressed={ui.prep === id}
-              onClick={() => {
-                activate(`station-${id}`, controller, audio, ui);
-              }}
-            >
-              {{ ice: '冰淇淋台', board: '组合板', grill: '煎台' }[id]}
-            </button>
-          ))
-        )}
-      </fieldset>
-      <fieldset className="delivery-actions" aria-label="送餐">
-        {waiting.map((o) => (
-          <button
-            type="button"
-            key={o.id}
-            onClick={() => {
-              ui.selectedGuest = o.id;
-              activate(`send-${o.id}`, controller, audio, ui);
-            }}
-          >
-            送给{waiting.length === 1 ? '客人' : o.seat === 0 ? '左边客人' : '右边客人'} ↗
-          </button>
-        ))}
-      </fieldset>
-      {selectedItem ? (
-        <button
-          type="button"
-          className="near-remove"
-          style={(() => {
-            const h = ui.hotspots.find((h) => h.id === `item-${selectedItem.id}`);
-            return h
-              ? {
-                  left: Math.max(8, Math.min(innerWidth - 145, h.x - 65)),
-                  top: Math.max(70, h.y - 62),
-                  right: 'auto',
-                }
-              : undefined;
-          })()}
-          onClick={() => activate('clear', controller, audio, ui)}
-        >
-          {isFinished(selectedItem.product) ? '收起成品' : '↩ 放回这份'}
-        </button>
+          {menu ? (
+            <fieldset className="recipe-options" aria-label="选择食谱工作台">
+              {s.session.unlocked.map((f) => (
+                <button
+                  type="button"
+                  key={f}
+                  aria-pressed={s.session.family === f}
+                  onClick={() => {
+                    family(f);
+                    setMenu(false);
+                  }}
+                >
+                  {{ juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[f]}
+                </button>
+              ))}
+            </fieldset>
+          ) : null}
+        </div>
       ) : null}
+      <div
+        className="delivery-actions"
+        style={{ left: r.x, top: r.y, width: r.width, height: r.height }}
+      >
+        {targets && waiting.length > 1 ? (
+          <fieldset aria-label="选择送餐客人">
+            {waiting.map((o) => (
+              <button type="button" key={o.id} onClick={() => send(o)}>
+                送给{o.seat === 0 ? '左边' : '右边'}客人 ↗
+              </button>
+            ))}
+          </fieldset>
+        ) : (
+          <button
+            type="button"
+            className="primary"
+            onClick={() => {
+              if (waiting.length === 1 && waiting[0]) send(waiting[0]);
+              else setTargets(true);
+            }}
+          >
+            送餐 ↗
+          </button>
+        )}
+      </div>
+      {selectedItem
+        ? (() => {
+            const h = ui.hotspots.find((h) => h.id === `item-${selectedItem.id}`);
+            return h ? (
+              <button
+                type="button"
+                className="near-remove"
+                style={{
+                  left: Math.max(8, Math.min(l.width - 148, h.x - 70)),
+                  top: Math.max(l.regions.trays.y - 20, h.y - 54),
+                }}
+                onClick={() => activate('clear', controller, audio, ui)}
+              >
+                {isFinished(selectedItem.product) ? '收起成品' : '↩ 放回这份'}
+              </button>
+            ) : null;
+          })()
+        : null}
       {s.recycle ? (
         <button
           type="button"
           className="restore-food"
+          style={{ left: l.regions.action.x, top: l.regions.action.y - 48 }}
           onClick={() => activate('restore', controller, audio, ui)}
         >
-          恢复刚收起的成品
+          ↶ 恢复成品
         </button>
       ) : null}
       {picture && selected ? (
-        <fieldset
+        <button
+          type="button"
           className="request-picture"
-          aria-label="有图示支持的请求"
-          style={{ left: s.mode === 'service' ? (selected.seat === 0 ? '27%' : '73%') : '50%' }}
+          aria-label="点请求气泡重听"
+          style={{
+            left: Math.max(8, Math.min(l.width - 120, g.x - 60)),
+            top: l.regions.guests.y,
+            width: 120,
+          }}
+          onClick={() => activate(selected.id, controller, audio, ui)}
         >
           {REQUESTS[selected.request].products.map((p, i) => (
-            <Food
-              key={`${p}-${REQUESTS[selected.request].products.slice(0, i).filter((v) => v === p).length}`}
-              product={p}
-            />
+            <Food key={`${p}-${i}`} product={p} />
           ))}
-        </fieldset>
+          <span>♫</span>
+        </button>
       ) : null}
       {caption === selected?.id && selected ? (
-        <div className="request-caption">
+        <div
+          className="request-caption"
+          style={{ left: 8, top: l.regions.guests.y, width: l.width - 16 }}
+        >
           {REQUESTS[selected.request].text}
           <button type="button" aria-label="收起文字帮助" onClick={() => setCaption(null)}>
             ×

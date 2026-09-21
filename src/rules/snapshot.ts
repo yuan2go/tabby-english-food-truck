@@ -2,6 +2,7 @@ import { CONTENT_VERSION, JUICE_MS, REQUESTS, requestsFor } from '../content/cat
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
 import { stationItems } from './cooking';
+import { emptyRouting, targetLocation } from './routing';
 import type { GameState } from './types';
 
 const record = (v: unknown): v is Record<string, unknown> =>
@@ -19,7 +20,7 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 4 ||
+    v.schemaVersion !== 5 ||
     v.contentVersion !== CONTENT_VERSION ||
     !['guided', 'practice', 'service'].includes(v.mode as string) ||
     !record(v.history) ||
@@ -160,6 +161,15 @@ export function validateState(v: unknown): v is GameState {
     typeof v.session.lastRequest !== 'string'
   )
     return false;
+  if (!record(v.routing) || Object.keys(v.routing).length !== 4) return false;
+  for (const id of ['machine', 'ice', 'board', 'grill']) {
+    const t = v.routing[id];
+    if (t === null) continue;
+    if (!record(t)) return false;
+    if ('tray' in t) {
+      if (![0, 1].includes(t.tray as number) || ![0, 1, 2].includes(t.slot as number)) return false;
+    } else if (id !== 'grill' || t.station !== 'board' || !integer(t.slot, 4)) return false;
+  }
   if (!record(v.stations)) return false;
   for (const id of ['ice', 'board', 'grill']) {
     const st = v.stations[id];
@@ -253,6 +263,24 @@ export function validateState(v: unknown): v is GameState {
       s.trays[1].remaining)
   )
     return false;
+  const targets = Object.values(s.routing).filter((t) => t !== null);
+  if (!unique(targets.map(targetLocation))) return false;
+  for (const [id, target] of Object.entries(s.routing)) {
+    if (!target) continue;
+    const device = id === 'machine' ? s.machine : s.stations[id as 'ice' | 'board' | 'grill'];
+    if (
+      !['processing', 'ready'].includes(device.status) ||
+      s.items.some((i) => i.location === targetLocation(target))
+    )
+      return false;
+    if (
+      'tray' in target &&
+      (s.trays[target.tray].remaining ||
+        (s.mode !== 'service' && target.tray !== 0) ||
+        (s.helper?.tray === target.tray && s.helper.slots.includes(target.slot)))
+    )
+      return false;
+  }
   const apple = s.items.find((i) => i.location === 'machine:apple'),
     cup = s.items.find((i) => i.location === 'machine:cup');
   if (apple && !['apple', 'banana'].includes(apple.product)) return false;
@@ -446,9 +474,8 @@ export function decodeSnapshot(raw: string): DecodeResult {
       record(value.session)
     ) {
       // M2 encoded load in mode + support. Preserve the actual old policy, never infer scores.
-      const legacy = structuredClone(value);
       value.schemaVersion = 4;
-      value.contentVersion = CONTENT_VERSION;
+      value.contentVersion = 'm2.1';
       value.session.concurrency =
         value.mode === 'service' && value.session.support === 'less' ? 2 : 1;
       value.session.menu = Array.isArray(value.session.unlocked)
@@ -458,8 +485,11 @@ export function decodeSnapshot(raw: string): DecodeResult {
       if (Array.isArray(value.attempts))
         for (const [i, a] of value.attempts.entries())
           if (record(a)) a.id = `${value.runId}:legacy:${i}`;
-      if (!validateState(value))
-        return { ok: false, reason: '旧档关系校验失败，已保留原文。', raw: JSON.stringify(legacy) };
+    }
+    if (record(value) && value.schemaVersion === 4 && value.contentVersion === 'm2.1') {
+      value.schemaVersion = 5;
+      value.contentVersion = CONTENT_VERSION;
+      value.routing = emptyRouting();
     }
     return validateState(value)
       ? { ok: true, state: value }

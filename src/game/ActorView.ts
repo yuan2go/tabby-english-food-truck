@@ -3,7 +3,7 @@ import { FAMILY_SUPPLIES, foodAsset, type Product } from '../content/recipes';
 import type { GameController } from '../platform/controller';
 import { ActorScheduler } from './actor';
 import type { ViewState } from './input';
-import type { Layout, Point } from './layout';
+import { type Layout, type Point, projectActor, supplyPoint } from './layout';
 /** Presentation samples the rule clock; hands and tray interpolate inside the same phases. */
 export class ActorView {
   private scheduler = new ActorScheduler();
@@ -73,8 +73,9 @@ export class ActorView {
     }
     if (!this.controller.pauses.size || (teaching && this.demoOwnsActor))
       this.fade = Math.min(1, this.fade + delta / 110);
-    const x = frame.point.x * l.width,
-      y = frame.point.y * l.height - 36 * l.scale,
+    const projected = projectActor(frame.point, l);
+    const x = projected.x,
+      y = projected.y - 28 * l.scale,
       height = 150 * l.scale;
     for (const node of [this.sprite, this.blend])
       node
@@ -176,10 +177,7 @@ export class ActorView {
         if (!preceding.includes(pick) && frame.event !== pick) continue;
         const products = FAMILY_SUPPLIES[s.session.family];
         const index = products.indexOf(item.product);
-        const source = {
-          x: (l.width * (Math.max(0, index) + 0.5)) / (products.length + 1),
-          y: l.height * 0.85,
-        };
+        const source = supplyPoint(l,Math.max(0,index),products.length);
         let p = { x: hand.x + (i - (items.length - 1) / 2) * 28, y: hand.y };
         if (frame.event === pick) p = mix(source, p, frame.progress);
         if (frame.event === 'place') {
