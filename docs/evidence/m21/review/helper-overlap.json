@@ -1,0 +1,14 @@
+{
+  "duration": 20.4,
+  "interval": 0.25,
+  "frames": 82,
+  "pages": [
+    "docs/evidence/m21/review/helper-overlap-1.jpg",
+    "docs/evidence/m21/review/helper-overlap-2.jpg",
+    "docs/evidence/m21/review/helper-overlap-3.jpg",
+    "docs/evidence/m21/review/helper-overlap-4.jpg",
+    "docs/evidence/m21/review/helper-overlap-5.jpg",
+    "docs/evidence/m21/review/helper-overlap-6.jpg"
+  ],
+  "method": "Sequential contact sheets sampled from the actual continuous HTTP interaction video. No video audio track, physical device or owner acceptance is implied."
+}

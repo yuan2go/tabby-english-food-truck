@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/minigames.spec.ts e2e/m21.spec.ts --grep bilingual|matching accepts --output=/tmp/tabby-m21-final/targeted-browser
+
+
+Running 2 tests using 1 worker
+
+(node:5340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m21.spec.ts:58:1 › M21 matching accepts direct picture after playback and switches activities without losing drafts (11.3s)
+  ✓  2 e2e/minigames.spec.ts:131:1 › M2 bilingual uses explicit support and preserves business inventory (5.2s)
+
+  2 passed (17.0s)

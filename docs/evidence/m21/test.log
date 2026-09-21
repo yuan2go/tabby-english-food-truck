@@ -1,0 +1,45 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck
+
+(node:4397) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4394) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4395) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/m2-world.test.ts (9 tests | 1 failed) 337ms
+     × four spelling rounds support repeated IDs, withdrawal, retry and return snapshots 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m2-world.test.ts > M2 deterministic minigames > four spelling rounds support repeated IDs, withdrawal, retry and return snapshots
+AssertionError: expected [ 'letter-bank' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "letter-bank",
++ ]
+
+ ❯ tests/m2-world.test.ts:256:42
+    254|       s = submitMini(s);
+    255|       expect(s.correct).toBe(true);
+    256|       expect(s.attempts.at(-1)?.support).toEqual([]);
+       |                                          ^
+    257|       s = nextRound(s);
+    258|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 54 passed (55)
+   Start at  11:30:13
+   Duration  648ms (transform 479ms, setup 0ms, import 683ms, tests 391ms, environment 0ms)
+

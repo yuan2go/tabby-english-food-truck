@@ -1,0 +1,2005 @@
+[
+  {
+    "chapter": 0,
+    "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
+    "frameIntervals": {
+      "count": 1328,
+      "medianMs": 33.30000000000291,
+      "p95Ms": 50,
+      "maxMs": 66.79999999999563
+    },
+    "pointerUpToTwoFrames": {
+      "count": 27,
+      "medianMs": 37.10000002384186,
+      "p95Ms": 42.599999994039536,
+      "maxMs": 59
+    },
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3
+    },
+    "canvas": {
+      "width": 983,
+      "height": 1663,
+      "scale": "2.500"
+    },
+    "build": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+    "dirty": "false",
+    "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+    "resources": [
+      {
+        "name": "index-BgqERNIY.js",
+        "encodedBytes": 108344,
+        "transferBytes": 108644,
+        "durationMs": 15.900000005960464
+      },
+      {
+        "name": "index-CWH0D1K8.css",
+        "encodedBytes": 8811,
+        "transferBytes": 9111,
+        "durationMs": 5.9000000059604645
+      },
+      {
+        "name": "phaser-DXXWZowi.js",
+        "encodedBytes": 330072,
+        "transferBytes": 330372,
+        "durationMs": 37.20000001788139
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 118020,
+        "durationMs": 5
+      },
+      {
+        "name": "courtyard.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 517038,
+        "transferBytes": 517338,
+        "durationMs": 7
+      },
+      {
+        "name": "cat-idle.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114458,
+        "transferBytes": 114758,
+        "durationMs": 14
+      },
+      {
+        "name": "cat-read.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 120194,
+        "transferBytes": 120494,
+        "durationMs": 14.099999994039536
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 158390,
+        "durationMs": 14.900000005960464
+      },
+      {
+        "name": "cat-carry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117812,
+        "transferBytes": 118112,
+        "durationMs": 14.900000005960464
+      },
+      {
+        "name": "cat-place.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 162614,
+        "transferBytes": 162914,
+        "durationMs": 16.700000017881393
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 16.30000001192093
+      },
+      {
+        "name": "cat-blocked.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114604,
+        "transferBytes": 114904,
+        "durationMs": 16.69999998807907
+      },
+      {
+        "name": "cat-celebrate.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 130356,
+        "transferBytes": 130656,
+        "durationMs": 17.099999994039536
+      },
+      {
+        "name": "cat-step-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 88820,
+        "transferBytes": 89120,
+        "durationMs": 17
+      },
+      {
+        "name": "cat-step-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 82684,
+        "transferBytes": 82984,
+        "durationMs": 17.5
+      },
+      {
+        "name": "cat-step-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87650,
+        "transferBytes": 87950,
+        "durationMs": 19
+      },
+      {
+        "name": "cat-step-3.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85924,
+        "transferBytes": 86224,
+        "durationMs": 19.099999994039536
+      },
+      {
+        "name": "market.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 172060,
+        "transferBytes": 172360,
+        "durationMs": 22
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 33032,
+        "durationMs": 19.700000017881393
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 22490,
+        "durationMs": 20.700000017881393
+      },
+      {
+        "name": "cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42906,
+        "transferBytes": 43206,
+        "durationMs": 22
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 33932,
+        "durationMs": 22.700000017881393
+      },
+      {
+        "name": "machine.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 68302,
+        "transferBytes": 68602,
+        "durationMs": 25.200000017881393
+      },
+      {
+        "name": "tray.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 107780,
+        "transferBytes": 108080,
+        "durationMs": 25.899999976158142
+      },
+      {
+        "name": "guest-0-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42746,
+        "transferBytes": 43046,
+        "durationMs": 26.19999998807907
+      },
+      {
+        "name": "guest-0-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 43526,
+        "transferBytes": 43826,
+        "durationMs": 26.399999976158142
+      },
+      {
+        "name": "guest-0-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 44200,
+        "transferBytes": 44500,
+        "durationMs": 26.599999994039536
+      },
+      {
+        "name": "guest-1-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 47408,
+        "transferBytes": 47708,
+        "durationMs": 27.19999998807907
+      },
+      {
+        "name": "guest-1-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 48672,
+        "transferBytes": 48972,
+        "durationMs": 27.19999998807907
+      },
+      {
+        "name": "guest-1-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49514,
+        "transferBytes": 49814,
+        "durationMs": 27.69999998807907
+      },
+      {
+        "name": "banana-juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 60024,
+        "transferBytes": 60324,
+        "durationMs": 2
+      },
+      {
+        "name": "elder.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 113300,
+        "transferBytes": 113600,
+        "durationMs": 4.100000023841858
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 300,
+        "durationMs": 3
+      },
+      {
+        "name": "prologue-0.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 102728,
+        "transferBytes": 103028,
+        "durationMs": 2.2000000178813934
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 1.899999976158142
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 2.2999999821186066
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49194,
+        "transferBytes": 49494,
+        "durationMs": 3.4000000059604645
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 92392,
+        "durationMs": 3.5999999940395355
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 75170,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "chapter-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 126508,
+        "transferBytes": 126808,
+        "durationMs": 3.199999988079071
+      },
+      {
+        "name": "apple.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 25364,
+        "transferBytes": 25664,
+        "durationMs": 2.4000000059604645
+      },
+      {
+        "name": "request-apple.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 65846,
+        "transferBytes": 66146,
+        "durationMs": 2.5999999940395355
+      },
+      {
+        "name": "thanks.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 35300,
+        "transferBytes": 35600,
+        "durationMs": 2.4000000059604645
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 1.699999988079071
+      },
+      {
+        "name": "request-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 76052,
+        "transferBytes": 76352,
+        "durationMs": 3.2999999821186066
+      },
+      {
+        "name": "banana-juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 60024,
+        "transferBytes": 300,
+        "durationMs": 1.7000000178813934
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 300,
+        "durationMs": 1.199999988079071
+      },
+      {
+        "name": "banana.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 28212,
+        "transferBytes": 28512,
+        "durationMs": 2.2000000178813934
+      },
+      {
+        "name": "request-banana-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 79924,
+        "transferBytes": 80224,
+        "durationMs": 2.7999999821186066
+      },
+      {
+        "name": "apple.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 25364,
+        "transferBytes": 25664,
+        "durationMs": 2.699999988079071
+      },
+      {
+        "name": "request-fruit.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 94486,
+        "transferBytes": 94786,
+        "durationMs": 2.7999999821186066
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 130656,
+        "durationMs": 2.9000000059604645
+      }
+    ]
+  },
+  {
+    "chapter": 1,
+    "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
+    "frameIntervals": {
+      "count": 1329,
+      "medianMs": 33.39999999999418,
+      "p95Ms": 50.10000000000582,
+      "maxMs": 133.3000000000029
+    },
+    "pointerUpToTwoFrames": {
+      "count": 37,
+      "medianMs": 38.20000001788139,
+      "p95Ms": 59.20000001788139,
+      "maxMs": 60
+    },
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3
+    },
+    "canvas": {
+      "width": 983,
+      "height": 1663,
+      "scale": "2.500"
+    },
+    "build": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+    "dirty": "false",
+    "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+    "resources": [
+      {
+        "name": "index-BgqERNIY.js",
+        "encodedBytes": 108344,
+        "transferBytes": 108644,
+        "durationMs": 15.900000005960464
+      },
+      {
+        "name": "index-CWH0D1K8.css",
+        "encodedBytes": 8811,
+        "transferBytes": 9111,
+        "durationMs": 5.9000000059604645
+      },
+      {
+        "name": "phaser-DXXWZowi.js",
+        "encodedBytes": 330072,
+        "transferBytes": 330372,
+        "durationMs": 37.20000001788139
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 118020,
+        "durationMs": 5
+      },
+      {
+        "name": "courtyard.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 517038,
+        "transferBytes": 517338,
+        "durationMs": 7
+      },
+      {
+        "name": "cat-idle.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114458,
+        "transferBytes": 114758,
+        "durationMs": 14
+      },
+      {
+        "name": "cat-read.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 120194,
+        "transferBytes": 120494,
+        "durationMs": 14.099999994039536
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 158390,
+        "durationMs": 14.900000005960464
+      },
+      {
+        "name": "cat-carry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117812,
+        "transferBytes": 118112,
+        "durationMs": 14.900000005960464
+      },
+      {
+        "name": "cat-place.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 162614,
+        "transferBytes": 162914,
+        "durationMs": 16.700000017881393
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 16.30000001192093
+      },
+      {
+        "name": "cat-blocked.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114604,
+        "transferBytes": 114904,
+        "durationMs": 16.69999998807907
+      },
+      {
+        "name": "cat-celebrate.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 130356,
+        "transferBytes": 130656,
+        "durationMs": 17.099999994039536
+      },
+      {
+        "name": "cat-step-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 88820,
+        "transferBytes": 89120,
+        "durationMs": 17
+      },
+      {
+        "name": "cat-step-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 82684,
+        "transferBytes": 82984,
+        "durationMs": 17.5
+      },
+      {
+        "name": "cat-step-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87650,
+        "transferBytes": 87950,
+        "durationMs": 19
+      },
+      {
+        "name": "cat-step-3.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85924,
+        "transferBytes": 86224,
+        "durationMs": 19.099999994039536
+      },
+      {
+        "name": "market.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 172060,
+        "transferBytes": 172360,
+        "durationMs": 22
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 33032,
+        "durationMs": 19.700000017881393
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 22490,
+        "durationMs": 20.700000017881393
+      },
+      {
+        "name": "cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42906,
+        "transferBytes": 43206,
+        "durationMs": 22
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 33932,
+        "durationMs": 22.700000017881393
+      },
+      {
+        "name": "machine.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 68302,
+        "transferBytes": 68602,
+        "durationMs": 25.200000017881393
+      },
+      {
+        "name": "tray.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 107780,
+        "transferBytes": 108080,
+        "durationMs": 25.899999976158142
+      },
+      {
+        "name": "guest-0-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42746,
+        "transferBytes": 43046,
+        "durationMs": 26.19999998807907
+      },
+      {
+        "name": "guest-0-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 43526,
+        "transferBytes": 43826,
+        "durationMs": 26.399999976158142
+      },
+      {
+        "name": "guest-0-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 44200,
+        "transferBytes": 44500,
+        "durationMs": 26.599999994039536
+      },
+      {
+        "name": "guest-1-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 47408,
+        "transferBytes": 47708,
+        "durationMs": 27.19999998807907
+      },
+      {
+        "name": "guest-1-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 48672,
+        "transferBytes": 48972,
+        "durationMs": 27.19999998807907
+      },
+      {
+        "name": "guest-1-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49514,
+        "transferBytes": 49814,
+        "durationMs": 27.69999998807907
+      },
+      {
+        "name": "banana-juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 60024,
+        "transferBytes": 60324,
+        "durationMs": 2
+      },
+      {
+        "name": "elder.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 113300,
+        "transferBytes": 113600,
+        "durationMs": 4.100000023841858
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 300,
+        "durationMs": 3
+      },
+      {
+        "name": "prologue-0.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 102728,
+        "transferBytes": 103028,
+        "durationMs": 2.2000000178813934
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 1.899999976158142
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 2.2999999821186066
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49194,
+        "transferBytes": 49494,
+        "durationMs": 3.4000000059604645
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 92392,
+        "durationMs": 3.5999999940395355
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 75170,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "chapter-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 126508,
+        "transferBytes": 126808,
+        "durationMs": 3.199999988079071
+      },
+      {
+        "name": "apple.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 25364,
+        "transferBytes": 25664,
+        "durationMs": 2.4000000059604645
+      },
+      {
+        "name": "request-apple.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 65846,
+        "transferBytes": 66146,
+        "durationMs": 2.5999999940395355
+      },
+      {
+        "name": "thanks.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 35300,
+        "transferBytes": 35600,
+        "durationMs": 2.4000000059604645
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 1.699999988079071
+      },
+      {
+        "name": "request-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 76052,
+        "transferBytes": 76352,
+        "durationMs": 3.2999999821186066
+      },
+      {
+        "name": "banana-juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 60024,
+        "transferBytes": 300,
+        "durationMs": 1.7000000178813934
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 300,
+        "durationMs": 1.199999988079071
+      },
+      {
+        "name": "banana.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 28212,
+        "transferBytes": 28512,
+        "durationMs": 2.2000000178813934
+      },
+      {
+        "name": "request-banana-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 79924,
+        "transferBytes": 80224,
+        "durationMs": 2.7999999821186066
+      },
+      {
+        "name": "apple.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 25364,
+        "transferBytes": 25664,
+        "durationMs": 2.699999988079071
+      },
+      {
+        "name": "request-fruit.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 94486,
+        "transferBytes": 94786,
+        "durationMs": 2.7999999821186066
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 130656,
+        "durationMs": 2.9000000059604645
+      },
+      {
+        "name": "cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 20778,
+        "transferBytes": 21078,
+        "durationMs": 5.699999988079071
+      },
+      {
+        "name": "vanilla.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 31590,
+        "transferBytes": 31890,
+        "durationMs": 5.5999999940395355
+      },
+      {
+        "name": "strawberry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 38612,
+        "transferBytes": 38912,
+        "durationMs": 6
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49194,
+        "transferBytes": 300,
+        "durationMs": 6.5999999940395355
+      },
+      {
+        "name": "strawberry-cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87360,
+        "transferBytes": 87660,
+        "durationMs": 5.9000000059604645
+      },
+      {
+        "name": "double-cream.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 91850,
+        "transferBytes": 92150,
+        "durationMs": 6
+      },
+      {
+        "name": "banana-cream.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 69446,
+        "transferBytes": 69746,
+        "durationMs": 6.5999999940395355
+      },
+      {
+        "name": "ice-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87990,
+        "transferBytes": 88290,
+        "durationMs": 7
+      },
+      {
+        "name": "chapter-ice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 139592,
+        "transferBytes": 139892,
+        "durationMs": 2.2000000178813934
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49194,
+        "transferBytes": 300,
+        "durationMs": 1.2999999821186066
+      },
+      {
+        "name": "word-ice-cream.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 36620,
+        "transferBytes": 36920,
+        "durationMs": 1.800000011920929
+      },
+      {
+        "name": "request-vanilla-cone.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 110670,
+        "transferBytes": 110970,
+        "durationMs": 6.799999982118607
+      },
+      {
+        "name": "strawberry-cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87360,
+        "transferBytes": 300,
+        "durationMs": 2
+      },
+      {
+        "name": "strawberry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 38612,
+        "transferBytes": 300,
+        "durationMs": 2
+      },
+      {
+        "name": "word-strawberry.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 38928,
+        "transferBytes": 39228,
+        "durationMs": 2.5
+      },
+      {
+        "name": "request-strawberry-cup.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 121360,
+        "transferBytes": 121660,
+        "durationMs": 4.300000011920929
+      },
+      {
+        "name": "double-cream.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 91850,
+        "transferBytes": 300,
+        "durationMs": 1.699999988079071
+      },
+      {
+        "name": "vanilla.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 31590,
+        "transferBytes": 300,
+        "durationMs": 1.0999999940395355
+      },
+      {
+        "name": "word-vanilla.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 28246,
+        "transferBytes": 28546,
+        "durationMs": 2.5999999940395355
+      },
+      {
+        "name": "request-double-cream.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 146778,
+        "transferBytes": 147078,
+        "durationMs": 2.800000011920929
+      },
+      {
+        "name": "banana-cream.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 69446,
+        "transferBytes": 300,
+        "durationMs": 2
+      },
+      {
+        "name": "request-banana-cream.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 113230,
+        "transferBytes": 113530,
+        "durationMs": 2.699999988079071
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 1.5999999940395355
+      }
+    ]
+  },
+  {
+    "chapter": 2,
+    "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
+    "frameIntervals": {
+      "count": 1022,
+      "medianMs": 33.30000000000291,
+      "p95Ms": 50,
+      "maxMs": 83.40000000000009
+    },
+    "pointerUpToTwoFrames": {
+      "count": 22,
+      "medianMs": 36.30000001192093,
+      "p95Ms": 38.39999997615814,
+      "maxMs": 46
+    },
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3
+    },
+    "canvas": {
+      "width": 983,
+      "height": 1663,
+      "scale": "2.500"
+    },
+    "build": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+    "dirty": "false",
+    "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+    "resources": [
+      {
+        "name": "index-BgqERNIY.js",
+        "encodedBytes": 108344,
+        "transferBytes": 300,
+        "durationMs": 4.199999988079071
+      },
+      {
+        "name": "index-CWH0D1K8.css",
+        "encodedBytes": 8811,
+        "transferBytes": 300,
+        "durationMs": 2.5999999940395355
+      },
+      {
+        "name": "phaser-DXXWZowi.js",
+        "encodedBytes": 330072,
+        "transferBytes": 300,
+        "durationMs": 5.9000000059604645
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 1.300000011920929
+      },
+      {
+        "name": "courtyard.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 1.300000011920929
+      },
+      {
+        "name": "cat-idle.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114458,
+        "transferBytes": 300,
+        "durationMs": 5
+      },
+      {
+        "name": "cat-read.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 120194,
+        "transferBytes": 300,
+        "durationMs": 5
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 300,
+        "durationMs": 5.100000023841858
+      },
+      {
+        "name": "cat-carry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117812,
+        "transferBytes": 300,
+        "durationMs": 5.200000017881393
+      },
+      {
+        "name": "cat-place.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 162614,
+        "transferBytes": 300,
+        "durationMs": 5.299999982118607
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 5.699999988079071
+      },
+      {
+        "name": "cat-blocked.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114604,
+        "transferBytes": 300,
+        "durationMs": 6.9000000059604645
+      },
+      {
+        "name": "cat-step-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 82684,
+        "transferBytes": 300,
+        "durationMs": 6.0999999940395355
+      },
+      {
+        "name": "cat-step-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87650,
+        "transferBytes": 300,
+        "durationMs": 6.4000000059604645
+      },
+      {
+        "name": "cat-celebrate.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 7
+      },
+      {
+        "name": "cat-step-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 88820,
+        "transferBytes": 300,
+        "durationMs": 7.4000000059604645
+      },
+      {
+        "name": "cat-step-3.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85924,
+        "transferBytes": 300,
+        "durationMs": 9.200000017881393
+      },
+      {
+        "name": "market.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 172060,
+        "transferBytes": 300,
+        "durationMs": 7.700000017881393
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 7.9000000059604645
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 300,
+        "durationMs": 8.199999988079071
+      },
+      {
+        "name": "cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42906,
+        "transferBytes": 300,
+        "durationMs": 8.5
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 8.799999982118607
+      },
+      {
+        "name": "machine.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 68302,
+        "transferBytes": 300,
+        "durationMs": 9.199999988079071
+      },
+      {
+        "name": "tray.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 107780,
+        "transferBytes": 300,
+        "durationMs": 9.400000005960464
+      },
+      {
+        "name": "guest-0-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42746,
+        "transferBytes": 300,
+        "durationMs": 9.699999988079071
+      },
+      {
+        "name": "guest-0-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 43526,
+        "transferBytes": 300,
+        "durationMs": 9.800000011920929
+      },
+      {
+        "name": "guest-0-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 44200,
+        "transferBytes": 300,
+        "durationMs": 10
+      },
+      {
+        "name": "guest-1-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 48672,
+        "transferBytes": 300,
+        "durationMs": 10.200000017881393
+      },
+      {
+        "name": "guest-1-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 47408,
+        "transferBytes": 300,
+        "durationMs": 10.800000011920929
+      },
+      {
+        "name": "guest-1-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49514,
+        "transferBytes": 300,
+        "durationMs": 10.400000005960464
+      },
+      {
+        "name": "bread.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37626,
+        "transferBytes": 300,
+        "durationMs": 2.399999976158142
+      },
+      {
+        "name": "cheese.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 24540,
+        "transferBytes": 300,
+        "durationMs": 2.5999999940395355
+      },
+      {
+        "name": "lettuce.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37786,
+        "transferBytes": 300,
+        "durationMs": 3.2000000178813934
+      },
+      {
+        "name": "tomato.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 31382,
+        "transferBytes": 300,
+        "durationMs": 3.800000011920929
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 4.300000011920929
+      },
+      {
+        "name": "salad-sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 80092,
+        "transferBytes": 300,
+        "durationMs": 4.700000017881393
+      },
+      {
+        "name": "board-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85072,
+        "transferBytes": 300,
+        "durationMs": 4.899999976158142
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 1.7000000178813934
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49194,
+        "transferBytes": 300,
+        "durationMs": 2.2000000178813934
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 2.300000011920929
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 2.9000000059604645
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 4.200000017881393
+      },
+      {
+        "name": "request-sandwich.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 90396,
+        "transferBytes": 90696,
+        "durationMs": 2.5
+      },
+      {
+        "name": "thanks.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 35300,
+        "transferBytes": 35600,
+        "durationMs": 3.4000000059604645
+      },
+      {
+        "name": "salad-sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 80092,
+        "transferBytes": 300,
+        "durationMs": 1.0999999940395355
+      },
+      {
+        "name": "lettuce.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37786,
+        "transferBytes": 300,
+        "durationMs": 2.4000000059604645
+      },
+      {
+        "name": "word-lettuce.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 28758,
+        "transferBytes": 29058,
+        "durationMs": 2.2999999821186066
+      },
+      {
+        "name": "request-salad-sandwich.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 122682,
+        "transferBytes": 122982,
+        "durationMs": 5.199999988079071
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 3
+      },
+      {
+        "name": "request-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 76052,
+        "transferBytes": 76352,
+        "durationMs": 1.100000023841858
+      },
+      {
+        "name": "banana-juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 60024,
+        "transferBytes": 300,
+        "durationMs": 1.5
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 1.5999999940395355
+      }
+    ]
+  },
+  {
+    "chapter": 3,
+    "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
+    "frameIntervals": {
+      "count": 1238,
+      "medianMs": 33.39999999999782,
+      "p95Ms": 50,
+      "maxMs": 133.40000000000146
+    },
+    "pointerUpToTwoFrames": {
+      "count": 32,
+      "medianMs": 40.10000002384186,
+      "p95Ms": 57.599999994039536,
+      "maxMs": 90.2999999821186
+    },
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3
+    },
+    "canvas": {
+      "width": 983,
+      "height": 1663,
+      "scale": "2.500"
+    },
+    "build": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+    "dirty": "false",
+    "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+    "resources": [
+      {
+        "name": "index-BgqERNIY.js",
+        "encodedBytes": 108344,
+        "transferBytes": 300,
+        "durationMs": 3.199999988079071
+      },
+      {
+        "name": "index-CWH0D1K8.css",
+        "encodedBytes": 8811,
+        "transferBytes": 300,
+        "durationMs": 2.0999999940395355
+      },
+      {
+        "name": "phaser-DXXWZowi.js",
+        "encodedBytes": 330072,
+        "transferBytes": 300,
+        "durationMs": 5.5999999940395355
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 1
+      },
+      {
+        "name": "courtyard.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 0.9000000059604645
+      },
+      {
+        "name": "cat-idle.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114458,
+        "transferBytes": 300,
+        "durationMs": 6.300000011920929
+      },
+      {
+        "name": "cat-read.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 120194,
+        "transferBytes": 300,
+        "durationMs": 6.600000023841858
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 300,
+        "durationMs": 7.299999982118607
+      },
+      {
+        "name": "cat-carry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117812,
+        "transferBytes": 300,
+        "durationMs": 6.699999988079071
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 7
+      },
+      {
+        "name": "cat-place.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 162614,
+        "transferBytes": 300,
+        "durationMs": 7.5
+      },
+      {
+        "name": "cat-blocked.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114604,
+        "transferBytes": 300,
+        "durationMs": 7.199999988079071
+      },
+      {
+        "name": "cat-celebrate.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 7.5
+      },
+      {
+        "name": "cat-step-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 88820,
+        "transferBytes": 300,
+        "durationMs": 7.5999999940395355
+      },
+      {
+        "name": "cat-step-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 82684,
+        "transferBytes": 300,
+        "durationMs": 7.700000017881393
+      },
+      {
+        "name": "cat-step-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87650,
+        "transferBytes": 300,
+        "durationMs": 7.800000011920929
+      },
+      {
+        "name": "cat-step-3.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85924,
+        "transferBytes": 300,
+        "durationMs": 8
+      },
+      {
+        "name": "market.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 172060,
+        "transferBytes": 300,
+        "durationMs": 8.100000023841858
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 8.299999982118607
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 300,
+        "durationMs": 8.599999994039536
+      },
+      {
+        "name": "cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42906,
+        "transferBytes": 300,
+        "durationMs": 9.699999988079071
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 10
+      },
+      {
+        "name": "tray.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 107780,
+        "transferBytes": 300,
+        "durationMs": 8.699999988079071
+      },
+      {
+        "name": "machine.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 68302,
+        "transferBytes": 300,
+        "durationMs": 10.199999988079071
+      },
+      {
+        "name": "guest-0-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42746,
+        "transferBytes": 300,
+        "durationMs": 9
+      },
+      {
+        "name": "guest-0-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 44200,
+        "transferBytes": 300,
+        "durationMs": 10.300000011920929
+      },
+      {
+        "name": "guest-0-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 43526,
+        "transferBytes": 300,
+        "durationMs": 11.400000005960464
+      },
+      {
+        "name": "guest-1-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 47408,
+        "transferBytes": 300,
+        "durationMs": 10.5
+      },
+      {
+        "name": "guest-1-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 48672,
+        "transferBytes": 300,
+        "durationMs": 10.5
+      },
+      {
+        "name": "guest-1-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49514,
+        "transferBytes": 300,
+        "durationMs": 10.799999982118607
+      },
+      {
+        "name": "bun.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 35948,
+        "transferBytes": 300,
+        "durationMs": 2.2999999821186066
+      },
+      {
+        "name": "patty.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37678,
+        "transferBytes": 300,
+        "durationMs": 3.300000011920929
+      },
+      {
+        "name": "cheese.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 24540,
+        "transferBytes": 300,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "lettuce.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37786,
+        "transferBytes": 300,
+        "durationMs": 4.700000017881393
+      },
+      {
+        "name": "tomato.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 31382,
+        "transferBytes": 300,
+        "durationMs": 5.200000017881393
+      },
+      {
+        "name": "cooked-patty.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 40500,
+        "transferBytes": 300,
+        "durationMs": 5.5
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 7.9000000059604645
+      },
+      {
+        "name": "cheese-burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85920,
+        "transferBytes": 300,
+        "durationMs": 6
+      },
+      {
+        "name": "grill-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 63482,
+        "transferBytes": 300,
+        "durationMs": 7.0999999940395355
+      },
+      {
+        "name": "board-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85072,
+        "transferBytes": 300,
+        "durationMs": 7.4000000059604645
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 1.9000000059604645
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 3.0999999940395355
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 3.300000011920929
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 3.7000000178813934
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 4.100000023841858
+      },
+      {
+        "name": "cheese-burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85920,
+        "transferBytes": 300,
+        "durationMs": 1
+      },
+      {
+        "name": "request-cheese-burger.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 77084,
+        "transferBytes": 77384,
+        "durationMs": 1.5
+      },
+      {
+        "name": "thanks.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 35300,
+        "transferBytes": 35600,
+        "durationMs": 1.899999976158142
+      },
+      {
+        "name": "bun.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 35948,
+        "transferBytes": 300,
+        "durationMs": 2.5
+      },
+      {
+        "name": "word-bun.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 23884,
+        "transferBytes": 24184,
+        "durationMs": 1.199999988079071
+      },
+      {
+        "name": "request-burger.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 117562,
+        "transferBytes": 117862,
+        "durationMs": 3
+      },
+      {
+        "name": "request-sandwich.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 90396,
+        "transferBytes": 90696,
+        "durationMs": 2.0999999940395355
+      },
+      {
+        "name": "bread.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37626,
+        "transferBytes": 300,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 4.199999988079071
+      },
+      {
+        "name": "salad-sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 80092,
+        "transferBytes": 300,
+        "durationMs": 4.5
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 3.7000000178813934
+      }
+    ]
+  },
+  {
+    "chapter": 4,
+    "environment": "Headless Chromium on developer macOS; touch and DPR emulation, not a physical device",
+    "frameIntervals": {
+      "count": 1568,
+      "medianMs": 33.30000000000291,
+      "p95Ms": 50,
+      "maxMs": 200
+    },
+    "pointerUpToTwoFrames": {
+      "count": 39,
+      "medianMs": 38.69999998807907,
+      "p95Ms": 46.69999998807907,
+      "maxMs": 60.900000005960464
+    },
+    "viewport": {
+      "width": 393,
+      "height": 665,
+      "dpr": 3
+    },
+    "canvas": {
+      "width": 983,
+      "height": 1663,
+      "scale": "2.500"
+    },
+    "build": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+    "dirty": "false",
+    "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+    "resources": [
+      {
+        "name": "index-BgqERNIY.js",
+        "encodedBytes": 108344,
+        "transferBytes": 300,
+        "durationMs": 3.199999988079071
+      },
+      {
+        "name": "index-CWH0D1K8.css",
+        "encodedBytes": 8811,
+        "transferBytes": 300,
+        "durationMs": 2.0999999940395355
+      },
+      {
+        "name": "phaser-DXXWZowi.js",
+        "encodedBytes": 330072,
+        "transferBytes": 300,
+        "durationMs": 5.5999999940395355
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 1
+      },
+      {
+        "name": "courtyard.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 0.9000000059604645
+      },
+      {
+        "name": "cat-idle.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114458,
+        "transferBytes": 300,
+        "durationMs": 6.300000011920929
+      },
+      {
+        "name": "cat-read.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 120194,
+        "transferBytes": 300,
+        "durationMs": 6.600000023841858
+      },
+      {
+        "name": "cat-reach.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 158090,
+        "transferBytes": 300,
+        "durationMs": 7.299999982118607
+      },
+      {
+        "name": "cat-carry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117812,
+        "transferBytes": 300,
+        "durationMs": 6.699999988079071
+      },
+      {
+        "name": "cat-greet.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 117720,
+        "transferBytes": 300,
+        "durationMs": 7
+      },
+      {
+        "name": "cat-place.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 162614,
+        "transferBytes": 300,
+        "durationMs": 7.5
+      },
+      {
+        "name": "cat-blocked.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 114604,
+        "transferBytes": 300,
+        "durationMs": 7.199999988079071
+      },
+      {
+        "name": "cat-celebrate.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 7.5
+      },
+      {
+        "name": "cat-step-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 88820,
+        "transferBytes": 300,
+        "durationMs": 7.5999999940395355
+      },
+      {
+        "name": "cat-step-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 82684,
+        "transferBytes": 300,
+        "durationMs": 7.700000017881393
+      },
+      {
+        "name": "cat-step-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87650,
+        "transferBytes": 300,
+        "durationMs": 7.800000011920929
+      },
+      {
+        "name": "cat-step-3.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85924,
+        "transferBytes": 300,
+        "durationMs": 8
+      },
+      {
+        "name": "market.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 172060,
+        "transferBytes": 300,
+        "durationMs": 8.100000023841858
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 8.299999982118607
+      },
+      {
+        "name": "banana.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 22190,
+        "transferBytes": 300,
+        "durationMs": 8.599999994039536
+      },
+      {
+        "name": "cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42906,
+        "transferBytes": 300,
+        "durationMs": 9.699999988079071
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 10
+      },
+      {
+        "name": "tray.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 107780,
+        "transferBytes": 300,
+        "durationMs": 8.699999988079071
+      },
+      {
+        "name": "machine.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 68302,
+        "transferBytes": 300,
+        "durationMs": 10.199999988079071
+      },
+      {
+        "name": "guest-0-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 42746,
+        "transferBytes": 300,
+        "durationMs": 9
+      },
+      {
+        "name": "guest-0-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 44200,
+        "transferBytes": 300,
+        "durationMs": 10.300000011920929
+      },
+      {
+        "name": "guest-0-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 43526,
+        "transferBytes": 300,
+        "durationMs": 11.400000005960464
+      },
+      {
+        "name": "guest-1-0.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 47408,
+        "transferBytes": 300,
+        "durationMs": 10.5
+      },
+      {
+        "name": "guest-1-1.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 48672,
+        "transferBytes": 300,
+        "durationMs": 10.5
+      },
+      {
+        "name": "guest-1-2.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49514,
+        "transferBytes": 300,
+        "durationMs": 10.799999982118607
+      },
+      {
+        "name": "bun.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 35948,
+        "transferBytes": 300,
+        "durationMs": 2.2999999821186066
+      },
+      {
+        "name": "patty.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37678,
+        "transferBytes": 300,
+        "durationMs": 3.300000011920929
+      },
+      {
+        "name": "cheese.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 24540,
+        "transferBytes": 300,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "lettuce.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37786,
+        "transferBytes": 300,
+        "durationMs": 4.700000017881393
+      },
+      {
+        "name": "tomato.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 31382,
+        "transferBytes": 300,
+        "durationMs": 5.200000017881393
+      },
+      {
+        "name": "cooked-patty.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 40500,
+        "transferBytes": 300,
+        "durationMs": 5.5
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 7.9000000059604645
+      },
+      {
+        "name": "cheese-burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85920,
+        "transferBytes": 300,
+        "durationMs": 6
+      },
+      {
+        "name": "grill-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 63482,
+        "transferBytes": 300,
+        "durationMs": 7.0999999940395355
+      },
+      {
+        "name": "board-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85072,
+        "transferBytes": 300,
+        "durationMs": 7.4000000059604645
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 1.9000000059604645
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 0,
+        "transferBytes": 300,
+        "durationMs": 3.0999999940395355
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 3.300000011920929
+      },
+      {
+        "name": "burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 92092,
+        "transferBytes": 300,
+        "durationMs": 3.7000000178813934
+      },
+      {
+        "name": "apple.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 32732,
+        "transferBytes": 300,
+        "durationMs": 4.100000023841858
+      },
+      {
+        "name": "cheese-burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85920,
+        "transferBytes": 300,
+        "durationMs": 1
+      },
+      {
+        "name": "request-cheese-burger.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 77084,
+        "transferBytes": 77384,
+        "durationMs": 1.5
+      },
+      {
+        "name": "thanks.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 35300,
+        "transferBytes": 35600,
+        "durationMs": 1.899999976158142
+      },
+      {
+        "name": "bun.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 35948,
+        "transferBytes": 300,
+        "durationMs": 2.5
+      },
+      {
+        "name": "word-bun.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 23884,
+        "transferBytes": 24184,
+        "durationMs": 1.199999988079071
+      },
+      {
+        "name": "request-burger.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 117562,
+        "transferBytes": 117862,
+        "durationMs": 3
+      },
+      {
+        "name": "request-sandwich.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 90396,
+        "transferBytes": 90696,
+        "durationMs": 2.0999999940395355
+      },
+      {
+        "name": "bread.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 37626,
+        "transferBytes": 300,
+        "durationMs": 3.699999988079071
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 4.199999988079071
+      },
+      {
+        "name": "salad-sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 80092,
+        "transferBytes": 300,
+        "durationMs": 4.5
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 3.7000000178813934
+      },
+      {
+        "name": "banana-juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 60024,
+        "transferBytes": 300,
+        "durationMs": 1.4000000059604645
+      },
+      {
+        "name": "chapter-picnic.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 133680,
+        "transferBytes": 133980,
+        "durationMs": 11.900000005960464
+      },
+      {
+        "name": "sandwich.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 74870,
+        "transferBytes": 300,
+        "durationMs": 1.800000011920929
+      },
+      {
+        "name": "juice.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 33632,
+        "transferBytes": 300,
+        "durationMs": 2.399999976158142
+      },
+      {
+        "name": "request-juice.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 76052,
+        "transferBytes": 76352,
+        "durationMs": 1.800000011920929
+      },
+      {
+        "name": "request-vanilla-cone.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 110670,
+        "transferBytes": 110970,
+        "durationMs": 1.5999999940395355
+      },
+      {
+        "name": "cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 20778,
+        "transferBytes": 300,
+        "durationMs": 2.4000000059604645
+      },
+      {
+        "name": "vanilla.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 31590,
+        "transferBytes": 300,
+        "durationMs": 3.2000000178813934
+      },
+      {
+        "name": "strawberry.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 38612,
+        "transferBytes": 300,
+        "durationMs": 4.300000011920929
+      },
+      {
+        "name": "vanilla-cone.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 49194,
+        "transferBytes": 300,
+        "durationMs": 5.600000023841858
+      },
+      {
+        "name": "banana-cream.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 69446,
+        "transferBytes": 300,
+        "durationMs": 5.0999999940395355
+      },
+      {
+        "name": "strawberry-cup.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87360,
+        "transferBytes": 300,
+        "durationMs": 5.799999982118607
+      },
+      {
+        "name": "double-cream.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 91850,
+        "transferBytes": 300,
+        "durationMs": 6.0999999940395355
+      },
+      {
+        "name": "ice-station.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 87990,
+        "transferBytes": 300,
+        "durationMs": 4.5999999940395355
+      },
+      {
+        "name": "cheese-burger.webp?v=170ddd2db8ca265f",
+        "encodedBytes": 85920,
+        "transferBytes": 300,
+        "durationMs": 1.899999976158142
+      },
+      {
+        "name": "request-cheese-burger.wav?v=170ddd2db8ca265f",
+        "encodedBytes": 77084,
+        "transferBytes": 77384,
+        "durationMs": 1
+      },
+      {
+        "name": "cat-celebrate.webp",
+        "encodedBytes": 130356,
+        "transferBytes": 300,
+        "durationMs": 3.5999999940395355
+      }
+    ]
+  }
+]

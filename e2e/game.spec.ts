@@ -78,6 +78,19 @@ test('M2 phone complete click story: prologue through all recipes to community e
       await page.getByRole('button', { name: /A B C WordSpell/ }).tap();
       await expect(page.locator('.letter-word')).toHaveCount(2);
       expect((await mini()).support).toContain('answer-help');
+      const layout = await page.locator('.mini-play button').evaluateAll((nodes) =>
+        nodes
+          .filter((n) => !(n as HTMLButtonElement).disabled)
+          .map((n) => {
+            const b = n.getBoundingClientRect();
+            return {
+              width: b.width,
+              height: b.height,
+              inside: b.x >= 0 && b.right <= innerWidth && b.y >= 0 && b.bottom <= innerHeight,
+            };
+          }),
+      );
+      expect(layout.every((b) => b.width >= 44 && b.height >= 44 && b.inside)).toBe(true);
       await page.screenshot({ path: info.outputPath('multiword-restored.png') });
       break;
     }

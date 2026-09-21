@@ -78,6 +78,15 @@ for (const kind of ['match', 'spell'] as const)
           .filter({ has: page.locator(`img[alt="${FOOD[word.image][0]}"]`) })
           .tap();
       } else {
+        const tileSizes = await page
+          .locator('.letter-bank button')
+          .evaluateAll((nodes) =>
+            nodes.map((node) => ({
+              width: node.getBoundingClientRect().width,
+              height: node.getBoundingClientRect().height,
+            })),
+          );
+        expect(tileSizes.every((size) => size.width >= 44 && size.height >= 44)).toBe(true);
         if (n === 0) {
           await page.getByRole('button', { name: '小猫帮帮我' }).tap();
           await page.reload();

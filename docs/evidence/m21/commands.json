@@ -1,0 +1,27 @@
+{
+  "sha": "c0fe89e5e1d81036c702f0431b33799e99cd9367",
+  "status": "",
+  "environment": "v26.3.1",
+  "checks": [
+    {
+      "command": "npm run build",
+      "exit": 0,
+      "seconds": 4.91
+    },
+    {
+      "command": "npm run lint",
+      "exit": 0,
+      "seconds": 0.29
+    },
+    {
+      "command": "npm run resources",
+      "exit": 0,
+      "seconds": 2.04
+    },
+    {
+      "command": "npm test",
+      "exit": 1,
+      "seconds": 1.04
+    }
+  ]
+}

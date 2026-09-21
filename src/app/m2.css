@@ -698,6 +698,9 @@
 }
 .letter-draft button,
 .letter-bank button {
+  padding: 0;
+  min-width: 44px;
+  flex-shrink: 0;
   font-size: 29px;
   font-weight: 800;
   width: 55px;
@@ -903,7 +906,7 @@
   }
   .letter-draft button,
   .letter-bank button {
-    width: 36px;
+    width: 44px;
     height: 49px;
     font-size: 25px;
     min-height: 44px;
@@ -1652,6 +1655,10 @@
   .letter-word {
     gap: 3px;
   }
+  .letter-word:has(> button:nth-child(8)) {
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
+  }
   .letter-word button {
     width: 44px;
     min-width: 44px;
@@ -1661,6 +1668,24 @@
   .letter-draft {
     padding: 10px 3px;
     gap: 12px;
+  }
+  .mini-spell .mini-prompt {
+    min-height: 70px;
+  }
+  .mini-spell .mini-prompt .food-art {
+    width: 70px;
+    height: 70px;
+  }
+  .mini-spell .spell-model {
+    margin: 8px 0;
+  }
+  .mini-spell .letter-draft,
+  .mini-spell .letter-bank {
+    margin: 10px auto;
+  }
+  .mini-spell .mini-feedback {
+    min-height: 20px;
+    margin: 8px 0;
   }
   .family-tabs button {
     padding: 3px 6px;
