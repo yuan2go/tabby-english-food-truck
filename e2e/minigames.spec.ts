@@ -136,7 +136,7 @@ test('M2 bilingual uses explicit support and preserves business inventory', asyn
   await page.locator('.yard-mini .entry-main').tap();
   await page.getByText('换帮助或玩法', { exact: true }).tap();
   await page.getByRole('button', { name: '中英配对（识字后）', exact: true }).tap();
-  await page.getByRole('button', { name: /^食物找朋友/ }).tap();
+  await page.getByRole('button', { name: /食物找朋友 看中文，选英文/ }).tap();
   await page.getByRole('button', { name: '开始玩', exact: true }).tap();
   await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
   const word = targetWord(await mini(page));

@@ -99,6 +99,21 @@ test('M21 matching accepts direct picture after playback and switches activities
     JSON.parse(localStorage.getItem('tabby.foodtruck.minigame.m21') ?? '{}'),
   );
   expect(after.sessions.spell).toEqual(before.sessions.spell);
+  await page.getByRole('button', { name: '← 回游戏小摊' }).tap();
+  await page.getByText('换帮助或玩法', { exact: true }).tap();
+  await page.getByRole('button', { name: '我自己试', exact: true }).tap();
+  await page.getByRole('button', { name: '按新设置拼字母', exact: true }).tap();
+  await page.getByRole('button', { name: '确认新开一组', exact: true }).tap();
+  await page.getByRole('button', { name: '开始玩', exact: true }).tap();
+  await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
+  const replaced = await page.evaluate(
+    () => JSON.parse(localStorage.getItem('tabby.foodtruck.minigame.m21') ?? '{}').sessions.spell,
+  );
+  expect(replaced.difficulty).toBe('independent');
+  expect(replaced.fixed).toHaveLength(0);
+  expect(replaced.carry[before.sessions.spell.words[before.sessions.spell.round]]).toContain(
+    'answer-help',
+  );
 });
 test('M21 failed speech permits opening skip and exact object retry without blocking play', async ({
   page,
