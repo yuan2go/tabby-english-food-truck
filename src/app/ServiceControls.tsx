@@ -147,9 +147,15 @@ export function ServiceControls({
                 }
                 style={{
                   left: inWork
-                    ? l.regions.work.x + l.regions.work.width - 48
+                    ? l.landscape
+                      ? h.x - 24
+                      : l.regions.work.x + l.regions.work.width - 48
                     : Math.max(8, Math.min(l.width - 148, h.x - 70)),
-                  top: inWork ? h.y - 24 : Math.max(l.regions.trays.y - 20, h.y - 54),
+                  top: inWork
+                    ? l.landscape
+                      ? l.regions.top.y + 4
+                      : h.y - 24
+                    : Math.max(l.regions.trays.y - 20, h.y - 54),
                   width: inWork ? 48 : undefined,
                   padding: inWork ? 0 : undefined,
                 }}
