@@ -1,0 +1,146 @@
+{
+  "diagnosticOnly": true,
+  "injectedChapter": true,
+  "data": [
+    {
+      "items": [
+        {
+          "id": "food-1",
+          "product": "bread",
+          "location": "station:board:0"
+        },
+        {
+          "id": "food-2",
+          "product": "bread",
+          "location": "station:board:1"
+        },
+        {
+          "id": "food-3",
+          "product": "cheese",
+          "location": "station:board:2"
+        }
+      ],
+      "button": {
+        "x": 337,
+        "y": 189,
+        "width": 48,
+        "height": 48,
+        "top": 189,
+        "right": 385,
+        "bottom": 237,
+        "left": 337
+      },
+      "start": {
+        "x": 184.9375,
+        "y": 340,
+        "width": 128.65625,
+        "height": 44,
+        "top": 340,
+        "right": 313.59375,
+        "bottom": 384,
+        "left": 184.9375
+      },
+      "top": "<canvas width=\"983\" height=\"1663\" style=\"width: 393px; height: 665px;\" data-render-scale=\"2.500\" data-world-width=\"393\" data-world-height=\"665\" data-cat-x=\"0.73\" data-cat-y=\"0.43\" data-cat-pose=\"idle\" data-cat-action=\"idle\" data-motion-count=\"0\" data-entity-count=\"10\" data-created-entities=\"10\"></canvas>"
+    },
+    {
+      "items": [
+        {
+          "id": "food-1",
+          "product": "bread",
+          "location": "station:board:0"
+        },
+        {
+          "id": "food-2",
+          "product": "bread",
+          "location": "station:board:1"
+        },
+        {
+          "id": "food-3",
+          "product": "cheese",
+          "location": "station:board:2"
+        }
+      ],
+      "button": {
+        "x": 337,
+        "y": 189,
+        "width": 48,
+        "height": 48,
+        "top": 189,
+        "right": 385,
+        "bottom": 237,
+        "left": 337
+      },
+      "start": {
+        "x": 184.9375,
+        "y": 340,
+        "width": 128.65625,
+        "height": 44,
+        "top": 340,
+        "right": 313.59375,
+        "bottom": 384,
+        "left": 184.9375
+      },
+      "top": "<canvas width=\"983\" height=\"1663\" style=\"width: 393px; height: 665px;\" data-render-scale=\"2.500\" data-world-width=\"393\" data-world-height=\"665\" data-cat-x=\"0.73\" data-cat-y=\"0.43\" data-cat-pose=\"idle\" data-cat-action=\"idle\" data-motion-count=\"0\" data-entity-count=\"10\" data-created-entities=\"10\"></canvas>"
+    },
+    {
+      "items": [
+        {
+          "id": "food-1",
+          "product": "bread",
+          "location": "station:board:0"
+        },
+        {
+          "id": "food-2",
+          "product": "bread",
+          "location": "station:board:1"
+        },
+        {
+          "id": "food-3",
+          "product": "cheese",
+          "location": "station:board:2"
+        }
+      ],
+      "button": {
+        "x": 337,
+        "y": 189,
+        "width": 48,
+        "height": 48,
+        "top": 189,
+        "right": 385,
+        "bottom": 237,
+        "left": 337
+      },
+      "start": {
+        "x": 184.9375,
+        "y": 340,
+        "width": 128.65625,
+        "height": 44,
+        "top": 340,
+        "right": 313.59375,
+        "bottom": 384,
+        "left": 184.9375
+      },
+      "top": "<canvas width=\"983\" height=\"1663\" style=\"width: 393px; height: 665px;\" data-render-scale=\"2.500\" data-world-width=\"393\" data-world-height=\"665\" data-cat-x=\"0.73\" data-cat-y=\"0.43\" data-cat-pose=\"idle\" data-cat-action=\"idle\" data-motion-count=\"0\" data-entity-count=\"10\" data-created-entities=\"10\"></canvas>"
+    },
+    {
+      "after": [
+        {
+          "id": "food-1",
+          "product": "bread",
+          "location": "station:board:0"
+        },
+        {
+          "id": "food-2",
+          "product": "bread",
+          "location": "station:board:1"
+        },
+        {
+          "id": "food-3",
+          "product": "cheese",
+          "location": "station:board:2"
+        }
+      ],
+      "message": "盖合开始了，还能准备另一盘。"
+    }
+  ]
+}

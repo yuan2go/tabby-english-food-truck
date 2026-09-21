@@ -1,13 +1,24 @@
 # 项目状态
 
-## 当前 M2.2 续做 · IN_PROGRESS / NEEDS_REVISION
+## 当前 M2.2 · IMPLEMENTED / LOCAL_VERIFIED · 真机 NEEDS_REVISION
 
-续做基线 main `c105ec8478de5f1f0a03d38ca03255b7938e92f8`，实现分支 `codex/m22-phone-foods`，接手 HEAD `7593dff08ab90b5cb36d65db17344666c1208ba7`，PR #6 OPEN。main 干净；实现 worktree 有9个与语言负荷/成长迁移有关的未提交文件，保留并续接。首轮已有共享布局、自动落盘与50食品资源，不继承首轮 PASS。
+2026-09-21续做完成“布局与操作→50食品→无尽及教学”整个运行包，保留接手时9个未提交文件的有效修改，补齐真实缺口。baseline/main完整SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；接手 `7593dff08ab90b5cb36d65db17344666c1208ba7`。分支 `codex/m22-phone-foods`，[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，已推送，保持OPEN、不自动合并。
 
-续做缺口：新菜单仍需显式介绍再准入；语言负荷仅有未完成的字段改动；小教学仍是弹窗选择后重复制作；schema5新增字段尚未迁移；README/交付勾选和资源说明过期。按01–05现有合同修复，不另建产品蓝图。先完成这些行为及代表性浏览器回归，再在干净候选SHA做一次合并验证。
+最后运行代码 **`3a73ee42ec39255bc9f22b38d10ffc22d794ed0b`**，生产构建dirty=false；之后仅证据/文档提交，最终Git head见PR及交付消息。content m2.2，资源SHA-256 `024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36`。世界schema6、Profile v3，旧任务/预留/帮助/原文导出保留。
 
-三张本轮真机原图当前未定位，逐图对比 PENDING_INPUT。iPhone 15 Pro Chrome反馈维持 NEEDS_REVISION；实体复核、教研/听审、权利、儿童观察与部署各自待验。续做检查此时 NOT_RUN。
+[完整检查与限制](evidence/m22/README.md) · [同尺寸截图与连续录像](evidence/m22/review.html)。本次并非重复首轮PASS：修复制作台五实体命中、横屏双盘/猫求助空间、撤回按钮截获启动触点、单客升级双客座位；真实原料教学直接落到玩家选择的位置，配方帮助可随时展开；食品篮预览支持不能洗白；鲜草莓/香草植物与口味分开，旧教学按上下文迁移。新无尽从apple经明确介绍扩展banana/juice/banana-juice；帮助、语言负荷、并发独立，不删除已接任务。
 
+50项都可经首页→教学→五篮食物学习和进入实际找图；注册主角色为8直接水果、8配料、4成品配方、8预制供应、22仅认知，认知项不出无法供应订单。347真实资源、196语音引用通过校验；新语音/图片仍未人工审核。正常水果路径实测2→2次，首次果汁7→4次；暂停一级只留3项，重复重听/选择器/远处放回/单食谱切换已移除。
+
+集中检查在干净fb9d4c0：build（含typecheck）/lint/resources退出0，188/188规则退出0；关键Chromium 8/9退出1、WebKit 3/4退出1。失败保留日志并修真实触点/缩窗时机；中间dbe65ad Chromium2/4仍有失败，不隐藏。最后3a73ee4 build/lint退出0，受影响Chromium **4/4退出0**，WebKit **19单完整故事1/1退出0**；先前WebKit缩窗专项1/1退出0。不把分次结果写成一次全套通过。lint仍有23 warnings/7 infos，Phaser大块提示保留。
+
+浏览器HTTP 127.0.0.1:4174：手机393×565/665/759 DPR3、横屏852×300/342/393、Pad1024×768↔768×1024、桌面1440×900键盘/鼠标。覆盖19单/四配方/逐实体选择、制作中刷新、双客满盘/预留/纠错、成品恢复、取消与多指、音频失败重试、50食品、无尽成长、小游戏切换与多词恢复、坏档导出、真实后台freeze。仅可见图片与正式帮助的独立走查完成苹果/果汁；没有可听输入，人工声音体验NOT_RUN。
+
+无录屏主采样：424帧p50=33.3/p95=33.4/max=66.7ms，点击至第二rAF代理p95=48.1ms，冷3,181,587/暖9,300 bytes。**60fps预算NOT_MET**；另次CPU诊断主要为native(program)，没有足够证据把开销归到具体源码，不凭猜测降清晰度或改规则。
+
+三张用户真机原图本次未定位，PENDING_INPUT；iPhone 15 Pro＋Chrome遮挡/繁琐/按钮堆叠反馈仍 **NEEDS_REVISION / AWAITING_OWNER_REVIEW**。真实浏览器栏/安全区、实体iPhone/Pad、视觉手感、教研/听审、资源权利、儿童观察分别PENDING/NOT_RUN，公开发布BLOCKED。真机声音失败具体根因需原图/设备日志，本地只证明加载失败恢复合同。
+
+线上实查HTTP200仍为build `5f39d12cbfa6b1a4cd4d295b1cbe91421e0bc1fd`、content m2.1、旧资源hash；本包 **PENDING_DEPLOYMENT**。未新建站点或部署，不用旧线上证明M2.2通过。
 
 ## 历史 M2.2 首轮候选 · LOCAL_VERIFIED / NEEDS_REVISION
 

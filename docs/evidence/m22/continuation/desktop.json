@@ -1,0 +1,16 @@
+{
+  "identity": {
+    "buildSha": "3a73ee42ec39255bc9f22b38d10ffc22d794ed0b",
+    "buildDirty": "false",
+    "contentVersion": "m2.2",
+    "assetVersion": "024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36",
+    "audioState": "{\"active\":\"request-juice\",\"failure\":null,\"loops\":[\"music\",\"ambience\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.02510812319815159,\"machineGain\":0.02500178851187229,\"effects\":0}"
+  },
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 1
+  },
+  "input": "keyboard Enter selects food; mouse confirms real delivery",
+  "result": "PASS"
+}

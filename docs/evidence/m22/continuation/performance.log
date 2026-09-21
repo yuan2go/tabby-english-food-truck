@@ -1,0 +1,1 @@
+{"label":"candidate","identity":{"sha":"3a73ee42ec39255bc9f22b38d10ffc22d794ed0b","dirty":"false"},"viewport":{"width":393,"height":665,"dpr":3},"recording":false,"coldTransfer":3181587,"warmTransfer":9300,"frames":{"n":424,"p50":33.30000000000109,"p95":33.400000000001455,"max":66.70000000000027},"inputToSecondRaf":{"n":6,"p95":48.099999994039536},"longTasks":[58,53],"cpu":null}

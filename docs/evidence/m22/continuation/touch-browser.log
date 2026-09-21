@@ -1,0 +1,17 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/game.spec.ts e2e/m22-boundaries.spec.ts e2e/m22.spec.ts -g phone complete|phone wrong|M22 --output=/tmp/m22-final/touch-chromium
+
+
+Running 4 tests using 1 worker
+
+(node:42943) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending (4.5m)
+(node:43361) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (32.9s)
+  ✓  3 e2e/m22-boundaries.spec.ts:115:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (7.4s)
+  ✓  4 e2e/m22.spec.ts:10:1 › M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies (29.6s)
+
+  4 passed (5.7m)

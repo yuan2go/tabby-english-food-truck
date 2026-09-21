@@ -1,0 +1,18 @@
+{
+  "identity": {
+    "buildSha": "c105ec8478de5f1f0a03d38ca03255b7938e92f8",
+    "buildDirty": "true",
+    "contentVersion": "m2.1",
+    "assetVersion": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+    "audioState": "{\"active\":null,\"loops\":[],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"not-created\",\"effects\":0}"
+  },
+  "viewport": {
+    "width": 393,
+    "height": 665,
+    "dpr": 3
+  },
+  "fruit": 2,
+  "juice": 7,
+  "notes": "Fresh profile. Opening, lesson dismissal and wait time excluded. Two actual deliveries, no state injection.",
+  "worktreeNote": "Tracked source exactly c105ec8478de5f1f0a03d38ca03255b7938e92f8 (git diff --exit-code 0); buildDirty=true is the untracked node_modules dependency symlink. Temporary worktree removed after measurement."
+}
