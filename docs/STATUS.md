@@ -1,11 +1,17 @@
 # 项目状态
 
+## 2026-09-21 M2.1 Git 同步（按要求不测试）
+
+负责人明确授权提交、推送全部本地分支，并通过 PR 合并到 main。初始核对 5 个本地分支、5 个工作区均干净；main 基线为 `20382877cc9711765b91ada2e081d19be0e81bfb`，`codex/m21-learning-revisit` 初始 head 为 `ff6591fa3911561950b80400d9dc8a7e6a9b4ebd`，含 8 个已推送、尚未合入 main 的提交。复用 PR #5，替代此前保持 OPEN 的安排；最终结果及完整 SHA 以 PR 和交付报告为准。
+
+本次只补充同步状态，不改运行代码。测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 NOT_RUN，退出码不适用，提交/推送跳过 Git hooks。当前仓库无 GitHub Actions 工作流，不启用工作流或修改权限。下方实现阶段记录本次未重跑，包括失败及后续定向结果；代码合并不改变性能、运行接受、教研/听审/权利、实体设备和儿童观察的状态，也不授权部署。
+
 ## 当前 M2.1 · 2026-09-21 · IMPLEMENTED / LOCAL_VERIFIED
 
 工作包“教学与语音准确性、低龄操作及回访体验完善”运行实现已交付；工程检查按下表报告，外部验收仍分项待完成。用户反馈 **已落实工程修订 / AWAITING_OWNER_REVIEW**，不写尚未收到反馈，不把本地结果当用户接受。
 
 - baseline与交付前fetch的默认分支main：`20382877cc9711765b91ada2e081d19be0e81bfb`；原工作区干净，PR #1–#4已合并。
-- 独立分支 `codex/m21-learning-revisit`，worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。已分阶段提交、推送并建立 [PR #5](https://github.com/yuan2go/tabby-english-food-truck/pull/5)，保持OPEN，未自动合并或部署；最终完整SHA见PR head与交付消息。
+- 独立分支 `codex/m21-learning-revisit`，worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。已分阶段提交、推送并建立 [PR #5](https://github.com/yuan2go/tabby-english-food-truck/pull/5)，现按负责人明确授权合并，未部署；实际 Git 状态及最终完整 SHA 见 PR 与交付消息。
 - 同一干净生产构建合并检查：`c0fe89e5e1d81036c702f0431b33799e99cd9367`。最后运行提交 `229073b3829b00e991c509067b8f53565f14270c`（dirty=false），仅追加拼写触控尺寸/间距CSS；之后只修测试格式、归档证据和文档，规则/内容/保存/声音未再改。
 - content `m2.1`；manifest SHA-256 `170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b`。最终提交可直接干净构建；构建身份应显示实际构建SHA，不把旧dist冒充新head。
 
@@ -20,7 +26,7 @@
 - 帮助与单/双客分开；新建/继续/切换/刷新统一策略。减少并发保留当前任务，提高并发在合法空位补单；保存seed/cursor/当前题/食品/设备/预留/剩余时间。schema4明确迁移schema3，不猜成绩。
 - 首单默认备餐盘，类别/设备显式选择；学过的非目标空杯仍由规则登记。点按制作、明确送餐、双击退料、可选拖动保留；音频失败提示不再覆盖原料。动作计划共享不可变数据，保留规则时钟和食品唯一归属。
 
-### 本包验证
+### 实现阶段验证（本次 Git 同步未重跑）
 
 macOS26.5.2 arm64，Node26.3.1/npm11.16.0，锁定依赖不变。HTTP `http://127.0.0.1:4174/`，Chromium桌面模拟触控，手机393×665/DPR3及Pad1024×768↔768×1024，均非实体设备。
 
