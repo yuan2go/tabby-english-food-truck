@@ -40,6 +40,7 @@ export function configureSession(
     chapter,
     support,
     concurrency,
+    supplyPage: 0,
     menu: menu ?? endlessPool(unlocked, 'less'),
     family: CHAPTERS[chapter]?.family ?? 'juice',
     unlocked: [...unlocked],

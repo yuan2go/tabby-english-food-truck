@@ -143,19 +143,20 @@ export function validateState(v: unknown): v is GameState {
   if (
     !record(v.session) ||
     ![1, 2].includes(v.session.concurrency as number) ||
-    !strings(v.session.menu, 20) ||
+    !strings(v.session.menu, 50) ||
     !v.session.menu.length ||
     !unique(v.session.menu) ||
     v.session.menu.some((r) => !(r in REQUESTS)) ||
     !['story', 'endless', 'training'].includes(v.session.activity as string) ||
     !integer(v.session.chapter, 4) ||
     !['demonstration', 'pictures', 'less'].includes(v.session.support as string) ||
-    !['juice', 'ice', 'sandwich', 'burger'].includes(v.session.family as string) ||
-    !strings(v.session.unlocked, 4) ||
+    !['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(v.session.family as string) ||
+    !strings(v.session.unlocked, 5) ||
     !unique(v.session.unlocked) ||
     !v.session.unlocked.includes('juice') ||
-    v.session.unlocked.some((f) => !['juice', 'ice', 'sandwich', 'burger'].includes(f)) ||
+    v.session.unlocked.some((f) => !['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(f)) ||
     !integer(v.session.seed, 4294967295) ||
+    !integer(v.session.supplyPage, 3) ||
     !integer(v.session.cursor) ||
     !integer(v.session.served) ||
     typeof v.session.lastRequest !== 'string'
@@ -486,8 +487,14 @@ export function decodeSnapshot(raw: string): DecodeResult {
         for (const [i, a] of value.attempts.entries())
           if (record(a)) a.id = `${value.runId}:legacy:${i}`;
     }
-    if (record(value) && value.schemaVersion === 4 && value.contentVersion === 'm2.1') {
+    if (
+      record(value) &&
+      value.schemaVersion === 4 &&
+      value.contentVersion === 'm2.1' &&
+      record(value.session)
+    ) {
       value.schemaVersion = 5;
+      value.session.supplyPage = 0;
       value.contentVersion = CONTENT_VERSION;
       value.routing = emptyRouting();
     }

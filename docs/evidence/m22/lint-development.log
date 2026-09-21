@@ -1,0 +1,684 @@
+
+> tabby-english-food-truck@0.1.0 lint
+> biome check . --max-diagnostics=100
+
+scripts/export-m22.mjs:46:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    44 │ await writeFile(
+    45 │   'art/m22-production.json',
+  > 46 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 47 │     {
+        ...
+  > 56 │     2,
+  > 57 │   ) + '\n',
+       │   ^^^^^^^^
+    58 │ );
+    59 │ console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    44 44 │   await writeFile(
+    45 45 │     'art/m22-production.json',
+    46    │ - ··JSON.stringify(
+       46 │ + ··`${JSON.stringify(
+    47 47 │       {
+    48 48 │         tool: 'OpenAI built-in imagegen',
+    ····· │ 
+    55 55 │       null,
+    56 56 │       2,
+    57    │ - ··)·+·'\n',
+       57 │ + ··)}\n`,
+    58 58 │   );
+    59 59 │   console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+
+scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │   await writeFile(
+    59 │     'art/m21-audio.json',
+  > 60 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 61 │       {
+        ...
+  > 68 │       2,
+  > 69 │     ) + '\n',
+       │     ^^^^^^^^
+    70 │   );
+    71 │   console.log(`Generated ${ids.length} registered development clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    58 58 │     await writeFile(
+    59 59 │       'art/m21-audio.json',
+    60    │ - ····JSON.stringify(
+       60 │ + ····`${JSON.stringify(
+    61 61 │         {
+    62 62 │           humanListeningReview: 'NOT_RUN',
+    ····· │ 
+    67 67 │         null,
+    68 68 │         2,
+    69    │ - ····)·+·'\n',
+       69 │ + ····)}\n`,
+    70 70 │     );
+    71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+  
+
+scripts/m22-audio.mjs:44:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    42 │     ]);
+    43 │   }
+  > 44 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    42 42 │       ]);
+    43 43 │     }
+    44    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       44 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+  
+
+scripts/m22-audio.mjs:47:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  > 47 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 48 │       {
+        ...
+  > 55 │       2,
+  > 56 │     ) + '\n',
+       │     ^^^^^^^^
+    57 │   );
+    58 │   console.log(`Generated ${records.length} individual registered clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+    47    │ - ····JSON.stringify(
+       47 │ + ····`${JSON.stringify(
+    48 48 │         {
+    49 49 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    54 54 │         null,
+    55 55 │         2,
+    56    │ - ····)·+·'\n',
+       56 │ + ····)}\n`,
+    57 57 │     );
+    58 58 │     console.log(`Generated ${records.length} individual registered clips`);
+  
+
+src/content/teaching.ts:116:7 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    114 │   ...(Object.fromEntries(
+    115 │     FOODS.filter((f) => ['direct', 'prepared'].includes(f.role)).map((f) => [
+  > 116 │       'food-' + f.id,
+        │       ^^^^^^^^^^^^^^
+    117 │       [f.id],
+    118 │     ]),
+  
+  i Unsafe fix: Use a template literal.
+  
+    114 114 │     ...(Object.fromEntries(
+    115 115 │       FOODS.filter((f) => ['direct', 'prepared'].includes(f.role)).map((f) => [
+    116     │ - ······'food-'·+·f.id,
+        116 │ + ······`food-${f.id}`,
+    117 117 │         [f.id],
+    118 118 │       ]),
+  
+
+src/app/foods.css:67:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    65 │   margin: 10px auto;
+    66 │ }
+  > 67 │ .basket-foods button {
+       │ ^^^^^^^^^^^^^^^^^^^^
+    68 │   padding: 6px;
+    69 │   aspect-ratio: 1.15;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    42 │   max-width: 680px;
+    43 │ }
+  > 44 │ .food-baskets nav button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   flex: 1;
+    46 │   min-width: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:71:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    69 │   aspect-ratio: 1.15;
+    70 │ }
+  > 71 │ .basket-foods .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^
+    72 │   width: 100%;
+    73 │   height: 100%;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    48 │   font-size: 14px;
+    49 │ }
+  > 50 │ .food-baskets nav .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    51 │   width: 44px;
+    52 │   height: 44px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:105:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    103 │   font-size: 13px;
+    104 │ }
+  > 105 │ .food-basket-entry .food-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    106 │   width: 68px;
+    107 │   height: 68px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    48 │   font-size: 14px;
+    49 │ }
+  > 50 │ .food-baskets nav .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    51 │   width: 44px;
+    52 │   height: 44px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:401:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    399 │   max-width: 900px;
+    400 │ }
+  > 401 │ .adult-settings p,
+        │ ^^^^^^^^^^^^^^^^^
+    402 │ .adult-settings output {
+    403 │   overflow-wrap: anywhere;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    376 │   font-size: 25px;
+    377 │ }
+  > 378 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    379 │   font-size: 16px;
+    380 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:483:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    481 │   height: 180px;
+    482 │ }
+  > 483 │ .mini-intro p {
+        │ ^^^^^^^^^^^^^
+    484 │   max-width: 460px;
+    485 │   line-height: 1.7;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    376 │   font-size: 25px;
+    377 │ }
+  > 378 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    379 │   font-size: 16px;
+    380 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:487:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    485 │   line-height: 1.7;
+    486 │ }
+  > 487 │ .mini-ending img {
+        │ ^^^^^^^^^^^^^^^^
+    488 │   height: 200px;
+    489 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    365 │   padding: 8px 14px;
+    366 │ }
+  > 367 │ .m2-shell .ending img {
+        │ ^^^^^^^^^^^^^^^^^^^^^
+    368 │   height: 130px;
+    369 │   object-fit: contain;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:490:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    488 │   height: 200px;
+    489 │ }
+  > 490 │ .mini-ending h2 {
+        │ ^^^^^^^^^^^^^^^
+    491 │   font-size: 26px;
+    492 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    373 │   gap: 10px;
+    374 │ }
+  > 375 │ .m2-shell .ending h2 {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    376 │   font-size: 25px;
+    377 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:493:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    491 │   font-size: 26px;
+    492 │ }
+  > 493 │ .mini-ending p {
+        │ ^^^^^^^^^^^^^^
+    494 │   font-size: 15px;
+    495 │   max-width: 500px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    376 │   font-size: 25px;
+    377 │ }
+  > 378 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    379 │   font-size: 16px;
+    380 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:924:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    922 │   background: #ffffff12;
+    923 │ }
+  > 924 │ .entry-main > span {
+        │ ^^^^^^^^^^^^^^^^^^
+    925 │   font-size: clamp(20px, 2.6vw, 30px);
+    926 │   font-weight: 900;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    281 │   height: 100px;
+    282 │ }
+  > 283 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    284 │   font-weight: bold;
+    285 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:928:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    926 │   font-weight: 900;
+    927 │ }
+  > 928 │ .entry-main small {
+        │ ^^^^^^^^^^^^^^^^^
+    929 │   font-size: 12px;
+    930 │   margin-top: 6px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    285 │   font-size: 21px;
+    286 │ }
+  > 287 │ .chapter-pages button small {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    288 │   font-size: 12px;
+    289 │   line-height: 1.5;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:965:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    963 │   border-bottom: 1px solid #cab88e;
+    964 │ }
+  > 965 │ .chapter-moment p {
+        │ ^^^^^^^^^^^^^^^^^
+    966 │   flex: 1;
+    967 │   font-size: 14px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    376 │   font-size: 25px;
+    377 │ }
+  > 378 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    379 │   font-size: 16px;
+    380 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1048:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1046 │   border: 0;
+    1047 │ }
+  > 1048 │ .training-recipes button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    1049 │   display: flex;
+    1050 │   flex-direction: column;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1031 │   max-width: 620px;
+    1032 │ }
+  > 1033 │ .recipe-book .support-options button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1034 │   padding: 5px 8px;
+    1035 │   font-size: 12px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1172:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1170 │   pointer-events: none;
+    1171 │ }
+  > 1172 │ .yard-photo img {
+         │ ^^^^^^^^^^^^^^^
+    1173 │   width: 38px;
+    1174 │   height: 70px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    365 │   padding: 8px 14px;
+    366 │ }
+  > 367 │ .m2-shell .ending img {
+        │ ^^^^^^^^^^^^^^^^^^^^^
+    368 │   height: 130px;
+    369 │   object-fit: contain;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1177:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1175 │   object-fit: contain;
+    1176 │ }
+  > 1177 │ .yard-photo span {
+         │ ^^^^^^^^^^^^^^^^
+    1178 │   position: absolute;
+    1179 │   bottom: -20px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    281 │   height: 100px;
+    282 │ }
+  > 283 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    284 │   font-weight: bold;
+    285 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1226:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1224 │   font-size: 13px;
+    1225 │ }
+  > 1226 │ .lesson-heading button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^
+    1227 │   font-size: 13px;
+    1228 │   padding: 7px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1031 │   max-width: 620px;
+    1032 │ }
+  > 1033 │ .recipe-book .support-options button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1034 │   padding: 5px 8px;
+    1035 │   font-size: 12px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1235:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1233 │   gap: 7px;
+    1234 │ }
+  > 1235 │ .lesson-beads span {
+         │ ^^^^^^^^^^^^^^^^^^
+    1236 │   width: 8px;
+    1237 │   height: 8px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    281 │   height: 100px;
+    282 │ }
+  > 283 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    284 │   font-weight: bold;
+    285 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1270:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1268 │   gap: 16px;
+    1269 │ }
+  > 1270 │ .meaning-choices button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^
+    1271 │   min-height: 100px;
+    1272 │   min-width: 100px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1031 │   max-width: 620px;
+    1032 │ }
+  > 1033 │ .recipe-book .support-options button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1034 │   padding: 5px 8px;
+    1035 │   font-size: 12px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1354:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1352 │     grid-template-columns: repeat(4, 44px);
+    1353 │   }
+  > 1354 │   .letter-word button {
+         │   ^^^^^^^^^^^^^^^^^^^
+    1355 │     width: 44px;
+    1356 │     min-width: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1327 │ }
+    1328 │ @media (max-width: 600px) {
+  > 1329 │   .mini-lobby .mini-choices > button {
+         │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1330 │     padding: 8px;
+    1331 │   }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:95:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    93 │   pointer-events: none;
+    94 │ }
+  > 95 │ .delivery-actions button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    96 │   min-height: 48px;
+    97 │   min-width: 140px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:107:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 2)
+  
+    105 │   gap: 8px;
+    106 │ }
+  > 107 │ .delivery-actions fieldset button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    108 │   min-width: 0;
+    109 │   padding: 8px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:115:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    113 │   z-index: 6;
+    114 │ }
+  > 115 │ .recipe-switch > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    116 │   width: 48px;
+    117 │   padding: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:165:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    163 │   font-size: 18px;
+    164 │ }
+  > 165 │ .request-caption button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    166 │   position: absolute;
+    167 │   right: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/game/layout.ts:144:14 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    142 │     { x: p.x * l.width, y: l.height },
+    143 │   ];
+  > 144 │   const x0 = anchors[i]!,
+        │              ^^^^^^^^^^^
+    145 │     x1 = anchors[i + 1]!;
+    146 │   return { x: x0.x + (x1.x - x0.x) * t, y: x0.y + (x1.y - x0.y) * t };
+  
+
+src/game/layout.ts:145:10 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Forbidden non-null assertion.
+  
+    143 │   ];
+    144 │   const x0 = anchors[i]!,
+  > 145 │     x1 = anchors[i + 1]!;
+        │          ^^^^^^^^^^^^^^^
+    146 │   return { x: x0.x + (x1.x - x0.x) * t, y: x0.y + (x1.y - x0.y) * t };
+    147 │ }
+  
+
+Checked 106 files in 66ms. No fixes applied.
+Found 2 errors.
+Found 22 warnings.
+Found 5 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

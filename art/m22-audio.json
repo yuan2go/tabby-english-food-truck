@@ -1,0 +1,557 @@
+{
+  "source": "macOS say / Samantha 140 wpm, PCM 22050 Hz",
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "records": [
+    {
+      "id": "food-name-apple",
+      "text": "apple",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-apple",
+      "text": "An apple, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-banana",
+      "text": "banana",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-banana",
+      "text": "A banana, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-orange",
+      "text": "orange",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-orange",
+      "text": "An orange, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-pear",
+      "text": "pear",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-pear",
+      "text": "A pear, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-peach",
+      "text": "peach",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-peach",
+      "text": "A peach, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-strawberry",
+      "text": "strawberry",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-strawberry",
+      "text": "A strawberry, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-grape",
+      "text": "grape",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-grape",
+      "text": "Grapes, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-watermelon",
+      "text": "watermelon",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-watermelon",
+      "text": "Watermelon, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-mango",
+      "text": "mango",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-mango",
+      "text": "A mango, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-pineapple",
+      "text": "pineapple",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-pineapple",
+      "text": "A pineapple, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-tomato",
+      "text": "tomato",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-tomato",
+      "text": "A tomato, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-cucumber",
+      "text": "cucumber",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-cucumber",
+      "text": "A cucumber, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-carrot",
+      "text": "carrot",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-carrot",
+      "text": "A carrot, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-potato",
+      "text": "potato",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-potato",
+      "text": "A potato, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-lettuce",
+      "text": "lettuce",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-lettuce",
+      "text": "Lettuce, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-corn",
+      "text": "corn",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-corn",
+      "text": "Corn, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-broccoli",
+      "text": "broccoli",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-broccoli",
+      "text": "Broccoli, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-mushroom",
+      "text": "mushroom",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-mushroom",
+      "text": "A mushroom, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-pumpkin",
+      "text": "pumpkin",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-pumpkin",
+      "text": "A pumpkin, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-pea",
+      "text": "pea",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-pea",
+      "text": "A pea, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-bread",
+      "text": "bread",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-bread",
+      "text": "Bread, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-bun",
+      "text": "bun",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-bun",
+      "text": "A bun, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-rice",
+      "text": "rice",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-rice",
+      "text": "Rice, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-noodles",
+      "text": "noodles",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-noodles",
+      "text": "Noodles, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-egg",
+      "text": "egg",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-egg",
+      "text": "An egg, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-chicken",
+      "text": "chicken",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-chicken",
+      "text": "Chicken, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-beef",
+      "text": "beef",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-beef",
+      "text": "Beef, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-fish",
+      "text": "fish",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-fish",
+      "text": "Fish, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-cheese",
+      "text": "cheese",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-cheese",
+      "text": "Cheese, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-tofu",
+      "text": "tofu",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-tofu",
+      "text": "Tofu, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-milk",
+      "text": "milk",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-milk",
+      "text": "Milk, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-yogurt",
+      "text": "yogurt",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-yogurt",
+      "text": "Yogurt, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-butter",
+      "text": "butter",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-butter",
+      "text": "Butter, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-cream",
+      "text": "cream",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-cream",
+      "text": "Cream, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-vanilla",
+      "text": "vanilla",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-vanilla",
+      "text": "Vanilla, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-chocolate",
+      "text": "chocolate",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-chocolate",
+      "text": "Chocolate, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-honey",
+      "text": "honey",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-honey",
+      "text": "Honey, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-jam",
+      "text": "jam",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-jam",
+      "text": "Jam, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-coconut",
+      "text": "coconut",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-coconut",
+      "text": "Coconut, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-raisin",
+      "text": "raisin",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-raisin",
+      "text": "A raisin, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-juice",
+      "text": "juice",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-juice",
+      "text": "Juice, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-smoothie",
+      "text": "smoothie",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-smoothie",
+      "text": "A smoothie, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-milkshake",
+      "text": "milkshake",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-milkshake",
+      "text": "A milkshake, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-ice-cream",
+      "text": "ice cream",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-ice-cream",
+      "text": "Ice cream, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-sandwich",
+      "text": "sandwich",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-sandwich",
+      "text": "A sandwich, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-burger",
+      "text": "burger",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-burger",
+      "text": "A burger, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-pizza",
+      "text": "pizza",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-pizza",
+      "text": "Pizza, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-salad",
+      "text": "salad",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-salad",
+      "text": "Salad, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-cake",
+      "text": "cake",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-cake",
+      "text": "Cake, please.",
+      "kind": "request"
+    },
+    {
+      "id": "food-name-cookie",
+      "text": "cookie",
+      "kind": "word"
+    },
+    {
+      "id": "food-context-cookie",
+      "text": "A cookie, please.",
+      "kind": "request"
+    },
+    {
+      "id": "basket-fruit",
+      "text": "Fruit basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "basket-vegetable",
+      "text": "Vegetable basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "basket-staple",
+      "text": "Kitchen basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "basket-flavor",
+      "text": "Sweet flavors.",
+      "kind": "instruction"
+    },
+    {
+      "id": "basket-ready",
+      "text": "Food and drinks.",
+      "kind": "instruction"
+    },
+    {
+      "id": "basket-welcome",
+      "text": "Touch a food. Listen, then find a friend.",
+      "kind": "instruction"
+    },
+    {
+      "id": "basket-next",
+      "text": "Another basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "grow-banana",
+      "text": "Banana. A banana, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "grow-juice",
+      "text": "Apple juice. Put a cup in the machine. Choose an apple. Make juice.",
+      "kind": "instruction"
+    },
+    {
+      "id": "grow-banana-juice",
+      "text": "Banana juice. Choose a banana. Make juice.",
+      "kind": "instruction"
+    }
+  ]
+}

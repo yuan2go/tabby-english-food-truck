@@ -2,10 +2,10 @@ import Phaser from 'phaser';
 import { JUICE_MS, MODES, PRODUCT_NAMES, type Product } from '../content/catalog';
 import {
   FAMILY_STATIONS,
-  FAMILY_SUPPLIES,
   foodAsset,
   RECIPES,
   type StationId,
+  suppliesFor,
 } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -347,7 +347,7 @@ export class TruckScene extends Phaser.Scene {
     return { ...l.helper };
   }
   private supplyPoint(product: Product): Point {
-    const products = FAMILY_SUPPLIES[this.controller.state.session.family];
+    const products = suppliesFor(this.controller.state.session);
     return supplyPoint(this.layout, Math.max(0, products.indexOf(product)), products.length);
   }
 
@@ -363,7 +363,7 @@ export class TruckScene extends Phaser.Scene {
     if (this.loadingSceneAssets) return false;
     const s = this.controller.state;
     const required = [
-      ...FAMILY_SUPPLIES[s.session.family].map(foodAsset),
+      ...suppliesFor(s.session).map(foodAsset),
       ...RECIPES.filter((r) => r.family === s.session.family).map((r) => foodAsset(r.output)),
       ...FAMILY_STATIONS[s.session.family].map((id) => `${id}-station`),
       ...s.items.map((i) => foodAsset(i.product)),
@@ -401,8 +401,10 @@ export class TruckScene extends Phaser.Scene {
     if (previous?.mode !== s.mode)
       this.layout = layoutFor(this.layout.width, this.layout.height, s.mode);
     if (resized) this.motions.clear();
-    if(previous?.routing.machine && !s.routing.machine && this.ui.prep==='machine')this.ui.prep='tray';
-    for(const id of ['ice','board'] as const)if(previous?.routing[id]&&!s.routing[id]&&this.ui.prep===id)this.ui.prep='tray';
+    if (previous?.routing.machine && !s.routing.machine && this.ui.prep === 'machine')
+      this.ui.prep = 'tray';
+    for (const id of ['ice', 'board'] as const)
+      if (previous?.routing[id] && !s.routing[id] && this.ui.prep === id) this.ui.prep = 'tray';
     const l = this.layout;
     this.ui.layout = l;
     this.used.clear();
@@ -529,7 +531,7 @@ export class TruckScene extends Phaser.Scene {
         for (const slot of s.helper.slots)
           this.decor.lineStyle(2, 0xd19638).strokeCircle(p.x + this.slotOffset(slot), p.y - 7, 20);
     }
-    for (const product of FAMILY_SUPPLIES[s.session.family]) {
+    for (const product of suppliesFor(s.session)) {
       const p = this.supplyPoint(product);
       this.decor
         .fillStyle(0x163f32, 0.95)

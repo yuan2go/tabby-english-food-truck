@@ -1,4 +1,6 @@
 import type { RequestId } from './catalog';
+import type { FOOD_REQUESTS } from './food-orders';
+import { FOODS, foodBatch } from './foods';
 import { ITEM_AUDIO, WORDS } from './learning';
 import { FOOD, type Product, RECIPES } from './recipes';
 
@@ -40,6 +42,18 @@ const pair = (
   feedback: '就是这位食物朋友。',
 });
 export const UNITS: Record<string, LearningUnit> = {
+  ...Object.fromEntries(
+    FOODS.map((f) => [
+      f.id,
+      pair(
+        f.id,
+        f.product as Product,
+        (foodBatch(f.batch).find((x) => x.id !== f.id)?.product ?? 'apple') as Product,
+        f.text,
+        f.audio,
+      ),
+    ]),
+  ),
   apple: pair('apple', 'apple', 'banana'),
   banana: pair('banana', 'banana', 'apple'),
   juice: pair('juice', 'juice', 'apple', 'juice', 'name-juice'),
@@ -97,6 +111,12 @@ export const UNITS: Record<string, LearningUnit> = {
   },
 };
 export const REQUEST_UNITS: Record<RequestId, readonly string[]> = {
+  ...(Object.fromEntries(
+    FOODS.filter((f) => ['direct', 'prepared'].includes(f.role)).map((f) => [
+      'food-' + f.id,
+      [f.id],
+    ]),
+  ) as Record<keyof typeof FOOD_REQUESTS, string[]>),
   apple: ['apple'],
   banana: ['banana'],
   two: ['apple', 'one', 'two'],
@@ -131,4 +151,9 @@ export function teachingFigures(products: readonly Product[]) {
     counts.set(product, occurrence + 1);
     return { id: `${product}-${occurrence}`, product };
   });
+}
+
+for (const f of FOODS) {
+  const unit = UNITS[f.id];
+  if (unit && unit.audio === f.audio) unit.prompt = f.audio;
 }

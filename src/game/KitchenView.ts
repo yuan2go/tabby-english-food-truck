@@ -5,7 +5,7 @@ import type { ViewState } from './input';
 import type { Layout, Point } from './layout';
 export function stationPoint(id: StationId, l: Layout): Point {
   const r = l.regions.work;
-  return { x: r.x + r.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.53 : 0.32), y: r.y + 56 };
+  return { x: r.x + r.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.64 : 0.32), y: r.y + 56 };
 }
 export class KitchenView {
   private nodes: Phaser.GameObjects.GameObject[] = [];

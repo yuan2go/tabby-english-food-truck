@@ -1,5 +1,5 @@
 import type Phaser from 'phaser';
-import { FAMILY_SUPPLIES, foodAsset, type Product } from '../content/recipes';
+import { foodAsset, type Product, suppliesFor } from '../content/recipes';
 import type { GameController } from '../platform/controller';
 import { ActorScheduler } from './actor';
 import type { ViewState } from './input';
@@ -175,9 +175,9 @@ export class ActorView {
       for (const [i, item] of items.entries()) {
         const pick = `pick:${item.id}`;
         if (!preceding.includes(pick) && frame.event !== pick) continue;
-        const products = FAMILY_SUPPLIES[s.session.family];
+        const products = suppliesFor(s.session);
         const index = products.indexOf(item.product);
-        const source = supplyPoint(l,Math.max(0,index),products.length);
+        const source = supplyPoint(l, Math.max(0, index), products.length);
         let p = { x: hand.x + (i - (items.length - 1) / 2) * 28, y: hand.y };
         if (frame.event === pick) p = mix(source, p, frame.progress);
         if (frame.event === 'place') {

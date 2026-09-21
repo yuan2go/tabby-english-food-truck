@@ -1,0 +1,98 @@
+export const FOOD_REQUESTS = {
+  'food-orange': {
+    text: 'An orange, please.',
+    products: ['orange'],
+    explanation: '橙子，直接供应。',
+    audio: 'food-context-orange',
+  },
+  'food-pear': {
+    text: 'A pear, please.',
+    products: ['pear'],
+    explanation: '梨，直接供应。',
+    audio: 'food-context-pear',
+  },
+  'food-peach': {
+    text: 'A peach, please.',
+    products: ['peach'],
+    explanation: '桃子，直接供应。',
+    audio: 'food-context-peach',
+  },
+  'food-strawberry': {
+    text: 'A strawberry, please.',
+    products: ['fresh-strawberry'],
+    explanation: '草莓，直接供应。',
+    audio: 'food-context-strawberry',
+  },
+  'food-grape': {
+    text: 'Grapes, please.',
+    products: ['grape'],
+    explanation: '葡萄，直接供应。',
+    audio: 'food-context-grape',
+  },
+  'food-watermelon': {
+    text: 'Watermelon, please.',
+    products: ['watermelon'],
+    explanation: '西瓜，直接供应。',
+    audio: 'food-context-watermelon',
+  },
+  'food-mango': {
+    text: 'A mango, please.',
+    products: ['mango'],
+    explanation: '芒果，直接供应。',
+    audio: 'food-context-mango',
+  },
+  'food-pineapple': {
+    text: 'A pineapple, please.',
+    products: ['pineapple'],
+    explanation: '菠萝，直接供应。',
+    audio: 'food-context-pineapple',
+  },
+  'food-milk': {
+    text: 'Milk, please.',
+    products: ['milk'],
+    explanation: '牛奶，预制供应，不需现场烹饪。',
+    audio: 'food-context-milk',
+  },
+  'food-yogurt': {
+    text: 'Yogurt, please.',
+    products: ['yogurt'],
+    explanation: '酸奶，预制供应，不需现场烹饪。',
+    audio: 'food-context-yogurt',
+  },
+  'food-smoothie': {
+    text: 'A smoothie, please.',
+    products: ['smoothie'],
+    explanation: '思慕雪，预制供应，不需现场烹饪。',
+    audio: 'food-context-smoothie',
+  },
+  'food-milkshake': {
+    text: 'A milkshake, please.',
+    products: ['milkshake'],
+    explanation: '奶昔，预制供应，不需现场烹饪。',
+    audio: 'food-context-milkshake',
+  },
+  'food-pizza': {
+    text: 'Pizza, please.',
+    products: ['pizza'],
+    explanation: '比萨饼，预制供应，不需现场烹饪。',
+    audio: 'food-context-pizza',
+  },
+  'food-salad': {
+    text: 'Salad, please.',
+    products: ['salad'],
+    explanation: '沙拉，预制供应，不需现场烹饪。',
+    audio: 'food-context-salad',
+  },
+  'food-cake': {
+    text: 'Cake, please.',
+    products: ['cake'],
+    explanation: '蛋糕，预制供应，不需现场烹饪。',
+    audio: 'food-context-cake',
+  },
+  'food-cookie': {
+    text: 'A cookie, please.',
+    products: ['cookie'],
+    explanation: '曲奇饼干，预制供应，不需现场烹饪。',
+    audio: 'food-context-cookie',
+  },
+} as const;

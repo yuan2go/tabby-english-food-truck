@@ -9,7 +9,7 @@ import {
   requestsFor,
 } from '../content/catalog';
 import { parseTokens } from '../content/phrases';
-import { isFinished, recipeFor } from '../content/recipes';
+import { isFinished, recipeFor, SUPPLY_PAGES } from '../content/recipes';
 import { HOME } from '../game/actor';
 import { advanceActor, cancelHelperActor, queueActor, supplyAnchor, trayAnchor } from './actions';
 import {
@@ -48,6 +48,7 @@ export function createGame(
       support: mode === 'guided' ? 'demonstration' : 'less',
       concurrency: mode === 'service' ? 2 : 1,
       menu: Object.keys(REQUESTS) as RequestId[],
+      supplyPage: 0,
       family: 'juice',
       unlocked: ['juice'],
       seed: 1,
@@ -183,6 +184,17 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'supply-page') {
+    if (!Number.isInteger(c.page) || !SUPPLY_PAGES[c.page])
+      return result('blocked', '这篮没有供货。');
+    s.session.supplyPage = c.page;
+    return result('ok', '换一篮，盘中食物仍保留。');
+  }
+  if (c.type === 'menu') {
+    s.session.menu = [...new Set([...s.session.menu, ...c.requests.filter((r) => r in REQUESTS)])];
+    s.session.unlocked = [...new Set([...s.session.unlocked, ...c.families])];
+    return result('ok', '新菜单已经介绍，下一位客人可以选择。');
+  }
   if (c.type === 'policy') {
     applyPolicy(s, c.support, c.concurrency);
     return result(

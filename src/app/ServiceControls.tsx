@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { REQUESTS } from '../content/catalog';
-import { type Family, isFinished } from '../content/recipes';
+import { type Family, isFinished, SUPPLY_PAGES } from '../content/recipes';
+import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -71,12 +72,36 @@ export function ServiceControls({
                     setMenu(false);
                   }}
                 >
-                  {{ juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[f]}
+                  {
+                    {
+                      juice: '果汁',
+                      ice: '冰淇淋',
+                      sandwich: '三明治',
+                      burger: '汉堡',
+                      ready: '水果与预制点心',
+                    }[f]
+                  }
                 </button>
               ))}
             </fieldset>
           ) : null}
         </div>
+      ) : null}
+      {s.session.family === 'ready' ? (
+        <button
+          type="button"
+          className="supply-page"
+          style={{ position: 'absolute', left: l.regions.work.x + 60, top: l.regions.work.y }}
+          onClick={() => {
+            controller.command({
+              type: 'supply-page',
+              page: (s.session.supplyPage + 1) % SUPPLY_PAGES.length,
+            });
+            void audio.play('basket-next');
+          }}
+        >
+          ↔ 换一篮 {s.session.supplyPage + 1}/{SUPPLY_PAGES.length}
+        </button>
       ) : null}
       <div
         className="delivery-actions"
@@ -143,8 +168,8 @@ export function ServiceControls({
           }}
           onClick={() => activate(selected.id, controller, audio, ui)}
         >
-          {REQUESTS[selected.request].products.map((p, i) => (
-            <Food key={`${p}-${i}`} product={p} />
+          {teachingFigures(REQUESTS[selected.request].products).map(({ product, id }) => (
+            <Food key={id} product={product} />
           ))}
           <span>♫</span>
         </button>

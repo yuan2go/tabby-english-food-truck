@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
 
 const manifest = JSON.parse(await readFile('art/manifest.json', 'utf8'));
-assert.equal(manifest.version, 'm2.1');
+assert.equal(manifest.version, 'm2.2');
 const ids = new Set();
 for (const asset of manifest.assets) {
   assert(!ids.has(asset.assetId), `duplicate ${asset.assetId}`);
@@ -80,3 +80,15 @@ for (const [id, entry] of Object.entries(catalogSpeech)) {
 console.log(
   `PASS: ${Object.keys(catalogSpeech).length} explicit speech references; no guessed item paths`,
 );
+
+const foods = JSON.parse(await readFile('src/content/foods.json', 'utf8'));
+assert.equal(foods.length, 50);
+assert.equal(new Set(foods.map((f) => f.id)).size, 50);
+for (const f of foods) {
+  assert(ids.has(f.image), `missing food image ${f.id}`);
+  assert(ids.has(`audio-${f.audio}`));
+  assert(ids.has(`audio-${f.contextAudio}`));
+  assert.equal(catalogSpeech[f.audio].text, f.text);
+  assert.equal(catalogSpeech[f.contextAudio].text, f.context);
+}
+console.log('PASS: all 50 food concepts resolve real independent images and both speech clips');

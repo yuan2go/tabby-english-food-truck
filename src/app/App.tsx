@@ -1,3 +1,5 @@
+import { FoodBaskets } from './FoodBaskets';
+import './foods.css';
 import Phaser from 'phaser';
 import { useEffect, useReducer, useRef, useState } from 'react';
 import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
@@ -24,7 +26,7 @@ import './app.css';
 import './m2.css';
 import './service.css';
 
-type Screen = 'home' | 'story' | 'game' | 'mini' | 'setup' | 'settings';
+type Screen = 'foods' | 'home' | 'story' | 'game' | 'mini' | 'setup' | 'settings';
 type Modal = 'help' | 'audio' | 'pause' | 'clear' | 'restart' | null;
 export function App() {
   const [controller] = useState(() => new GameController()),
@@ -35,6 +37,7 @@ export function App() {
     [teaching, setTeaching] = useState<RequestId | null>(null),
     [note, setNote] = useState(false),
     [caption, setCaption] = useState<string | null>(null);
+  const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
   const [setup, setSetup] = useState<'endless' | 'training'>('endless');
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
@@ -319,12 +322,38 @@ export function App() {
           home={home}
         />
       ) : screen === 'mini' ? (
-        <MiniGames controller={controller} audio={audio} home={home} />
+        <MiniGames
+          controller={controller}
+          audio={audio}
+          home={() => {
+            if (collection) {
+              setCollection(null);
+              setScreen('foods');
+            } else home();
+          }}
+          collection={collection}
+          baskets={() => setScreen('foods')}
+        />
+      ) : screen === 'foods' ? (
+        <FoodBaskets
+          controller={controller}
+          audio={audio}
+          home={home}
+          practice={(ids, focus) => {
+            setCollection({ ids, focus });
+            setScreen('mini');
+          }}
+          serve={() => enter('endless')}
+        />
       ) : screen === 'settings' ? (
         <Settings
           controller={controller}
           audio={audio}
-          close={() => setScreen(settingsBack)}
+          close={() => {
+            setSupport(controller.profile.value.support);
+            setConcurrency(controller.profile.value.concurrency);
+            setScreen(settingsBack);
+          }}
           refresh={refresh}
           quality={ui.lowGraphics}
           setQuality={(v) => {
@@ -360,23 +389,38 @@ export function App() {
             </fieldset>
           ) : null}
           {setup === 'training' ? (
+            <button
+              type="button"
+              className="food-basket-entry"
+              onClick={() => {
+                void audio.play('basket-welcome');
+                setScreen('foods');
+              }}
+            >
+              <Food product="orange" />
+              五篮食物朋友 · 听音与配对
+            </button>
+          ) : null}
+          {setup === 'training' ? (
             <fieldset className="training-recipes">
               <legend>今天练哪一道？</legend>
-              {controller.profile.value.introduced.map((f, i) => (
-                <button
-                  type="button"
-                  key={f}
-                  aria-pressed={trainingChapter === i}
-                  onClick={() => setTrainingChapter(i)}
-                >
-                  <Food
-                    product={
-                      (['juice', 'vanilla-cone', 'sandwich', 'burger'] as const)[i] ?? 'juice'
-                    }
-                  />
-                  {CHAPTERS[i]?.title}
-                </button>
-              ))}
+              {controller.profile.value.introduced
+                .filter((f) => f !== 'ready')
+                .map((f, i) => (
+                  <button
+                    type="button"
+                    key={f}
+                    aria-pressed={trainingChapter === i}
+                    onClick={() => setTrainingChapter(i)}
+                  >
+                    <Food
+                      product={
+                        (['juice', 'vanilla-cone', 'sandwich', 'burger'] as const)[i] ?? 'juice'
+                      }
+                    />
+                    {CHAPTERS[i]?.title}
+                  </button>
+                ))}
             </fieldset>
           ) : null}
 

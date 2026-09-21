@@ -1215,16 +1215,7 @@
   z-index: 8;
 }
 
-/* M2.1: a small scene lesson and grouped word tiles{
-  top: 30%;
-  bottom: 4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  max-width: 720px;
-  margin-inline: auto;
-}
+/* Meaning objects and grouped word tiles. */
 .lesson-heading {
   display: flex;
   align-items: center;

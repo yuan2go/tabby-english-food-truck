@@ -1,5 +1,6 @@
 import {
   FAMILY_STATIONS,
+  PREPARED,
   type Product,
   RAW,
   RECIPES,
@@ -91,4 +92,4 @@ export function itemLocked(s: GameState, item: Item): boolean {
     return s.stations[item.location.split(':')[1] as StationId].status === 'processing';
   return false;
 }
-export const canSupply = (product: Product) => RAW.includes(product);
+export const canSupply = (product: Product) => RAW.includes(product) || PREPARED.includes(product);

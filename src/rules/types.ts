@@ -55,6 +55,7 @@ export interface GameState {
     support: Support;
     concurrency: 1 | 2;
     menu: RequestId[];
+    supplyPage: number;
     family: Family;
     unlocked: Family[];
     seed: number;
@@ -115,6 +116,8 @@ export type Command =
   | { type: 'family'; family: Family }
   | { type: 'policy'; support: Support; concurrency: 1 | 2 }
   | { type: 'prepare-cup' }
+  | { type: 'supply-page'; page: number }
+  | { type: 'menu'; requests: RequestId[]; families: Family[] }
   | { type: 'actor-anchor'; point: ActorPoint }
   | { type: 'deliver'; tray: TrayId; order: string }
   | { type: 'note'; tray: TrayId; tokens: string[] }

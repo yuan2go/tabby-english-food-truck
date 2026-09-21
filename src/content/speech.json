@@ -478,5 +478,665 @@
     "kind": "prompt",
     "path": "audio/menu-cream.wav",
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-apple": {
+    "text": "apple",
+    "kind": "word",
+    "path": "audio/food-name-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-apple": {
+    "text": "An apple, please.",
+    "kind": "request",
+    "path": "audio/food-context-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-banana": {
+    "text": "banana",
+    "kind": "word",
+    "path": "audio/food-name-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-banana": {
+    "text": "A banana, please.",
+    "kind": "request",
+    "path": "audio/food-context-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-orange": {
+    "text": "orange",
+    "kind": "word",
+    "path": "audio/food-name-orange.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-orange": {
+    "text": "An orange, please.",
+    "kind": "request",
+    "path": "audio/food-context-orange.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-pear": {
+    "text": "pear",
+    "kind": "word",
+    "path": "audio/food-name-pear.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-pear": {
+    "text": "A pear, please.",
+    "kind": "request",
+    "path": "audio/food-context-pear.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-peach": {
+    "text": "peach",
+    "kind": "word",
+    "path": "audio/food-name-peach.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-peach": {
+    "text": "A peach, please.",
+    "kind": "request",
+    "path": "audio/food-context-peach.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-strawberry": {
+    "text": "strawberry",
+    "kind": "word",
+    "path": "audio/food-name-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-strawberry": {
+    "text": "A strawberry, please.",
+    "kind": "request",
+    "path": "audio/food-context-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-grape": {
+    "text": "grape",
+    "kind": "word",
+    "path": "audio/food-name-grape.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-grape": {
+    "text": "Grapes, please.",
+    "kind": "request",
+    "path": "audio/food-context-grape.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-watermelon": {
+    "text": "watermelon",
+    "kind": "word",
+    "path": "audio/food-name-watermelon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-watermelon": {
+    "text": "Watermelon, please.",
+    "kind": "request",
+    "path": "audio/food-context-watermelon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-mango": {
+    "text": "mango",
+    "kind": "word",
+    "path": "audio/food-name-mango.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-mango": {
+    "text": "A mango, please.",
+    "kind": "request",
+    "path": "audio/food-context-mango.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-pineapple": {
+    "text": "pineapple",
+    "kind": "word",
+    "path": "audio/food-name-pineapple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-pineapple": {
+    "text": "A pineapple, please.",
+    "kind": "request",
+    "path": "audio/food-context-pineapple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-tomato": {
+    "text": "tomato",
+    "kind": "word",
+    "path": "audio/food-name-tomato.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-tomato": {
+    "text": "A tomato, please.",
+    "kind": "request",
+    "path": "audio/food-context-tomato.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-cucumber": {
+    "text": "cucumber",
+    "kind": "word",
+    "path": "audio/food-name-cucumber.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-cucumber": {
+    "text": "A cucumber, please.",
+    "kind": "request",
+    "path": "audio/food-context-cucumber.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-carrot": {
+    "text": "carrot",
+    "kind": "word",
+    "path": "audio/food-name-carrot.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-carrot": {
+    "text": "A carrot, please.",
+    "kind": "request",
+    "path": "audio/food-context-carrot.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-potato": {
+    "text": "potato",
+    "kind": "word",
+    "path": "audio/food-name-potato.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-potato": {
+    "text": "A potato, please.",
+    "kind": "request",
+    "path": "audio/food-context-potato.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-lettuce": {
+    "text": "lettuce",
+    "kind": "word",
+    "path": "audio/food-name-lettuce.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-lettuce": {
+    "text": "Lettuce, please.",
+    "kind": "request",
+    "path": "audio/food-context-lettuce.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-corn": {
+    "text": "corn",
+    "kind": "word",
+    "path": "audio/food-name-corn.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-corn": {
+    "text": "Corn, please.",
+    "kind": "request",
+    "path": "audio/food-context-corn.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-broccoli": {
+    "text": "broccoli",
+    "kind": "word",
+    "path": "audio/food-name-broccoli.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-broccoli": {
+    "text": "Broccoli, please.",
+    "kind": "request",
+    "path": "audio/food-context-broccoli.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-mushroom": {
+    "text": "mushroom",
+    "kind": "word",
+    "path": "audio/food-name-mushroom.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-mushroom": {
+    "text": "A mushroom, please.",
+    "kind": "request",
+    "path": "audio/food-context-mushroom.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-pumpkin": {
+    "text": "pumpkin",
+    "kind": "word",
+    "path": "audio/food-name-pumpkin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-pumpkin": {
+    "text": "A pumpkin, please.",
+    "kind": "request",
+    "path": "audio/food-context-pumpkin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-pea": {
+    "text": "pea",
+    "kind": "word",
+    "path": "audio/food-name-pea.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-pea": {
+    "text": "A pea, please.",
+    "kind": "request",
+    "path": "audio/food-context-pea.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-bread": {
+    "text": "bread",
+    "kind": "word",
+    "path": "audio/food-name-bread.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-bread": {
+    "text": "Bread, please.",
+    "kind": "request",
+    "path": "audio/food-context-bread.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-bun": {
+    "text": "bun",
+    "kind": "word",
+    "path": "audio/food-name-bun.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-bun": {
+    "text": "A bun, please.",
+    "kind": "request",
+    "path": "audio/food-context-bun.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-rice": {
+    "text": "rice",
+    "kind": "word",
+    "path": "audio/food-name-rice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-rice": {
+    "text": "Rice, please.",
+    "kind": "request",
+    "path": "audio/food-context-rice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-noodles": {
+    "text": "noodles",
+    "kind": "word",
+    "path": "audio/food-name-noodles.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-noodles": {
+    "text": "Noodles, please.",
+    "kind": "request",
+    "path": "audio/food-context-noodles.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-egg": {
+    "text": "egg",
+    "kind": "word",
+    "path": "audio/food-name-egg.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-egg": {
+    "text": "An egg, please.",
+    "kind": "request",
+    "path": "audio/food-context-egg.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-chicken": {
+    "text": "chicken",
+    "kind": "word",
+    "path": "audio/food-name-chicken.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-chicken": {
+    "text": "Chicken, please.",
+    "kind": "request",
+    "path": "audio/food-context-chicken.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-beef": {
+    "text": "beef",
+    "kind": "word",
+    "path": "audio/food-name-beef.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-beef": {
+    "text": "Beef, please.",
+    "kind": "request",
+    "path": "audio/food-context-beef.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-fish": {
+    "text": "fish",
+    "kind": "word",
+    "path": "audio/food-name-fish.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-fish": {
+    "text": "Fish, please.",
+    "kind": "request",
+    "path": "audio/food-context-fish.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-cheese": {
+    "text": "cheese",
+    "kind": "word",
+    "path": "audio/food-name-cheese.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-cheese": {
+    "text": "Cheese, please.",
+    "kind": "request",
+    "path": "audio/food-context-cheese.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-tofu": {
+    "text": "tofu",
+    "kind": "word",
+    "path": "audio/food-name-tofu.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-tofu": {
+    "text": "Tofu, please.",
+    "kind": "request",
+    "path": "audio/food-context-tofu.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-milk": {
+    "text": "milk",
+    "kind": "word",
+    "path": "audio/food-name-milk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-milk": {
+    "text": "Milk, please.",
+    "kind": "request",
+    "path": "audio/food-context-milk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-yogurt": {
+    "text": "yogurt",
+    "kind": "word",
+    "path": "audio/food-name-yogurt.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-yogurt": {
+    "text": "Yogurt, please.",
+    "kind": "request",
+    "path": "audio/food-context-yogurt.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-butter": {
+    "text": "butter",
+    "kind": "word",
+    "path": "audio/food-name-butter.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-butter": {
+    "text": "Butter, please.",
+    "kind": "request",
+    "path": "audio/food-context-butter.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-cream": {
+    "text": "cream",
+    "kind": "word",
+    "path": "audio/food-name-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-cream": {
+    "text": "Cream, please.",
+    "kind": "request",
+    "path": "audio/food-context-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-vanilla": {
+    "text": "vanilla",
+    "kind": "word",
+    "path": "audio/food-name-vanilla.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-vanilla": {
+    "text": "Vanilla, please.",
+    "kind": "request",
+    "path": "audio/food-context-vanilla.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-chocolate": {
+    "text": "chocolate",
+    "kind": "word",
+    "path": "audio/food-name-chocolate.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-chocolate": {
+    "text": "Chocolate, please.",
+    "kind": "request",
+    "path": "audio/food-context-chocolate.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-honey": {
+    "text": "honey",
+    "kind": "word",
+    "path": "audio/food-name-honey.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-honey": {
+    "text": "Honey, please.",
+    "kind": "request",
+    "path": "audio/food-context-honey.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-jam": {
+    "text": "jam",
+    "kind": "word",
+    "path": "audio/food-name-jam.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-jam": {
+    "text": "Jam, please.",
+    "kind": "request",
+    "path": "audio/food-context-jam.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-coconut": {
+    "text": "coconut",
+    "kind": "word",
+    "path": "audio/food-name-coconut.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-coconut": {
+    "text": "Coconut, please.",
+    "kind": "request",
+    "path": "audio/food-context-coconut.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-raisin": {
+    "text": "raisin",
+    "kind": "word",
+    "path": "audio/food-name-raisin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-raisin": {
+    "text": "A raisin, please.",
+    "kind": "request",
+    "path": "audio/food-context-raisin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-juice": {
+    "text": "juice",
+    "kind": "word",
+    "path": "audio/food-name-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-juice": {
+    "text": "Juice, please.",
+    "kind": "request",
+    "path": "audio/food-context-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-smoothie": {
+    "text": "smoothie",
+    "kind": "word",
+    "path": "audio/food-name-smoothie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-smoothie": {
+    "text": "A smoothie, please.",
+    "kind": "request",
+    "path": "audio/food-context-smoothie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-milkshake": {
+    "text": "milkshake",
+    "kind": "word",
+    "path": "audio/food-name-milkshake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-milkshake": {
+    "text": "A milkshake, please.",
+    "kind": "request",
+    "path": "audio/food-context-milkshake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-ice-cream": {
+    "text": "ice cream",
+    "kind": "word",
+    "path": "audio/food-name-ice-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-ice-cream": {
+    "text": "Ice cream, please.",
+    "kind": "request",
+    "path": "audio/food-context-ice-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-sandwich": {
+    "text": "sandwich",
+    "kind": "word",
+    "path": "audio/food-name-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-sandwich": {
+    "text": "A sandwich, please.",
+    "kind": "request",
+    "path": "audio/food-context-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-burger": {
+    "text": "burger",
+    "kind": "word",
+    "path": "audio/food-name-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-burger": {
+    "text": "A burger, please.",
+    "kind": "request",
+    "path": "audio/food-context-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-pizza": {
+    "text": "pizza",
+    "kind": "word",
+    "path": "audio/food-name-pizza.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-pizza": {
+    "text": "Pizza, please.",
+    "kind": "request",
+    "path": "audio/food-context-pizza.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-salad": {
+    "text": "salad",
+    "kind": "word",
+    "path": "audio/food-name-salad.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-salad": {
+    "text": "Salad, please.",
+    "kind": "request",
+    "path": "audio/food-context-salad.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-cake": {
+    "text": "cake",
+    "kind": "word",
+    "path": "audio/food-name-cake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-cake": {
+    "text": "Cake, please.",
+    "kind": "request",
+    "path": "audio/food-context-cake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-name-cookie": {
+    "text": "cookie",
+    "kind": "word",
+    "path": "audio/food-name-cookie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "food-context-cookie": {
+    "text": "A cookie, please.",
+    "kind": "request",
+    "path": "audio/food-context-cookie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-fruit": {
+    "text": "Fruit basket.",
+    "kind": "instruction",
+    "path": "audio/basket-fruit.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-vegetable": {
+    "text": "Vegetable basket.",
+    "kind": "instruction",
+    "path": "audio/basket-vegetable.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-staple": {
+    "text": "Kitchen basket.",
+    "kind": "instruction",
+    "path": "audio/basket-staple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-flavor": {
+    "text": "Sweet flavors.",
+    "kind": "instruction",
+    "path": "audio/basket-flavor.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-ready": {
+    "text": "Food and drinks.",
+    "kind": "instruction",
+    "path": "audio/basket-ready.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-welcome": {
+    "text": "Touch a food. Listen, then find a friend.",
+    "kind": "instruction",
+    "path": "audio/basket-welcome.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "basket-next": {
+    "text": "Another basket.",
+    "kind": "instruction",
+    "path": "audio/basket-next.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "grow-banana": {
+    "text": "Banana. A banana, please.",
+    "kind": "instruction",
+    "path": "audio/grow-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "grow-juice": {
+    "text": "Apple juice. Put a cup in the machine. Choose an apple. Make juice.",
+    "kind": "instruction",
+    "path": "audio/grow-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "grow-banana-juice": {
+    "text": "Banana juice. Choose a banana. Make juice.",
+    "kind": "instruction",
+    "path": "audio/grow-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
   }
 }

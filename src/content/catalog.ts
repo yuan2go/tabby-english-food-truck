@@ -1,3 +1,4 @@
+import { FOOD_REQUESTS } from './food-orders';
 import { FOOD, type Product } from './recipes';
 
 export type { Product } from './recipes';
@@ -11,6 +12,7 @@ export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (
 };
 export const JUICE_MS = 5000;
 export const REQUESTS = {
+  ...FOOD_REQUESTS,
   apple: {
     text: 'An apple, please.',
     products: ['apple'],

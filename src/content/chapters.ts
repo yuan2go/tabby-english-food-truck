@@ -1,4 +1,5 @@
 import type { RequestId } from './catalog';
+import { FOOD_REQUESTS } from './food-orders';
 import type { Family } from './recipes';
 export type Activity = 'story' | 'endless' | 'training';
 export type Support = 'demonstration' | 'pictures' | 'less';
@@ -71,13 +72,15 @@ export const CHAPTERS: readonly Chapter[] = [
   },
 ];
 export const requestFamily = (request: RequestId): Family =>
-  ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'].includes(request)
-    ? 'ice'
-    : ['sandwich', 'salad-sandwich'].includes(request)
-      ? 'sandwich'
-      : ['burger', 'cheese-burger'].includes(request)
-        ? 'burger'
-        : 'juice';
+  request in FOOD_REQUESTS
+    ? 'ready'
+    : ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'].includes(request)
+      ? 'ice'
+      : ['sandwich', 'salad-sandwich'].includes(request)
+        ? 'sandwich'
+        : ['burger', 'cheese-burger'].includes(request)
+          ? 'burger'
+          : 'juice';
 export function endlessPool(families: readonly Family[], support: Support): RequestId[] {
   const pool: RequestId[] = ['apple', 'banana', 'juice', 'banana-juice'];
   if (support !== 'demonstration') pool.push('two', 'fruit');
@@ -89,6 +92,7 @@ export function endlessPool(families: readonly Family[], support: Support): Requ
     );
   if (families.includes('sandwich')) pool.push('sandwich', 'salad-sandwich');
   if (families.includes('burger')) pool.push('burger', 'cheese-burger');
+  if (families.includes('ready')) pool.push(...(Object.keys(FOOD_REQUESTS) as RequestId[]));
   return pool;
 }
 export function randomAt(seed: number, cursor: number): number {

@@ -35,6 +35,7 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
   let regions: Layout['regions'];
   if (!landscape) {
     const extra = Math.max(0, height - 608);
+    const deficit = Math.max(0, 608 - height);
     let y = 60;
     const row = (h: number) => {
       const v = r(8, y, width - 16, h);
@@ -43,9 +44,9 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     };
     regions = {
       top,
-      guests: row(108 + extra * 0.35),
-      work: row(154 + extra * 0.45),
-      trays: row(96 + extra * 0.2),
+      guests: row(108 + extra * 0.35 - deficit * 0.3),
+      work: row(154 + extra * 0.45 - deficit * 0.5),
+      trays: row(96 + extra * 0.2 - deficit * 0.2),
       action: row(48),
       supplies: row(72),
       feedback: row(42),
@@ -140,7 +141,7 @@ export function projectActor(p: ActorPoint, l: Layout): Point {
     { x: p.x * l.width, y: l.regions.supplies.y + 34 },
     { x: p.x * l.width, y: l.height },
   ];
-  const x0 = anchors[i]!,
-    x1 = anchors[i + 1]!;
+  const x0 = anchors[i] ?? l.helper,
+    x1 = anchors[i + 1] ?? l.helper;
   return { x: x0.x + (x1.x - x0.x) * t, y: x0.y + (x1.y - x0.y) * t };
 }

@@ -1,0 +1,4 @@
+import {chromium} from 'playwright';
+import {writeFile} from 'node:fs/promises';
+const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:393,height:665},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+try{const response=await page.goto('https://tabby-english-food-truck.yuan576264675.chatgpt.site/',{waitUntil:'networkidle',timeout:45000});const result={url:page.url(),status:response.status(),title:await page.title(),identity:await page.locator('main').evaluateAll(es=>es.map(e=>({...e.dataset}))),checkedAt:new Date().toISOString()};await writeFile('docs/evidence/m22/live-version.json',JSON.stringify(result,null,2)+'\n');console.log(result);await page.screenshot({path:'docs/evidence/m22/live-before.png'});}catch(e){await writeFile('docs/evidence/m22/live-version.json',JSON.stringify({status:'BLOCKED',error:String(e),checkedAt:new Date().toISOString()},null,2)+'\n');console.log(String(e));}finally{await browser.close();}
