@@ -253,7 +253,8 @@ describe('M2 deterministic minigames', () => {
       expect(validateMini(JSON.parse(JSON.stringify(s)))).toBe(true);
       s = submitMini(s);
       expect(s.correct).toBe(true);
-      expect(s.attempts.at(-1)?.support).toEqual([]);
+      // Tiles are a real spelling scaffold even when no target letters are fixed.
+      expect(s.attempts.at(-1)?.support).toEqual(['letter-bank']);
       s = nextRound(s);
     }
     expect(s.stage).toBe('done');
