@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import { useEffect, useReducer, useRef, useState } from 'react';
 import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Support } from '../content/chapters';
-import { LANGUAGE_UNITS } from '../content/learning';
 import type { Family } from '../content/recipes';
 import { DoubleTap } from '../game/gestures';
 import { activate, type ViewState } from '../game/input';
@@ -37,7 +36,13 @@ export function App() {
   const [setup, setSetup] = useState<'endless' | 'training'>('endless');
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
-  const [chapterMoment, setChapterMoment] = useState<number | undefined>();
+  const [opening, setOpening] = useState<number | null>(null);
+  const [concurrency, setConcurrency] = useState<1 | 2>(
+    controller.state.session.activity === 'endless'
+      ? controller.state.session.concurrency
+      : controller.profile.value.concurrency,
+  );
+  const announced = useRef('');
   useDialogFocus(modal ?? (teaching ? 'teaching' : note ? 'note' : null));
   const [settingsBack, setSettingsBack] = useState<Screen>('home');
   const [ui] = useState<ViewState>(() => ({
@@ -76,7 +81,14 @@ export function App() {
   const done = s.session.activity !== 'endless' && s.orders.every((o) => o.status === 'done');
   ui.change = refresh;
   ui.teaching = teaching;
-  ui.inputBlocked = screen !== 'game' || !!modal || !!teaching || note || done || !!ui.assetLoading;
+  ui.inputBlocked =
+    screen !== 'game' ||
+    !!modal ||
+    !!teaching ||
+    opening !== null ||
+    note ||
+    done ||
+    !!ui.assetLoading;
   ui.openNote = () => setNote(true);
   ui.confirmClear = (action) => {
     confirm.current = action;
@@ -119,65 +131,92 @@ export function App() {
   }, [controller, audio, ui]);
   useEffect(() => {
     controller.pause('home', screen !== 'game');
-    if (screen !== 'game') audio.stop();
-  }, [screen, controller, audio]);
+  }, [screen, controller]);
   useEffect(() => {
     controller.pause('modal', !!modal);
     if (modal) audio.stop();
   }, [modal, controller, audio]);
   const teach = (request: RequestId) => {
     if (selected)
-      controller.command({ type: 'support', order: selected.id, reason: 'demonstrated' });
-    controller.profile.tutorial(`request-${request}`);
+      controller.command({ type: 'support', order: selected.id, reason: 'meaning-picture' });
     controller.pause('teaching', true);
     setTeaching(request);
-    void audio.play(REQUESTS[request].audio);
   };
   useEffect(() => {
-    if (screen !== 'game' || modal || teaching || !active || actorBusy) return;
+    if (opening === null || screen !== 'game') return;
+    let cancelled = false;
+    controller.pause('opening', true);
+    const chapter = CHAPTERS[opening];
+    void audio.sequence(chapter ? [chapter.audio] : []).then((result) => {
+      if (!cancelled && result === 'completed') {
+        controller.profile.present(`chapter-${opening}`);
+        setOpening(null);
+      }
+    });
+    return () => {
+      cancelled = true;
+      audio.stop();
+      controller.pause('opening', false);
+    };
+  }, [opening, screen, audio, controller]);
+  const activeId = active?.id,
+    activeRequest = active?.request;
+  useEffect(() => {
     if (
-      chapterMoment !== undefined ||
-      !controller.profile.value.tutorials.includes(`request-${active.request}`)
+      screen !== 'game' ||
+      modal ||
+      teaching ||
+      opening !== null ||
+      !activeId ||
+      !activeRequest ||
+      actorBusy
+    )
+      return;
+    const key = `${s.runId}:${activeId}`;
+    const offered = `offered:${activeId}`;
+    const pendingLesson = controller.profile.value.lessons[key];
+    if (
+      (pendingLesson && !['done', 'skipped'].includes(pendingLesson.phase)) ||
+      (!s.lessons.includes(offered) &&
+        !controller.profile.value.presented.includes(`request:${activeRequest}`))
     ) {
-      controller.command({ type: 'support', order: active.id, reason: 'demonstrated' });
-      controller.profile.tutorial(`request-${active.request}`);
-      for (const target of LANGUAGE_UNITS[active.request])
-        controller.profile.observe({
-          id: `teaching:${controller.state.runId}:${active.id}:${target}`,
-          dimension: 'meaning',
-          target,
-          result: 'introduced',
-          support: ['demonstration'],
-          visit: controller.profile.value.exposure.includes(target) ? 'revisit' : 'first',
-          audioQualified: false,
-        });
+      controller.command({ type: 'lesson', lesson: offered });
+      controller.profile.present(`request:${activeRequest}`);
+      controller.command({ type: 'support', order: activeId, reason: 'meaning-picture' });
       controller.pause('teaching', true);
-      setTeaching(active.request);
-      void audio.play(REQUESTS[active.request].audio);
+      setTeaching(activeRequest);
+      return;
+    }
+    if (announced.current !== key) {
+      announced.current = key;
+      void audio.sequence([REQUESTS[activeRequest].audio]);
     }
   }, [
     screen,
     modal,
     teaching,
-    active?.id,
-    active?.request,
+    opening,
+    activeId,
+    activeRequest,
+    actorBusy,
+    s.runId,
+    s.lessons,
     controller,
     audio,
-    active,
-    actorBusy,
-    chapterMoment,
   ]);
   const closeTeaching = () => {
+    audio.stop();
     setTeaching(null);
-    setChapterMoment(undefined);
     ui.teaching = null;
     controller.pause('teaching', false);
     controller.message = '选好备餐位置，点食材添加。准备好后点送餐。';
-    if (selected) void audio.play(REQUESTS[selected.request].audio);
+    announced.current = '';
   };
   const home = () => {
     scene.current?.cancel();
     audio.stop();
+    setOpening(null);
+    controller.pause('opening', false);
     setTeaching(null);
     ui.teaching = null;
     controller.pause('teaching', false);
@@ -190,7 +229,8 @@ export function App() {
     setScreen('home');
   };
   const enter = (activity: 'story' | 'endless' | 'training', chapter = 0, replay = false) => {
-    controller.enter(activity, chapter, support, replay);
+    audio.stop();
+    controller.enter(activity, chapter, support, replay, activity === 'endless' ? concurrency : 1);
     if (controller.save.blocked) {
       setModal('restart');
       return;
@@ -198,25 +238,21 @@ export function App() {
     ui.selected = null;
     ui.selectedTray = 0;
     ui.selectedGuest = '';
-    ui.prep =
-      controller.state.session.family === 'juice'
-        ? 'machine'
-        : controller.state.session.family === 'ice'
-          ? 'ice'
-          : 'board';
+    ui.prep = 'tray';
+    ui.doubleTap?.cancel();
     setCaption(null);
     const chapterKey = `chapter-${chapter}`;
-    setChapterMoment(
-      activity === 'story' && !controller.profile.value.tutorials.includes(chapterKey)
+    setOpening(
+      activity === 'story' &&
+        !controller.savedGame &&
+        !controller.profile.value.presented.includes(chapterKey)
         ? chapter
-        : undefined,
+        : null,
     );
-    if (activity === 'story') controller.profile.tutorial(chapterKey);
+    announced.current = '';
     setScreen('game');
     controller.pause('home', false);
     void audio.unlock();
-    const order = controller.state.orders.find((o) => o.status === 'waiting');
-    if (order) void audio.play(REQUESTS[order.request].audio);
   };
   const help = () => {
     if (selected) {
@@ -226,11 +262,13 @@ export function App() {
   };
   const family = (f: Family) => {
     controller.command({ type: 'family', family: f });
-    ui.prep = f === 'juice' ? 'machine' : f === 'ice' ? 'ice' : 'board';
+    ui.prep = f === 'juice' ? 'tray' : f === 'ice' ? 'ice' : f === 'burger' ? 'grill' : 'board';
+    ui.doubleTap?.cancel();
     ui.selected = null;
     refresh();
   };
   const showSettings = (back: Screen) => {
+    audio.stop();
     setSettingsBack(back);
     setModal(null);
     setScreen('settings');
@@ -256,6 +294,7 @@ export function App() {
           legacy={Boolean(controller.save.legacyRaw)}
           audio={audio}
           onChoose={(choice) => {
+            audio.stop();
             if (choice === 'endless' || choice === 'training') {
               setSetup(choice);
               setScreen('setup');
@@ -298,6 +337,21 @@ export function App() {
           <h2>{setup === 'endless' ? '今天也开门迎客' : '和小猫一起练习'}</h2>
           <p>慢慢想，客人会等你。随时可以求助。</p>
           <SupportChoice value={support} change={setSupport} />
+          {setup === 'endless' ? (
+            <fieldset className="choice-row">
+              <legend>今天想多忙？</legend>
+              {([1, 2] as const).map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  aria-pressed={concurrency === n}
+                  onClick={() => setConcurrency(n)}
+                >
+                  {n === 1 ? '一位一位来' : '两位一起招呼'}
+                </button>
+              ))}
+            </fieldset>
+          ) : null}
           {setup === 'training' ? (
             <fieldset className="training-recipes">
               <legend>今天练哪一道？</legend>
@@ -399,7 +453,7 @@ export function App() {
               </button>
             ))}
           </fieldset>
-          {!done && !teaching ? (
+          {!done && !teaching && opening === null ? (
             <ServiceControls
               controller={controller}
               audio={audio}
@@ -414,11 +468,28 @@ export function App() {
               family={family}
             />
           ) : null}
+          {opening !== null ? (
+            <section className="chapter-opening" role="dialog" aria-label="章节开场">
+              <p>{CHAPTERS[opening]?.line}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  audio.stop();
+                  controller.profile.present(`chapter-${opening}`);
+                  setOpening(null);
+                }}
+              >
+                跳过开场
+              </button>
+            </section>
+          ) : null}
           {teaching ? (
             <Lesson
               key={teaching}
+              view={ui}
               request={teaching}
-              chapter={chapterMoment}
+              controller={controller}
+              lessonKey={`${s.runId}:${selected?.id ?? teaching}`}
               audio={audio}
               close={closeTeaching}
             />
@@ -511,6 +582,43 @@ export function App() {
                 >
                   看食谱帮助
                 </button>
+                <SupportChoice
+                  value={s.session.support}
+                  change={(v) => {
+                    setSupport(v);
+                    controller.profile.value.support = v;
+                    controller.profile.save();
+                    controller.command({
+                      type: 'policy',
+                      support: v,
+                      concurrency: s.session.concurrency,
+                    });
+                  }}
+                />
+                {s.session.activity === 'endless' ? (
+                  <fieldset className="choice-row">
+                    <legend>营业忙碌程度</legend>
+                    {([1, 2] as const).map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        aria-pressed={s.session.concurrency === n}
+                        onClick={() => {
+                          setConcurrency(n);
+                          controller.profile.value.concurrency = n;
+                          controller.profile.save();
+                          controller.command({
+                            type: 'policy',
+                            support: s.session.support,
+                            concurrency: n,
+                          });
+                        }}
+                      >
+                        {n === 1 ? '一位一位来' : '两位一起招呼'}
+                      </button>
+                    ))}
+                  </fieldset>
+                ) : null}
                 <button type="button" onClick={home}>
                   保存并回到首页
                 </button>
@@ -570,19 +678,19 @@ export function App() {
           {audio.failure}
           <button
             type="button"
-            onClick={() => selected && audio.play(REQUESTS[selected.request].audio)}
+            onClick={() => audio.lastRequested && audio.play(audio.lastRequested)}
           >
             重试声音
           </button>
           <button
             type="button"
             onClick={() => {
-              help();
+              if (screen === 'game') help();
               audio.failure = '';
               refresh();
             }}
           >
-            使用图示帮助
+            {screen === 'game' ? '使用图示帮助' : '看图继续'}
           </button>
         </div>
       ) : null}

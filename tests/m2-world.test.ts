@@ -15,7 +15,7 @@ import {
   targetWord,
   validateMini,
 } from '../src/rules/minigames';
-import { configureSession } from '../src/rules/sessions';
+import { applyPolicy, configureSession } from '../src/rules/sessions';
 import { decodeSnapshot, validateState } from '../src/rules/snapshot';
 import type { Command, GameState, Source } from '../src/rules/types';
 
@@ -182,10 +182,10 @@ describe('M2 content-driven world', () => {
   });
   it('support changes preserve existing complex orders and reduce subsequent concurrency', () => {
     let s = Array.from({ length: 100 }, (_, seed) =>
-      configureSession(createGame(`policy-${seed}`), 'endless', 0, 'less', families, seed),
+      configureSession(createGame(`policy-${seed}`), 'endless', 0, 'less', families, seed, 2),
     ).find((s) => s.orders.some((o) => o.request === 'double-cream'));
     if (!s) throw Error('complex initial order');
-    s.session.support = 'demonstration';
+    applyPolicy(s, 'demonstration', 1);
     expect(validateState(s)).toBe(true);
     const cursor = s.session.cursor;
     for (let n = 0; n < 2; n++) {
@@ -223,7 +223,7 @@ describe('M2 content-driven world', () => {
   });
   it('rejects impossible recipe tasks, duplicates, future versions and mismatched outputs', () => {
     const s = configureSession(createGame('bad'), 'story', 1, 'pictures', families, 4);
-    expect(validateState({ ...s, schemaVersion: 4 })).toBe(false);
+    expect(validateState({ ...s, schemaVersion: 99 })).toBe(false);
     expect(
       validateState({
         ...s,
@@ -263,10 +263,11 @@ describe('M2 deterministic minigames', () => {
     let s = playRound(beginRound(createMini('spell', 'partial', 4)));
     s = submitMini(s);
     expect(s.attempts).toHaveLength(0);
-    expect(s.fixed).toHaveLength(1);
+    expect(s.fixed.length).toBeGreaterThan(0);
+    expect(s.draft.filter((id) => !id).length).toBeGreaterThan(0);
     expect(validateMini({ ...s, draft: [s.fixed[0], s.fixed[0]] })).toBe(false);
     let match = playRound(beginRound(createMini('match', 'independent', 8)));
-    match = submitMini(match, 'wrong');
+    match = submitMini(match, targetWord(match).id === 'apple' ? 'banana' : 'apple');
     expect(match.support).toContain('difference-feedback');
     match = submitMini(JSON.parse(JSON.stringify(match)), targetWord(match).id);
     expect(match.attempts.at(-1)?.support).toContain('difference-feedback');

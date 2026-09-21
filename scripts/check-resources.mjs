@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
 
 const manifest = JSON.parse(await readFile('art/manifest.json', 'utf8'));
-assert.equal(manifest.version, 'm2.0');
+assert.equal(manifest.version, 'm2.1');
 const ids = new Set();
 for (const asset of manifest.assets) {
   assert(!ids.has(asset.assetId), `duplicate ${asset.assetId}`);
@@ -69,4 +69,14 @@ for (const cue of synthesis.cues) assert(audioCode.includes(`${cue}: [`), `missi
 assert.equal(synthesis.humanListeningReview, 'NOT_RUN');
 console.log(
   'PASS: four procedural audio layers and nine cues registered; listening review remains NOT_RUN',
+);
+
+const catalogSpeech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+for (const [id, entry] of Object.entries(catalogSpeech)) {
+  assert.equal(entry.path, `audio/${id}.wav`, `explicit speech path ${id}`);
+  assert(ids.has(`audio-${id}`), `missing registered speech ${id}`);
+  assert.equal(entry.status, 'DEVELOPMENT_TTS_UNREVIEWED');
+}
+console.log(
+  `PASS: ${Object.keys(catalogSpeech).length} explicit speech references; no guessed item paths`,
 );

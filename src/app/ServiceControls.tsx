@@ -56,9 +56,17 @@ export function ServiceControls({
           <button
             type="button"
             key={f}
+            aria-label={{ juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[f]}
             aria-pressed={s.session.family === f}
             onClick={() => family(f)}
           >
+            <Food
+              product={
+                { juice: 'apple', ice: 'vanilla-cone', sandwich: 'sandwich', burger: 'burger' }[
+                  f
+                ] as 'apple' | 'vanilla-cone' | 'sandwich' | 'burger'
+              }
+            />
             {{ juice: '果汁', ice: '冰淇淋', sandwich: '三明治', burger: '汉堡' }[f]}
           </button>
         ))}

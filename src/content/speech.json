@@ -1,0 +1,482 @@
+{
+  "request-apple": {
+    "text": "An apple, please.",
+    "kind": "request",
+    "path": "audio/request-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-banana": {
+    "text": "A banana, please.",
+    "kind": "request",
+    "path": "audio/request-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "two": {
+    "text": "Two apples, please.",
+    "kind": "request",
+    "path": "audio/two.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-juice": {
+    "text": "Apple juice, please.",
+    "kind": "request",
+    "path": "audio/request-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-fruit": {
+    "text": "An apple and a banana, please.",
+    "kind": "request",
+    "path": "audio/request-fruit.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-banana-juice": {
+    "text": "Banana juice, please.",
+    "kind": "request",
+    "path": "audio/request-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-vanilla-cone": {
+    "text": "Vanilla ice cream in a cone, please.",
+    "kind": "request",
+    "path": "audio/request-vanilla-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-strawberry-cup": {
+    "text": "Strawberry ice cream in a cup, please.",
+    "kind": "request",
+    "path": "audio/request-strawberry-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-double-cream": {
+    "text": "Two scoops, vanilla and strawberry, please.",
+    "kind": "request",
+    "path": "audio/request-double-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-banana-cream": {
+    "text": "Vanilla ice cream with banana, please.",
+    "kind": "request",
+    "path": "audio/request-banana-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-sandwich": {
+    "text": "A cheese sandwich, please.",
+    "kind": "request",
+    "path": "audio/request-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-salad-sandwich": {
+    "text": "A lettuce and tomato sandwich, please.",
+    "kind": "request",
+    "path": "audio/request-salad-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-burger": {
+    "text": "A burger with lettuce and tomato, please.",
+    "kind": "request",
+    "path": "audio/request-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "request-cheese-burger": {
+    "text": "A cheeseburger, please.",
+    "kind": "request",
+    "path": "audio/request-cheese-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-bread": {
+    "text": "bread",
+    "kind": "name",
+    "path": "audio/word-bread.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-cheese": {
+    "text": "cheese",
+    "kind": "name",
+    "path": "audio/word-cheese.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-lettuce": {
+    "text": "lettuce",
+    "kind": "name",
+    "path": "audio/word-lettuce.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-tomato": {
+    "text": "tomato",
+    "kind": "name",
+    "path": "audio/word-tomato.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-bun": {
+    "text": "bun",
+    "kind": "name",
+    "path": "audio/word-bun.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-patty": {
+    "text": "patty",
+    "kind": "name",
+    "path": "audio/word-patty.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-cooked-patty": {
+    "text": "cooked patty",
+    "kind": "name",
+    "path": "audio/word-cooked-patty.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-cone": {
+    "text": "cone",
+    "kind": "name",
+    "path": "audio/word-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-cup": {
+    "text": "cup",
+    "kind": "name",
+    "path": "audio/word-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-vanilla": {
+    "text": "vanilla",
+    "kind": "name",
+    "path": "audio/word-vanilla.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-strawberry": {
+    "text": "strawberry",
+    "kind": "name",
+    "path": "audio/word-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-sandwich": {
+    "text": "sandwich",
+    "kind": "name",
+    "path": "audio/word-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-burger": {
+    "text": "burger",
+    "kind": "name",
+    "path": "audio/word-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-ice-cream": {
+    "text": "ice cream",
+    "kind": "name",
+    "path": "audio/word-ice-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-vanilla-cone": {
+    "text": "vanilla ice cream",
+    "kind": "name",
+    "path": "audio/word-vanilla-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-strawberry-cup": {
+    "text": "strawberry ice cream",
+    "kind": "name",
+    "path": "audio/word-strawberry-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-double-cream": {
+    "text": "two scoops of ice cream",
+    "kind": "name",
+    "path": "audio/word-double-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-banana-cream": {
+    "text": "ice cream with banana",
+    "kind": "name",
+    "path": "audio/word-banana-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-banana-juice": {
+    "text": "banana juice",
+    "kind": "name",
+    "path": "audio/word-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-salad-sandwich": {
+    "text": "lettuce and tomato sandwich",
+    "kind": "name",
+    "path": "audio/word-salad-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "word-cheese-burger": {
+    "text": "cheeseburger",
+    "kind": "name",
+    "path": "audio/word-cheese-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-story": {
+    "text": "Story time. Help Tabby open the food truck.",
+    "kind": "prompt",
+    "path": "audio/menu-story.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-endless": {
+    "text": "Welcome! Let us serve our friends.",
+    "kind": "prompt",
+    "path": "audio/menu-endless.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-mini": {
+    "text": "Find food friends. Listen and play.",
+    "kind": "prompt",
+    "path": "audio/menu-mini.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-training": {
+    "text": "Watch Tabby. Then you try.",
+    "kind": "prompt",
+    "path": "audio/menu-training.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "prologue-0": {
+    "text": "This little key is yours, Tabby.",
+    "kind": "prompt",
+    "path": "audio/prologue-0.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "prologue-1": {
+    "text": "Here is our old recipe book.",
+    "kind": "prompt",
+    "path": "audio/prologue-1.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "prologue-2": {
+    "text": "Make something nice for our friends.",
+    "kind": "prompt",
+    "path": "audio/prologue-2.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "chapter-juice": {
+    "text": "Good morning! Apple juice or banana juice?",
+    "kind": "prompt",
+    "path": "audio/chapter-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "chapter-ice": {
+    "text": "It is a warm afternoon. Let us make ice cream.",
+    "kind": "prompt",
+    "path": "audio/chapter-ice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "chapter-sandwich": {
+    "text": "A picnic! Bread and cheese make a sandwich.",
+    "kind": "prompt",
+    "path": "audio/chapter-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "chapter-burger": {
+    "text": "First cook the patty. Then make a burger.",
+    "kind": "prompt",
+    "path": "audio/chapter-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "chapter-picnic": {
+    "text": "All our friends are here. Thank you, Tabby!",
+    "kind": "prompt",
+    "path": "audio/chapter-picnic.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "mini-match": {
+    "text": "Listen, then choose a picture. You can listen again.",
+    "kind": "prompt",
+    "path": "audio/mini-match.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "mini-spell": {
+    "text": "Look at the food. Listen. Tap the letters. You can take them back.",
+    "kind": "prompt",
+    "path": "audio/mini-spell.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "apple": {
+    "text": "apple",
+    "kind": "name",
+    "path": "audio/apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "banana": {
+    "text": "banana",
+    "kind": "name",
+    "path": "audio/banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "juice": {
+    "text": "apple juice",
+    "kind": "name",
+    "path": "audio/juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "thanks": {
+    "text": "Thank you!",
+    "kind": "prompt",
+    "path": "audio/thanks.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "name-juice": {
+    "text": "juice",
+    "kind": "name",
+    "path": "audio/name-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "name-cheese-sandwich": {
+    "text": "cheese sandwich",
+    "kind": "name",
+    "path": "audio/name-cheese-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "name-one": {
+    "text": "one",
+    "kind": "name",
+    "path": "audio/name-one.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "name-two": {
+    "text": "two",
+    "kind": "name",
+    "path": "audio/name-two.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "name-and": {
+    "text": "and",
+    "kind": "name",
+    "path": "audio/name-and.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-apple": {
+    "text": "Find the apple.",
+    "kind": "prompt",
+    "path": "audio/try-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-banana": {
+    "text": "Find the banana.",
+    "kind": "prompt",
+    "path": "audio/try-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-juice": {
+    "text": "Find the juice.",
+    "kind": "prompt",
+    "path": "audio/try-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-vanilla": {
+    "text": "Find vanilla.",
+    "kind": "prompt",
+    "path": "audio/try-vanilla.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-strawberry": {
+    "text": "Find strawberry.",
+    "kind": "prompt",
+    "path": "audio/try-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-cup": {
+    "text": "Find the cup.",
+    "kind": "prompt",
+    "path": "audio/try-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-cone": {
+    "text": "Find the cone.",
+    "kind": "prompt",
+    "path": "audio/try-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-bread": {
+    "text": "Find the bread.",
+    "kind": "prompt",
+    "path": "audio/try-bread.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-cheese": {
+    "text": "Find the cheese.",
+    "kind": "prompt",
+    "path": "audio/try-cheese.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-lettuce": {
+    "text": "Find the lettuce.",
+    "kind": "prompt",
+    "path": "audio/try-lettuce.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-tomato": {
+    "text": "Find the tomato.",
+    "kind": "prompt",
+    "path": "audio/try-tomato.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-bun": {
+    "text": "Find the bun.",
+    "kind": "prompt",
+    "path": "audio/try-bun.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-patty": {
+    "text": "Find the patty.",
+    "kind": "prompt",
+    "path": "audio/try-patty.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-cooked-patty": {
+    "text": "Find the cooked patty.",
+    "kind": "prompt",
+    "path": "audio/try-cooked-patty.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-sandwich": {
+    "text": "Find the sandwich.",
+    "kind": "prompt",
+    "path": "audio/try-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-burger": {
+    "text": "Find the burger.",
+    "kind": "prompt",
+    "path": "audio/try-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-ice-cream": {
+    "text": "Find the ice cream.",
+    "kind": "prompt",
+    "path": "audio/try-ice-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-one": {
+    "text": "Find one apple.",
+    "kind": "prompt",
+    "path": "audio/try-one.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-two": {
+    "text": "Find two apples.",
+    "kind": "prompt",
+    "path": "audio/try-two.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "try-and": {
+    "text": "Find an apple and a banana.",
+    "kind": "prompt",
+    "path": "audio/try-and.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-cup": {
+    "text": "In our menu, juice comes in one cup.",
+    "kind": "prompt",
+    "path": "audio/menu-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "menu-cream": {
+    "text": "Two scoops and banana ice cream come in a cup.",
+    "kind": "prompt",
+    "path": "audio/menu-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  }
+}

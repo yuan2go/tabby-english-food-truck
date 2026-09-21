@@ -20,7 +20,7 @@ import {
   stationDestination,
   syncStations,
 } from './cooking';
-import { replenish } from './sessions';
+import { applyPolicy } from './sessions';
 import type {
   Attempt,
   Destination,
@@ -39,11 +39,13 @@ export function createGame(
 ): GameState {
   const requests = requestsFor(mode, variant);
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     session: {
       activity: 'training',
       chapter: 0,
       support: mode === 'guided' ? 'demonstration' : 'less',
+      concurrency: mode === 'service' ? 2 : 1,
+      menu: Object.keys(REQUESTS) as RequestId[],
       family: 'juice',
       unlocked: ['juice'],
       seed: 1,
@@ -71,6 +73,7 @@ export function createGame(
         ? [{ id: 'food-1', product: 'cup', location: 'machine:cup' }]
         : [],
     orders: requests.map((request, index) => ({
+      heard: false,
       revisit: Boolean(priorSupport[request]?.length),
       id: `guest-${index}`,
       request,
@@ -120,10 +123,14 @@ function nextId(s: GameState, prefix: string): string {
 }
 function attempt(
   s: GameState,
-  a: Omit<Attempt, 'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified'>,
+  a: Omit<
+    Attempt,
+    'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified' | 'id'
+  >,
 ): void {
   s.attempts.push({
     ...a,
+    id: `${s.runId}:attempt:${s.revision}`,
     condition:
       s.mode === 'guided' ? 'guided' : a.support.length ? 'assisted' : 'independent-condition',
     visit:
@@ -173,6 +180,22 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'policy') {
+    applyPolicy(s, c.support, c.concurrency);
+    return result(
+      'ok',
+      c.concurrency === 1 ? '已接的客人先服务完，再一次接待一位。' : '有空位时会迎来第二位客人。',
+    );
+  }
+  if (c.type === 'prepare-cup') {
+    if (s.machine.status === 'empty' || s.machine.status === 'loaded') {
+      if (!s.items.some((i) => i.location === 'machine:cup'))
+        s.items.push({ id: nextId(s, 'food'), product: 'cup', location: 'machine:cup' });
+      syncMachine(s);
+      return result('ok', '空杯放好了，水果由你来选。');
+    }
+    return result('blocked', '这杯做好并取走后，再放新杯。');
+  }
   if (c.type === 'support') {
     for (const o of s.orders)
       if (c.order === 'all' || o.id === c.order)
@@ -188,6 +211,9 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '便签帮助已记录。');
   }
   if (c.type === 'audio') {
+    if (c.audio.status === 'started')
+      for (const o of s.orders)
+        if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id) o.heard = true;
     if (c.audio.status === 'failed')
       for (const o of s.orders)
         if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id)
@@ -240,7 +266,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     const existing = 'item' in source ? s.items.find((i) => i.id === source.item) : undefined;
     if ('item' in c.source && !existing) return result('blocked', '物品已不在原处，请重新选择。');
     const product = existing?.product ?? ('supply' in c.source ? c.source.supply : 'apple');
-    if (!existing && !canSupply(product)) return result('blocked', '果汁需要用苹果和杯子制作。');
+    if (!existing && !canSupply(product)) return result('blocked', '成品需要在工作台制作。');
     if (existing && itemLocked(s, existing))
       return result('blocked', '食物正在制作或递交，稍等就好。');
     if (existing?.location === 'helper')
@@ -255,7 +281,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if ('discard' in c.destination) {
       if (!existing) return result('blocked', '放回就好，不需要从原料格清理。');
       if (isFinished(product) && !c.destination.confirmed)
-        return result('confirm', '要清理这杯果汁并重新准备吗？');
+        return result('confirm', '要收起这份成品并重新准备吗？');
       if (isFinished(product)) s.recycle = { ...existing, location: 'recycle' };
       s.items = s.items.filter((i) => i.id !== existing.id);
       if (s.machine.status === 'ready' && existing.location === 'machine:cup')
@@ -286,7 +312,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
         (i) => i.location === 'machine:apple' && ['apple', 'banana'].includes(i.product),
       )
     )
-      return result('blocked', '先把苹果放进上面的入口。');
+      return result('blocked', '先把水果放进上面的入口。');
     if (!s.items.some((i) => i.location === 'machine:cup' && i.product === 'cup'))
       return result('blocked', '还缺一个空杯，放到出汁口下。');
     s.machine = { status: 'processing', remaining: JUICE_MS, jobId: nextId(s, 'juice') };
@@ -387,13 +413,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if (s.actor.queue.length >= 3) return result('blocked', '小猫正在递餐，稍等一下。');
     const expected = REQUESTS[order.request].products;
     if (items.length < expected.length) return result('incomplete', '盘里还没准备齐，可以接着放。');
-    if (
-      !s.audio.some(
-        (a) =>
-          a.id === REQUESTS[order.request].audio &&
-          (a.status === 'started' || a.status === 'completed'),
-      )
-    )
+    if (!order.heard)
       order.support = [...new Set([...order.support, 'audio-not-observed'])].slice(-24);
     const match = matchProducts(
       items.map((i) => i.product),
@@ -456,8 +476,7 @@ function destination(
     return { reason: '机器正在工作或有成品，先取走成品。' };
   if (dest.machine === 'apple' ? !['apple', 'banana'].includes(product) : product !== 'cup')
     return {
-      reason:
-        dest.machine === 'apple' ? '这个入口放苹果；其他水果可直接装盘。' : '这里需要一个空杯。',
+      reason: dest.machine === 'apple' ? '这个入口放苹果或香蕉。' : '这里需要一个空杯。',
     };
   const location: Location = `machine:${dest.machine}`;
   if (s.items.some((i) => i.location === location && i.id !== existing?.id))
@@ -477,7 +496,11 @@ export function advance(current: GameState, milliseconds: number): GameState {
       board: { ...current.stations.board },
       grill: { ...current.stations.grill },
     },
-    actor: structuredClone(current.actor),
+    actor: {
+      ...current.actor,
+      current: current.actor.current ? { ...current.actor.current } : null,
+      queue: current.actor.queue.map((job) => ({ ...job })),
+    },
     helper: current.helper ? { ...current.helper } : null,
     trays: [{ ...current.trays[0] }, { ...current.trays[1] }],
     orders: current.orders.map((o) => (o.status === 'leaving' ? { ...o } : o)),
@@ -542,12 +565,19 @@ export function advance(current: GameState, milliseconds: number): GameState {
       }
     }
   if (s.session.activity === 'endless') {
-    if (s.orders.some((o) => o.status === 'done')) {
-      replenish(s);
+    if (
+      s.orders.some((o) => o.status === 'done') ||
+      (s.session.concurrency === 2 &&
+        s.mode !== 'service' &&
+        !s.actor.current &&
+        !s.helper &&
+        !s.trays.some((t) => t.remaining))
+    ) {
+      applyPolicy(s, s.session.support, s.session.concurrency);
       changed = true;
     }
   } else {
-    const max = s.mode === 'service' ? 2 : 1;
+    const max = s.session.concurrency;
     while (s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving').length < max) {
       const next = s.orders.findIndex((o) => o.status === 'queued');
       if (next < 0) break;

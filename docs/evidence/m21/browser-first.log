@@ -1,0 +1,59 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m21.spec.ts
+
+[WebServer] (node:1149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:1218) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:1259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m21.spec.ts:4:1 › M21 first prologue starts, opening can skip, short lesson records only real choices (6.8s)
+  ✓  2 e2e/m21.spec.ts:26:1 › M21 matching accepts direct picture after playback and switches activities without losing drafts (7.8s)
+  ✘  3 e2e/m21.spec.ts:44:1 › M21 failed speech permits opening skip and exact object retry without blocking play (14.5s)
+
+
+  1) e2e/m21.spec.ts:44:1 › M21 failed speech permits opening skip and exact object retry without blocking play 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '跳过开场' })
+        - locator resolved to <button type="button">跳过开场</button>
+      - attempting tap action
+        - waiting for element to be visible, enabled and stable
+      - element was detached from the DOM, retrying
+
+
+       at helpers.ts:36
+
+      34 |   await p.getByRole('button', { name: '晨光果汁', exact: true }).tap();
+      35 |   const opening=p.getByRole('button',{name:'跳过开场'});
+    > 36 |   if(await opening.count()) await opening.tap();
+         |                                           ^
+      37 |   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
+      38 |   await p.waitForTimeout(500);
+      39 |   await lesson(p);
+        at startStory (/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck/e2e/helpers.ts:36:43)
+        at /Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck/e2e/m21.spec.ts:46:2
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m21-M21-failed-speech-perm-c6b61-retry-without-blocking-play/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m21-M21-failed-speech-perm-c6b61-retry-without-blocking-play/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m21-M21-failed-speech-perm-c6b61-retry-without-blocking-play/error-context.md
+
+  1 failed
+    e2e/m21.spec.ts:44:1 › M21 failed speech permits opening skip and exact object retry without blocking play 
+  2 passed (35.8s)

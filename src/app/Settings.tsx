@@ -17,13 +17,6 @@ export function Settings({
   quality: boolean;
   setQuality: (v: boolean) => void;
 }) {
-  const read = (key: string) => {
-    try {
-      return localStorage.getItem(key);
-    } catch {
-      return null;
-    }
-  };
   const exportSave = () => {
     const raw = JSON.stringify(
       {
@@ -32,7 +25,8 @@ export function Settings({
         protectedRaw: controller.save.blocked ? controller.save.raw : null,
         legacy: controller.save.legacyRaw,
         protectedProfile: controller.profile.blocked ? controller.profile.raw : null,
-        mini: read('tabby.foodtruck.minigame.m2'),
+        mini: controller.minis.export(),
+        originalProfile: controller.profile.raw,
       },
       null,
       2,
@@ -109,7 +103,7 @@ export function Settings({
               {o.result === 'completed'
                 ? '完成'
                 : o.result === 'introduced'
-                  ? '看过意义示范'
+                  ? '系统呈现过（不代表看完或听懂）'
                   : o.result === 'process-started'
                     ? '启动制作（操作）'
                     : '调整'}{' '}

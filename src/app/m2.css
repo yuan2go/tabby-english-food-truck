@@ -1243,12 +1243,21 @@
   height: 50px;
   width: 50px;
 }
-.m2-shell .audio-alert.during-lesson {
-  bottom: auto;
-  top: 13%;
-  left: 3%;
-  right: 3%;
+.m2-shell .audio-alert {
+  bottom: max(4px, env(safe-area-inset-bottom));
+  top: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
   font-size: 12px;
+  line-height: 1.25;
+}
+.m2-shell .audio-alert button {
+  flex-shrink: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 4px 7px;
 }
 .recipe-book .support-options {
   padding: 4px;
@@ -1464,4 +1473,247 @@
   border-radius: 12px;
   font-size: 12px;
   z-index: 8;
+}
+
+/* M2.1: a small scene lesson and grouped word tiles, within the existing viewport. */
+.short-lesson {
+  top: 30%;
+  bottom: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  max-width: 720px;
+  margin-inline: auto;
+}
+.lesson-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+.lesson-heading button {
+  font-size: 13px;
+  padding: 7px;
+}
+.lesson-beads {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+.lesson-beads span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c6c3a3;
+}
+.lesson-beads .filled {
+  background: #315c40;
+}
+.meaning-object {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  border: 0;
+  background: transparent;
+  gap: 4px;
+}
+.meaning-object strong {
+  font-size: 26px;
+}
+.meaning-products {
+  display: flex;
+  justify-content: center;
+}
+.meaning-products .food-art {
+  width: 90px;
+  height: 95px;
+}
+.meaning-choices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.meaning-choices button {
+  min-height: 100px;
+  min-width: 100px;
+  border: 2px solid #61815a;
+  background: #fff8e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.meaning-choices .food-art {
+  width: 60px;
+  height: 75px;
+}
+.short-lesson .primary {
+  align-self: center;
+  padding: 9px 24px;
+}
+.short-lesson .lesson-feedback {
+  min-height: 20px;
+  margin: 0;
+}
+.chapter-opening {
+  position: absolute;
+  inset: 32% 8% auto;
+  padding: 24px;
+  border-radius: 22px;
+  border: 3px solid #567d50;
+  background: #fff4dd;
+  z-index: 40;
+  text-align: center;
+}
+.chapter-opening p {
+  font-size: 20px;
+}
+.letter-word {
+  display: flex;
+  gap: 5px;
+}
+.letter-draft {
+  gap: 16px;
+}
+.letter-draft [aria-pressed="true"] {
+  outline: 3px solid #245d48;
+  outline-offset: 2px;
+}
+.mini-restart {
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  font-size: 14px;
+  padding: 8px;
+}
+.mini-confirm {
+  position: absolute;
+  z-index: 55;
+  inset: 25% 8% auto;
+  padding: 25px;
+  border: 3px solid #64805a;
+  border-radius: 20px;
+  background: #fff4dd;
+  box-shadow: 0 0 0 100vmax #153c3277;
+}
+.family-tabs .food-art {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.family-tabs button {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.prep-selector button {
+  min-height: 44px;
+}
+.mini-lobby {
+  padding-top: 65px;
+}
+.mini-lobby .mini-choices {
+  margin: 10px 0 15px;
+}
+.mini-lobby .choice-row {
+  margin: 2px 0;
+  gap: 5px;
+}
+.mini-lobby .choice-row legend {
+  padding: 5px;
+}
+.mini-lobby .choice-row button {
+  min-height: 44px;
+  padding: 8px;
+}
+@media (max-width: 600px) {
+  .mini-lobby .mini-choices > button {
+    padding: 8px;
+  }
+  .mini-lobby .mini-choices strong {
+    font-size: 17px;
+  }
+  .mini-lobby .mini-choices .food-art,
+  .mini-lobby .letter-sign {
+    height: 60px;
+    width: 70px;
+  }
+  .mini-lobby .choice-row button {
+    font-size: 13px;
+  }
+  .mini-lobby > small {
+    display: block;
+    font-size: 11px;
+  }
+  .letter-word {
+    gap: 3px;
+  }
+  .letter-word button {
+    width: 44px;
+    min-width: 44px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .letter-draft {
+    padding: 10px 3px;
+    gap: 12px;
+  }
+  .family-tabs button {
+    padding: 3px 6px;
+  }
+  .family-tabs .food-art {
+    width: 22px;
+  }
+}
+@media (max-height: 700px) {
+  .short-lesson {
+    gap: 5px;
+    top: 27%;
+  }
+  .short-lesson .meaning-products .food-art {
+    height: 72px;
+    width: 72px;
+  }
+  .short-lesson .meaning-object strong {
+    font-size: 23px;
+  }
+  .short-lesson .lesson-heading {
+    font-size: 12px;
+  }
+  .short-lesson .lesson-ingredients .food-art {
+    height: 48px;
+    width: 44px;
+  }
+  .mini-lobby .mini-choices {
+    margin: 6px 0 10px;
+  }
+  .mini-lobby h2 {
+    margin: 4px 0;
+  }
+  .mini-lobby .choice-row legend {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .short-lesson {
+    top: 17%;
+    bottom: 3%;
+    left: 20%;
+    right: 3%;
+  }
+  .short-lesson .meaning-products .food-art {
+    height: 45px;
+    width: 50px;
+  }
+  .short-lesson .meaning-object {
+    flex-direction: row;
+  }
+  .short-lesson p {
+    margin: 2px;
+  }
 }

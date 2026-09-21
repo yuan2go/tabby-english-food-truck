@@ -1,0 +1,15 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m21-audio.test.ts tests/m21-contracts.test.ts tests/m21-regressions.test.ts
+
+
+ RUN  v4.1.11 /Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck
+
+(node:2205) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  3 passed (3)
+      Tests  13 passed (13)
+   Start at  11:15:17
+   Duration  246ms (transform 229ms, setup 0ms, import 302ms, tests 21ms, environment 0ms)
+

@@ -402,6 +402,8 @@ export class TruckScene extends Phaser.Scene {
       this.cancel();
       this.layout = layoutFor(this.layout.width, this.layout.height, s.mode);
     }
+    if (previous?.mode !== s.mode)
+      this.layout = layoutFor(this.layout.width, this.layout.height, s.mode);
     if (resized) this.motions.clear();
     const l = this.layout;
     this.used.clear();
@@ -731,6 +733,23 @@ export class TruckScene extends Phaser.Scene {
         ?.setVisible(!s.trays[tray].remaining || !delivery || delivery.elapsed < liftAt);
     }
     this.hideDragged();
+    const preparation =
+      this.ui.prep === 'tray'
+        ? `tray-${this.ui.selectedTray}`
+        : this.ui.prep === 'machine'
+          ? 'machine-apple'
+          : `station-${this.ui.prep}`;
+    const prep = this.ui.hotspots.find((h) => h.id === preparation);
+    if (prep && !this.ui.inputBlocked)
+      this.focusRing
+        .lineStyle(3, 0xffdc73, 0.9)
+        .strokeRoundedRect(
+          prep.x - prep.width / 2 - 5,
+          prep.y - prep.height / 2 - 5,
+          prep.width + 10,
+          prep.height + 10,
+          16,
+        );
     const selection = this.ui.selected;
     const id =
       this.ui.focus ??

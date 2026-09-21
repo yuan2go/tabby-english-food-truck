@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CHAPTERS, type Support } from '../content/chapters';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
@@ -28,6 +28,10 @@ export function Story({
     '旧食谱里，装着老朋友的味道。',
     '用食物和英语，和大家说你好吧。',
   ];
+  useEffect(() => {
+    if (prologue) void audio.play(`prologue-${beat}`);
+    return () => audio.stop();
+  }, [audio, prologue, beat]);
   if (prologue)
     return (
       <section
@@ -68,7 +72,6 @@ export function Story({
             onClick={() => {
               if (beat < 2) {
                 setBeat(beat + 1);
-                void audio.play(`prologue-${beat + 1}`);
               } else {
                 p.prologue = true;
                 controller.profile.save();
@@ -99,7 +102,6 @@ export function Story({
               key={c.id}
               disabled={!unlocked}
               onClick={() => {
-                void audio.play(c.audio);
                 enter(i);
               }}
               aria-label={`${c.title}${unlocked ? '' : '，还没翻到这一页'}`}
@@ -126,7 +128,6 @@ export function Story({
         onClick={() => {
           setBeat(0);
           setPrologue(true);
-          void audio.play('prologue-0');
         }}
       >
         重看钥匙交接

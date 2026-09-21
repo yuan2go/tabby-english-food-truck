@@ -19,7 +19,7 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 3 ||
+    v.schemaVersion !== 4 ||
     v.contentVersion !== CONTENT_VERSION ||
     !['guided', 'practice', 'service'].includes(v.mode as string) ||
     !record(v.history) ||
@@ -55,6 +55,7 @@ export function validateState(v: unknown): v is GameState {
       (o) =>
         record(o) &&
         typeof o.revisit === 'boolean' &&
+        typeof o.heard === 'boolean' &&
         str(o.id) &&
         Object.keys(REQUESTS).includes(o.request as string) &&
         [0, 1].includes(o.seat as number) &&
@@ -105,9 +106,11 @@ export function validateState(v: unknown): v is GameState {
   if (
     !Array.isArray(v.attempts) ||
     v.attempts.length > 80 ||
+    !unique(v.attempts.map((a) => (record(a) ? a.id : undefined))) ||
     !v.attempts.every(
       (a) =>
         record(a) &&
+        str(a.id) &&
         ['guided', 'assisted', 'independent-condition'].includes(a.condition as string) &&
         ['first', 'revisit'].includes(a.visit as string) &&
         a.audioQualified === false &&
@@ -138,6 +141,11 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     !record(v.session) ||
+    ![1, 2].includes(v.session.concurrency as number) ||
+    !strings(v.session.menu, 20) ||
+    !v.session.menu.length ||
+    !unique(v.session.menu) ||
+    v.session.menu.some((r) => !(r in REQUESTS)) ||
     !['story', 'endless', 'training'].includes(v.session.activity as string) ||
     !integer(v.session.chapter, 4) ||
     !['demonstration', 'pictures', 'less'].includes(v.session.support as string) ||
@@ -431,6 +439,28 @@ export function decodeSnapshot(raw: string): DecodeResult {
   if (raw.length > 160_000) return { ok: false, reason: '存档太大，已保留原文供导出。', raw };
   try {
     const value: unknown = JSON.parse(raw);
+    if (
+      record(value) &&
+      value.schemaVersion === 3 &&
+      value.contentVersion === 'm2.0' &&
+      record(value.session)
+    ) {
+      // M2 encoded load in mode + support. Preserve the actual old policy, never infer scores.
+      const legacy = structuredClone(value);
+      value.schemaVersion = 4;
+      value.contentVersion = CONTENT_VERSION;
+      value.session.concurrency =
+        value.mode === 'service' && value.session.support === 'less' ? 2 : 1;
+      value.session.menu = Array.isArray(value.session.unlocked)
+        ? endlessPool(value.session.unlocked as GameState['session']['unlocked'], 'less')
+        : [];
+      if (Array.isArray(value.orders)) for (const o of value.orders) if (record(o)) o.heard = false;
+      if (Array.isArray(value.attempts))
+        for (const [i, a] of value.attempts.entries())
+          if (record(a)) a.id = `${value.runId}:legacy:${i}`;
+      if (!validateState(value))
+        return { ok: false, reason: '旧档关系校验失败，已保留原文。', raw: JSON.stringify(legacy) };
+    }
     return validateState(value)
       ? { ok: true, state: value }
       : { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };

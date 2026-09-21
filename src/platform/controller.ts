@@ -1,13 +1,15 @@
 import type { Mode, RequestId } from '../content/catalog';
 import { type Activity, CHAPTERS, type Support } from '../content/chapters';
 import { advance, createGame, dispatch } from '../rules/game';
-import { configureSession } from '../rules/sessions';
+import { applyPolicy, configureSession } from '../rules/sessions';
 import type { Command, GameState, Result } from '../rules/types';
+import { MiniStore } from './minis';
 import { ProfileStore } from './profile';
 import { SaveStore } from './save';
 export class GameController {
   state: GameState;
   readonly save: SaveStore;
+  readonly minis = new MiniStore(() => localStorage);
   readonly profile = new ProfileStore(() => localStorage);
   readonly pauses = new Set<string>(['home']);
   message = '听一听，准备好，再把整盘递给客人。';
@@ -43,6 +45,7 @@ export class GameController {
     for (const fn of this.listeners) fn();
   }
   command(command: Command): Result {
+    const priorAttempts = new Set(this.state.attempts.map((a) => a.id));
     const result = dispatch(this.state, {
       id: `${this.state.runId}-cmd-${Date.now()}-${++this.serial}`,
       runId: this.state.runId,
@@ -50,8 +53,8 @@ export class GameController {
     });
     this.state = result.state;
     if (result.message) this.message = result.message;
+    this.recordAttempts(priorAttempts);
     if (command.type !== 'audio') this.save.save(this.state);
-    this.recordAttempts();
     if (
       result.kind === 'ok' &&
       (command.type === 'start-machine' || command.type === 'start-station')
@@ -60,6 +63,7 @@ export class GameController {
         command.type === 'start-machine'
           ? 'juice'
           : (this.state.stations[command.station].recipe ?? command.station);
+      this.profile.tutorial(`operation-${target}`);
       this.profile.observe({
         id: `operation:${this.state.runId}:${this.state.revision}`,
         dimension: 'operation',
@@ -141,9 +145,11 @@ export class GameController {
     chapter = 0,
     support: Support = this.profile.value.support,
     replay = false,
+    concurrency: 1 | 2 = this.profile.value.concurrency,
   ): void {
     this.save.save(this.state);
     this.profile.value.support = support;
+    if (activity === 'endless') this.profile.value.concurrency = concurrency;
     this.profile.save();
     const key = `${activity}-${chapter}`;
     const stored = this.save.loadSession(key);
@@ -159,6 +165,8 @@ export class GameController {
         support,
         this.profile.value.introduced,
         Math.floor(Math.random() * 4294967296),
+        concurrency,
+        this.profile.menu(),
       );
     // Assistance belongs to the unfinished request, even after replay or a support change.
     if (stored) {
@@ -170,31 +178,22 @@ export class GameController {
         if (prior) order.support = [...new Set([...order.support, ...prior.support])].slice(-24);
       }
     }
-    this.state.session.support = support;
-    for (const order of this.state.orders.filter((o) => o.status === 'waiting')) {
-      if (support !== 'less')
-        order.support = [
-          ...new Set([
-            ...order.support,
-            'picture-request',
-            ...(support === 'demonstration' ? ['guided'] : []),
-          ]),
-        ].slice(-24);
-    }
     // Introduced content is a preparation entitlement, never an assessment result.
     const family = CHAPTERS[chapter]?.family ?? 'juice';
     if (activity === 'story') this.profile.introduce(family);
     this.state.session.unlocked = [...this.profile.value.introduced];
+    this.state.session.menu = this.profile.menu();
+    applyPolicy(this.state, support, concurrency);
     this.savedGame = Boolean(previous);
     this.checkpoint = 0;
     this.message = '选好备餐位置，点食材就能放进去。';
     this.save.save(this.state);
     this.notify();
   }
-  private recordAttempts(): void {
-    for (const a of this.state.attempts)
+  private recordAttempts(prior: Set<string>): void {
+    for (const a of this.state.attempts.filter((a) => !prior.has(a.id))) {
       this.profile.observe({
-        id: `${a.runId}:${a.gameTime}:${a.activity}:${a.retry}:${a.input.slice(0, 40)}`,
+        id: a.id,
         dimension: a.activity === 'delivery' ? 'listening' : 'structure',
         target:
           a.activity === 'delivery'
@@ -205,6 +204,14 @@ export class GameController {
         visit: a.visit,
         audioQualified: false,
       });
+      if (a.activity === 'delivery' && a.result === 'completed') {
+        const request = this.state.orders.find((o) => a.input.startsWith(`${o.id}:`))?.request;
+        if (request) {
+          this.profile.present(`menu:${request}`);
+          this.state.session.menu = this.profile.menu();
+        }
+      }
+    }
   }
   restart(): void {
     const mode = this.state.mode,

@@ -39,6 +39,7 @@ try {
   await page.goto(process.argv[2] ?? 'http://127.0.0.1:4173/');
   await page.locator('.yard-endless .entry-main').click();
   await page.getByRole('button', { name: '少些帮助，听一听' }).click();
+  await page.getByRole('button', { name: '两位一起招呼' }).click();
   await page.getByRole('button', { name: '开始 / 继续' }).click();
   await page.getByRole('button', { name: '我来试试' }).click();
   const key = async (id) => page.locator(`[data-hotspot="${id}"]`).press('Enter');

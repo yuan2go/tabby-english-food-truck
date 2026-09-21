@@ -1,0 +1,58 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m21.spec.ts e2e/minigames.spec.ts e2e/policy.spec.ts
+
+[WebServer] (node:2605) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:2671) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:2714) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/m21.spec.ts:10:1 › M21 first prologue starts, opening can skip, short lesson records only real choices (6.9s)
+  ✓  2 e2e/m21.spec.ts:58:1 › M21 matching accepts direct picture after playback and switches activities without losing drafts (7.9s)
+  ✘  3 e2e/m21.spec.ts:103:1 › M21 failed speech permits opening skip and exact object retry without blocking play (5.1s)
+(node:2758) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (14.1s)
+  ✓  5 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (26.2s)
+  ✓  6 e2e/minigames.spec.ts:130:1 › M2 bilingual uses explicit support and preserves business inventory (4.7s)
+  ✓  7 e2e/policy.spec.ts:6:1 › M2 increased support preserves active orders, reduces new concurrency and survives reload (32.0s)
+
+
+  1) e2e/m21.spec.ts:103:1 › M21 failed speech permits opening skip and exact object retry without blocking play 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      108 |   await expect(page.locator('.prep-selector')).toBeVisible();
+      109 |   await tap(page, 'supply-apple');
+    > 110 |   expect((await state(page)).items).toHaveLength(1);
+          |                                     ^
+      111 | });
+      112 |
+        at /Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck/e2e/m21.spec.ts:110:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m21-M21-failed-speech-perm-c6b61-retry-without-blocking-play/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m21-M21-failed-speech-perm-c6b61-retry-without-blocking-play/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m21-M21-failed-speech-perm-c6b61-retry-without-blocking-play/error-context.md
+
+  1 failed
+    e2e/m21.spec.ts:103:1 › M21 failed speech permits opening skip and exact object retry without blocking play 
+  6 passed (1.7m)

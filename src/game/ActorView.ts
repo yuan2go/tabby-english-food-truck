@@ -1,6 +1,5 @@
 import type Phaser from 'phaser';
-import { REQUESTS, type RequestId } from '../content/catalog';
-import { FAMILY_SUPPLIES, foodAsset, type Product, RECIPES } from '../content/recipes';
+import { FAMILY_SUPPLIES, foodAsset, type Product } from '../content/recipes';
 import type { GameController } from '../platform/controller';
 import { ActorScheduler } from './actor';
 import type { ViewState } from './input';
@@ -38,13 +37,7 @@ export class ActorView {
           this.scheduler = new ActorScheduler(s.actor.point);
           this.scheduler.schedule(
             'demo',
-            [
-              { point: s.actor.point, pose: 'read', hold: 450 },
-              { point: { x: 0.3, y: 0.62 }, pose: 'reach', hold: 500, event: 'demo-pick' },
-              { point: { x: 0.4, y: 0.5 }, pose: 'place', hold: 800, event: 'demo-process' },
-              { point: { x: 0.4, y: 0.5 }, pose: 'reach', hold: 400, event: 'demo-ready' },
-              { point: { x: 0.45, y: 0.68 }, pose: 'place', hold: 600, event: 'demo-place' },
-            ],
+            [{ point: s.actor.point, pose: 'read', hold: 600 }],
             true,
           );
         }
@@ -205,17 +198,16 @@ export class ActorView {
       }
     }
     if (teaching && this.demoOwnsActor) {
-      const product = REQUESTS[teaching as RequestId]?.products[0];
-      const recipe = RECIPES.find((r) => r.output === product);
-      const phase = frame.phase;
-      if (product && phase >= 2 && phase < 8)
+      // This is the current teaching projection, never a guessed final order or inventory.
+      for (const [index, product] of (this.ui.lessonProducts ?? []).entries()) {
         show(
-          'demonstration',
-          phase < 6 ? (recipe?.inputs[0] ?? product) : product,
-          hand,
-          40 * l.scale,
+          `demonstration-${index}`,
+          product,
+          { x: hand.x + index * 20 * l.scale, y: hand.y },
+          34 * l.scale,
           0.85,
         );
+      }
     }
     for (const [id, node] of this.held)
       if (!ids.has(id)) {

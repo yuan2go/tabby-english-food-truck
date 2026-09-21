@@ -15,6 +15,14 @@ export async function tap(p: Page, id: string, dy = 0) {
   await p.touchscreen.tap(q.x, q.y);
 }
 export async function lesson(p: Page) {
+  const opening = p.getByRole('button', { name: '跳过开场' });
+  if (await opening.count()) {
+    try {
+      await opening.tap({ timeout: 700 });
+    } catch {
+      await expect(opening).toHaveCount(0);
+    }
+  }
   await p.evaluate(
     () =>
       new Promise<void>((resolve) =>
@@ -30,6 +38,14 @@ export async function startStory(p: Page) {
   await p.locator('.yard-story .entry-main').tap();
   await p.getByRole('button', { name: '跳过序章' }).tap();
   await p.getByRole('button', { name: '晨光果汁', exact: true }).tap();
+  const opening = p.getByRole('button', { name: '跳过开场' });
+  if (await opening.count()) {
+    try {
+      await opening.tap({ timeout: 700 });
+    } catch {
+      await expect(opening).toHaveCount(0);
+    }
+  }
   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
   await p.waitForTimeout(500);
   await lesson(p);
@@ -37,7 +53,10 @@ export async function startStory(p: Page) {
 export async function startEndless(p: Page, less = true) {
   await p.goto('/');
   await p.locator('.yard-endless .entry-main').tap();
-  if (less) await p.getByRole('button', { name: '少些帮助，听一听' }).tap();
+  if (less) {
+    await p.getByRole('button', { name: '少些帮助，听一听' }).tap();
+    await p.getByRole('button', { name: '两位一起招呼' }).tap();
+  }
   await p.getByRole('button', { name: '开始 / 继续' }).tap();
   await lesson(p);
 }

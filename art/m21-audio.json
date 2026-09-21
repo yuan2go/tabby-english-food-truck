@@ -1,0 +1,203 @@
+{
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "source": "macOS say / Samantha, 140 wpm, PCM 22050Hz",
+  "records": [
+    {
+      "id": "name-juice",
+      "text": "juice",
+      "kind": "name",
+      "path": "audio/name-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "name-cheese-sandwich",
+      "text": "cheese sandwich",
+      "kind": "name",
+      "path": "audio/name-cheese-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "name-one",
+      "text": "one",
+      "kind": "name",
+      "path": "audio/name-one.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "name-two",
+      "text": "two",
+      "kind": "name",
+      "path": "audio/name-two.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "name-and",
+      "text": "and",
+      "kind": "name",
+      "path": "audio/name-and.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-apple",
+      "text": "Find the apple.",
+      "kind": "prompt",
+      "path": "audio/try-apple.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-banana",
+      "text": "Find the banana.",
+      "kind": "prompt",
+      "path": "audio/try-banana.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-juice",
+      "text": "Find the juice.",
+      "kind": "prompt",
+      "path": "audio/try-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-vanilla",
+      "text": "Find vanilla.",
+      "kind": "prompt",
+      "path": "audio/try-vanilla.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-strawberry",
+      "text": "Find strawberry.",
+      "kind": "prompt",
+      "path": "audio/try-strawberry.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-cup",
+      "text": "Find the cup.",
+      "kind": "prompt",
+      "path": "audio/try-cup.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-cone",
+      "text": "Find the cone.",
+      "kind": "prompt",
+      "path": "audio/try-cone.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-bread",
+      "text": "Find the bread.",
+      "kind": "prompt",
+      "path": "audio/try-bread.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-cheese",
+      "text": "Find the cheese.",
+      "kind": "prompt",
+      "path": "audio/try-cheese.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-lettuce",
+      "text": "Find the lettuce.",
+      "kind": "prompt",
+      "path": "audio/try-lettuce.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-tomato",
+      "text": "Find the tomato.",
+      "kind": "prompt",
+      "path": "audio/try-tomato.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-bun",
+      "text": "Find the bun.",
+      "kind": "prompt",
+      "path": "audio/try-bun.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-patty",
+      "text": "Find the patty.",
+      "kind": "prompt",
+      "path": "audio/try-patty.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-cooked-patty",
+      "text": "Find the cooked patty.",
+      "kind": "prompt",
+      "path": "audio/try-cooked-patty.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-sandwich",
+      "text": "Find the sandwich.",
+      "kind": "prompt",
+      "path": "audio/try-sandwich.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-burger",
+      "text": "Find the burger.",
+      "kind": "prompt",
+      "path": "audio/try-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-ice-cream",
+      "text": "Find the ice cream.",
+      "kind": "prompt",
+      "path": "audio/try-ice-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-one",
+      "text": "Find one apple.",
+      "kind": "prompt",
+      "path": "audio/try-one.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-two",
+      "text": "Find two apples.",
+      "kind": "prompt",
+      "path": "audio/try-two.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "try-and",
+      "text": "Find an apple and a banana.",
+      "kind": "prompt",
+      "path": "audio/try-and.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "menu-cup",
+      "text": "In our menu, juice comes in one cup.",
+      "kind": "prompt",
+      "path": "audio/menu-cup.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "menu-cream",
+      "text": "Two scoops and banana ice cream come in a cup.",
+      "kind": "prompt",
+      "path": "audio/menu-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "id": "mini-match",
+      "text": "Listen, then choose a picture. You can listen again.",
+      "kind": "prompt",
+      "path": "audio/mini-match.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED"
+    }
+  ]
+}
