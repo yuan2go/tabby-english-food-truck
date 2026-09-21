@@ -168,3 +168,7 @@ schema 3 / m2.0。长期 progress（章节/已介绍内容）、tutorials、obse
 ## M2.2 实施记录（2026-09-21）
 
 schema5 新增 routing 与 supplyPage，旧 schema4 在不猜成绩的前提下补空路由；食品注册、FOOD_REQUESTS、学习词、图片/语音资源和订单映射共享稳定ID。资源检查实际读取尺寸、Alpha、hash、WAV头和每项引用；新增资源源稿、运行导出和 manifest 分开。visualViewport 变化通过一个 requestAnimationFrame 合并测量，宿主只承担一次安全区偏移。
+
+### M2.2续做决定
+
+续做修正：世界schema6显式迁移已有schema5的语言负荷字段，保留现有订单/物料/路由/任务；Profile v3从v2补独立语言设置，不猜成绩。教学意义、实际操作与交付记录分开，世界受阻不产生语言尝试；食品菜单准入统一由注册映射取得，不能构造不存在的food-apple/food-banana请求。

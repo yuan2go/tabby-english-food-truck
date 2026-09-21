@@ -1,6 +1,15 @@
 # 项目状态
 
-## 当前 M2.2 · LOCAL_VERIFIED / NEEDS_REVISION
+## 当前 M2.2 续做 · IN_PROGRESS / NEEDS_REVISION
+
+续做基线 main `c105ec8478de5f1f0a03d38ca03255b7938e92f8`，实现分支 `codex/m22-phone-foods`，接手 HEAD `7593dff08ab90b5cb36d65db17344666c1208ba7`，PR #6 OPEN。main 干净；实现 worktree 有9个与语言负荷/成长迁移有关的未提交文件，保留并续接。首轮已有共享布局、自动落盘与50食品资源，不继承首轮 PASS。
+
+续做缺口：新菜单仍需显式介绍再准入；语言负荷仅有未完成的字段改动；小教学仍是弹窗选择后重复制作；schema5新增字段尚未迁移；README/交付勾选和资源说明过期。按01–05现有合同修复，不另建产品蓝图。先完成这些行为及代表性浏览器回归，再在干净候选SHA做一次合并验证。
+
+三张本轮真机原图当前未定位，逐图对比 PENDING_INPUT。iPhone 15 Pro Chrome反馈维持 NEEDS_REVISION；实体复核、教研/听审、权利、儿童观察与部署各自待验。续做检查此时 NOT_RUN。
+
+
+## 历史 M2.2 首轮候选 · LOCAL_VERIFIED / NEEDS_REVISION
 
 2026-09-21 在独立 worktree `/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck` 的 `codex/m22-phone-foods` 实现并验证了三阶段候选。基线完整 SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；布局阶段提交 `bb9069a`，后续代码阶段提交 `bb9069a`、`0f23d9b`、`828593a`，本次最终文档提交随后生成；已建立 [PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，不自动合并。用户三张本轮真机原图尚未提供，记录为 PENDING_INPUT；历史图不冒充本次。
 
@@ -11,7 +20,7 @@
 仍未证明：iPhone 15 Pro＋Chrome 实体复核、三张截图对应的同视口对比、Pad实体、人工听审/教研、资源权利、儿童观察、公开发布和线上新版本。站点核对于 2026-09-21 HTTP200，仍是旧 build `5f39d12cbfa6b1a4cd4d295b1cbe91421e0bc1fd`、content `m2.1`、dirty=false；本包 `PENDING_DEPLOYMENT`，旧站点不作通过证据。新素材/开发TTS 的 review 与 rights 保留 `PENDING`，未宣称已审核。
 
 
-## 当前 M2.2 · IN_PROGRESS / NEEDS_REVISION
+## 历史 M2.2 开工 · IN_PROGRESS / NEEDS_REVISION
 
 2026-09-21开工。默认main与origin/main完整SHA均为 `c105ec8478de5f1f0a03d38ca03255b7938e92f8`，原工作区干净，PR #1–#5均已合并，无开放PR。独立worktree `/Users/yuan/.codex/worktrees/tabby-m22-phone-foods/tabby-english-food-truck`，分支 `codex/m22-phone-foods`。仅本餐车仓库，一个实现负责人。
 
