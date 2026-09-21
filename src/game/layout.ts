@@ -56,10 +56,10 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     const bottom = height - 102;
     regions = {
       top,
-      guests: r(8, 60, width * 0.18 - 12, bottom - 60),
-      work: r(width * 0.19, 60, width * 0.32, bottom - 60),
-      trays: r(width * 0.53, 60, width * 0.47 - 8, bottom - 108),
-      action: r(width * 0.53, bottom - 48, width * 0.47 - 8, 48),
+      guests: r(8, 60, width * 0.24 - 12, bottom - 60),
+      work: r(width * 0.25, 60, width * 0.32, bottom - 60),
+      trays: r(width * 0.59, 60, width * 0.41 - 8, bottom - 108),
+      action: r(width * 0.59, bottom - 48, width * 0.41 - 8, 48),
       supplies: r(8, bottom + 4, width - 16, 68),
       feedback: r(8, height - 28, width - 16, 28),
     };
@@ -69,13 +69,13 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     t = regions.trays;
   const single = mode !== 'service';
   const guests: [Point, Point] = [
-    { x: g.x + g.width * (landscape ? 0.25 : 0.18), y: g.y + (landscape ? 55 : g.height - 40) },
-    { x: g.x + g.width * (landscape ? 0.75 : 0.48), y: g.y + (landscape ? 55 : g.height - 40) },
+    { x: g.x + g.width * 0.18, y: g.y + (landscape ? 55 : g.height - 40) },
+    { x: g.x + g.width * 0.48, y: g.y + (landscape ? 55 : g.height - 40) },
   ];
   if (single)
     guests[0] = guests[1] = { x: g.x + g.width * (landscape ? 0.5 : 0.28), y: guests[0].y };
   const trayWidth = landscape
-    ? Math.min(176, (t.width - 12) / 2)
+    ? Math.min(176, (t.width - 20) / 2)
     : single
       ? Math.min(190, t.width)
       : Math.min(185, (t.width - 10) / 2);
@@ -90,7 +90,7 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
       ];
   const machine = { x: w.x + w.width * (landscape ? 0.5 : 0.29), y: w.y + 58 };
   const helper = landscape
-    ? { x: g.x + g.width * 0.62, y: g.y + g.height - 34 }
+    ? { x: g.x + g.width * 0.92, y: g.y + g.height - 34 }
     : {
         x: g.x + g.width * 0.84,
         y:

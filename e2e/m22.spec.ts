@@ -14,18 +14,20 @@ test('M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies'
   expect(await page.locator('.prep-selector,.request-tools,.family-tabs').count()).toBe(0);
   const hit = async (id: string) => {
     const h = page.locator(`[data-hotspot="${id}"]`);
-    expect(
-      await h.evaluate((e) => {
-        const r = e.getBoundingClientRect(),
-          top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
-        return (
-          r.width >= 44 &&
-          r.height >= 44 &&
-          r.bottom <= innerHeight &&
-          (top?.tagName === 'CANVAS' || top === e)
-        );
-      }),
-    ).toBe(true);
+    await expect
+      .poll(() =>
+        h.evaluate((e) => {
+          const r = e.getBoundingClientRect(),
+            top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+          return (
+            r.width >= 44 &&
+            r.height >= 44 &&
+            r.bottom <= innerHeight &&
+            (top?.tagName === 'CANVAS' || top === e)
+          );
+        }),
+      )
+      .toBe(true);
   };
   await hit('supply-apple');
   await tap(page, 'supply-apple');
@@ -63,5 +65,6 @@ test('M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies'
   }
   await page.setViewportSize({ width: 852, height: 393 });
   await hit('supply-apple');
+  await hit('note');
   await page.screenshot({ path: info.outputPath('landscape.png') });
 });

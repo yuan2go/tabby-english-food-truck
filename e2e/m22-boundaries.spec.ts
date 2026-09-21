@@ -82,6 +82,15 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   }
   for (const height of [300, 342, 393]) {
     await page.setViewportSize({ width: 852, height });
+    await expect
+      .poll(async () => {
+        const p = await hot(page, 'note');
+        return page.evaluate((p) => document.elementFromPoint(p.x, p.y)?.tagName, p);
+      })
+      .toBe('CANVAS');
+    await tap(page, 'note');
+    await expect(page.getByRole('heading', { name: '小猫陪你一起做' })).toBeVisible();
+    await page.getByRole('button', { name: '继续营业', exact: true }).tap();
     await tap(page, 'tray-1', 25);
     await tap(page, 'supply-apple');
     const added = (await state(page)).items.find((i) => i.location.startsWith('tray:1:'));

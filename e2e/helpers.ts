@@ -134,6 +134,8 @@ export async function make(
     }
   }
   if (recipe.station === 'board') {
+    // Inspect settled ingredient slots, not an ingredient crossing the counter in transit.
+    await p.waitForTimeout(260);
     for (const item of (await state(p)).items.filter((i) =>
       i.location.startsWith('station:board:'),
     )) {

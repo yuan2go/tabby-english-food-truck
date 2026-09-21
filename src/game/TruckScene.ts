@@ -811,6 +811,17 @@ export class TruckScene extends Phaser.Scene {
     if ('item' in source) this.images.get(`item-${source.item}`)?.setVisible(false);
   }
   private hit(x: number, y: number): Hotspot | undefined {
+    // A travelling ingredient may cross a start control for a few frames.
+    // It is presentation, not a replacement for that stationary control.
+    const start = this.ui.hotspots.find(
+      (h) =>
+        h.kind === 'start' &&
+        x >= h.x - h.width / 2 &&
+        x <= h.x + h.width / 2 &&
+        y >= h.y - h.height / 2 &&
+        y <= h.y + h.height / 2,
+    );
+    if (start) return start;
     for (let i = this.ui.hotspots.length - 1; i >= 0; i--) {
       const h = this.ui.hotspots[i];
       if (
