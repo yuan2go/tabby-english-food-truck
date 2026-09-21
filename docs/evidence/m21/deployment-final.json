@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-21T03:53:01.139Z",
+  "url": "https://tabby-english-food-truck.yuan576264675.chatgpt.site/",
+  "http": 200,
+  "title": "狸花猫的英语餐车",
+  "main": {
+    "sha": "854dbfc691f111104e9d565f436a88c90c6f0775",
+    "dirty": "false",
+    "content": "m2.0",
+    "assets": "72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef"
+  },
+  "text": "TABBY'S LITTLE KITCHEN\n狸花猫的英语餐车\n\n一辆小餐车，一院好朋友。\n\n⚙\n故事模式\n接过钥匙，一起开店\n♫\n无尽营业\n今天也有新朋友\n♫\n教学练习\n看小猫做，再亲手试试\n♫\n迷你游戏\n听一听 · 找一找 · 拼一拼\n♫\n开发素材与语音待审核",
+  "m21": "PENDING_DEPLOYMENT",
+  "smoke": "NOT_RUN_ON_M21: deployed runtime differs"
+}

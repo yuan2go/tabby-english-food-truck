@@ -1,0 +1,13 @@
+{
+  "checked": [
+    "README.md",
+    "docs/STATUS.md",
+    "docs/04-technical-design.md",
+    "docs/03-experience-design.md",
+    "docs/02-game-design.md",
+    "docs/05-delivery.md",
+    "docs/01-product.md",
+    "docs/evidence/m21/README.md"
+  ],
+  "missing": []
+}

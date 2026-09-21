@@ -1,0 +1,33 @@
+{
+  "cleanRuntime": "229073b3829b00e991c509067b8f53565f14270c",
+  "content": "m2.1",
+  "assets": "170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b",
+  "differenceFromCombinedRuntime": "Only spelling CSS; unchanged TS, rules, content, saves and audio",
+  "checks": [
+    {
+      "command": "npm run build",
+      "exit": 0
+    },
+    {
+      "command": "npm run lint",
+      "exit": 1,
+      "reason": "test formatter wrapping; corrected without runtime change"
+    },
+    {
+      "command": "npm run lint",
+      "exit": 0,
+      "warnings": 36,
+      "info": 1
+    },
+    {
+      "command": "npm run test:browser -- e2e/game.spec.ts e2e/minigames.spec.ts e2e/upgrade.spec.ts e2e/recovery.spec.ts --grep 'phone complete|spell complete|phone DPR|Pad prologue|native background' --output=/tmp/tabby-m21-final/layout-browser",
+      "exit": 0,
+      "passed": 5
+    },
+    {
+      "command": "EVIDENCE_DIR=/tmp/tabby-m21-final PREVIEW_URL=http://127.0.0.1:4174 node scripts/measure-m21.mjs layout",
+      "exit": 0,
+      "budget": "60fps NOT_MET"
+    }
+  ]
+}

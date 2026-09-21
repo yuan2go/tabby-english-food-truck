@@ -1,0 +1,127 @@
+{
+  "runtime": "229073b3829b00e991c509067b8f53565f14270c",
+  "review": "NOT_RUN: agent tool omitted unsupported audio input; no human listening or rights approval",
+  "samples": [
+    {
+      "id": "apple",
+      "text": "apple",
+      "kind": "name",
+      "path": "audio/apple.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/apple.wav",
+      "sha256": "9549ec38ff333cf84edc5765d91cbf5926f972d7a19240be54406ff86f33c4b3",
+      "bytes": 25364,
+      "file": "apple.wav"
+    },
+    {
+      "id": "name-juice",
+      "text": "juice",
+      "kind": "name",
+      "path": "audio/name-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/name-juice.wav",
+      "sha256": "febd03c639f0d6e2a2992d0e9f84a7ff894bcb858fe8dbe247c391d1cceadefa",
+      "bytes": 27590,
+      "file": "name-juice.wav"
+    },
+    {
+      "id": "juice",
+      "text": "apple juice",
+      "kind": "name",
+      "path": "audio/juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/juice.wav",
+      "sha256": "5cec6ce9778ae75b2c0c700c1cd38390a9dbe0b09bd8b975092235e52691cded",
+      "bytes": 43796,
+      "file": "juice.wav"
+    },
+    {
+      "id": "word-patty",
+      "text": "patty",
+      "kind": "name",
+      "path": "audio/word-patty.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/word-patty.wav",
+      "sha256": "322b89611a519ed22f2b180806ef05c4caa73a366fa7df8c450614869777ceff",
+      "bytes": 24908,
+      "file": "word-patty.wav"
+    },
+    {
+      "id": "word-cooked-patty",
+      "text": "cooked patty",
+      "kind": "name",
+      "path": "audio/word-cooked-patty.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/word-cooked-patty.wav",
+      "sha256": "d6cfbd712679ae4bc664a14602d9f376558f60bef4bd02bba5d9fbe9c3059b56",
+      "bytes": 38694,
+      "file": "word-cooked-patty.wav"
+    },
+    {
+      "id": "word-cheese-burger",
+      "text": "cheeseburger",
+      "kind": "name",
+      "path": "audio/word-cheese-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/word-cheese-burger.wav",
+      "sha256": "0be13e3f00854cc691a02eacf496d65da68b162dc7d770f11dd2041e28ed0fc7",
+      "bytes": 38702,
+      "file": "word-cheese-burger.wav"
+    },
+    {
+      "id": "request-cheese-burger",
+      "text": "A cheeseburger, please.",
+      "kind": "request",
+      "path": "audio/request-cheese-burger.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/request-cheese-burger.wav",
+      "sha256": "ee54326e6f37f1903c696c925cba9190deede7fe29d1e79948f011e184914cdd",
+      "bytes": 77084,
+      "file": "request-cheese-burger.wav"
+    },
+    {
+      "id": "word-ice-cream",
+      "text": "ice cream",
+      "kind": "name",
+      "path": "audio/word-ice-cream.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/word-ice-cream.wav",
+      "sha256": "6b659e8971e95fc7d6e457533178f8ceb0178428c177998b3de55bdddd482d1f",
+      "bytes": 36620,
+      "file": "word-ice-cream.wav"
+    },
+    {
+      "id": "mini-match",
+      "text": "Listen, then choose a picture. You can listen again.",
+      "kind": "prompt",
+      "path": "audio/mini-match.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/mini-match.wav",
+      "sha256": "5ab1198a0306e729e2aad83039029d873aeac5b7d664e4bf8a34801f7654985c",
+      "bytes": 160286,
+      "file": "mini-match.wav"
+    },
+    {
+      "id": "prologue-0",
+      "text": "This little key is yours, Tabby.",
+      "kind": "prompt",
+      "path": "audio/prologue-0.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/prologue-0.wav",
+      "sha256": "80a54a1f682df8f8004ed5710f545402d625ca2197875a44169b2f87ababa4a7",
+      "bytes": 102728,
+      "file": "prologue-0.wav"
+    },
+    {
+      "id": "chapter-juice",
+      "text": "Good morning! Apple juice or banana juice?",
+      "kind": "prompt",
+      "path": "audio/chapter-juice.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "source": "public/audio/chapter-juice.wav",
+      "sha256": "5cf846b04c4cff085e212bcefb9ffb9a91da1ac935a2846434e4d33f978c0c1a",
+      "bytes": 126508,
+      "file": "chapter-juice.wav"
+    }
+  ]
+}

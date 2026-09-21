@@ -1,13 +1,59 @@
 # 项目状态
 
-## 当前 M2.1 · 2026-09-21 · IN_PROGRESS
+## 当前 M2.1 · 2026-09-21 · IMPLEMENTED / LOCAL_VERIFIED
 
-工作包：教学与语音准确性、低龄操作及回访体验完善。基线为执行时 fetch 的默认分支 main `20382877cc9711765b91ada2e081d19be0e81bfb`，原工作区干净，PR #1–#4 均已合并，无开放PR。独立分支 `codex/m21-learning-revisit`，worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。
+工作包“教学与语音准确性、低龄操作及回访体验完善”运行实现已交付；工程检查按下表报告，外部验收仍分项待完成。用户反馈 **已落实工程修订 / AWAITING_OWNER_REVIEW**，不写尚未收到反馈，不把本地结果当用户接受。
 
-用户已反馈图音错配、章节抢播、首次序章触发缺失、小游戏过载/无法中途切换、支持与并发切换及首单备餐冲突，均 **NEEDS_REVISION**。先完整阅读本仓库权威文档和相关实现，定向修订现行合同；旧需求、迁移说明及证据保留。下面M2/M1的测试、部署和审核只属于历史，不继承本包结论。负责人称网站已更新，本包重新核对，不能再把历史m1.1当当前事实。
+- baseline与交付前fetch的默认分支main：`20382877cc9711765b91ada2e081d19be0e81bfb`；原工作区干净，PR #1–#4已合并。
+- 独立分支 `codex/m21-learning-revisit`，worktree `/Users/yuan/.codex/worktrees/tabby-m21-learning/tabby-english-food-truck`，一个实现负责人。阶段提交、推送与PR交付，不自动合并或部署；PR与最终完整SHA见交付消息。
+- 同一干净生产构建合并检查：`c0fe89e5e1d81036c702f0431b33799e99cd9367`。最后运行提交 `229073b3829b00e991c509067b8f53565f14270c`（dirty=false），仅追加拼写触控尺寸/间距CSS；之后只修测试格式、归档证据和文档，规则/内容/保存/声音未再改。
+- content `m2.1`；manifest SHA-256 `170ddd2db8ca265f5fe6f126405adea8208ac4ca0c2d8f7a009888533729695b`。最终提交可直接干净构建；构建身份应显示实际构建SHA，不把旧dist冒充新head。
 
-本包代码和必要验证待完成；新改动 **PENDING_DEPLOYMENT**，不新建站点。教研、人类听审、实体设备、儿童观察 **NOT_RUN**；视觉接受仅来自实际反馈，素材权利审核保留 **PENDING**。
+[逐项修复与命令证据](evidence/m21/README.md) · [连续录像](evidence/m21/review.html) · [正式帮助体验走查](evidence/m21/experience-walk.md) · [开发语音样本](evidence/m21/audio/index.html)。下面M2/M1段落均为历史，其测试、部署与审核不继承。
 
+### 实际变化
+
+- 80条显式语音映射分开名称、中间产物、成品、客人请求及剧情提示；当前制作图/文/音一致。序章首句有触发，章节→短教学→请求由一个流程安排，跳过、拒播、静音、主动重听和过期回调都有结束路径。
+- 四类食品用有限短单元先食物/口味，再数量/杯筒/组合；意义展示后实际做一个选择，再看当前制作步骤并回到营业。已呈现、实际尝试、操作完成、当前题帮助分别保存；稳定ID避免返回/刷新重复计数，播放不等于理解。
+- WordSpell保留ICE CREAM词界与重复字母ID，按已介绍词/字母基础/支持量选池；示范、部分补全、自己试有不同固定量。字母点击/拖动/撤回/重排一致，手机至少44px且核心按钮可达。
+- 听词找图实际播放后可直接选；逐题找图、英文配图、识字后的中英文字配对明确区分。小游戏随时回小摊、切换、继续或确认重开，各自保存；未完成题帮助不能洗白，缺实际播放证据不能认定独立听懂。
+- 帮助与单/双客分开；新建/继续/切换/刷新统一策略。减少并发保留当前任务，提高并发在合法空位补单；保存seed/cursor/当前题/食品/设备/预留/剩余时间。schema4明确迁移schema3，不猜成绩。
+- 首单默认备餐盘，类别/设备显式选择；学过的非目标空杯仍由规则登记。点按制作、明确送餐、双击退料、可选拖动保留；音频失败提示不再覆盖原料。动作计划共享不可变数据，保留规则时钟和食品唯一归属。
+
+### 本包验证
+
+macOS26.5.2 arm64，Node26.3.1/npm11.16.0，锁定依赖不变。HTTP `http://127.0.0.1:4174/`，Chromium桌面模拟触控，手机393×665/DPR3及Pad1024×768↔768×1024，均非实体设备。
+
+| 检查 | 实际结果与退出码 |
+| --- | --- |
+| `npm run build`（含typecheck） | PASS / 0；c0fe及229073b干净构建；Phaser大块提示保留 |
+| `npm run lint` | PASS_WITH_WARNINGS / 0；36条CSS specificity警告和1条info；测试格式失败后已修，不关闭规则 |
+| `npm run resources` | PASS / 0；151文件、80显式speech引用；不代表权利或听审 |
+| `npm test` | 合并54/55 / 1；旧“零支持”断言改为如实记录letter-bank，受影响 `npm test -- tests/m2-world.test.ts` 9/9 / 0 |
+| `npm run test:browser` | 合并20/21 / 1；中英入口旧定位失败；修正后中英与新设置切换2/2 / 0 |
+| 最后CSS影响回归 | 229073b上5/5 / 0：手机完整18单及多词恢复、拼写四题、手机/Pad资源失败恢复、Pad横竖屏、真实后台冻结 |
+| 拒播/坏档/拒存、教学实际尝试、双向并发、重复字母、支持与稳定ID | 规则和HTTP定向路径覆盖，原始失败与修复均保留 |
+
+没有把分次结果伪装成一次55/55或21/21。正常通关不注入世界状态；故障条件单独注入。正式画面/帮助走查完成苹果和果汁两单再返回刷新，记录ASSISTED_VISUAL_WALK；工具不支持可听输入，声音体验并未完成。
+
+229073b同版本手机/Pad原片与原尺寸截图在 [final-layout](evidence/m21/final-layout)。动作连续录像另有216帧全时段顺序抽帧及连续坐标实查，不拿静帧冒充实时人类手感观看；负责人接受仍待反馈。
+
+### 性能、线上与外部验收
+
+主采样关闭录屏和CPU profiler；同机393×665/DPR3、相同苹果交付/榨汁操作，冷暖分开。最后229073b：427帧p50=33.3/p95=50/max=83.3ms；8次点击到第二rAF代理p95=45.8ms；长任务62/71ms；冷3,170,253、暖9,300 bytes。**60fps预算NOT_MET**，无整机帧率提升证据；规则深拷贝微基准改进不当作真机FPS。
+
+既有站点本轮首尾均实际HTTP200：build `854dbfc691f111104e9d565f436a88c90c6f0775`，dirty=false，content=m2.0，manifest `72bafdb32b5dc6af44260d1b3d8ccbe9f1fbe52d944fc8a744679641b9664bef`。负责人更新网站属实；下方历史m1.1只描述当时。M2.1 **PENDING_DEPLOYMENT**，没有另建站点；准确待部署运行提交229073b，或包含它的最终PR head。更新后的未登录同版本故事/小游戏/无尽/恢复验收步骤见证据索引。
+
+| 维度 | 本包结论 |
+| --- | --- |
+| 工程实现与本地必要回归 | IMPLEMENTED / LOCAL_VERIFIED；按实际合并＋定向日志报告 |
+| 视觉与操作手感 | 已修对应反馈，AWAITING_OWNER_REVIEW |
+| 性能60fps目标 | NOT_MET |
+| 可听体验 / 人工听审 / 教研 | NOT_RUN；当前音频工具不支持输入，开发TTS仍未听审 |
+| 实体iPhone/Android/iPad、Safari / 儿童观察 | NOT_RUN |
+| 素材与声音分发权利 | PENDING；未伪造审核者或授权 |
+| M2.1线上版本及冒烟 | PENDING_DEPLOYMENT |
+| 公开发布 | BLOCKED：外部体验、内容/听审/权利、实机/儿童及部署验收未完成 |
 
 ## 2026-09-21 M2 Git 同步（按要求不测试）
 
@@ -86,7 +132,7 @@
 | 新版部署 | PENDING_DEPLOYMENT，未另建站点 |
 | 公开发布 | BLOCKED：尚缺运行接受、内容/听审/权利、实机与儿童观察及部署授权 |
 
-[既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 实际读取到 `assets/index-DD0KRite.js`，内含内容版本 `m1.1`；bundle SHA-256 `4a3c9f080755f6bb89da2aad4ec8a17ea3a6b6839d7678f9a3ea5b00d9f0151e`。页面/脚本未暴露可信完整build SHA与manifest版本，两者 **NOT_PROVEN**，不能从旧源码推断线上身份。它不是本包结果；[核对原始记录](evidence/m2/deployed-check.json)。
+历史M2实现阶段当时核对：[既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 读取到 `assets/index-DD0KRite.js`，内含内容版本 `m1.1`；bundle SHA-256 `4a3c9f080755f6bb89da2aad4ec8a17ea3a6b6839d7678f9a3ea5b00d9f0151e`。页面/脚本未暴露可信完整build SHA与manifest版本，两者 **NOT_PROVEN**，不能从旧源码推断线上身份。它不是本包结果；[核对原始记录](evidence/m2/deployed-check.json)。
 
 ## 历史证据（截至 M1，本轮不继承）
 
