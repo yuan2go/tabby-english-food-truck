@@ -52,9 +52,9 @@ const skipOpening = page.getByRole('button', { name: '跳过开场' });
 if (await skipOpening.count()) await skipOpening.tap();
 await page.getByRole('button', { name: '我来试试', exact: true }).waitFor();
 await page.getByRole('button', { name: '我来试试', exact: true }).tap();
-const cdp = await context.newCDPSession(page);
-await cdp.send('Profiler.enable');
-await cdp.send('Profiler.start');
+const cdp = process.env.CPU_PROFILE ? await context.newCDPSession(page) : null;
+await cdp?.send('Profiler.enable');
+await cdp?.send('Profiler.start');
 await page.evaluate(() => (window.m21measure.running = true));
 await page.locator('.prep-selector').getByRole('button', { name: '● 1号盘', exact: true }).tap();
 const tap = async (id) => {
@@ -76,8 +76,8 @@ await page.waitForFunction(
 );
 await page.waitForTimeout(6000); // Sampling duration only; never schedules gameplay/audio.
 await page.evaluate(() => (window.m21measure.running = false));
-const { profile } = await cdp.send('Profiler.stop');
-await cdp.detach();
+const profile = cdp ? (await cdp.send('Profiler.stop')).profile : null;
+await cdp?.detach();
 const metrics = await page.evaluate(() => ({
   ...window.m21measure,
   canvas: {
@@ -105,23 +105,28 @@ const result = {
   },
   inputToSecondRaf: { n: metrics.inputs.length, p95: percentile(metrics.inputs, 0.95) },
   longTasks: metrics.long,
-  cpu: {
-    durationMs: (profile.endTime - profile.startTime) / 1000,
-    samples: profile.samples.length,
-    top: profile.nodes
-      .filter((n) => n.hitCount)
-      .sort((a, b) => b.hitCount - a.hitCount)
-      .slice(0, 18)
-      .map((n) => ({
-        function: n.callFrame.functionName,
-        url: n.callFrame.url,
-        line: n.callFrame.lineNumber,
-        hits: n.hitCount,
-      })),
-  },
+  cpu: profile
+    ? {
+        durationMs: (profile.endTime - profile.startTime) / 1000,
+        samples: profile.samples.length,
+        top: profile.nodes
+          .filter((n) => n.hitCount)
+          .sort((a, b) => b.hitCount - a.hitCount)
+          .slice(0, 18)
+          .map((n) => ({
+            function: n.callFrame.functionName,
+            url: n.callFrame.url,
+            line: n.callFrame.lineNumber,
+            hits: n.hitCount,
+          })),
+      }
+    : null,
   raw: metrics,
 };
-await writeFile(`docs/evidence/m21/performance-${label}.json`, JSON.stringify(result, null, 2));
+await writeFile(
+  `${process.env.EVIDENCE_DIR ?? 'docs/evidence/m21'}/performance-${label}.json`,
+  JSON.stringify(result, null, 2),
+);
 console.log(
   JSON.stringify({
     ...result,

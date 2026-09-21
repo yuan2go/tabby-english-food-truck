@@ -119,8 +119,9 @@ try {
     beforeMachine: before.machine.remaining,
     afterMachine: after.machine.remaining,
   };
-  await writeFile('docs/evidence/m2/native-lifecycle.json', JSON.stringify(report, null, 2));
-  await page.screenshot({ path: 'docs/evidence/m2/native-resume.png', timeout: 5000 });
+  const evidence = process.env.EVIDENCE_DIR ?? 'docs/evidence/m21';
+  await writeFile(join(evidence, 'native-lifecycle.json'), JSON.stringify(report, null, 2));
+  await page.screenshot({ path: join(evidence, 'native-resume.png'), timeout: 5000 });
   console.log(JSON.stringify(report));
   await client.detach();
 } finally {
