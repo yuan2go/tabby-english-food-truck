@@ -2,12 +2,16 @@
 
 2026-09-21。实现已完成，工程证据按下列轮次报告；iPhone 15 Pro Chrome仍 **NEEDS_REVISION / AWAITING_OWNER_REVIEW**。本目录根下既有日志属于首轮候选；本次结果放在 `continuation/`，不继承旧PASS。
 
+## 本轮 Git 交付（不测试）
+
+负责人已明确授权推送所有本地分支、通过 PR #6 合并到 main，并上传本报告及截图录像。全部证据已纳入 Git；本轮只补充同步记录，所有测试、构建、lint、资源检查、浏览器操作及性能采样均 NOT_RUN，Git hooks 跳过。下文是实现阶段历史结果，未重跑。完整 Git 同步范围和计数见 [STATUS](../../STATUS.md)，最终 SHA 与合并结果见 PR 和交付消息。未部署，外部验收状态不变。
+
 ## 版本与范围
 
 - baseline/main：`c105ec8478de5f1f0a03d38ca03255b7938e92f8`，开始和交付前fetch一致。
 - 接手：`7593dff08ab90b5cb36d65db17344666c1208ba7`；保留并续接9个未提交文件。文档治理：`00808639943d7068e54f57c32fbd203d2573d16e`。
 - 集中验证候选：`fb9d4c07566b559b3deb712dc4eeb59ca75d7148`，dirty=false。
-- 最后运行代码：`3a73ee42ec39255bc9f22b38d10ffc22d794ed0b`，dirty=false；之后只归档证据和更新文档。分支 `codex/m22-phone-foods`，[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，保持OPEN、不自动合并。
+- 最后运行代码：`3a73ee42ec39255bc9f22b38d10ffc22d794ed0b`，dirty=false；之后只归档证据和更新文档。分支 `codex/m22-phone-foods`，[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，现按负责人明确授权合并，结果以PR状态为准。
 - content `m2.2`；manifest SHA-256 `024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36`；世界schema6、Profile v3。
 
 续做补齐：显式菜单成长、语言负荷与帮助/并发分开、教学选择进入真实库存、口味与食品意义分离、旧教学迁移、制作台逐实体命中、单客升级双客座位、短横屏空间、异常状态入口与按钮触点。没有换引擎、课程平台或旧项目导入。

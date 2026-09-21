@@ -1,8 +1,16 @@
 # 项目状态
 
+## 2026-09-21 M2.2 Git 同步（按要求不测试）
+
+负责人明确授权提交、推送全部本地分支，并通过 PR 合并到 main，同时上传完整报告、截图与录像。初始核对 6 个本地分支、6 个工作区均干净，全部与远端一致；默认 main 基线为 `c105ec8478de5f1f0a03d38ca03255b7938e92f8`。四个旧阶段分支均已合入 main；`codex/m22-phone-foods` 初始 head 为 `4d8c662a0f7a1645927135be99ea9f521ea5b70a`，有 13 个已推送、尚未合入 main 的提交。本次追加 1 个同步文档提交，复用 [PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6) 按授权合并，替代此前保持 OPEN 的安排；实际合并结果及最终完整 SHA 以 PR 和交付消息为准。保留全部分支与工作区，不强推。
+
+完整证据 `docs/evidence/m22/` 已纳入 Git：178 个文件，含 67 张 PNG、15 段 WebM，以及完整报告、HTML 索引、日志和数据。只核对 Git 对象与远端上传，不重新生成截图或录像。
+
+本次只更新同步记录，不改运行代码。测试、浏览器操作、类型检查、lint、构建、资源检查、性能采样均为 **NOT_RUN**，退出码不适用；提交、推送与本地同步跳过 Git hooks。仓库没有 GitHub Actions 工作流，本次不启用工作流或修改权限。下方实现阶段证据本次未重跑；合并不改变真机 NEEDS_REVISION、人工审核和部署待办，也不执行部署。
+
 ## 当前 M2.2 · IMPLEMENTED / LOCAL_VERIFIED · 真机 NEEDS_REVISION
 
-2026-09-21续做完成“布局与操作→50食品→无尽及教学”整个运行包，保留接手时9个未提交文件的有效修改，补齐真实缺口。baseline/main完整SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；接手 `7593dff08ab90b5cb36d65db17344666c1208ba7`。分支 `codex/m22-phone-foods`，[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，已推送，保持OPEN、不自动合并。
+2026-09-21续做完成“布局与操作→50食品→无尽及教学”整个运行包，保留接手时9个未提交文件的有效修改，补齐真实缺口。baseline/main完整SHA `c105ec8478de5f1f0a03d38ca03255b7938e92f8`；接手 `7593dff08ab90b5cb36d65db17344666c1208ba7`。分支 `codex/m22-phone-foods`，[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)，已推送，现按负责人明确授权通过PR合并到main，实际结果见PR及本次交付消息。
 
 最后运行代码 **`3a73ee42ec39255bc9f22b38d10ffc22d794ed0b`**，生产构建dirty=false；之后仅证据/文档提交，最终Git head见PR及交付消息。content m2.2，资源SHA-256 `024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36`。世界schema6、Profile v3，旧任务/预留/帮助/原文导出保留。
 
