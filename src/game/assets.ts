@@ -88,6 +88,7 @@ export const ASSET_IDS = [
   'guest-1-0',
   'guest-1-1',
   'guest-1-2',
+  'elder',
 ] as const;
 export const assetUrl = (id: string) => resourceUrl('assets', `${id}.webp`);
 
@@ -95,5 +96,5 @@ export const CORE_ASSETS = ASSET_IDS.filter(
   (id) =>
     id.startsWith('cat-') ||
     id.startsWith('guest-') ||
-    ['market', 'tray', 'machine', 'apple', 'banana', 'cup', 'juice'].includes(id),
+    ['market', 'tray', 'machine', 'apple', 'banana', 'cup', 'juice', 'elder'].includes(id),
 );

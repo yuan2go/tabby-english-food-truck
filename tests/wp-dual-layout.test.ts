@@ -4,7 +4,12 @@ import { CHAPTERS } from '../src/content/chapters';
 import { wordById } from '../src/content/learning';
 import { MINI_LEVELS } from '../src/content/mini-levels';
 import { PREPARED, RAW, RECIPES } from '../src/content/recipes';
-import { levelsForChapter, STORY_LEVELS, storyRequests } from '../src/content/story-levels';
+import {
+  levelsForChapter,
+  STORY_LEVELS,
+  storyRequests,
+  storyVisitors,
+} from '../src/content/story-levels';
 import { layoutFor } from '../src/game/layout';
 import { emptyProfile, ProfileStore } from '../src/platform/profile';
 import { advance, createGame } from '../src/rules/game';
@@ -33,6 +38,7 @@ describe('authored content and migrations', () => {
       expect(level.situation.length).toBeGreaterThan(10);
       expect(level.objective.length).toBeGreaterThan(8);
       expect(level.result.length).toBeGreaterThan(8);
+      expect(level.visitors).toHaveLength(level.requests.length);
       for (const request of level.requests) {
         expect(REQUESTS[request]).toBeDefined();
         expect(REQUESTS[request].products.every((product) => supplyable.has(product))).toBe(true);
@@ -41,6 +47,7 @@ describe('authored content and migrations', () => {
         expect(level.choice.alternate.join('|')).not.toBe(level.requests.join('|'));
         expect([...level.choice.alternate].sort()).toEqual([...level.requests].sort());
         expect(storyRequests(level, 1)).toEqual(level.choice.alternate);
+        expect(storyVisitors(level, 1)).toEqual([...level.visitors].reverse());
       }
     }
     const final = STORY_LEVELS.at(-1);

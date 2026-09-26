@@ -1,10 +1,12 @@
 import type { RequestId } from './catalog';
+export type Visitor = 'rabbit' | 'hedgehog' | 'elder';
 
 export interface StoryLevel {
   id: string;
   chapter: number;
   title: string;
   who: string;
+  visitors: readonly Visitor[];
   situation: string;
   objective: string;
   result: string;
@@ -23,6 +25,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 0,
     title: '第一次开门',
     who: '兔兔',
+    visitors: ['rabbit'],
     situation: '长辈把钥匙交给大咪。兔兔来买熟悉的苹果。',
     objective: '听请求，把苹果放盘并交给兔兔。',
     result: '兔兔说：明天我还会来。',
@@ -33,6 +36,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 0,
     title: '老食谱的第一页',
     who: '刺刺',
+    visitors: ['hedgehog'],
     situation: '刺刺带来长辈旧食谱的第一页。',
     objective: '按旧食谱榨一杯苹果汁。',
     result: '刺刺记起长辈说过：小院需要一朵花。',
@@ -43,6 +47,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 0,
     title: '换一种水果',
     who: '兔兔',
+    visitors: ['rabbit'],
     situation: '兔兔回来了，想尝昨天没选的香蕉。',
     objective: '把香蕉直接装盘；食物先和声音见面。',
     result: '兔兔发现试新味道也很开心。',
@@ -53,6 +58,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 0,
     title: '两位朋友',
     who: '兔兔与刺刺',
+    visitors: ['rabbit', 'hedgehog'],
     situation: '两位朋友同时来，一位想要混合水果，一位想喝香蕉汁。',
     objective: '决定先招呼谁，再完成两份不同请求。',
     result: '先被照顾的朋友帮另一位拿住了花盆。',
@@ -69,6 +75,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 0,
     title: '窗台的小花',
     who: '长辈与兔兔',
+    visitors: ['elder', 'rabbit'],
     situation: '兔兔带来一盆小花，长辈看着第一天的营业。',
     objective: '准备两只苹果和一杯果汁，招呼新朋友。',
     result: '小花放上窗台。旧食谱夹着一张写着“树荫”的纸条。',
@@ -79,6 +86,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 1,
     title: '树荫下的杯子',
     who: '兔兔',
+    visitors: ['rabbit'],
     situation: '兔兔带着同伴回来，想用杯子接一球香草。',
     objective: '选杯、一球香草、制作并送出。',
     result: '兔兔说：原来杯装也很好拿。',
@@ -89,6 +97,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 1,
     title: '蛋筒的声音',
     who: '刺刺',
+    visitors: ['hedgehog'],
     situation: '刺刺喜欢边走边吃，想拿蛋筒。',
     objective: '选蛋筒和香草，做完后交给刺刺。',
     result: '刺刺指着树上的彩旗，说还缺一角。',
@@ -99,6 +108,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 1,
     title: '不一样的口味',
     who: '兔兔',
+    visitors: ['rabbit'],
     situation: '树荫下，兔兔这次想试草莓味。',
     objective: '杯装不变，改选草莓球。',
     result: '兔兔记住了自己选的新味道。',
@@ -109,6 +119,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 1,
     title: '一球再一球',
     who: '刺刺',
+    visitors: ['hedgehog'],
     situation: '刺刺要请同伴，想把两种味道放在同一杯。',
     objective: '杯中放香草和草莓两球，明确制作。',
     result: '刺刺把彩旗系在树荫旁。',
@@ -119,6 +130,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 1,
     title: '旗子下面',
     who: '兔兔与刺刺',
+    visitors: ['rabbit', 'hedgehog'],
     situation: '彩旗挂好了。两位朋友的要求仍然不同。',
     objective: '做香蕉配料冰淇淋，再做蛋筒；先后由你安排。',
     result: '彩旗留在小院。兔兔说下次要带野餐篮。',
@@ -129,6 +141,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 2,
     title: '野餐篮打开了',
     who: '兔兔',
+    visitors: ['rabbit'],
     situation: '兔兔带来篮子，想把芝士夹进面包。',
     objective: '准备两片面包和芝士，盖合三明治。',
     result: '兔兔在树下找到了野餐的位置。',
@@ -139,6 +152,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 2,
     title: '菜园里的颜色',
     who: '刺刺',
+    visitors: ['hedgehog'],
     situation: '刺刺带来生菜和番茄，想试另一种夹层。',
     objective: '用两片面包、生菜和番茄做三明治。',
     result: '刺刺想把这份带给正在布置小院的长辈。',
@@ -149,6 +163,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 2,
     title: '野餐还缺一杯',
     who: '兔兔与长辈',
+    visitors: ['rabbit', 'elder'],
     situation: '三明治快好了，长辈还想要一杯果汁。',
     objective: '分别安排三明治和果汁；等待加工时可准备另一盘。',
     result: '长辈铺开一角旧桌布，留给大家坐。',
@@ -159,6 +174,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 2,
     title: '再带一份水果',
     who: '刺刺',
+    visitors: ['hedgehog', 'rabbit'],
     situation: '刺刺在开工前补充野餐需要的水果，不改变已接订单。',
     objective: '把蔬菜三明治与混合水果分别送好。',
     result: '刺刺帮兔兔把野餐篮放上桌。',
@@ -169,6 +185,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 2,
     title: '旧桌布的新位置',
     who: '兔兔与刺刺',
+    visitors: ['rabbit', 'hedgehog'],
     situation: '大家想试两种夹层。旧桌布刚好铺满小院桌子。',
     objective: '完成两份不同三明治，安排托盘。',
     result: '桌布留在小院。长辈说黄昏会有人带灯来。',
@@ -179,6 +196,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 3,
     title: '煎台点亮了',
     who: '刺刺',
+    visitors: ['hedgehog'],
     situation: '黄昏，刺刺想吃一个有生菜和番茄的汉堡。',
     objective: '煎熟肉饼，再与面包和蔬菜组装。',
     result: '刺刺说香味让路过的朋友停了下来。',
@@ -189,6 +207,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 3,
     title: '芝士的那份',
     who: '兔兔',
+    visitors: ['rabbit'],
     situation: '兔兔想吃芝士汉堡，和刺刺的夹层不同。',
     objective: '煎饼后换芝士组装。',
     result: '兔兔帮忙把第一盏小灯挂起来。',
@@ -199,6 +218,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 3,
     title: '煎饼的时候',
     who: '刺刺与长辈',
+    visitors: ['hedgehog', 'elder'],
     situation: '肉饼在煎台上，长辈也想要一个苹果。',
     objective: '煎饼等待时可给另一盘准备苹果。',
     result: '长辈说：你已经会安排厨房了。',
@@ -209,6 +229,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 3,
     title: '先做哪一份',
     who: '兔兔与刺刺',
+    visitors: ['rabbit', 'hedgehog'],
     situation: '有人想吃芝士汉堡，也有人要三明治。',
     objective: '选择先准备哪一份，并让煎台和组合板衔接。',
     result: '先拿到食物的朋友帮另一位摆好餐具。',
@@ -225,6 +246,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 3,
     title: '灯串亮了',
     who: '兔兔与刺刺',
+    visitors: ['rabbit', 'hedgehog'],
     situation: '老朋友带着灯串回来，还想各要一份汉堡。',
     objective: '分清两种夹层，完成双客服务。',
     result: '灯亮时，朋友们说出了秘密：欢迎大咪第一次独立开店。大咪决定办小食会。',
@@ -235,6 +257,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 4,
     title: '大咪发出邀请',
     who: '大咪与长辈',
+    visitors: ['elder', 'rabbit'],
     situation: '大咪翻开旧食谱未写完的“社区小食会”一页，主动邀请邻居。',
     objective: '先给帮忙的朋友准备果汁和水果。',
     result: '长辈把笔交给大咪：最后一页由你来写。',
@@ -245,6 +268,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 4,
     title: '桌布和彩旗',
     who: '兔兔与刺刺',
+    visitors: ['rabbit', 'hedgehog'],
     situation: '兔兔带着彩旗，刺刺铺好桌布。',
     objective: '为两位朋友分别准备冰淇淋和三明治。',
     result: '小院的花、彩旗和桌布都回到了朋友身边。',
@@ -255,6 +279,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 4,
     title: '灯光下的协作',
     who: '长辈与兔兔',
+    visitors: ['elder', 'rabbit'],
     situation: '灯串亮了，长辈看着煎台，兔兔摆好杯子。',
     objective: '等待肉饼时准备香蕉汁，或先做另一份。',
     result: '大咪把准备顺序安排清楚，长辈放心坐下。',
@@ -265,6 +290,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 4,
     title: '每个人都不一样',
     who: '刺刺与兔兔',
+    visitors: ['hedgehog', 'rabbit'],
     situation: '朋友们有各自喜欢的口味与搭配。',
     objective: '完成双球冰淇淋和蔬菜三明治，分给对应客人。',
     result: '兔兔想起第一次只敢要苹果，笑着说今天想试更多。',
@@ -275,6 +301,7 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     chapter: 4,
     title: '食谱最后一页',
     who: '大咪与所有朋友',
+    visitors: ['rabbit', 'hedgehog', 'elder'],
     situation: '旧食谱的最后一页还空着。小院里花、彩旗、桌布与灯都齐了。',
     objective: '由大咪亲手完成最后的汉堡、果汁和蛋筒交付。',
     result: '大咪写下“朋友们喜欢的味道”。长辈与兔兔、刺刺一起合影，小食会开场了。',
@@ -286,3 +313,5 @@ export const levelsForChapter = (chapter: number) =>
   STORY_LEVELS.filter((level) => level.chapter === chapter);
 export const storyRequests = (level: StoryLevel, choice: 0 | 1 = 0) =>
   choice === 1 && level.choice ? level.choice.alternate : level.requests;
+export const storyVisitors = (level: StoryLevel, choice: 0 | 1 = 0) =>
+  choice === 1 && level.choice ? [...level.visitors].reverse() : level.visitors;

@@ -8,6 +8,7 @@ import {
   type StationId,
   suppliesFor,
 } from '../content/recipes';
+import { storyLevel, storyVisitors } from '../content/story-levels';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { trayItems } from '../rules/game';
@@ -445,18 +446,17 @@ export class TruckScene extends Phaser.Scene {
         .fillRoundedRect(8, l.regions.guests.y + l.regions.guests.height - 3, l.width - 16, 8, 4)
         .fillStyle(0xd9ae70)
         .fillRoundedRect(8, l.regions.guests.y + l.regions.guests.height - 6, l.width - 16, 5, 2);
-    for (const o of s.orders) {
+    const level = s.session.activity === 'story' ? storyLevel(s.session.levelId) : undefined;
+    const visitors = level ? storyVisitors(level, s.session.storyChoice ?? 0) : [];
+    for (const [orderIndex, o] of s.orders.entries()) {
       if (o.status === 'queued' || o.status === 'done') continue;
       const p = l.guests[o.seat];
-      this.image(
-        o.id,
-        `guest-${o.seat}-${o.status === 'leaving' ? 1 : 0}`,
-        p.x,
-        p.y,
-        l.guestHeight,
-        l.guestHeight,
-        3,
-      );
+      const visitor = visitors[orderIndex] ?? (o.seat === 0 ? 'rabbit' : 'hedgehog');
+      const guestAsset =
+        visitor === 'elder'
+          ? 'elder'
+          : `guest-${visitor === 'rabbit' ? 0 : 1}-${o.status === 'leaving' ? 1 : 0}`;
+      this.image(o.id, guestAsset, p.x, p.y, l.guestHeight, l.guestHeight, 3);
       const delivery = [s.actor.current, ...s.actor.queue].find(
         (job) => job?.kind === 'delivery' && job.order === o.id,
       );
@@ -477,7 +477,7 @@ export class TruckScene extends Phaser.Scene {
         );
       this.hot(
         o.id,
-        `客人${o.seat === 0 ? 'A' : 'B'}：选择并重听请求`,
+        `客人${o.seat === 0 ? 'A' : 'B'}·${{ rabbit: '兔兔', hedgehog: '刺刺', elder: '长辈' }[visitor]}：选择并重听请求`,
         'guest',
         p.x,
         p.y,

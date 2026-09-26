@@ -49,6 +49,13 @@ test('desktop mouse opens first story services and makes cup ice cream', async (
   await page.getByRole('button', { name: '帮朋友完成这关' }).click();
   await begin(page);
   await page.screenshot({ path: 'docs/evidence/dual-layout-playflow/after-desktop-1440x900.png' });
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  await expect(page.locator('[data-hotspot="tray-0"]')).toBeVisible();
+  await page.screenshot({ path: 'docs/evidence/dual-layout-playflow/wide-desktop-1920x1080.png' });
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await expect(page.locator('[data-hotspot="tray-0"]')).toBeVisible();
+  await page.screenshot({ path: 'docs/evidence/dual-layout-playflow/narrow-desktop-1024x768.png' });
+  await page.setViewportSize({ width: 1440, height: 900 });
   await mouseHot(page, 'supply-apple');
   await send(page);
   await page.getByRole('button', { name: '继续下一小关' }).click();
@@ -119,6 +126,7 @@ test('phone touch makes a cone after desktop progress and survives layout change
     hasTouch: true,
     isMobile: true,
     storageState: 'test-results/after-first-ice.storage.json',
+    recordVideo: { dir: 'test-results/phone-ice-video', size: { width: 393, height: 665 } },
   });
   const page = await context.newPage();
   await page.goto('/');
@@ -189,6 +197,7 @@ test('desktop mouse corrects a wrong cone order, withdraws ingredients and makes
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     storageState: 'test-results/after-first-ice.storage.json',
+    recordVideo: { dir: 'test-results/desktop-ice-video', size: { width: 1440, height: 900 } },
   });
   const page = await context.newPage();
   await page.goto('/');
