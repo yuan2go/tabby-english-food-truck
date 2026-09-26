@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { REQUESTS, type RequestId } from '../content/catalog';
 import { ITEM_AUDIO, lessonWords } from '../content/learning';
-import { FOOD, RAW } from '../content/recipes';
+import { FOOD, type Product, RAW } from '../content/recipes';
 import {
   acceptsChoice,
   preparationSteps,
@@ -10,7 +10,7 @@ import {
   UNITS,
 } from '../content/teaching';
 import type { ViewState } from '../game/input';
-import type { ForegroundAudio } from '../platform/audio';
+import type { ForegroundAudio, PlaybackResult } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { LessonProgress } from '../platform/profile';
 import { shuffle } from '../rules/minigames';
@@ -51,6 +51,9 @@ export function Lesson({
     };
   });
   const [feedback, setFeedback] = useState('');
+  const [wrongChoice, setWrongChoice] = useState<readonly Product[]>([]);
+  const [voiceResult, setVoiceResult] = useState<PlaybackResult | null>(null);
+  const voiceToken = useRef(0);
   const [destination, setDestination] = useState<Destination>({ tray: view.selectedTray });
   const unit = UNITS[progress.units[progress.index] ?? ''];
   const spec = REQUESTS[request];
@@ -61,19 +64,30 @@ export function Lesson({
     setProgress(next);
   };
   useEffect(() => {
+    let cancelled = false;
+    const token = ++voiceToken.current;
+    setVoiceResult(null);
+    let playback: Promise<PlaybackResult> | null = null;
     if (progress.phase === 'meaning' && unit) {
       profile.present(unit.id);
-      void audio.sequence(
+      playback = audio.sequence(
         request === 'vanilla-cup' || request === 'strawberry-cup'
           ? ['menu-ice-flavor', unit.audio]
           : ['vanilla-cone', 'cup-vanilla', 'cone-vanilla'].includes(request)
             ? ['menu-ice-container', unit.audio]
             : [unit.audio],
       );
-    } else if (progress.phase === 'try' && unit) void audio.play(unit.prompt);
+    } else if (progress.phase === 'try' && unit) playback = audio.play(unit.prompt);
     else if (progress.phase === 'recipe')
-      void audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]]);
-    return () => audio.stop();
+      playback = audio.play(ITEM_AUDIO[current?.output ?? spec.products[0]]);
+    void playback?.then((result) => {
+      if (!cancelled && token === voiceToken.current) setVoiceResult(result);
+    });
+    return () => {
+      cancelled = true;
+      voiceToken.current++;
+      audio.stop();
+    };
   }, [audio, profile, progress.phase, unit, current?.output, spec.products, request]);
   useEffect(() => {
     view.lessonProducts =
@@ -148,15 +162,23 @@ export function Lesson({
       return;
     }
     if (!correct) {
+      setWrongChoice(chosen.products);
       update({
         ...progress,
         tries: progress.tries + 1,
         nextAttempt: progress.nextAttempt + 1,
         support: [...new Set([...progress.support, 'difference-feedback'])],
       });
-      setFeedback('再看看刚才的食物，随时可以听或请小猫帮忙。');
+      setFeedback(
+        chosen.products.length < unit.products.length
+          ? '这次少了一份。看看两边的图片，再选一次。'
+          : chosen.products.length > unit.products.length
+            ? '这次多了一份。看看两边的图片，再选一次。'
+            : '这张图和请求不同。看图换一份，或点 ♫ 重听。',
+      );
       return;
     }
+    setWrongChoice([]);
     profile.value.learnedUnits = [...new Set([...profile.value.learnedUnits, unit.id])].slice(-80);
     const index = progress.index + 1;
     update({
@@ -182,6 +204,38 @@ export function Lesson({
           先到餐车试试 ↗
         </button>
       </div>
+      {voiceResult === 'failed' || voiceResult === 'muted' || voiceResult === 'interrupted' ? (
+        <div className="voice-recovery" role="status">
+          <span>
+            {voiceResult === 'failed'
+              ? '声音没有播出来'
+              : voiceResult === 'muted'
+                ? '声音已关闭'
+                : '声音暂停了'}
+            ，看图也能继续。
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              const id =
+                progress.phase === 'meaning'
+                  ? unit?.audio
+                  : progress.phase === 'try'
+                    ? unit?.prompt
+                    : ITEM_AUDIO[current?.output ?? spec.products[0]];
+              if (id) {
+                const token = ++voiceToken.current;
+                setVoiceResult(null);
+                void audio.play(id).then((result) => {
+                  if (token === voiceToken.current) setVoiceResult(result);
+                });
+              }
+            }}
+          >
+            ♫ 重试
+          </button>
+        </div>
+      ) : null}
       {['vanilla-cup', 'strawberry-cup'].includes(request) ? (
         <p>这一页：一球，装杯；选你听到的口味。</p>
       ) : ['vanilla-cone', 'cup-vanilla', 'cone-vanilla'].includes(request) ? (
@@ -427,6 +481,18 @@ export function Lesson({
       <p role="status" className="lesson-feedback">
         {feedback}
       </p>
+      {wrongChoice.length && unit ? (
+        <div className="lesson-difference">
+          <span>刚才选的</span>
+          {teachingFigures(wrongChoice).map(({ id, product }) => (
+            <Food key={id} product={product} />
+          ))}
+          <span>→ 看看请求</span>
+          {teachingFigures(unit.products).map(({ id, product }) => (
+            <Food key={id} product={product} />
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }

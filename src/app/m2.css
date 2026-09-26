@@ -242,6 +242,25 @@
   padding: 65px 5% 20px;
   text-align: center;
   box-shadow: inset 20px 0 40px #996c4438;
+  overflow-y: auto;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+.story-guests {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 620px;
+  margin: 0 auto 12px;
+  border: 1px solid #c3a06f;
+  border-radius: 14px;
+}
+.story-guests legend {
+  font-size: 14px;
+}
+.story-guests button {
+  min-height: 44px;
+  font-size: 14px;
 }
 .recipe-book h2,
 .mini-lobby h2,
@@ -359,6 +378,15 @@
 .m2-shell .ending {
   z-index: 25;
   gap: 10px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+}
+.m2-shell .ending .story-guests button {
+  width: auto;
+  min-width: 110px;
+  margin: 0;
 }
 .m2-shell .ending h2 {
   font-size: 25px;

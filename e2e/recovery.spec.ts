@@ -48,14 +48,20 @@ test('M2 Pad prologue and real processing restore in portrait and landscape', as
   await page.getByRole('button', { name: '晨光果汁', exact: true }).tap();
   expect((await state(page)).runId).toBe(before.runId);
   await expect
-    .poll(async () => (await state(page)).machine.status, { timeout: 15000 })
-    .toBe('ready');
-  const item = (await state(page)).items.find((i) => i.product === 'juice');
-  if (!item) throw Error('juice');
-  await tap(page, `item-${item.id}`);
-  await choosePrep(page, '● 1号盘');
+    .poll(
+      async () => {
+        const current = await state(page);
+        return {
+          machine: current.machine.status,
+          route: current.routing.machine,
+          food: current.items.map((item) => [item.product, item.location]),
+        };
+      },
+      { timeout: 15000 },
+    )
+    .toEqual({ machine: 'empty', route: null, food: [['juice', 'tray:0:0']] });
   await page.screenshot({ path: info.outputPath('pad-portrait-collected.png') });
-  await page.getByRole('button', { name: '送给客人 ↗', exact: true }).tap();
+  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await expect
     .poll(async () => (await state(page)).orders.filter((o) => o.status === 'done').length, {
       timeout: 15000,
@@ -226,10 +232,11 @@ test('M2 unsupported snapshot is protected and exported before explicit reset', 
   expect(await page.evaluate(() => localStorage.getItem('tabby.foodtruck.save.m2'))).toBe(bad);
 });
 
-test('M2 native background freeze stops clock, helper, machine and audio', async () => {
+test('M2 native background freeze stops clock, helper, machine and audio', async (_fixtures, info) => {
   test.setTimeout(60000);
   execFileSync(process.execPath, ['scripts/check-lifecycle.mjs', 'http://127.0.0.1:4174/'], {
     timeout: 45000,
     stdio: 'pipe',
+    env: { ...process.env, EVIDENCE_DIR: info.outputPath() },
   });
 });

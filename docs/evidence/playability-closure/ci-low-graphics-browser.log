@@ -1,0 +1,22 @@
+[WebServer] (node:52669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 1 worker
+
+(node:52707) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending (3.4m)
+  ✓   2 e2e/game.spec.ts:111:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery (8.5s)
+  ✓   3 e2e/game.spec.ts:147:1 › M2 pause and homepage resume keep world; tutorials are separate from the session (8.7s)
+(node:53232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (14.9s)
+  ✓   5 e2e/m22-boundaries.spec.ts:144:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (2.6s)
+  ✓   6 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (14.0s)
+  ✓   7 e2e/m22-playability-visible.spec.ts:157:1 › visible picture and recipe walk completes four cooking families and mixed late service (3.3m)
+  ✓   8 e2e/m22-visible-walk.spec.ts:12:1 › visible interface and formal help walk: apple and juice without hidden answers (18.9s)
+  ✓   9 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (4.1s)
+  ✓  10 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (6.5s)
+  ✓  11 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (1.9s)
+
+  11 passed (8.1m)

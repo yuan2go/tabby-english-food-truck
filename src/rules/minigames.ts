@@ -43,6 +43,30 @@ export function shuffle<T>(input: readonly T[], seed: number): T[] {
   }
   return list;
 }
+export function eligibleWord(
+  id: string,
+  kind: MiniKind,
+  difficulty: Difficulty,
+  foundation: Foundation,
+): boolean {
+  const word = wordById(id);
+  if (!word) return false;
+  if (kind === 'match') return true;
+  const max =
+    foundation === 'new'
+      ? difficulty === 'demo'
+        ? 6
+        : 5
+      : foundation === 'letters'
+        ? difficulty === 'independent'
+          ? 7
+          : 8
+        : 12;
+  return (
+    word.text.replaceAll(' ', '').length <= max &&
+    (foundation === 'phrases' || !word.text.includes(' '))
+  );
+}
 export function createMini(
   kind: MiniKind,
   difficulty: Difficulty,
@@ -56,25 +80,7 @@ export function createMini(
   const vocabulary = (
     available.length >= 2 ? available : WORDS.filter((w) => ['apple', 'banana'].includes(w.id))
   ).map((w) => w.id);
-  const max =
-    foundation === 'new'
-      ? difficulty === 'demo'
-        ? 6
-        : 5
-      : foundation === 'letters'
-        ? difficulty === 'independent'
-          ? 7
-          : 8
-        : 12;
-  const candidates = vocabulary.filter((id) => {
-    const w = wordById(id);
-    return (
-      w &&
-      (kind === 'match' ||
-        (w.text.replaceAll(' ', '').length <= max &&
-          (foundation === 'phrases' || !w.text.includes(' '))))
-    );
-  });
+  const candidates = vocabulary.filter((id) => eligibleWord(id, kind, difficulty, foundation));
   const pool = candidates.length ? candidates : ['apple'];
   if (!candidates.length && !vocabulary.includes('apple')) vocabulary.push('apple');
   const shuffled = shuffle(pool, seed);

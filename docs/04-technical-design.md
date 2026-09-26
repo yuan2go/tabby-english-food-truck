@@ -1,7 +1,7 @@
 # 技术设计 · 独立餐车游戏
 
 
-**当前 M2.2 合同（2026-09-21）**：保留React/TypeScript/Vite/Phaser及唯一确定性规则链。统一布局模块输出分区及锚点；visualViewport/ResizeObserver合并到一帧测量，DOM与Canvas都用CSS世界坐标。自动器具、加工目的盘及容量预留进入schema6，显式迁移schema5/4/3，旧任务未绑定则保持原出口，不猜换盘；旧档/导出保护不变。食品注册为词汇语义唯一源，物料/变体显式映射，50概念校验不数状态或器具。资源按需加载，存档和菜单使用同一注册关系验证。
+**M2.2 基础合同（2026-09-21；本轮收敛见末节）**：保留React/TypeScript/Vite/Phaser及唯一确定性规则链。统一布局模块输出分区及锚点；visualViewport/ResizeObserver合并到一帧测量，DOM与Canvas都用CSS世界坐标。自动器具、加工目的盘及容量预留进入schema6，显式迁移schema5/4/3，旧任务未绑定则保持原出口，不猜换盘；旧档/导出保护不变。食品注册为词汇语义唯一源，物料/变体显式映射，50概念校验不数状态或器具。资源按需加载，存档和菜单使用同一注册关系验证。
 
 单前景音频对NotAllowedError、加载/解码/中断及静音分开诊断；失败不记录语言错误，支持保留。新教学实物尝试调用既有move命令，只有用户确认产生尝试，提示或自动搬运不产生语言成绩。队列、观察、菜单/seed/cursor与草稿有界。
 版本：v0.5，2026-09-21。M2.1沿用既有React/TypeScript/Vite/Phaser；以下通用不变量继续有效，M1保存/构建段落保留为历史，M2基础及M2.1实现决定见末节。运行证据和审核状态见STATUS。
@@ -174,3 +174,9 @@ schema5 新增 routing 与 supplyPage，旧 schema4 在不猜成绩的前提下�
 续做修正：世界schema6显式迁移已有schema5的语言负荷字段，保留现有订单/物料/路由/任务；Profile v3从v2补独立语言设置，不猜成绩。教学意义、实际操作与交付记录分开，世界受阻不产生语言尝试；食品菜单准入统一由注册映射取得，不能构造不存在的food-apple/food-banana请求。
 
 Profile v2的旧冰淇淋教学单元按lesson.request迁到strawberry-scoop/vanilla-flavor，保留阶段、次数、support和原文导出；不能定位语义的显示/学习标记保留legacy-v2前缀，不猜鲜水果或植物知识。Canvas启动目标优先于途经的移动食材，避免接取动画截获启动点击；落盘与开始制作仍由同一规则命令决定。
+
+### WP-M22-PLAYABILITY-CLOSURE-01 · 终态与回归边界
+
+前景播放单段和序列统一返回 completed、muted、failed、interrupted、skipped；序列遇非 completed 即停止。epoch/flow 与各界面会话令牌拦截旧回调，后台/关闭/切换/重听不会推进新教学或新菜单。只有 completed 可写“播放完成”；听懂须由另行观察判断。失败与主动静音均可用图示继续，且不发语言错误命令。
+
+Phaser 只投影规则物品与任务，四类台面可见层不产生第二份库存；设备到期仍由有效规则时钟结算。CI 使用锁定依赖和 package.engines 兼容 Node，先 build 再由 HTTP preview 运行精选浏览器路径，避免 Playwright 服务重复 build。Linux 无实体 GPU 的 CI 浏览器通过正式的 `lowGraphics` 本地设置降低 Canvas 像素预算，仅保留失败录像；默认画质另由本地浏览器截图、录像和真机复核覆盖，CI 省电模式通过不证明默认画质性能。浏览器可读内部状态的工程回归与只看可见图片/正式帮助的走查分别记录。

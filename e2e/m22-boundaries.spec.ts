@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { layoutFor } from '../src/game/layout';
 import { hot, lesson, startStory, state, tap } from './helpers';
 
 test.use({
@@ -15,6 +16,14 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   await page.getByRole('button', { name: '设置', exact: true }).tap();
   await page.getByRole('button', { name: '两位一起招呼' }).tap();
   await page.getByRole('button', { name: '← 返回', exact: true }).tap();
+  await expect
+    .poll(
+      async () => (await state(page)).orders.filter((order) => order.status === 'waiting').length,
+      {
+        timeout: 15000,
+      },
+    )
+    .toBe(2);
   await tap(page, 'supply-banana');
   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
@@ -34,7 +43,20 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   const full = await state(page);
   expect(full.routing.machine).not.toBeNull();
   await tap(page, 'supply-apple');
-  expect((await state(page)).items).toHaveLength(full.items.length);
+  const stillFull = await state(page);
+  expect(stillFull.nextId).toBe(full.nextId);
+  expect(stillFull.items.every((item) => full.items.some((prior) => prior.id === item.id))).toBe(
+    true,
+  );
+  if (stillFull.machine.status === 'empty') {
+    const cup = full.items.find((item) => item.location === 'machine:cup');
+    const apple = full.items.find((item) => item.location === 'machine:apple');
+    expect(stillFull.items.find((item) => item.id === cup?.id)).toMatchObject({
+      product: 'juice',
+      location: 'tray:0:0',
+    });
+    expect(stillFull.items.some((item) => item.id === apple?.id)).toBe(false);
+  } else expect(stillFull.items).toEqual(full.items);
   const attempts = (await state(page)).attempts.length;
   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
@@ -47,7 +69,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   await lesson(page);
   const restored = await state(page);
   const consumed = frozen.items.find((i) => i.location === 'machine:apple');
-  const vessel = frozen.items.find((i) => i.location === 'machine:cup');
+  const vessel = frozen.items.find((i) => i.location === 'machine:cup' || i.product === 'juice');
   const alreadyFinished = restored.items.some((i) => i.product === 'juice');
   expect(restored.items.map((i) => i.id)).toEqual(
     frozen.items.filter((i) => !alreadyFinished || i.id !== consumed?.id).map((i) => i.id),
@@ -92,6 +114,13 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   }
   for (const height of [300, 342, 393]) {
     await page.setViewportSize({ width: 852, height });
+    const helper = layoutFor(852, height, 'service').helper;
+    await expect
+      .poll(async () => {
+        const point = await hot(page, 'note');
+        return [Math.round(point.x), Math.round(point.y)];
+      })
+      .toEqual([Math.round(helper.x), Math.round(helper.y - 20)]);
     await expect
       .poll(async () => {
         const p = await hot(page, 'note');

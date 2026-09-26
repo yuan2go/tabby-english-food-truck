@@ -135,7 +135,9 @@ export function validateState(v: unknown): v is GameState {
         record(a) &&
         str(a.id) &&
         str(a.version) &&
-        ['started', 'completed', 'interrupted', 'failed'].includes(a.status as string) &&
+        ['started', 'completed', 'interrupted', 'failed', 'muted', 'skipped'].includes(
+          a.status as string,
+        ) &&
         number(a.gameTime),
     )
   )

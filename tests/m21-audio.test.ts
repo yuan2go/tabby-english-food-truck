@@ -65,7 +65,7 @@ it('foreground sequence waits on completion; explicit replay cancels the remaini
   stale?.();
   await Promise.resolve();
   expect(audio.active).toBe('apple');
-  expect(await sequence).toBe('cancelled');
+  expect(await sequence).toBe('interrupted');
   Player.all[2]?.onended?.();
   expect(await replay).toBe('completed');
   expect(
@@ -74,23 +74,38 @@ it('foreground sequence waits on completion; explicit replay cancels the remaini
     ),
   ).toHaveLength(0);
 });
-it('refusal, missing clip and mute settle without waiting for an invented timer', async () => {
+it('sequence stops at failure, missing clip and mute without playing later clips', async () => {
   Player.rejected = true;
-  expect(await audio.sequence(['chapter-juice', 'request-apple'])).toBe('completed');
+  expect(await audio.sequence(['chapter-juice', 'request-apple'])).toBe('failed');
+  expect(Player.all).toHaveLength(1);
   expect(audio.active).toBeNull();
   expect(await audio.play('not-a-resource')).toBe('failed');
   audio.set('voice', false);
-  expect(await audio.play('apple')).toBe('muted');
+  expect(await audio.sequence(['apple', 'banana'])).toBe('muted');
+  expect(Player.all).toHaveLength(1);
   expect(events.filter((e) => e.type === 'audio' && e.audio.status === 'started')).toHaveLength(0);
 });
-it('skip and background stop cancel speech and late callbacks cannot provide playback evidence', async () => {
+it('skip, mute and background stop have distinct results; late callbacks cannot provide evidence', async () => {
   const started = vi.fn();
   const playing = audio.play('apple', started);
-  audio.stop();
+  const stale = Player.all[0]?.onended;
+  audio.skip();
   await Promise.resolve();
-  expect(await playing).toBe('interrupted');
+  stale?.();
+  expect(await playing).toBe('skipped');
+  expect(events.some((e) => e.type === 'audio' && e.audio.status === 'skipped')).toBe(true);
   expect(started).not.toHaveBeenCalled();
+  const sequence = audio.sequence(['apple', 'banana']);
+  audio.set('voice', false);
+  expect(await sequence).toBe('muted');
+  expect(events.some((e) => e.type === 'audio' && e.audio.status === 'muted')).toBe(true);
+  audio.set('voice', true);
+  const interrupted = audio.play('apple');
+  audio.stop();
+  expect(await interrupted).toBe('interrupted');
   vi.stubGlobal('document', { hidden: true });
-  expect(await audio.sequence(['apple', 'banana'])).toBe('cancelled');
-  expect(Player.all).toHaveLength(1);
+  expect(await audio.sequence(['apple', 'banana'])).toBe('interrupted');
+  expect(events.filter((e) => e.type === 'audio' && e.audio.status === 'completed')).toHaveLength(
+    0,
+  );
 });

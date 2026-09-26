@@ -43,7 +43,7 @@ export interface Attempt {
 export interface AudioRecord {
   id: string;
   version: string;
-  status: 'started' | 'completed' | 'interrupted' | 'failed';
+  status: 'started' | 'completed' | 'interrupted' | 'failed' | 'muted' | 'skipped';
   gameTime: number;
 }
 export interface GameState {

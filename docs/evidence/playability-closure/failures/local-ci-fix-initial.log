@@ -1,0 +1,49 @@
+[WebServer] (node:45311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:45354) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending (4.6m)
+(node:46594) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (33.6s)
+
+
+  1) e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: '小猫陪你一起做' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: '小猫陪你一起做' }) with timeout 6000ms
+      - waiting for getByRole('heading', { name: '小猫陪你一起做' })
+
+
+      108 |       .toBe('CANVAS');
+      109 |     await tap(page, 'note');
+    > 110 |     await expect(page.getByRole('heading', { name: '小猫陪你一起做' })).toBeVisible();
+          |                                                                  ^
+      111 |     await page.getByRole('button', { name: '继续营业', exact: true }).tap();
+      112 |     await tap(page, 'tray-1', 25);
+      113 |     await tap(page, 'supply-apple');
+        at /Users/yuan/.codex/worktrees/tabby-m22-playability/e2e/m22-boundaries.spec.ts:110:66
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  1 passed (5.2m)

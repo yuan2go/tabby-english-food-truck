@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { JUICE_MS, MODES, PRODUCT_NAMES, type Product } from '../content/catalog';
+import { requestFamily } from '../content/chapters';
 import {
   FAMILY_STATIONS,
   foodAsset,
@@ -440,7 +441,20 @@ export class TruckScene extends Phaser.Scene {
         3,
       );
       if (o.status === 'leaving')
-        this.badge(`label-${o.id}`, 'Thank you!', p.x, p.y + l.guestHeight * 0.47, 120, 36);
+        this.badge(
+          `label-${o.id}`,
+          {
+            juice: 'So fresh!',
+            ice: 'So cool!',
+            sandwich: 'Yummy!',
+            burger: 'So tasty!',
+            ready: 'Thank you!',
+          }[requestFamily(o.request)],
+          p.x,
+          p.y + l.guestHeight * 0.47,
+          120,
+          36,
+        );
       this.hot(
         o.id,
         `客人${o.seat === 0 ? 'A' : 'B'}：选择并重听请求`,
@@ -479,10 +493,12 @@ export class TruckScene extends Phaser.Scene {
       this.badge(
         'machine-label',
         s.machine.status === 'processing'
-          ? '制作中…'
+          ? '水果变成果汁…'
           : s.machine.status === 'ready'
             ? '果汁好了'
-            : '▶ 榨汁',
+            : s.items.some((i) => i.location === 'machine:apple')
+              ? '▶ 榨汁'
+              : '选水果 ↗',
         m.x,
         l.regions.work.y + l.regions.work.height - 26,
         Math.max(108, 120 * l.scale),
@@ -647,6 +663,9 @@ export class TruckScene extends Phaser.Scene {
     this.kitchen?.update(s, l);
     if (s.machine.status === 'processing') {
       const p = 1 - s.machine.remaining / JUICE_MS;
+      const color = s.items.some((i) => i.location === 'machine:apple' && i.product === 'banana')
+        ? 0xf4db91
+        : 0xf3ba37;
       this.progress
         .fillStyle(0x173e32, 0.8)
         .fillRoundedRect(
@@ -666,7 +685,7 @@ export class TruckScene extends Phaser.Scene {
           3,
         );
       this.progress
-        .fillStyle(0xf3ba37, 0.75)
+        .fillStyle(color, 0.75)
         .fillRect(
           l.machine.x + 47 * l.scale,
           l.machine.y + (43 - 24 * p) * l.scale,
@@ -770,6 +789,13 @@ export class TruckScene extends Phaser.Scene {
           hot.height,
           12,
         );
+    const selectedGuest = s.orders.find(
+      (order) => order.id === this.ui.selectedGuest && order.status === 'waiting',
+    );
+    if (selectedGuest) {
+      const guest = l.guests[selectedGuest.seat];
+      this.focusRing.lineStyle(4, 0xffdc73).strokeCircle(guest.x, guest.y, l.guestHeight * 0.55);
+    }
     this.game.canvas.dataset.motionCount = String(this.motions.size);
     this.game.canvas.dataset.entityCount = String(this.images.size);
     this.game.canvas.dataset.createdEntities = String(this.createdEntities);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { REQUESTS } from '../content/catalog';
-import { type Family, isFinished, SUPPLY_PAGES } from '../content/recipes';
+import { type Family, isFinished, type Product, SUPPLY_PAGES } from '../content/recipes';
 import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
 import type { ForegroundAudio } from '../platform/audio';
@@ -41,6 +41,8 @@ export function ServiceControls({
   const send = (o: Order) => {
     ui.selectedGuest = o.id;
     activate(`send-${o.id}`, controller, audio, ui);
+    ui.selectedGuest = '';
+    ui.change();
     setTargets(false);
   };
   const r = l.regions.action,
@@ -72,6 +74,19 @@ export function ServiceControls({
                     setMenu(false);
                   }}
                 >
+                  <span aria-hidden="true" className="recipe-option-picture">
+                    <Food
+                      product={
+                        {
+                          juice: 'juice',
+                          ice: 'vanilla-cone',
+                          sandwich: 'sandwich',
+                          burger: 'burger',
+                          ready: 'apple',
+                        }[f] as Product
+                      }
+                    />
+                  </span>
                   {
                     {
                       juice: '果汁',
@@ -119,12 +134,19 @@ export function ServiceControls({
           <button
             type="button"
             className="primary"
+            aria-expanded={waiting.length > 1 ? targets : undefined}
             onClick={() => {
               if (waiting.length === 1 && waiting[0]) send(waiting[0]);
-              else setTargets(true);
+              else {
+                const chosen = waiting.find((o) => o.id === ui.selectedGuest);
+                if (chosen) send(chosen);
+                else setTargets(!targets);
+              }
             }}
           >
-            送餐 ↗
+            {waiting.length > 1 && waiting.some((o) => o.id === ui.selectedGuest)
+              ? `送给${waiting.find((o) => o.id === ui.selectedGuest)?.seat === 0 ? '左边' : '右边'}客人 ↗`
+              : '送餐 ↗'}
           </button>
         )}
       </div>

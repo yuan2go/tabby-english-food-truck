@@ -120,12 +120,15 @@ test('M2 phone DPR and Pad composition, failed asset/audio retry keeps progress'
   await page.route('**/assets/banana.webp*', (r) => (deny ? r.abort() : r.continue()));
   await page.route('**/audio/request-*.wav*', (r) => r.abort());
   await startStory(page);
-  await expect(page.locator('.resource-alert')).toBeVisible();
+  await page.getByRole('button', { name: '保存与画面状态' }).tap();
+  await expect(page.getByRole('heading', { name: '餐车状态' })).toBeVisible();
+  await expect(page.getByRole('button', { name: '重试画面' })).toBeVisible();
   const before = await state(page);
   deny = false;
   await page.getByRole('button', { name: '重试画面' }).tap();
-  await expect(page.locator('.resource-alert')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '重试画面' })).toHaveCount(0);
   expect((await state(page)).runId).toBe(before.runId);
+  await page.getByRole('button', { name: '继续营业' }).tap();
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.screenshot({ path: info.outputPath('pad-landscape.png') });
   expect(await page.evaluate(() => document.documentElement.scrollHeight === innerHeight)).toBe(
