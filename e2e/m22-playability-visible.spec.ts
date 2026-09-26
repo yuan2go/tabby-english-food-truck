@@ -134,8 +134,21 @@ async function prepareStep(page: Page, step: Step, tray: 0 | 1, previousOutput: 
 
 async function makeVisible(page: Page, product: string, tray: 0 | 1) {
   await touch(page, page.locator(`[data-hotspot="tray-${tray}"]`), 'preparation');
-  const raw = page.locator(`[aria-label="拿${product}"]`);
+  let raw = page.locator(`[aria-label="拿${product}"]`);
+  if (!(await raw.count()) && (product === '苹果' || product === '香蕉')) {
+    await click(page.getByRole('button', { name: '选择食谱', exact: true }), 'preparation');
+    await click(
+      page.getByRole('group', { name: '选择食谱工作台' }).getByRole('button', {
+        name: '果汁',
+        exact: true,
+      }),
+      'preparation',
+    );
+    raw = page.locator(`[aria-label="拿${product}"]`);
+  }
   if (await raw.count()) {
+    const directTray = page.getByRole('button', { name: /^(放盘|食材直接放盘)$/ });
+    if (await directTray.count()) await click(directTray, 'preparation');
     await touch(page, raw, 'preparation');
     return;
   }
@@ -157,12 +170,13 @@ async function served(page: Page): Promise<[number, number]> {
 test('visible picture and recipe walk completes four cooking families and mixed late service', async ({
   page,
 }, info) => {
-  test.setTimeout(600000);
+  test.setTimeout(1200000);
   await page.goto('/');
   await click(page.locator('.yard-story .entry-main'), 'navigation');
   await click(page.getByRole('button', { name: '跳过序章' }), 'teaching');
   await click(page.getByRole('button', { name: '晨光果汁', exact: true }), 'navigation');
-  for (let chapter = 0; chapter < 5; chapter++) {
+  await click(page.getByRole('button', { name: '帮朋友完成这关' }).first(), 'navigation');
+  for (let levelIndex = 0; levelIndex < 25; levelIndex++) {
     await dismissTeaching(page);
     const [, total] = await served(page);
     for (let n = 0; n < total; n++) {
@@ -179,7 +193,7 @@ test('visible picture and recipe walk completes four cooking families and mixed 
       const products = await pictureRequest(page, seat);
       const tray: 0 | 1 =
         seat === 1 && (await page.locator('[data-hotspot="tray-1"]').count()) ? 1 : 0;
-      if (chapter === 0 && n === 0) {
+      if (levelIndex === 0 && n === 0) {
         await page.screenshot({ path: info.outputPath('opening-393x665.png') });
         await touch(page, page.locator('[aria-label="拿香蕉"]'), 'preparation');
         await click(page.locator('.delivery-actions .primary'), 'correction');
@@ -190,20 +204,31 @@ test('visible picture and recipe walk completes four cooking families and mixed 
         await click(page.getByRole('button', { name: '↩ 放回这份' }), 'correction');
       }
       for (const product of products) await makeVisible(page, product, tray);
-      if (chapter === 0 && n === 1)
+      if (levelIndex === 1 && n === 0)
         await page.screenshot({ path: info.outputPath('juice-393x665.png') });
-      if (chapter === 1 && n === 2)
+      if (levelIndex === 6 && n === 0)
         await page.screenshot({ path: info.outputPath('ice-393x665.png') });
-      if (chapter === 2 && n === 1)
+      if (levelIndex === 10 && n === 0)
         await page.screenshot({ path: info.outputPath('sandwich-393x665.png') });
-      if (chapter === 3 && n === 0)
+      if (levelIndex === 15 && n === 0)
         await page.screenshot({ path: info.outputPath('burger-393x665.png') });
       await click(page.locator('.delivery-actions .primary'), 'delivery');
       await expect.poll(async () => (await served(page))[0], { timeout: 18000 }).toBe(before + 1);
     }
     await expect(page.locator('.ending')).toBeVisible();
-    if (chapter === 2) await click(page.getByRole('button', { name: '👥 两位一起' }), 'navigation');
-    if (chapter < 4) await click(page.getByRole('button', { name: '翻开下一页' }), 'navigation');
+    if (levelIndex === 14)
+      await click(page.getByRole('button', { name: '👥 两位一起' }), 'navigation');
+    if (levelIndex < 24) {
+      const choice = page.locator('.ending .story-choice button');
+      if (await choice.count()) await click(choice.first(), 'navigation');
+      else
+        await click(
+          page.getByRole('button', {
+            name: levelIndex % 5 === 4 ? '翻开下一页' : '继续下一小关',
+          }),
+          'navigation',
+        );
+    }
   }
   await expect(page.getByRole('heading', { name: '小院里的朋友，都到齐啦！' })).toBeVisible();
   await writeFile(

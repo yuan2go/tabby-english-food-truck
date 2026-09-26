@@ -40,7 +40,12 @@ macOS、Node `v26.3.1`、npm `11.16.0`；本地锁定依赖。以下工程检查
 | `npm run resources` | PASS / 0；347 文件、196 语音引用、50 食品，详见 [`resources.log`](resources.log) |
 | 精选 HTTP Chromium 桌面/手机/小游戏/成长 | PASS / 0；7/7，详见 [`browser-focused.log`](browser-focused.log) |
 | 五章连续主线与两类并行 | PASS / 0；25/25 小关，1/1 连续 HTTP 路径，8.9 分钟；[`story-throughline.log`](story-throughline.log) 与对应 [`story-throughline.webm`](story-throughline.webm) |
+| 旧手机完整回归适配 25 小关 | PASS / 0；1/1，7.0 分钟，逐关制作、加工中暂停刷新、终章及拼写回访；[`browser-legacy-stateful.log`](browser-legacy-stateful.log) |
+| 旧可见提示回归适配 25 小关 | PASS / 0；1/1，7.0 分钟，图片与正式食谱帮助完成四类料理和混合服务；[`browser-legacy-visible.log`](browser-legacy-visible.log) |
+| 旧双客边界回归 | PASS / 0；1/1，错单焦点、盘满、恢复及短横屏；[`browser-legacy-boundary.log`](browser-legacy-boundary.log) |
 
 浏览器脚本直接操作正常页面和真实命令，不注入关卡完成或订单判定状态。完整工程通关会读取本地规则状态核对实例/并行/存档，不据此证明孩子能独立理解；只按可见提示的鼠标和触控走查分别保留录像。桌面与模拟手机分开记录；默认画质，未开启 CI 省电模式。早期并行测试先后漏了显式换汉堡台、送汁前切回 2 号盘，属于测试操作遗漏；原失败分别留在 [`story-throughline-initial.log`](story-throughline-initial.log)、[`story-throughline-tray-failure.log`](story-throughline-tray-failure.log)。用正常营业存档作针对性复验确认两个设备同时加工、选对盘后实际接收；不将分轮结果拼成一次通过。
+
+PR 首轮远端 CI 的旧浏览器脚本仍假设点章节标题便进入整章营业，导致 7/11 失败（[首轮 Actions](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/36262270330)）。修订旧用例以实际小关入口、独立“放盘”操作和 25 关进度继续，保留原有错单、库存、恢复、可见帮助、学习活动和最终交付断言。中间针对性复跑 3/4（边界脚本尚未修完）的记录保留于 [`browser-legacy-targeted.log`](browser-legacy-targeted.log)；上述最终各自通过的日志对应最终脚本。远端重跑结果以 PR 检查为准。
 
 实体 iPhone 15 Pro＋Chrome **BLOCKED**（没有实体设备）；儿童观察、人工听审、教研 **NOT_RUN**；资源权利与已有开发语音审核 **PENDING**；公开部署 **PENDING_DEPLOYMENT**。本包未生成或引入新图片/声音，不将文字剧情当作已配音。默认画质浏览器截图与测试不能证明实体触感、儿童趣味或 60fps。
