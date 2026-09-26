@@ -27,6 +27,8 @@
 
 [PR #7 首轮 CI](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/36245803319) 在交付候选 `318b1afea17b854eb59764897c4db82c67457059` 上，依赖安装、lint、191 条规则、资源、构建均通过；Chromium **9/11、退出 1**。保留 [失败日志](failures/ci-36245803319.log)、[故事现场](failures/ci-story-context.md)、[故事画面](failures/ci-story.png)、[边界现场](failures/ci-boundary-context.md)和[边界画面](failures/ci-boundary.png)。三明治在刷新后已按规则把三份原料转成沿用首份 ID 的成品，旧断言仍要求原料 ID 全留；果汁在暂停前已完成并入盘，旧断言误以为它仍在杯座。现按加工前输入、预留目标、产物 ID 与无关食品逐项核对。定向 `game` 完整故事 **1/1、退出 0**；同一轮边界用例在短横屏取到调整视口前的旧触区坐标，合并运行 **1/2、退出 1**，保留[日志](failures/local-ci-fix-initial.log)。等待帮助触区与新布局同步后，单独边界用例 **1/1、退出 0**，见[日志](ci-fix-boundary.log)；同一改动的模拟 WebKit 边界 **1/1、退出 0**，见[日志](ci-fix-webkit.log)。这些本地定向结果不冒充 PR head 的整轮 CI；最新远端结论见 PR 检查。
 
+第二轮 [PR CI](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/36247345796) 在 `6208e015da3a63ee5c4995fad009d4794d414093` 上，lint/规则/资源/构建仍通过；Chromium **6/11、退出 1**，保留[完整失败日志](failures/ci-36247345796.log)及故事、库存、声音、可见走查、拼词五处[现场与截图索引](failures/ci2-index.md)。前两处又假定按“暂停”前加工必在进行中、满盘点供应时食品总数不变，现允许规则时钟合法完成并核对无新实例、成品身份和预留盘位；声音故障按画面中的“看图继续”退出开场。连续可见走查取触区坐标与拼词末轮触摸在 Linux 高像素软渲染中超时；CI 现在通过正式 `lowGraphics` 偏好降低 Canvas 像素预算，并只留失败录像，不削减测试路径和断言。[本地同组 11/11、退出 0 日志](ci-low-graphics-browser.log)在运行源码相同但测试修改尚未提交的构建上取得；默认画质的干净构建仍是上表与本目录旧截图、录像。低画质 CI 通过不能证明默认画质或实体手机性能，最新干净 head 整轮结果以 PR 为准。
+
 ## 可见界面走查
 
 [e2e/m22-playability-visible.spec.ts](../../../e2e/m22-playability-visible.spec.ts) 从首页进入，靠画面中的请求图、正式食谱图和台面操作完成五章 19 单；包括一次故意错单、食品留盘和就近放回，后段选择双客并连续营业。它不读取存档答案、不导入内容/配方答案、不设置内部通关状态。它用可见图片的 `alt` 读取图意，再用屏幕实际触点操作；这是**视觉辅助走查**，不是儿童听力或趣味观察。工程回归另行读取内部状态，且明确知道答案。

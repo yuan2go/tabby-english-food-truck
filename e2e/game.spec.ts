@@ -9,7 +9,7 @@ test.use({
   deviceScaleFactor: 3,
   hasTouch: true,
   isMobile: true,
-  video: { mode: 'on', size: { width: 393, height: 665 } },
+  video: { mode: process.env.CI ? 'retain-on-failure' : 'on', size: { width: 393, height: 665 } },
 });
 test('M2 phone complete click story: prologue through all recipes to community ending', async ({
   page,

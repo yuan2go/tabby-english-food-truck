@@ -179,4 +179,4 @@ Profile v2的旧冰淇淋教学单元按lesson.request迁到strawberry-scoop/van
 
 前景播放单段和序列统一返回 completed、muted、failed、interrupted、skipped；序列遇非 completed 即停止。epoch/flow 与各界面会话令牌拦截旧回调，后台/关闭/切换/重听不会推进新教学或新菜单。只有 completed 可写“播放完成”；听懂须由另行观察判断。失败与主动静音均可用图示继续，且不发语言错误命令。
 
-Phaser 只投影规则物品与任务，四类台面可见层不产生第二份库存；设备到期仍由有效规则时钟结算。CI 使用锁定依赖和 package.engines 兼容 Node，先 build 再由 HTTP preview 运行精选浏览器路径，避免 Playwright 服务重复 build。浏览器可读内部状态的工程回归与只看可见图片/正式帮助的走查分别记录。
+Phaser 只投影规则物品与任务，四类台面可见层不产生第二份库存；设备到期仍由有效规则时钟结算。CI 使用锁定依赖和 package.engines 兼容 Node，先 build 再由 HTTP preview 运行精选浏览器路径，避免 Playwright 服务重复 build。Linux 无实体 GPU 的 CI 浏览器通过正式的 `lowGraphics` 本地设置降低 Canvas 像素预算，仅保留失败录像；默认画质另由本地浏览器截图、录像和真机复核覆盖，CI 省电模式通过不证明默认画质性能。浏览器可读内部状态的工程回归与只看可见图片/正式帮助的走查分别记录。

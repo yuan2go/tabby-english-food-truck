@@ -14,15 +14,22 @@ export async function tap(p: Page, id: string, dy = 0) {
   const q = await hot(p, id, dy);
   await p.touchscreen.tap(q.x, q.y);
 }
-export async function lesson(p: Page) {
-  const opening = p.getByRole('button', { name: '跳过开场' });
-  if (await opening.count()) {
-    try {
-      await opening.tap({ timeout: 700 });
-    } catch {
-      await expect(opening).toHaveCount(0);
-    }
+async function dismissOpening(p: Page) {
+  const dialog = p.getByRole('dialog', { name: '章节开场' });
+  if (!(await dialog.count())) return;
+  const visualContinue = dialog.getByRole('button', { name: '看图继续 ↗' });
+  const button = (await visualContinue.isVisible())
+    ? visualContinue
+    : dialog.getByRole('button', { name: '跳过开场' });
+  try {
+    await button.tap();
+  } catch (error) {
+    if (await dialog.count()) throw error;
   }
+  await expect(dialog).toHaveCount(0);
+}
+export async function lesson(p: Page) {
+  await dismissOpening(p);
   await p.evaluate(
     () =>
       new Promise<void>((resolve) =>
@@ -38,16 +45,8 @@ export async function startStory(p: Page) {
   await p.locator('.yard-story .entry-main').tap();
   await p.getByRole('button', { name: '跳过序章' }).tap();
   await p.getByRole('button', { name: '晨光果汁', exact: true }).tap();
-  const opening = p.getByRole('button', { name: '跳过开场' });
-  if (await opening.count()) {
-    try {
-      await opening.tap({ timeout: 700 });
-    } catch {
-      await expect(opening).toHaveCount(0);
-    }
-  }
+  await dismissOpening(p);
   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
-  await p.waitForTimeout(500);
   await lesson(p);
 }
 export async function startEndless(p: Page, less = true) {
@@ -153,9 +152,20 @@ export async function make(
     const before = await state(p);
     const chapter = CHAPTERS[before.session.chapter];
     if (!chapter) throw Error('chapter');
-    expect(
-      recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status,
-    ).toBe('processing');
+    const beforeStatus =
+      recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status;
+    if (beforeStatus === 'empty') {
+      expect(before.routing[recipe.station]).toBeNull();
+      expect(
+        before.items.some(
+          (i) =>
+            i.product === product &&
+            (recipe.station === 'grill'
+              ? i.location.startsWith('station:board:')
+              : i.location.startsWith('tray:')),
+        ),
+      ).toBe(true);
+    } else expect(beforeStatus).toBe('processing');
     if (recipe.station === 'grill') await p.setViewportSize({ width: 768, height: 1024 });
     await p.reload();
     await p.locator('.yard-story .entry-main').tap();
@@ -163,30 +173,37 @@ export async function make(
     await lesson(p);
     const after = await state(p);
     expect(after.runId).toBe(before.runId);
-    const inputs = before.items.filter((i) => i.location.startsWith(`station:${recipe.station}:`));
-    const source = inputs[0];
-    const target = before.routing[recipe.station];
-    if (!source || !target) throw Error('processing station lost input or output reservation');
-    const output = after.items.find((i) => i.id === source.id && i.product === product);
-    if (output) {
-      expect(after.items.map((i) => i.id).sort()).toEqual(
-        before.items
-          .filter((i) => !inputs.some((input) => input.id === i.id) || i.id === source.id)
-          .map((i) => i.id)
-          .sort(),
+    if (beforeStatus === 'empty') expect(after.items).toEqual(before.items);
+    else {
+      const inputs = before.items.filter((i) =>
+        i.location.startsWith(`station:${recipe.station}:`),
       );
-      for (const item of before.items.filter((i) => !inputs.some((input) => input.id === i.id)))
-        expect(after.items.find((i) => i.id === item.id)).toEqual(item);
-      expect(output.location).toBe(
-        'station' in target
-          ? `station:${target.station}:${target.slot}`
-          : `tray:${target.tray}:${target.slot}`,
-      );
-    } else {
-      expect(after.items).toEqual(before.items);
-      expect(
-        recipe.station === 'machine' ? after.machine.status : after.stations[recipe.station].status,
-      ).toBe('processing');
+      const source = inputs[0];
+      const target = before.routing[recipe.station];
+      if (!source || !target) throw Error('processing station lost input or output reservation');
+      const output = after.items.find((i) => i.id === source.id && i.product === product);
+      if (output) {
+        expect(after.items.map((i) => i.id).sort()).toEqual(
+          before.items
+            .filter((i) => !inputs.some((input) => input.id === i.id) || i.id === source.id)
+            .map((i) => i.id)
+            .sort(),
+        );
+        for (const item of before.items.filter((i) => !inputs.some((input) => input.id === i.id)))
+          expect(after.items.find((i) => i.id === item.id)).toEqual(item);
+        expect(output.location).toBe(
+          'station' in target
+            ? `station:${target.station}:${target.slot}`
+            : `tray:${target.tray}:${target.slot}`,
+        );
+      } else {
+        expect(after.items).toEqual(before.items);
+        expect(
+          recipe.station === 'machine'
+            ? after.machine.status
+            : after.stations[recipe.station].status,
+        ).toBe('processing');
+      }
     }
     // Restart measurement after navigation; no gameplay state is injected.
     await p.evaluate(() => {

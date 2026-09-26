@@ -43,7 +43,20 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   const full = await state(page);
   expect(full.routing.machine).not.toBeNull();
   await tap(page, 'supply-apple');
-  expect((await state(page)).items).toHaveLength(full.items.length);
+  const stillFull = await state(page);
+  expect(stillFull.nextId).toBe(full.nextId);
+  expect(stillFull.items.every((item) => full.items.some((prior) => prior.id === item.id))).toBe(
+    true,
+  );
+  if (stillFull.machine.status === 'empty') {
+    const cup = full.items.find((item) => item.location === 'machine:cup');
+    const apple = full.items.find((item) => item.location === 'machine:apple');
+    expect(stillFull.items.find((item) => item.id === cup?.id)).toMatchObject({
+      product: 'juice',
+      location: 'tray:0:0',
+    });
+    expect(stillFull.items.some((item) => item.id === apple?.id)).toBe(false);
+  } else expect(stillFull.items).toEqual(full.items);
   const attempts = (await state(page)).attempts.length;
   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();

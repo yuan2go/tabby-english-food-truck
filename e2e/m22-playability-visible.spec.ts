@@ -20,7 +20,7 @@ const cost = {
 };
 
 async function touch(page: Page, target: Locator, kind: keyof typeof cost) {
-  const box = await target.boundingBox();
+  const box = await target.boundingBox({ timeout: 30000 });
   if (!box) throw Error(`Missing visible target: ${await target.getAttribute('aria-label')}`);
   await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2);
   cost[kind]++;
