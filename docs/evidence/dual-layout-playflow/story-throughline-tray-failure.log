@@ -1,0 +1,86 @@
+
+Running 1 test using 1 worker
+
+(node:8556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] e2e/wp-dual-story-throughline.spec.ts:136:1 › normal entrance reaches the community feast through every service level
+e2e/wp-dual-story-throughline.spec.ts:136:1 › normal entrance reaches the community feast through every service level
+story progress 1/25: c1-open-door
+
+story progress 2/25: c1-first-juice
+
+story progress 3/25: c1-new-fruit
+
+story progress 4/25: c1-two-friends
+
+story progress 5/25: c1-window-flower
+
+story progress 6/25: c2-cup
+
+story progress 7/25: c2-cone
+
+story progress 8/25: c2-flavor
+
+story progress 9/25: c2-two-scoops
+
+story progress 10/25: c2-topping
+
+story progress 11/25: c3-bread
+
+story progress 12/25: c3-garden
+
+story progress 13/25: c3-drink
+
+story progress 14/25: c3-extra
+
+story progress 15/25: c3-tablecloth
+
+story progress 16/25: c4-grill
+
+story progress 17/25: c4-cheese
+
+story progress 18/25: c4-wait
+
+story progress 19/25: c4-two-boards
+
+story progress 20/25: c4-lights
+
+story progress 21/25: c5-invite
+
+story progress 22/25: c5-arrivals
+
+story progress 23/25: c5-help
+
+  1) e2e/wp-dual-story-throughline.spec.ts:136:1 › normal entrance reaches the community feast through every service level
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "waiting"
+
+    Call Log:
+    - Timeout 20000ms exceeded while waiting on the predicate
+
+      113 |   await expect
+      114 |     .poll(async () => (await state(page)).orders[1]?.status, { timeout: 20000 })
+    > 115 |     .toBe('done');
+          |      ^
+      116 |   await expect
+      117 |     .poll(async () => (await state(page)).items.some((item) => item.product === 'cooked-patty'), {
+      118 |       timeout: 20000,
+        at overlapTwoDevices (/Users/yuan/.codex/worktrees/dual-layout-playflow-content/tabby-english-food-truck/e2e/wp-dual-story-throughline.spec.ts:115:6)
+        at /Users/yuan/.codex/worktrees/dual-layout-playflow-content/tabby-english-food-truck/e2e/wp-dual-story-throughline.spec.ts:184:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wp-dual-story-throughline--2e90e-through-every-service-level/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wp-dual-story-throughline--2e90e-through-every-service-level/error-context.md
+
+
+  Slow test file: e2e/wp-dual-story-throughline.spec.ts (7.6m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    e2e/wp-dual-story-throughline.spec.ts:136:1 › normal entrance reaches the community feast through every service level

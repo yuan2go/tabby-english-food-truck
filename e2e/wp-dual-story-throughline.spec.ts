@@ -108,6 +108,7 @@ async function overlapTwoDevices(page: Page) {
       timeout: 20000,
     })
     .toBe(true);
+  await choosePrep(page, '● 2号盘');
   await tap(page, 'guest-1');
   await page.getByRole('button', { name: '送给右边客人 ↗' }).tap();
   await expect
@@ -168,13 +169,6 @@ test('normal entrance reaches the community feast through every service level', 
           { timeout: 12000 },
         );
       }
-    }
-    if (level.id === 'c3-drink') {
-      const lesson = page.getByRole('dialog', { name: '场景小教学' });
-      if (await lesson.count()) await lesson.getByRole('button', { name: '我来试试' }).tap();
-      await page.screenshot({
-        path: 'docs/evidence/dual-layout-playflow/visitor-elder-desktop-1440x900.png',
-      });
     }
     if (level.id === 'c4-wait') {
       await page.context().storageState({ path: '/tmp/tabby-before-overlap.storage.json' });
