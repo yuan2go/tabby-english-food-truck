@@ -96,11 +96,10 @@ export function activate(
   } else if (id.startsWith('tray-')) {
     const tray = Number(id.slice(5)) as TrayId;
     ui.selectedTray = tray;
-    ui.prep = 'tray';
     if (source) command = { type: 'move', source, destination: { tray } };
     else {
       ui.selected = { tray };
-      controller.message = `${tray + 1}号盘是当前备餐位置，点食材添加。`;
+      controller.message = `${tray + 1}号盘是成品目的盘；工作台和食材投放位置仍可单独选。`;
     }
   } else if (id.startsWith('machine-')) {
     ui.prep = 'machine';

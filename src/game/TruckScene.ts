@@ -60,6 +60,7 @@ export class TruckScene extends Phaser.Scene {
   } | null = null;
   private dropOrigin: Point | null = null;
   private failed = new Set<string>();
+  private retries = new Map<string, number>();
   private discardDelta = true;
   private loadingSceneAssets = false;
   private observer: ResizeObserver | null = null;
@@ -368,14 +369,18 @@ export class TruckScene extends Phaser.Scene {
       ...FAMILY_STATIONS[s.session.family].map((id) => `${id}-station`),
       ...s.items.map((i) => foodAsset(i.product)),
     ];
-    const missing = [...new Set(required)].filter(
-      (id) => !this.textures.exists(id) && !this.failed.has(id),
+    const missing = [...new Set([...required, ...this.failed])].filter(
+      (id) =>
+        !this.textures.exists(id) && (!this.failed.has(id) || (this.retries.get(id) ?? 0) < 1),
     );
     if (!missing.length) return true;
     this.loadingSceneAssets = true;
     this.ui.assetLoading = true;
     this.controller.pause('assets', true);
-    for (const id of missing) this.load.image(id, assetUrl(id));
+    for (const id of missing) {
+      if (this.failed.delete(id)) this.retries.set(id, (this.retries.get(id) ?? 0) + 1);
+      this.load.image(id, assetUrl(id));
+    }
     this.load.once('complete', () => {
       this.loadingSceneAssets = false;
       this.ui.assetLoading = false;
@@ -401,10 +406,8 @@ export class TruckScene extends Phaser.Scene {
     if (previous?.mode !== s.mode)
       this.layout = layoutFor(this.layout.width, this.layout.height, s.mode);
     if (resized) this.motions.clear();
-    if (previous?.routing.machine && !s.routing.machine && this.ui.prep === 'machine')
-      this.ui.prep = 'tray';
-    for (const id of ['ice', 'board'] as const)
-      if (previous?.routing[id] && !s.routing[id] && this.ui.prep === id) this.ui.prep = 'tray';
+    // A finished job keeps the selected work object. Its output is routed to
+    // the reserved tray by the rules; a new ingredient never silently changes target.
     const l = this.layout;
     this.ui.layout = l;
     this.used.clear();
@@ -422,6 +425,20 @@ export class TruckScene extends Phaser.Scene {
     const cover = Math.max(l.width / background.width, l.height / background.height);
     background.setScale(cover);
     this.decor.fillStyle(0x173e32, 0.12).fillRect(0, 0, l.width, 60);
+    if (l.form === 'desktop') {
+      const stage = l.stage;
+      this.decor
+        .fillStyle(0x153b2e, 0.68)
+        .fillRoundedRect(stage.x + 10, l.regions.work.y - 19, stage.width - 20, 18, 8)
+        .fillStyle(0xffe8b6, 0.3)
+        .fillRoundedRect(
+          stage.x + 8,
+          l.regions.work.y + 4,
+          stage.width - 16,
+          l.regions.supplies.y - l.regions.work.y + 85,
+          26,
+        );
+    }
     if (!l.landscape)
       this.decor
         .fillStyle(0x725032, 0.6)
@@ -440,7 +457,10 @@ export class TruckScene extends Phaser.Scene {
         l.guestHeight,
         3,
       );
-      if (o.status === 'leaving')
+      const delivery = [s.actor.current, ...s.actor.queue].find(
+        (job) => job?.kind === 'delivery' && job.order === o.id,
+      );
+      if (o.status === 'leaving' && delivery?.itemIds.length === 0)
         this.badge(
           `label-${o.id}`,
           {
@@ -497,20 +517,20 @@ export class TruckScene extends Phaser.Scene {
           : s.machine.status === 'ready'
             ? '果汁好了'
             : s.items.some((i) => i.location === 'machine:apple')
-              ? '▶ 榨汁'
-              : '选水果 ↗',
-        m.x,
-        l.regions.work.y + l.regions.work.height - 26,
-        Math.max(108, 120 * l.scale),
+              ? '水果和杯已放好？'
+              : '先选水果，再放杯',
+        l.form === 'phone' ? l.regions.work.x + l.regions.work.width * 0.75 : m.x,
+        l.form === 'phone' ? l.regions.work.y + 30 : m.y - 94 * l.scale,
+        l.form === 'phone' ? 142 : Math.max(145, 150 * l.scale),
       );
       this.hot(
         'start',
         '启动果汁机',
         'start',
         m.x,
-        l.regions.work.y + l.regions.work.height - 26,
-        120 * l.scale,
-        44,
+        Math.min(l.regions.work.y + l.regions.work.height - 24, m.y + 103 * l.scale),
+        126 * l.scale,
+        48,
       );
     }
     this.kitchen?.draw(s, l, this.ui, this.density);

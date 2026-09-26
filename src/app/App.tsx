@@ -5,6 +5,8 @@ import { useEffect, useReducer, useRef, useState } from 'react';
 import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Support } from '../content/chapters';
 import type { Family } from '../content/recipes';
+import { STORY_LEVELS, storyLevel } from '../content/story-levels';
+import { assetUrl } from '../game/assets';
 import { DoubleTap } from '../game/gestures';
 import { activate, type ViewState } from '../game/input';
 import { TruckScene } from '../game/TruckScene';
@@ -52,7 +54,7 @@ export function App() {
       : controller.profile.value.concurrency,
   );
   const [storyGuests, setStoryGuests] = useState<1 | 2>(
-    controller.state.session.activity === 'story' && controller.state.session.chapter >= 3
+    controller.state.session.activity === 'story' && controller.state.session.chapter >= 2
       ? controller.state.session.concurrency
       : 1,
   );
@@ -77,7 +79,9 @@ export function App() {
     ready: false,
     assetFailure: false,
     resourceMessage: '',
-    prep: 'tray',
+    prep: { juice: 'tray', ice: 'ice', sandwich: 'board', burger: 'grill', ready: 'tray' }[
+      controller.state.session.family
+    ] as NonNullable<ViewState['prep']>,
     doubleTap: new DoubleTap(),
     openNote: () => {},
     openHelp: () => {},
@@ -96,14 +100,23 @@ export function App() {
     (id) => !controller.profile.menu().includes(id),
   );
   const growthKey = `growth:${growthId}`;
+  const deferredAt = growthId
+    ? [...s.lessons].reverse().find((id) => id.startsWith(`growth-deferred:${growthId}:`))
+    : undefined;
   const growthReady =
-    growthId && s.session.served >= { banana: 1, juice: 2, 'banana-juice': 3 }[growthId];
+    growthId &&
+    s.session.served >= { banana: 1, juice: 2, 'banana-juice': 3 }[growthId] &&
+    (!deferredAt || s.session.served > Number(deferredAt.split(':').at(-1)));
   const actorBusy = Boolean(s.actor.current && s.actor.current.kind !== 'return');
   const growth =
     screen === 'game' &&
     s.session.activity === 'endless' &&
     growthReady &&
     !actorBusy &&
+    s.items.length === 0 &&
+    !s.helper &&
+    s.machine.status !== 'processing' &&
+    !Object.values(s.stations).some((station) => station.status === 'processing') &&
     !teaching &&
     !modal &&
     growthId &&
@@ -128,6 +141,10 @@ export function App() {
   );
   const selected = waiting.find((o) => o.id === ui.selectedGuest) ?? active;
   const done = s.session.activity !== 'endless' && s.orders.every((o) => o.status === 'done');
+  const currentLevel = storyLevel(s.session.levelId);
+  const nextLevel = currentLevel
+    ? STORY_LEVELS[STORY_LEVELS.findIndex((level) => level.id === currentLevel.id) + 1]
+    : undefined;
   ui.change = refresh;
   ui.teaching = teaching;
   ui.inputBlocked =
@@ -284,14 +301,20 @@ export function App() {
     ui.doubleTap?.cancel();
     setScreen('home');
   };
-  const enter = (activity: 'story' | 'endless' | 'training', chapter = 0, replay = false) => {
+  const enter = (
+    activity: 'story' | 'endless' | 'training',
+    chapter = 0,
+    replay = false,
+    levelId?: string,
+  ) => {
     audio.stop();
     controller.enter(
       activity,
       chapter,
       support,
       replay,
-      activity === 'endless' ? concurrency : activity === 'story' && chapter >= 3 ? storyGuests : 1,
+      activity === 'endless' ? concurrency : activity === 'story' && chapter >= 2 ? storyGuests : 1,
+      levelId,
     );
     if (controller.save.blocked) {
       setModal('restart');
@@ -300,7 +323,18 @@ export function App() {
     ui.selected = null;
     ui.selectedTray = 0;
     ui.selectedGuest = '';
-    ui.prep = 'tray';
+    ui.prep =
+      activity === 'story' && chapter === 0
+        ? 'tray'
+        : controller.state.session.family === 'juice'
+          ? 'machine'
+          : controller.state.session.family === 'ice'
+            ? 'ice'
+            : controller.state.session.family === 'burger'
+              ? 'grill'
+              : controller.state.session.family === 'sandwich'
+                ? 'board'
+                : 'tray';
     ui.doubleTap?.cancel();
     setCaption(null);
     const chapterKey = `chapter-${chapter}`;
@@ -323,8 +357,11 @@ export function App() {
     }
   };
   const family = (f: Family) => {
-    controller.command({ type: 'family', family: f });
-    ui.prep = 'tray';
+    const result = controller.command({ type: 'family', family: f });
+    if (result.kind !== 'ok') return;
+    ui.prep = { juice: 'machine', ice: 'ice', sandwich: 'board', burger: 'grill', ready: 'tray' }[
+      f
+    ] as NonNullable<ViewState['prep']>;
     ui.doubleTap?.cancel();
     ui.selected = null;
     refresh();
@@ -373,7 +410,7 @@ export function App() {
           setSupport={setSupport}
           guests={storyGuests}
           setGuests={setStoryGuests}
-          enter={(chapter, replay) => enter('story', chapter, replay)}
+          enter={(chapter, replay, levelId) => enter('story', chapter, replay, levelId)}
           home={home}
         />
       ) : screen === 'mini' ? (
@@ -506,6 +543,11 @@ export function App() {
                   ? `已送出 ${s.session.served} 单`
                   : `${s.orders.filter((o) => o.status === 'done').length} / ${s.orders.length}`}
               </b>
+              {currentLevel ? (
+                <small className="story-task">
+                  {currentLevel.who} · {currentLevel.objective}
+                </small>
+              ) : null}
             </span>
             {ui.assetFailure || controller.save.issue || controller.profile.issue ? (
               <button type="button" aria-label="保存与画面状态" onClick={() => setModal('issues')}>
@@ -575,7 +617,7 @@ export function App() {
           ) : null}
           {opening !== null ? (
             <section className="chapter-opening" role="dialog" aria-label="章节开场">
-              <p>{CHAPTERS[opening]?.line}</p>
+              <p>{currentLevel?.situation ?? CHAPTERS[opening]?.line}</p>
               {openingAudio === 'failed' ||
               openingAudio === 'muted' ||
               openingAudio === 'interrupted' ? (
@@ -621,7 +663,10 @@ export function App() {
               request={growth}
               audio={audio}
               close={(add) => {
-                controller.command({ type: 'lesson', lesson: growthKey });
+                controller.command({
+                  type: 'lesson',
+                  lesson: add ? growthKey : `growth-deferred:${growth}:${s.session.served}`,
+                });
                 if (add) {
                   controller.profile.present(`menu:${growth}`);
                   controller.profile.present(`request:${growth}`);
@@ -677,15 +722,34 @@ export function App() {
           ) : null}
           {done ? (
             <section className="ending">
-              <img src="/assets/cat-celebrate.webp" alt="大咪完成营业" />
+              {currentLevel?.id === 'c5-last-page' ? (
+                <div
+                  className="story-photo"
+                  role="img"
+                  aria-label="大咪、长辈、兔兔和刺刺的小食会合影"
+                >
+                  <div>
+                    {(['cat-celebrate', 'elder', 'guest-0-0', 'guest-1-0'] as const).map(
+                      (asset) => (
+                        <img key={asset} src={assetUrl(asset)} alt="" />
+                      ),
+                    )}
+                  </div>
+                  <span>旧食谱最后一页 · 合影留念</span>
+                </div>
+              ) : (
+                <img src="/assets/cat-celebrate.webp" alt="大咪完成营业" />
+              )}
               <h2>
-                {s.session.chapter === 4 && s.session.activity === 'story'
+                {currentLevel?.id === 'c5-last-page'
                   ? '小院里的朋友，都到齐啦！'
                   : '这一页，有了新的味道。'}
               </h2>
               <p>
                 {s.session.activity === 'story'
-                  ? `小院添上了${CHAPTERS[s.session.chapter]?.gift}。食谱已保存，随时可以再来。`
+                  ? currentLevel
+                    ? `${currentLevel.result}${currentLevel.choice ? ` ${currentLevel.choice.responses[s.session.storyChoice ?? 0]}` : ''}${nextLevel?.chapter !== currentLevel.chapter ? ` 小院添上了${CHAPTERS[currentLevel.chapter]?.gift}。` : ''}`
+                    : `小院添上了${CHAPTERS[s.session.chapter]?.gift}。食谱已保存，随时可以再来。`
                   : '今天的练习完成啦，可以到故事里试一试。'}
               </p>
               {s.session.activity === 'story' &&
@@ -708,14 +772,41 @@ export function App() {
                   </button>
                 </fieldset>
               ) : null}
-              {s.session.activity === 'story' && s.session.chapter < 4 ? (
-                <button
-                  type="button"
-                  className="primary"
-                  onClick={() => enter('story', s.session.chapter + 1)}
-                >
-                  翻开下一页
-                </button>
+              {s.session.activity === 'story' &&
+              (nextLevel || (!currentLevel && s.session.chapter < 4)) ? (
+                nextLevel?.choice ? (
+                  <fieldset className="story-choice">
+                    <legend>{nextLevel.choice.prompt}</legend>
+                    {nextLevel.choice.labels.map((label, option) => (
+                      <button
+                        type="button"
+                        key={label}
+                        className="primary"
+                        onClick={() => {
+                          controller.profile.chooseStory(nextLevel.id, option as 0 | 1);
+                          enter('story', nextLevel.chapter, false, nextLevel.id);
+                        }}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </fieldset>
+                ) : (
+                  <button
+                    type="button"
+                    className="primary"
+                    onClick={() =>
+                      enter(
+                        'story',
+                        nextLevel?.chapter ?? s.session.chapter + 1,
+                        false,
+                        nextLevel?.id,
+                      )
+                    }
+                  >
+                    {nextLevel?.chapter === s.session.chapter ? '继续下一小关' : '翻开下一页'}
+                  </button>
+                )
               ) : (
                 <button type="button" className="primary" onClick={home}>
                   回小院
@@ -723,7 +814,7 @@ export function App() {
               )}
               <button
                 type="button"
-                onClick={() => enter(s.session.activity, s.session.chapter, true)}
+                onClick={() => enter(s.session.activity, s.session.chapter, true, currentLevel?.id)}
               >
                 重玩这一页
               </button>

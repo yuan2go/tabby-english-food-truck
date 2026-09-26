@@ -24,6 +24,7 @@ import {
   wordGroups,
 } from '../rules/minigames';
 import { Food } from './Food';
+import { MiniCourse } from './MiniCourse';
 
 export function MiniGames({
   controller,
@@ -40,6 +41,7 @@ export function MiniGames({
 }) {
   const store = controller.minis;
   const [state, setState] = useState<MiniState | null>(null);
+  const [showCourse, setShowCourse] = useState(false);
   const latest = useRef(state);
   latest.current = state;
   const [difficulty, setDifficulty] = useState<Difficulty>('demo');
@@ -50,6 +52,7 @@ export function MiniGames({
   const [slot, setSlot] = useState<number | null>(null);
   const [issue, showIssue] = useState(store.issue);
   const [speechIssue, setSpeechIssue] = useState<PlaybackResult | null>(null);
+  const speechToken = useRef(0);
   const gesture = useRef<{
     id: string;
     pointer: number;
@@ -117,10 +120,17 @@ export function MiniGames({
       round = current.round,
       stage = current.stage,
       word = targetWord(current);
+    const token = ++speechToken.current;
     setSpeechIssue(null);
     void audio.play(word.audio).then((result) => {
       const now = latest.current;
-      if (now?.id !== id || now.round !== round || now.stage !== stage) return;
+      if (
+        token !== speechToken.current ||
+        now?.id !== id ||
+        now.round !== round ||
+        now.stage !== stage
+      )
+        return;
       if (result === 'completed') update({ ...now, heard: true });
       else if (result === 'failed' || result === 'muted') {
         update({
@@ -141,11 +151,15 @@ export function MiniGames({
   useEffect(() => {
     if (!question || !['meaning', 'play'].includes(latest.current?.stage ?? '')) return;
     say();
-    return () => audio.stop();
+    return () => {
+      speechToken.current++;
+      audio.stop();
+    };
     // The stable question identity intentionally excludes current draft and support.
   }, [question, audio, say]);
   const lobby = () => {
     cancel();
+    speechToken.current++;
     audio.stop();
     setSlot(null);
     latest.current = null;
@@ -242,6 +256,8 @@ export function MiniGames({
     update(next);
     setSlot(null);
   };
+  if (showCourse)
+    return <MiniCourse controller={controller} audio={audio} exit={() => setShowCourse(false)} />;
   if (!state)
     return (
       <section className="mini-lobby" aria-label="游戏小摊">
@@ -259,6 +275,10 @@ export function MiniGames({
         <p>
           {collection ? '这一篮的食物朋友，听一听，再找一找。' : '随时回来，字母和这一题都会等你。'}
         </p>
+        <button type="button" className="course-entry" onClick={() => setShowCourse(true)}>
+          🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词组句
+          <small>30个有情境的短关；按语言基础选择，故事不设拼写门槛</small>
+        </button>
         {baskets ? (
           <button type="button" className="food-basket-entry" onClick={baskets}>
             <Food product="orange" />

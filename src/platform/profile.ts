@@ -1,6 +1,7 @@
 import { REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Language } from '../content/chapters';
 import type { Family } from '../content/recipes';
+import { levelsForChapter, storyLevel } from '../content/story-levels';
 import type { StoragePort } from './save';
 export interface Observation {
   id: string;
@@ -31,6 +32,9 @@ export interface Profile {
   lessons: Record<string, LessonProgress>;
   prologue: boolean;
   completed: number[];
+  completedLevels: string[];
+  storyChoices: Record<string, 0 | 1>;
+  resolvedStoryChoices: Record<string, 0 | 1>;
   introduced: Family[];
   tutorials: string[];
   exposure: string[];
@@ -47,6 +51,9 @@ export const emptyProfile = (): Profile => ({
   lessons: {},
   prologue: false,
   completed: [],
+  completedLevels: [],
+  storyChoices: {},
+  resolvedStoryChoices: {},
   introduced: ['juice'],
   tutorials: [],
   exposure: [],
@@ -131,6 +138,11 @@ export class ProfileStore {
           this.issue = '成长记录版本不受支持，原文已保留。';
         }
       }
+      // The earlier five chapter receipts remain historical progress. New
+      // service IDs start unfinished; no old receipt is treated as a new task.
+      this.value.completedLevels ??= [];
+      this.value.storyChoices ??= {};
+      this.value.resolvedStoryChoices ??= {};
     } catch {
       this.blocked = this.raw !== null;
       this.issue = this.blocked
@@ -184,7 +196,27 @@ export class ProfileStore {
   }
   complete(chapter: number): void {
     if (!CHAPTERS[chapter]) return;
+    if (chapter > 0 && !this.value.completed.includes(chapter - 1)) return;
     this.value.completed = [...new Set([...this.value.completed, chapter])];
+    this.save();
+  }
+  completeLevel(id: string, choice: 0 | 1 = 0): void {
+    const level = storyLevel(id);
+    if (!level) return;
+    const alreadyCompleted = this.value.completedLevels.includes(id);
+    const outcomeChanged = Boolean(level.choice) && this.value.resolvedStoryChoices[id] !== choice;
+    if (alreadyCompleted && !outcomeChanged) return;
+    if (!alreadyCompleted) this.value.completedLevels = [...this.value.completedLevels, id];
+    if (outcomeChanged) this.value.resolvedStoryChoices[id] = choice;
+    if (
+      levelsForChapter(level.chapter).every((part) => this.value.completedLevels.includes(part.id))
+    )
+      this.complete(level.chapter);
+    else this.save();
+  }
+  chooseStory(id: string, choice: 0 | 1): void {
+    if (!storyLevel(id)?.choice) return;
+    this.value.storyChoices[id] = choice;
     this.save();
   }
 }
@@ -234,6 +266,25 @@ export function validProfile(v: unknown): v is Profile {
     Array.isArray(p.completed) &&
     p.completed.length <= 5 &&
     p.completed.every((n, i) => n === i) &&
+    (p.completedLevels === undefined ||
+      (Array.isArray(p.completedLevels) &&
+        p.completedLevels.length <= 25 &&
+        new Set(p.completedLevels).size === p.completedLevels.length &&
+        p.completedLevels.every((id) => typeof id === 'string' && Boolean(storyLevel(id))))) &&
+    (p.storyChoices === undefined ||
+      (typeof p.storyChoices === 'object' &&
+        p.storyChoices !== null &&
+        Object.keys(p.storyChoices).length <= 25 &&
+        Object.entries(p.storyChoices).every(
+          ([id, choice]) => Boolean(storyLevel(id)?.choice) && (choice === 0 || choice === 1),
+        ))) &&
+    (p.resolvedStoryChoices === undefined ||
+      (typeof p.resolvedStoryChoices === 'object' &&
+        p.resolvedStoryChoices !== null &&
+        Object.keys(p.resolvedStoryChoices).length <= 25 &&
+        Object.entries(p.resolvedStoryChoices).every(
+          ([id, choice]) => Boolean(storyLevel(id)?.choice) && (choice === 0 || choice === 1),
+        ))) &&
     Array.isArray(p.introduced) &&
     p.introduced.length > 0 &&
     p.introduced.length <= 5 &&

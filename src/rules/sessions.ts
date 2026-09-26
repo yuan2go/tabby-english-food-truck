@@ -8,6 +8,7 @@ import {
   type Support,
 } from '../content/chapters';
 import type { Family } from '../content/recipes';
+import { storyLevel, storyRequests } from '../content/story-levels';
 import type { GameState, Order, TrayId } from './types';
 export function orderFor(
   s: GameState,
@@ -42,10 +43,14 @@ export function configureSession(
   concurrency: 1 | 2 = 1,
   menu?: RequestId[],
   language: Language = 'flavor',
+  levelId?: string,
+  storyChoice: 0 | 1 = 0,
 ): GameState {
+  const level = activity === 'story' ? storyLevel(levelId) : undefined;
   s.session = {
     activity,
     chapter,
+    ...(level ? { levelId: level.id, storyChoice } : {}),
     support,
     concurrency,
     supplyPage: 0,
@@ -63,7 +68,9 @@ export function configureSession(
   s.machine = { status: 'empty', remaining: 0, jobId: null };
   const requests: readonly RequestId[] =
     activity === 'story'
-      ? (CHAPTERS[chapter]?.requests ?? ['apple'])
+      ? level && level.chapter === chapter
+        ? storyRequests(level, storyChoice)
+        : (CHAPTERS[chapter]?.requests ?? ['apple'])
       : activity === 'training'
         ? chapter === 0
           ? ['apple', 'banana', 'two', 'fruit', 'juice']
@@ -74,7 +81,7 @@ export function configureSession(
       s,
       r,
       i,
-      (s.mode === 'service' ? i % 2 : s.variant) as TrayId,
+      (s.mode === 'service' ? i % 2 : 0) as TrayId,
       i < concurrency ? 'waiting' : 'queued',
     ),
   );
