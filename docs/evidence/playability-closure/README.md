@@ -7,7 +7,7 @@
 - 构建产物：`dist/index.html` SHA-256 `1943e65863717473d3b7bffca18b376aacd44790f9112b7f63ecddec6eb7467f`；`dist/assets/index-NxNtdA4p.js` SHA-256 `087d71475becba1ed9583d4c16be4b49186dfdea787f47fcf459cdf26b3a2b02`。构建内嵌完整运行 SHA、`dirty=false`、内容与资源身份；`dist` 本身不提交。
 - [机器可读身份清单](identity.json) 绑定上述构建、两段录像与视口；现场设备复核须使用同一运行源码和资源身份。
 - 后续证据与状态文档提交不修改上述运行代码；其完整交付 SHA 以 PR head 与最终报告为准。
-- 最后运行源码提交后，仅修改浏览器测试、证据和文档；平台/WebKit 定向复验仍访问上述干净构建。PR CI 将在最终交付 head 重新安装、构建并跑精选浏览器路径，不能预先写成本地通过。
+- 最后运行源码提交后，仅修改浏览器测试、证据和文档；平台/WebKit 定向复验仍访问上述干净构建。[PR #7](https://github.com/yuan2go/tabby-english-food-truck/pull/7) 的 CI 在每个 PR head 重新安装、构建并跑精选浏览器路径；以 PR 上对应 SHA 的检查结论为准。
 
 ## 统一工程检查
 
@@ -24,6 +24,8 @@
 首轮集中浏览器检查在旧测试断言下为 **9/11、退出 1**，保留 [日志](failures/browser-initial.log) 与 [暂停恢复](failures/pause-context.md)、[小游戏](failures/mini-context.md) 的失败现场。前者仍等待机器 `READY`，而当前规则在任务到期时把唯一成品放入预留盘位并释放机器；修正后检查实际果汁位置、路由清理、机器状态与无额外语言尝试。后者因新增就近声音恢复状态后，旧 `role=status` 查询命中两个元素；修正为只检查小游戏纠错反馈。两条定向复验通过后，重新从干净提交构建并整轮跑出上表 11/11；没有删除断言、隐藏失败或注入通关状态。
 
 补充平台检查首轮 **2/4、退出 1**，[日志](failures/platforms-initial.log) 保留：Pad 用例也误等机器 `READY`，已改为断言绑定盘位的真实成品；资源故障用例仍找已移除的常驻警告，已改查现有状态入口和就近重试。WebKit 首轮 **1/2、退出 1**，[日志](failures/webkit-initial.log) 保留：第二客仍在入场时用例提前寻找双客目标菜单；现在等待两位客人实际待服务，再断言双客选择。对应定向复验分别为上表 4/4、2/2。后台测试曾覆盖历史 `docs/evidence/m21` 输出，已将脚本输出指向本次测试目录并恢复历史文件。
+
+[PR #7 首轮 CI](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/36245803319) 在交付候选 `318b1afea17b854eb59764897c4db82c67457059` 上，依赖安装、lint、191 条规则、资源、构建均通过；Chromium **9/11、退出 1**。保留 [失败日志](failures/ci-36245803319.log)、[故事现场](failures/ci-story-context.md)、[故事画面](failures/ci-story.png)、[边界现场](failures/ci-boundary-context.md)和[边界画面](failures/ci-boundary.png)。三明治在刷新后已按规则把三份原料转成沿用首份 ID 的成品，旧断言仍要求原料 ID 全留；果汁在暂停前已完成并入盘，旧断言误以为它仍在杯座。现按加工前输入、预留目标、产物 ID 与无关食品逐项核对。定向 `game` 完整故事 **1/1、退出 0**；同一轮边界用例在短横屏取到调整视口前的旧触区坐标，合并运行 **1/2、退出 1**，保留[日志](failures/local-ci-fix-initial.log)。等待帮助触区与新布局同步后，单独边界用例 **1/1、退出 0**，见[日志](ci-fix-boundary.log)；同一改动的模拟 WebKit 边界 **1/1、退出 0**，见[日志](ci-fix-webkit.log)。这些本地定向结果不冒充 PR head 的整轮 CI；最新远端结论见 PR 检查。
 
 ## 可见界面走查
 

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { layoutFor } from '../src/game/layout';
 import { hot, lesson, startStory, state, tap } from './helpers';
 
 test.use({
@@ -55,7 +56,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   await lesson(page);
   const restored = await state(page);
   const consumed = frozen.items.find((i) => i.location === 'machine:apple');
-  const vessel = frozen.items.find((i) => i.location === 'machine:cup');
+  const vessel = frozen.items.find((i) => i.location === 'machine:cup' || i.product === 'juice');
   const alreadyFinished = restored.items.some((i) => i.product === 'juice');
   expect(restored.items.map((i) => i.id)).toEqual(
     frozen.items.filter((i) => !alreadyFinished || i.id !== consumed?.id).map((i) => i.id),
@@ -100,6 +101,13 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   }
   for (const height of [300, 342, 393]) {
     await page.setViewportSize({ width: 852, height });
+    const helper = layoutFor(852, height, 'service').helper;
+    await expect
+      .poll(async () => {
+        const point = await hot(page, 'note');
+        return [Math.round(point.x), Math.round(point.y)];
+      })
+      .toEqual([Math.round(helper.x), Math.round(helper.y - 20)]);
     await expect
       .poll(async () => {
         const p = await hot(page, 'note');

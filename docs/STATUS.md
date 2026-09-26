@@ -8,6 +8,8 @@
 
 [本包证据与负责人复核步骤](evidence/playability-closure/README.md)：本地 Node `v26.3.1`、HTTP preview `127.0.0.1:4174`；`npm run lint`、`npm test`（191/191）、`npm run resources`（347 文件/196 语音引用/50 食品）、`npm run build`（含类型检查）均退出 0；同一干净运行构建的精选 Chromium **11/11**、补充 Pad/桌面/后台 **4/4**、模拟 WebKit **2/2** 均退出 0。早期 9/11、2/4、1/2 的失败日志、原因和修复留在证据目录；未拼成一次全套通过。Phaser 大块警告与 33 条 lint warning/7 info 仍在；本包没有新的真实 FPS 测量，不能宣称 60fps 达标。
 
+[PR #7](https://github.com/yuan2go/tabby-english-food-truck/pull/7) 首轮 [CI](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/36245803319) 在 `318b1afea17b854eb59764897c4db82c67457059` 上，前置关卡通过、浏览器 **9/11 退出 1**。两处恢复断言错误地假设加工在刷新导航期间不会完成；修复后完整故事定向 1/1 通过。短横屏边界定向又捕获调整视口后立即读取旧触区坐标，现等待语义触区与布局一致；单独复验 1/1 通过。失败现场与每轮退出码保存在本包证据中，最新远端整轮结果以 PR 对应 head 的检查为准。
+
 可见走查不读存档答案/配方答案、不注入通关，从首页完成五章 19 单与一次错单纠正；计数为导航 7、教学 19、求助 150、纠错 3、纯备餐 161、等待 20、送餐 19。其视频与 393×665 DPR3 截图仅证明视觉辅助的模拟操作。实体 iPhone 15 Pro＋Chrome **BLOCKED / NEEDS_OWNER_REVIEW**，真实浏览器栏/安全区/触感仍待负责人同构建复核；儿童观察 **NOT_RUN**，开发语音听审、教研和资源权利 **PENDING**。本包未合并、未部署，公开发布 **BLOCKED**。本地工程通过不替代这些外部验收。
 
 ## 2026-09-21 M2.2 Git 同步（按要求不测试）

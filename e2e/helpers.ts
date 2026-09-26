@@ -163,7 +163,31 @@ export async function make(
     await lesson(p);
     const after = await state(p);
     expect(after.runId).toBe(before.runId);
-    expect(after.items.map((i) => i.id)).toEqual(before.items.map((i) => i.id));
+    const inputs = before.items.filter((i) => i.location.startsWith(`station:${recipe.station}:`));
+    const source = inputs[0];
+    const target = before.routing[recipe.station];
+    if (!source || !target) throw Error('processing station lost input or output reservation');
+    const output = after.items.find((i) => i.id === source.id && i.product === product);
+    if (output) {
+      expect(after.items.map((i) => i.id).sort()).toEqual(
+        before.items
+          .filter((i) => !inputs.some((input) => input.id === i.id) || i.id === source.id)
+          .map((i) => i.id)
+          .sort(),
+      );
+      for (const item of before.items.filter((i) => !inputs.some((input) => input.id === i.id)))
+        expect(after.items.find((i) => i.id === item.id)).toEqual(item);
+      expect(output.location).toBe(
+        'station' in target
+          ? `station:${target.station}:${target.slot}`
+          : `tray:${target.tray}:${target.slot}`,
+      );
+    } else {
+      expect(after.items).toEqual(before.items);
+      expect(
+        recipe.station === 'machine' ? after.machine.status : after.stations[recipe.station].status,
+      ).toBe('processing');
+    }
     // Restart measurement after navigation; no gameplay state is injected.
     await p.evaluate(() => {
       const m = Reflect.get(window, 'm2measure');
