@@ -1,0 +1,83 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m21.spec.ts e2e/recovery.spec.ts --grep first prologue|matching accepts|actual helper
+
+[WebServer] (node:78891) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:78961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:79001) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/m21.spec.ts:10:1 › M21 first prologue starts, opening can skip, short lesson records only real choices (16.9s)
+(node:79028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/m21.spec.ts:58:1 › M21 matching accepts direct picture after playback and switches activities without losing drafts (12.2s)
+(node:79052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 e2e/recovery.spec.ts:77:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion (19.2s)
+
+
+  1) e2e/m21.spec.ts:10:1 › M21 first prologue starts, opening can skip, short lesson records only real choices 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '听成品名称' })
+
+
+      37 |   await page.getByRole('button', { name: '苹果', exact: true }).tap();
+      38 |   expect((await profile()).observations).toHaveLength(1);
+    > 39 |   await page.getByRole('button', { name: '听成品名称' }).tap();
+         |                                                     ^
+      40 |   await expect
+      41 |     .poll(
+      42 |       async () =>
+        at /Users/yuan/.codex/worktrees/dami-name/tabby-english-food-truck/e2e/m21.spec.ts:39:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m21-M21-first-prologue-sta-b9524-n-records-only-real-choices/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m21-M21-first-prologue-sta-b9524-n-records-only-real-choices/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m21-M21-first-prologue-sta-b9524-n-records-only-real-choices/error-context.md
+
+  2) e2e/recovery.spec.ts:77:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '2号盘', exact: true })
+
+
+      101 |   }
+      102 |   await tap(page, 'note');
+    > 103 |   await page.getByRole('button', { name: '2号盘', exact: true }).tap();
+          |                                                                ^
+      104 |   await page.getByRole('button', { name: '看图请大咪', exact: true }).tap();
+      105 |   await page.getByRole('button', { name: '图片 banana', exact: true }).tap();
+      106 |   await page.getByRole('button', { name: '交给大咪', exact: true }).tap();
+        at /Users/yuan/.codex/worktrees/dami-name/tabby-english-food-truck/e2e/recovery.spec.ts:103:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-actual-helper--5db68-lation-and-continued-motion/error-context.md
+
+  2 failed
+    e2e/m21.spec.ts:10:1 › M21 first prologue starts, opening can skip, short lesson records only real choices 
+    e2e/recovery.spec.ts:77:1 › M2 actual helper and delivery overlap, reload, cancellation and continued motion 
+  1 passed (57.0s)
