@@ -15,6 +15,14 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   await page.getByRole('button', { name: '设置', exact: true }).tap();
   await page.getByRole('button', { name: '两位一起招呼' }).tap();
   await page.getByRole('button', { name: '← 返回', exact: true }).tap();
+  await expect
+    .poll(
+      async () => (await state(page)).orders.filter((order) => order.status === 'waiting').length,
+      {
+        timeout: 15000,
+      },
+    )
+    .toBe(2);
   await tap(page, 'supply-banana');
   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
