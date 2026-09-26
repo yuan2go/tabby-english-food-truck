@@ -21,7 +21,7 @@ export function parsePhrase(input: string): PhraseResult {
   )
     return { kind: 'outside', message: '这张便签目前认识 apple、banana、one、two 和 and。' };
   const parts = words.join(' ').split(' and ');
-  if (parts.length > 2) return { kind: 'outside', message: '小猫一次最多拿两份水果。' };
+  if (parts.length > 2) return { kind: 'outside', message: '大咪一次最多拿两份水果。' };
   const fruits: Fruit[] = [];
   for (const part of parts) {
     const pieces = part.split(' ');
@@ -30,7 +30,7 @@ export function parsePhrase(input: string): PhraseResult {
       continue;
     }
     const [det, noun, extra] = pieces;
-    if (!noun) return { kind: 'incomplete', message: '再告诉小猫要什么水果。' };
+    if (!noun) return { kind: 'incomplete', message: '再告诉大咪要什么水果。' };
     if (extra || !det) return { kind: 'outside', message: '试试一个数量词配一个水果词。' };
     const fruit: Fruit | undefined =
       noun === 'apple' || noun === 'apples'
@@ -39,7 +39,7 @@ export function parsePhrase(input: string): PhraseResult {
           ? 'banana'
           : undefined;
     if (!fruit || !['a', 'an', 'one', 'two'].includes(det))
-      return { kind: 'outside', message: '这句话超出小猫当前认识的表达。' };
+      return { kind: 'outside', message: '这句话超出大咪当前认识的表达。' };
     const two = det === 'two';
     const correctArticle =
       (det !== 'a' && det !== 'an') || det === (fruit === 'apple' ? 'an' : 'a');
@@ -51,7 +51,7 @@ export function parsePhrase(input: string): PhraseResult {
     fruits.push(fruit);
     if (two) fruits.push(fruit);
   }
-  if (fruits.length > 2) return { kind: 'outside', message: '小猫一次最多拿两份水果。' };
+  if (fruits.length > 2) return { kind: 'outside', message: '大咪一次最多拿两份水果。' };
   return { kind: 'valid', fruits, normalized };
 }
 export function parseTokens(ids: readonly string[]): PhraseResult {

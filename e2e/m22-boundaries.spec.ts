@@ -128,7 +128,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
       })
       .toBe('CANVAS');
     await tap(page, 'note');
-    await expect(page.getByRole('heading', { name: '小猫陪你一起做' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '大咪陪你一起做' })).toBeVisible();
     await page.getByRole('button', { name: '继续营业', exact: true }).tap();
     await tap(page, 'tray-1', 25);
     await tap(page, 'supply-apple');

@@ -85,7 +85,7 @@ test('M21 matching accepts direct picture after playback and switches activities
   await page.getByRole('button', { name: /A B C WordSpell/ }).tap();
   await page.getByRole('button', { name: '开始玩', exact: true }).tap();
   await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
-  await page.getByRole('button', { name: '小猫帮帮我' }).tap();
+  await page.getByRole('button', { name: '大咪帮帮我' }).tap();
   const before = await page.evaluate(() =>
     JSON.parse(localStorage.getItem('tabby.foodtruck.minigame.m21') ?? '{}'),
   );
@@ -166,7 +166,7 @@ test('M21 unfinished lesson resumes its real step and receipt; rejected mini sto
   await page.getByRole('button', { name: /A B C WordSpell/ }).tap();
   await page.getByRole('button', { name: '开始玩', exact: true }).tap();
   await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
-  await page.getByRole('button', { name: '小猫帮帮我' }).tap();
+  await page.getByRole('button', { name: '大咪帮帮我' }).tap();
   const slots = await page.locator('.letter-draft').textContent();
   await page.getByRole('button', { name: '← 回游戏小摊' }).tap();
   await page.getByRole('button', { name: /食物找朋友 听一题/ }).tap();

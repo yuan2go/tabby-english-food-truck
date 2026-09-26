@@ -136,7 +136,7 @@ export class GameController {
     this.state = next;
     this.checkpoint = 0;
     this.savedGame = Boolean(previous);
-    this.message = previous ? '接着上次，食物和小猫都在。' : '先看一看，再亲手试试。';
+    this.message = previous ? '接着上次，食物和大咪都在。' : '先看一看，再亲手试试。';
     this.save.save(this.state);
     this.notify();
   }

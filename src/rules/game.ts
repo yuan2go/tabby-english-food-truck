@@ -306,7 +306,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if (existing && itemLocked(s, existing))
       return result('blocked', '食物正在制作或递交，稍等就好。');
     if (existing?.location === 'helper')
-      return result('blocked', '小猫还在拿这份水果，可以取消便签。');
+      return result('blocked', '大咪还在拿这份水果，可以取消便签。');
     if (existing?.location.startsWith('machine:') && s.machine.status === 'processing')
       return result('blocked', '果汁正在制作，等杯子装好再拿。');
     if (existing?.location.startsWith('tray:')) {
@@ -363,7 +363,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '果汁机开始了。现在也能准备水果。');
   }
   if (c.type === 'cancel-helper') {
-    if (!s.helper) return result('blocked', '小猫现在没有取料任务。');
+    if (!s.helper) return result('blocked', '大咪现在没有取料任务。');
     const ids = s.helper.itemIds;
     s.items = s.items.filter((i) => !ids.includes(i.id));
     s.helper = null;
@@ -402,7 +402,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     }
     const slots = freeSlots(s, c.tray);
     const blocked = s.helper
-      ? '小猫正在取料。等一下，或撤回上一张便签。'
+      ? '大咪正在取料。等一下，或撤回上一张便签。'
       : s.trays[c.tray].remaining > 0
         ? '这只托盘还没回来。'
         : slots.length < phrase.fruits.length
@@ -445,7 +445,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
       ),
     };
     s.items.push(...items);
-    return result('ok', `小猫读懂了，正在送往${c.tray + 1}号托盘。`);
+    return result('ok', `大咪读懂了，正在送往${c.tray + 1}号托盘。`);
   }
   if (c.type === 'deliver') {
     const order = s.orders.find((o) => o.id === c.order);
@@ -454,9 +454,9 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if (Object.values(s.routing).some((t) => t && 'tray' in t && t.tray === c.tray))
       return result('blocked', '这只盘正等机器的成品。可等做好，或先使用另一盘。');
     if (s.helper?.tray === c.tray)
-      return result('blocked', '小猫预留了这只托盘。等它放好，或撤回便签。');
+      return result('blocked', '大咪预留了这只托盘。等它放好，或撤回便签。');
     const items = trayItems(s, c.tray);
-    if (s.actor.queue.length >= 3) return result('blocked', '小猫正在递餐，稍等一下。');
+    if (s.actor.queue.length >= 3) return result('blocked', '大咪正在递餐，稍等一下。');
     const expected = REQUESTS[order.request].products;
     if (items.length < expected.length) return result('incomplete', '盘里还没准备齐，可以接着放。');
     if (!order.heard)
@@ -499,7 +499,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     s.trays[c.tray].remaining = duration;
     order.status = 'leaving';
     order.remaining = duration;
-    return result('ok', '小猫正把这份心意送过去。');
+    return result('ok', '大咪正把这份心意送过去。');
   }
   return result('blocked', '无法执行这次操作。');
 }

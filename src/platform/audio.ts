@@ -2,7 +2,7 @@ import speech from '../content/speech.json' with { type: 'json' };
 import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';
-export const AUDIO_VERSION = 'samantha-dev-m22-140';
+export const AUDIO_VERSION = 'samantha-dev-m22-140-dami';
 export type PlaybackResult = 'completed' | 'interrupted' | 'failed' | 'muted' | 'skipped';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
 export type Effect =

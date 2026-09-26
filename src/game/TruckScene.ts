@@ -514,7 +514,7 @@ export class TruckScene extends Phaser.Scene {
       );
     }
     this.kitchen?.draw(s, l, this.ui, this.density);
-    this.hot('note', '请小猫帮忙', 'note', l.helper.x, l.helper.y - 20, 64, 88);
+    this.hot('note', '请大咪帮忙', 'note', l.helper.x, l.helper.y - 20, 64, 88);
     for (const tray of MODES[s.mode].trays) {
       const p = l.trays[tray],
         returning = s.trays[tray].remaining > 0;

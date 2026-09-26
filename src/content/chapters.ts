@@ -57,7 +57,7 @@ export const CHAPTERS: readonly Chapter[] = [
     requests: ['cheese-burger', 'burger', 'sandwich'],
     introduced: ['burger', 'lettuce', 'tomato'],
     gift: '暖暖灯串',
-    line: '煎台亮起来了。先等饼做好，再帮小猫组装汉堡。',
+    line: '煎台亮起来了。先等饼做好，再帮大咪组装汉堡。',
     audio: 'chapter-burger',
   },
   {
@@ -68,7 +68,7 @@ export const CHAPTERS: readonly Chapter[] = [
     requests: ['juice', 'vanilla-cone', 'sandwich', 'cheese-burger'],
     introduced: ['thank-you'],
     gift: '大家的合影',
-    line: '食谱里留下了四道菜。请老朋友一起到小院吃饭吧！',
+    line: '食谱里留下了四道菜。谢谢大咪，请老朋友一起到小院吃饭吧！',
     audio: 'chapter-picnic',
   },
 ];

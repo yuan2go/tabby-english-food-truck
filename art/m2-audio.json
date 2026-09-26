@@ -283,7 +283,7 @@
     },
     {
       "id": "menu-story",
-      "text": "Story time. Help Tabby open the food truck.",
+      "text": "Story time. Help Dami open the food truck.",
       "voice": "macOS Samantha",
       "rate": 140,
       "path": "public/audio/menu-story.wav",
@@ -307,7 +307,7 @@
     },
     {
       "id": "menu-training",
-      "text": "Watch Tabby. Then you try.",
+      "text": "Watch Dami. Then you try.",
       "voice": "macOS Samantha",
       "rate": 140,
       "path": "public/audio/menu-training.wav",
@@ -315,7 +315,7 @@
     },
     {
       "id": "prologue-0",
-      "text": "This little key is yours, Tabby.",
+      "text": "This little key is yours, Dami.",
       "voice": "macOS Samantha",
       "rate": 140,
       "path": "public/audio/prologue-0.wav",
@@ -371,7 +371,7 @@
     },
     {
       "id": "chapter-picnic",
-      "text": "All our friends are here. Thank you, Tabby!",
+      "text": "All our friends are here. Thank you, Dami!",
       "voice": "macOS Samantha",
       "rate": 140,
       "path": "public/audio/chapter-picnic.wav",

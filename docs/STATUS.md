@@ -1,5 +1,11 @@
 # 项目状态
 
+## 2026-09-26 大咪命名同步 · IMPLEMENTED / 待定向验证
+
+负责人明确指定主角名「大咪」，英文写作 Dami。基线为默认分支 `origin/main` 的 `b4bb59cad6b0b8a31330d21452c9830549e550df`，独立分支 `codex/dami-name`。首页与浏览器标题、说明、教学、菜单成长、小游戏、帮助便签、规则反馈、恢复提示、无障碍标签、开场与结尾统一称呼；四段含旧称呼的开发语音已重生成，同步语音脚本/登记和真实资源 hash。玩法、存档键与资源 ID 保持原状。
+
+当前包的构建、资源检查和精选浏览器路径正在验证，结果随后补入本节。人工听审、实体设备复核 NOT_RUN；部署 PENDING_DEPLOYMENT。本地命名修改不代表已更新公开站点。
+
 ## 2026-09-26 WP-M22-PLAYABILITY-CLOSURE-01 · IMPLEMENTED / LOCAL_VERIFIED · 真机待复核
 
 从 `origin/main` 完整 SHA `43ec1d1463a54d8eb715e1cf84465d10cc071491` 的干净基线，在独立分支 `codex/m22-playability-closure` 完成音频终态、四类料理表现、后段可选双客连续营业、按需教学和稳定 CI。最后运行源码提交 `6259f674ceefe75da297bf52a5fc4dfbe1aab8be`；本地干净验证构建 SHA `d893116fa14dc06037317f7f66fff7dc446268e0`，二者运行源码相同；其后仅修浏览器测试断言/证据输出和交付文档。最终交付 head 与 PR 见交付报告。内容 `m2.2`，资源清单 SHA-256 `024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36`，构建标记 `dirty=false`。

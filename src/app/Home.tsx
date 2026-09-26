@@ -30,7 +30,7 @@ export function Home({
               ? '今天也有新朋友'
               : id === 'mini'
                 ? '听一听 · 找一找 · 拼一拼'
-                : '看小猫做，再亲手试试'}
+                : '看大咪做，再亲手试试'}
         </small>
       </button>
       <button
@@ -50,8 +50,8 @@ export function Home({
       style={{ backgroundImage: `url(${assetUrl('courtyard')})` }}
     >
       <header className="yard-title">
-        <span>TABBY'S LITTLE KITCHEN</span>
-        <h1>狸花猫的英语餐车</h1>
+        <span>DAMI'S LITTLE KITCHEN</span>
+        <h1>大咪的英语餐车</h1>
         <p>一辆小餐车，一院好朋友。</p>
       </header>
       <button
@@ -62,7 +62,7 @@ export function Home({
       >
         ⚙
       </button>
-      <img className="yard-cat" src={assetUrl('cat-greet')} alt="小主厨狸花猫" />
+      <img className="yard-cat" src={assetUrl('cat-greet')} alt="小主厨大咪" />
       {entry(
         'story',
         profile.completed.length || profile.prologue ? '继续故事' : '故事模式',
@@ -105,7 +105,7 @@ export function Home({
       {profile.completed.length > 4 ? (
         <div className="yard-photo" role="img" aria-label="社区小食会合影">
           <img src={assetUrl('guest-0-2')} alt="兔子朋友" />
-          <img src={assetUrl('cat-celebrate')} alt="小主厨" />
+          <img src={assetUrl('cat-celebrate')} alt="小主厨大咪" />
           <img src={assetUrl('guest-1-2')} alt="刺猬朋友" />
           <span>Thank you!</span>
         </div>

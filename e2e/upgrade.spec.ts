@@ -39,7 +39,7 @@ test('M2 actor continuity teaching exit, helper-delivery overlap, cancel, pause,
   await tap(page, 'supply-apple');
   await tap(page, 'note');
   await page.getByRole('button', { name: '图片 banana', exact: true }).tap();
-  await page.getByRole('button', { name: '交给小猫', exact: true }).tap();
+  await page.getByRole('button', { name: '交给大咪', exact: true }).tap();
   await page.getByRole('button', { name: '送给客人 ↗' }).tap(); // blocked by this tray reservation, not a language error
   expect((await state(page)).attempts).toHaveLength(0);
   const samples = await page.evaluate(async () => {

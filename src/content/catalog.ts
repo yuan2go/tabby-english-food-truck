@@ -6,7 +6,7 @@ export type Fruit = 'apple' | 'banana';
 export const CONTENT_VERSION = 'm2.2';
 export type Mode = 'guided' | 'practice' | 'service';
 export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (0 | 1)[] }> = {
-  guided: { name: '跟着小猫做', icon: '🐾', trays: [0] },
+  guided: { name: '跟着大咪做', icon: '🐾', trays: [0] },
   practice: { name: '帮客人准备食物', icon: '🍎', trays: [0] },
   service: { name: '小小餐车营业中', icon: '☀', trays: [0, 1] },
 };

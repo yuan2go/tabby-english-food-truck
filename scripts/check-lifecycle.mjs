@@ -47,12 +47,12 @@ try {
   await key('supply-apple');
   await key('start');
   await key('note');
-  await page.getByRole('button', { name: '请小猫帮我拿', exact: true }).click();
+  await page.getByRole('button', { name: '请大咪帮我拿', exact: true }).click();
   await page.getByRole('button', { name: '2号盘', exact: true }).click();
-  await page.getByRole('button', { name: '看图请小猫', exact: true }).click();
+  await page.getByRole('button', { name: '看图请大咪', exact: true }).click();
   await page.getByRole('button', { name: '图片 apple', exact: true }).click();
   await page.getByRole('button', { name: '图片 apple', exact: true }).click();
-  await page.getByRole('button', { name: '交给小猫', exact: true }).click();
+  await page.getByRole('button', { name: '交给大咪', exact: true }).click();
   const state = () =>
     page.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2')));
   await page.getByRole('button', { name: '暂停', exact: true }).click();
