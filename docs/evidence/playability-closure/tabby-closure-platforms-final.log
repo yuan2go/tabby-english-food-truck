@@ -1,0 +1,15 @@
+[WebServer] (node:34050) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:34092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/recovery.spec.ts:24:1 › M2 Pad prologue and real processing restore in portrait and landscape (36.4s)
+  ✓  2 e2e/recovery.spec.ts:235:1 › M2 native background freeze stops clock, helper, machine and audio (5.7s)
+(node:34405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/upgrade.spec.ts:98:1 › M2 drag and keyboard equivalent; selected guest never changes to correct answer (3.1s)
+  ✓  4 e2e/upgrade.spec.ts:115:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress (4.4s)
+
+  4 passed (51.8s)

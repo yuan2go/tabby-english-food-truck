@@ -1,0 +1,18 @@
+{
+  "baseline": "43ec1d1463a54d8eb715e1cf84465d10cc071491",
+  "lastRuntimeSourceCommit": "6259f674ceefe75da297bf52a5fc4dfbe1aab8be",
+  "verifiedBuildCommit": "d893116fa14dc06037317f7f66fff7dc446268e0",
+  "buildDirty": false,
+  "contentVersion": "m2.2",
+  "assetManifestSha256": "024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36",
+  "distIndexSha256": "1943e65863717473d3b7bffca18b376aacd44790f9112b7f63ecddec6eb7467f",
+  "distAppSha256": "087d71475becba1ed9583d4c16be4b49186dfdea787f47fcf459cdf26b3a2b02",
+  "visibleVideoSha256": "1a4d930d91914d8d2b35e5985e8514019d35bdbb2926eb09592d9da1229730f3",
+  "engineeringVideoSha256": "8e6546e3036340b2fd29fd302718d6df72f41bb3e7b28017274b4f9fceb38e4b",
+  "httpOrigin": "http://127.0.0.1:4174/",
+  "viewportCss": "393x665",
+  "deviceScaleFactor": 3,
+  "humanAudioReview": "NOT_RUN",
+  "physicalIPhoneReview": "BLOCKED",
+  "childObservation": "NOT_RUN"
+}

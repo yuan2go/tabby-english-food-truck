@@ -1,0 +1,14 @@
+{
+  "method": "VISIBLE_IMAGES_AND_FORMAL_HELP",
+  "hiddenAnswers": false,
+  "injectedState": false,
+  "audioHumanListening": "NOT_RUN",
+  "viewport": "393x665 DPR3",
+  "navigation": 7,
+  "teaching": 19,
+  "help": 150,
+  "correction": 3,
+  "preparation": 161,
+  "waiting": 20,
+  "delivery": 19
+}

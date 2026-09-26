@@ -1,0 +1,93 @@
+[WebServer] (node:22351) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 1 worker
+
+(node:22389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/game.spec.ts:14:1 › M2 phone complete click story: prologue through all recipes to community ending (4.5m)
+  ✓   2 e2e/game.spec.ts:111:1 › M2 quick input: immediate taps, same-entity double tap, nearby removal and explicit wrong delivery (15.8s)
+  ✘   3 e2e/game.spec.ts:147:1 › M2 pause and homepage resume keep world; tutorials are separate from the session (24.2s)
+(node:23393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (35.0s)
+  ✓   5 e2e/m22-boundaries.spec.ts:115:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (7.7s)
+  ✓   6 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (20.8s)
+  ✓   7 e2e/m22-playability-visible.spec.ts:157:1 › visible picture and recipe walk completes four cooking families and mixed late service (6.0m)
+  ✓   8 e2e/m22-visible-walk.spec.ts:12:1 › visible interface and formal help walk: apple and juice without hidden answers (23.4s)
+  ✘   9 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (5.5s)
+(node:25629) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (31.3s)
+  ✓  11 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (5.6s)
+
+
+  1) e2e/game.spec.ts:147:1 › M2 pause and homepage resume keep world; tutorials are separate from the session 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ready"
+    Received: "empty"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      169 |   await expect
+      170 |     .poll(async () => (await state(page)).machine.status, { timeout: 15000 })
+    > 171 |     .toBe('ready');
+          |      ^
+      172 | });
+      173 |
+        at /Users/yuan/.codex/worktrees/tabby-m22-playability/e2e/game.spec.ts:171:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/game-M2-pause-and-homepage-01ef9-e-separate-from-the-session/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/game-M2-pause-and-homepage-01ef9-e-separate-from-the-session/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/game-M2-pause-and-homepage-01ef9-e-separate-from-the-session/error-context.md
+
+  2) e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status')
+    Expected substring: "再听一听"
+    Error: strict mode violation: getByRole('status') resolved to 2 elements:
+        1) <div role="status" class="voice-recovery mini-voice-recovery">…</div> aka getByText('声音没播完整，可以重听或看图继续。♫ 重试🖼 看图')
+        2) <p role="status" class="mini-feedback">再听一听，也可以请小猫帮忙。</p> aka getByText('再听一听，也可以请小猫帮忙。')
+
+    Call log:
+      - Expect "toContainText" getByRole('status') with timeout 6000ms
+      - waiting for getByRole('status')
+
+
+      72 |         if (n === 0) {
+      73 |           await wrong.tap();
+    > 74 |           await expect(page.getByRole('status')).toContainText('再听一听');
+         |                                                  ^
+      75 |         }
+      76 |         await page
+      77 |           .locator('.matching-pictures button')
+        at /Users/yuan/.codex/worktrees/tabby-m22-playability/e2e/minigames.spec.ts:74:50
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/error-context.md
+
+  Slow test file: e2e/m22-playability-visible.spec.ts (6.0m)
+  Slow test file: e2e/game.spec.ts (5.2m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  2 failed
+    e2e/game.spec.ts:147:1 › M2 pause and homepage resume keep world; tutorials are separate from the session 
+    e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return 
+  9 passed (13.3m)

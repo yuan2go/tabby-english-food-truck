@@ -1,0 +1,83 @@
+[WebServer] (node:32082) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:32120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/recovery.spec.ts:24:1 › M2 Pad prologue and real processing restore in portrait and landscape (33.4s)
+(node:32245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/recovery.spec.ts:229:1 › M2 native background freeze stops clock, helper, machine and audio (5.9s)
+(node:32330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/upgrade.spec.ts:98:1 › M2 drag and keyboard equivalent; selected guest never changes to correct answer (2.6s)
+  ✘  4 e2e/upgrade.spec.ts:115:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress (8.7s)
+
+
+  1) e2e/recovery.spec.ts:24:1 › M2 Pad prologue and real processing restore in portrait and landscape 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ready"
+    Received: "empty"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      50 |   await expect
+      51 |     .poll(async () => (await state(page)).machine.status, { timeout: 15000 })
+    > 52 |     .toBe('ready');
+         |      ^
+      53 |   const item = (await state(page)).items.find((i) => i.product === 'juice');
+      54 |   if (!item) throw Error('juice');
+      55 |   await tap(page, `item-${item.id}`);
+        at /Users/yuan/.codex/worktrees/tabby-m22-playability/e2e/recovery.spec.ts:52:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/recovery-M2-Pad-prologue-a-ee72e-e-in-portrait-and-landscape/error-context.md
+
+  2) e2e/upgrade.spec.ts:115:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.resource-alert')
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.resource-alert') with timeout 6000ms
+      - waiting for locator('.resource-alert')
+
+
+      121 |   await page.route('**/audio/request-*.wav*', (r) => r.abort());
+      122 |   await startStory(page);
+    > 123 |   await expect(page.locator('.resource-alert')).toBeVisible();
+          |                                                 ^
+      124 |   const before = await state(page);
+      125 |   deny = false;
+      126 |   await page.getByRole('button', { name: '重试画面' }).tap();
+        at /Users/yuan/.codex/worktrees/tabby-m22-playability/e2e/upgrade.spec.ts:123:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/upgrade-M2-phone-DPR-and-P-b580a--audio-retry-keeps-progress/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/upgrade-M2-phone-DPR-and-P-b580a--audio-retry-keeps-progress/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/upgrade-M2-phone-DPR-and-P-b580a--audio-retry-keeps-progress/error-context.md
+
+  2 failed
+    e2e/recovery.spec.ts:24:1 › M2 Pad prologue and real processing restore in portrait and landscape 
+    e2e/upgrade.spec.ts:115:1 › M2 phone DPR and Pad composition, failed asset/audio retry keeps progress 
+  2 passed (53.2s)

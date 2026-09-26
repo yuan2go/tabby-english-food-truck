@@ -8,7 +8,7 @@
 
 ## 当前状态
 
-当前工作包为 **M2.2：iPhone操作界面简化与50个食品元素实装**，基线main `c105ec8478de5f1f0a03d38ca03255b7938e92f8`，PR #5已合并。本包已接入简化操作、50食品与渐进菜单，候选在[PR #6](https://github.com/yuan2go/tabby-english-food-truck/pull/6)。手机反馈仍为NEEDS_REVISION，待iPhone 15 Pro Chrome复核；当前验收与限制见[STATUS](docs/STATUS.md)。
+当前工作包为 **WP-M22-PLAYABILITY-CLOSURE-01：M2.2 真机核心体验收敛与连续营业打磨**。从 main `43ec1d1463a54d8eb715e1cf84465d10cc071491` 续做，最后运行源码提交 `6259f674ceefe75da297bf52a5fc4dfbe1aab8be`，干净验证构建 `d893116fa14dc06037317f7f66fff7dc446268e0`；音频终态、四类料理反馈、后段可选双客、按需教学与 CI 已接入本仓库正式入口。工程检查与可见界面 19 单走查见[本包证据](docs/evidence/playability-closure/README.md)和[STATUS](docs/STATUS.md)。实体 iPhone 15 Pro＋Chrome 仍待负责人按同一构建复核，不把模拟浏览器通过视为真机接受。
 
 [既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 已由负责人更新；过去 m1.1 检查只描述当时的部署。本轮重新读取实际 build SHA、内容和资源身份，结果见 [STATUS](docs/STATUS.md)。M2.2 在实际部署前为 **PENDING_DEPLOYMENT**。冻结角色参考继续使用，听审、教研、权利、实体设备和儿童观察分别验收。
 
@@ -75,6 +75,6 @@ npm run dev
 
 ## 当前交付边界
 
-M2.2运行候选、逐项工程检查与浏览器证据见STATUS；性能按实际采样报告，新代码尚未部署。最终画面和手感仍交负责人确认，教研、听审、实机与儿童观察分别报告，不用本地通过代替公开发布资格。
+当前运行候选、逐项工程检查、同视口截图与连续录像见[本包证据](docs/evidence/playability-closure/README.md)；本包未做新的真实 FPS 测量，新代码尚未部署。最终画面和手感仍交负责人确认，教研、听审、实机与儿童观察分别报告，不用本地通过代替公开发布资格。
 
 无账号、支付、广告、多人、后台或运行时 AI 依赖。代码授权与资产权利分别登记；本 README 不授予第三方素材使用权。

@@ -1,0 +1,42 @@
+[WebServer] (node:34790) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:34828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (16.3s)
+(node:34915) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/m22-boundaries.spec.ts:115:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (2.5s)
+
+
+  1) e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('group', { name: '选择送餐客人' }).getByRole('button').first()
+
+
+      18 |   await tap(page, 'supply-banana');
+      19 |   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+    > 20 |   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
+         |                                                                                 ^
+      21 |   expect((await state(page)).attempts.at(-1)?.result).toBe('request-mismatch');
+      22 |   const banana = (await state(page)).items[0];
+      23 |   if (!banana) throw Error('banana');
+        at /Users/yuan/.codex/worktrees/tabby-m22-playability/e2e/m22-boundaries.spec.ts:20:81
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:10:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  1 passed (21.4s)
