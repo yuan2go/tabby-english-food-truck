@@ -167,6 +167,22 @@ test('M2 pause and homepage resume keep world; tutorials are separate from the s
   expect(after.items.map((i) => i.id)).toEqual(before.items.map((i) => i.id));
   expect(after.machine.remaining).toBeLessThanOrEqual(before.machine.remaining);
   await expect
-    .poll(async () => (await state(page)).machine.status, { timeout: 15000 })
-    .toBe('ready');
+    .poll(
+      async () => {
+        const current = await state(page);
+        return {
+          machine: current.machine.status,
+          route: current.routing.machine,
+          food: current.items.map((item) => [item.product, item.location]),
+          attempts: current.attempts.length,
+        };
+      },
+      { timeout: 15000 },
+    )
+    .toEqual({
+      machine: 'empty',
+      route: null,
+      food: [['juice', 'tray:0:0']],
+      attempts: before.attempts.length,
+    });
 });

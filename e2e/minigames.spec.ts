@@ -71,7 +71,7 @@ for (const kind of ['match', 'spell'] as const)
           .first();
         if (n === 0) {
           await wrong.tap();
-          await expect(page.getByRole('status')).toContainText('再听一听');
+          await expect(page.locator('.mini-feedback')).toContainText('再听一听');
         }
         await page
           .locator('.matching-pictures button')
@@ -123,7 +123,7 @@ for (const kind of ['match', 'spell'] as const)
         }
         await page.getByRole('button', { name: '拼好了', exact: true }).tap();
       }
-      await expect(page.getByRole('status')).toContainText('找到了');
+      await expect(page.locator('.mini-feedback')).toContainText('找到了');
       if (n === 0) await page.screenshot({ path: info.outputPath(`${kind}-feedback.png`) });
       await page.getByRole('button', { name: '下一位朋友', exact: true }).tap();
     }
