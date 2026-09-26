@@ -1,6 +1,7 @@
 import { CONTENT_VERSION, JUICE_MS, REQUESTS, requestsFor } from '../content/catalog';
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
+import { storyLevel, storyRequests } from '../content/story-levels';
 import { stationItems } from './cooking';
 import { emptyRouting, targetLocation } from './routing';
 import type { GameState } from './types';
@@ -151,6 +152,15 @@ export function validateState(v: unknown): v is GameState {
     v.session.menu.some((r) => !(r in REQUESTS)) ||
     !['story', 'endless', 'training'].includes(v.session.activity as string) ||
     !integer(v.session.chapter, 4) ||
+    !(
+      v.session.levelId === undefined ||
+      (str(v.session.levelId) && storyLevel(v.session.levelId)?.chapter === v.session.chapter)
+    ) ||
+    !(
+      v.session.storyChoice === undefined ||
+      v.session.storyChoice === 0 ||
+      v.session.storyChoice === 1
+    ) ||
     !['demonstration', 'pictures', 'less'].includes(v.session.support as string) ||
     !['juice', 'ice', 'sandwich', 'burger', 'ready'].includes(v.session.family as string) ||
     !strings(v.session.unlocked, 5) ||
@@ -222,8 +232,10 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (s.session.activity === 'story') {
     const oldIce = ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'];
-    const expected =
-      s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
+    const level = storyLevel(s.session.levelId);
+    const expected = level
+      ? storyRequests(level, s.session.storyChoice ?? 0)
+      : s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
         ? oldIce
         : CHAPTERS[s.session.chapter]?.requests;
     if (
@@ -512,12 +524,14 @@ export function decodeSnapshot(raw: string): DecodeResult {
     if (
       record(value) &&
       value.schemaVersion === 5 &&
-      value.contentVersion === CONTENT_VERSION &&
+      (value.contentVersion === 'm2.2' || value.contentVersion === CONTENT_VERSION) &&
       record(value.session)
     ) {
       value.schemaVersion = 6;
       value.session.language = 'flavor';
     }
+    if (record(value) && value.schemaVersion === 6 && value.contentVersion === 'm2.2')
+      value.contentVersion = CONTENT_VERSION;
     return validateState(value)
       ? { ok: true, state: value }
       : { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };

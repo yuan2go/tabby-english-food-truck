@@ -1,0 +1,52 @@
+[WebServer] (node:13285) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 4 tests using 1 worker
+
+(node:13327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] e2e/game.spec.ts:159:1 › M2 pause and homepage resume keep world; tutorials are separate from the session
+(node:13365) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/4] e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "request-mismatch"
+    Received: undefined
+
+      28 |   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+      29 |   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
+    > 30 |   expect((await state(page)).attempts.at(-1)?.result).toBe('request-mismatch');
+         |                                                       ^
+      31 |   const banana = (await state(page)).items[0];
+      32 |   if (!banana) throw Error('banana');
+      33 |   await page.waitForTimeout(300);
+        at /Users/yuan/.codex/worktrees/dual-layout-playflow-content/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:30:55
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+
+(node:13375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/4] e2e/m22-boundaries.spec.ts:144:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error
+[4/4] e2e/m22-visible-walk.spec.ts:12:1 › visible interface and formal help walk: apple and juice without hidden answers
+  1 failed
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory
+  3 passed (36.1s)

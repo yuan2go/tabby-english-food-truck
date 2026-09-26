@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { layoutFor } from '../src/game/layout';
-import { hot, lesson, startStory, state, tap } from './helpers';
+import { hot, lesson, startEndless, startStory, state, tap } from './helpers';
 
 test.use({
   viewport: { width: 393, height: 665 },
@@ -11,7 +11,7 @@ test.use({
 test('phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory', async ({
   page,
 }, info) => {
-  await startStory(page);
+  await startEndless(page, false);
   await page.getByRole('button', { name: '暂停', exact: true }).tap();
   await page.getByRole('button', { name: '设置', exact: true }).tap();
   await page.getByRole('button', { name: '两位一起招呼' }).tap();
@@ -24,7 +24,12 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
       },
     )
     .toBe(2);
+  await tap(page, 'tray-0');
+  await page.getByRole('button', { name: '放盘', exact: true }).tap();
   await tap(page, 'supply-banana');
+  await expect
+    .poll(async () => (await state(page)).items.find((item) => item.product === 'banana')?.location)
+    .toMatch(/^tray:0:/);
   await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
   await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
   expect((await state(page)).attempts.at(-1)?.result).toBe('request-mismatch');
@@ -58,14 +63,13 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     expect(stillFull.items.some((item) => item.id === apple?.id)).toBe(false);
   } else expect(stillFull.items).toEqual(full.items);
   const attempts = (await state(page)).attempts.length;
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
-  await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
+  await page.getByRole('button', { name: '送给左边客人 ↗', exact: true }).tap();
   expect((await state(page)).attempts).toHaveLength(attempts);
   await page.getByRole('button', { name: '暂停', exact: true }).tap();
   const frozen = await state(page);
   await page.reload();
-  await page.locator('.yard-story .entry-main').tap();
-  await page.getByRole('button', { name: '晨光果汁', exact: true }).tap();
+  await page.locator('.yard-endless .entry-main').tap();
+  await page.getByRole('button', { name: '开始 / 继续' }).tap();
   await lesson(page);
   const restored = await state(page);
   const consumed = frozen.items.find((i) => i.location === 'machine:apple');

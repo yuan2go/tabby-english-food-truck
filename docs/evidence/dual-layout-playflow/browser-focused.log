@@ -1,0 +1,15 @@
+
+Running 7 tests using 1 worker
+
+(node:8092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/7] e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order
+[2/7] e2e/wp-dual-layout.spec.ts:43:1 › desktop mouse opens first story services and makes cup ice cream
+[3/7] e2e/wp-dual-layout.spec.ts:119:1 › phone touch makes a cone after desktop progress and survives layout changes
+[4/7] e2e/wp-dual-layout.spec.ts:168:1 › phone first service uses the same viewport as its baseline screenshot
+[5/7] e2e/wp-dual-layout.spec.ts:193:1 › desktop mouse corrects a wrong cone order, withdraws ingredients and makes two scoops and topping
+[6/7] e2e/wp-dual-layout.spec.ts:273:1 › completed level replay resumes its live ice job after refresh
+[7/7] e2e/wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress
+  7 passed (2.9m)

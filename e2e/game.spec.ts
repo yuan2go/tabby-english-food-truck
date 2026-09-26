@@ -1,5 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
+import { STORY_LEVELS } from '../src/content/story-levels';
 import { letters, type MiniState, targetWord } from '../src/rules/minigames';
 import { choosePrep, hot, lesson, serve, startStory, state, tap } from './helpers';
 import { endMeasure, installMeasure, startMeasure } from './measure';
@@ -14,34 +15,45 @@ test.use({
 test('M2 phone complete click story: prologue through all recipes to community ending', async ({
   page,
 }, info) => {
-  test.setTimeout(420000);
+  test.setTimeout(900000);
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await installMeasure(page);
   await startStory(page);
   const measurements = [];
   const restore = new Set(['grill', 'board']);
-  for (let chapter = 0; chapter < 5; chapter++) {
-    if (chapter === 3) await page.setViewportSize({ width: 1024, height: 768 });
-    if (chapter === 4) await page.setViewportSize({ width: 393, height: 665 });
+  for (const [index, level] of STORY_LEVELS.entries()) {
+    if (level.chapter === 3 && STORY_LEVELS[index - 1]?.chapter !== 3)
+      await page.setViewportSize({ width: 1024, height: 768 });
+    if (level.chapter === 4 && STORY_LEVELS[index - 1]?.chapter !== 4)
+      await page.setViewportSize({ width: 393, height: 665 });
     await startMeasure(page);
     const count = (await state(page)).orders.length;
     for (let n = 0; n < count; n++) {
       await serve(page, restore);
-      if (n === 0) await page.screenshot({ path: info.outputPath(`chapter-${chapter}.png`) });
+      if (n === 0 && STORY_LEVELS[index - 1]?.chapter !== level.chapter)
+        await page.screenshot({ path: info.outputPath(`chapter-${level.chapter}.png`) });
     }
-    measurements.push({ chapter, ...(await endMeasure(page)) });
+    measurements.push({ level: level.id, ...(await endMeasure(page)) });
     await expect(page.locator('.ending')).toBeVisible();
-    if (chapter < 4) {
-      await page.getByRole('button', { name: '翻开下一页' }).tap();
-      await lesson(page);
-    }
+    if (index === STORY_LEVELS.length - 1) break;
+    const next = STORY_LEVELS[index + 1];
+    if (!next) throw Error('next story level');
+    if (next.choice) await page.getByRole('button', { name: next.choice.labels[0] }).tap();
+    else
+      await page
+        .getByRole('button', {
+          name: next.chapter === level.chapter ? '继续下一小关' : '翻开下一页',
+        })
+        .tap();
+    await lesson(page);
   }
   await expect(page.getByRole('heading', { name: '小院里的朋友，都到齐啦！' })).toBeVisible();
   const profile = await page.evaluate(() =>
     JSON.parse(localStorage.getItem('tabby.foodtruck.profile.m2') ?? '{}'),
   );
   expect(profile.completed).toEqual([0, 1, 2, 3, 4]);
+  expect(profile.completedLevels).toEqual(STORY_LEVELS.map((level) => level.id));
   expect(profile.introduced).toEqual(['juice', 'ice', 'sandwich', 'burger']);
   expect(errors).toEqual([]);
   expect(restore.size).toBe(0);
@@ -161,6 +173,7 @@ test('M2 pause and homepage resume keep world; tutorials are separate from the s
   await page.reload();
   await page.locator('.yard-story .entry-main').tap();
   await page.getByRole('button', { name: '晨光果汁', exact: true }).tap();
+  await page.getByRole('button', { name: '继续这一关' }).tap();
   expect(await page.getByRole('dialog', { name: '场景小教学' }).count()).toBe(0);
   const after = await state(page);
   expect(after.runId).toBe(before.runId);
