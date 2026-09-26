@@ -62,3 +62,7 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 50个概念注册见 `src/content/foods.json`；39个新增独立源稿和运行WebP见 [m22-production.json](m22-production.json)，名称/情境/导航开发语音见 [m22-audio.json](m22-audio.json)。水果、原料和预制品真实接入食品篮、小游戏、合法菜单/配方；认知项不出不可供应订单。素材按场景及当前批次加载，未扩大CORE_ASSETS为50图首包。
 
 续做新增一球香草杯的独立透明图，源稿1202×1309、运行441×480，裁区、Alpha、SHA、提示词见 [m22-vanilla-cup.json](m22-vanilla-cup.json)。固定杯练口味、固定香草练杯筒的7项音频制作见 [m22-growth-audio.json](m22-growth-audio.json)。完整manifest从文件读取实际尺寸/hash，未用占位图或放大合集。所有新图视觉/权利审核PENDING；所有macOS Samantha开发语音听审NOT_RUN、分发权利PENDING。
+
+## 2026-09-26 大咪命名同步
+
+按负责人指定的角色名「大咪」（Dami），重新生成 `menu-story`、`menu-training`、`prologue-0`、`chapter-picnic` 四段开发语音；对应文本同步到 `src/content/speech.json`、`scripts/m2-audio.mjs` 和 `art/m2-audio.json`。沿用 macOS Samantha、140 wpm、WAV PCM 16-bit / 22050 Hz。真实文件更新后重登记 manifest hash，人工听审仍为 NOT_RUN，开发语音与分发权状态不变。

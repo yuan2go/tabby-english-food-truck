@@ -77,7 +77,7 @@ test('M2 phone complete click story: prologue through all recipes to community e
           .locator('.letter-word')
           .evaluateAll((nodes) => nodes.map((n) => n.querySelectorAll('button').length)),
       ).toEqual([3, 5]);
-      await page.getByRole('button', { name: '小猫帮帮我' }).tap();
+      await page.getByRole('button', { name: '大咪帮帮我' }).tap();
       await expect(page.locator('.spell-model')).toHaveText('ICE CREAM');
       await page.reload();
       await page.locator('.yard-mini .entry-main').tap();

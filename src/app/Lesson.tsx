@@ -199,7 +199,7 @@ export function Lesson({
       aria-label="场景小教学"
     >
       <div className="lesson-heading">
-        <span>小猫的食谱 · 一次学一点</span>
+        <span>大咪的食谱 · 一次学一点</span>
         <button type="button" onClick={() => finish(false)} aria-label="我来试试">
           先到餐车试试 ↗
         </button>
@@ -386,7 +386,7 @@ export function Lesson({
                   });
                 }}
               >
-                🐾 再看小猫示范
+                🐾 再看大咪示范
               </button>
             </>
           )}

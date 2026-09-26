@@ -37,7 +37,7 @@ export function Story({
     });
   }, [audio, beat]);
   const lines = [
-    '这把钥匙，交给你啦。',
+    '大咪，这把钥匙，交给你啦。',
     '旧食谱里，装着老朋友的味道。',
     '用食物和英语，和大家说你好吧。',
   ];
@@ -71,7 +71,7 @@ export function Story({
         <img
           className={`heir beat-${beat}`}
           src={assetUrl(beat === 2 ? 'cat-celebrate' : 'cat-reach')}
-          alt="小猫接过餐车"
+          alt="大咪接过餐车"
         />
         <div className="story-line">
           <p>{lines[beat]}</p>

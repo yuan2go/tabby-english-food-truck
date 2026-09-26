@@ -1,0 +1,25 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/m21.spec.ts e2e/recovery.spec.ts --grep first prologue|matching accepts|actual helper
+
+[WebServer] (node:78338) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:78403) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+First argument must use the object destructuring pattern: _fixtures
+
+   at recovery.spec.ts:235
+
+  233 | });
+  234 |
+> 235 | test('M2 native background freeze stops clock, helper, machine and audio', async (_fixtures, info) => {
+      | ^
+  236 |   test.setTimeout(60000);
+  237 |   execFileSync(process.execPath, ['scripts/check-lifecycle.mjs', 'http://127.0.0.1:4174/'], {
+  238 |     timeout: 45000,
+

@@ -101,9 +101,9 @@ test('M2 actual helper and delivery overlap, reload, cancellation and continued 
   }
   await tap(page, 'note');
   await page.getByRole('button', { name: '2号盘', exact: true }).tap();
-  await page.getByRole('button', { name: '看图请小猫', exact: true }).tap();
+  await page.getByRole('button', { name: '看图请大咪', exact: true }).tap();
   await page.getByRole('button', { name: '图片 banana', exact: true }).tap();
-  await page.getByRole('button', { name: '交给小猫', exact: true }).tap();
+  await page.getByRole('button', { name: '交给大咪', exact: true }).tap();
   await page
     .getByRole('button', {
       name: first.seat === 0 ? '送给左边客人 ↗' : '送给右边客人 ↗',
@@ -232,7 +232,9 @@ test('M2 unsupported snapshot is protected and exported before explicit reset', 
   expect(await page.evaluate(() => localStorage.getItem('tabby.foodtruck.save.m2'))).toBe(bad);
 });
 
-test('M2 native background freeze stops clock, helper, machine and audio', async (_fixtures, info) => {
+test('M2 native background freeze stops clock, helper, machine and audio', async ({
+  browserName: _browserName,
+}, info) => {
   test.setTimeout(60000);
   execFileSync(process.execPath, ['scripts/check-lifecycle.mjs', 'http://127.0.0.1:4174/'], {
     timeout: 45000,

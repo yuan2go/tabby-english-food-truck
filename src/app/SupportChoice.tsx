@@ -12,7 +12,7 @@ export function SupportChoice({
       {(['demonstration', 'pictures', 'less'] as const).map((v, i) => (
         <button type="button" key={v} aria-pressed={value === v} onClick={() => change(v)}>
           <span aria-hidden="true">{['▶', '▧', '♫'][i]} </span>
-          {['先看小猫做', '图片陪我做', '少些帮助，听一听'][i]}
+          {['先看大咪做', '图片陪我做', '少些帮助，听一听'][i]}
         </button>
       ))}
     </fieldset>

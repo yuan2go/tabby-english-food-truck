@@ -16,7 +16,7 @@ export function Note({ controller, initialTray, close, feedback }: Props) {
   const [fruits, setFruits] = useState<{ id: string; product: 'apple' | 'banana' }[]>([]);
   const [ids, setIds] = useState<string[]>([]);
   const [tray, setTray] = useState<TrayId>(initialTray);
-  const [message, setMessage] = useState('用词块告诉小猫拿什么。');
+  const [message, setMessage] = useState('用词块告诉大咪拿什么。');
   const gesture = useRef<{
     id: string;
     x: number;
@@ -112,9 +112,9 @@ export function Note({ controller, initialTray, close, feedback }: Props) {
     fn();
   };
   return (
-    <section className="note-sheet" role="dialog" aria-label="小猫便签">
+    <section className="note-sheet" role="dialog" aria-label="大咪便签">
       <div className="sheet-heading">
-        <span>给小猫的便签</span>
+        <span>给大咪的便签</span>
         <button type="button" onClick={close} aria-label="收起便签">
           ×
         </button>
@@ -135,7 +135,7 @@ export function Note({ controller, initialTray, close, feedback }: Props) {
       </div>
       <div className="note-format">
         <button type="button" aria-pressed={picture} onClick={() => setPicture(true)}>
-          看图请小猫
+          看图请大咪
         </button>
         <button type="button" aria-pressed={!picture} onClick={() => setPicture(false)}>
           词块便签
@@ -246,7 +246,7 @@ export function Note({ controller, initialTray, close, feedback }: Props) {
             else feedback();
           }}
         >
-          交给小猫
+          交给大咪
         </button>
       </div>
       {controller.state.helper ? (

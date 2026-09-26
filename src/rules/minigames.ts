@@ -247,7 +247,7 @@ export function submitMini(s: MiniState, answer?: string): MiniState {
     feedback: correct
       ? '找到了！可以再听一遍。'
       : s.kind === 'match'
-        ? '再听一听，也可以请小猫帮忙。'
+        ? '再听一听，也可以请大咪帮忙。'
         : '再摆一摆字母，点已放的字母可以撤回。',
   };
 }

@@ -425,7 +425,7 @@ export function App() {
           <button type="button" className="corner-back" onClick={home}>
             ← 小院
           </button>
-          <h2>{setup === 'endless' ? '今天也开门迎客' : '和小猫一起练习'}</h2>
+          <h2>{setup === 'endless' ? '今天也开门迎客' : '和大咪一起练习'}</h2>
           <p>慢慢想，客人会等你。随时可以求助。</p>
           <SupportChoice value={support} change={setSupport} />
           {setup === 'endless' ? (
@@ -677,7 +677,7 @@ export function App() {
           ) : null}
           {done ? (
             <section className="ending">
-              <img src="/assets/cat-celebrate.webp" alt="小猫完成营业" />
+              <img src="/assets/cat-celebrate.webp" alt="大咪完成营业" />
               <h2>
                 {s.session.chapter === 4 && s.session.activity === 'story'
                   ? '小院里的朋友，都到齐啦！'
@@ -775,7 +775,7 @@ export function App() {
               </>
             ) : modal === 'help' ? (
               <>
-                <h2>小猫陪你一起做</h2>
+                <h2>大咪陪你一起做</h2>
                 <button
                   type="button"
                   onClick={() => {
@@ -801,7 +801,7 @@ export function App() {
                     setNote(true);
                   }}
                 >
-                  请小猫帮我拿
+                  请大咪帮我拿
                 </button>
                 <button
                   type="button"

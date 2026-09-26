@@ -30,18 +30,18 @@ const names = {
 };
 for (const [id, text] of Object.entries(names)) texts[`word-${id}`] = text;
 Object.assign(texts, {
-  'menu-story': 'Story time. Help Tabby open the food truck.',
+  'menu-story': 'Story time. Help Dami open the food truck.',
   'menu-endless': 'Welcome! Let us serve our friends.',
   'menu-mini': 'Find food friends. Listen and play.',
-  'menu-training': 'Watch Tabby. Then you try.',
-  'prologue-0': 'This little key is yours, Tabby.',
+  'menu-training': 'Watch Dami. Then you try.',
+  'prologue-0': 'This little key is yours, Dami.',
   'prologue-1': 'Here is our old recipe book.',
   'prologue-2': 'Make something nice for our friends.',
   'chapter-juice': 'Good morning! Apple juice or banana juice?',
   'chapter-ice': 'It is a warm afternoon. Let us make ice cream.',
   'chapter-sandwich': 'A picnic! Bread and cheese make a sandwich.',
   'chapter-burger': 'First cook the patty. Then make a burger.',
-  'chapter-picnic': 'All our friends are here. Thank you, Tabby!',
+  'chapter-picnic': 'All our friends are here. Thank you, Dami!',
   'mini-match': 'Listen to the word. Tap the sound, then find its picture.',
   'mini-spell': 'Look at the food. Listen. Tap the letters. You can take them back.',
 });

@@ -38,7 +38,7 @@ export function MenuGrowth({
       aria-label="今日新菜单"
     >
       <div className="lesson-heading">
-        <span>小猫发现一个新味道</span>
+        <span>大咪发现一个新味道</span>
         <button type="button" onClick={() => close(false)}>
           这次先不加 ↗
         </button>
@@ -76,7 +76,7 @@ export function MenuGrowth({
       <button type="button" className="primary" onClick={() => close(true)}>
         加入今日菜单
       </button>
-      <small>这是认识新菜单，不是考试。随时可请小猫帮忙。</small>
+      <small>这是认识新菜单，不是考试。随时可请大咪帮忙。</small>
     </section>
   );
 }

@@ -1,5 +1,19 @@
 # 项目状态
 
+## 2026-09-26 大咪命名同步 · IMPLEMENTED / 浏览器回归 PARTIAL
+
+负责人明确指定主角名「大咪」，英文写作 Dami。基线为默认分支 `origin/main` 的 `b4bb59cad6b0b8a31330d21452c9830549e550df`，独立分支 `codex/dami-name`。首页与浏览器标题、说明、教学、菜单成长、小游戏、帮助便签、规则反馈、恢复提示、无障碍标签、开场与结尾统一称呼；四段含旧称呼的开发语音已重生成，同步语音脚本/登记和真实资源 hash。玩法、存档键与资源 ID 保持原状。
+
+实现提交 `d336af8471bdeb1545e174b590115118cc64338d`；后续交付提交仅补验证记录，最终 head 与 PR 以交付消息为准。环境 macOS / Node `v26.3.1` / npm / 锁定 Playwright Chromium，资源清单 SHA-256 `9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead`。
+
+- `npm run build`（含 typecheck）：退出 0；保留 Phaser 大块警告。后续浏览器服务在上述实现提交重新构建成功。
+- `npm run resources`：退出 0，347 文件、196 语音引用、50 食品核验通过；只有四段语音的实际字节/hash 改变。
+- `npm run lint`：首次资源清单格式化错误退出 1，恢复仓库格式后退出 0，仍有既有 33 warning / 7 info；随后测试入口修改经 `npx biome check e2e/recovery.spec.ts` 退出 0。
+- `npm run test:browser -- e2e/m21.spec.ts e2e/recovery.spec.ts --grep 'first prologue|matching accepts|actual helper'`：首次测试收集退出 1，因既有 `_fixtures` 参数不符合 Playwright 解构要求；修正入口后实际运行 **1 PASS / 2 FAIL，退出 1**。小游戏配对、拼写求助「大咪帮帮我」、草稿恢复通过。故事用例在「听成品名称」按钮超时（页面已进入实际备餐），助手用例在「2号盘」按钮超时（当前在按需帮助层）；未改产品流程或削弱断言，不能记全套通过。日志见 [browser.log](evidence/dami-name/browser.log)，首次收集失败见 [browser-initial.log](evidence/dami-name/browser-initial.log)。
+- 可见界面核对：Codex 内置浏览器 `http://127.0.0.1:4186/`，首页→故事序章确认「大咪的英语餐车」「大咪，这把钥匙，交给你啦。」；首页→教学练习确认「和大咪一起练习」「先看大咪做」。工程回归地址 `http://127.0.0.1:4174/`。运行源码与当前测试选择器扫描未留旧称呼。
+
+全量单元/浏览器、实体设备、人工听审 NOT_RUN；部署 PENDING_DEPLOYMENT。本地命名修改不代表已更新公开站点。
+
 ## 2026-09-26 WP-M22-PLAYABILITY-CLOSURE-01 · IMPLEMENTED / LOCAL_VERIFIED · 真机待复核
 
 从 `origin/main` 完整 SHA `43ec1d1463a54d8eb715e1cf84465d10cc071491` 的干净基线，在独立分支 `codex/m22-playability-closure` 完成音频终态、四类料理表现、后段可选双客连续营业、按需教学和稳定 CI。最后运行源码提交 `6259f674ceefe75da297bf52a5fc4dfbe1aab8be`；本地干净验证构建 SHA `d893116fa14dc06037317f7f66fff7dc446268e0`，二者运行源码相同；其后仅修浏览器测试断言/证据输出和交付文档。最终交付 head 与 PR 见交付报告。内容 `m2.2`，资源清单 SHA-256 `024a0dacbe8e7d057054d62f984d41e63180daaaca0da1503fa095df46f38e36`，构建标记 `dirty=false`。

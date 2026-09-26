@@ -142,7 +142,7 @@ export function FoodBaskets({
           ) : null}
         </section>
       ) : (
-        <p role="status">点一位朋友，听名字；小猫陪你找一找。</p>
+        <p role="status">点一位朋友，听名字；大咪陪你找一找。</p>
       )}
       <small>开发语音未听审 · 接触与一次答对都不代表掌握</small>
     </section>

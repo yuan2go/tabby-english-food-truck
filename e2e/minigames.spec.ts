@@ -86,7 +86,7 @@ for (const kind of ['match', 'spell'] as const)
         );
         expect(tileSizes.every((size) => size.width >= 44 && size.height >= 44)).toBe(true);
         if (n === 0) {
-          await page.getByRole('button', { name: '小猫帮帮我' }).tap();
+          await page.getByRole('button', { name: '大咪帮帮我' }).tap();
           await page.reload();
           await page.locator('.yard-mini .entry-main').tap();
           await page.getByRole('button', { name: /A B C WordSpell/ }).tap();

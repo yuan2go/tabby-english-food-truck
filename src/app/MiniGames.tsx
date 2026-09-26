@@ -512,7 +512,7 @@ export function MiniGames({
           <h2>{state.kind === 'match' ? '给食物找朋友' : '一起摆字母'}</h2>
           <p>
             {state.kind === 'match'
-              ? '听到后直接选图。随时重听或请小猫帮忙。每次只找一位朋友。'
+              ? '听到后直接选图。随时重听或请大咪帮忙。每次只找一位朋友。'
               : '空格已经留好。点字母放入；点已放的字母撤回，再选空位重排，也能拖动。'}
           </p>
           <button type="button" className="primary" onClick={() => begin(state)}>
@@ -521,7 +521,7 @@ export function MiniGames({
         </div>
       ) : state.stage === 'done' ? (
         <div className="mini-ending">
-          <img src="/assets/cat-celebrate.webp" alt="小猫庆祝" />
+          <img src="/assets/cat-celebrate.webp" alt="大咪庆祝" />
           <h2>四份心意，都找到了！</h2>
           <p>遇见：{[...new Set(state.words)].map((id) => wordById(id)?.text).join(' · ')}</p>
           <button
@@ -685,7 +685,7 @@ export function MiniGames({
                 say();
               }}
             >
-              小猫帮帮我
+              大咪帮帮我
             </button>
           )}
         </>

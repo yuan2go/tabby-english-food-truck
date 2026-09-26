@@ -13,7 +13,7 @@ test('M2 increased support preserves active orders, reduces new concurrency and 
   await page.getByRole('button', { name: '暂停', exact: true }).tap();
   await page.getByRole('button', { name: '保存并回到首页' }).tap();
   await page.locator('.yard-endless .entry-main').tap();
-  await page.getByRole('button', { name: '先看小猫做', exact: true }).tap();
+  await page.getByRole('button', { name: '先看大咪做', exact: true }).tap();
   await page.getByRole('button', { name: '开始 / 继续', exact: true }).tap();
   await lesson(page);
   const assisted = await state(page);
