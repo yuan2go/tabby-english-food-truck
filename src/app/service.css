@@ -103,10 +103,13 @@
   margin: 0;
   display: flex;
   gap: 8px;
+  width: 100%;
 }
 .delivery-actions fieldset button {
   min-width: 0;
   padding: 8px;
+  flex: 1;
+  font-size: clamp(13px, 3vw, 16px);
 }
 .recipe-switch {
   position: absolute;
@@ -128,6 +131,17 @@
   background: #fff1cc;
   border: 2px solid #315b40;
   border-radius: 16px;
+}
+.recipe-options button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 48px;
+}
+.recipe-option-picture .food-art {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 .near-remove,
 .restore-food {
@@ -208,6 +222,38 @@
 }
 .chapter-opening {
   justify-content: center;
+}
+.opening-recovery,
+.voice-recovery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #fff0bf;
+  color: #214635;
+}
+.opening-recovery p {
+  margin: 0;
+}
+.voice-recovery button {
+  min-height: 44px;
+}
+.lesson-difference {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 5px 8px;
+  background: #fff0bf;
+  border-radius: 12px;
+}
+.lesson-difference .food-art {
+  width: 44px;
+  height: 44px;
 }
 .modal-backdrop {
   position: absolute;

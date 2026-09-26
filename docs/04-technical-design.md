@@ -174,3 +174,9 @@ schema5 新增 routing 与 supplyPage，旧 schema4 在不猜成绩的前提下�
 续做修正：世界schema6显式迁移已有schema5的语言负荷字段，保留现有订单/物料/路由/任务；Profile v3从v2补独立语言设置，不猜成绩。教学意义、实际操作与交付记录分开，世界受阻不产生语言尝试；食品菜单准入统一由注册映射取得，不能构造不存在的food-apple/food-banana请求。
 
 Profile v2的旧冰淇淋教学单元按lesson.request迁到strawberry-scoop/vanilla-flavor，保留阶段、次数、support和原文导出；不能定位语义的显示/学习标记保留legacy-v2前缀，不猜鲜水果或植物知识。Canvas启动目标优先于途经的移动食材，避免接取动画截获启动点击；落盘与开始制作仍由同一规则命令决定。
+
+### WP-M22-PLAYABILITY-CLOSURE-01 · 终态与回归边界
+
+前景播放单段和序列统一返回 completed、muted、failed、interrupted、skipped；序列遇非 completed 即停止。epoch/flow 与各界面会话令牌拦截旧回调，后台/关闭/切换/重听不会推进新教学或新菜单。只有 completed 可写“播放完成”；听懂须由另行观察判断。失败与主动静音均可用图示继续，且不发语言错误命令。
+
+Phaser 只投影规则物品与任务，四类台面可见层不产生第二份库存；设备到期仍由有效规则时钟结算。CI 使用锁定依赖和 package.engines 兼容 Node，先 build 再由 HTTP preview 运行精选浏览器路径，避免 Playwright 服务重复 build。浏览器可读内部状态的工程回归与只看可见图片/正式帮助的走查分别记录。

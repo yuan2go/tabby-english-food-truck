@@ -3,7 +3,7 @@ import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';
 export const AUDIO_VERSION = 'samantha-dev-m22-140';
-export type PlaybackResult = 'completed' | 'interrupted' | 'failed' | 'muted';
+export type PlaybackResult = 'completed' | 'interrupted' | 'failed' | 'muted' | 'skipped';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
 export type Effect =
   | 'press'
@@ -70,7 +70,16 @@ export class ForegroundAudio {
     } catch {
       /* Keep session settings. */
     }
-    if (!this.enabled || !this.settings.voice) this.stop();
+    if (!this.enabled || !this.settings.voice) {
+      this.flow++;
+      this.stopPlayer('muted');
+      if (key === 'voice' || key === 'master') {
+        this.failure = '';
+        this.failedRequest = null;
+        this.failureDetail = null;
+        this.controller.notify();
+      }
+    }
     if (!this.enabled || !this.settings.effects) this.stopEffects();
     this.sync();
   }
@@ -107,19 +116,23 @@ export class ForegroundAudio {
     this.flow++;
     return this.clip(id, started);
   }
-  async sequence(ids: readonly string[]): Promise<'completed' | 'cancelled'> {
+  async sequence(ids: readonly string[]): Promise<PlaybackResult> {
     const flow = ++this.flow;
     for (const id of ids) {
-      if (flow !== this.flow || this.disposed || document.hidden) return 'cancelled';
-      await this.clip(id);
+      if (flow !== this.flow || this.disposed || document.hidden) return 'interrupted';
+      const result = await this.clip(id);
+      if (result !== 'completed') return result;
     }
-    return flow === this.flow ? 'completed' : 'cancelled';
+    return flow === this.flow ? 'completed' : 'interrupted';
   }
   private clip(id: string, started?: () => void): Promise<PlaybackResult> {
     this.stopPlayer();
     this.lastRequested = id;
-    if (!this.enabled || !this.settings.voice || document.hidden || this.disposed)
+    if (document.hidden || this.disposed) return Promise.resolve('interrupted');
+    if (!this.enabled || !this.settings.voice) {
+      this.record(id, 'muted');
       return Promise.resolve('muted');
+    }
     if (!Object.hasOwn(speech, id)) {
       this.failedRequest = id;
       this.failureDetail = { kind: 'missing-registration', message: id, mediaCode: 0, id };
@@ -199,11 +212,14 @@ export class ForegroundAudio {
         .catch((error: unknown) => finish('failed', error));
     });
   }
-  private record(id: string, status: 'started' | 'completed' | 'interrupted' | 'failed'): void {
+  private record(
+    id: string,
+    status: 'started' | 'completed' | 'interrupted' | 'failed' | 'muted' | 'skipped',
+  ): void {
     if (!this.disposed)
       this.controller.command({ type: 'audio', audio: { id, version: AUDIO_VERSION, status } });
   }
-  private stopPlayer(): void {
+  private stopPlayer(result: 'interrupted' | 'muted' | 'skipped' = 'interrupted'): void {
     const id = this.active;
     this.epoch++;
     this.active = null;
@@ -217,8 +233,8 @@ export class ForegroundAudio {
     this.player = null;
     const settle = this.settle;
     this.settle = null;
-    settle?.('interrupted');
-    if (id) this.record(id, 'interrupted');
+    settle?.(result);
+    if (id) this.record(id, result);
     this.duck();
   }
   stop(): void {
@@ -228,6 +244,10 @@ export class ForegroundAudio {
       this.stopLoops();
       this.stopEffects();
     }
+  }
+  skip(): void {
+    this.flow++;
+    this.stopPlayer('skipped');
   }
   private duck(): void {
     if (!this.context || !this.buses) return;

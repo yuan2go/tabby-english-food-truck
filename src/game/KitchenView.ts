@@ -1,5 +1,6 @@
 import type Phaser from 'phaser';
 import { FAMILY_STATIONS, RECIPES, type StationId } from '../content/recipes';
+import { stationItems } from '../rules/cooking';
 import type { GameState } from '../rules/types';
 import type { ViewState } from './input';
 import type { Layout, Point } from './layout';
@@ -29,21 +30,78 @@ export class KitchenView {
       sprite.setDisplaySize((h * sprite.width) / sprite.height, h);
       this.nodes.push(sprite);
       const label = id === 'ice' ? '冰淇淋台' : id === 'board' ? '组合板' : '煎台';
+      const foods = stationItems(s, id);
+      const has = (product: string) => foods.filter((item) => item.product === product).length;
+      const finished = st.status === 'ready';
+      const boardSandwich =
+        has('bread') > 0 ||
+        (!has('bun') && !has('cooked-patty') && s.session.family === 'sandwich');
+      const cue =
+        id === 'ice'
+          ? `${has('cup') ? '杯' : has('cone') ? '筒' : '选杯/筒'} · ${has('vanilla') + has('strawberry')}球${has('banana') ? ' + 香蕉' : ''}`
+          : id === 'grill'
+            ? st.status === 'processing'
+              ? '正在煎熟'
+              : finished
+                ? '熟饼已好'
+                : has('patty')
+                  ? '生饼就位'
+                  : '放生饼'
+            : boardSandwich
+              ? `${has('bread')}片面包 · ${has('cheese') + has('lettuce') + has('tomato')}份夹层`
+              : `${has('bun') ? '面包' : '等面包'} · ${has('cooked-patty') ? '熟饼' : '等熟饼'} · ${has('cheese') + has('lettuce') + has('tomato')}份配料`;
+      // These marks are a visual reading of actual item instances, not another recipe evaluator.
+      if (foods.length && !finished) {
+        const preview = this.scene.add.graphics().setDepth(6);
+        preview.fillStyle(0xfff2c9, 0.85).fillRoundedRect(p.x - 39, p.y - 18, 78, 39, 12);
+        if (id === 'ice') {
+          preview
+            .fillStyle(has('cone') ? 0xc78b4b : 0xb6d8e1)
+            .fillRoundedRect(p.x - 19, p.y + 1, 38, 14, 6);
+          for (let i = 0; i < has('vanilla') + has('strawberry'); i++) {
+            preview
+              .fillStyle(i < has('vanilla') ? 0xfff3cc : 0xf4a9b9)
+              .fillCircle(p.x - 8 + i * 16, p.y - 5 - i * 5, 10);
+          }
+          if (has('banana')) preview.fillStyle(0xf4cf55).fillCircle(p.x + 25, p.y - 6, 6);
+        } else if (id === 'board') {
+          const layers = boardSandwich
+            ? [
+                has('bread') && 0xc99855,
+                has('cheese') && 0xf4d259,
+                has('lettuce') && 0x79b875,
+                has('tomato') && 0xd66c58,
+                has('bread') > 1 && 0xc99855,
+              ]
+            : [
+                has('bun') && 0xc99855,
+                has('lettuce') && 0x79b875,
+                has('cooked-patty') && 0x7c5141,
+                has('cheese') && 0xf4d259,
+                has('tomato') && 0xd66c58,
+              ];
+          layers
+            .filter((color): color is number => Boolean(color))
+            .forEach((color, i) => {
+              preview.fillStyle(color).fillRoundedRect(p.x - 29, p.y + 12 - i * 8, 58, 7, 3);
+            });
+        } else {
+          preview.fillStyle(0xa7583a).fillCircle(p.x, p.y, 14);
+          if (st.status === 'processing') preview.lineStyle(3, 0xf5c458).strokeCircle(p.x, p.y, 20);
+        }
+        this.nodes.push(preview);
+      }
       const text = this.scene.add
         .text(
           p.x,
           l.regions.work.y + l.regions.work.height - 22,
           st.status === 'processing'
-            ? '制作中…'
+            ? `${id === 'grill' ? '煎制' : id === 'ice' ? '接球' : '盖合'}中…`
             : st.status === 'ready'
               ? '点成品接取'
-              : id === 'ice'
-                ? '接好冰淇淋'
-                : id === 'board'
-                  ? '盖合'
-                  : '煎制',
+              : cue,
           {
-            fontSize: '18px',
+            fontSize: '14px',
             fontFamily: 'Trebuchet MS, PingFang SC',
             color: '#203b2c',
             backgroundColor: '#fff0bf',

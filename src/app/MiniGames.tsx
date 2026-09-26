@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { wordById } from '../content/learning';
 import { introducedWords } from '../content/teaching';
-import type { ForegroundAudio } from '../platform/audio';
+import type { ForegroundAudio, PlaybackResult } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { miniKey } from '../platform/minis';
 import {
@@ -9,6 +9,7 @@ import {
   createMini,
   type Difficulty,
   editLetter,
+  eligibleWord,
   type Foundation,
   letters,
   type MatchMode,
@@ -48,6 +49,7 @@ export function MiniGames({
   const [freshKind, setFreshKind] = useState<MiniKind | null>(null);
   const [slot, setSlot] = useState<number | null>(null);
   const [issue, showIssue] = useState(store.issue);
+  const [speechIssue, setSpeechIssue] = useState<PlaybackResult | null>(null);
   const gesture = useRef<{
     id: string;
     pointer: number;
@@ -113,10 +115,25 @@ export function MiniGames({
     if (!current) return;
     const id = current.id,
       round = current.round,
+      stage = current.stage,
       word = targetWord(current);
-    void audio.play(word.audio, () => {
+    setSpeechIssue(null);
+    void audio.play(word.audio).then((result) => {
       const now = latest.current;
-      if (now?.id === id && now.round === round) update({ ...now, heard: true });
+      if (now?.id !== id || now.round !== round || now.stage !== stage) return;
+      if (result === 'completed') update({ ...now, heard: true });
+      else if (result === 'failed' || result === 'muted') {
+        update({
+          ...now,
+          support: [
+            ...new Set([
+              ...now.support,
+              result === 'failed' ? 'audio-unavailable' : 'muted-visual',
+            ]),
+          ],
+        });
+        setSpeechIssue(result);
+      } else if (result === 'interrupted') setSpeechIssue(result);
     });
   }, [audio, update]);
   const question = state ? `${state.id}:${state.round}:${state.stage}` : '';
@@ -182,13 +199,17 @@ export function MiniGames({
       foundation,
       crypto.randomUUID(),
     );
-    if (collection && fresh.words.includes(collection.focus))
-      fresh.words = [
-        collection.focus,
-        ...fresh.words.filter((_, i) => i !== fresh.words.indexOf(collection.focus)),
-      ];
-    else if (collection && kind === 'match')
-      fresh.words = [collection.focus, ...fresh.words.slice(0, 3)];
+    if (
+      collection &&
+      fresh.vocabulary.includes(collection.focus) &&
+      eligibleWord(collection.focus, kind, difficulty, foundation)
+    ) {
+      const rest = [...fresh.words];
+      const previous = rest.indexOf(collection.focus);
+      if (previous >= 0) rest.splice(previous, 1);
+      else rest.pop();
+      fresh.words = [collection.focus, ...rest.slice(0, 3)];
+    }
     if (saved) fresh.carry = restartMini(saved, fresh.id).carry;
     if (collection && fresh.words[0] === collection.focus)
       fresh.carry[collection.focus] = [
@@ -443,6 +464,29 @@ export function MiniGames({
               : '中英文字配对'}{' '}
         · {state.round + 1} / 4
       </div>
+      {speechIssue === 'failed' || speechIssue === 'muted' || speechIssue === 'interrupted' ? (
+        <div className="voice-recovery mini-voice-recovery" role="status">
+          <span>声音没播完整，可以重听或看图继续。</span>
+          <button type="button" onClick={say}>
+            ♫ 重试
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              const now = latest.current;
+              if (now)
+                update({
+                  ...now,
+                  support: [...new Set([...now.support, 'answer-help'])],
+                  feedback: '看图找这位朋友。',
+                });
+              setSpeechIssue(null);
+            }}
+          >
+            🖼 看图
+          </button>
+        </div>
+      ) : null}
       {restart ? (
         <div className="mini-confirm" role="dialog" aria-label="重新开始小游戏">
           <p>重新摆这一组，已经用过的帮助仍会保留。</p>

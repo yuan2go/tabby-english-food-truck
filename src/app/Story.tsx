@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { CHAPTERS, type Support } from '../content/chapters';
 import { assetUrl } from '../game/assets';
-import type { ForegroundAudio } from '../platform/audio';
+import type { ForegroundAudio, PlaybackResult } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { Food } from './Food';
 import { SupportChoice } from './SupportChoice';
@@ -12,6 +12,8 @@ export function Story({
   home,
   support,
   setSupport,
+  guests,
+  setGuests,
 }: {
   controller: GameController;
   audio: ForegroundAudio;
@@ -19,19 +21,33 @@ export function Story({
   home: () => void;
   support: Support;
   setSupport: (support: Support) => void;
+  guests: 1 | 2;
+  setGuests: (guests: 1 | 2) => void;
 }) {
   const p = controller.profile.value;
   const [prologue, setPrologue] = useState(!p.prologue),
     [beat, setBeat] = useState(0);
+  const [voiceResult, setVoiceResult] = useState<PlaybackResult | null>(null);
+  const voiceToken = useRef(0);
+  const replay = useCallback(() => {
+    const token = ++voiceToken.current;
+    setVoiceResult(null);
+    void audio.play(`prologue-${beat}`).then((result) => {
+      if (token === voiceToken.current) setVoiceResult(result);
+    });
+  }, [audio, beat]);
   const lines = [
     '这把钥匙，交给你啦。',
     '旧食谱里，装着老朋友的味道。',
     '用食物和英语，和大家说你好吧。',
   ];
   useEffect(() => {
-    if (prologue) void audio.play(`prologue-${beat}`);
-    return () => audio.stop();
-  }, [audio, prologue, beat]);
+    if (prologue) replay();
+    return () => {
+      voiceToken.current++;
+      audio.stop();
+    };
+  }, [audio, prologue, replay]);
   if (prologue)
     return (
       <section
@@ -46,7 +62,7 @@ export function Story({
             p.prologue = true;
             controller.profile.save();
             setPrologue(false);
-            audio.stop();
+            audio.skip();
           }}
         >
           跳过序章
@@ -59,13 +75,12 @@ export function Story({
         />
         <div className="story-line">
           <p>{lines[beat]}</p>
-          <button
-            type="button"
-            aria-label="重听故事"
-            onClick={() => void audio.play(`prologue-${beat}`)}
-          >
+          <button type="button" aria-label="重听故事" onClick={replay}>
             ♫
           </button>
+          {voiceResult === 'failed' || voiceResult === 'muted' || voiceResult === 'interrupted' ? (
+            <span role="status">声音没播完整。点 ♫ 重试，或看图接着走。</span>
+          ) : null}
           <button
             type="button"
             className="primary"
@@ -93,6 +108,17 @@ export function Story({
       <h2>长辈的旧食谱</h2>
       <p>每一页，都有新朋友。</p>
       <SupportChoice value={support} change={setSupport} />
+      {p.completed.includes(2) ? (
+        <fieldset className="story-guests">
+          <legend>后面的营业想招呼几位朋友？</legend>
+          <button type="button" aria-pressed={guests === 1} onClick={() => setGuests(1)}>
+            👤 一位一位来
+          </button>
+          <button type="button" aria-pressed={guests === 2} onClick={() => setGuests(2)}>
+            👥 两位一起，自己决定先做哪份
+          </button>
+        </fieldset>
+      ) : null}
       <div className="chapter-pages">
         {CHAPTERS.map((c, i) => {
           const unlocked = i === 0 || p.completed.includes(i - 1);

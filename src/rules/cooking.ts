@@ -61,7 +61,11 @@ export function startStation(s: GameState, id: StationId): { ok: boolean; messag
       message:
         id === 'grill'
           ? '放一份生饼，再按煎制。'
-          : '食材组合还没准备好。可以看食谱或点选原料放回。',
+          : id === 'ice'
+            ? '还没接好：看看杯或筒、球数与配料。可以点原料放回，再按需看食谱。'
+            : s.session.family === 'sandwich'
+              ? '夹层还没准备齐：看看面包和配料，可放回单份再盖合。'
+              : '汉堡还没准备齐：熟饼须先从煎台来到组合板，再检查面包和配料。',
     };
   st.recipe = recipe.id;
   st.remaining = recipe.ms;

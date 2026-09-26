@@ -3,6 +3,7 @@ import {
   JUICE_MS,
   MODES,
   type Mode,
+  PRODUCT_NAMES,
   type Product,
   REQUESTS,
   type RequestId,
@@ -233,13 +234,23 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '便签帮助已记录。');
   }
   if (c.type === 'audio') {
-    if (c.audio.status === 'started')
+    // This flag records a completed request clip, never proof that a child understood it.
+    if (c.audio.status === 'completed')
       for (const o of s.orders)
         if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id) o.heard = true;
     if (c.audio.status === 'failed')
       for (const o of s.orders)
         if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id)
           o.support = [...new Set([...o.support, 'audio-unavailable'])].slice(-24);
+    if (c.audio.status === 'muted' || c.audio.status === 'skipped')
+      for (const o of s.orders)
+        if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id)
+          o.support = [
+            ...new Set([
+              ...o.support,
+              c.audio.status === 'muted' ? 'muted-visual' : 'skipped-visual',
+            ]),
+          ].slice(-24);
     s.audio = [...s.audio, { ...c.audio, gameTime: s.gameTime }].slice(-80);
     return result('ok', '');
   }
@@ -333,7 +344,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     } else s.items.push({ id: nextId(s, 'food'), product, location });
     syncMachine(s);
     syncStations(s);
-    return result('ok', '放好了。');
+    return result('ok', placementMessage(location, product));
   }
   if (c.type === 'start-machine') {
     if (s.machine.status === 'processing') return result('blocked', '正在制作，你可以准备另一盘。');
@@ -491,6 +502,25 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '小猫正把这份心意送过去。');
   }
   return result('blocked', '无法执行这次操作。');
+}
+function placementMessage(location: Location, product: Product): string {
+  if (location.startsWith('tray:'))
+    return `${Number(location.split(':')[1]) + 1}号盘接住了${PRODUCT_NAMES[product]}。可以继续备餐或选择客人送餐。`;
+  if (location.startsWith('machine:'))
+    return product === 'cup'
+      ? '空杯在出汁口。水果由你选，机器做好后会装进这只杯。'
+      : `${PRODUCT_NAMES[product]}进入果汁机。点榨汁，等待时还可以准备另一盘。`;
+  const station = location.split(':')[1];
+  if (station === 'ice')
+    return product === 'cup' || product === 'cone'
+      ? `${PRODUCT_NAMES[product]}已摆好。接球或加配料，随后点接好。`
+      : `${PRODUCT_NAMES[product]}放进冰淇淋台。球数与配料可见，点同一份可放回。`;
+  if (station === 'grill') return '生饼上煎台。点煎制，等待时可在组合板放面包和配料。';
+  if (station === 'board')
+    return product === 'cooked-patty'
+      ? '熟饼已到组合板。检查配料，再点盖合。'
+      : `${PRODUCT_NAMES[product]}放在组合板。夹层可调整，准备好再点盖合。`;
+  return '食物已放好。';
 }
 function destination(
   s: GameState,

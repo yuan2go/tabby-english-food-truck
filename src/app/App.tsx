@@ -8,7 +8,7 @@ import type { Family } from '../content/recipes';
 import { DoubleTap } from '../game/gestures';
 import { activate, type ViewState } from '../game/input';
 import { TruckScene } from '../game/TruckScene';
-import { ForegroundAudio } from '../platform/audio';
+import { ForegroundAudio, type PlaybackResult } from '../platform/audio';
 import { BUILD_INFO } from '../platform/build';
 import { GameController } from '../platform/controller';
 import { useDialogFocus } from './dialog-focus';
@@ -43,10 +43,18 @@ export function App() {
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
   const [opening, setOpening] = useState<number | null>(null);
+  const [openingAudio, setOpeningAudio] = useState<PlaybackResult | null>(null);
+  const [openingRetry, setOpeningRetry] = useState(0);
+  const openingAttempt = useRef(0);
   const [concurrency, setConcurrency] = useState<1 | 2>(
     controller.state.session.activity === 'endless'
       ? controller.state.session.concurrency
       : controller.profile.value.concurrency,
+  );
+  const [storyGuests, setStoryGuests] = useState<1 | 2>(
+    controller.state.session.activity === 'story' && controller.state.session.chapter >= 3
+      ? controller.state.session.concurrency
+      : 1,
   );
   const announced = useRef('');
   const [settingsBack, setSettingsBack] = useState<Screen>('home');
@@ -87,12 +95,14 @@ export function App() {
   const growthId = (['banana', 'juice', 'banana-juice'] as const).find(
     (id) => !controller.profile.menu().includes(id),
   );
-  const growthKey = `growth:${s.session.served}`;
+  const growthKey = `growth:${growthId}`;
+  const growthReady =
+    growthId && s.session.served >= { banana: 1, juice: 2, 'banana-juice': 3 }[growthId];
   const actorBusy = Boolean(s.actor.current && s.actor.current.kind !== 'return');
   const growth =
     screen === 'game' &&
     s.session.activity === 'endless' &&
-    s.session.served > 0 &&
+    growthReady &&
     !actorBusy &&
     !teaching &&
     !modal &&
@@ -186,20 +196,23 @@ export function App() {
   useEffect(() => {
     if (opening === null || screen !== 'game') return;
     let cancelled = false;
+    openingAttempt.current = openingRetry;
+    setOpeningAudio(null);
     controller.pause('opening', true);
     const chapter = CHAPTERS[opening];
     void audio.sequence(chapter ? [chapter.audio] : []).then((result) => {
-      if (!cancelled && result === 'completed') {
+      if (cancelled || openingAttempt.current !== openingRetry) return;
+      if (result === 'completed') {
         controller.profile.present(`chapter-${opening}`);
         setOpening(null);
-      }
+      } else setOpeningAudio(result);
     });
     return () => {
       cancelled = true;
       audio.stop();
       controller.pause('opening', false);
     };
-  }, [opening, screen, audio, controller]);
+  }, [opening, openingRetry, screen, audio, controller]);
   const activeId = active?.id,
     activeRequest = active?.request;
   useEffect(() => {
@@ -273,7 +286,13 @@ export function App() {
   };
   const enter = (activity: 'story' | 'endless' | 'training', chapter = 0, replay = false) => {
     audio.stop();
-    controller.enter(activity, chapter, support, replay, activity === 'endless' ? concurrency : 1);
+    controller.enter(
+      activity,
+      chapter,
+      support,
+      replay,
+      activity === 'endless' ? concurrency : activity === 'story' && chapter >= 3 ? storyGuests : 1,
+    );
     if (controller.save.blocked) {
       setModal('restart');
       return;
@@ -352,6 +371,8 @@ export function App() {
           audio={audio}
           support={support}
           setSupport={setSupport}
+          guests={storyGuests}
+          setGuests={setStoryGuests}
           enter={(chapter, replay) => enter('story', chapter, replay)}
           home={home}
         />
@@ -555,10 +576,38 @@ export function App() {
           {opening !== null ? (
             <section className="chapter-opening" role="dialog" aria-label="章节开场">
               <p>{CHAPTERS[opening]?.line}</p>
+              {openingAudio === 'failed' ||
+              openingAudio === 'muted' ||
+              openingAudio === 'interrupted' ? (
+                <div className="opening-recovery" role="status">
+                  <p>
+                    {openingAudio === 'failed'
+                      ? '声音没播出来。'
+                      : openingAudio === 'muted'
+                        ? '声音已关闭。'
+                        : '声音暂停了。'}
+                    看图也能继续。
+                  </p>
+                  <button type="button" onClick={() => setOpeningRetry((n) => n + 1)}>
+                    ♫ 重试声音
+                  </button>
+                  <button
+                    type="button"
+                    className="primary"
+                    onClick={() => {
+                      audio.skip();
+                      controller.profile.present(`chapter-${opening}`);
+                      setOpening(null);
+                    }}
+                  >
+                    看图继续 ↗
+                  </button>
+                </div>
+              ) : null}
               <button
                 type="button"
                 onClick={() => {
-                  audio.stop();
+                  audio.skip();
                   controller.profile.present(`chapter-${opening}`);
                   setOpening(null);
                 }}
@@ -639,6 +688,26 @@ export function App() {
                   ? `小院添上了${CHAPTERS[s.session.chapter]?.gift}。食谱已保存，随时可以再来。`
                   : '今天的练习完成啦，可以到故事里试一试。'}
               </p>
+              {s.session.activity === 'story' &&
+              (s.session.chapter === 2 || s.session.chapter === 3) ? (
+                <fieldset className="story-guests">
+                  <legend>下一页，想招呼几位朋友？</legend>
+                  <button
+                    type="button"
+                    aria-pressed={storyGuests === 1}
+                    onClick={() => setStoryGuests(1)}
+                  >
+                    👤 一位一位
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={storyGuests === 2}
+                    onClick={() => setStoryGuests(2)}
+                  >
+                    👥 两位一起
+                  </button>
+                </fieldset>
+              ) : null}
               {s.session.activity === 'story' && s.session.chapter < 4 ? (
                 <button
                   type="button"
