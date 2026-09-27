@@ -3,7 +3,7 @@ import { FOOD, type Product } from './recipes';
 
 export type { Product } from './recipes';
 export type Fruit = 'apple' | 'banana';
-export const CONTENT_VERSION = 'm2.2';
+export const CONTENT_VERSION = 'm2.3-story-1';
 export type Mode = 'guided' | 'practice' | 'service';
 export const MODES: Record<Mode, { name: string; icon: string; trays: readonly (0 | 1)[] }> = {
   guided: { name: '跟着大咪做', icon: '🐾', trays: [0] },

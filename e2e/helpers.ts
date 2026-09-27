@@ -45,6 +45,7 @@ export async function startStory(p: Page) {
   await p.locator('.yard-story .entry-main').tap();
   await p.getByRole('button', { name: '跳过序章' }).tap();
   await p.getByRole('button', { name: '晨光果汁', exact: true }).tap();
+  await p.getByRole('button', { name: '帮朋友完成这关' }).first().tap();
   await dismissOpening(p);
   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
   await lesson(p);
@@ -170,6 +171,7 @@ export async function make(
     await p.reload();
     await p.locator('.yard-story .entry-main').tap();
     await p.getByRole('button', { name: chapter.title, exact: true }).tap();
+    await p.getByRole('button', { name: '继续这一关' }).tap();
     await lesson(p);
     const after = await state(p);
     expect(after.runId).toBe(before.runId);
@@ -245,7 +247,16 @@ export async function serve(p: Page, restore?: Set<string>) {
   if (!order) throw Error('waiting');
   for (const product of REQUESTS[order.request].products) {
     if (RAW.includes(product)) {
+      if (!(await p.locator(`[data-hotspot="supply-${product}"]`).count())) {
+        await p.getByRole('button', { name: '选择食谱', exact: true }).tap();
+        await p
+          .getByRole('group', { name: '选择食谱工作台' })
+          .getByRole('button', { name: '果汁', exact: true })
+          .tap();
+      }
       await choosePrep(p, '● 1号盘');
+      const directTray = p.getByRole('button', { name: /^(放盘|食材直接放盘)$/ });
+      if (await directTray.count()) await directTray.tap();
       await make(p, product);
     } else {
       const id = await make(p, product, restore);

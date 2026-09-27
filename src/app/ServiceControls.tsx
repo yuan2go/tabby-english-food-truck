@@ -3,6 +3,7 @@ import { REQUESTS } from '../content/catalog';
 import { type Family, isFinished, type Product, SUPPLY_PAGES } from '../content/recipes';
 import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
+import { stationPoint } from '../game/KitchenView';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { Item, Order } from '../rules/types';
@@ -41,7 +42,6 @@ export function ServiceControls({
   const send = (o: Order) => {
     ui.selectedGuest = o.id;
     activate(`send-${o.id}`, controller, audio, ui);
-    ui.selectedGuest = '';
     ui.change();
     setTargets(false);
   };
@@ -50,17 +50,14 @@ export function ServiceControls({
   return (
     <>
       {s.session.unlocked.length > 1 ? (
-        <div
-          className="recipe-switch"
-          style={{ left: l.regions.work.x, top: l.regions.work.y - 2 }}
-        >
+        <div className="recipe-switch" style={{ left: l.stage.x + l.stage.width - 104, top: 4 }}>
           <button
             type="button"
             aria-label="选择食谱"
             aria-expanded={menu}
             onClick={() => setMenu(!menu)}
           >
-            ▤
+            ▤ 食谱
           </button>
           {menu ? (
             <fieldset className="recipe-options" aria-label="选择食谱工作台">
@@ -101,6 +98,65 @@ export function ServiceControls({
             </fieldset>
           ) : null}
         </div>
+      ) : null}
+      {ui.hotspots
+        .filter((h) => h.kind === 'start')
+        .map((h) => {
+          const station = h.id.startsWith('start-station-')
+            ? (h.id.slice(14) as 'ice' | 'board' | 'grill')
+            : null;
+          const status = station ? s.stations[station].status : s.machine.status;
+          const verb =
+            station === 'ice'
+              ? '接好冰淇淋'
+              : station === 'grill'
+                ? '煎熟肉饼'
+                : station === 'board'
+                  ? '盖合食物'
+                  : '榨成果汁';
+          return (
+            <button
+              type="button"
+              key={h.id}
+              className="station-action"
+              style={{
+                left: h.x - h.width / 2,
+                top: h.y - h.height / 2,
+                width: h.width,
+                minHeight: h.height,
+              }}
+              disabled={status === 'processing' || status === 'ready'}
+              onClick={() => activate(h.id, controller, audio, ui)}
+            >
+              {status === 'processing'
+                ? '制作中…'
+                : status === 'ready'
+                  ? '已完成，看看托盘'
+                  : `▶ ${verb}`}
+            </button>
+          );
+        })}
+      {s.session.family !== 'ready' ? (
+        <button
+          type="button"
+          className="tray-prep-action"
+          aria-pressed={ui.prep === 'tray'}
+          style={{
+            left:
+              l.form === 'phone'
+                ? l.regions.trays.x + l.regions.trays.width - 86
+                : l.regions.trays.x + 8,
+            top: l.regions.trays.y + 2,
+          }}
+          onClick={() => {
+            ui.prep = 'tray';
+            ui.selected = null;
+            controller.message = `食材会直接放到${ui.selectedTray + 1}号盘。要制作时点设备。`;
+            ui.change();
+          }}
+        >
+          {l.form === 'phone' ? '放盘' : '食材直接放盘'}
+        </button>
       ) : null}
       {s.session.family === 'ready' ? (
         <button
@@ -153,7 +209,13 @@ export function ServiceControls({
       {selectedItem
         ? (() => {
             const h = ui.hotspots.find((h) => h.id === `item-${selectedItem.id}`);
-            const inWork = selectedItem.location.startsWith('station:');
+            const inWork =
+              selectedItem.location.startsWith('station:') ||
+              selectedItem.location.startsWith('machine:');
+            const station = selectedItem.location.startsWith('station:')
+              ? (selectedItem.location.split(':')[1] as 'ice' | 'board' | 'grill')
+              : null;
+            const origin = station ? stationPoint(station, l) : l.machine;
             return h ? (
               <button
                 type="button"
@@ -169,14 +231,12 @@ export function ServiceControls({
                 }
                 style={{
                   left: inWork
-                    ? l.landscape
-                      ? h.x - 24
-                      : l.regions.work.x + l.regions.work.width - 48
+                    ? Math.max(8, Math.min(l.width - 56, origin.x + (station ? 76 : 120)))
                     : Math.max(8, Math.min(l.width - 148, h.x - 70)),
                   top: inWork
-                    ? l.landscape
-                      ? l.regions.top.y + 4
-                      : h.y - 24
+                    ? l.form === 'phone'
+                      ? l.regions.work.y + l.regions.work.height - 56
+                      : Math.max(l.regions.work.y + 8, h.y - 24)
                     : Math.max(l.regions.trays.y - 20, h.y - 54),
                   width: inWork ? 48 : undefined,
                   padding: inWork ? 0 : undefined,

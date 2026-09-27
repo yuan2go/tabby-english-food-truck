@@ -116,12 +116,12 @@
   z-index: 6;
 }
 .recipe-switch > button {
-  width: 48px;
+  min-width: 92px;
   padding: 0;
 }
 .recipe-options {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 48px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -131,6 +131,37 @@
   background: #fff1cc;
   border: 2px solid #315b40;
   border-radius: 16px;
+}
+.station-action,
+.tray-prep-action {
+  position: absolute;
+  z-index: 8;
+  min-height: 48px;
+  background: #285840;
+  color: #fff8df;
+  border: 2px solid #f6d98a;
+  box-shadow: 0 4px 0 #173e32;
+}
+.station-action:disabled {
+  color: #244833;
+  background: #f6e6bd;
+}
+.tray-prep-action[aria-pressed="true"] {
+  background: #805536;
+}
+.game-feedback {
+  background: #173e32c9;
+  border-radius: 10px;
+}
+.game-feedback p {
+  font-size: 14px;
+  line-height: 18px;
+}
+@media (max-width: 600px) {
+  .tray-prep-action {
+    min-width: 78px;
+    padding: 4px;
+  }
 }
 .recipe-options button {
   display: flex;

@@ -1,7 +1,13 @@
 # 技术设计 · 独立餐车游戏
 
+## 当前实现边界 · WP-DUAL-LAYOUT-PLAYFLOW-CONTENT-01
 
-**M2.2 基础合同（2026-09-21；本轮收敛见末节）**：保留React/TypeScript/Vite/Phaser及唯一确定性规则链。统一布局模块输出分区及锚点；visualViewport/ResizeObserver合并到一帧测量，DOM与Canvas都用CSS世界坐标。自动器具、加工目的盘及容量预留进入schema6，显式迁移schema5/4/3，旧任务未绑定则保持原出口，不猜换盘；旧档/导出保护不变。食品注册为词汇语义唯一源，物料/变体显式映射，50概念校验不数状态或器具。资源按需加载，存档和菜单使用同一注册关系验证。
+保留锁定的 Phaser＋React＋TypeScript/Vite 与唯一规则核。`src/game/layout.ts` 根据实测容器尺寸输出 desktop/tablet/phone/short 四种表现编排；`TruckScene`、`KitchenView`、DOM控制使用同一CSS世界与命中坐标，布局变化只重投影。`ViewState.prep` 表示原料目标，`selectedTray` 表示成品目的盘，`selectedGuest` 表示交付目标，互不隐式覆盖。
+
+世界仍是 schema6；内容版本 `m2.3-story-1`，从 `m2.2` 快照显式迁移，保留任务、物料和原有章节进度。故事会话加稳定 `levelId` 与分支 `storyChoice`，旧章历史收据不冒充新增小关。Profile v3 可选增加 `completedLevels/storyChoices`；小游戏用独立的 `tabby.foodtruck.mini-course.v1` 校验保存，旧小游戏键和值不清除。规则模块判定词块实例、可接受英语结构和情境请求，表现层不复制答案。所有新增场景与回访只订阅已有订单/加工事件，不建第二套库存。
+
+
+**历史 M2.2 基础合同（2026-09-21）**：保留React/TypeScript/Vite/Phaser及唯一确定性规则链。统一布局模块输出分区及锚点；visualViewport/ResizeObserver合并到一帧测量，DOM与Canvas都用CSS世界坐标。自动器具、加工目的盘及容量预留进入schema6，显式迁移schema5/4/3，旧任务未绑定则保持原出口，不猜换盘；旧档/导出保护不变。食品注册为词汇语义唯一源，物料/变体显式映射，50概念校验不数状态或器具。资源按需加载，存档和菜单使用同一注册关系验证。
 
 单前景音频对NotAllowedError、加载/解码/中断及静音分开诊断；失败不记录语言错误，支持保留。新教学实物尝试调用既有move命令，只有用户确认产生尝试，提示或自动搬运不产生语言成绩。队列、观察、菜单/seed/cursor与草稿有界。
 版本：v0.5，2026-09-21。M2.1沿用既有React/TypeScript/Vite/Phaser；以下通用不变量继续有效，M1保存/构建段落保留为历史，M2基础及M2.1实现决定见末节。运行证据和审核状态见STATUS。

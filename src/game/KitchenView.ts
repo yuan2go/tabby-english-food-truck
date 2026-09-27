@@ -6,7 +6,14 @@ import type { ViewState } from './input';
 import type { Layout, Point } from './layout';
 export function stationPoint(id: StationId, l: Layout): Point {
   const r = l.regions.work;
-  return { x: r.x + r.width * (id === 'grill' ? 0.23 : id === 'board' ? 0.64 : 0.32), y: r.y + 44 };
+  return {
+    x: r.x + r.width * (id === 'grill' ? 0.24 : id === 'board' ? 0.72 : 0.5),
+    y: r.y + (l.form === 'desktop' || l.form === 'tablet' ? 96 : 52),
+  };
+}
+export function stationActionPoint(id: StationId, l: Layout): Point {
+  const p = stationPoint(id, l);
+  return { x: p.x, y: Math.min(l.regions.work.y + l.regions.work.height - 24, p.y + 89 * l.scale) };
 }
 export function stationSlotPoint(id: StationId, slot: number, l: Layout): Point {
   const p = stationPoint(id, l);
@@ -93,8 +100,8 @@ export class KitchenView {
       }
       const text = this.scene.add
         .text(
-          p.x,
-          l.regions.work.y + l.regions.work.height - 22,
+          l.form === 'phone' && id === 'ice' ? l.regions.work.x + l.regions.work.width * 0.73 : p.x,
+          l.form === 'phone' && id === 'ice' ? l.regions.work.y + 27 : p.y - 72 * l.scale,
           st.status === 'processing'
             ? `${id === 'grill' ? '煎制' : id === 'ice' ? '接球' : '盖合'}中…`
             : st.status === 'ready'
@@ -126,10 +133,9 @@ export class KitchenView {
           id: `start-station-${id}`,
           kind: 'start',
           label: `${label}开始制作`,
-          x: p.x,
-          y: l.regions.work.y + l.regions.work.height - 22,
-          width: Math.max(110, 120 * l.scale),
-          height: 44,
+          ...stationActionPoint(id, l),
+          width: Math.max(110, 112 * l.scale),
+          height: 48,
         },
       );
     }

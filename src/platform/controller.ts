@@ -1,5 +1,6 @@
 import type { Mode, RequestId } from '../content/catalog';
 import { type Activity, CHAPTERS, type Support } from '../content/chapters';
+import { storyLevel } from '../content/story-levels';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
 import type { Command, GameState, Result } from '../rules/types';
@@ -83,10 +84,13 @@ export class GameController {
     this.state = advance(this.state, delta);
     if (
       this.state.session.activity === 'story' &&
-      this.state.orders.every((o) => o.status === 'done') &&
-      !this.profile.value.completed.includes(this.state.session.chapter)
-    )
-      this.profile.complete(this.state.session.chapter);
+      this.state.orders.every((o) => o.status === 'done')
+    ) {
+      if (this.state.session.levelId)
+        this.profile.completeLevel(this.state.session.levelId, this.state.session.storyChoice ?? 0);
+      else if (!this.profile.value.completed.includes(this.state.session.chapter))
+        this.profile.complete(this.state.session.chapter);
+    }
     if (this.state.revision !== previous) {
       this.save.save(this.state);
       this.notify();
@@ -146,14 +150,18 @@ export class GameController {
     support: Support = this.profile.value.support,
     replay = false,
     concurrency: 1 | 2 = this.profile.value.concurrency,
+    levelId?: string,
   ): void {
     this.save.save(this.state);
     this.profile.value.support = support;
     if (activity === 'endless') this.profile.value.concurrency = concurrency;
     this.profile.save();
-    const key = `${activity}-${chapter}`;
+    const level = activity === 'story' ? storyLevel(levelId) : undefined;
+    const key = `${activity}-${chapter}${level ? `-${level.id}` : ''}`;
     const stored = this.save.loadSession(key);
-    const previous = replay ? null : stored;
+    const choice = level ? (this.profile.value.storyChoices[level.id] ?? 0) : 0;
+    const previous =
+      replay || (level?.choice && stored?.session.storyChoice !== choice) ? null : stored;
     if (this.save.blocked) return;
     const history = this.history();
     this.state =
@@ -168,6 +176,8 @@ export class GameController {
         concurrency,
         this.profile.menu(),
         this.profile.value.language,
+        level?.id,
+        choice,
       );
     // Assistance belongs to the unfinished request, even after replay or a support change.
     if (stored) {
@@ -188,7 +198,7 @@ export class GameController {
     applyPolicy(this.state, support, concurrency);
     this.savedGame = Boolean(previous);
     this.checkpoint = 0;
-    this.message = '选好备餐位置，点食材就能放进去。';
+    this.message = level?.situation ?? '选好备餐位置，点食材就能放进去。';
     this.save.save(this.state);
     this.notify();
   }

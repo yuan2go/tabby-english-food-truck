@@ -52,6 +52,8 @@ export interface GameState {
   session: {
     activity: Activity;
     chapter: number;
+    levelId?: string;
+    storyChoice?: 0 | 1;
     support: Support;
     concurrency: 1 | 2;
     menu: RequestId[];

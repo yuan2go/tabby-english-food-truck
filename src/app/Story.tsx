@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CHAPTERS, type Support } from '../content/chapters';
+import { levelsForChapter, STORY_LEVELS } from '../content/story-levels';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio, PlaybackResult } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -17,7 +18,7 @@ export function Story({
 }: {
   controller: GameController;
   audio: ForegroundAudio;
-  enter: (chapter: number, replay?: boolean) => void;
+  enter: (chapter: number, replay?: boolean, levelId?: string) => void;
   home: () => void;
   support: Support;
   setSupport: (support: Support) => void;
@@ -27,6 +28,11 @@ export function Story({
   const p = controller.profile.value;
   const [prologue, setPrologue] = useState(!p.prologue),
     [beat, setBeat] = useState(0);
+  const [selectedChapter, setSelectedChapter] = useState(() => {
+    const next = CHAPTERS.findIndex((c) => !p.completed.includes(c.id));
+    return next < 0 ? 4 : next;
+  });
+  const [, refreshChoices] = useState(0);
   const [voiceResult, setVoiceResult] = useState<PlaybackResult | null>(null);
   const voiceToken = useRef(0);
   const replay = useCallback(() => {
@@ -39,7 +45,7 @@ export function Story({
   const lines = [
     '大咪，这把钥匙，交给你啦。',
     '旧食谱里，装着老朋友的味道。',
-    '用食物和英语，和大家说你好吧。',
+    '最后一页写着“社区小食会”，还没填完。大咪决定先开门认识大家。',
   ];
   useEffect(() => {
     if (prologue) replay();
@@ -106,9 +112,9 @@ export function Story({
         ← 小院
       </button>
       <h2>长辈的旧食谱</h2>
-      <p>每一页，都有新朋友。</p>
+      <p>五章故事，每次帮一位朋友完成一件事。先看情境，再去柜台动手。</p>
       <SupportChoice value={support} change={setSupport} />
-      {p.completed.includes(2) ? (
+      {p.completed.includes(1) ? (
         <fieldset className="story-guests">
           <legend>后面的营业想招呼几位朋友？</legend>
           <button type="button" aria-pressed={guests === 1} onClick={() => setGuests(1)}>
@@ -127,9 +133,8 @@ export function Story({
               type="button"
               key={c.id}
               disabled={!unlocked}
-              onClick={() => {
-                enter(i);
-              }}
+              onClick={() => setSelectedChapter(i)}
+              aria-pressed={selectedChapter === i}
               aria-label={`${c.title}${unlocked ? '' : '，还没翻到这一页'}`}
             >
               <Food
@@ -149,6 +154,73 @@ export function Story({
           );
         })}
       </div>
+      <section className="story-levels" aria-label={`${CHAPTERS[selectedChapter]?.title}的小关`}>
+        {levelsForChapter(selectedChapter).map((level, index, levels) => {
+          const chapterUnlocked =
+            selectedChapter === 0 || p.completed.includes(selectedChapter - 1);
+          const unlocked =
+            chapterUnlocked &&
+            (index === 0 ||
+              p.completedLevels.includes(levels[index - 1]?.id ?? '') ||
+              p.completed.includes(selectedChapter));
+          const completed = p.completedLevels.includes(level.id);
+          const unfinished =
+            controller.state.session.levelId === level.id &&
+            controller.state.orders.some((order) => order.status !== 'done');
+          const choice = p.storyChoices[level.id] ?? 0;
+          return (
+            <article key={level.id} className="story-level">
+              <h3>
+                {index + 1}. {level.title} {completed ? '✓' : ''}
+              </h3>
+              <p>
+                <strong>{level.who}</strong> · {level.situation}
+              </p>
+              <p>{level.objective}</p>
+              {completed ? (
+                <p className="story-result">
+                  {level.result}{' '}
+                  {level.choice?.responses[p.resolvedStoryChoices[level.id] ?? choice]}
+                </p>
+              ) : null}
+              {level.choice && unlocked ? (
+                <fieldset className="story-choice">
+                  <legend>{level.choice.prompt}</legend>
+                  {level.choice.labels.map((label, option) => (
+                    <button
+                      key={label}
+                      type="button"
+                      aria-pressed={choice === option}
+                      onClick={() => {
+                        controller.profile.chooseStory(level.id, option as 0 | 1);
+                        refreshChoices((n) => n + 1);
+                      }}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </fieldset>
+              ) : null}
+              <button
+                type="button"
+                disabled={!unlocked}
+                onClick={() => enter(level.chapter, completed && !unfinished, level.id)}
+              >
+                {unfinished
+                  ? '继续这一关'
+                  : completed
+                    ? '重玩这一关'
+                    : unlocked
+                      ? '帮朋友完成这关'
+                      : '先完成前一关'}
+              </button>
+            </article>
+          );
+        })}
+      </section>
+      {p.completedLevels.length === STORY_LEVELS.length ? (
+        <p>小食会已经开场。可以重看故事、重玩小关，小游戏仍在小院。</p>
+      ) : null}
       <button
         type="button"
         onClick={() => {

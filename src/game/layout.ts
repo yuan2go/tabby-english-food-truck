@@ -14,6 +14,8 @@ export interface Layout {
   width: number;
   height: number;
   landscape: boolean;
+  form: 'phone' | 'short' | 'tablet' | 'desktop';
+  stage: Region;
   scale: number;
   regions: Record<'top' | 'guests' | 'work' | 'trays' | 'action' | 'supplies' | 'feedback', Region>;
   guests: [Point, Point];
@@ -32,9 +34,47 @@ const center = (r: Region): Point => ({ x: r.x + r.width / 2, y: r.y + r.height 
 export function layoutFor(width: number, height: number, mode: Mode = 'service'): Layout {
   const landscape = width > height * 1.2;
   const r = (x: number, y: number, w: number, h: number): Region => ({ x, y, width: w, height: h });
+  const form: Layout['form'] =
+    width >= 1100 && height >= 650
+      ? 'desktop'
+      : width >= 700 && height >= 600
+        ? 'tablet'
+        : landscape
+          ? 'short'
+          : 'phone';
+  const stage =
+    form === 'desktop'
+      ? r((width - Math.min(width - 32, 1060)) / 2, 0, Math.min(width - 32, 1060), height)
+      : r(0, 0, width, height);
   const top = r(8, 4, width - 16, 52);
   let regions: Layout['regions'];
-  if (!landscape) {
+  if (form === 'desktop') {
+    const x = stage.x,
+      sw = stage.width,
+      workY = Math.max(180, height * 0.25),
+      supplyY = Math.min(height - 122, Math.max(workY + 310, height * 0.76));
+    regions = {
+      top,
+      guests: r(x + 25, 68, sw * 0.34, workY - 58),
+      work: r(x + sw * 0.3, workY, sw * 0.39, 245),
+      trays: r(x + sw * 0.69, workY + 115, sw * 0.29, 230),
+      action: r(x + sw * 0.7, workY + 307, sw * 0.28, 54),
+      supplies: r(x + sw * 0.2, supplyY, sw * 0.58, 86),
+      feedback: r(x + 20, height - 36, sw - 40, 30),
+    };
+  } else if (form === 'tablet') {
+    const workY = Math.max(185, height * 0.25);
+    const supplyY = Math.min(height - 132, workY + 470);
+    regions = {
+      top,
+      guests: r(16, 90, width * 0.3, workY - 60),
+      work: r(width * 0.26, workY, width * 0.43, 245),
+      trays: r(width * 0.68, workY + 55, width * 0.3 - 10, 220),
+      action: r(width * 0.69, workY + 300, width * 0.29 - 10, 50),
+      supplies: r(18, supplyY, width - 36, 84),
+      feedback: r(8, height - 30, width - 16, 28),
+    };
+  } else if (!landscape) {
     const extra = Math.max(0, height - 565);
     const deficit = Math.max(0, 565 - height);
     let y = 60;
@@ -67,39 +107,69 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
   const g = regions.guests,
     w = regions.work,
     t = regions.trays;
+  if (form === 'phone') regions.feedback = r(8, height - 47, width - 16, 42);
   const single = mode !== 'service';
   const guests: [Point, Point] = [
-    { x: g.x + g.width * 0.18, y: g.y + (landscape ? 55 : g.height - 40) },
-    { x: g.x + g.width * 0.48, y: g.y + (landscape ? 55 : g.height - 40) },
+    {
+      x: g.x + g.width * (form === 'desktop' ? 0.3 : 0.18),
+      y: g.y + (landscape ? Math.min(105, g.height * 0.56) : g.height - 40),
+    },
+    {
+      x: g.x + g.width * (form === 'desktop' ? 0.68 : 0.48),
+      y: g.y + (landscape ? Math.min(105, g.height * 0.56) : g.height - 40),
+    },
   ];
   if (single)
     guests[0] = guests[1] = { x: g.x + g.width * (landscape ? 0.5 : 0.28), y: guests[0].y };
   const trayWidth = landscape
-    ? Math.min(176, (t.width - 20) / 2)
+    ? form === 'desktop'
+      ? Math.min(210, (t.width - 16) / (single ? 1 : 2))
+      : Math.min(176, (t.width - 20) / 2)
     : single
       ? Math.min(190, t.width)
       : Math.min(185, (t.width - 10) / 2);
-  const trays: [Point, Point] = landscape
-    ? [
-        { x: t.x + t.width * 0.25, y: regions.action.y - 54 },
-        { x: t.x + t.width * 0.75, y: regions.action.y - 54 },
-      ]
-    : [
-        { x: single ? width / 2 : t.x + t.width * 0.25, y: t.y + t.height / 2 },
-        { x: t.x + t.width * 0.75, y: t.y + t.height / 2 },
-      ];
-  const machine = { x: w.x + w.width * (landscape ? 0.5 : 0.29), y: w.y + 58 };
-  const helper = landscape
-    ? { x: g.x + g.width * 0.92, y: g.y + g.height - 34 }
-    : {
-        x: g.x + g.width * 0.84,
-        y:
-          g.y +
-          g.height -
-          4 -
-          Math.min(130, g.height - 8) / 2 +
-          28 * Math.min(1.1, Math.max(0.8, w.height / 180)),
-      };
+  const trays: [Point, Point] =
+    landscape || form === 'tablet'
+      ? [
+          {
+            x: single ? t.x + t.width * 0.5 : t.x + t.width * 0.25,
+            y:
+              form === 'desktop' || form === 'tablet'
+                ? t.y + t.height * 0.58
+                : regions.action.y - 54,
+          },
+          {
+            x: t.x + t.width * 0.75,
+            y:
+              form === 'desktop' || form === 'tablet'
+                ? t.y + t.height * 0.58
+                : regions.action.y - 54,
+          },
+        ]
+      : [
+          { x: single ? width / 2 : t.x + t.width * 0.25, y: t.y + t.height / 2 },
+          { x: t.x + t.width * 0.75, y: t.y + t.height / 2 },
+        ];
+  const machine = {
+    x: w.x + w.width * (landscape || form === 'tablet' ? 0.5 : 0.29),
+    y: w.y + (form === 'desktop' || form === 'tablet' ? 96 : 58),
+  };
+  const helper =
+    form === 'desktop'
+      ? { x: w.x + w.width * 0.82, y: regions.supplies.y - 34 }
+      : form === 'tablet'
+        ? { x: w.x - 15, y: w.y + 230 }
+        : landscape
+          ? { x: g.x + g.width * 0.92, y: g.y + g.height - 34 }
+          : {
+              x: g.x + g.width * 0.84,
+              y:
+                g.y +
+                g.height -
+                4 -
+                Math.min(130, g.height - 8) / 2 +
+                28 * Math.min(1.1, Math.max(0.8, w.height / 180)),
+            };
   const supplies = [0, 1, 2].map((i) => ({
     x: regions.supplies.x + (regions.supplies.width * (i + 0.5)) / 3,
     y: center(regions.supplies).y,
@@ -108,6 +178,8 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     width,
     height,
     landscape,
+    form,
+    stage,
     regions,
     guests,
     machine,
@@ -116,9 +188,19 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     supplies,
     clear: center(regions.feedback),
     trayWidth,
-    guestHeight: Math.max(48, Math.min(80, g.height - 44)),
-    actorHeight: landscape ? Math.min(110, g.height - 30) : Math.min(130, g.height - 8),
-    scale: Math.min(1.1, Math.max(0.8, w.height / 180)),
+    guestHeight: form === 'desktop' ? 130 : Math.max(48, Math.min(90, g.height - 44)),
+    actorHeight:
+      form === 'desktop'
+        ? 170
+        : landscape
+          ? Math.min(125, g.height - 30)
+          : Math.min(130, g.height - 8),
+    scale:
+      form === 'desktop'
+        ? 1.45
+        : form === 'tablet'
+          ? 1.3
+          : Math.min(1.2, Math.max(0.8, w.height / 180)),
   };
 }
 export function supplyPoint(l: Layout, index: number, count: number): Point {

@@ -82,7 +82,7 @@ export function createGame(
       revisit: Boolean(priorSupport[request]?.length),
       id: `guest-${index}`,
       request,
-      seat: mode === 'service' ? (index as TrayId) : variant,
+      seat: mode === 'service' ? (index as TrayId) : 0,
       status: mode === 'service' || index === 0 ? 'waiting' : 'queued',
       remaining: 0,
       support: [
@@ -659,7 +659,7 @@ export function advance(current: GameState, milliseconds: number): GameState {
       );
       if (seat === undefined) break;
       s.orders = s.orders.map((o, i) =>
-        i === next ? { ...o, seat: s.mode === 'service' ? seat : s.variant, status: 'waiting' } : o,
+        i === next ? { ...o, seat: s.mode === 'service' ? seat : 0, status: 'waiting' } : o,
       );
       changed = true;
     }

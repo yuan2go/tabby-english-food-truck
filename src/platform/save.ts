@@ -42,7 +42,7 @@ export class SaveStore {
     }
   }
   sessionKey(s: GameState): string {
-    return `${s.session.activity}-${s.session.chapter}`;
+    return `${s.session.activity}-${s.session.chapter}${s.session.levelId ? `-${s.session.levelId}` : ''}`;
   }
   loadSession(key: string): GameState | null {
     try {
