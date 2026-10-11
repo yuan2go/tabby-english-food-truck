@@ -2,22 +2,38 @@
 
 状态：生产浏览器验证进行中；本页随实际结果更新，不代表儿童或负责人验收。
 
-基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/wp-adventure-experience-02`。原工作区 `codex/player-review-2026-10-11` 的未跟踪 `docs/playtests/` 保留，原HEAD未改。文档治理独立提交 `260b1f8`，随后进入产品实现；历史正文与索引见 `docs/archive/pre-adventure-experience-02/`。
+基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/wp-adventure-experience-02`。原工作区 `codex/player-review-2026-10-11` 的未跟踪 `docs/playtests/` 保留，原HEAD未改。文档治理独立提交 `260b1f82ef918a260ba11d4bfa7747690385fd2a`，随后进入产品实现；历史正文与索引见 [归档](../../archive/pre-adventure-experience-02/index.md)。收尾还修复更早两批归档的98处失效相对链接，没有删改原证据或历史验收结论。
 
 环境：macOS 26.6.2 / 25G83 / arm64，Node v24.15.0，npm 11.12.1，锁定 Playwright 1.63.0 的 Chromium。没有升级依赖、导入旧仓库、设置运行时AI或后台。
 
 ## 实际运行身份与检查
 
-已核验干净生产构建 `a8d945ab6786a9aee6eaed114dbea8d20a7da792`，content `adventure-experience-2`，资源清单SHA-256 `a7f1f7f13f1921ca797c5e691d78de3cf45a7e1ef8bb8a1fe9bd70099aafb501`；页面读回见 [build-probe.json](build-probe.json)。浏览器实际路径 `http://127.0.0.1:4191/`，默认画质与声音开启，未使用CI预置的省电状态。
+已核验最新干净生产构建 `7cafefb66561a846111a85735ca16abb13379a95`，content `adventure-experience-2`，资源清单SHA-256 `a7f1f7f13f1921ca797c5e691d78de3cf45a7e1ef8bb8a1fe9bd70099aafb501`；页面实际读回 dirty=false、无pageerror，见 [build-probe-7cafefb.json](build-probe-7cafefb.json)。浏览器实际路径 `http://127.0.0.1:4191/`，默认画质与声音开启，未使用CI预置的省电状态。最新两条复查使用完整 Chromium 153.0.8010.12 headless（CHROMIUM_CHANNEL=chromium）；此前同版headless shell的实际结果保留。
 
 | 命令 | 实际结果 | 日志 |
 | --- | --- | --- |
-| `npm test` | exit 0；18文件、258测试通过 | [unit](unit.log) |
-| `npm run build`（内含typecheck） | exit 0；保留Phaser/入口大于500kB的分块提示 | [build](build.log) |
-| `npm run lint` | exit 0；67 warnings / 7 infos，未冒称清零 | [lint](lint.log) |
-| `npm run resources` | exit 0；387真实文件hash/尺寸/Alpha，236语音引用、50食品映射 | [resources](resources.log) |
+| `npm test` | a8d945a：exit 0；18文件、258测试通过；之后规则/内容/存档/音频平台未变，已核对diff | [unit](unit.log) |
+| `npm run build`（内含typecheck） | 7cafefb：exit 0；104模块，22.65s；入口549.56kB/Phaser1208.05kB，保留分块提示 | [build](build-7cafefb.log) |
+| `npm run lint` | cb44b1d：exit 0；66 warnings / 7 infos；之后只有文档变化，未冒称清零 | [lint](lint-cb44b1d.log) |
+| `npm run resources` | exit 0；387真实文件hash/尺寸/Alpha，236语音引用、50食品映射；此后资源及登记未变 | [resources](resources.log) |
 | `git diff --check` | exit 0 | 本地实际运行 |
-| `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts e2e/experience.spec.ts` | a8d945a：exit 1，6/8通过；五章、另一野餐分支、键鼠恢复、客流、拒播和静音通过，另两条复查中 | [浏览器原始日志](browser-a8d945a.log) |
+| `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts e2e/experience.spec.ts` | a8d945a：exit 1，6/8通过；完整原始成功/失败保留 | [浏览器原始日志](browser-a8d945a.log) |
+| `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts --grep 'free shop stops'` | db5ef12：exit 0，1/1完整自由路径通过，2.0m | [自由路径](free-db5ef12.log) |
+
+| 相关正常入口路径 | 实际构建 / 结果 |
+| --- | --- |
+| 桌面完整五章、两份食品连续使用、作品保存/刷新/重玩 | 7cafefb PASS，4.8m；保留a8d945a历史PASS |
+| 手机先接刺刺的野餐另一分支，真实两份分餐、等价奖励 | a8d945a PASS |
+| 手机三位朋友/第三位分页/工具取用/旋转/占位恢复/真实品尝/作品回看/清桌/自然收摊 | db5ef12 PASS |
+| 桌面鼠标与键盘、错单留食品、暂停加工/刷新 | a8d945a PASS |
+| 新菜单和双客补位，完整旧请求保持 | 7cafefb FAILED：请求重听被紧凑引导覆盖；定向修复中 |
+| 单客主动选刺刺、切双客再切单客不丢食品/已接请求 | a8d945a PASS |
+| 较少帮助无严格答案，拒播后图示补救且记录辅助 | a8d945a PASS |
+| 可见设置静音，图示目标与安全重听 | a8d945a PASS |
+
+上述8条路径按实际来源分批记录。db5ef12到最新构建的产品变化仅为品尝反馈、放杯朝向和演出忙帧时钟；相关五章演出复查使用最新构建。默认另8条未改的浏览器门禁本机 NOT_RUN，托管CI单独读回。
+
+7cafefb定向复查exit 1，1/2：五章完整通过，菜单用例揭示厨房紧凑引导覆盖请求气泡，保留[失败上下文](failures/covered-request-context.md)与[画面](failures/covered-request.png)。最终截图还揭示桌面演出控制被容器裁掉，[画面](failures/clipped-desktop-controls.png)。保留完整阶段与订单断言，针对实际按钮可达性和不重复结算补定向回归；不以完整五章通过掩盖局部输入缺陷。
 
 从可见首页进入，点击/触控/键盘执行正常命令；只读保存状态用于食品、请求、奖励与恢复核对，没有注入通关、任务、食品或奖励。音频故障通过中止WAV网络请求模拟。桌面1280×720、手机393×665为模拟视口；另有鼠标和键盘实际入口路径。
 
@@ -37,7 +53,9 @@
 
 手机截图还暴露邀请区撑宽场景、朋友演出部分出屏的真实布局缺陷：[原始画面](failures/phone-scene-overflow.png)。邀请与分享改用同一完整宽度行、网格允许收缩；最终用实际品尝及全区域视口断言复核。f531590的复查因这一发现主动中止，exit130，1 interrupted / 2 NOT_RUN，[中止日志](failures/browser-f531590-interrupted.log)，不记为通过。
 
-a8d945a第二候选为6/8、exit 1：自由全流程90秒总时限到达，已有实际品尝、回看及恢复；最终改用150秒并复查，不据超时推断产品通过。菜单客流用例因正常语音完成把heard从false改为true导致完整对象比较失败；改为通过可见按钮实际重听并等待真实完成后再取完整基线，不删除或放宽原对象相等断言。[自由超时上下文](failures/free-run-time-limit-context.md)、[正常播放差异](failures/order-audio-completion-context.md)。
+a8d945a第二候选为6/8、exit 1：自由全流程90秒总时限到达，已有实际品尝、回看及恢复；改用150秒后db5ef12完整通过，不据超时推断产品通过。菜单客流用例因正常语音完成把heard从false改为true导致完整对象比较失败；改为通过可见按钮实际重听并等待真实完成后再取完整基线，不删除或放宽原对象相等断言。[自由超时上下文](failures/free-run-time-limit-context.md)、[正常播放差异](failures/order-audio-completion-context.md)。
+
+0243361演出复查exit 1，0/2：忙帧下演出每次只保留120ms造成携带阶段过慢，原阶段断言保留，修为每次保留至一个960ms阶段；规则结算未变。菜单用例在可见首页点击时超过12秒，完整 Chromium 实际正常进入，最新复查明确浏览器与30秒操作等待。长五章用900秒总预算，阶段15秒等待，全部五阶段、第二份食品、守恒和完整旧请求断言仍在。[日志](failures/browser-0243361.log)、[时钟失败](failures/slow-visual-clock-context.md)、[首页超时](failures/busy-home-context.md)。文档补正期间的cb44b1d构建dirty=true，身份检查退出1，未用于最终复查；[读回](failures/build-probe-dirty-cb44b1d.json)。重新干净构建7cafefb并实际读回dirty=false。
 
 `failures/*-red.log` 是缺陷补回归时的真实失败：客流/身份、容量恢复、收据使用者、已品尝食品不能重复分享、彩旗真实摆放、已完成章清桌、排队后辅助记录与同场回访记忆。另保留资源登记ID遗漏及严格可选属性类型失败；之后分别修正，没有删除断言或降低规则。
 

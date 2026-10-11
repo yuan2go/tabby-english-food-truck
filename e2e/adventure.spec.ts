@@ -177,6 +177,63 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   expect((await state(page)).adventure?.rewards).toEqual([]);
 });
 
+test('desktop feast exposes replay skip and low motion without repeating settlement', async ({
+  page,
+}) => {
+  test.setTimeout(180000);
+  page.setDefaultTimeout(30000);
+  const walkStarted = Date.now();
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await begin(page);
+  await kitchen(page);
+  await send(page, 0, 'apple');
+  await send(page, 1, 'banana');
+  await table(page);
+  await page.getByRole('button', { name: '打开储物抽屉', exact: true }).click();
+  await page.getByRole('button', { name: '取出花苗', exact: true }).click();
+  await page.getByRole('button', { name: '把花种在中间', exact: true }).click();
+  await page.getByRole('button', { name: '取出浇水壶', exact: true }).click();
+  await page.getByRole('button', { name: '给迎客花浇水', exact: true }).click();
+  await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  console.log('EVIDENCE_FEAST_START_SECONDS', (Date.now() - walkStarted) / 1000);
+  const before = await state(page);
+  const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+  for (let stage = 0; stage < 5; stage++)
+    await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+    timeout: 15000,
+  });
+  await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
+  await page.screenshot({
+    path: 'docs/evidence/adventure-experience-02/breakfast-friends-desktop.png',
+  });
+  for (const name of ['重看朋友使用', '跳过朋友演出', '低动态表现']) {
+    const button = page.getByRole('button', { name, exact: true });
+    await expect(button).toBeInViewport({ ratio: 1 });
+    await button.click();
+  }
+  expect((await state(page)).adventure).toEqual(before.adventure);
+  await page.screenshot({
+    path: 'docs/evidence/adventure-experience-02/desktop-friend-controls.png',
+  });
+  await page.getByRole('button', { name: '低动态表现', exact: true }).click();
+  await kitchen(page);
+  await make(page, 'juice');
+  await page.getByRole('button', { name: '带作品到活动桌', exact: true }).click();
+  await table(page);
+  await page.getByRole('button', { name: '选择苹果汁', exact: true }).click();
+  await page.getByRole('button', { name: '摆到1号餐位', exact: true }).click();
+  await page.getByRole('button', { name: '品尝苹果汁', exact: true }).click();
+  console.log('EVIDENCE_DRINK_START_SECONDS', (Date.now() - walkStarted) / 1000);
+  const tasted = await state(page);
+  await expect(feast).toHaveClass(/sip.*stage-3|stage-3.*sip/, { timeout: 15000 });
+  await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
+  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/drink-use-desktop.png' });
+  await page.getByRole('button', { name: '重看朋友使用', exact: true }).click();
+  await page.getByRole('button', { name: '跳过朋友演出', exact: true }).click();
+  expect((await state(page)).adventure).toEqual(tasted.adventure);
+});
+
 test('phone replay follows hedgehog path with real food and no packing task', async ({ page }) => {
   test.setTimeout(300000);
   await page.setViewportSize({ width: 393, height: 665 });
@@ -378,6 +435,7 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
 }) => {
   test.setTimeout(150000);
   page.setDefaultTimeout(30000);
+  await page.setViewportSize({ width: 393, height: 665 });
   await page.goto('/');
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();

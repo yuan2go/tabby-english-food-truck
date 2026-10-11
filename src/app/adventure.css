@@ -1160,15 +1160,32 @@
   line-height: 8px;
 }
 .activity-kitchen .compact-guide {
-  position: absolute;
-  top: var(--toolbar-height, 60px);
-  left: 6px;
-  z-index: 5;
+  position: static;
+  flex: 0 1 140px;
+  width: 140px;
+  min-width: 92px;
+  margin-left: auto;
   padding: 1px 4px;
   min-height: 44px;
   background: #fff0cfde;
-  max-width: 160px;
+  max-width: 140px;
+  gap: 2px;
 }
+.activity-kitchen .compact-guide > button {
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 2px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.activity-kitchen .compact-guide .goal-pictures {
+  flex: 1;
+  width: auto;
+  min-width: 44px;
+}
+.compact-guide .goal-pictures > .scene-icon:first-child,
+.compact-guide .guide-arrow,
 .compact-guide .guide-caption,
 .compact-guide .guide-dots,
 .compact-guide > button:last-child {
@@ -1216,6 +1233,9 @@
   height: 34px;
 }
 @media (max-width: 600px) {
+  .activity-kitchen .service-count {
+    display: none;
+  }
   .activity-world {
     grid-template-rows: 54px 80px minmax(105px, 1fr) 72px;
   }

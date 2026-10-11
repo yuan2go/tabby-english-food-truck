@@ -619,6 +619,18 @@ export function App() {
                 到活动桌
               </button>
             ) : null}
+            {s.adventure && !modal && !teaching && !note && opening === null ? (
+              <AdventureGuide
+                compact
+                controller={controller}
+                audio={audio}
+                navigate={() => {
+                  scene.current?.cancel();
+                  audio.stop();
+                  setActivityTable(true);
+                }}
+              />
+            ) : null}
             {ui.assetFailure || controller.save.issue || controller.profile.issue ? (
               <button type="button" aria-label="保存与画面状态" onClick={() => setModal('issues')}>
                 !
@@ -630,18 +642,6 @@ export function App() {
               </button>
             ) : null}
           </header>
-          {s.adventure && !modal && !teaching && !note && opening === null ? (
-            <AdventureGuide
-              compact
-              controller={controller}
-              audio={audio}
-              navigate={() => {
-                scene.current?.cancel();
-                audio.stop();
-                setActivityTable(true);
-              }}
-            />
-          ) : null}
           {currentLevel && !s.adventure ? (
             <div
               className="journey-accessibility"
