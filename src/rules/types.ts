@@ -1,3 +1,4 @@
+import type { AdventureState, Visitor } from '../content/adventure';
 import type { Mode, Product, RequestId } from '../content/catalog';
 import type { Activity, Language, Support } from '../content/chapters';
 import type { Family, StationId } from '../content/recipes';
@@ -18,6 +19,7 @@ export interface Item {
   location: Location;
 }
 export interface Order {
+  visitor?: Visitor;
   revisit: boolean;
   heard: boolean;
   id: string;
@@ -47,7 +49,8 @@ export interface AudioRecord {
   gameTime: number;
 }
 export interface GameState {
-  schemaVersion: 6;
+  schemaVersion: 7;
+  adventure: AdventureState | null;
   routing: Routing;
   session: {
     activity: Activity;
@@ -112,6 +115,18 @@ export type Destination =
   | { station: StationId }
   | { discard: true; confirmed: boolean };
 export type Command =
+  | { type: 'adventure-start'; chapter: number; kind?: 'chapter' | 'shop' }
+  | {
+      type: 'adventure';
+      action: string;
+      object?: string;
+      tray?: TrayId;
+      item?: string;
+      seat?: 0 | 1 | 2;
+      value?: string;
+      visitor?: Visitor;
+      confirmed?: boolean;
+    }
   | { type: 'move'; source: Source; destination: Destination }
   | { type: 'start-machine'; tray?: TrayId }
   | { type: 'start-station'; station: StationId; tray?: TrayId }
@@ -157,5 +172,6 @@ export interface ActorJob {
   kind: 'helper' | 'delivery' | 'return';
   tray?: TrayId;
   order?: string;
+  worldTarget?: 'pack' | 'cool' | 'create';
   itemIds: string[];
 }

@@ -1,7 +1,9 @@
+import { ADVENTURES } from '../content/adventure';
 import { CONTENT_VERSION, JUICE_MS, REQUESTS, requestsFor } from '../content/catalog';
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
 import { storyLevel, storyRequests } from '../content/story-levels';
+import { validAdventure } from './adventure';
 import { stationItems } from './cooking';
 import { emptyRouting, targetLocation } from './routing';
 import type { GameState } from './types';
@@ -21,7 +23,7 @@ export type DecodeResult =
 export function validateState(v: unknown): v is GameState {
   if (
     !record(v) ||
-    v.schemaVersion !== 6 ||
+    v.schemaVersion !== 7 ||
     v.contentVersion !== CONTENT_VERSION ||
     !['guided', 'practice', 'service'].includes(v.mode as string) ||
     !record(v.history) ||
@@ -34,6 +36,7 @@ export function validateState(v: unknown): v is GameState {
     !number(v.gameTime)
   )
     return false;
+  if (v.adventure !== null && !validAdventure(v.adventure)) return false;
   if (
     !Array.isArray(v.items) ||
     v.items.length > 26 ||
@@ -51,7 +54,7 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     !Array.isArray(v.orders) ||
-    v.orders.length < 1 ||
+    (v.orders.length < 1 && !(record(v.adventure) && v.adventure.chapter === 4)) ||
     v.orders.length > 8 ||
     !v.orders.every(
       (o) =>
@@ -227,17 +230,27 @@ export function validateState(v: unknown): v is GameState {
     s.orders.some((o) => (o.status === 'leaving' ? o.remaining <= 0 : o.remaining !== 0))
   )
     return false;
+  if (
+    s.adventure &&
+    ((s.adventure.kind === 'chapter' &&
+      (s.adventure.chapter !== s.session.chapter || s.session.activity !== 'story')) ||
+      s.adventure.foods.some((f) => s.items.some((i) => i.id === f.id) || s.recycle?.id === f.id))
+  )
+    return false;
   const active = s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving');
   if (active.length > (s.mode === 'service' ? 2 : 1) || !unique(active.map((o) => o.seat)))
     return false;
   if (s.session.activity === 'story') {
     const oldIce = ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'];
     const level = storyLevel(s.session.levelId);
-    const expected = level
-      ? storyRequests(level, s.session.storyChoice ?? 0)
-      : s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
-        ? oldIce
-        : CHAPTERS[s.session.chapter]?.requests;
+    const expected =
+      s.adventure?.kind === 'chapter'
+        ? ADVENTURES[s.adventure.chapter]?.orders.map((o) => o.request)
+        : level
+          ? storyRequests(level, s.session.storyChoice ?? 0)
+          : s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
+            ? oldIce
+            : CHAPTERS[s.session.chapter]?.requests;
     if (
       !expected ||
       s.orders.length !== expected.length ||
@@ -460,6 +473,9 @@ function actorJob(v: unknown): boolean {
     !unique(v.itemIds) ||
     !(v.tray === undefined || v.tray === 0 || v.tray === 1) ||
     !(v.order === undefined || str(v.order)) ||
+    !(
+      v.worldTarget === undefined || ['pack', 'cool', 'create'].includes(v.worldTarget as string)
+    ) ||
     !record(v.plan) ||
     !str(v.plan.id) ||
     !number(v.plan.duration, 30000) ||
@@ -530,8 +546,15 @@ export function decodeSnapshot(raw: string): DecodeResult {
       value.schemaVersion = 6;
       value.session.language = 'flavor';
     }
-    if (record(value) && value.schemaVersion === 6 && value.contentVersion === 'm2.2')
+    if (
+      record(value) &&
+      value.schemaVersion === 6 &&
+      ['m2.2', 'm2.3-story-1', CONTENT_VERSION].includes(String(value.contentVersion))
+    ) {
+      value.schemaVersion = 7;
       value.contentVersion = CONTENT_VERSION;
+      value.adventure = null;
+    }
     return validateState(value)
       ? { ok: true, state: value }
       : { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };

@@ -13,6 +13,7 @@ import { parseTokens } from '../content/phrases';
 import { isFinished, recipeFor, SUPPLY_PAGES } from '../content/recipes';
 import { HOME } from '../game/actor';
 import { advanceActor, cancelHelperActor, queueActor, supplyAnchor, trayAnchor } from './actions';
+import { adventureCommand, canReceiveAdventure, startAdventure } from './adventure';
 import {
   advanceStations,
   canSupply,
@@ -41,7 +42,8 @@ export function createGame(
 ): GameState {
   const requests = requestsFor(mode, variant);
   return {
-    schemaVersion: 6,
+    schemaVersion: 7,
+    adventure: null,
     routing: emptyRouting(),
     session: {
       activity: 'training',
@@ -186,6 +188,15 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'adventure-start')
+    return result(
+      startAdventure(s, c.chapter, c.kind) ? 'ok' : 'blocked',
+      '先备餐，再到活动桌一起准备。',
+    );
+  if (c.type === 'adventure') {
+    const r = adventureCommand(s, c);
+    return result(r.kind, r.message);
+  }
   if (c.type === 'supply-page') {
     if (!Number.isInteger(c.page) || !SUPPLY_PAGES[c.page])
       return result('blocked', '这篮没有供货。');
@@ -457,6 +468,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
       return result('blocked', '大咪预留了这只托盘。等它放好，或撤回便签。');
     const items = trayItems(s, c.tray);
     if (s.actor.queue.length >= 3) return result('blocked', '大咪正在递餐，稍等一下。');
+    if (!canReceiveAdventure(s, items.length))
+      return result('blocked', '活动桌满了，保存作品后收拾再送。');
     const expected = REQUESTS[order.request].products;
     if (items.length < expected.length) return result('incomplete', '盘里还没准备齐，可以接着放。');
     if (!order.heard)
