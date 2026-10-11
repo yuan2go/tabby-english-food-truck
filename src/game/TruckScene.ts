@@ -685,13 +685,13 @@ export class TruckScene extends Phaser.Scene {
       const size = item.location.startsWith('tray:')
         ? Math.min(68, Math.max(46, l.trayWidth * 0.23))
         : Math.max(34, 38 * l.scale);
-      const image = this.image(key, foodAsset(item.product), to.x, to.y, size, size, 10);
+      this.image(key, foodAsset(item.product), to.x, to.y, size, size, 10);
       this.hot(
         key,
         `${PRODUCT_NAMES[item.product]}，${this.locationLabel(item.location)}`,
         'item',
-        image.x,
-        image.y,
+        to.x,
+        to.y,
         44,
         44,
       );
@@ -839,16 +839,9 @@ export class TruckScene extends Phaser.Scene {
         Phaser.Math.Linear(motion.from.x, motion.to.x, eased),
         Phaser.Math.Linear(motion.from.y, motion.to.y, eased) - Math.sin(p * Math.PI) * 13,
       );
-      const hot = this.ui.hotspots.find((h) => h.id === id);
-      if (hot) {
-        hot.x = image.x;
-        hot.y = image.y;
-        const element = this.ui.elements.get(id);
-        if (element) {
-          element.style.left = `${hot.x - hot.width / 2}px`;
-          element.style.top = `${hot.y - hot.height / 2}px`;
-        }
-      }
+      // Rule ownership already moved the food to its destination. A travelling
+      // sprite must not steal a quick tap on a tray or another work control.
+      // Keep both the canvas and accessible targets at that settled location.
       if (p === 1) this.motions.delete(id);
     }
     if (this.cancelMotion) {
