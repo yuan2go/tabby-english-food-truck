@@ -1038,7 +1038,8 @@ export class TruckScene extends Phaser.Scene {
     if (document.activeElement instanceof HTMLElement && document.activeElement.dataset.hotspot)
       document.activeElement.blur();
     const p = this.point(e),
-      id = this.hit(p.x, p.y)?.id ?? '',
+      target = this.hit(p.x, p.y),
+      id = target?.id ?? '',
       image = this.images.get(id);
     this.press = {
       pointerId: e.pointerId,
@@ -1046,7 +1047,12 @@ export class TruckScene extends Phaser.Scene {
       y: p.y,
       id,
       source: sourceFor(id, this.controller.state),
-      anchor: image ? { x: image.x, y: image.y } : p,
+      anchor:
+        target?.kind === 'item'
+          ? { x: target.x, y: target.y }
+          : image
+            ? { x: image.x, y: image.y }
+            : p,
       moved: false,
     };
     this.game.canvas.setPointerCapture(e.pointerId);
