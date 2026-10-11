@@ -1,8 +1,8 @@
 # 项目状态
 
-## 2026-10-11 · WP-PLAYABLE-ADVENTURE-01 · ENGINEERING_PASS / PR_PENDING
+## 2026-10-11 · WP-PLAYABLE-ADVENTURE-01 · ENGINEERING_PASS / OWNER_ACCEPTANCE_PENDING
 
-初始默认分支origin/main、原工作区基线 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`，当时干净。独立worktree `/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck`、分支 `codex/wp-playable-adventure-01`，一个实现负责人。独立文档整理提交 `616b66df0226daec2b601d843f14f0e809806bd6` 先于产品实现；最后运行源码提交 `5b4b2c598a7ac6f622b5f0e58212d81c9868fc2d`，本次交付提交还收录测试断言与最终证据。最终完整SHA以PR当前head与交付回复为准。
+初始默认分支origin/main、原工作区基线 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`，当时干净。独立worktree `/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck`、分支 `codex/wp-playable-adventure-01`，一个实现负责人。独立文档整理提交 `616b66df0226daec2b601d843f14f0e809806bd6` 先于产品实现；最后运行源码提交 `5b4b2c598a7ac6f622b5f0e58212d81c9868fc2d`，本次交付提交还收录测试断言与最终证据。已推送[草稿PR #11](https://github.com/yuan2go/tabby-english-food-truck/pull/11)，最终完整SHA以PR当前head与交付回复为准。
 
 五章因果活动全部实现：晨光拿取交付/种花、树荫组合分享/品尝/挂旗、野餐寻找打包或桌边分餐/铺布、晚餐安排协作/灯、社区邀请创作/作品食谱。第三章首份真实接收决定兔兔或刺刺路径，不改已接订单；不同操作、等价奖励与汇合。严格订单精确匹配，开放委托明确有限方案，自由制作无订单式答案；已交付食物只在活动世界使用，不能回营业库存。作品/食品状态、熟客回访、探索收据和互动布置保存；菜单/主题只影响新客，停止接客后可继续制作，自然收摊。
 
@@ -28,4 +28,4 @@
 
 ### 外部边界
 
-负责人运行/视觉/手感PENDING；iPhone15 Pro＋Chrome新构建NOT_RUN、历史NEEDS_REVISION保留；儿童观察/教研/人工听审NOT_RUN，资源与声音分发权PENDING；历史60fps NOT_MET未重测。部署NOT_RUN，公开发布BLOCKED。工程PASS不替代这些验收。本包不合入main、不强推、不改权限；push/PR交付正在完成。
+负责人运行/视觉/手感PENDING；iPhone15 Pro＋Chrome新构建NOT_RUN、历史NEEDS_REVISION保留；儿童观察/教研/人工听审NOT_RUN，资源与声音分发权PENDING；历史60fps NOT_MET未重测。部署NOT_RUN，公开发布BLOCKED。工程PASS不替代这些验收。本包已推送分支及草稿PR，不合入main、不强推、不改权限。试玩方式：本隔离worktree执行 `npm ci && npm run dev`；交付构建本地预览 `http://127.0.0.1:4187/`，由交付回复核验其最终SHA。

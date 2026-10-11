@@ -11,7 +11,7 @@
 - [x] 1 野餐核心：先写失败行为用例（严格错单保留、成功接收才决定兔兔/刺刺路径、两种不同操作、食品/奖励守恒）；实现content/adventure、rules/adventure与actions接收边界，再做schema7迁移/恢复用例与快照校验；定向单元→全单元→阶段提交。
 - [x] 2 五章与活动桌：将野餐接口推广其余四章，Controller按真实活动收据同步成长；Adventure组件投影物件/真实食品/摆放/品尝/作品，Story与Home突出当前活动，App只接线。先浏览器入口断言失败，再实现；通过正常入口完成五章、记录第三章分支和自由作品。
 - [x] 3 自由开店与回访：FreeShop组件选已介绍菜单/主题，规则仅影响新客；完成后继续制作/布置/重访、停止接客/收摊，保存作品与活动记忆；验证刷新/暂停/切换/重玩/拒存边界，阶段提交。
-- [ ] 4 必要验证与交付：typecheck/lint/build/resources，完整共享核心单元；手机与桌面代表路径、五章主线、野餐另一路、自由制作/旧档恢复；少量截图/录像；修实际失败，更新STATUS与AI/资源登记，提交push/PR，不合并不部署。
+- [x] 4 必要验证与交付：typecheck/lint/build/resources，完整共享核心单元；手机与桌面代表路径、五章主线、野餐另一路、自由制作/旧档恢复；少量截图/录像；修实际失败，更新STATUS与AI/资源登记，提交push/PR，不合并不部署。
 
 ## 必须证明的行为
 
@@ -35,3 +35,5 @@
 ## Git与交付
 
 一包一个实现负责人；独立codex/分支/worktree、阶段提交、push/PR，不自动合并、强推、改权限、启用工作流、部署或覆盖无关修改。报告baseline/final full SHA、分支/PR、行为与取舍、实际命令/退出码/环境、浏览器路径、限制与启动方式。GitHub源码不是可玩网址；本地npm run dev或build后preview。历史记录与测试证据见[归档索引](archive/pre-playable-adventure-01/index.md)。
+
+工程与Git交付已完成：[草稿PR #11](https://github.com/yuan2go/tabby-english-food-truck/pull/11)，实际验证/失败/构建身份见[本包证据](evidence/playable-adventure/README.md)。负责人及外部验收仍按STATUS分别待审。
