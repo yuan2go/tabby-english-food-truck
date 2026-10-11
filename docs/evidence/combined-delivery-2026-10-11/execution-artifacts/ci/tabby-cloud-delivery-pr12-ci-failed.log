@@ -1,0 +1,7 @@
+game	Run npx playwright test	﻿2026-10-11T14:01:14.3659028Z ##[group]Run npx playwright test
+game	Run npx playwright test	2026-10-11T14:01:14.3659590Z ^[[36;1mnpx playwright test^[[0m
+game	Run npx playwright test	2026-10-11T14:01:14.3739044Z shell: /usr/bin/bash -e {0}
+game	Run npx playwright test	2026-10-11T14:01:14.3739506Z ##[endgroup]
+game	Run npx playwright test	2026-10-11T14:01:17.1332939Z TypeError: Module "file:///home/runner/work/tabby-english-food-truck/tabby-english-food-truck/src/content/vocabulary-extra.json" needs an import attribute of "type: json"
+game	Run npx playwright test	2026-10-11T14:01:17.1418437Z 
+game	Run npx playwright test	2026-10-11T14:01:17.1830476Z ##[error]Process completed with exit code 1.

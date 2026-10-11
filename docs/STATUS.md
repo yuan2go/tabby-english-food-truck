@@ -1,12 +1,12 @@
 # 项目状态
 
-## 2026-10-11 统一交付 · INTEGRATING / CHECKS_NOT_RUN
+## 2026-10-11 统一交付 · DELIVERY_PREPARED / CHECKS_NOT_RUN
 
-负责人授权全部交付并合并main，明确不测试。整合基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/oct11-combined-delivery`。输入为小游戏与120词包 `d567e562808dbeb18f571e704a0ffacb0a611428`（PR #12，8个提交），五章体验深化包 `2be658b2267131f1d1bf28490890b44fad0dc00c`（PR #13，17个提交）；负责人最新要求放弃试玩报告，本次不收录试玩聊天文件。两个包原提交历史完整保留，共25个唯一提交；统一整合与执行产物归档另行提交，最终数以Git读回为准。
+负责人授权全部交付并合并main，明确不测试。整合基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/oct11-combined-delivery`。输入为小游戏与120词包 `d567e562808dbeb18f571e704a0ffacb0a611428`（PR #12，8个提交），五章体验深化包 `2be658b2267131f1d1bf28490890b44fad0dc00c`（PR #13，17个提交）；负责人最新要求放弃试玩报告，本次不收录试玩聊天文件。两个包原提交历史完整保留，共25个唯一提交；统一整合与执行产物归档另行提交，本次PR分支实际27个提交（25历史＋1整合＋1归档）；merge后main预期新增28个，最终数以Git读回为准。
 
 已保留双方实现与资源：五章体验入口连接小院游乐角、小游戏返回来源、120概念与十类小游戏、40条世界动作开发语音及222条词库/场景开发语音。厨房schema7和content `adventure-experience-2` 保留，场景小游戏独立状态不混入厨房。共享权威文档合并两包范围与规则；资源清单按assetId并集，语音按键并集，没有覆盖对方新增项。
 
-本轮整合版本测试/构建/lint/资源执行检查/浏览器检查全部 **NOT_RUN**。下文ENGINEERING_VERIFIED只代表源工作包的历史分批结果。最新源PR云端CI： [PR #12 run 38145372683](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38145372683) **FAILURE**（Node22加载JSON缺少type导入属性），[PR #13 run 38146000185](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38146000185) **FAILURE**（17项浏览器中15通过、五章与桌面宴会2项失败）；原日志将随执行产物保存，本轮不重跑或修改失败结论。后续推送与合并使用skip ci提交消息，不启动新CI。
+本轮整合版本测试/构建/lint/资源执行检查/浏览器检查全部 **NOT_RUN**。下文ENGINEERING_VERIFIED只代表源工作包的历史分批结果。最新源PR云端CI： [PR #12 run 38145372683](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38145372683) **FAILURE**（Node22加载JSON缺少type导入属性），[PR #13 run 38146000185](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38146000185) **FAILURE**（17项浏览器中15通过、五章与桌面宴会2项失败）；原日志已随执行产物保存，本轮不重跑或修改失败结论。后续推送与合并使用skip ci提交消息，不启动新CI。归档来源、hash、环境/退出码边界及Git交付见[统一报告](evidence/combined-delivery-2026-10-11/README.md)。
 
 负责人已放弃试玩报告；试玩聊天现存文件留在原工作区，本次不收录，也不删除。负责人手感/实体设备/儿童观察/教研/听审/权利仍按历史状态待验。本次只合并源码，未部署。
 

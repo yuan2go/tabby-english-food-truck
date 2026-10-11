@@ -1,0 +1,103 @@
+game	Run npx playwright test	﻿2026-10-11T14:10:18.4868419Z ##[group]Run npx playwright test
+game	Run npx playwright test	2026-10-11T14:10:18.4868837Z ^[[36;1mnpx playwright test^[[0m
+game	Run npx playwright test	2026-10-11T14:10:18.4932882Z shell: /usr/bin/bash -e {0}
+game	Run npx playwright test	2026-10-11T14:10:18.4933219Z ##[endgroup]
+game	Run npx playwright test	2026-10-11T14:10:20.6713846Z 
+game	Run npx playwright test	2026-10-11T14:10:20.6714458Z Running 17 tests using 1 worker
+game	Run npx playwright test	2026-10-11T14:10:20.6714757Z 
+game	Run npx playwright test	2026-10-11T14:10:58.9314920Z EVIDENCE_FEAST_START_SECONDS 36.241
+game	Run npx playwright test	2026-10-11T14:11:14.8919509Z   ✘   1 e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (52.3s)
+game	Run npx playwright test	2026-10-11T14:11:50.3388872Z EVIDENCE_FEAST_START_SECONDS 34.833
+game	Run npx playwright test	2026-10-11T14:12:06.3614494Z   ✘   2 e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement (50.9s)
+game	Run npx playwright test	2026-10-11T14:13:23.3390833Z   ✓   3 e2e/adventure.spec.ts:237:1 › phone replay follows hedgehog path with real food and no packing task (1.3m)
+game	Run npx playwright test	2026-10-11T14:13:58.1214815Z   ✓   4 e2e/adventure.spec.ts:288:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (34.8s)
+game	Run npx playwright test	2026-10-11T14:14:12.8921846Z   ✓   5 e2e/adventure.spec.ts:379:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (14.8s)
+game	Run npx playwright test	2026-10-11T14:14:38.3572077Z   ✓   6 e2e/adventure.spec.ts:433:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (25.4s)
+game	Run npx playwright test	2026-10-11T14:14:42.9123133Z   ✓   7 e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (4.5s)
+game	Run npx playwright test	2026-10-11T14:14:46.7058329Z   ✓   8 e2e/experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help (3.8s)
+game	Run npx playwright test	2026-10-11T14:14:51.7071157Z   ✓   9 e2e/experience.spec.ts:66:1 › muting through visible settings retains picture goals and safe replay (5.0s)
+game	Run npx playwright test	2026-10-11T14:15:22.8124442Z   ✓  10 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (31.1s)
+game	Run npx playwright test	2026-10-11T14:15:29.4549598Z   ✓  11 e2e/m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (6.6s)
+game	Run npx playwright test	2026-10-11T14:15:50.5093317Z   ✓  12 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (21.0s)
+game	Run npx playwright test	2026-10-11T14:16:03.9258014Z   ✓  13 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (13.4s)
+game	Run npx playwright test	2026-10-11T14:16:29.3140203Z   ✓  14 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (25.4s)
+game	Run npx playwright test	2026-10-11T14:16:34.5710113Z   ✓  15 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (5.2s)
+game	Run npx playwright test	2026-10-11T14:16:55.8536396Z   ✓  16 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (21.3s)
+game	Run npx playwright test	2026-10-11T14:17:12.6056188Z   ✓  17 e2e/wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress (16.7s)
+game	Run npx playwright test	2026-10-11T14:17:12.6546542Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6550747Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6557979Z   1) e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+game	Run npx playwright test	2026-10-11T14:17:12.6558582Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6558820Z     Error: expect(locator).toHaveClass(expected) failed
+game	Run npx playwright test	2026-10-11T14:17:12.6559118Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6559577Z     Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+game	Run npx playwright test	2026-10-11T14:17:12.6560212Z     Expected pattern: /stage-0/
+game	Run npx playwright test	2026-10-11T14:17:12.6560731Z     Received string:  "friend-theatre theatre-finish stage-4 low-motion bite"
+game	Run npx playwright test	2026-10-11T14:17:12.6561231Z     Timeout: 15000ms
+game	Run npx playwright test	2026-10-11T14:17:12.6561403Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6561498Z     Call log:
+game	Run npx playwright test	2026-10-11T14:17:12.6562190Z       - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 15000ms
+game	Run npx playwright test	2026-10-11T14:17:12.6562887Z       - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+game	Run npx playwright test	2026-10-11T14:17:12.6564211Z         31 × locator resolved to <section aria-label="朋友实际使用食品" data-moment="6009cfec-5771-41fe-bfc1-c7d2c342f49e:moment:8" class="friend-theatre theatre-finish stage-4 low-motion bite">…</section>
+game	Run npx playwright test	2026-10-11T14:17:12.6565771Z            - unexpected value "friend-theatre theatre-finish stage-4 low-motion bite"
+game	Run npx playwright test	2026-10-11T14:17:12.6566137Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6566146Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6568139Z       71 |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+game	Run npx playwright test	2026-10-11T14:17:12.6568623Z       72 |   for (let stage = 0; stage < 5; stage++)
+game	Run npx playwright test	2026-10-11T14:17:12.6569186Z     > 73 |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+game	Run npx playwright test	2026-10-11T14:17:12.6569697Z          |                         ^
+game	Run npx playwright test	2026-10-11T14:17:12.6570518Z       74 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+game	Run npx playwright test	2026-10-11T14:17:12.6571030Z       75 |     timeout: 15000,
+game	Run npx playwright test	2026-10-11T14:17:12.6571288Z       76 |   });
+game	Run npx playwright test	2026-10-11T14:17:12.6571813Z         at /home/runner/work/tabby-english-food-truck/tabby-english-food-truck/e2e/adventure.spec.ts:73:25
+game	Run npx playwright test	2026-10-11T14:17:12.6572285Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6572767Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6573545Z     test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+game	Run npx playwright test	2026-10-11T14:17:12.6574364Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6574581Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6574889Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6575398Z     test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+game	Run npx playwright test	2026-10-11T14:17:12.6575976Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6576196Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6576529Z     Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+game	Run npx playwright test	2026-10-11T14:17:12.6576896Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6577282Z   2) e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+game	Run npx playwright test	2026-10-11T14:17:12.6577593Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6577732Z     Error: expect(locator).toHaveClass(expected) failed
+game	Run npx playwright test	2026-10-11T14:17:12.6577914Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6578129Z     Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+game	Run npx playwright test	2026-10-11T14:17:12.6578435Z     Expected pattern: /stage-0/
+game	Run npx playwright test	2026-10-11T14:17:12.6578763Z     Received string:  "friend-theatre theatre-finish stage-4 low-motion bite"
+game	Run npx playwright test	2026-10-11T14:17:12.6579060Z     Timeout: 15000ms
+game	Run npx playwright test	2026-10-11T14:17:12.6579171Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6579241Z     Call log:
+game	Run npx playwright test	2026-10-11T14:17:12.6579647Z       - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 15000ms
+game	Run npx playwright test	2026-10-11T14:17:12.6580397Z       - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+game	Run npx playwright test	2026-10-11T14:17:12.6581247Z         31 × locator resolved to <section aria-label="朋友实际使用食品" data-moment="d1482449-57a2-4e05-9620-b9a0394ec062:moment:8" class="friend-theatre theatre-finish stage-4 low-motion bite">…</section>
+game	Run npx playwright test	2026-10-11T14:17:12.6581944Z            - unexpected value "friend-theatre theatre-finish stage-4 low-motion bite"
+game	Run npx playwright test	2026-10-11T14:17:12.6582184Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6582372Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6582636Z       200 |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+game	Run npx playwright test	2026-10-11T14:17:12.6582988Z       201 |   for (let stage = 0; stage < 5; stage++)
+game	Run npx playwright test	2026-10-11T14:17:12.6583370Z     > 202 |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+game	Run npx playwright test	2026-10-11T14:17:12.6583714Z           |                         ^
+game	Run npx playwright test	2026-10-11T14:17:12.6584135Z       203 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+game	Run npx playwright test	2026-10-11T14:17:12.6584467Z       204 |     timeout: 15000,
+game	Run npx playwright test	2026-10-11T14:17:12.6584652Z       205 |   });
+game	Run npx playwright test	2026-10-11T14:17:12.6585151Z         at /home/runner/work/tabby-english-food-truck/tabby-english-food-truck/e2e/adventure.spec.ts:202:25
+game	Run npx playwright test	2026-10-11T14:17:12.6585459Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6585774Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6586305Z     test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/test-failed-1.png
+game	Run npx playwright test	2026-10-11T14:17:12.6586920Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6587135Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6587422Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6587904Z     test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/video.webm
+game	Run npx playwright test	2026-10-11T14:17:12.6588458Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-11T14:17:12.6588659Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6588977Z     Error Context: test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/error-context.md
+game	Run npx playwright test	2026-10-11T14:17:12.6589327Z 
+game	Run npx playwright test	2026-10-11T14:17:12.6589403Z   2 failed
+game	Run npx playwright test	2026-10-11T14:17:12.6589845Z     e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+game	Run npx playwright test	2026-10-11T14:17:12.6590684Z     e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+game	Run npx playwright test	2026-10-11T14:17:12.6591080Z   15 passed (6.9m)
+game	Run npx playwright test	2026-10-11T14:17:12.7568264Z ##[error]Process completed with exit code 1.
