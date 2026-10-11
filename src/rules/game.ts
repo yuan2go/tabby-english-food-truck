@@ -9,6 +9,7 @@ import {
   type RequestId,
   requestsFor,
 } from '../content/catalog';
+import { themeAllows } from '../content/free-shop';
 import { parseTokens } from '../content/phrases';
 import { isFinished, recipeFor, SUPPLY_PAGES } from '../content/recipes';
 import { HOME } from '../game/actor';
@@ -23,7 +24,7 @@ import {
   syncStations,
 } from './cooking';
 import { emptyRouting, reserved, reserveOutput, routeReady } from './routing';
-import { applyPolicy } from './sessions';
+import { applyPolicy, replenish } from './sessions';
 import type {
   Attempt,
   Destination,
@@ -188,6 +189,30 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'shop-policy') {
+    if (
+      s.session.activity !== 'endless' ||
+      typeof c.accepting !== 'boolean' ||
+      !['all', 'fruit', 'cool', 'share'].includes(c.theme) ||
+      !Array.isArray(c.menu) ||
+      !c.menu.length ||
+      c.menu.length > 50 ||
+      c.menu.some((r) => !(s.session.knownMenu ?? s.session.menu).includes(r))
+    )
+      return result('blocked', '只选择已经介绍的菜单，至少保留一道。');
+    const legal = c.menu.filter((r) => themeAllows(c.theme, r));
+    if (!legal.length) return result('blocked', '这个主题还没有已介绍的菜，先选其他主题。');
+    s.session.knownMenu ??= [...s.session.menu];
+    s.session.shop = { accepting: c.accepting, theme: c.theme };
+    s.session.menu = [...new Set(c.menu)];
+    replenish(s);
+    return result(
+      'ok',
+      c.accepting
+        ? '菜单与主题留给下一位客人，已接请求保留。'
+        : '招呼完已接的朋友，就可以自由做作品或收摊。',
+    );
+  }
   if (c.type === 'adventure-start')
     return result(
       startAdventure(s, c.chapter, c.kind) ? 'ok' : 'blocked',
@@ -204,6 +229,13 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '换一篮，盘中食物仍保留。');
   }
   if (c.type === 'menu') {
+    if (s.session.shop)
+      s.session.knownMenu = [
+        ...new Set([
+          ...(s.session.knownMenu ?? s.session.menu),
+          ...c.requests.filter((r) => r in REQUESTS),
+        ]),
+      ];
     s.session.menu = [...new Set([...s.session.menu, ...c.requests.filter((r) => r in REQUESTS)])];
     s.session.unlocked = [...new Set([...s.session.unlocked, ...c.families])];
     return result('ok', '新菜单已经介绍，下一位客人可以选择。');

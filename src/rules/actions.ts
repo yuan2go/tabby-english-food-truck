@@ -60,7 +60,18 @@ export function advanceActor(s: GameState, delta: number): boolean {
       if (before < receiveAt && job.elapsed >= receiveAt) {
         const received = s.items.filter((i) => job.itemIds.includes(i.id));
         const order = s.orders.find((o) => o.id === job.order);
-        receiveAdventure(s, received, job.worldTarget ?? job.order ?? 'delivery', order?.visitor);
+        receiveAdventure(
+          s,
+          received,
+          job.worldTarget ?? job.order ?? 'delivery',
+          order?.visitor ??
+            (order && s.adventure?.kind === 'shop'
+              ? order.seat === 0
+                ? 'rabbit'
+                : 'hedgehog'
+              : undefined),
+          job.plan.id,
+        );
         s.items = s.items.filter((i) => !job.itemIds.includes(i.id));
         job.itemIds = [];
         transferred = true;

@@ -54,13 +54,21 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     !Array.isArray(v.orders) ||
-    (v.orders.length < 1 && !(record(v.adventure) && v.adventure.chapter === 4)) ||
+    (v.orders.length < 1 &&
+      !(record(v.adventure) && v.adventure.chapter === 4) &&
+      !(
+        record(v.session) &&
+        v.session.activity === 'endless' &&
+        record(v.session.shop) &&
+        v.session.shop.accepting === false
+      )) ||
     v.orders.length > 8 ||
     !v.orders.every(
       (o) =>
         record(o) &&
         typeof o.revisit === 'boolean' &&
         typeof o.heard === 'boolean' &&
+        (o.visitor === undefined || ['rabbit', 'hedgehog', 'elder'].includes(String(o.visitor))) &&
         str(o.id) &&
         Object.keys(REQUESTS).includes(o.request as string) &&
         [0, 1].includes(o.seat as number) &&
@@ -176,6 +184,20 @@ export function validateState(v: unknown): v is GameState {
     !integer(v.session.cursor) ||
     !integer(v.session.served) ||
     typeof v.session.lastRequest !== 'string'
+  )
+    return false;
+  if (
+    v.session.shop !== undefined &&
+    (!record(v.session.shop) ||
+      typeof v.session.shop.accepting !== 'boolean' ||
+      !['all', 'fruit', 'cool', 'share'].includes(String(v.session.shop.theme)))
+  )
+    return false;
+  if (
+    v.session.knownMenu !== undefined &&
+    (!strings(v.session.knownMenu, 50) ||
+      !unique(v.session.knownMenu) ||
+      v.session.knownMenu.some((r) => !(r in REQUESTS)))
   )
     return false;
   if (!record(v.routing) || Object.keys(v.routing).length !== 4) return false;
@@ -420,9 +442,11 @@ export function validateState(v: unknown): v is GameState {
       const order = s.orders.find((o) => o.id === job.order);
       if (
         job.tray === undefined ||
-        !order ||
-        order.status !== 'leaving' ||
-        Math.abs(order.remaining - completion) > 0.05 ||
+        (job.worldTarget
+          ? !s.adventure || job.order !== undefined
+          : !order ||
+            order.status !== 'leaving' ||
+            Math.abs(order.remaining - completion) > 0.05) ||
         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
       )
         return false;

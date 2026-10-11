@@ -1,4 +1,7 @@
+import { ADVENTURES } from '../content/adventure';
+import { Adventure } from './Adventure';
 import { FoodBaskets } from './FoodBaskets';
+import { FreeShop } from './FreeShop';
 import './foods.css';
 import Phaser from 'phaser';
 import { useEffect, useReducer, useRef, useState } from 'react';
@@ -41,6 +44,7 @@ export function App() {
     [note, setNote] = useState(false),
     [caption, setCaption] = useState<string | null>(null);
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
+  const [activityTable, setActivityTable] = useState(false);
   const [setup, setSetup] = useState<'endless' | 'training'>('endless');
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
@@ -110,7 +114,9 @@ export function App() {
   const actorBusy = Boolean(s.actor.current && s.actor.current.kind !== 'return');
   const growth =
     screen === 'game' &&
+    !activityTable &&
     s.session.activity === 'endless' &&
+    s.session.shop?.accepting !== false &&
     growthReady &&
     !actorBusy &&
     s.items.length === 0 &&
@@ -140,7 +146,8 @@ export function App() {
               : null),
   );
   const selected = waiting.find((o) => o.id === ui.selectedGuest) ?? active;
-  const done = s.session.activity !== 'endless' && s.orders.every((o) => o.status === 'done');
+  const done =
+    !s.adventure && s.session.activity !== 'endless' && s.orders.every((o) => o.status === 'done');
   const currentLevel = storyLevel(s.session.levelId);
   const nextLevel = currentLevel
     ? STORY_LEVELS[STORY_LEVELS.findIndex((level) => level.id === currentLevel.id) + 1]
@@ -149,6 +156,7 @@ export function App() {
   ui.teaching = teaching;
   ui.inputBlocked =
     screen !== 'game' ||
+    activityTable ||
     !!modal ||
     !!teaching ||
     !!growth ||
@@ -235,6 +243,7 @@ export function App() {
   useEffect(() => {
     if (
       screen !== 'game' ||
+      activityTable ||
       modal ||
       teaching ||
       growth ||
@@ -269,6 +278,7 @@ export function App() {
     teaching,
     growth,
     opening,
+    activityTable,
     activeId,
     activeRequest,
     actorBusy,
@@ -299,6 +309,7 @@ export function App() {
     setCaption(null);
     ui.selected = null;
     ui.doubleTap?.cancel();
+    setActivityTable(false);
     setScreen('home');
   };
   const enter = (
@@ -337,9 +348,11 @@ export function App() {
                 : 'tray';
     ui.doubleTap?.cancel();
     setCaption(null);
+    setActivityTable(Boolean(controller.state.adventure?.kind === 'chapter'));
     const chapterKey = `chapter-${chapter}`;
     setOpening(
       activity === 'story' &&
+        !controller.state.adventure &&
         !controller.savedGame &&
         !controller.profile.value.presented.includes(chapterKey)
         ? chapter
@@ -388,10 +401,22 @@ export function App() {
       data-audio-state={JSON.stringify(audio.diagnostics())}
     >
       <div className="canvas-host" ref={host} role="img" aria-label="英语餐车游戏画面" />
-      {screen === 'home' ? (
+      {screen === 'game' && activityTable && s.adventure ? (
+        <Adventure
+          controller={controller}
+          audio={audio}
+          kitchen={() => {
+            setActivityTable(false);
+          }}
+          home={home}
+          next={() => enter('story', Math.min(s.session.chapter + 1, 4))}
+          replay={() => enter('story', s.session.chapter, true)}
+        />
+      ) : screen === 'home' ? (
         <Home
           profile={controller.profile.value}
           legacy={Boolean(controller.save.legacyRaw)}
+          onActivity={(chapter) => enter('story', chapter)}
           audio={audio}
           onChoose={(choice) => {
             audio.stop();
@@ -412,6 +437,12 @@ export function App() {
           setGuests={setStoryGuests}
           enter={(chapter, replay, levelId) => enter('story', chapter, replay, levelId)}
           home={home}
+          resumeExisting={() => {
+            if (!controller.resumeLegacyStory()) return;
+            setActivityTable(false);
+            setScreen('game');
+            controller.pause('home', false);
+          }}
         />
       ) : screen === 'mini' ? (
         <MiniGames
@@ -455,6 +486,25 @@ export function App() {
               localStorage.setItem('tabby.foodtruck.lowGraphics', String(v));
             } catch {}
             refresh();
+          }}
+        />
+      ) : screen === 'setup' && setup === 'endless' ? (
+        <FreeShop
+          controller={controller}
+          support={support}
+          setSupport={setSupport}
+          concurrency={concurrency}
+          setConcurrency={setConcurrency}
+          ready={ui.ready}
+          home={home}
+          start={(menu, theme) => {
+            enter('endless');
+            controller.command({
+              type: 'menu',
+              requests: controller.profile.menu(),
+              families: controller.profile.value.introduced,
+            });
+            controller.command({ type: 'shop-policy', menu, theme, accepting: true });
           }}
         />
       ) : screen === 'setup' ? (
@@ -527,14 +577,29 @@ export function App() {
           <small>教学不要求识字；拼写不会挡住故事。</small>
         </section>
       ) : (
-        <div className="service-surface">
+        <div className={`service-surface ${s.adventure ? 'activity-kitchen' : ''}`}>
+          {s.adventure && !modal && !teaching && !note ? (
+            <button
+              type="button"
+              className="activity-kitchen-link"
+              onClick={() => {
+                scene.current?.cancel();
+                audio.stop();
+                setActivityTable(true);
+              }}
+            >
+              到活动桌
+            </button>
+          ) : null}
           <header className="game-toolbar">
             <button type="button" aria-label="暂停" onClick={() => setModal('pause')}>
               Ⅱ
             </button>
             <span className="service-count">
               {s.session.activity === 'story'
-                ? CHAPTERS[s.session.chapter]?.title
+                ? s.adventure
+                  ? ADVENTURES[s.session.chapter]?.title
+                  : CHAPTERS[s.session.chapter]?.title
                 : s.session.activity === 'endless'
                   ? '无尽营业'
                   : '教学练习'}{' '}

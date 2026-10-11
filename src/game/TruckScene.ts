@@ -451,7 +451,7 @@ export class TruckScene extends Phaser.Scene {
     for (const [orderIndex, o] of s.orders.entries()) {
       if (o.status === 'queued' || o.status === 'done') continue;
       const p = l.guests[o.seat];
-      const visitor = visitors[orderIndex] ?? (o.seat === 0 ? 'rabbit' : 'hedgehog');
+      const visitor = o.visitor ?? visitors[orderIndex] ?? (o.seat === 0 ? 'rabbit' : 'hedgehog');
       const guestAsset =
         visitor === 'elder'
           ? 'elder'

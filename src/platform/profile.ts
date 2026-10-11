@@ -1,7 +1,9 @@
+import type { AdventureState } from '../content/adventure';
 import { REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Language } from '../content/chapters';
 import type { Family } from '../content/recipes';
 import { levelsForChapter, storyLevel } from '../content/story-levels';
+import { validAdventure } from '../rules/adventure';
 import type { StoragePort } from './save';
 export interface Observation {
   id: string;
@@ -23,6 +25,7 @@ export interface LessonProgress {
   support: string[];
 }
 export interface Profile {
+  activityMemories: { runId: string; state: AdventureState }[];
   version: 3;
   language: Language;
   concurrency: 1 | 2;
@@ -43,6 +46,7 @@ export interface Profile {
 }
 export const emptyProfile = (): Profile => ({
   version: 3,
+  activityMemories: [],
   language: 'flavor',
   concurrency: 1,
   observedIds: [],
@@ -140,6 +144,7 @@ export class ProfileStore {
       }
       // The earlier five chapter receipts remain historical progress. New
       // service IDs start unfinished; no old receipt is treated as a new task.
+      this.value.activityMemories ??= [];
       this.value.completedLevels ??= [];
       this.value.storyChoices ??= {};
       this.value.resolvedStoryChoices ??= {};
@@ -194,6 +199,36 @@ export class ProfileStore {
     this.value.exposure = [...new Set([...this.value.exposure, value.target])].slice(-240);
     this.save();
   }
+  rememberActivity(runId: string, state: AdventureState): void {
+    if (!state.rewards.length && !state.works.length) return;
+    const prior = this.value.activityMemories.find(
+      (m) => m.runId === runId && m.state.kind === state.kind && m.state.chapter === state.chapter,
+    );
+    if (prior && JSON.stringify(prior.state) === JSON.stringify(state)) return;
+    const memories = [
+      ...this.value.activityMemories.filter((m) => m !== prior),
+      { runId, state: structuredClone(state) },
+    ];
+    while (memories.length > 16) {
+      // Keep the latest completed receipt of every chapter, so replay cannot
+      // relock the world. Older works remain a bounded, explicit history.
+      const removable = memories.findIndex(
+        (m, i) =>
+          !m.state.rewards.length ||
+          memories
+            .slice(i + 1)
+            .some(
+              (later) =>
+                later.state.kind === m.state.kind &&
+                later.state.chapter === m.state.chapter &&
+                later.state.rewards.length,
+            ),
+      );
+      memories.splice(removable < 0 ? 0 : removable, 1);
+    }
+    this.value.activityMemories = memories;
+    this.save();
+  }
   complete(chapter: number): void {
     if (!CHAPTERS[chapter]) return;
     if (chapter > 0 && !this.value.completed.includes(chapter - 1)) return;
@@ -225,6 +260,13 @@ export function validProfile(v: unknown): v is Profile {
   const p = v as Partial<Profile>;
   return (
     p.version === 3 &&
+    (p.activityMemories === undefined ||
+      (Array.isArray(p.activityMemories) &&
+        p.activityMemories.length <= 16 &&
+        p.activityMemories.every(
+          (m) =>
+            m && typeof m.runId === 'string' && m.runId.length < 160 && validAdventure(m.state),
+        ))) &&
     ['flavor', 'container', 'combined'].includes(p.language ?? '') &&
     Array.isArray(p.observedIds) &&
     p.observedIds.length <= 1200 &&

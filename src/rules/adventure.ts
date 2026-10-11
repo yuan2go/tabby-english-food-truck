@@ -45,6 +45,9 @@ export function startAdventure(
 export function adventureReady(a: AdventureState): boolean {
   const has = (step: string) => a.steps.includes(step);
   if (a.kind === 'shop') return false;
+  const twoSeats =
+    !!a.rewards.length ||
+    ([0, 1] as const).every((seat) => a.foods.some((f) => f.place === `table:${seat}`));
   switch (a.chapter) {
     case 0:
       return has('served:rabbit') && has('served:hedgehog') && has('plant');
@@ -57,7 +60,7 @@ export function adventureReady(a: AdventureState): boolean {
         has('cloth') &&
         (a.branch === 'rabbit'
           ? has('unpack')
-          : a.branch === 'hedgehog' && has('place:0') && has('place:1'))
+          : a.branch === 'hedgehog' && has('place:0') && has('place:1') && twoSeats)
       );
     case 3:
       return (
@@ -65,7 +68,8 @@ export function adventureReady(a: AdventureState): boolean {
         has('served:hedgehog') &&
         has('light') &&
         has('place:0') &&
-        has('place:1')
+        has('place:1') &&
+        twoSeats
       );
     case 4:
       return (
@@ -88,6 +92,7 @@ export function receiveAdventure(
   items: readonly Item[],
   source: string,
   visitor?: Visitor,
+  batch?: string,
 ): void {
   if (!s.adventure || !items.length) return;
   s.adventure = structuredClone(s.adventure);
@@ -98,7 +103,7 @@ export function receiveAdventure(
       a.foods.push({
         id: item.id,
         product: item.product,
-        source,
+        source: source === 'create' ? `create:${batch ?? 'batch'}` : source,
         place:
           source === 'pack'
             ? 'basket'
@@ -114,7 +119,11 @@ export function receiveAdventure(
   } else step(a, source);
 }
 export function canReceiveAdventure(s: GameState, count: number): boolean {
-  return !s.adventure || s.adventure.foods.length + count <= 12;
+  const pending = [s.actor.current, ...s.actor.queue].reduce(
+    (n, j) => n + (j?.kind === 'delivery' ? j.itemIds.length : 0),
+    0,
+  );
+  return !s.adventure || s.adventure.foods.length + pending + count <= 12;
 }
 export function adventureCommand(
   s: GameState,
@@ -254,7 +263,8 @@ export function adventureCommand(
     );
   }
   if (c.action === 'save-work') {
-    const foods = a.foods.filter((f) => f.source === 'create');
+    const source = a.foods.filter((f) => f.source.startsWith('create:')).at(-1)?.source;
+    const foods = a.foods.filter((f) => f.source === source);
     if (!foods.length) return result('blocked', '先把自己的拼盘送到桌边。');
     const signature = workSignature(foods);
     if (a.works.some((w) => w.signature === signature))
@@ -414,7 +424,7 @@ export function validAdventure(v: unknown): v is AdventureState {
         w.id.length < 160 &&
         Array.isArray(w.foods) &&
         w.foods.length > 0 &&
-        w.foods.length <= 12 &&
+        w.foods.length <= 3 &&
         w.foods.every(food) &&
         w.signature === workSignature(w.foods),
     ) &&
@@ -426,4 +436,39 @@ export function validAdventure(v: unknown): v is AdventureState {
     list(a.invitations, 3) &&
     a.invitations.every((x) => ['rabbit', 'hedgehog', 'elder'].includes(x))
   );
+}
+
+export function openCommission(a: AdventureState | null): {
+  action: 'pack' | 'cool' | 'create';
+  label: string;
+  choices: readonly WorldFood['product'][];
+} | null {
+  if (!a) return null;
+  if (a.kind === 'shop' || a.rewards.length || a.chapter === 4)
+    return { action: 'create', label: '带作品到活动桌', choices: EDIBLE };
+  if (a.chapter === 1 && !a.steps.includes('cool'))
+    return { action: 'cool', label: '送去树荫分享', choices: COOL_CHOICES };
+  if (
+    a.chapter === 2 &&
+    a.branch === 'rabbit' &&
+    a.explored.includes('basket') &&
+    !a.steps.includes('pack')
+  )
+    return {
+      action: 'pack',
+      label: '装进野餐篮',
+      choices: ['sandwich', 'salad-sandwich', 'apple', 'banana'],
+    };
+  return null;
+}
+export function activityHint(a: AdventureState): string {
+  if (a.kind === 'shop') return '选择喜欢的菜单，服务朋友，也可以自由做作品。';
+  if (a.rewards.length) return '活动已经开席。继续制作、布置，或收摊回小院。';
+  if (a.chapter === 2)
+    return a.branch === null
+      ? '两位朋友都在等。先成功送给谁，就一起做谁的准备。'
+      : a.branch === 'rabbit'
+        ? '兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。'
+        : '刺刺先收到啦：打开抽屉，给两位朋友各摆一份。';
+  return ADVENTURES[a.chapter]?.goal ?? '';
 }

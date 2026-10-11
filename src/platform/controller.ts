@@ -1,6 +1,8 @@
+import { ADVENTURES, emptyAdventure, FAMILIES } from '../content/adventure';
 import type { Mode, RequestId } from '../content/catalog';
 import { type Activity, CHAPTERS, type Support } from '../content/chapters';
 import { storyLevel } from '../content/story-levels';
+import { startAdventure } from '../rules/adventure';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
 import type { Command, GameState, Result } from '../rules/types';
@@ -55,6 +57,7 @@ export class GameController {
     this.state = result.state;
     if (result.message) this.message = result.message;
     this.recordAttempts(priorAttempts);
+    this.syncActivity();
     if (command.type !== 'audio') this.save.save(this.state);
     if (
       result.kind === 'ok' &&
@@ -83,6 +86,7 @@ export class GameController {
     const previous = this.state.revision;
     this.state = advance(this.state, delta);
     if (
+      !this.state.adventure &&
       this.state.session.activity === 'story' &&
       this.state.orders.every((o) => o.status === 'done')
     ) {
@@ -92,6 +96,7 @@ export class GameController {
         this.profile.complete(this.state.session.chapter);
     }
     if (this.state.revision !== previous) {
+      this.syncActivity();
       this.save.save(this.state);
       this.notify();
     }
@@ -102,6 +107,64 @@ export class GameController {
       this.save.save(this.state);
       if (issue !== this.save.issue) this.notify();
     }
+  }
+  private syncActivity(): void {
+    const a = this.state.adventure;
+    if (!a) return;
+    this.profile.rememberActivity(this.state.runId, a);
+    for (const food of a.foods)
+      this.profile.observe({
+        id: `world:${this.state.runId}:${food.id}`,
+        dimension: 'operation',
+        target: food.source,
+        result: `received:${food.product}`,
+        support: [],
+        visit: this.profile.value.activityMemories.some((m) => m.state.chapter === a.chapter)
+          ? 'revisit'
+          : 'first',
+        audioQualified: false,
+      });
+  }
+  private enterAdventure(chapter: number, support: Support, replay: boolean): void {
+    if (!ADVENTURES[chapter]) return;
+    this.save.save(this.state);
+    const stored = this.save.loadSession(`story-${chapter}-adventure`);
+    if (this.save.blocked) return;
+    const history = this.history();
+    this.state = !replay && stored ? stored : createGame(this.runId(), 0, history, 'practice');
+    if (!this.state.adventure) {
+      this.state.session.support = support;
+      startAdventure(this.state, chapter);
+    }
+    this.state.session.support = support;
+    if (stored)
+      for (const order of this.state.orders) {
+        const prior = stored.orders.find((o) => o.id === order.id && o.status !== 'done');
+        if (prior) order.support = [...new Set([...order.support, ...prior.support])].slice(-24);
+      }
+    for (const family of FAMILIES.slice(0, Math.min(chapter + 1, 4)))
+      this.profile.introduce(family);
+    this.profile.value.support = support;
+    this.profile.save();
+    this.savedGame = Boolean(!replay && stored);
+    this.checkpoint = 0;
+    this.message = ADVENTURES[chapter]?.goal ?? '';
+    this.syncActivity();
+    this.save.save(this.state);
+    this.notify();
+  }
+  resumeLegacyStory(): boolean {
+    this.save.save(this.state);
+    const key = this.save.legacyStoryKey();
+    const stored = key ? this.save.loadSession(key) : null;
+    if (!stored || stored.adventure || stored.session.activity !== 'story') return false;
+    this.state = stored;
+    this.checkpoint = 0;
+    this.savedGame = true;
+    this.message = '原营业的订单、食品和加工都在，接着准备。';
+    this.save.save(this.state);
+    this.notify();
+    return true;
   }
   pause(reason: string, paused: boolean): void {
     if (paused) {
@@ -152,6 +215,10 @@ export class GameController {
     concurrency: 1 | 2 = this.profile.value.concurrency,
     levelId?: string,
   ): void {
+    if (activity === 'story' && !levelId) {
+      this.enterAdventure(chapter, support, replay);
+      return;
+    }
     this.save.save(this.state);
     this.profile.value.support = support;
     if (activity === 'endless') this.profile.value.concurrency = concurrency;
@@ -193,8 +260,10 @@ export class GameController {
     const family = CHAPTERS[chapter]?.family ?? 'juice';
     if (activity === 'story') this.profile.introduce(family);
     this.state.session.unlocked = [...this.profile.value.introduced];
-    this.state.session.menu = this.profile.menu();
+    if (!this.state.session.shop) this.state.session.menu = this.profile.menu();
     this.state.session.language = this.profile.value.language;
+    if (activity === 'endless' && !this.state.adventure)
+      this.state.adventure = emptyAdventure(4, 'shop');
     applyPolicy(this.state, support, concurrency);
     this.savedGame = Boolean(previous);
     this.checkpoint = 0;
@@ -227,7 +296,7 @@ export class GameController {
             this.profile.lesson(key, { ...lesson, phase: 'done' });
             this.profile.tutorial(`request-${request}`);
           }
-          this.state.session.menu = this.profile.menu();
+          if (!this.state.session.shop) this.state.session.menu = this.profile.menu();
         }
       }
     }

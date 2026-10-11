@@ -54,6 +54,8 @@ export interface GameState {
   routing: Routing;
   session: {
     activity: Activity;
+    knownMenu?: RequestId[];
+    shop?: { accepting: boolean; theme: 'all' | 'fruit' | 'cool' | 'share' };
     chapter: number;
     levelId?: string;
     storyChoice?: 0 | 1;
@@ -115,6 +117,12 @@ export type Destination =
   | { station: StationId }
   | { discard: true; confirmed: boolean };
 export type Command =
+  | {
+      type: 'shop-policy';
+      menu: RequestId[];
+      theme: 'all' | 'fruit' | 'cool' | 'share';
+      accepting: boolean;
+    }
   | { type: 'adventure-start'; chapter: number; kind?: 'chapter' | 'shop' }
   | {
       type: 'adventure';

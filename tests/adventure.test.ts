@@ -166,6 +166,20 @@ describe('adventure causal rules', () => {
     expect(wait(again.state).adventure?.foods).toEqual(s.adventure?.foods);
     expect(validateState(s)).toBe(true);
   });
+  it('can recover every phase of an open commission, including the received food', () => {
+    let s = make(start(1), 'strawberry-cup');
+    s = act(s, 'cool', { tray: 0 }).state;
+    while (s.actor.current) {
+      expect(validateState(s), `delivery elapsed ${s.actor.current.elapsed}`).toBe(true);
+      const saved = decodeSnapshot(JSON.stringify(s));
+      expect(saved.ok).toBe(true);
+      if (!saved.ok) throw Error(saved.reason);
+      s = advance(saved.state, 100);
+    }
+    expect(s.adventure?.steps).toContain('cool');
+    expect(s.adventure?.foods).toHaveLength(1);
+    expect(s.items).toHaveLength(0);
+  });
   it('migrates the old schema6 world without inventing adventure completion', () => {
     const old = JSON.parse(JSON.stringify(createGame('old')));
     old.schemaVersion = 6;
@@ -189,4 +203,29 @@ describe('adventure causal rules', () => {
     if (forged.adventure) forged.adventure.rewards = ['picnic-page'];
     expect(validateState(forged)).toBe(false);
   });
+});
+
+it('moving one food through two seats does not satisfy a two-friend table', () => {
+  let s = deliver(start(), 1, 'salad-sandwich');
+  s = deliver(s, 0, 'sandwich');
+  s = act(s, 'explore', { object: 'drawer' }).state;
+  const id = s.adventure?.foods[0]?.id;
+  if (!id) throw Error('food');
+  s = act(s, 'place', { item: id, seat: 0 }).state;
+  s = act(s, 'place', { item: id, seat: 1 }).state;
+  s = act(s, 'cloth', { value: 'leaf' }).state;
+  expect(act(s, 'finish').kind).toBe('blocked');
+});
+it('a second creation saves its own three portions rather than merging every past dish', () => {
+  let s = start(4);
+  s = make(s, 'banana');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  s = act(s, 'save-work').state;
+  s = make(s, 'apple');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  s = act(s, 'save-work').state;
+  expect(s.adventure?.works.map((w) => w.foods.map((f) => f.product))).toEqual([
+    ['banana'],
+    ['apple'],
+  ]);
 });

@@ -1,3 +1,4 @@
+import { ADVENTURES } from '../content/adventure';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { Profile } from '../platform/profile';
@@ -6,26 +7,35 @@ export function Home({
   onChoose,
   audio,
   legacy,
+  onActivity,
 }: {
   profile: Profile;
   onChoose: (screen: 'story' | 'endless' | 'mini' | 'training' | 'settings') => void;
   audio: ForegroundAudio;
   legacy: boolean;
+  onActivity: (chapter: number) => void;
 }) {
+  const completed = (chapter: number) =>
+    profile.activityMemories.some(
+      (m) => m.state.kind === 'chapter' && m.state.chapter === chapter && m.state.rewards.length,
+    );
+  const next = ADVENTURES.find((c) => !completed(c.id))?.id ?? 4;
   const entry = (id: 'story' | 'endless' | 'mini' | 'training', name: string, sound: string) => (
     <div className={`yard-entry yard-${id}`}>
       <button
         type="button"
         className="entry-main"
+        aria-label={name}
         onClick={() => {
           void audio.unlock();
-          onChoose(id);
+          if (id === 'story') onActivity(next);
+          else onChoose(id);
         }}
       >
         <span>{name}</span>
         <small>
           {id === 'story'
-            ? '接过钥匙，一起开店'
+            ? ADVENTURES[next]?.goal
             : id === 'endless'
               ? '今天也有新朋友'
               : id === 'mini'
@@ -63,46 +73,65 @@ export function Home({
         ⚙
       </button>
       <img className="yard-cat" src={assetUrl('cat-greet')} alt="小主厨大咪" />
-      {entry(
-        'story',
-        profile.completed.length || profile.prologue ? '继续故事' : '故事模式',
-        'menu-story',
-      )}
-      {entry('endless', '无尽营业', 'menu-endless')}
+      {entry('story', `正在准备 · ${ADVENTURES[next]?.title}`, 'menu-story')}
+      {entry('endless', '自由开店', 'menu-endless')}
+      <button type="button" className="yard-activity-badge" onClick={() => onChoose('story')}>
+        旧食谱 · 回访活动与作品
+      </button>
       {entry('training', '教学练习', 'menu-training')}
       {entry('mini', '迷你游戏', 'menu-mini')}
-      {profile.completed.length > 0 ? (
-        <div className="yard-planter" role="img" aria-label="第一章的小花已经开了">
+      {completed(0) ? (
+        <button
+          type="button"
+          className="yard-planter"
+          aria-label="照顾迎客花"
+          onClick={() => onActivity(0)}
+        >
           {['left', 'middle', 'right'].map((place) => (
             <i key={place} className={`flower flower-${place}`}>
               <b />
             </i>
           ))}
-        </div>
+        </button>
       ) : null}
-      {profile.completed.length > 1 ? (
-        <div className="yard-bunting" role="img" aria-label="第二章的小院彩旗">
+      {completed(1) ? (
+        <button
+          type="button"
+          className="yard-bunting"
+          aria-label="换分享彩旗"
+          onClick={() => onActivity(1)}
+        >
           <i />
           <i />
           <i />
           <i />
           <i />
-        </div>
+        </button>
       ) : null}
-      {profile.completed.length > 2 ? (
-        <div className="yard-picnic" role="img" aria-label="第三章的新野餐桌布" />
+      {completed(2) ? (
+        <button
+          type="button"
+          className="yard-picnic"
+          aria-label="回到野餐桌"
+          onClick={() => onActivity(2)}
+        />
       ) : null}
-      {profile.completed.length > 3 ? (
-        <div className="yard-lights" role="img" aria-label="第四章的暖灯串">
+      {completed(3) ? (
+        <button
+          type="button"
+          className="yard-lights"
+          aria-label="点亮晚餐灯"
+          onClick={() => onActivity(3)}
+        >
           <i />
           <i />
           <i />
           <i />
           <i />
           <i />
-        </div>
+        </button>
       ) : null}
-      {profile.completed.length > 4 ? (
+      {completed(4) ? (
         <div className="yard-photo" role="img" aria-label="社区小食会合影">
           <img src={assetUrl('guest-0-2')} alt="兔子朋友" />
           <img src={assetUrl('cat-celebrate')} alt="小主厨大咪" />

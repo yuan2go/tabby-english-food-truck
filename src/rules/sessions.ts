@@ -7,6 +7,7 @@ import {
   randomAt,
   type Support,
 } from '../content/chapters';
+import { themeAllows } from '../content/free-shop';
 import type { Family } from '../content/recipes';
 import { storyLevel, storyRequests } from '../content/story-levels';
 import type { GameState, Order, TrayId } from './types';
@@ -96,15 +97,18 @@ export function replenish(s: GameState): void {
   const pool = endlessPool(s.session.unlocked, s.session.language).filter((r) =>
     s.session.menu.includes(r),
   );
-  if (!pool.length) return;
+  const theme = s.session.shop?.theme ?? 'all';
+  const filtered = pool.filter((r) => themeAllows(theme, r));
+  if (s.session.shop?.accepting === false || !filtered.length) return;
   // Existing customers stay when support increases; replace them only up to
   // the new policy's concurrency, without deleting an in-progress order.
   const max = s.session.concurrency;
   while (s.orders.length < max) {
     const cursor = s.session.cursor++;
-    let request = pool[Math.floor(randomAt(s.session.seed, cursor) * pool.length)] ?? 'apple';
+    let request =
+      filtered[Math.floor(randomAt(s.session.seed, cursor) * filtered.length)] ?? 'apple';
     if (request === s.session.lastRequest)
-      request = pool[(pool.indexOf(request) + 1) % pool.length] ?? 'apple';
+      request = filtered[(filtered.indexOf(request) + 1) % filtered.length] ?? 'apple';
     const seat = ([0, 1] as const).find((seat) => !s.orders.some((o) => o.seat === seat)) ?? 0;
     s.orders.push(orderFor(s, request, cursor, seat, 'waiting'));
     s.session.lastRequest = request;

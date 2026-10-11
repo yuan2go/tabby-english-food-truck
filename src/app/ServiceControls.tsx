@@ -6,6 +6,7 @@ import { activate, type ViewState } from '../game/input';
 import { stationPoint } from '../game/KitchenView';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import { openCommission } from '../rules/adventure';
 import type { Item, Order } from '../rules/types';
 import { Food } from './Food';
 
@@ -45,6 +46,7 @@ export function ServiceControls({
     ui.change();
     setTargets(false);
   };
+  const commission = openCommission(s.adventure);
   const r = l.regions.action,
     g = selected ? l.guests[selected.seat] : l.guests[0];
   return (
@@ -175,36 +177,54 @@ export function ServiceControls({
         </button>
       ) : null}
       <div
-        className="delivery-actions"
+        className={`delivery-actions ${commission ? 'has-commission' : ''}`}
         style={{ left: r.x, top: r.y, width: r.width, height: r.height }}
       >
-        {targets && waiting.length > 1 ? (
-          <fieldset aria-label="选择送餐客人">
-            {waiting.map((o) => (
-              <button type="button" key={o.id} onClick={() => send(o)}>
-                送给{o.seat === 0 ? '左边' : '右边'}客人 ↗
-              </button>
-            ))}
-          </fieldset>
-        ) : (
+        {waiting.length ? (
+          targets && waiting.length > 1 ? (
+            <fieldset aria-label="选择送餐客人">
+              {waiting.map((o) => (
+                <button type="button" key={o.id} onClick={() => send(o)}>
+                  送给{o.seat === 0 ? '左边' : '右边'}客人 ↗
+                </button>
+              ))}
+            </fieldset>
+          ) : (
+            <button
+              type="button"
+              className="primary"
+              aria-expanded={waiting.length > 1 ? targets : undefined}
+              onClick={() => {
+                if (waiting.length === 1 && waiting[0]) send(waiting[0]);
+                else {
+                  const chosen = waiting.find((o) => o.id === ui.selectedGuest);
+                  if (chosen) send(chosen);
+                  else setTargets(!targets);
+                }
+              }}
+            >
+              {waiting.length > 1 && waiting.some((o) => o.id === ui.selectedGuest)
+                ? `送给${waiting.find((o) => o.id === ui.selectedGuest)?.seat === 0 ? '左边' : '右边'}客人 ↗`
+                : '送餐 ↗'}
+            </button>
+          )
+        ) : null}
+        {commission ? (
           <button
             type="button"
             className="primary"
-            aria-expanded={waiting.length > 1 ? targets : undefined}
             onClick={() => {
-              if (waiting.length === 1 && waiting[0]) send(waiting[0]);
-              else {
-                const chosen = waiting.find((o) => o.id === ui.selectedGuest);
-                if (chosen) send(chosen);
-                else setTargets(!targets);
-              }
+              const r = controller.command({
+                type: 'adventure',
+                action: commission.action,
+                tray: ui.selectedTray,
+              });
+              if (r.kind === 'ok') audio.effect('place');
             }}
           >
-            {waiting.length > 1 && waiting.some((o) => o.id === ui.selectedGuest)
-              ? `送给${waiting.find((o) => o.id === ui.selectedGuest)?.seat === 0 ? '左边' : '右边'}客人 ↗`
-              : '送餐 ↗'}
+            {commission.label}
           </button>
-        )}
+        ) : null}
       </div>
       {selectedItem
         ? (() => {
