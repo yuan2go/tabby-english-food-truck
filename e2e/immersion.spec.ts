@@ -71,6 +71,7 @@ test('normal entrance: complete requests, actual receipt, yard actions, open fla
   await page.getByRole('button', { name: '送去树荫分享', exact: true }).click();
   await expect.poll(async () => (await state(page)).adventure?.steps.includes('cool')).toBe(true);
   await page.getByRole('button', { name: '到活动桌', exact: true }).click();
+  await page.getByRole('button', { name: '选择香蕉冰淇淋', exact: true }).click();
   await page.getByRole('button', { name: '品尝香蕉冰淇淋', exact: true }).click();
   await expect(sentence(page)).toHaveText('Yummy! I like it.');
   await page.screenshot({ path: info.outputPath('yard-taste.png') });

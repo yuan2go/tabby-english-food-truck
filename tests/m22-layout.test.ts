@@ -137,3 +137,10 @@ it('phone station selection and start are separate from its five ingredient posi
     }
   }
 });
+
+it('phone sentence, guest and two tray actions fit their allocated rows', () => {
+  const l = layoutFor(393, 665);
+  for (const p of l.guests)
+    expect(p.y - l.guestHeight / 2).toBeGreaterThan(l.dialogue.y + l.dialogue.height);
+  for (const p of l.trays) expect(p.y + 96).toBeLessThanOrEqual(l.regions.action.y - 8);
+});

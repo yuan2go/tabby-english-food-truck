@@ -2,7 +2,7 @@
 
 ## 2026-10-12 · 双工作包集成与公开站点交付 · IN_PROGRESS
 
-负责人已授权两个工程任务完成后提交、推送、PR合并main、更新现有公开站点及参赛说明并复制桌面；此授权替代以下源包的仅本地交付限制。发布基线 `0b249b04697b1df43d74bbe1a4f532175b2d04f1`，隔离分支 `codex/contest-release-2026-10-12`。源包最终SHA分别为Demo `36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5`、英语 `103c2bb2272ddaa86fe32e342fc20e86feeb3a80`。当前仅整合，合并树工程/浏览器验证、PR和部署状态以本节后续记录为准；外部待验维持原事实。
+负责人已授权两个工程任务完成后提交、推送、PR合并main、更新现有公开站点及参赛说明并复制桌面；此授权替代以下源包的仅本地交付限制。发布基线 `0b249b04697b1df43d74bbe1a4f532175b2d04f1`，隔离分支 `codex/contest-release-2026-10-12`。源包最终SHA分别为Demo `36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5`、英语 `103c2bb2272ddaa86fe32e342fc20e86feeb3a80`。本地typecheck/lint/310单元/resources818/build已通过；首轮浏览器26/33，真实遮挡修复后针对活动/英语3/3及最终手机5/5通过，具体范围见[集成记录](evidence/contest-release-2026-10-12/README.md)。两个源分支已推送，整合PR将跑精确head完整33条GitHub门禁后按授权合并；站点尚未更新。外部待验维持原事实。
 
 
 ## 2026-10-12 · WP-ENGLISH-IMMERSION-01 · ENGINEERING_PASS / OWNER_ACCEPTANCE_PENDING

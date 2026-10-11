@@ -103,9 +103,9 @@ function physicalLayout(
     };
     regions = {
       top,
-      guests: row(64 + extra * 0.35 - deficit * 0.15),
-      work: row(149 + extra * 0.45 - deficit * 0.25),
-      trays: row(119 + extra * 0.2 - deficit * 0.6),
+      guests: row(64 + extra * 0.35 - deficit * 0.35),
+      work: row(149 + extra * 0.45),
+      trays: row(119 + extra * 0.2 - deficit * 0.65),
       action: row(48),
       supplies: row(72),
       feedback: row(28),
@@ -132,11 +132,23 @@ function physicalLayout(
   const guests: [Point, Point] = [
     {
       x: g.x + g.width * (form === 'desktop' ? 0.3 : form === 'short' ? 0.25 : 0.18),
-      y: g.y + (landscape ? Math.min(105, g.height * 0.56) : g.height - 40),
+      y:
+        g.y +
+        (landscape
+          ? Math.min(105, g.height * 0.56)
+          : form === 'phone'
+            ? g.height / 2
+            : g.height - 40),
     },
     {
       x: g.x + g.width * (form === 'desktop' ? 0.68 : form === 'short' ? 0.75 : 0.48),
-      y: g.y + (landscape ? Math.min(105, g.height * 0.56) : g.height - 40),
+      y:
+        g.y +
+        (landscape
+          ? Math.min(105, g.height * 0.56)
+          : form === 'phone'
+            ? g.height / 2
+            : g.height - 40),
     },
   ];
   if (single)
@@ -167,8 +179,11 @@ function physicalLayout(
           },
         ]
       : [
-          { x: single ? width / 2 : t.x + t.width * 0.25, y: t.y + t.height / 2 - 30 },
-          { x: t.x + t.width * 0.75, y: t.y + t.height / 2 - 30 },
+          {
+            x: single ? width / 2 : t.x + t.width * 0.25,
+            y: Math.min(t.y + t.height / 2 - 30, regions.action.y - 104),
+          },
+          { x: t.x + t.width * 0.75, y: Math.min(t.y + t.height / 2 - 30, regions.action.y - 104) },
         ];
   // Portrait Pad has room for two complete vertical trays, not six squeezed
   // food targets across a narrow rail. Keep the same 96px block and controls.
@@ -322,7 +337,7 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     l.regions.top.width = width - 16;
     return { ...l, dialogue: { x: 8, y: 60, width: side - 16, height: height - 70 } };
   }
-  const reserve = width < 600 ? 104 : 132;
+  const reserve = 132;
   const l = physicalLayout(width, height - reserve, mode, { width, height });
   for (const name of Object.keys(l.regions) as (keyof Layout['regions'])[])
     if (name !== 'top') l.regions[name].y += reserve;

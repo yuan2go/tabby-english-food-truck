@@ -1,0 +1,14 @@
+[
+  {
+    "source": "codex/wp-english-immersion-01",
+    "prefix": "docs/evidence/english-immersion",
+    "files": 102,
+    "missingOrChanged": []
+  },
+  {
+    "source": "codex/demo-repair-2026-10-12",
+    "prefix": "docs/evidence/demo-repair-2026-10-12",
+    "files": 429,
+    "missingOrChanged": []
+  }
+]
