@@ -79,7 +79,7 @@ a8d945a第二候选为6/8、exit 1：自由全流程90秒总时限到达，已�
 
 负责人手感 PENDING；实体iPhone 15 Pro＋Chrome新构建 NOT_RUN，历史 NEEDS_REVISION 保留；儿童观察/教研/人工听审 NOT_RUN；素材和开发声音分发权 PENDING；性能新构建 NOT_RUN，历史60fps NOT_MET保留。40条开发TTS明确 DEVELOPMENT_TTS_UNREVIEWED；播放事件和无音轨视频不证明听审或儿童理解。
 
-本包不合并、不部署、不强推、不更改权限或工作流。历史网站不代表本包运行结果；托管CI另列实际状态。
+本包未合并、部署、强推或更改权限/工作流。已推送分支 `codex/wp-adventure-experience-02`，草稿[PR #13](https://github.com/yuan2go/tabby-english-food-truck/pull/13)，GitHub实际读回OPEN、isDraft=true、base=main；首次交付head为 `2d2f2735ab8acdb47e5d15e8c307afc995a78f3e`，此后仅补本PR回读记录，最终full SHA见PR当前head与交付回复。初次托管engineering-checks/game为IN_PROGRESS，见[真实云端快照](delivery-cloud-initial.json)，不记PASS。历史网站不代表本包运行结果。
 
 ## 启动
 

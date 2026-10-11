@@ -2,7 +2,7 @@
 
 ## 2026-10-11 · WP-ADVENTURE-EXPERIENCE-02 · CODE_IMPLEMENTED / ENGINEERING_VERIFIED / EXTERNAL_ACCEPTANCE_PENDING
 
-基线为最新核对的origin/main `64f03fc716de70e20f64f9bbc3802de7601a460f`。原工作区 `codex/player-review-2026-10-11` 及未跟踪 `docs/playtests/` 保留未改。独立worktree `/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck`，分支 `codex/wp-adventure-experience-02`，一个实现负责人。推送/草稿PR交付进行中；本包不合并、不部署、不强推、不修改权限或工作流。
+基线为最新核对的origin/main `64f03fc716de70e20f64f9bbc3802de7601a460f`。原工作区 `codex/player-review-2026-10-11` 及未跟踪 `docs/playtests/` 保留未改。独立worktree `/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck`，分支 `codex/wp-adventure-experience-02`，一个实现负责人。分支已推送，草稿[PR #13](https://github.com/yuan2go/tabby-english-food-truck/pull/13)为OPEN/DRAFT、base=main；最终Git full SHA以PR实际head和交付回读为准。托管engineering-checks首次读回IN_PROGRESS，未记为通过。本包未合并、部署、强推或修改权限/工作流。
 
 先核查AGENTS、README、01–05、STATUS、计划/资源、最新main与现有规则/界面/控制器/音频/存档。文档治理独立提交 `260b1f82ef918a260ba11d4bfa7747690385fd2a` 先于产品代码，历史正文、有效未实现需求、失败证据与来源/权利记录保留，旧引用修复。本包规则与验收写入现有01–05，没有另建并行最终蓝图。
 

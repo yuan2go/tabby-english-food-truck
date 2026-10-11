@@ -1,6 +1,6 @@
 {
   "workPackage": "WP-ADVENTURE-EXPERIENCE-02",
-  "recordedAtUTC": "2026-10-11T14:05:42.041140+00:00",
+  "recordedAtUTC": "2026-10-11T14:07:11.919633+00:00",
   "baselineSha": "64f03fc716de70e20f64f9bbc3802de7601a460f",
   "branch": "codex/wp-adventure-experience-02",
   "buildSha": "ab7978f16f1d27f3baf155c834666f225576cad4",
@@ -123,7 +123,13 @@
     {
       "path": "delivery-checks.log",
       "bytes": 431,
-      "sha256": "770c79ce1cdd09da4e354bef386f538bae85482c454a6fa839b4801c03ce7ccc",
+      "sha256": "c4e3bdb0addcd30a4f1caec6b07955db6ed9f8e8a17f6183187dcfcbdd2c06a7",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "delivery-cloud-initial.json",
+      "bytes": 574,
+      "sha256": "00684475b2d12465c9be8c12626e613ddc761a5ed27472101cf2ad727587fe9a",
       "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
     },
     {
