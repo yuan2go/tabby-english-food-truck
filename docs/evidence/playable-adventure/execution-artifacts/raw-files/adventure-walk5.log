@@ -1,0 +1,87 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts
+
+[WebServer] (node:54897) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:54970) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:55016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:44:1 › visible activity entrance reaches all five chapters and saves a real creation (2.7m)
+(node:55512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/adventure.spec.ts:136:1 › phone replay follows hedgehog path with real food and no packing task (55.8s)
+  ✘  3 e2e/adventure.spec.ts:177:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (13.1s)
+(node:55755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 e2e/adventure.spec.ts:218:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (12.0s)
+
+
+  1) e2e/adventure.spec.ts:44:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: '收摊回小院' }) resolved to 2 elements:
+        1) <button type="button" aria-label="收摊回小院">← 小院</button> aka getByLabel('收摊回小院')
+        2) <button type="button">收摊回小院</button> aka getByText('收摊回小院', { exact: true })
+
+    Call log:
+      - waiting for getByRole('button', { name: '收摊回小院' })
+
+
+      128 |       ),
+      129 |     )
+    > 130 |     .toBe(5);
+          |              ^
+      131 |   await page.screenshot({ path: 'docs/evidence/playable-adventure/feast-desktop.png' });
+      132 |   const before = await state(page);
+      133 |   await page.getByRole('button', { name: '收摊回小院' }).click();
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:130:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  2) e2e/adventure.spec.ts:177:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '水果分享', exact: true })
+
+
+      181 |   page,
+      182 | }) => {
+    > 183 |   test.setTimeout(90000);
+          |                          ^
+      184 |   await page.goto('/');
+      185 |   await page.getByRole('button', { name: '自由开店', exact: true }).click();
+      186 |   await page.getByRole('button', { name: '晨间水果', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:183:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:44:1 › visible activity entrance reaches all five chapters and saves a real creation 
+    e2e/adventure.spec.ts:177:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+  2 passed (4.2m)

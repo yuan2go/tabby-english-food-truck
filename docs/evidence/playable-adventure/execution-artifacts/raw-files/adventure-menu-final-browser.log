@@ -1,0 +1,74 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts -g opening a new seat
+
+[WebServer] (node:57647) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:57747) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:57793) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:284:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (26.2s)
+
+
+  1) e2e/adventure.spec.ts:284:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '到活动桌', exact: true })
+        - locator resolved to <button type="button" class="activity-kitchen-link">到活动桌</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="lesson-heading">…</div> from <section role="dialog" aria-modal="true" aria-label="今日新菜单" class="lesson-dialog short-lesson">…</section> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="lesson-heading">…</div> from <section role="dialog" aria-modal="true" aria-label="今日新菜单" class="lesson-dialog short-lesson">…</section> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        21 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="lesson-heading">…</div> from <section role="dialog" aria-modal="true" aria-label="今日新菜单" class="lesson-dialog short-lesson">…</section> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      10 | async function table(page: Page) {
+      11 |   await lesson(page);
+    > 12 |   await page.getByRole('button', { name: '到活动桌', exact: true }).click();
+         |                                                                 ^
+      13 | }
+      14 | async function send(page: Page, index: number, product: Parameters<typeof make>[1]) {
+      15 |   await lesson(page);
+        at table (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:12:65)
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:312:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:284:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 

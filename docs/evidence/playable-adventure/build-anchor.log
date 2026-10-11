@@ -1,0 +1,27 @@
+
+> tabby-english-food-truck@0.1.0 build
+> npm run typecheck && vite build --outDir /tmp/adventure-anchor-dist
+
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 93 modules transformed.
+
+(!) outDir /tmp/adventure-anchor-dist is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+rendering chunks...
+computing gzip size...
+../../../../../../tmp/adventure-anchor-dist/index.html                     0.60 kB │ gzip:   0.42 kB
+../../../../../../tmp/adventure-anchor-dist/assets/index-gyW-gIti.css     45.95 kB │ gzip:  10.99 kB
+../../../../../../tmp/adventure-anchor-dist/assets/index-MJ411yqH.js     502.30 kB │ gzip: 150.36 kB
+../../../../../../tmp/adventure-anchor-dist/assets/phaser-DXXWZowi.js  1,208.05 kB │ gzip: 332.16 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.18s

@@ -41,9 +41,8 @@ export async function lesson(p: Page) {
 }
 export async function startStory(p: Page) {
   await p.goto('/');
-  await p.locator('.yard-story .entry-main').tap();
-  await p.getByRole('button', { name: '跳过序章' }).tap();
-  await dismissOpening(p);
+  await p.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).tap();
+  await p.getByRole('button', { name: '去厨房备餐', exact: true }).tap();
   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
   await lesson(p);
 }
@@ -54,7 +53,7 @@ export async function startEndless(p: Page, less = true) {
     await p.getByRole('button', { name: '少些帮助，听一听' }).tap();
     await p.getByRole('button', { name: '两位一起招呼' }).tap();
   }
-  await p.getByRole('button', { name: '开始 / 继续' }).tap();
+  await p.getByRole('button', { name: '开门 / 继续营业' }).tap();
   await lesson(p);
 }
 export async function choosePrep(p: Page, name: string) {

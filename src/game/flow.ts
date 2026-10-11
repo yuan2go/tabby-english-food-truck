@@ -1,4 +1,5 @@
 import { recipeFor } from '../content/recipes';
+import { openCommission } from '../rules/adventure';
 import { stationItems } from '../rules/cooking';
 import { trayItems } from '../rules/game';
 import type { GameState } from '../rules/types';
@@ -8,9 +9,12 @@ export function preparationCue(
   s: GameState,
   ui: Pick<ViewState, 'prep' | 'selectedTray' | 'selected'>,
 ) {
+  const commission = openCommission(s.adventure);
   if (ui.selected && 'tray' in ui.selected)
     return {
-      text: '餐盘拿好了 → 点朋友递出；点气泡可再听',
+      text: commission
+        ? `餐盘拿好了 → ${s.orders.some((o) => o.status === 'waiting') ? '点朋友递出，或' : ''}${commission.label}`
+        : '餐盘拿好了 → 点朋友递出；点气泡可再听',
       target: undefined,
     };
   if (ui.selected && 'item' in ui.selected)
@@ -52,7 +56,12 @@ export function preparationCue(
     };
   }
   if (trayItems(s, ui.selectedTray).length)
-    return { text: '备好这一盘 → 点托盘拿起，再点朋友递出', target: `tray-${ui.selectedTray}` };
+    return {
+      text: commission
+        ? `这一盘备好了 → ${commission.label}${s.orders.some((o) => o.status === 'waiting') ? '，或拿盘点朋友' : ''}`
+        : '备好这一盘 → 点托盘拿起，再点朋友递出',
+      target: `tray-${ui.selectedTray}`,
+    };
   if (s.orders.some((o) => o.status === 'leaving'))
     return { text: '大咪正在递餐 → 等朋友接好；还能准备另一盘', target: undefined };
   if (busy) return { text: '设备制作中 → 成品会到托盘；可以继续准备', target: undefined };

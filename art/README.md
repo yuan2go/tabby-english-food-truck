@@ -66,3 +66,11 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 ## 2026-09-26 大咪命名同步
 
 按负责人指定的角色名「大咪」（Dami），重新生成 `menu-story`、`menu-training`、`prologue-0`、`chapter-picnic` 四段开发语音；对应文本同步到 `src/content/speech.json`、`scripts/m2-audio.mjs` 和 `art/m2-audio.json`。沿用 macOS Samantha、140 wpm、WAV PCM 16-bit / 22050 Hz。真实文件更新后重登记 manifest hash，人工听审仍为 NOT_RUN，开发语音与分发权状态不变。
+
+## 2026-10-11 · WP-PLAYABLE-ADVENTURE-01 实际接入
+
+本包没有新生成位图、英语语音或第三方素材。复用本仓库已登记的 courtyard、八个大咪姿态/步态、兔兔与刺刺姿态、elder 和独立食品 WebP；厨房角色按真实任务阶段行动，活动桌按实际接收、摆放与品尝状态显示食品。原稿、冻结参考、导出与权利记录全部保留，未复制旧仓库资源。
+
+篮子、储物抽屉、旧食谱、三餐位、花苗、彩旗、桌布和灯串为 Codex 本包原创 DOM/CSS 场景绘制，源文件 `src/app/Adventure.tsx`、`src/app/adventure.css`；文字独立 DOM，食品仍使用登记图像。道具直接接到探索/打包/摆放/布置规则，不是背景贴图或通关数装饰。作品缩图是食品记忆的投影，不另造可供应食品。代码版本与真实运行证据见 STATUS；不把 CSS 绘制写成 imagegen 原稿。
+
+接收、摆放、品尝、布置与完成复用已登记原创 place/success 音效；英语请求仍使用 DEVELOPMENT_TTS_UNREVIEWED 开发声音，活动叙事为短图文，没有冒称新增真人配音。347 文件 hash/尺寸/Alpha、196 speech 引用与50食品映射已复核；负责人视觉/手感、人工听审与分发权仍待审核。

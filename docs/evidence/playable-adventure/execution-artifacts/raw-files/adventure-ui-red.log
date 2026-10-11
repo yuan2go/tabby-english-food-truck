@@ -1,0 +1,50 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts --grep visible activity
+
+[WebServer] (node:52522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:52609) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:52667) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:27:1 › visible activity entrance reaches all five chapters and saves a real creation (13.0s)
+
+
+  1) e2e/adventure.spec.ts:27:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '正在准备 · 晨光开门' })
+
+
+      22 | }
+      23 | async function begin(page:Page){
+    > 24 |  await page.goto('/');await page.getByRole('button',{name:'正在准备 · 晨光开门'}).click();
+         |                                                                           ^
+      25 | }
+      26 |
+      27 | test('visible activity entrance reaches all five chapters and saves a real creation',async({page})=>{
+        at begin (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:24:75)
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:28:78
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:27:1 › visible activity entrance reaches all five chapters and saves a real creation 

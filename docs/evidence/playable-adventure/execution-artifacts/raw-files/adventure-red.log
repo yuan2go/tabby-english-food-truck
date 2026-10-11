@@ -1,0 +1,183 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (10 tests | 10 failed) 9ms
+     × does not branch on a mismatch or before the real receive phase 4ms
+     × keeps accepted orders stable after rabbit is served first 0ms
+     × keeps accepted orders stable after hedgehog is served first 0ms
+     × rabbit path needs real two-part packing, then merges with the same picnic reward 0ms
+     × hedgehog path needs two distinct seats and cannot recycle delivered food 0ms
+     × accepts declared ice alternatives but rejects extra food and records no language attempt 0ms
+     × free works keep actual composition, placement and tasting without copying food 0ms
+     × roundtrips mid-delivery and never awards twice 0ms
+     × migrates the old schema6 world without inventing adventure completion 1ms
+     × rejects duplicate world ownership and forged activity receipts 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > does not branch on a mismatch or before the real receive phase
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:33:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > keeps accepted orders stable after rabbit is served first
+ FAIL  tests/adventure.test.ts > adventure causal rules > keeps accepted orders stable after hedgehog is served first
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:44:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > rabbit path needs real two-part packing, then merges with the same picnic reward
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:48:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > hedgehog path needs two distinct seats and cannot recycle delivered food
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:60:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > accepts declared ice alternatives but rejects extra food and records no language attempt
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:71:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > free works keep actual composition, placement and tasting without copying food
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:77:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > roundtrips mid-delivery and never awards twice
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:87:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > migrates the old schema6 world without inventing adventure completion
+AssertionError: expected undefined to be null
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/adventure.test.ts:95:29
+     93|   const old=JSON.parse(JSON.stringify(createGame('old'))); old.schemaV…
+     94|   const r=decodeSnapshot(JSON.stringify(old)); expect(r.ok).toBe(true)…
+     95|   expect(r.state.adventure).toBeNull(); expect(r.state.schemaVersion).…
+       |                             ^
+     96|  });
+     97|  it('rejects duplicate world ownership and forged activity receipts',(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > rejects duplicate world ownership and forged activity receipts
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ start tests/adventure.test.ts:12:17
+     10| const start = (chapter = 2) => {
+     11|  const r = cmd(createGame('adventure', 0, {}, 'practice'), { type: 'ad…
+     12|  expect(r.kind).toBe('ok'); return r.state;
+       |                 ^
+     13| };
+     14| const act = (s: GameState, action: string, extra = {}) => cmd(s, {type…
+ ❯ tests/adventure.test.ts:98:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed (10)
+   Start at  16:02:42
+   Duration  219ms (transform 95ms, setup 0ms, import 113ms, tests 9ms, environment 0ms)
+

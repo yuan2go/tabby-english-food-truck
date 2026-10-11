@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
+import { CONTENT_VERSION } from '../src/content/catalog';
 import { activate, type ViewState } from '../src/game/input';
 import type { ForegroundAudio } from '../src/platform/audio';
 import { GameController } from '../src/platform/controller';
@@ -138,11 +139,14 @@ it('the preceding content version resumes a running job with the same instances 
   tap('machine-apple');
   tap('supply-apple');
   tap('start');
-  const prior = { ...controller.state, contentVersion: 'm2.3-story-1' };
+  const prior = JSON.parse(JSON.stringify(controller.state));
+  prior.schemaVersion = 6;
+  prior.contentVersion = 'm2.3-story-1';
+  delete prior.adventure;
   const resumed = decodeSnapshot(JSON.stringify(prior));
   expect(resumed.ok).toBe(true);
   if (!resumed.ok) throw Error(resumed.reason);
-  expect(resumed.state.contentVersion).toBe('m2.4-adventure-1');
+  expect(resumed.state.contentVersion).toBe(CONTENT_VERSION);
   expect(resumed.state.items).toEqual(prior.items);
   expect(resumed.state.routing).toEqual(prior.routing);
   expect(resumed.state.machine).toEqual(prior.machine);

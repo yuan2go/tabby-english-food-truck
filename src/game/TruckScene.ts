@@ -11,6 +11,7 @@ import {
 import { storyLevel, storyVisitors } from '../content/story-levels';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import { openCommission } from '../rules/adventure';
 import { trayItems } from '../rules/game';
 import type { GameState, Item, Location, TrayId } from '../rules/types';
 import { ActorView } from './ActorView';
@@ -19,7 +20,7 @@ import { preparationCue } from './flow';
 import { activate, type Hotspot, type Selection, sourceFor, type ViewState } from './input';
 import { chapterJourney } from './journey';
 import { KitchenView, stationSlotPoint } from './KitchenView';
-import { type Layout, layoutFor, type Point, supplyPoint } from './layout';
+import { kitchenActions, type Layout, layoutFor, type Point, supplyPoint } from './layout';
 import { renderScale } from './rendering';
 
 type Sprite = Phaser.GameObjects.Image;
@@ -455,7 +456,7 @@ export class TruckScene extends Phaser.Scene {
     for (const [orderIndex, o] of s.orders.entries()) {
       if (o.status === 'queued' || o.status === 'done') continue;
       const p = l.guests[o.seat];
-      const visitor = visitors[orderIndex] ?? (o.seat === 0 ? 'rabbit' : 'hedgehog');
+      const visitor = o.visitor ?? visitors[orderIndex] ?? (o.seat === 0 ? 'rabbit' : 'hedgehog');
       const guestAsset =
         visitor === 'elder'
           ? 'elder'
@@ -481,7 +482,7 @@ export class TruckScene extends Phaser.Scene {
         );
       this.hot(
         o.id,
-        `客人${o.seat === 0 ? 'A' : 'B'}·${{ rabbit: '兔兔', hedgehog: '刺刺', elder: '长辈' }[visitor]}：选择并重听请求`,
+        `客人${o.seat === 0 ? 'A' : 'B'}·${{ rabbit: '兔兔', hedgehog: '刺刺', elder: '长辈' }[visitor]}：拿盘交付，空手重听请求`,
         'guest',
         p.x,
         p.y,
@@ -556,8 +557,8 @@ export class TruckScene extends Phaser.Scene {
         .lineStyle(3, 0xfff4cb)
         .lineBetween(h.x, h.y - 13, h.x, h.y);
     }
-    const rack = l.regions.action;
     const tools = s.session.unlocked;
+    const rack = kitchenActions(l, tools.length, !!openCommission(s.adventure)).tools;
     const toolWidth = Math.min(56, rack.width / tools.length);
     const rackX = rack.x + rack.width / 2 - (tools.length * toolWidth) / 2;
     this.decor
@@ -684,13 +685,13 @@ export class TruckScene extends Phaser.Scene {
       const size = item.location.startsWith('tray:')
         ? Math.min(68, Math.max(46, l.trayWidth * 0.23))
         : Math.max(34, 38 * l.scale);
-      const image = this.image(key, foodAsset(item.product), to.x, to.y, size, size, 10);
+      this.image(key, foodAsset(item.product), to.x, to.y, size, size, 10);
       this.hot(
         key,
         `${PRODUCT_NAMES[item.product]}，${this.locationLabel(item.location)}`,
         'item',
-        image.x,
-        image.y,
+        to.x,
+        to.y,
         44,
         44,
       );
@@ -729,7 +730,7 @@ export class TruckScene extends Phaser.Scene {
             : '送餐途中';
   }
   private drawJourney(s: GameState, l: Layout): void {
-    if (s.session.activity !== 'story') return;
+    if (s.session.activity !== 'story' || s.adventure) return;
     const j = chapterJourney(s, this.controller.profile.value.completedLevels);
     const x = l.form === 'phone' ? l.width - 75 : l.stage.x + l.stage.width * 0.79;
     const y = l.regions.guests.y + 38;
@@ -838,16 +839,9 @@ export class TruckScene extends Phaser.Scene {
         Phaser.Math.Linear(motion.from.x, motion.to.x, eased),
         Phaser.Math.Linear(motion.from.y, motion.to.y, eased) - Math.sin(p * Math.PI) * 13,
       );
-      const hot = this.ui.hotspots.find((h) => h.id === id);
-      if (hot) {
-        hot.x = image.x;
-        hot.y = image.y;
-        const element = this.ui.elements.get(id);
-        if (element) {
-          element.style.left = `${hot.x - hot.width / 2}px`;
-          element.style.top = `${hot.y - hot.height / 2}px`;
-        }
-      }
+      // Rule ownership already moved the food to its destination. A travelling
+      // sprite must not steal a quick tap on a tray or another work control.
+      // Keep both the canvas and accessible targets at that settled location.
       if (p === 1) this.motions.delete(id);
     }
     if (this.cancelMotion) {
@@ -1044,7 +1038,8 @@ export class TruckScene extends Phaser.Scene {
     if (document.activeElement instanceof HTMLElement && document.activeElement.dataset.hotspot)
       document.activeElement.blur();
     const p = this.point(e),
-      id = this.hit(p.x, p.y)?.id ?? '',
+      target = this.hit(p.x, p.y),
+      id = target?.id ?? '',
       image = this.images.get(id);
     this.press = {
       pointerId: e.pointerId,
@@ -1052,7 +1047,12 @@ export class TruckScene extends Phaser.Scene {
       y: p.y,
       id,
       source: sourceFor(id, this.controller.state),
-      anchor: image ? { x: image.x, y: image.y } : p,
+      anchor:
+        target?.kind === 'item'
+          ? { x: target.x, y: target.y }
+          : image
+            ? { x: image.x, y: image.y }
+            : p,
       moved: false,
     };
     this.game.canvas.setPointerCapture(e.pointerId);

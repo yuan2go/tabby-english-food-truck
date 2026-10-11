@@ -3,8 +3,10 @@ import { isFinished, SUPPLY_PAGES } from '../content/recipes';
 import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
 import { stationPoint } from '../game/KitchenView';
+import { kitchenActions } from '../game/layout';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import { openCommission } from '../rules/adventure';
 import type { Item, Order } from '../rules/types';
 import { Food } from './Food';
 
@@ -32,8 +34,32 @@ export function ServiceControls({
     l = ui.layout;
   if (!l) return null;
   const g = selected ? l.guests[selected.seat] : l.guests[0];
+  const commission = openCommission(s.adventure);
+  const handoff = kitchenActions(l, s.session.unlocked.length, !!commission).handoff;
   return (
     <>
+      {commission && handoff ? (
+        <button
+          type="button"
+          className="commission-handoff primary"
+          style={{ left: handoff.x, top: handoff.y, width: handoff.width, height: handoff.height }}
+          onClick={() => {
+            const result = controller.command({
+              type: 'adventure',
+              action: commission.action,
+              tray: ui.selectedTray,
+            });
+            ui.feedback = result.message;
+            if (result.kind === 'ok') {
+              ui.selected = null;
+              audio.effect('place');
+            } else audio.effect('gentle');
+            ui.change();
+          }}
+        >
+          {commission.label}
+        </button>
+      ) : null}
       {s.session.family === 'ready' ? (
         <button
           type="button"

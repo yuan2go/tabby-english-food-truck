@@ -1,0 +1,36 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck
+
+ ❯ tests/adventure-recovery.test.ts (7 tests | 1 failed) 29ms
+   × first activity food is observed as first exposure and replay as a revisit 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-recovery.test.ts > first activity food is observed as first exposure and replay as a revisit
+AssertionError: expected [ 'first', 'first' ] to deeply equal [ 'first', 'revisit' ]
+
+- Expected
++ Received
+
+  [
+    "first",
+-   "revisit",
++   "first",
+  ]
+
+ ❯ tests/adventure-recovery.test.ts:194:97
+    192|     for (let tick = 0; tick < 180; tick++) c.tick(100);
+    193|   }
+    194|   expect(c.profile.value.observations.filter(o => o.id.startsWith('wor…
+       |                                                                                                 ^
+    195|   vi.unstubAllGlobals();
+    196| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  16:35:13
+   Duration  515ms (transform 292ms, setup 0ms, import 341ms, tests 29ms, environment 0ms)
+

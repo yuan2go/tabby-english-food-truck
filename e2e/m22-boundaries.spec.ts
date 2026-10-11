@@ -43,9 +43,31 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   await tap(page, 'start');
   await tap(page, 'tray-0');
   await tap(page, 'supply-banana');
+  // Verify a genuinely reserved, occupied tray before the real clock finishes
+  // the drink. An empty tray would merely replay the guest's request.
+  const reserved = await state(page);
+  expect(reserved.machine.status).toBe('processing');
+  expect(reserved.routing.machine).toMatchObject({ tray: 0 });
+  expect(
+    reserved.items.some((item) => item.product === 'banana' && item.location.startsWith('tray:0:')),
+  ).toBe(true);
+  await handOver(page, 0);
+  const blocked = await state(page);
+  expect(blocked.machine.status).toBe('processing');
+  expect(blocked.attempts).toEqual(reserved.attempts);
+  expect(blocked.items).toEqual(reserved.items);
+  expect(blocked.orders).toEqual(reserved.orders);
+  await expect(page.getByRole('status')).toContainText('这只盘正等机器的成品');
   await tap(page, 'supply-apple');
   const full = await state(page);
-  expect(full.routing.machine).not.toBeNull();
+  if (full.machine.status === 'processing') expect(full.routing.machine).toMatchObject({ tray: 0 });
+  else {
+    expect(full.machine.status).toBe('empty');
+    expect(full.routing.machine).toBeNull();
+    expect(
+      full.items.some((item) => item.product === 'juice' && item.location === 'tray:0:0'),
+    ).toBe(true);
+  }
   await tap(page, 'supply-apple');
   const stillFull = await state(page);
   expect(stillFull.nextId).toBe(full.nextId);
@@ -53,22 +75,19 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     true,
   );
   if (stillFull.machine.status === 'empty') {
-    const cup = full.items.find((item) => item.location === 'machine:cup');
-    const apple = full.items.find((item) => item.location === 'machine:apple');
+    const cup = reserved.items.find((item) => item.location === 'machine:cup');
+    const apple = reserved.items.find((item) => item.location === 'machine:apple');
     expect(stillFull.items.find((item) => item.id === cup?.id)).toMatchObject({
       product: 'juice',
       location: 'tray:0:0',
     });
     expect(stillFull.items.some((item) => item.id === apple?.id)).toBe(false);
   } else expect(stillFull.items).toEqual(full.items);
-  const attempts = (await state(page)).attempts.length;
-  await handOver(page, 0);
-  expect((await state(page)).attempts).toHaveLength(attempts);
   await page.getByRole('button', { name: '暂停', exact: true }).tap();
   const frozen = await state(page);
   await page.reload();
   await page.locator('.yard-endless .entry-main').tap();
-  await page.getByRole('button', { name: '开始 / 继续' }).tap();
+  await page.getByRole('button', { name: '开门 / 继续营业' }).tap();
   await lesson(page);
   const restored = await state(page);
   const consumed = frozen.items.find((i) => i.location === 'machine:apple');

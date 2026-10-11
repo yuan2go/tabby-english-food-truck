@@ -1,4 +1,5 @@
 import type { Mode } from '../content/catalog';
+import { STORY_LEVELS } from '../content/story-levels';
 import { type DecodeResult, decodeSnapshot, validateState } from '../rules/snapshot';
 import type { GameState } from '../rules/types';
 export const SAVE_KEY = 'tabby.foodtruck.save.m2';
@@ -20,6 +21,7 @@ export class SaveStore {
   // mode switches when the browser refuses localStorage during this session.
   private sessions = new Map<string, string>();
   private invalidMode: Mode | null = null;
+  private lastLegacyStory: string | null = null;
   constructor(private readonly storage: () => StoragePort) {}
   load(): DecodeResult | null {
     try {
@@ -34,6 +36,9 @@ export class SaveStore {
       if (result.ok) {
         this.previousValid = this.raw;
         this.sessions.set(result.state.mode, this.raw);
+        this.sessions.set(this.sessionKey(result.state), this.raw);
+        if (result.state.session.activity === 'story' && !result.state.adventure)
+          this.lastLegacyStory = this.sessionKey(result.state);
       }
       return result;
     } catch {
@@ -42,7 +47,25 @@ export class SaveStore {
     }
   }
   sessionKey(s: GameState): string {
-    return `${s.session.activity}-${s.session.chapter}${s.session.levelId ? `-${s.session.levelId}` : ''}`;
+    return `${s.session.activity}-${s.session.chapter}${s.adventure?.kind === 'chapter' ? '-adventure' : s.session.levelId ? `-${s.session.levelId}` : ''}`;
+  }
+  legacyStoryKey(): string | null {
+    const keys = [
+      ...Array.from({ length: 5 }, (_, chapter) => `story-${chapter}`),
+      ...STORY_LEVELS.map((l) => `story-${l.chapter}-${l.id}`),
+    ];
+    try {
+      const preferred =
+        this.lastLegacyStory ?? this.storage().getItem(`${SAVE_KEY}.legacyStoryKey`);
+      if (preferred && keys.includes(preferred)) return preferred;
+      return (
+        keys.find(
+          (key) => this.sessions.has(key) || this.storage().getItem(`${SAVE_KEY}.session.${key}`),
+        ) ?? null
+      );
+    } catch {
+      return this.lastLegacyStory;
+    }
   }
   loadSession(key: string): GameState | null {
     try {
@@ -89,6 +112,7 @@ export class SaveStore {
     const raw = JSON.stringify(s);
     this.sessions.set(s.mode, raw);
     this.sessions.set(this.sessionKey(s), raw);
+    if (s.session.activity === 'story' && !s.adventure) this.lastLegacyStory = this.sessionKey(s);
     this.raw = raw;
     try {
       const store = this.storage();
@@ -96,6 +120,8 @@ export class SaveStore {
       store.setItem(SAVE_KEY, raw);
       store.setItem(`${SAVE_KEY}.${s.mode}`, raw);
       store.setItem(`${SAVE_KEY}.session.${this.sessionKey(s)}`, raw);
+      if (s.session.activity === 'story' && !s.adventure)
+        store.setItem(`${SAVE_KEY}.legacyStoryKey`, this.sessionKey(s));
       this.previousValid = raw;
       this.issue = '';
       return true;

@@ -1,0 +1,61 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (12 tests | 2 failed) 28ms
+   × moving one food through two seats does not satisfy a two-friend table 5ms
+   × a second creation saves its own three portions rather than merging every past dish 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > moving one food through two seats does not satisfy a two-friend table
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/adventure.test.ts:198:31
+    196|  const id=s.adventure?.foods[0]?.id;if(!id) throw Error('food');
+    197|  s=act(s,'place',{item:id,seat:0}).state;s=act(s,'place',{item:id,seat…
+    198|  expect(act(s,'finish').kind).toBe('blocked');
+       |                               ^
+    199| });
+    200| it('a second creation saves its own three portions rather than merging…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/adventure.test.ts > a second creation saves its own three portions rather than merging every past dish
+AssertionError: expected [ [ 'banana' ], [ 'banana', 'apple' ] ] to deeply equal [ [ 'banana' ], [ 'apple' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "banana",
+    ],
+    [
++     "banana",
+      "apple",
+    ],
+  ]
+
+ ❯ tests/adventure.test.ts:203:63
+    201|  let s=start(4);s=make(s,'banana');s=wait(act(s,'create',{tray:0}).sta…
+    202|  s=make(s,'apple');s=wait(act(s,'create',{tray:0}).state);s=act(s,'sav…
+    203|  expect(s.adventure?.works.map(w=>w.foods.map(f=>f.product))).toEqual(…
+       |                                                               ^
+    204| });
+    205|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  16:13:13
+   Duration  433ms (transform 223ms, setup 0ms, import 277ms, tests 28ms, environment 0ms)
+

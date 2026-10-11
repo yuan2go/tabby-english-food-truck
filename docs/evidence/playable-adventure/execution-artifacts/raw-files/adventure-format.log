@@ -1,0 +1,98 @@
+src/app/adventure.css:327:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    325 │   gap: 3px;
+    326 │ }
+  > 327 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    328 │   width: 34px;
+    329 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    275 │   background: #fff0c4;
+    276 │ }
+  > 277 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    278 │   opacity: 0.7;
+    279 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:342:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    340 │   background: #fff1c6;
+    341 │ }
+  > 342 │ .invitation-pegs img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    343 │   width: 38px;
+    344 │   height: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    275 │   background: #fff0c4;
+    276 │ }
+  > 277 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    278 │   opacity: 0.7;
+    279 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:504:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    502 │   min-height: 44px;
+    503 │ }
+  > 504 │ .free-shop-menu img {
+        │ ^^^^^^^^^^^^^^^^^^^
+    505 │   width: 40px;
+    506 │   height: 40px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    275 │   background: #fff0c4;
+    276 │ }
+  > 277 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    278 │   opacity: 0.7;
+    279 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/rules/snapshot.ts:447:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    445 │         (job.worldTarget
+    446 │           ? !s.adventure || job.order !== undefined
+  > 447 │           : !order ||
+        │             ^^^^^^^^^
+  > 448 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    449 │             Math.abs(order.remaining - completion) > 0.05) ||
+    450 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    445 445 │           (job.worldTarget
+    446 446 │             ? !s.adventure || job.order !== undefined
+    447     │ - ··········:·!order·||
+    448     │ - ············order.status·!==·'leaving'·||
+        447 │ + ··········:·order?.status·!==·'leaving'·||
+    449 448 │               Math.abs(order.remaining - completion) > 0.05) ||
+    450 449 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+Skipped 1 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 6 files in 49ms. Fixed 2 files.
+Found 4 warnings.

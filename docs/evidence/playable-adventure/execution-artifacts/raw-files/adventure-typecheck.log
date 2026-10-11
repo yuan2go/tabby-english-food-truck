@@ -1,0 +1,5 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+tests/adventure-recovery.test.ts(53,13): error TS2554: Expected 6-11 arguments, but got 5.

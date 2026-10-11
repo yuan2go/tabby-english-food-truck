@@ -12,7 +12,7 @@ test('teaching fruit is the real ingredient; fresh endless explicitly introduces
 }, info) => {
   await page.goto('/');
   await page.locator('.yard-endless .entry-main').tap();
-  await page.getByRole('button', { name: '开始 / 继续' }).tap();
+  await page.getByRole('button', { name: '开门 / 继续营业' }).tap();
   await expect(page.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
   await page.getByRole('button', { name: '来试一下 →', exact: true }).tap();
   await page.getByRole('button', { name: '苹果', exact: true }).tap();
@@ -37,6 +37,6 @@ test('teaching fruit is the real ingredient; fresh endless explicitly introduces
   await page.screenshot({ path: info.outputPath('menu-grown.png') });
   await page.reload();
   await page.locator('.yard-endless .entry-main').tap();
-  await page.getByRole('button', { name: '开始 / 继续' }).tap();
+  await page.getByRole('button', { name: '开门 / 继续营业' }).tap();
   expect((await state(page)).session.menu).toEqual(['apple', 'banana', 'juice']);
 });

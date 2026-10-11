@@ -80,8 +80,7 @@ describe('authored content and migrations', () => {
     expect(profile.value.completedLevels.filter((id) => id === 'c1-two-friends')).toHaveLength(1);
   });
   it('migrates m2.2 world content without inventing level progress', () => {
-    const old = createGame('old-world');
-    old.contentVersion = 'm2.2';
+    const old = { ...createGame('old-world'), schemaVersion: 6, contentVersion: 'm2.2' };
     const decoded = decodeSnapshot(JSON.stringify(old));
     expect(decoded.ok).toBe(true);
     if (decoded.ok) expect(decoded.state.session.levelId).toBeUndefined();

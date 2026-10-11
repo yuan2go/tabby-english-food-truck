@@ -1,0 +1,685 @@
+{
+  "date": "2026-10-11",
+  "task": "WP-PLAYABLE-ADVENTURE-01",
+  "handoffHead": "7014b4fcb3e34967ecbd87b4d1725007ed3406f8",
+  "operation": "Copy and archive existing artifacts only; no tests or builds run",
+  "entries": [
+    {
+      "source": "/tmp/adventure-anchor-browser-final.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-browser-final.log",
+      "kind": "raw-file",
+      "bytes": 2645,
+      "sha256": "90e081c610839bc4db1ef4d3cc36e91c397016a2646071da326aeffa28995944"
+    },
+    {
+      "source": "/tmp/adventure-anchor-browser-retry.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-browser-retry.log",
+      "kind": "raw-file",
+      "bytes": 2631,
+      "sha256": "a32ab2a45ed6dabd65ec67fa1fd0398477c217eaf5687f57bffcef2f7869cc75"
+    },
+    {
+      "source": "/tmp/adventure-anchor-browser-solo.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-browser-solo.log",
+      "kind": "raw-file",
+      "bytes": 370,
+      "sha256": "8ec39a128ebfecc9ca2a8849c2d4630267344be2137774d343ba10f3899d4fed"
+    },
+    {
+      "source": "/tmp/adventure-anchor-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-browser.log",
+      "kind": "raw-file",
+      "bytes": 3638,
+      "sha256": "2c311e0467ab4202191ae0216f4439f66105c4517e33fa995178f5c648fb311f"
+    },
+    {
+      "source": "/tmp/adventure-anchor-build.json",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-build.json",
+      "kind": "raw-file",
+      "bytes": 683,
+      "sha256": "c62fed3bcfd82fe088cfff709e9a6c6ce5c51ed8a82f47c06e0f9ca58e82e763"
+    },
+    {
+      "source": "/tmp/adventure-anchor-build.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-build.log",
+      "kind": "raw-file",
+      "bytes": 1202,
+      "sha256": "6b542c7308214381352843e87ca091f969d5944fd2330065cd5a8dacc1a53e1a"
+    },
+    {
+      "source": "/tmp/adventure-anchor-dist",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/adventure-anchor-dist.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 16607392,
+      "sha256": "b5a5b247ec2661275097b39d514a07c5447ef641aead4942d46e2dcdd2688f1d"
+    },
+    {
+      "source": "/tmp/adventure-anchor-lint.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-lint.log",
+      "kind": "raw-file",
+      "bytes": 18399,
+      "sha256": "35b7fb6a84290b08b40cdfeee742cc79a9661fdfe0d5f00fe194b25a4e8d3f19"
+    },
+    {
+      "source": "/tmp/adventure-anchor-results",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/adventure-anchor-results.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 3800225,
+      "sha256": "e4d31af1e1d3864c09cf114036254d2abcf3d02aff8f8ffe148a29a4cb197fe6"
+    },
+    {
+      "source": "/tmp/adventure-anchor-results-final",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/adventure-anchor-results-final.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 10914022,
+      "sha256": "f547440cd97f21575d1d98602892be5915254ebfbf0fcc78f127242aadb0a588"
+    },
+    {
+      "source": "/tmp/adventure-anchor-results-retry",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/adventure-anchor-results-retry.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 3902800,
+      "sha256": "96035f4d27027217d3e9be2c069d6006ef299e5f0d972afab7cb9368ed55d305"
+    },
+    {
+      "source": "/tmp/adventure-anchor-results-solo",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/adventure-anchor-results-solo.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 10931323,
+      "sha256": "1314a5d6659dea28f84d9d8a42a42c23a02e1f0d932cc49e4e0a2530fdfc07be"
+    },
+    {
+      "source": "/tmp/adventure-anchor-typecheck.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-anchor-typecheck.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-boundaries-red.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-boundaries-red.log",
+      "kind": "raw-file",
+      "bytes": 2113,
+      "sha256": "66c604a2f2d3fad8e7c9a02b57eceb0f5a4001f390fb971fb155f413cb9539b4"
+    },
+    {
+      "source": "/tmp/adventure-boundary-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-boundary-format.log",
+      "kind": "raw-file",
+      "bytes": 38,
+      "sha256": "3941099adb4d817f0177ccba8a03f8ce223ca372137d7474585ebe5bedd44b4a"
+    },
+    {
+      "source": "/tmp/adventure-ci-test-list.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-ci-test-list.log",
+      "kind": "raw-file",
+      "bytes": 1479,
+      "sha256": "9046f76afccece8fe455cd4792c341fd396e3142cee2fe37598b233e5e3a2d6b"
+    },
+    {
+      "source": "/tmp/adventure-current-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-current-browser.log",
+      "kind": "raw-file",
+      "bytes": 6358,
+      "sha256": "866830c53000373a1a880dbd16773de813bcd7260b4a28ff78e44a08e4386752"
+    },
+    {
+      "source": "/tmp/adventure-delivery-build.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-delivery-build.log",
+      "kind": "raw-file",
+      "bytes": 887,
+      "sha256": "9ff764a1345988d32a12daca476894c79ceffb3a765fcbfb8710cb7e05ee57f9"
+    },
+    {
+      "source": "/tmp/adventure-delivery-proof.json",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-delivery-proof.json",
+      "kind": "raw-file",
+      "bytes": 467,
+      "sha256": "3172053a2c7760eadedc12f4c41291360efbc725093db1981a2a523f98d6857c"
+    },
+    {
+      "source": "/tmp/adventure-exposure-red.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-exposure-red.log",
+      "kind": "raw-file",
+      "bytes": 1199,
+      "sha256": "e7239e2a512aca8c80ac34fd82c17f1fb50b54732664a5836d4de63430a15eb3"
+    },
+    {
+      "source": "/tmp/adventure-final-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-final-format.log",
+      "kind": "raw-file",
+      "bytes": 40,
+      "sha256": "1c269356c7ddffba4c92f9effde2e6b6cb6ff13731bd77633d080ea1980b1ed6"
+    },
+    {
+      "source": "/tmp/adventure-final-input-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-final-input-browser.log",
+      "kind": "raw-file",
+      "bytes": 1418,
+      "sha256": "926d4575b96d19d99a2da13bac03e6a38ae3f0cda3cb2b5590000ba444830329"
+    },
+    {
+      "source": "/tmp/adventure-final-lint.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-final-lint.log",
+      "kind": "raw-file",
+      "bytes": 18399,
+      "sha256": "4c5c2958733a74bdf0d14a67b77a06dfa8b1c1524c0563ccdc9333b1ba6ceeec"
+    },
+    {
+      "source": "/tmp/adventure-final-resources.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-final-resources.log",
+      "kind": "raw-file",
+      "bytes": 392,
+      "sha256": "c009933abc249d24f208c853fe15b28835c3ee8d03f53c65b1b51d151771fd0f"
+    },
+    {
+      "source": "/tmp/adventure-final-typecheck.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-final-typecheck.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-final-unit.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-final-unit.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "4fa504efeb01aebf2eaace41a6e241a87d0e55e585959c5bd7497d5a88cc4626"
+    },
+    {
+      "source": "/tmp/adventure-format-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format-browser.log",
+      "kind": "raw-file",
+      "bytes": 38,
+      "sha256": "fb3c3283bc472fb6ef33c0619ea92f89a8c36351a5a8ad66c185c5d0ab278366"
+    },
+    {
+      "source": "/tmp/adventure-format-compat.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format-compat.log",
+      "kind": "raw-file",
+      "bytes": 37,
+      "sha256": "ccfebc79f7598bc69ce8a65c6d04b7de141f387ff15133e465919e3a807d10a4"
+    },
+    {
+      "source": "/tmp/adventure-format-exposure.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format-exposure.log",
+      "kind": "raw-file",
+      "bytes": 40,
+      "sha256": "37706daca46266dfc7f81d8560a18e2cc015bdb70df5c93ea6f501e5cfa69100"
+    },
+    {
+      "source": "/tmp/adventure-format-final.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format-final.log",
+      "kind": "raw-file",
+      "bytes": 2417,
+      "sha256": "c227b87af9079e0036f7b5942a012f08e0d56b801605a416e39d8d2f1b865a8f"
+    },
+    {
+      "source": "/tmp/adventure-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format.log",
+      "kind": "raw-file",
+      "bytes": 3696,
+      "sha256": "dea91d0cc5e63b2a65f0512ed69d63da22947df9c934dab353aeb29c0eec83f7"
+    },
+    {
+      "source": "/tmp/adventure-format2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format2.log",
+      "kind": "raw-file",
+      "bytes": 39,
+      "sha256": "d33c4a795a25566c61669c5eceb98ffaf4391407d15b15b3e49abd48a31329af"
+    },
+    {
+      "source": "/tmp/adventure-format3.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format3.log",
+      "kind": "raw-file",
+      "bytes": 38,
+      "sha256": "e42135aaf0acc250bc2b51a6654628fd5e07d63e0055ab79b83671d3661abb22"
+    },
+    {
+      "source": "/tmp/adventure-format4.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format4.log",
+      "kind": "raw-file",
+      "bytes": 2417,
+      "sha256": "ee1306ed3271f4349f12ea31868618fb48bad9635292bada454b37e7c0f3bd93"
+    },
+    {
+      "source": "/tmp/adventure-format5.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format5.log",
+      "kind": "raw-file",
+      "bytes": 40,
+      "sha256": "a6cc3e404b270cc24677e05d0e8e8381fb02c0c924b2d3234496e32abe47884d"
+    },
+    {
+      "source": "/tmp/adventure-format6.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-format6.log",
+      "kind": "raw-file",
+      "bytes": 38,
+      "sha256": "22b6911fd000da732d6966d315261cb6ec21be17535b6b37c7de9bef0e8c33e0"
+    },
+    {
+      "source": "/tmp/adventure-green.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-green.log",
+      "kind": "raw-file",
+      "bytes": 339,
+      "sha256": "aeaf64bb8983dbfc93c941c12d74f13a945d9bb27ebe6de88ff0f016c7b70aa9"
+    },
+    {
+      "source": "/tmp/adventure-input-final-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-input-final-browser.log",
+      "kind": "raw-file",
+      "bytes": 2746,
+      "sha256": "62c4bb2c687e0b8ea42251308b2286deb1449b87c83ff70d25e26ba41f67130e"
+    },
+    {
+      "source": "/tmp/adventure-input-final-build.json",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-input-final-build.json",
+      "kind": "raw-file",
+      "bytes": 582,
+      "sha256": "4c6cb0b1220743a9d593903c74ae6fd3b035e471beaa20bd294097d224816150"
+    },
+    {
+      "source": "/tmp/adventure-input-final-lint.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-input-final-lint.log",
+      "kind": "raw-file",
+      "bytes": 18399,
+      "sha256": "bc066d3829fef248954d2cdac3d0a45456b27e0a62e319e181a8c95b8d257064"
+    },
+    {
+      "source": "/tmp/adventure-input-final-typecheck.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-input-final-typecheck.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-integrated-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integrated-browser.log",
+      "kind": "raw-file",
+      "bytes": 7489,
+      "sha256": "cb7da691a0ef8fa83c548c2e052aa1ee557fc67a9a7962b9b11c18ebe8b4b8aa"
+    },
+    {
+      "source": "/tmp/adventure-integrated-build.json",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integrated-build.json",
+      "kind": "raw-file",
+      "bytes": 367,
+      "sha256": "4e22144a78a7531788f04cda12139c4b887b0584e50d70d39204b398613c1a96"
+    },
+    {
+      "source": "/tmp/adventure-integrated-tests-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integrated-tests-format.log",
+      "kind": "raw-file",
+      "bytes": 38,
+      "sha256": "ccba8bd5f2c0214ee8acd7e72b9f8e84e9a24ef99662a92942be49a12ddc9a46"
+    },
+    {
+      "source": "/tmp/adventure-integrated-tests-format2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integrated-tests-format2.log",
+      "kind": "raw-file",
+      "bytes": 42,
+      "sha256": "9bdae114476f75b941dc24fe92a2d790be5f5e290a0f5022c26ec2403839daba"
+    },
+    {
+      "source": "/tmp/adventure-integration-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integration-format.log",
+      "kind": "raw-file",
+      "bytes": 1336,
+      "sha256": "01199e8315eeb5cd2c07f50da63a2513a728a954fdd9cb2cc81fc005094dcbf4"
+    },
+    {
+      "source": "/tmp/adventure-integration-format2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integration-format2.log",
+      "kind": "raw-file",
+      "bytes": 2421,
+      "sha256": "50d061f07d66bfa5bb4b56ec6771a93d6b07d99b276bbf4df0622a21af334e6f"
+    },
+    {
+      "source": "/tmp/adventure-integration-lint.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integration-lint.log",
+      "kind": "raw-file",
+      "bytes": 18399,
+      "sha256": "cbee25350258be822b93ba3ae509efcfc1ce1812fed6b1af9e67eb35723a2f55"
+    },
+    {
+      "source": "/tmp/adventure-integration-typecheck.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integration-typecheck.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-integration-unit.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-integration-unit.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "21a5319256c31c568fb997c3de458dab34b780ec6da3268e3a57e7f8f4cbd04e"
+    },
+    {
+      "source": "/tmp/adventure-lint-stage.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-lint-stage.log",
+      "kind": "raw-file",
+      "bytes": 18399,
+      "sha256": "44f585142510e590387a093c005723dcf3e053d3ab18c56a5c6fd4ecc2d0191e"
+    },
+    {
+      "source": "/tmp/adventure-lint.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-lint.log",
+      "kind": "raw-file",
+      "bytes": 29237,
+      "sha256": "28f0a719c8e55856abd91fe4ba93b727fd76a8c3d8ffbcf8c5a1a11a13394971"
+    },
+    {
+      "source": "/tmp/adventure-lint2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-lint2.log",
+      "kind": "raw-file",
+      "bytes": 18399,
+      "sha256": "2f95a0a9d15e6fca010073102c7e82bbf35c6e0b8d3ff6c1bbaf7c5790077534"
+    },
+    {
+      "source": "/tmp/adventure-main-app.diff",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-main-app.diff",
+      "kind": "raw-file",
+      "bytes": 13216,
+      "sha256": "eb00746fce2754837e3621d535416b1f750c72ccb6ba40a7e3ad7f3d365feb5c"
+    },
+    {
+      "source": "/tmp/adventure-menu-browser-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-menu-browser-format.log",
+      "kind": "raw-file",
+      "bytes": 38,
+      "sha256": "8c41e2adaf3a93de54025973b4b978445986f52249ef40463d9443c45d2499ff"
+    },
+    {
+      "source": "/tmp/adventure-menu-final-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-menu-final-browser.log",
+      "kind": "raw-file",
+      "bytes": 5136,
+      "sha256": "dd78780c17c38c43ad480733257acc2ce5b33c6793e045a49a29ffac13b3cb57"
+    },
+    {
+      "source": "/tmp/adventure-menu-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-menu-format.log",
+      "kind": "raw-file",
+      "bytes": 43,
+      "sha256": "643f257a5e2fa76cedb5ed07b677c46ac37f22dd536daee941bd165b4fde1788"
+    },
+    {
+      "source": "/tmp/adventure-menu-green-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-menu-green-browser.log",
+      "kind": "raw-file",
+      "bytes": 1226,
+      "sha256": "1f8d40de425535e4f4b18d5a064b730c4832b49a1aa8db63646604a804c8f6c9"
+    },
+    {
+      "source": "/tmp/adventure-quick-drag-final.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-quick-drag-final.log",
+      "kind": "raw-file",
+      "bytes": 977,
+      "sha256": "0bb190975b872cbf96296a20a210224f27550904ab8f6f8c18c0119fea3a81ec"
+    },
+    {
+      "source": "/tmp/adventure-quick-drag-proof.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-quick-drag-proof.log",
+      "kind": "raw-file",
+      "bytes": 977,
+      "sha256": "e88feadc0c30db51c18b4f1b146683a570d737e5342d313ee1d149d30aa25f13"
+    },
+    {
+      "source": "/tmp/adventure-quick-drag.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-quick-drag.log",
+      "kind": "raw-file",
+      "bytes": 553,
+      "sha256": "0b822fed4be7db9fa5b3403a4c9e51f5dbffe5747291d3052ee02f27b9ccd473"
+    },
+    {
+      "source": "/tmp/adventure-quick-drag.png",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-quick-drag.png",
+      "kind": "raw-file",
+      "bytes": 419968,
+      "sha256": "250b26c06ea38effdb5b2d346b22030b65a0f1b9a55d367896e01af3850f86a4"
+    },
+    {
+      "source": "/tmp/adventure-quick-input-final.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-quick-input-final.log",
+      "kind": "raw-file",
+      "bytes": 644,
+      "sha256": "99b4b3878315064d470b662468e0c9fc2ebb8bcc5f9ed2c253c6a4a68cbe0b33"
+    },
+    {
+      "source": "/tmp/adventure-quick-input-final.png",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-quick-input-final.png",
+      "kind": "raw-file",
+      "bytes": 422013,
+      "sha256": "98db0f7e83939193699a6e0f8758c040872f31d3414afe01a5b27894c0cf0efc"
+    },
+    {
+      "source": "/tmp/adventure-recovery-red.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-recovery-red.log",
+      "kind": "raw-file",
+      "bytes": 3112,
+      "sha256": "aaaeab8160387ed95363949facef86b6a7d7b0cd5e378ca2ac079e927153f09a"
+    },
+    {
+      "source": "/tmp/adventure-red.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-red.log",
+      "kind": "raw-file",
+      "bytes": 7599,
+      "sha256": "8ef47c7999d256673e5970c0c42f6abaff1cf5e884a53ea8c40e513f891ec7a9"
+    },
+    {
+      "source": "/tmp/adventure-review-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-review-format.log",
+      "kind": "raw-file",
+      "bytes": 2582,
+      "sha256": "65a48643af8c691535e026d8a6370dbceb8ca57649af72c6ebdc83a36d98763d"
+    },
+    {
+      "source": "/tmp/adventure-review-format2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-review-format2.log",
+      "kind": "raw-file",
+      "bytes": 40,
+      "sha256": "0374c572dc546121713330148949e59b2174d653f9d2dc2a28b9c7dc6afeffbe"
+    },
+    {
+      "source": "/tmp/adventure-review-format3.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-review-format3.log",
+      "kind": "raw-file",
+      "bytes": 40,
+      "sha256": "a4012761c898a3c5187eecac640316f91cd11d2729c44395195d98a0a001afbc"
+    },
+    {
+      "source": "/tmp/adventure-revisit-retention-red.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-revisit-retention-red.log",
+      "kind": "raw-file",
+      "bytes": 1263,
+      "sha256": "addecdb82f8f41d892ce5307e4ccdbbb49880e851f51042b32ac421e83302b97"
+    },
+    {
+      "source": "/tmp/adventure-suite.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-suite.log",
+      "kind": "raw-file",
+      "bytes": 1234,
+      "sha256": "014a0e3e065dffde24df017b53d42e0061c41e8c81e5894f2d83a7ae6242ff8c"
+    },
+    {
+      "source": "/tmp/adventure-suite2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-suite2.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "3f8675d44bca9eca5fa7082dfb175b1e7067e16f00d86a8a05e6d45ec9c508e6"
+    },
+    {
+      "source": "/tmp/adventure-suite3.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-suite3.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "f6941f08f4ad9a40c94f632acc5257a8de83758a20296b93973df9a61a502e1d"
+    },
+    {
+      "source": "/tmp/adventure-suite4.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-suite4.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "90533e722a1904d5a0a8d6d597b06b2654a70a1f1a6e2af39105977be17ab6af"
+    },
+    {
+      "source": "/tmp/adventure-suite5.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-suite5.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "0d38f170093fbecc5ba139929dae9e909cd60daa483532819f8e0ff696998181"
+    },
+    {
+      "source": "/tmp/adventure-targeted-browser.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-targeted-browser.log",
+      "kind": "raw-file",
+      "bytes": 4709,
+      "sha256": "e437b67d4ba23f1fee45cc93e3b8dea224887e83d92366841085718af4cb44b6"
+    },
+    {
+      "source": "/tmp/adventure-targeted-build.json",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-targeted-build.json",
+      "kind": "raw-file",
+      "bytes": 367,
+      "sha256": "38449976b184766ac5aa3d1fb9041b57311b973fb8a35128e16981cb07e2a167"
+    },
+    {
+      "source": "/tmp/adventure-type-stage.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-type-stage.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-type.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-type.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-type2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-type2.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-type3.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-type3.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-type4.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-type4.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-typecheck.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-typecheck.log",
+      "kind": "raw-file",
+      "bytes": 151,
+      "sha256": "d6d519511343a75bb79234a8a41abfe16a8e7f39d6e69a3e36c4d1fdc7c7d3db"
+    },
+    {
+      "source": "/tmp/adventure-ui-format.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-ui-format.log",
+      "kind": "raw-file",
+      "bytes": 12755,
+      "sha256": "6041e532fc6fb3645c3633163e36072b1ed75cfee8466fb5813a19d5257586fc"
+    },
+    {
+      "source": "/tmp/adventure-ui-red.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-ui-red.log",
+      "kind": "raw-file",
+      "bytes": 3561,
+      "sha256": "d2caa8c9fc3ae36de25ce45a81c6ac4eac04ac0d9cdd66d968fa40b4cda9a4cf"
+    },
+    {
+      "source": "/tmp/adventure-ui-type.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-ui-type.log",
+      "kind": "raw-file",
+      "bytes": 60,
+      "sha256": "cfaccb4dfdc31fd6373e0a22b6da32bee91a81c153c9527be43b030342848512"
+    },
+    {
+      "source": "/tmp/adventure-unit-stage.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-unit-stage.log",
+      "kind": "raw-file",
+      "bytes": 320,
+      "sha256": "eff62ab2886b8a1171208cd9bf40230aed4db9e0673ff4bf409c09ca957c2f7c"
+    },
+    {
+      "source": "/tmp/adventure-walk1.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-walk1.log",
+      "kind": "raw-file",
+      "bytes": 3985,
+      "sha256": "104caec9b2767fc906f8db025b5db83a8845315b6b8868381a4b97baeca6a408"
+    },
+    {
+      "source": "/tmp/adventure-walk2.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-walk2.log",
+      "kind": "raw-file",
+      "bytes": 3619,
+      "sha256": "2bf29cd4ad24cbc57f4ffd6297aebe4bc835200c9bf299cd076f7eab4dd6cd8f"
+    },
+    {
+      "source": "/tmp/adventure-walk3.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-walk3.log",
+      "kind": "raw-file",
+      "bytes": 3619,
+      "sha256": "d695033efe1274750a7b36f1f01fc21c2a6d2290c4b76516491b552828513b7e"
+    },
+    {
+      "source": "/tmp/adventure-walk4.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-walk4.log",
+      "kind": "raw-file",
+      "bytes": 3813,
+      "sha256": "d02c7aa2588ba8b33c1779acebf3f5fe10036eb5413fe85b6c310e232d96b486"
+    },
+    {
+      "source": "/tmp/adventure-walk5.log",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/adventure-walk5.log",
+      "kind": "raw-file",
+      "bytes": 6547,
+      "sha256": "db664aa6c9e2cfe7c761b83dc6f6133948967bb57747c1a66fdd0e88529b4f87"
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/dist",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/production-build.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 16602003,
+      "sha256": "270c6f3be40c2535cbe7ae4a55766358696c6b85feec171ccfe5153120d96711"
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/test-results",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/test-results.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 33552268,
+      "sha256": "c2d2ce3827d62fd903c574270eead42227057e965696b14b62fa3e39353992c5"
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/playwright-report",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/playwright-report.tar.gz",
+      "kind": "existing-directory-archive",
+      "bytes": 3969796,
+      "sha256": "81c5a042c46e5f40608e1c04ad9a0cfe64dd3bc446103c9f275b2db7075425ac"
+    },
+    {
+      "source": "/tmp/wp-playable-adventure-pr.md",
+      "archive": "docs/evidence/playable-adventure/execution-artifacts/raw-files/wp-playable-adventure-pr.md",
+      "kind": "original-pr-draft",
+      "bytes": 2760,
+      "sha256": "b64dbee585d60acce55ea9f961768fbd5461654a2aedcabaaec8f0eb0afabd48"
+    }
+  ],
+  "bytes": 101398567,
+  "limits": [
+    "Only existing files can be archived; previously overwritten or deleted temporary artifacts cannot be recovered.",
+    "Build packages retain their original embedded SHA; this delivery changes only documents and archive files."
+  ]
+}

@@ -1,0 +1,651 @@
+
+> tabby-english-food-truck@0.1.0 lint
+> biome check .
+
+scripts/export-m22.mjs:46:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    44 │ await writeFile(
+    45 │   'art/m22-production.json',
+  > 46 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 47 │     {
+        ...
+  > 56 │     2,
+  > 57 │   ) + '\n',
+       │   ^^^^^^^^
+    58 │ );
+    59 │ console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    44 44 │   await writeFile(
+    45 45 │     'art/m22-production.json',
+    46    │ - ··JSON.stringify(
+       46 │ + ··`${JSON.stringify(
+    47 47 │       {
+    48 48 │         tool: 'OpenAI built-in imagegen',
+    ····· │ 
+    55 55 │       null,
+    56 56 │       2,
+    57    │ - ··)·+·'\n',
+       57 │ + ··)}\n`,
+    58 58 │   );
+    59 59 │   console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+
+scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │   await writeFile(
+    59 │     'art/m21-audio.json',
+  > 60 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 61 │       {
+        ...
+  > 68 │       2,
+  > 69 │     ) + '\n',
+       │     ^^^^^^^^
+    70 │   );
+    71 │   console.log(`Generated ${ids.length} registered development clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    58 58 │     await writeFile(
+    59 59 │       'art/m21-audio.json',
+    60    │ - ····JSON.stringify(
+       60 │ + ····`${JSON.stringify(
+    61 61 │         {
+    62 62 │           humanListeningReview: 'NOT_RUN',
+    ····· │ 
+    67 67 │         null,
+    68 68 │         2,
+    69    │ - ····)·+·'\n',
+       69 │ + ····)}\n`,
+    70 70 │     );
+    71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+  
+
+scripts/m22-audio.mjs:44:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    42 │     ]);
+    43 │   }
+  > 44 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    42 42 │       ]);
+    43 43 │     }
+    44    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       44 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+  
+
+scripts/m22-audio.mjs:47:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  > 47 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 48 │       {
+        ...
+  > 55 │       2,
+  > 56 │     ) + '\n',
+       │     ^^^^^^^^
+    57 │   );
+    58 │   console.log(`Generated ${records.length} individual registered clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+    47    │ - ····JSON.stringify(
+       47 │ + ····`${JSON.stringify(
+    48 48 │         {
+    49 49 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    54 54 │         null,
+    55 55 │         2,
+    56    │ - ····)·+·'\n',
+       56 │ + ····)}\n`,
+    57 57 │     );
+    58 58 │     console.log(`Generated ${records.length} individual registered clips`);
+  
+
+scripts/m22-growth-audio.mjs:39:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    37 │     speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+    38 │   }
+  > 39 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    40 │   await writeFile(
+    41 │     'art/m22-growth-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    37 37 │       speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+    38 38 │     }
+    39    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       39 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    40 40 │     await writeFile(
+    41 41 │       'art/m22-growth-audio.json',
+  
+
+scripts/m22-growth-audio.mjs:42:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    40 │   await writeFile(
+    41 │     'art/m22-growth-audio.json',
+  > 42 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 43 │       {
+        ...
+  > 50 │       2,
+  > 51 │     ) + '\n',
+       │     ^^^^^^^^
+    52 │   );
+    53 │ } finally {
+  
+  i Unsafe fix: Use a template literal.
+  
+    40 40 │     await writeFile(
+    41 41 │       'art/m22-growth-audio.json',
+    42    │ - ····JSON.stringify(
+       42 │ + ····`${JSON.stringify(
+    43 43 │         {
+    44 44 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    49 49 │         null,
+    50 50 │         2,
+    51    │ - ····)·+·'\n',
+       51 │ + ····)}\n`,
+    52 52 │     );
+    53 53 │   } finally {
+  
+
+src/app/Lesson.tsx:109:5 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    107 │   };
+    108 │   const physical =
+  > 109 │     unit &&
+        │     ^^^^^^^
+  > 110 │     unit.choices.every((c) => c.products.length === 1 && c.products.every((p) => RAW.includes(p)));
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    111 │   const choose = (choice: string) => {
+    112 │     if (!unit) return;
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    107 107 │     };
+    108 108 │     const physical =
+    109     │ - ····unit·&&
+    110     │ - ····unit.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+        109 │ + ····unit?.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+    111 110 │     const choose = (choice: string) => {
+    112 111 │       if (!unit) return;
+  
+
+src/app/adventure.css:321:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    319 │   gap: 3px;
+    320 │ }
+  > 321 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    322 │   width: 34px;
+    323 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    269 │   background: #fff0c4;
+    270 │ }
+  > 271 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    272 │   opacity: 0.7;
+    273 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:67:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    65 │   margin: 10px auto;
+    66 │ }
+  > 67 │ .basket-foods button {
+       │ ^^^^^^^^^^^^^^^^^^^^
+    68 │   padding: 6px;
+    69 │   aspect-ratio: 1.15;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    42 │   max-width: 680px;
+    43 │ }
+  > 44 │ .food-baskets nav button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   flex: 1;
+    46 │   min-width: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:71:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    69 │   aspect-ratio: 1.15;
+    70 │ }
+  > 71 │ .basket-foods .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^
+    72 │   width: 100%;
+    73 │   height: 100%;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    48 │   font-size: 14px;
+    49 │ }
+  > 50 │ .food-baskets nav .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    51 │   width: 44px;
+    52 │   height: 44px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:105:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    103 │   font-size: 13px;
+    104 │ }
+  > 105 │ .food-basket-entry .food-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    106 │   width: 68px;
+    107 │   height: 68px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    48 │   font-size: 14px;
+    49 │ }
+  > 50 │ .food-baskets nav .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    51 │   width: 44px;
+    52 │   height: 44px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:95:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    93 │   pointer-events: none;
+    94 │ }
+  > 95 │ .delivery-actions button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    96 │   min-height: 48px;
+    97 │   min-width: 140px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:108:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 2)
+  
+    106 │   width: 100%;
+    107 │ }
+  > 108 │ .delivery-actions fieldset button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    109 │   min-width: 0;
+    110 │   padding: 8px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:118:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    116 │   z-index: 6;
+    117 │ }
+  > 118 │ .recipe-switch > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    119 │   min-width: 92px;
+    120 │   padding: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:166:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    164 │   }
+    165 │ }
+  > 166 │ .recipe-options button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    167 │   display: flex;
+    168 │   align-items: center;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:210:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    208 │   font-size: 18px;
+    209 │ }
+  > 210 │ .request-caption button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    211 │   position: absolute;
+    212 │   right: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:272:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    270 │   margin: 0;
+    271 │ }
+  > 272 │ .voice-recovery button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    273 │   min-height: 44px;
+    274 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:327:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    325 │   gap: 8px;
+    326 │ }
+  > 327 │ .platform-status button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    328 │   min-width: 48px;
+    329 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/Adventure.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Sort these imports.
+  
+   > 1 │ import { useEffect, useState } from 'react';
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   > 2 │ import { ADVENTURES, VISITOR_NAMES, type Visitor } from '../content/adventure';
+   > 3 │ import { PRODUCT_NAMES } from '../content/catalog';
+   > 4 │ import { assetUrl } from '../game/assets';
+        ...
+   > 9 │ import { Food } from './Food';
+  > 10 │ import { useDialogFocus } from './dialog-focus';
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    11 │ import './adventure.css';
+    12 │ 
+  
+  i Safe fix: Organize imports and exports (Biome)
+  
+      7   7 │   import { activityHint, adventureReady, openCommission } from '../rules/adventure';
+      8   8 │   import type { Command } from '../rules/types';
+      9     │ - import·{·Food·}·from·'./Food';
+     10     │ - import·{·useDialogFocus·}·from·'./dialog-focus';
+          9 │ + import·{·useDialogFocus·}·from·'./dialog-focus';
+         10 │ + import·{·Food·}·from·'./Food';
+     11  11 │   import './adventure.css';
+     12  12 │   
+  
+
+src/app/Adventure.tsx format ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Formatter would have printed the following content:
+  
+     90  90 │       >
+     91  91 │         <div className="adventure-content" inert={clear}>
+     92     │ - ······<header·className="activity-header">
+     93     │ - ········<button·type="button"·onClick={home}·aria-label="收摊回小院">
+     94     │ - ··········←·小院
+     95     │ - ········</button>
+     96     │ - ········<div>
+     97     │ - ··········<h2>{a.kind·===·'shop'·?·'自由开店'·:·chapter?.title}</h2>
+     98     │ - ··········<p>{completed·?·'这页已经留下记忆'·:·chapter?.goal}</p>
+     99     │ - ········</div>
+    100     │ - ········<button·type="button"·className="primary"·onClick={kitchen}>
+    101     │ - ··········去厨房备餐
+    102     │ - ········</button>
+    103     │ - ······</header>
+    104     │ - ······<div·className="activity-world">
+    105     │ - ········<div·className="scene-objects">
+    106     │ - ··········{a.chapter·===·2·&&·a.branch·===·'rabbit'
+    107     │ - ············?·object('basket',·'检查野餐篮',·'basket')
+    108     │ - ············:·object('drawer',·'打开储物抽屉',·'drawer')}
+    109     │ - ··········{object('recipe',·'翻开旧食谱',·'book')}
+    110     │ - ··········{a.chapter·===·4·||·completed·||·a.kind·===·'shop'·?·(
+    111     │ - ············<div·className="invitation-pegs">
+    112     │ - ··············{(['rabbit',·'hedgehog',·'elder']·as·const).map((v)·=>·(
+    113     │ - ················<button
+    114     │ - ··················type="button"
+    115     │ - ··················key={v}
+    116     │ - ··················aria-label={`邀请${VISITOR_NAMES[v]}`}
+    117     │ - ··················aria-pressed={a.invitations.includes(v)}
+    118     │ - ··················onClick={()·=>·act({·action:·'invite',·visitor:·v·})}
+    119     │ - ················>
+    120     │ - ··················<img
+    121     │ - ····················src={assetUrl(v·===·'elder'·?·'elder'·:·`guest-${v·===·'rabbit'·?·0·:·1}-2`)}
+    122     │ - ····················alt=""
+    123     │ - ··················/>
+    124     │ - ··················{VISITOR_NAMES[v]}
+    125     │ - ················</button>
+    126     │ - ··············))}
+    127     │ - ············</div>
+    128     │ - ··········)·:·(
+    129     │ - ············<div
+    130     │ - ··············className="scene-seed"
+    131     │ - ··············role="img"
+    132     │ - ··············aria-label={a.explored.includes('drawer')·?·'已经找到活动物件'·:·'抽屉里有新的线索'}
+    133     │ - ············>
+    134     │ - ··············{a.explored.includes('drawer')
+    135     │ - ················?·a.chapter·===·0
+    136     │ - ··················?·'✿'
+    137     │ - ··················:·a.chapter·===·3
+    138     │ - ····················?·'☀'
+    139     │ - ····················:·'◯·◯'
+    140     │ - ················:·'?'}
+    141     │ - ············</div>
+    142     │ - ··········)}
+    143     │ - ········</div>
+    144     │ - ········<p·className="activity-hint">{activityHint(a)}</p>
+    145     │ - ········<div·className="friends-at-table">
+    146     │ - ··········<img
+    147     │ - ············className="table-dami"
+    148     │ - ············src={assetUrl(completed·?·'cat-celebrate'·:·'cat-greet')}
+    149     │ - ············alt="小主厨大咪"
+    150     │ - ··········/>
+    151     │ - ··········{(['rabbit',·'hedgehog']·as·Visitor[]).map((v)·=>·(
+    152     │ - ············<div
+    153     │ - ··············key={v}
+    154     │ - ··············className={`world-friend·${a.invitations.includes(v)·||·has(`served:${v}`)·?·'friend-active'·:·''}`}
+    155     │ - ············>
+    156     │ - ··············<img
+    157     │ - ················src={assetUrl(
+    158     │ - ··················v·===·'elder'
+    159     │ - ····················?·'elder'
+    160     │ - ····················:·`guest-${v·===·'rabbit'·?·0·:·1}-${has(`served:${v}`)·?·1·:·0}`,
+    161     │ - ················)}
+    162     │ - ················alt={VISITOR_NAMES[v]}
+    163     │ - ··············/>
+    164     │ - ··············{has(`served:${v}`)·?·(
+    165     │ - ················<span·className="friend-meal">
+    166     │ - ··················{a.foods
+    167     │ - ····················.filter((f)·=>·f.place·===·`guest-${v}`)
+    168     │ - ····················.map((f)·=>·(
+    169     │ - ······················<Food·key={f.id}·product={f.product}·/>
+    170     │ - ····················))}
+    171     │ - ················</span>
+    172     │ - ··············)·:·null}
+    173     │ - ············</div>
+    174     │ - ··········))}
+    175     │ - ········</div>
+    176     │ - ········<div
+    177     │ - ··········className={`picnic-table·${has('cloth')·?·'cloth-spread'·:·''}·${gardenBunting·?·`flags-${flagColor}`·:·''}`}
+    178     │ - ········>
+    179     │ - ··········{gardenBunting·?·(
+    180     │ - ············<div·className="activity-bunting"·role="img"·aria-label="已挂起的分享彩旗">
+    181     │ - ··············<i·/>
+    182     │ - ··············<i·/>
+    183     │ - ··············<i·/>
+    184     │ - ··············<i·/>
+    185     │ - ··············<i·/>
+    186     │ - ············</div>
+    187     │ - ··········)·:·null}
+    188     │ - ··········{gardenFlower·?·(
+    189     │ - ············<div
+    190     │ - ··············className={`activity-flower·flower-position-${flowerPosition}`}
+    191     │ - ··············role="img"
+    192     │ - ··············aria-label="已经种下的迎客花"
+    193     │ - ············>
+    194     │ - ··············<i·/>
+    195     │ - ··············<i·/>
+    196     │ - ··············<b·/>
+    197     │ - ············</div>
+    198     │ - ··········)·:·null}
+    199     │ - ··········{gardenLight·?·(
+    200     │ - ············<div·className="activity-lights"·role="img"·aria-label="已点亮灯串">
+    201     │ - ··············<i·/>
+    202     │ - ··············<i·/>
+    203     │ - ··············<i·/>
+    204     │ - ··············<i·/>
+    205     │ - ············</div>
+    206     │ - ··········)·:·null}
+    207     │ - ··········{([0,·1,·2]·as·const).map((seat)·=>·(
+    208     │ - ············<button
+    209     │ - ··············type="button"
+    210     │ - ··············className="table-seat"
+    211     │ - ··············key={seat}
+    212     │ - ··············aria-label={`摆到${seat·+·1}号餐位`}
+    213     │ - ··············onClick={()·=>·act({·action:·'place',·item:·selection,·seat·})}
+    214     │ - ············>
+    215     │ - ··············<span>{seat·+·1}</span>
+    216     │ - ··············{a.foods
+    217     │ - ················.filter((f)·=>·f.place·===·`table:${seat}`)
+    218     │ - ················.map((f)·=>·(
+    219     │ - ··················<Food·key={f.id}·product={f.product}·/>
+    220     │ - ················))}
+    221     │ - ··············{a.foods.some((f)·=>·f.place·===·`table:${seat}`·&&·f.tasted)·?·<b>尝过了</b>·:·null}
+    222     │ - ············</button>
+    223     │ - ··········))}
+    224     │ - ········</div>
+    225     │ - ········<fieldset·className="received-foods"·aria-label="真实送到活动桌的食物">
+    226     │ - ··········{a.foods.map((f)·=>·(
+    227     │ - ············<div
+    228     │ - ··············key={f.id}
+    229     │ - ··············className={`world-food·${f.place·===·'basket'·?·'packed'·:·''}·${f.tasted·?·'tasted'·:·''}`}
+    230     │ - ············>
+    231     │ - ··············<button
+    232     │ - ················type="button"
+    233     │ - ················aria-label={`选择${PRODUCT_NAMES[f.product]}`}
+    234     │ - ················aria-pressed={selection·===·f.id}
+    235     │ - ················onClick={()·=>·setSelection(f.id)}
+    236     │ - ··············>
+    237     │ - ················<Food·product={f.product}·/>
+    238     │ - ················{f.place·===·'basket'·?·<span>篮内</span>·:·null}
+    239     │ - ··············</button>
+  438 more lines truncated
+  
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 43.
+Checked 136 files in 190ms. No fixes applied.
+Found 3 errors.
+Found 53 warnings.
+Found 7 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

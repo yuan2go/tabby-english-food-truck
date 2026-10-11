@@ -1,5 +1,6 @@
 import type { Mode } from '../content/catalog';
 import { type ActorStop, buildPlan, HOME, samplePlan } from '../game/actor';
+import { receiveAdventure } from './adventure';
 import type { ActorJob, GameState, TrayId } from './types';
 export const trayAnchor = (tray: TrayId, mode: Mode = 'service') => ({
   x: mode === 'service' ? (tray === 0 ? 0.205 : 0.695) : 0.45,
@@ -57,6 +58,20 @@ export function advanceActor(s: GameState, delta: number): boolean {
         if (phase.event === 'receive') break;
       }
       if (before < receiveAt && job.elapsed >= receiveAt) {
+        const received = s.items.filter((i) => job.itemIds.includes(i.id));
+        const order = s.orders.find((o) => o.id === job.order);
+        receiveAdventure(
+          s,
+          received,
+          job.worldTarget ?? job.order ?? 'delivery',
+          order?.visitor ??
+            (order && s.adventure?.kind === 'shop'
+              ? order.seat === 0
+                ? 'rabbit'
+                : 'hedgehog'
+              : undefined),
+          job.plan.id,
+        );
         s.items = s.items.filter((i) => !job.itemIds.includes(i.id));
         job.itemIds = [];
         transferred = true;

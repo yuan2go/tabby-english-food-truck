@@ -1,0 +1,50 @@
+src/rules/adventure.ts:260:9 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    258 │   if (c.action === 'pickup') {
+    259 │     const food = a.foods.find((f) => f.id === c.item);
+  > 260 │     if (!food || !food.place.startsWith('table:')) return result('blocked', '先选桌上的一份食品。');
+        │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    261 │     food.place = 'work';
+    262 │     return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    258 258 │     if (c.action === 'pickup') {
+    259 259 │       const food = a.foods.find((f) => f.id === c.item);
+    260     │ - ····if·(!food·||·!food.place.startsWith('table:'))·return·result('blocked',·'先选桌上的一份食品。');
+        260 │ + ····if·(!food?.place.startsWith('table:'))·return·result('blocked',·'先选桌上的一份食品。');
+    261 261 │       food.place = 'work';
+    262 262 │       return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  
+
+src/rules/snapshot.ts:487:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    485 │         (job.worldTarget
+    486 │           ? !s.adventure || job.order !== undefined
+  > 487 │           : !order ||
+        │             ^^^^^^^^^
+  > 488 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    489 │             Math.abs(order.remaining - completion) > 0.05) ||
+    490 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    485 485 │           (job.worldTarget
+    486 486 │             ? !s.adventure || job.order !== undefined
+    487     │ - ··········:·!order·||
+    488     │ - ············order.status·!==·'leaving'·||
+        487 │ + ··········:·order?.status·!==·'leaving'·||
+    489 488 │               Math.abs(order.remaining - completion) > 0.05) ||
+    490 489 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+Skipped 2 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 6 files in 43ms. Fixed 5 files.
+Found 2 warnings.

@@ -1,0 +1,74 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure-recovery.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck
+
+ ❯ tests/adventure-recovery.test.ts (3 tests | 3 failed) 8ms
+   × normal story entry starts an activity and resumes the same items after a mode switch 5ms
+   × old profile chapters remain historical and grant no new activity reward 1ms
+   × selected menu and theme affect only new orders and stop accepting has a natural empty ending 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-recovery.test.ts > normal story entry starts an activity and resumes the same items after a mode switch
+AssertionError: expected undefined to be 2 // Object.is equality
+
+- Expected:
+2
+
++ Received:
+undefined
+
+ ❯ tests/adventure-recovery.test.ts:15:68
+     13|  vi.stubGlobal('localStorage',storage);
+     14|  const c=new GameController(new SaveStore(()=>storage),()=> 'recovery-…
+     15|  c.enter('story',2,'pictures'); expect(c.state.adventure?.chapter).toB…
+       |                                                                    ^
+     16|  c.command({type:'family',family:'juice'});c.command({type:'move',sour…
+     17|  const before=structuredClone(c.state);c.enter('training',0,'pictures'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/adventure-recovery.test.ts > old profile chapters remain historical and grant no new activity reward
+AssertionError: expected undefined to deeply equal []
+
+- Expected:
+[]
+
++ Received:
+undefined
+
+ ❯ tests/adventure-recovery.test.ts:24:90
+     22| it('old profile chapters remain historical and grant no new activity r…
+     23|  const p=emptyProfile();p.completed=[0,1,2,3,4];const raw=JSON.stringi…
+     24|  expect(store.value.completed).toEqual([0,1,2,3,4]);expect(store.value…
+       |                                                                                          ^
+     25| });
+     26| it('selected menu and theme affect only new orders and stop accepting …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/adventure-recovery.test.ts > selected menu and theme affect only new orders and stop accepting has a natural empty ending
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/adventure-recovery.test.ts:30:17
+     28|  const original=structuredClone(s.orders);
+     29|  let r=dispatch(s,{id:'policy',runId:s.runId,command:{type:'shop-polic…
+     30|  expect(r.kind).toBe('ok');s=r.state; expect(s.orders).toEqual(origina…
+       |                 ^
+     31|  const request=s.orders[0];if(!request) throw Error('order');
+     32|  // This hand-written generator fixture represents an already-received…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  16:05:35
+   Duration  286ms (transform 171ms, setup 0ms, import 200ms, tests 8ms, environment 0ms)
+

@@ -1,0 +1,71 @@
+src/app/adventure.css:330:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    328 │   gap: 3px;
+    329 │ }
+  > 330 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    331 │   width: 34px;
+    332 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:345:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    343 │   background: #fff1c6;
+    344 │ }
+  > 345 │ .invitation-pegs img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    346 │   width: 38px;
+    347 │   height: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:505:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    503 │   min-height: 44px;
+    504 │ }
+  > 505 │ .free-shop-menu img {
+        │ ^^^^^^^^^^^^^^^^^^^
+    506 │   width: 40px;
+    507 │   height: 40px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+Checked 5 files in 51ms. Fixed 1 file.
+Found 3 warnings.
