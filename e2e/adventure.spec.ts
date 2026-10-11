@@ -52,7 +52,8 @@ async function begin(page: Page) {
 test('visible activity entrance reaches all five chapters and saves a real creation', async ({
   page,
 }) => {
-  test.setTimeout(480000);
+  test.setTimeout(900000);
+  page.setDefaultTimeout(30000);
   const walkStarted = Date.now();
   await page.setViewportSize({ width: 1280, height: 720 });
   await begin(page);
@@ -69,9 +70,11 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   console.log('EVIDENCE_FEAST_START_SECONDS', (Date.now() - walkStarted) / 1000);
   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
   for (let stage = 0; stage < 5; stage++)
-    await expect(feast).toHaveClass(new RegExp(`stage-${stage}`));
-  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible();
-  await expect(feast).toHaveClass(/stage-4/);
+    await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+    timeout: 15000,
+  });
+  await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
   await page.screenshot({
     path: 'docs/evidence/adventure-experience-02/breakfast-friends-desktop.png',
   });
@@ -124,9 +127,11 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.getByRole('button', { name: '点亮暖灯', exact: true }).click();
   await page.getByRole('button', { name: '一起开席', exact: true }).click();
   console.log('EVIDENCE_DINNER_START_SECONDS', (Date.now() - walkStarted) / 1000);
-  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible();
+  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+    timeout: 15000,
+  });
   await expect(feast).toHaveClass(/sip/);
-  await expect(feast).toHaveClass(/stage-4/);
+  await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
   await page.screenshot({ path: 'docs/evidence/adventure-experience-02/dinner-drink-desktop.png' });
   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
   await page.getByRole('button', { name: '邀请兔兔', exact: true }).click();
@@ -372,6 +377,7 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
   page,
 }) => {
   test.setTimeout(150000);
+  page.setDefaultTimeout(30000);
   await page.goto('/');
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();

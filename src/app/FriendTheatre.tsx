@@ -45,7 +45,9 @@ export function FriendTheatre({
     document.addEventListener('visibilitychange', resetClock);
     const timer = window.setInterval(() => {
       const now = performance.now(),
-        delta = Math.min(now - previous, 120);
+        // Retain foreground time on busy frames, while showing at most one new
+        // phase per update. Pauses/visibility still discard suspended time below.
+        delta = Math.min(now - previous, 960);
       previous = now;
       if (!document.hidden && !controller.pauses.size) {
         playhead.current = Math.min(duration, playhead.current + delta);

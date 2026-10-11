@@ -23,6 +23,7 @@ export default defineConfig({
   use: {
     baseURL,
     browserName: process.env.BROWSER === 'webkit' ? 'webkit' : 'chromium',
+    channel: process.env.BROWSER === 'webkit' ? undefined : process.env.CHROMIUM_CHANNEL,
     storageState: process.env.CI
       ? {
           cookies: [],
