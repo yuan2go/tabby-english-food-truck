@@ -1,6 +1,6 @@
 import { expect, type Page, test } from '@playwright/test';
 import { wordById } from '../src/content/learning';
-import { hot, state as worldState } from './helpers';
+import { evidencePath, hot, state as worldState } from './helpers';
 
 test.setTimeout(180000);
 const enter = async (page: Page) => {
@@ -74,7 +74,7 @@ test('desktop hunt, actual two-item delivery, recovery and no broken artwork', a
   await meaning(page);
   await take(page, '花');
   await page.getByRole('button', { name: '交付找到的物件' }).click();
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/hunt-desktop.png' });
+  await page.screenshot({ path: evidencePath('docs/evidence/minigames-vocab/hunt-desktop.png') });
   await page.getByRole('button', { name: '下一段活动' }).click();
   await expect(page.getByText('这次小院活动完成了')).toBeVisible();
 });
@@ -110,7 +110,7 @@ test('phone memory supports relook and classifies a wrong replacement separately
   );
   expect(saved.scenes['memory-0'].attempts[0].dimension).toBe('memory');
   expect(saved.scenes['memory-0'].support).toContain('memory-relook');
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/memory-phone.png' });
+  await page.screenshot({ path: evidencePath('docs/evidence/minigames-vocab/memory-phone.png') });
 });
 
 test('phone sorting accepts both-use containers without English penalties for incomplete moves', async ({
@@ -150,7 +150,7 @@ test('phone sorting accepts both-use containers without English penalties for in
     await take(page, word ?? '');
     await place(page, target ?? '');
   }
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/sort-phone.png' });
+  await page.screenshot({ path: evidencePath('docs/evidence/minigames-vocab/sort-phone.png') });
   await images(page);
   await check(page);
   await expect(page.getByText('这次小院活动完成了')).toBeVisible();
@@ -177,7 +177,7 @@ test('phone designer spatial targets and saved free mode use actual objects', as
   await page.getByRole('button', { name: '留下我的布置' }).click();
   await expect(page.locator('.scene-feedback')).toContainText('接着摆');
   await images(page);
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/design-phone.png' });
+  await page.screenshot({ path: evidencePath('docs/evidence/minigames-vocab/design-phone.png') });
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem('tabby.foodtruck.scene-mini.v1') ?? '{}'),
   );
@@ -209,7 +209,9 @@ test('desktop theatre follows actual tool and liquid prerequisites with keyboard
   await take(page, '碗');
   await place(page, '水槽');
   await page.getByRole('button', { name: '清洗碗' }).click();
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/theatre-desktop.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/minigames-vocab/theatre-desktop.png'),
+  });
   await images(page);
   await check(page);
   await expect(page.getByText('这次小院活动完成了')).toBeVisible();
@@ -388,7 +390,9 @@ test('phone five-cup layout and theatre controls remain visible and individually
       }
       const submit = await page.getByRole('button', { name: '给大咪看看' }).boundingBox();
       expect(submit?.y ?? 9999).toBeLessThan(617);
-      await page.screenshot({ path: 'docs/evidence/minigames-vocab/designer-five-phone.png' });
+      await page.screenshot({
+        path: evidencePath('docs/evidence/minigames-vocab/designer-five-phone.png'),
+      });
     }
     await check(page);
     if (count < 5) await meaning(page);
@@ -397,10 +401,12 @@ test('phone five-cup layout and theatre controls remain visible and individually
   await choose(page, '大咪动作小剧场', '朋友的水杯');
   await page.getByRole('button', { name: '看图示范' }).click();
   await expect(page.getByRole('dialog', { name: '物件与动作示范' })).toBeVisible();
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/theatre-help-phone.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/minigames-vocab/theatre-help-phone.png'),
+  });
   await page.getByRole('button', { name: '收起图示，自己试试' }).click();
   const checkBox = await page.getByRole('button', { name: '给大咪看看' }).boundingBox();
   expect(checkBox?.y ?? 9999).toBeLessThan(617);
   await images(page);
-  await page.screenshot({ path: 'docs/evidence/minigames-vocab/theatre-phone.png' });
+  await page.screenshot({ path: evidencePath('docs/evidence/minigames-vocab/theatre-phone.png') });
 });

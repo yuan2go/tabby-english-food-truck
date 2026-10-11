@@ -8,6 +8,7 @@ export default defineConfig({
   // Historical scripts and their evidence remain in the repository (see e2e/README).
   testMatch: [
     '**/minigames-vocab.spec.ts',
+    '**/demo-repair.spec.ts',
     '**/adventure.spec.ts',
     '**/experience.spec.ts',
     '**/m22-boundaries.spec.ts',
@@ -20,7 +21,19 @@ export default defineConfig({
   expect: { timeout: 6000 },
   fullyParallel: false,
   workers: 1,
-  reporter: [['list'], ['html', { open: 'never' }]],
+  outputDir: process.env.EVIDENCE_DIR ? `${process.env.EVIDENCE_DIR}/test-results` : 'test-results',
+  reporter: [
+    ['list'],
+    [
+      'html',
+      {
+        open: 'never',
+        outputFolder: process.env.EVIDENCE_DIR
+          ? `${process.env.EVIDENCE_DIR}/html`
+          : 'playwright-report',
+      },
+    ],
+  ],
   use: {
     baseURL,
     browserName: process.env.BROWSER === 'webkit' ? 'webkit' : 'chromium',

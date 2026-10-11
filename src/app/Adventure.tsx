@@ -131,7 +131,7 @@ export function Adventure({
       aria-label="小院活动桌"
       style={{ backgroundImage: `url(${assetUrl('courtyard')})` }}
     >
-      <div className="adventure-content" inert={clear}>
+      <div className="adventure-content">
         <header className="activity-header">
           <button type="button" onClick={home} aria-label="返回小院">
             ← 小院

@@ -1,3 +1,5 @@
+import { mkdirSync } from 'node:fs';
+import { basename, join } from 'node:path';
 import { expect, type Page } from '@playwright/test';
 import { REQUESTS } from '../src/content/catalog';
 import { type Product, RAW, RECIPES } from '../src/content/recipes';
@@ -271,4 +273,11 @@ export async function drag(p: Page, from: string, to: string) {
     });
   await c.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await c.detach();
+}
+
+export function evidencePath(original: string) {
+  if (!process.env.EVIDENCE_DIR) return original;
+  const dir = join(process.env.EVIDENCE_DIR, 'screenshots');
+  mkdirSync(dir, { recursive: true });
+  return join(dir, basename(original));
 }

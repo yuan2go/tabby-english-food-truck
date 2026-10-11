@@ -209,14 +209,17 @@
   background: #f9e7c099;
 }
 .theatre-controls {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(48px, 1fr));
+  flex: 0 0 48px;
+  min-width: 0;
   justify-content: center;
   gap: 4px;
 }
 .theatre-controls button {
   padding: 0 5px;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 48px;
+  min-height: 48px;
 }
 .empty-theatre {
   display: flex;
@@ -282,8 +285,8 @@
 @media (min-width: 850px) and (min-height: 501px) {
   .friend-theatre:not(.empty-theatre) {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 148px;
-    grid-template-rows: 44px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 160px;
+    grid-template-rows: 48px minmax(0, 1fr);
   }
   .theatre-track {
     grid-area: 1 / 1;
@@ -306,5 +309,23 @@
   }
   .theatre-destination {
     bottom: 12px;
+  }
+}
+
+@media (max-height: 500px) and (min-width: 600px) {
+  .friend-theatre:not(.empty-theatre) {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) 48px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .friend-theatre .theatre-track {
+    display: none;
+  }
+  .friend-theatre .theatre-action {
+    grid-area: 1 / 1;
+    min-height: 0;
+  }
+  .friend-theatre .theatre-controls {
+    grid-area: 2 / 1;
   }
 }

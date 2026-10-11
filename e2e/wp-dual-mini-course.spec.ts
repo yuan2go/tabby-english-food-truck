@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import { REQUESTS } from '../src/content/catalog';
 import { wordById } from '../src/content/learning';
 import { MINI_LEVELS } from '../src/content/mini-levels';
+import { evidencePath } from './helpers';
 
 test('theme lobby reaches a four-task listening level and restores its progress', async ({
   page,
@@ -12,7 +13,7 @@ test('theme lobby reaches a four-task listening level and restores its progress'
   await page.getByRole('button', { name: /主题关卡 ·/ }).click();
   await expect(page.getByRole('region', { name: '主题关卡' })).toBeVisible();
   await page.screenshot({
-    path: 'docs/evidence/dual-layout-playflow/mini-theme-phone-390x844.png',
+    path: evidencePath('docs/evidence/dual-layout-playflow/mini-theme-phone-390x844.png'),
   });
   await page.getByRole('button', { name: '开始', exact: true }).first().click();
   const level = MINI_LEVELS[0];

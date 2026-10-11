@@ -258,8 +258,8 @@ export function TheatreBoard(p: BoardProps) {
             ['share', 'apple'],
           ];
   return (
-    <div className="theatre-board">
-      <div className="theatre-world">
+    <div className="scene-theatre-board">
+      <div className="scene-theatre-world">
         {p.state.objects
           .filter(
             (o) =>
@@ -270,7 +270,7 @@ export function TheatreBoard(p: BoardProps) {
               ].includes(o.place),
           )
           .map((o) => (
-            <div key={o.id} className={`theatre-object location-${o.place}`}>
+            <div key={o.id} className={`scene-theatre-object location-${o.place}`}>
               <Prop object={o} send={p.send} />
               <small>
                 {o.place === 'guest'
@@ -299,7 +299,7 @@ export function TheatreBoard(p: BoardProps) {
           ))}
       </div>
       <Held {...p} />
-      <div className="theatre-places">
+      <div className="scene-theatre-places">
         <Place place="on" label="桌上" art="table" {...p} />
         {variant === 'theatre-0' ? (
           <Place place="in" label="篮内" art="basket" {...p} />
@@ -309,7 +309,7 @@ export function TheatreBoard(p: BoardProps) {
           <Place place="board" label="砧板" art="cutting-board" {...p} />
         )}
       </div>
-      <div className="theatre-controls">
+      <div className="scene-theatre-controls">
         {controls.map(([action, object]) => (
           <button
             type="button"

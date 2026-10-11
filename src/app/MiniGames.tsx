@@ -23,6 +23,7 @@ import {
   targetWord,
   wordGroups,
 } from '../rules/minigames';
+import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { MiniCourse } from './MiniCourse';
 import { SceneGames } from './SceneGames';
@@ -51,6 +52,7 @@ export function MiniGames({
   const [foundation, setFoundation] = useState<Foundation>('new');
   const [restart, setRestart] = useState(false);
   const [freshKind, setFreshKind] = useState<MiniKind | null>(null);
+  useDialogFocus(restart ? 'mini-restart' : freshKind ? 'mini-fresh' : null);
   const [slot, setSlot] = useState<number | null>(null);
   const [issue, showIssue] = useState(store.issue);
   const [speechIssue, setSpeechIssue] = useState<PlaybackResult | null>(null);
@@ -368,12 +370,12 @@ export function MiniGames({
           </div>
         </details>
         {freshKind ? (
-          <div className="mini-confirm" role="dialog" aria-label="新开活动">
+          <div className="mini-confirm" role="dialog" aria-modal="true" aria-label="新开活动">
             <p>新开一组会替换这项活动的草稿；没完成的题已用帮助仍保留。</p>
             <button type="button" onClick={() => open(freshKind, true)}>
               确认新开一组
             </button>
-            <button type="button" onClick={() => setFreshKind(null)}>
+            <button type="button" data-dialog-initial onClick={() => setFreshKind(null)}>
               继续保留
             </button>
           </div>
@@ -516,7 +518,7 @@ export function MiniGames({
         </div>
       ) : null}
       {restart ? (
-        <div className="mini-confirm" role="dialog" aria-label="重新开始小游戏">
+        <div className="mini-confirm" role="dialog" aria-modal="true" aria-label="重新开始小游戏">
           <p>重新摆这一组，已经用过的帮助仍会保留。</p>
           <button
             type="button"
@@ -529,7 +531,7 @@ export function MiniGames({
           >
             确认重新开始
           </button>
-          <button type="button" onClick={() => setRestart(false)}>
+          <button type="button" data-dialog-initial onClick={() => setRestart(false)}>
             继续这一题
           </button>
         </div>
