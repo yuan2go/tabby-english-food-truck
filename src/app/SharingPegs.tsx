@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { type AdventureState, VISITOR_NAMES } from '../content/adventure';
 import { FOOD_GROUPS, NEED_AUDIO } from '../content/adventure-experience';
 import { assetUrl } from '../game/assets';
@@ -18,11 +19,13 @@ export function SharingPegs({
   audio,
   selection,
   act,
+  canInvite,
 }: {
   a: AdventureState;
   audio: ForegroundAudio;
   selection: string;
   act: (c: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => void;
+  canInvite: boolean;
 }) {
   const [page, setPage] = useState(0);
   const needs = a.experience?.needs ?? [];
@@ -40,6 +43,26 @@ export function SharingPegs({
           ◀
         </button>
       ) : null}
+      {canInvite
+        ? (['rabbit', 'hedgehog', 'elder'] as const)
+            .filter((v) => !a.invitations.includes(v))
+            .map((v) => (
+              <button
+                type="button"
+                key={v}
+                className="world-invite"
+                data-world-target="invite"
+                aria-label={`邀请${VISITOR_NAMES[v]}`}
+                onClick={() => act({ action: 'invite', visitor: v })}
+              >
+                <img
+                  src={assetUrl(v === 'elder' ? 'elder' : `guest-${v === 'rabbit' ? 0 : 1}-2`)}
+                  alt=""
+                />
+                <small>{VISITOR_NAMES[v]}</small>
+              </button>
+            ))
+        : null}
       {needs.slice(current * 2, current * 2 + 2).map((need) => (
         <div
           className={`sharing-peg ${need.fulfilled.length ? 'need-met' : ''}`}
@@ -99,5 +122,3 @@ export function SharingPegs({
     </section>
   );
 }
-
-import { useState } from 'react';

@@ -272,6 +272,8 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await page.getByRole('button', { name: '品尝苹果汁', exact: true }).click();
   const tasted = await state(page);
   await expect(page.locator('.theatre-sip, .friend-theatre.sip')).toBeVisible();
+  await expect(page.locator('.friend-theatre')).toBeInViewport({ ratio: 1 });
+  await expect(page.getByRole('button', { name: '重看朋友使用', exact: true })).toBeInViewport();
   await page.waitForTimeout(900);
   await page.screenshot({
     path: 'docs/evidence/adventure-experience-02/friend-drinking-phone.png',

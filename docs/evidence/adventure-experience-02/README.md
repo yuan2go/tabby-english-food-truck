@@ -35,6 +35,8 @@
 
 第一候选 `055219d0558eec105e6e990f0001470f7971c4c4` 的生产浏览器为6/8通过、exit 1：[原始日志](failures/browser-055219d.log)。桌面五章到第五章时触发300秒测试总时限，画面已做好两份食品；第二候选采用420秒并实际完整通过6.7分钟五章；为最终画面复核保留480秒余量，全部规则断言保留。[失败画面](failures/five-chapter-time-limit.png)。手机旧食谱入口被小游戏挡住为真实布局缺陷，现已修正并实际点开；[失败画面](failures/covered-home-book.png)、[上下文](failures/covered-home-book-context.md)。
 
+手机截图还暴露邀请区撑宽场景、朋友演出部分出屏的真实布局缺陷：[原始画面](failures/phone-scene-overflow.png)。邀请与分享改用同一完整宽度行、网格允许收缩；最终用实际品尝及全区域视口断言复核。f531590的复查因这一发现主动中止，exit130，1 interrupted / 2 NOT_RUN，[中止日志](failures/browser-f531590-interrupted.log)，不记为通过。
+
 a8d945a第二候选为6/8、exit 1：自由全流程90秒总时限到达，已有实际品尝、回看及恢复；最终改用150秒并复查，不据超时推断产品通过。菜单客流用例因正常语音完成把heard从false改为true导致完整对象比较失败；改为通过可见按钮实际重听并等待真实完成后再取完整基线，不删除或放宽原对象相等断言。[自由超时上下文](failures/free-run-time-limit-context.md)、[正常播放差异](failures/order-audio-completion-context.md)。
 
 `failures/*-red.log` 是缺陷补回归时的真实失败：客流/身份、容量恢复、收据使用者、已品尝食品不能重复分享、彩旗真实摆放、已完成章清桌、排队后辅助记录与同场回访记忆。另保留资源登记ID遗漏及严格可选属性类型失败；之后分别修正，没有删除断言或降低规则。

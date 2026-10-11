@@ -53,6 +53,7 @@ export function Adventure({
   if (!a) return null;
   const chapter = ADVENTURES[a.chapter];
   const completed = !!a.rewards.length;
+  const canInvite = a.chapter === 4 || completed || a.kind === 'shop';
   const food = a.foods.find((f) => f.id === selection);
   const act = (command: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => {
     const r = controller.command({ type: 'adventure', ...command });
@@ -162,33 +163,14 @@ export function Adventure({
           </button>
         </header>
         <div
-          className={`activity-world ${a.experience?.needs.length ? 'has-sharing-needs' : ''} ${drawerTools(a).length ? 'with-tool-shelf' : ''}`}
+          className={`activity-world ${canInvite ? 'has-sharing-needs' : ''} ${drawerTools(a).length ? 'with-tool-shelf' : ''}`}
         >
           <div className="scene-objects">
             {a.chapter === 2 && a.branch === 'rabbit'
               ? object('basket', '检查野餐篮', 'basket')
               : object('drawer', '打开储物抽屉', 'drawer')}
             {object('recipe', '翻开旧食谱', 'book')}
-            {a.chapter === 4 || completed || a.kind === 'shop' ? (
-              <div className="invitation-pegs">
-                {(['rabbit', 'hedgehog', 'elder'] as const).map((v) => (
-                  <button
-                    type="button"
-                    key={v}
-                    aria-label={`邀请${VISITOR_NAMES[v]}`}
-                    data-world-target="invite"
-                    aria-pressed={a.invitations.includes(v)}
-                    onClick={() => act({ action: 'invite', visitor: v })}
-                  >
-                    <img
-                      src={assetUrl(v === 'elder' ? 'elder' : `guest-${v === 'rabbit' ? 0 : 1}-2`)}
-                      alt=""
-                    />
-                    {VISITOR_NAMES[v]}
-                  </button>
-                ))}
-              </div>
-            ) : (
+            {!canInvite ? (
               <div
                 className="scene-seed"
                 role="img"
@@ -202,7 +184,7 @@ export function Adventure({
                       : '◯ ◯'
                   : '?'}
               </div>
-            )}
+            ) : null}
           </div>
           <ToolShelf a={a} take={(object) => act({ action: 'take-tool', object })} />
           <PicnicBasket a={a} />
@@ -348,7 +330,7 @@ export function Adventure({
             ))}
           </div>
           <WorldFoods a={a} selection={selection} select={setSelection} act={act} />
-          <SharingPegs a={a} audio={audio} selection={selection} act={act} />
+          <SharingPegs a={a} audio={audio} selection={selection} act={act} canInvite={canInvite} />
           {book ? (
             <section className="world-recipe" aria-label="食谱中的活动与作品">
               <button type="button" aria-label="收起食谱" onClick={() => setBook(false)}>

@@ -67,7 +67,7 @@
   width: min(100%, 1000px);
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: 70px 65px minmax(110px, 1fr) 94px;
   gap: 6px 20px;
   padding: 0 16px;
@@ -498,22 +498,6 @@
   min-height: 44px;
   padding: 0;
 }
-.invitation-pegs {
-  display: flex;
-  gap: 4px;
-}
-.invitation-pegs button {
-  min-width: 44px;
-  padding: 0 3px;
-  font-size: 11px;
-  background: #fff1c6;
-}
-.invitation-pegs img {
-  width: 30px;
-  height: 36px;
-  object-fit: contain;
-  display: block;
-}
 .sharing-pegs {
   position: absolute;
   top: 76px;
@@ -547,6 +531,16 @@
   min-width: 44px;
   min-height: 44px;
   padding: 2px;
+}
+.world-invite img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
+}
+.world-invite small {
+  display: block;
+  font-size: 10px;
 }
 .has-sharing-needs .friends-at-table {
   display: none;
@@ -843,7 +837,7 @@
     padding: 0 7px;
     gap: 4px 9px;
     grid-template-rows: 54px 55px minmax(90px, 1fr) 72px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .scene-objects {
     height: 54px;
@@ -1059,14 +1053,6 @@
   }
   .chapter-4 .friends-at-table {
     opacity: 0.25;
-  }
-  .invitation-pegs img {
-    width: 26px;
-    height: 34px;
-  }
-  .invitation-pegs button {
-    padding: 0 1px;
-    font-size: 9px;
   }
   .activity-footer {
     padding: 3px 7px 6px;
