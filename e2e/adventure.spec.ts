@@ -53,6 +53,7 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   page,
 }) => {
   test.setTimeout(420000);
+  const walkStarted = Date.now();
   await page.setViewportSize({ width: 1280, height: 720 });
   await begin(page);
   await kitchen(page);
@@ -65,6 +66,15 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.getByRole('button', { name: '取出浇水壶', exact: true }).click();
   await page.getByRole('button', { name: '给迎客花浇水', exact: true }).click();
   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  console.log('EVIDENCE_FEAST_START_SECONDS', (Date.now() - walkStarted) / 1000);
+  const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+  for (let stage = 0; stage < 5; stage++)
+    await expect(feast).toHaveClass(new RegExp(`stage-${stage}`));
+  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible();
+  await expect(feast).toHaveClass(/stage-4/);
+  await page.screenshot({
+    path: 'docs/evidence/adventure-experience-02/breakfast-friends-desktop.png',
+  });
   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
   await kitchen(page);
   await send(page, 0, 'vanilla-cone');
