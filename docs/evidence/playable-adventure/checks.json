@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-11",
+  "environment": {
+    "os": "macOS 26.6.2 (25G83)",
+    "architecture": "arm64",
+    "node": "24.15.0",
+    "npm": "11.12.1",
+    "browser": "Chromium 153.0.8010.12",
+    "viewport": "390x844 phone; 1440x900 desktop; existing boundary short landscape"
+  },
+  "content": "playable-adventure-1",
+  "assetManifest": "9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead",
+  "checks": [
+    {
+      "command": "npm test",
+      "exit": 0,
+      "result": "241/241 in 17 files",
+      "log": "unit-final.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "exit": 0,
+      "log": "typecheck-final.log"
+    },
+    {
+      "command": "npm run lint",
+      "exit": 0,
+      "result": "54 warnings / 7 infos / no errors",
+      "log": "lint-final.log"
+    },
+    {
+      "command": "npm run build -- --outDir /tmp/adventure-anchor-dist",
+      "exit": 0,
+      "result": "clean 5b4b2c5 source; Phaser chunk warning",
+      "log": "build-anchor.log"
+    },
+    {
+      "command": "npm run resources",
+      "exit": 0,
+      "result": "347 files / 196 speech references / 50 food concepts",
+      "log": "resources.log"
+    },
+    {
+      "command": "npm run test:browser",
+      "exit": 0,
+      "result": "13/13 on clean d5f3008; default graphics; normal visible entrance",
+      "log": "browser-integration-pass.log"
+    },
+    {
+      "command": "TEST_PORT=4175 npx playwright test e2e/m22-boundaries.spec.ts --grep 'phone wrong delivery' --output /tmp/adventure-anchor-results-solo",
+      "exit": 0,
+      "result": "1/1 on clean 5b4b2c5 runtime with strengthened occupied busy-tray assertion",
+      "log": "browser-anchor-phone-pass.log"
+    },
+    {
+      "command": "physical rapid drag and cancel probe (normal touch events, read-only state audit)",
+      "exit": 0,
+      "result": "drag starts 21.9ms after taking second apple, within 240ms animation; food/attempts retained",
+      "log": "quick-drag-pass.log"
+    },
+    {
+      "command": "CI=true npx playwright test --list",
+      "exit": 0,
+      "result": "13 tests in 6 files; not hosted CI acceptance",
+      "log": "ci-test-list.log"
+    }
+  ],
+  "archiveSessionsChecked": 51,
+  "limits": {
+    "ownerExperience": "PENDING",
+    "physicalIPhone15ProChrome": "NEEDS_REVISION historical / new build NOT_RUN",
+    "childrenObservation": "NOT_RUN",
+    "teachingReview": "NOT_RUN",
+    "humanListening": "NOT_RUN",
+    "rights": "PENDING",
+    "60fps": "NOT_MET historical / no new measurement",
+    "deployment": "NOT_RUN",
+    "hostedCI": "PENDING"
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "file": "feast-desktop.png",
+    "width": 1440,
+    "height": 900,
+    "sha256": "caf3b13ac4c60386bdeeafee2681c573f9afe2414a1fa58989ca625abb10dac2",
+    "build": "d5f3008e85ccbf236974088be198054ab0f9e5bf"
+  },
+  {
+    "file": "free-shop-phone.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "268b8f36181ece6a4940ac387825d6009de660bd1c310af920cbc94e0a572d91",
+    "build": "d5f3008e85ccbf236974088be198054ab0f9e5bf"
+  },
+  {
+    "file": "kitchen-desktop-mouse.png",
+    "width": 1440,
+    "height": 900,
+    "sha256": "283a3c829cf017376e446a7da9a79d3def38c6dfe2b9ea3d93a2de151b8ed4b4",
+    "build": "d5f3008e85ccbf236974088be198054ab0f9e5bf"
+  },
+  {
+    "file": "picnic-hedgehog-phone.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "dc91190722852b03aeb181e1882f9448b92371ef3f8bdfefd35273751f172f92",
+    "build": "d5f3008e85ccbf236974088be198054ab0f9e5bf"
+  },
+  {
+    "file": "picnic-rabbit-desktop.png",
+    "width": 1440,
+    "height": 900,
+    "sha256": "2111ffb0df58618bf6669b3976a40244292541b6ac93916e7064cca7152461a5",
+    "build": "d5f3008e85ccbf236974088be198054ab0f9e5bf"
+  },
+  {
+    "file": "quick-drag-phone.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "98db0f7e83939193699a6e0f8758c040872f31d3414afe01a5b27894c0cf0efc",
+    "build": "5b4b2c598a7ac6f622b5f0e58212d81c9868fc2d"
+  }
+]

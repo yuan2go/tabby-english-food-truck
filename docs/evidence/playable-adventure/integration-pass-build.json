@@ -1,0 +1,12 @@
+{
+  "browser": "153.0.8010.12",
+  "url": "http://127.0.0.1:4174/",
+  "identity": {
+    "data-build-sha": "d5f3008e85ccbf236974088be198054ab0f9e5bf",
+    "data-build-dirty": "false",
+    "data-content-version": "playable-adventure-1",
+    "data-asset-version": "9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead",
+    "data-audio-state": "{\"active\":null,\"failure\":null,\"loops\":[],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"not-created\",\"effects\":0}"
+  },
+  "at": "2026-10-11T08:53:12.118Z"
+}

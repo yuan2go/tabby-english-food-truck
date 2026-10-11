@@ -1,0 +1,8 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+e2e/m22-boundaries.spec.ts(50,36): error TS2339: Property 'tray' does not exist on type 'OutputTarget'.
+  Property 'tray' does not exist on type '{ station: "board"; slot: number; }'.
+e2e/m22-boundaries.spec.ts(63,74): error TS2339: Property 'tray' does not exist on type 'OutputTarget'.
+  Property 'tray' does not exist on type '{ station: "board"; slot: number; }'.
