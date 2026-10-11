@@ -1,0 +1,61 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts e2e/m22-boundaries.spec.ts e2e/m22-growth.spec.ts e2e/wp-dual-growth.spec.ts -g opening a new seat|free shop stops|audio loading failure|growth|menu
+
+[WebServer] (node:57098) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:57184) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:57230) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/adventure.spec.ts:189:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (21.3s)
+  ✘  2 e2e/adventure.spec.ts:283:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (20.2s)
+(node:57333) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/m22-boundaries.spec.ts:148:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (7.1s)
+  ✓  4 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (22.2s)
+  ✓  5 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (18.0s)
+
+
+  1) e2e/adventure.spec.ts:283:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+
+    TimeoutError: locator.boundingBox: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for locator('[data-hotspot="guest-0"]')
+
+
+       at helpers.ts:9
+
+       7 |   p.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2') ?? '{}'));
+       8 | export async function hot(p: Page, id: string, dy = 0) {
+    >  9 |   const b = await p.locator(`[data-hotspot="${id}"]`).boundingBox();
+         |                                                       ^
+      10 |   if (!b) throw Error(id);
+      11 |   return { x: b.x + b.width / 2, y: b.y + b.height / 2 + dy };
+      12 | }
+        at hot (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/helpers.ts:9:55)
+        at tap (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/helpers.ts:14:19)
+        at send (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:30:9)
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:301:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:283:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+  4 passed (1.6m)

@@ -1,0 +1,86 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:56190) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:56258) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:56304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:47:1 › visible activity entrance reaches all five chapters and saves a real creation (2.7m)
+  ✓   2 e2e/adventure.spec.ts:148:1 › phone replay follows hedgehog path with real food and no packing task (53.0s)
+  ✓   3 e2e/adventure.spec.ts:189:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (22.1s)
+  ✓   4 e2e/adventure.spec.ts:234:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (12.2s)
+  ✓   5 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (39.4s)
+  ✘   6 e2e/m22-boundaries.spec.ts:148:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (16.9s)
+(node:56795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (22.0s)
+  ✓   8 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (17.9s)
+  ✓   9 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (35.0s)
+  ✓  10 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (6.6s)
+  ✓  11 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (16.9s)
+  ✓  12 e2e/wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress (4.2s)
+
+
+  1) e2e/m22-boundaries.spec.ts:148:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '声音状态', exact: true })
+        - locator resolved to <button type="button" aria-label="声音状态">♫!</button>
+      - attempting tap action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" class="activity-kitchen-link">到活动桌</button> intercepts pointer events
+        - retrying tap action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" class="activity-kitchen-link">到活动桌</button> intercepts pointer events
+        - retrying tap action
+          - waiting 100ms
+        13 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <button type="button" class="activity-kitchen-link">到活动桌</button> intercepts pointer events
+         - retrying tap action
+           - waiting 500ms
+
+
+      160 |   expect((await state(page)).items).toHaveLength(1);
+      161 |   expect((await state(page)).attempts).toHaveLength(before);
+    > 162 |   await page.getByRole('button', { name: '声音状态', exact: true }).tap();
+          |                                                                 ^
+      163 |   const failed = await page.locator('main').getAttribute('data-audio-state');
+      164 |   expect(failed).toContain('failure');
+      165 |   await page.unroute('**/audio/*.wav*');
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:162:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-audio-loadi-7c1df-or-creates-a-language-error/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-audio-loadi-7c1df-or-creates-a-language-error/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-audio-loadi-7c1df-or-creates-a-language-error/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:148:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error 
+  11 passed (6.9m)
