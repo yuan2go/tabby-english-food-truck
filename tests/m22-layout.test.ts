@@ -39,3 +39,14 @@ it('all five station ingredient hit areas remain independently selectable', () =
       }
   }
 });
+
+it('desktop and Pad tray handles stay above the entire device and commission row', () => {
+  for (const [width, height] of [
+    [1280, 720],
+    [768, 1024],
+    [1024, 768],
+  ] as const) {
+    const l = layoutFor(width, height, 'service');
+    for (const tray of l.trays) expect(tray.y + 96).toBeLessThanOrEqual(l.regions.action.y - 8);
+  }
+});

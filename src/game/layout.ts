@@ -147,14 +147,14 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
             x: single ? t.x + t.width * 0.5 : t.x + t.width * 0.25,
             y:
               form === 'desktop' || form === 'tablet'
-                ? t.y + t.height * 0.58
+                ? Math.min(t.y + t.height * 0.58, regions.action.y - 104)
                 : regions.action.y - 96,
           },
           {
             x: t.x + t.width * 0.75,
             y:
               form === 'desktop' || form === 'tablet'
-                ? t.y + t.height * 0.58
+                ? Math.min(t.y + t.height * 0.58, regions.action.y - 104)
                 : regions.action.y - 96,
           },
         ]

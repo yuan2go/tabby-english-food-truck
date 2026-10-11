@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-layout.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck
+
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  01:35:52
+   Duration  163ms (transform 49ms, setup 0ms, import 64ms, tests 3ms, environment 0ms)
+
