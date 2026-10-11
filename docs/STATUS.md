@@ -1,5 +1,12 @@
 # 项目状态
 
+## 2026-10-12 · WP-ENGLISH-IMMERSION-01 · IN_PROGRESS
+
+baseline `64f03fc716de70e20f64f9bbc3802de7601a460f`，origin/main；隔离worktree `/Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck`，分支 `codex/wp-english-immersion-01`。原工作区`docs/playtests/`未跟踪内容保留，不复制/覆盖。先文档治理独立提交，再编码。上一合同已归档到[索引](archive/pre-english-immersion-01/index.md)，原失败/权利/待办保留。
+
+本包工程验证待执行；人工听审/教研/真机/儿童试玩NOT_RUN；声音权利PENDING；历史真机NEEDS_REVISION、60fps NOT_MET保持。不推送/PR/合并/部署。
+
+
 ## 2026-10-11 · WP-PLAYABLE-ADVENTURE-01 · ENGINEERING_PASS / OWNER_ACCEPTANCE_PENDING
 
 初始默认分支origin/main、原工作区基线 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`，当时干净。独立worktree `/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck`、分支 `codex/wp-playable-adventure-01`，一个实现负责人。独立文档整理提交 `616b66df0226daec2b601d843f14f0e809806bd6` 先于产品实现；最后运行源码提交 `5b4b2c598a7ac6f622b5f0e58212d81c9868fc2d`，本次交付提交还收录测试断言与最终证据。已推送[PR #11](https://github.com/yuan2go/tabby-english-food-truck/pull/11)，最终完整SHA以PR当前head与交付回复为准。

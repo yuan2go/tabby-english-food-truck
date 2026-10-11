@@ -26,3 +26,9 @@ schema7/content playable-adventure-1 增加可选活动状态与自由营业接�
 目标60fps、输入p95<100ms等是预算，本包不无依据宣称达标；默认画质/省电、模拟/实机分别报告。构建保留Phaser分块警告。仅必要回归；共享库存与迁移改动应运行完整现有单元套件，浏览器不扩大无关矩阵。
 
 吐司、旧方案与历史技术证据见[归档](archive/pre-playable-adventure-01/index.md)；真实结果见STATUS。
+
+## WP-ENGLISH-IMMERSION-01 边界
+
+content/dialogue统一类型化语义参数、完整文本、目标词、整句资源ID、角色及触发；订单catalog消费同一语义生成器，speech与离线制作登记由同一语料导出。不维护第二套订单判定或音频播放器。平台dialogue从实际规则状态差分生成接收/加工/行动事件，短句组件只呈现与重播。前景ForegroundAudio继续唯一通道，生命周期取消；规则进度不由声音决定。重听历史有界、运行态不写通关快照；活动作品/回访文本由已保存真实食品派生，无新增存档schema。
+
+语音离线macOS Samantha完整句录制，明确DEVELOPMENT_TTS_UNREVIEWED、rights PENDING、人听NOT_RUN。不拼接词、不运行时合成、不录儿童声音。脚本验证文本/音频路径/hash/唯一映射与可达语料；数据化覆盖语法和分支。默认字幕在实际交付attempt支持中保留caption-visible，profile请求交付写meaning而非纯listening；历史记录原样保留。

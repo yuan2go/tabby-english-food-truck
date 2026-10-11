@@ -1,17 +1,23 @@
-# 交付与验收 · WP-PLAYABLE-ADVENTURE-01
+# 交付与验收 · WP-ENGLISH-IMMERSION-01
 
 **Goal:** 五章共同活动贯通、野餐真实双路径、自由厨房/开店/成长/恢复完整可玩。
 **Architecture:** 单一规则核增有限活动状态，真实接收驱动任务与分支；规则、表现、保存各负一责。
 **Tech Stack:** 现有锁定React/Phaser/TypeScript/Vite；不新增依赖。
 **Spec:** 01范围、02规则、03体验、04工程为唯一权威。
 
-## 简短实施顺序
+## 本包实施顺序与审查
 
-- [x] 0 文档治理：只读核对main/SHA/工作区/实现/存档与资源；归档过期重复正文并索引；统一01–05/README/STATUS，独立文档提交。此勾选仅表示文档整理。
-- [x] 1 野餐核心：先写失败行为用例（严格错单保留、成功接收才决定兔兔/刺刺路径、两种不同操作、食品/奖励守恒）；实现content/adventure、rules/adventure与actions接收边界，再做schema7迁移/恢复用例与快照校验；定向单元→全单元→阶段提交。
-- [x] 2 五章与活动桌：将野餐接口推广其余四章，Controller按真实活动收据同步成长；Adventure组件投影物件/真实食品/摆放/品尝/作品，Story与Home突出当前活动，App只接线。先浏览器入口断言失败，再实现；通过正常入口完成五章、记录第三章分支和自由作品。
-- [x] 3 自由开店与回访：FreeShop组件选已介绍菜单/主题，规则仅影响新客；完成后继续制作/布置/重访、停止接客/收摊，保存作品与活动记忆；验证刷新/暂停/切换/重玩/拒存边界，阶段提交。
-- [x] 4 必要验证与交付：typecheck/lint/build/resources，完整共享核心单元；手机与桌面代表路径、五章主线、野餐另一路、自由制作/旧档恢复；少量截图/录像；修实际失败，更新STATUS与AI/资源登记，提交push/PR，不合并不部署。
+- [ ] 0 核对baseline及现有文档/订单/音频/帮助/学习/场景，归档上一合同并修正文档冲突；独立文档提交先于编码。
+- [ ] 1 `content/dialogue` 与请求语义：先数据化失败用例，再完整语法/容器/组合/开放范围与实际语音映射；离线整句录制及资源登记，不覆盖旧资源/证据。
+- [ ] 2 `platform/dialogue`/`ForegroundAudio`：先事件/取消失败用例，再真实接收/加工/动作/分享回访触发，复用单通道；当前句重试及有界回看。
+- [ ] 3 `app/Dialogue`/ServiceControls/Adventure与布局：默认完整英文、目标词、大重听按钮、双客切换及按需图示；请求理解记录与播放/操作分开，兼容旧存档。
+- [ ] 4 正常入口浏览器代表路径及故障/暂停/后台/持盘/双客/移动无遮挡；现有强制typecheck/lint/unit/build/resources，受影响浏览器用例；最终审查、阶段提交、STATUS及证据读回。不推送/PR/合并/部署。
+
+接口：订单→统一语料；真实状态差分→DialogueTurn；DOM→ForegroundAudio.play（整句）；音频结果→既有独立audio日志；交付→既有attempt＋caption-visible。审查重点：双客同句误归属、后台恢复补播、失败旧句重试、长句小屏遮挡、无历史回访虚构。测试复用现有规则和音频设施，不为每句建E2E。
+
+## 本包必要证据
+
+I01：全部可达明确/开放请求语法、语义参数、整句文本资源映射；I02：receive/品尝后反馈，失败无成功台词；I03：默认字幕、大按钮、重复重播取消、切客/持盘不交付；I04：正常入口接待链、小院行动、开放多方案、分享/保存/历史回访；I05：暂停/后台/静音/资源失败恢复及移动短横屏无遮挡；I06：原存档、五章/分支/自由厨房/小游戏门禁。工程与人工听审/教研/真机/儿童测试分别列实际结果。
 
 ## 必须证明的行为
 
@@ -34,9 +40,4 @@
 
 ## Git与交付
 
-一包一个实现负责人；独立codex/分支/worktree、阶段提交、push/PR，不自动合并、强推、改权限、启用工作流、部署或覆盖无关修改。报告baseline/final full SHA、分支/PR、行为与取舍、实际命令/退出码/环境、浏览器路径、限制与启动方式。GitHub源码不是可玩网址；本地npm run dev或build后preview。历史记录与测试证据见[归档索引](archive/pre-playable-adventure-01/index.md)。
-
-工程与Git交付已完成：[草稿PR #11](https://github.com/yuan2go/tabby-english-food-truck/pull/11)，实际验证/失败/构建身份见[本包证据](evidence/playable-adventure/README.md)。负责人及外部验收仍按STATUS分别待审。
-
-
-2026-10-11负责人另行明确授权“不测试，将代码、报告、文档与刚刚执行产物全部提交推送、输出数量、PR并合并main”，替代上述本包不合并限制。统一交付仅复制打包现存产物并读取Git/GitHub，不运行测试或构建、不部署；既有PR #11继续承载，提交及合并采用`[skip ci]`。具体范围、提交数量与结果见[云端交付记录](evidence/playable-adventure/cloud-delivery.md)。
+一包一个负责人；独立codex分支/worktree，文档及实现阶段提交。不擅自推送、创建PR、合并或部署，不覆盖原工作区改动。交付baseline/final full SHA、分支、实际命令/退出码/环境、正常入口HTTP路径与限制。上一包授权不沿用至本包；历史Git记录与有效证据见[归档](archive/pre-english-immersion-01/index.md)，本包结果见STATUS。
