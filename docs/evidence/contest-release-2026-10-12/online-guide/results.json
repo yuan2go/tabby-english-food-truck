@@ -1,0 +1,42 @@
+{
+  "baseline": "2a7b774a33d6586aa586bb6a3ed59c9ac2b83405",
+  "observedOnlineVersion": 2,
+  "observedSource": "d39514cd139fa06814df59b991a144d029753644",
+  "failure": "Pad/short-landscape diagram children overflow a flex-shrunk goal-pictures button and overlap the optional Chinese caption. Complete English conversation remains visible.",
+  "fix": "Container query on the guide itself hides only the supplemental Chinese caption and decorative dot below 400px; no request, receipt or game-rule change.",
+  "inputs": {
+    "src/app/adventure.css": "9a82101d63adba88505421c0802ae689e0d74b38036b9a797bb90adea86c9967",
+    "e2e/adventure.spec.ts": "6b779749589b725a50701c3976fe241243d130384bfcd2bb708e0d0877342b02",
+    "docs/03-experience-design.md": "28dd37ec66613eb46588241e59c0f05da99b31a43f4e155a25a1df8f07de64d2"
+  },
+  "checks": [
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "npx biome check src/app/adventure.css e2e/adventure.spec.ts",
+      "exitCode": 0,
+      "warnings": 14
+    },
+    {
+      "command": "npx playwright test e2e/adventure.spec.ts -g low-motion-receipts (before CSS fix)",
+      "exitCode": 1,
+      "failed": 1
+    },
+    {
+      "command": "same Playwright case after fix",
+      "exitCode": 0,
+      "passed": 1,
+      "viewports": [
+        "1280x720",
+        "393x665",
+        "852x300",
+        "768x1024"
+      ],
+      "duration": "18.3 seconds"
+    }
+  ],
+  "environment": "macOS ARM64; Node22.12.0; Chromium153; existing normal homepage and actual apple receipt; low-motion preference; saves read-only; dirty local build explicitly contains this CSS change",
+  "CI": "PENDING new precise head; existing integration CI 33/33 remains historical evidence for cbdd515."
+}

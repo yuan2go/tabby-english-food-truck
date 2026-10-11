@@ -1388,6 +1388,14 @@
 }
 .goal-guide {
   position: relative;
+  container-type: inline-size;
+}
+/* The optional caption yields to the diagram and replay controls in a narrow guide. */
+@container (max-width: 400px) {
+  .goal-guide > .guide-caption,
+  .goal-guide .guide-dots {
+    display: none;
+  }
 }
 .guide-demonstration .scene-icon {
   width: 36px;
