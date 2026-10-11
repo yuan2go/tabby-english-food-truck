@@ -96,7 +96,7 @@ test('individual food and the whole tray remain distinct through touch, rehearin
   await expect(handle).toHaveAttribute('aria-pressed', 'true');
   expect((await state(page)).items).toEqual(foods);
   await page.screenshot({ path: evidencePath('whole-tray-phone.png') });
-  await page.getByRole('button', { name: '点请求气泡重听', exact: true }).tap();
+  await page.getByRole('button', { name: '重听客人A的请求', exact: true }).tap();
   await expect(handle).toHaveAttribute('aria-pressed', 'true');
   await handle.tap();
   await expect(handle).toHaveAttribute('aria-pressed', 'false');

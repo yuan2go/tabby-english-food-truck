@@ -30,7 +30,7 @@ test('normal entrance: complete requests, actual receipt, yard actions, open fla
   await expect(sentence(page)).toHaveText('Can I have a banana, please?');
   await choosePrep(page, '● 1号盘');
   await tap(page, 'supply-banana');
-  await handOver(page, 1);
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders.every((o) => o.status === 'done'), {
       timeout: 18000,
@@ -202,6 +202,8 @@ test('phone: held tray and two guests replay without delivery; cancellation, pau
   await expect(sentence(page)).toHaveText('Can I have a banana, please?');
   await page.screenshot({ path: info.outputPath('phone-request.png') });
   await page.setViewportSize({ width: 852, height: 393 });
+  await expect(page.locator('canvas')).toHaveAttribute('data-world-width', '852');
+  await expect(page.locator('canvas')).toHaveAttribute('data-world-height', '393');
   const panel = await page.locator('.conversation').boundingBox();
   expect(panel).toBeTruthy();
   if (!panel) throw Error('sentence panel missing');

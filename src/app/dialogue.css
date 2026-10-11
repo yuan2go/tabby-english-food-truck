@@ -142,3 +142,28 @@
   width: 28px;
   height: 28px;
 }
+
+/* Beside the activity world, the sentence uses space that never belonged to food or exit controls. */
+@media (min-width: 600px) {
+  .adventure-scene .adventure-content {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.27fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .adventure-scene .adventure-content > .activity-header {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .adventure-scene .adventure-content > .conversation {
+    grid-area: 2 / 1;
+    align-self: start;
+    margin: 0 4px 4px 8px;
+  }
+  .adventure-scene .adventure-content > .activity-world {
+    grid-area: 2 / 2;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .adventure-scene .adventure-content > .activity-footer {
+    grid-area: 3 / 1 / 4 / 3;
+  }
+}

@@ -103,9 +103,9 @@ function physicalLayout(
     };
     regions = {
       top,
-      guests: row(92 + extra * 0.35 - deficit * 0.3),
-      work: row(108 + extra * 0.45 - deficit * 0.5),
-      trays: row(132 + extra * 0.2 - deficit * 0.2),
+      guests: row(64 + extra * 0.35 - deficit * 0.15),
+      work: row(149 + extra * 0.45 - deficit * 0.25),
+      trays: row(119 + extra * 0.2 - deficit * 0.6),
       action: row(48),
       supplies: row(72),
       feedback: row(28),
@@ -131,11 +131,11 @@ function physicalLayout(
   const single = mode !== 'service';
   const guests: [Point, Point] = [
     {
-      x: g.x + g.width * (form === 'desktop' ? 0.3 : 0.18),
+      x: g.x + g.width * (form === 'desktop' ? 0.3 : form === 'short' ? 0.25 : 0.18),
       y: g.y + (landscape ? Math.min(105, g.height * 0.56) : g.height - 40),
     },
     {
-      x: g.x + g.width * (form === 'desktop' ? 0.68 : 0.48),
+      x: g.x + g.width * (form === 'desktop' ? 0.68 : form === 'short' ? 0.75 : 0.48),
       y: g.y + (landscape ? Math.min(105, g.height * 0.56) : g.height - 40),
     },
   ];
@@ -219,7 +219,8 @@ function physicalLayout(
     supplies,
     clear: center(regions.feedback),
     trayWidth,
-    guestHeight: form === 'desktop' ? 130 : Math.max(48, Math.min(90, g.height - 44)),
+    guestHeight:
+      form === 'desktop' ? 130 : Math.max(48, Math.min(form === 'short' ? 52 : 90, g.height - 44)),
     actorHeight:
       form === 'desktop'
         ? 170
@@ -321,7 +322,7 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     l.regions.top.width = width - 16;
     return { ...l, dialogue: { x: 8, y: 60, width: side - 16, height: height - 70 } };
   }
-  const reserve = 132;
+  const reserve = width < 600 ? 104 : 132;
   const l = physicalLayout(width, height - reserve, mode, { width, height });
   for (const name of Object.keys(l.regions) as (keyof Layout['regions'])[])
     if (name !== 'top') l.regions[name].y += reserve;

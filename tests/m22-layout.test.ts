@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { stationPoint, stationSlotPoint } from '../src/game/KitchenView';
+import { stationActionPoint, stationPoint, stationSlotPoint } from '../src/game/KitchenView';
 import {
   layoutFor,
   projectActor,
@@ -122,5 +122,18 @@ it('the 48px recovery action has its own slot beside the ingredient bank', () =>
     expect(r.x + 48).toBeLessThanOrEqual(w);
     expect(r.y + 48).toBeLessThanOrEqual(h);
     for (let i = 0; i < 5; i++) expect(supplyPoint(l, i, 5).x + 22).toBeLessThan(r.x);
+  }
+});
+
+it('phone station selection and start are separate from its five ingredient positions', () => {
+  const l = layoutFor(393, 665);
+  for (const id of ['ice', 'board'] as const) {
+    const device = stationPoint(id, l);
+    const action = stationActionPoint(id, l);
+    expect(action.y - 24).toBeGreaterThan(device.y + (95 * l.scale) / 2);
+    for (let n = 0; n < 5; n++) {
+      const food = stationSlotPoint(id, n, l);
+      expect(Math.abs(food.x - action.x) >= 46 || food.y + 22 <= action.y - 24).toBe(true);
+    }
   }
 });

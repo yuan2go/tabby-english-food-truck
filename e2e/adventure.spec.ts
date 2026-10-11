@@ -489,7 +489,7 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
     await pendingMenu.getByRole('button', { name: '这次先不加 ↗', exact: true }).click();
   // Finish the real replay before comparing the complete accepted-order snapshot.
   // Audio completion legitimately changes `heard`; menu/seat policy must change nothing else.
-  await page.getByRole('button', { name: '点请求气泡重听', exact: true }).click();
+  await page.getByRole('button', { name: '重听客人A的请求', exact: true }).click();
   await expect
     .poll(async () => (await state(page)).orders[0]?.heard, { timeout: 15000 })
     .toBe(true);
