@@ -1,0 +1,46 @@
+[WebServer] (node:46813) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+(node:46859) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure-flow.spec.ts:9:3 › one connected scene flow 393 (27.6s)
+  ✓   2 e2e/adventure-flow.spec.ts:9:3 › one connected scene flow 1280 (35.0s)
+  ✓   3 e2e/adventure-flow.spec.ts:63:1 › listening to the full prologue starts the same first task (1.9s)
+  ✓   4 e2e/adventure-flow.spec.ts:73:1 › less support keeps an audio bubble while holding a tray (4.4s)
+  ✘   5 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (11.4s)
+
+
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Test was interrupted.
+
+    Error: locator.tap: Test ended.
+    Call log:
+      - waiting for locator('.yard-endless .entry-main')
+
+
+      68 |   const frozen = await state(page);
+      69 |   await page.reload();
+    > 70 |   await page.locator('.yard-endless .entry-main').tap();
+         |                                                   ^
+      71 |   await page.getByRole('button', { name: '开始 / 继续' }).tap();
+      72 |   await lesson(page);
+      73 |   const restored = await state(page);
+        at /Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:70:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 interrupted
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  10 did not run
+  4 passed (1.4m)

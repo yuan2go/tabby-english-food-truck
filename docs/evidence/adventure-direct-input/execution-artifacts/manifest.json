@@ -1,0 +1,233 @@
+{
+  "scope": "All current task-specific temporary logs/checkpoints, latest browser outputs, and existing production build. Earlier overwritten temporary videos are unavailable; selected earlier evidence remains in parent directory.",
+  "runtimeSHA": "d874531f565f558d4a51cdb5b245b6beb06ee0a9",
+  "operations": "Copy/hash/package only; tests/build/lint/resources not run during archival.",
+  "sourceMappings": [
+    {
+      "source": "/tmp/tabby-adventure-browser-ci.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-browser-ci.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-browser-final.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-browser-final.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-browser-verified.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-browser-verified.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-clean-build.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-clean-build.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-default-desktop.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-default-desktop.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-entry-build.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-build.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-entry-lint.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-lint.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-entry-targeted.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-targeted.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-entry-unit.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-unit.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-final-clean-build.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-final-clean-build.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-final-lint.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-final-lint.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-final-unit.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-final-unit.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-initial-build.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-initial-build.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-production-build.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-production-build.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-replay-build.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-replay-build.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-replay-red-corrected.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-replay-red-corrected.log"
+    },
+    {
+      "source": "/tmp/tabby-adventure-replay-red.log",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-replay-red.log"
+    },
+    {
+      "source": "/tmp/tabby-before-overlap.storage.json",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/checkpoints/tabby-before-overlap.storage.json"
+    },
+    {
+      "source": "/tmp/tabby-before-parallel.storage.json",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/checkpoints/tabby-before-parallel.storage.json"
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/test-results",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/test-results"
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/playwright-report",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/playwright-report"
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/dist",
+      "archive": "docs/evidence/adventure-direct-input/execution-artifacts/production-build.tar.gz",
+      "kind": "tar.gz; existing build only; no rebuild"
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/checkpoints/tabby-before-overlap.storage.json",
+      "bytes": 127490,
+      "sha256": "42a87d917c9bd41ee1d420705468b27469f20e2136f51828b90035ee5430c972"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/checkpoints/tabby-before-parallel.storage.json",
+      "bytes": 166537,
+      "sha256": "2612e2bc72f4bfe75b26d3b107d5bd1cb67b6656f52f1928a43eee1fe7653379"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/playwright-report/data/1bf4d1990b6155f70f17372a722d93f52863978e.png",
+      "bytes": 1430411,
+      "sha256": "c75064eff26c6a2d6eab695fdbecacf6ff142ce2af7cca7bf950449f76fec543"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/playwright-report/data/a4ec41dd6c2ca8da453d5a572b829f3782c0b57d.md",
+      "bytes": 7012,
+      "sha256": "db5e20826b694df4d4639d533a09c84aa218e9f072f3b84d003c7453315bea6b"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/playwright-report/index.html",
+      "bytes": 575379,
+      "sha256": "47ca50a895de016444bdc6fd760c5e068bdeeab4ce7807733fc1f253f4d1f6dd"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/production-build.tar.gz",
+      "bytes": 16591571,
+      "sha256": "369a8ac315afa6e0305c9d8eaca2f9766ec897065b55d1e94bb13cefca96d726"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-browser-ci.log",
+      "bytes": 3227,
+      "sha256": "6916193d2a85455ede3dc74188f137489cc155c9e7fa7d6c7381096f2b69382d"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-browser-final.log",
+      "bytes": 7011,
+      "sha256": "81c95c94dd1f8b5f97023be37a1090afd5a09606aeef061461d363bd4d2cb5b3"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-browser-verified.log",
+      "bytes": 2778,
+      "sha256": "ce2d58b1d6accfc99c4949095a76bcd5721a322806a613e02ddc6b880c98e4be"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-clean-build.log",
+      "bytes": 887,
+      "sha256": "5eac5f02211c47306713ca2c4c053b79e919a41a4242af9ec0e20b756131bd21"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-default-desktop.log",
+      "bytes": 3195,
+      "sha256": "e79a912589a43c85ba6abff44e43859978264ced74a52e55c3d3db71f64dcbd6"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-build.log",
+      "bytes": 887,
+      "sha256": "1825623f4f66831d2a6d1a73c928206629b5d371e47a99ed24bff451c37dad8c"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-lint.log",
+      "bytes": 18522,
+      "sha256": "eed525014444eddd153f931c5dc2989d836741884736aecc1b87339b3a298111"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-targeted.log",
+      "bytes": 546,
+      "sha256": "a5be123e89dc965c0fba401d45dcceff1ae77bec9c9897c7ff765b1bb26fc3ae"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-entry-unit.log",
+      "bytes": 324,
+      "sha256": "d347c2e47a1e10c4736eef7741b9d627d764a7c611a2e0d1ce21c67a229d6abf"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-final-clean-build.log",
+      "bytes": 887,
+      "sha256": "46534e92810284d01d66958da4318ba4fe801a9d6032d648c3bf667468bc575d"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-final-lint.log",
+      "bytes": 18241,
+      "sha256": "86c11b4e455d053ee43dd29c7de3c8cdf6a434f43176052dbb30bbe14204fd47"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-final-unit.log",
+      "bytes": 324,
+      "sha256": "88a503d9e00299c56ecd5e4de9baf0be190d2ab1dade00b8042652df53b3afa0"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-initial-build.log",
+      "bytes": 887,
+      "sha256": "472adafccbfdc343aaf07ad16d8f6dbeb1e5cef4cbd272ee910355351aa23da2"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-production-build.log",
+      "bytes": 887,
+      "sha256": "c262f7bd19a72aac2d7244143e15be7af962f1b1db69338117437567cc0d2f79"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-replay-build.log",
+      "bytes": 887,
+      "sha256": "4fc458b7af2b13671d7862d96f455c04465d20bdfb3cdfb723be0425f72923d9"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-replay-red-corrected.log",
+      "bytes": 2855,
+      "sha256": "1912e845f02e5e77f28f9ce625ef07c74e43556463cbcda322cf787274257374"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/raw-logs/tabby-adventure-replay-red.log",
+      "bytes": 2829,
+      "sha256": "777fb45e686f1a91d67e59b8d94d7639d2a2cf7210b8d4b9e02a03bf45d25ade"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/test-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "c04e393c250b8a4ff9d23aae94a3b681636f8b2bad8a9541b2dd176a3d0e9856"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/test-results/full-story-video/page@1fe38c7969452ddb6b97312c6e3d152e.webm",
+      "bytes": 54001664,
+      "sha256": "67cb3f56f23a8735f6a18aacab53e8967d42b2996c411fadcc5a260e02a78ec0"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/test-results/wp-dual-story-throughline--2e90e-through-every-service-level/error-context.md",
+      "bytes": 7012,
+      "sha256": "db5e20826b694df4d4639d533a09c84aa218e9f072f3b84d003c7453315bea6b"
+    },
+    {
+      "path": "docs/evidence/adventure-direct-input/execution-artifacts/test-results/wp-dual-story-throughline--2e90e-through-every-service-level/test-failed-1.png",
+      "bytes": 1430411,
+      "sha256": "c75064eff26c6a2d6eab695fdbecacf6ff142ce2af7cca7bf950449f76fec543"
+    }
+  ]
+}

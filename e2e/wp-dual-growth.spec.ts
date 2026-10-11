@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { hot } from './helpers';
+import { handOver, hot, tap } from './helpers';
 
 test('deferred menu introduction returns after another completed order', async ({ page }) => {
   test.setTimeout(90000);
@@ -11,10 +11,10 @@ test('deferred menu introduction returns after another completed order', async (
   if (await firstLesson.count())
     await firstLesson.getByRole('button', { name: '我来试试', exact: true }).click();
   for (let served = 1; served <= 2; served++) {
-    await page.getByRole('button', { name: '食材直接放盘' }).click();
+    await tap(page, 'tray-0', 26);
     const point = await hot(page, 'supply-apple');
     await page.mouse.click(point.x, point.y);
-    await page.getByRole('button', { name: '送餐 ↗', exact: true }).click();
+    await handOver(page);
     await expect(page.getByRole('dialog', { name: '今日新菜单' })).toBeVisible({
       timeout: 20000,
     });

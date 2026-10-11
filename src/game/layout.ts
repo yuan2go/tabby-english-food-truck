@@ -29,6 +29,18 @@ export interface Layout {
   actorHeight: number;
 }
 const center = (r: Region): Point => ({ x: r.x + r.width / 2, y: r.y + r.height / 2 });
+/** Shared physical-tool and activity handoff row; targets never cover each other. */
+export function kitchenActions(l: Layout, toolCount: number, commission: boolean) {
+  const r = l.regions.action;
+  if (!commission) return { tools: r, handoff: null };
+  const width = Math.min(l.width - 16, Math.max(r.width, toolCount * 44 + 80));
+  const x = Math.max(8, r.x + r.width - width);
+  const handoffWidth = Math.min(132, width - toolCount * 44 - 8);
+  return {
+    tools: { ...r, x, width: width - handoffWidth - 8 },
+    handoff: { ...r, x: x + width - handoffWidth, width: handoffWidth },
+  };
+}
 /** All positions are allocated from measured content space, in CSS pixels.
  * The host owns viewport and safe-area accounting; this function never subtracts it again. */
 export function layoutFor(width: number, height: number, mode: Mode = 'service'): Layout {

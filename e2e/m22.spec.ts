@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { lesson, startStory, state, tap } from './helpers';
+import { handOver, lesson, startStory, state, tap } from './helpers';
 
 test.use({
   viewport: { width: 393, height: 665 },
@@ -31,7 +31,7 @@ test('M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies'
   };
   await hit('supply-apple');
   await tap(page, 'supply-apple');
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders[0]?.status, { timeout: 18000 })
     .toBe('done');
@@ -54,7 +54,7 @@ test('M22 two-tap fruit, four-tap juice, pause and measured unobscured supplies'
     )
     .toBe(true);
   await page.screenshot({ path: info.outputPath('juice-393x665-dpr3.png') });
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders[1]?.status, { timeout: 18000 })
     .toBe('done');

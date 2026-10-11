@@ -613,7 +613,9 @@ export function decodeSnapshot(raw: string): DecodeResult {
     if (
       record(value) &&
       value.schemaVersion === 6 &&
-      ['m2.2', 'm2.3-story-1', CONTENT_VERSION].includes(String(value.contentVersion))
+      ['m2.2', 'm2.3-story-1', 'm2.4-adventure-1', CONTENT_VERSION].includes(
+        String(value.contentVersion),
+      )
     ) {
       value.schemaVersion = 7;
       value.contentVersion = CONTENT_VERSION;

@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { REQUESTS } from '../content/catalog';
-import { type Family, isFinished, type Product, SUPPLY_PAGES } from '../content/recipes';
+import { isFinished, SUPPLY_PAGES } from '../content/recipes';
 import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
 import { stationPoint } from '../game/KitchenView';
+import { kitchenActions } from '../game/layout';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { openCommission } from '../rules/adventure';
@@ -14,150 +14,50 @@ interface Props {
   controller: GameController;
   audio: ForegroundAudio;
   ui: ViewState;
-  waiting: Order[];
   selected: Order | undefined;
   selectedItem: Item | null | undefined;
   picture: boolean | undefined;
   caption: string | null;
   setCaption: (id: string | null) => void;
-  help: () => void;
-  family: (f: Family) => void;
 }
 export function ServiceControls({
   controller,
   audio,
   ui,
-  waiting,
   selected,
   selectedItem,
   picture,
   caption,
   setCaption,
-  family,
 }: Props) {
-  const [menu, setMenu] = useState(false),
-    [targets, setTargets] = useState(false);
   const s = controller.state,
     l = ui.layout;
   if (!l) return null;
-  const send = (o: Order) => {
-    ui.selectedGuest = o.id;
-    activate(`send-${o.id}`, controller, audio, ui);
-    ui.change();
-    setTargets(false);
-  };
+  const g = selected ? l.guests[selected.seat] : l.guests[0];
   const commission = openCommission(s.adventure);
-  const r = l.regions.action,
-    g = selected ? l.guests[selected.seat] : l.guests[0];
+  const handoff = kitchenActions(l, s.session.unlocked.length, !!commission).handoff;
   return (
     <>
-      {s.session.unlocked.length > 1 ? (
-        <div className="recipe-switch" style={{ left: l.stage.x + l.stage.width - 104, top: 4 }}>
-          <button
-            type="button"
-            aria-label="选择食谱"
-            aria-expanded={menu}
-            onClick={() => setMenu(!menu)}
-          >
-            ▤ 食谱
-          </button>
-          {menu ? (
-            <fieldset className="recipe-options" aria-label="选择食谱工作台">
-              {s.session.unlocked.map((f) => (
-                <button
-                  type="button"
-                  key={f}
-                  aria-pressed={s.session.family === f}
-                  onClick={() => {
-                    family(f);
-                    setMenu(false);
-                  }}
-                >
-                  <span aria-hidden="true" className="recipe-option-picture">
-                    <Food
-                      product={
-                        {
-                          juice: 'juice',
-                          ice: 'vanilla-cone',
-                          sandwich: 'sandwich',
-                          burger: 'burger',
-                          ready: 'apple',
-                        }[f] as Product
-                      }
-                    />
-                  </span>
-                  {
-                    {
-                      juice: '果汁',
-                      ice: '冰淇淋',
-                      sandwich: '三明治',
-                      burger: '汉堡',
-                      ready: '水果与预制点心',
-                    }[f]
-                  }
-                </button>
-              ))}
-            </fieldset>
-          ) : null}
-        </div>
-      ) : null}
-      {ui.hotspots
-        .filter((h) => h.kind === 'start')
-        .map((h) => {
-          const station = h.id.startsWith('start-station-')
-            ? (h.id.slice(14) as 'ice' | 'board' | 'grill')
-            : null;
-          const status = station ? s.stations[station].status : s.machine.status;
-          const verb =
-            station === 'ice'
-              ? '接好冰淇淋'
-              : station === 'grill'
-                ? '煎熟肉饼'
-                : station === 'board'
-                  ? '盖合食物'
-                  : '榨成果汁';
-          return (
-            <button
-              type="button"
-              key={h.id}
-              className="station-action"
-              style={{
-                left: h.x - h.width / 2,
-                top: h.y - h.height / 2,
-                width: h.width,
-                minHeight: h.height,
-              }}
-              disabled={status === 'processing' || status === 'ready'}
-              onClick={() => activate(h.id, controller, audio, ui)}
-            >
-              {status === 'processing'
-                ? '制作中…'
-                : status === 'ready'
-                  ? '已完成，看看托盘'
-                  : `▶ ${verb}`}
-            </button>
-          );
-        })}
-      {s.session.family !== 'ready' ? (
+      {commission && handoff ? (
         <button
           type="button"
-          className="tray-prep-action"
-          aria-pressed={ui.prep === 'tray'}
-          style={{
-            left:
-              l.form === 'phone'
-                ? l.regions.trays.x + l.regions.trays.width - 86
-                : l.regions.trays.x + 8,
-            top: l.regions.trays.y + 2,
-          }}
+          className="commission-handoff primary"
+          style={{ left: handoff.x, top: handoff.y, width: handoff.width, height: handoff.height }}
           onClick={() => {
-            ui.prep = 'tray';
-            ui.selected = null;
-            controller.message = `食材会直接放到${ui.selectedTray + 1}号盘。要制作时点设备。`;
+            const result = controller.command({
+              type: 'adventure',
+              action: commission.action,
+              tray: ui.selectedTray,
+            });
+            ui.feedback = result.message;
+            if (result.kind === 'ok') {
+              ui.selected = null;
+              audio.effect('place');
+            } else audio.effect('gentle');
             ui.change();
           }}
         >
-          {l.form === 'phone' ? '放盘' : '食材直接放盘'}
+          {commission.label}
         </button>
       ) : null}
       {s.session.family === 'ready' ? (
@@ -176,56 +76,6 @@ export function ServiceControls({
           ↔ 换一篮 {s.session.supplyPage + 1}/{SUPPLY_PAGES.length}
         </button>
       ) : null}
-      <div
-        className={`delivery-actions ${commission ? 'has-commission' : ''}`}
-        style={{ left: r.x, top: r.y, width: r.width, height: r.height }}
-      >
-        {waiting.length ? (
-          targets && waiting.length > 1 ? (
-            <fieldset aria-label="选择送餐客人">
-              {waiting.map((o) => (
-                <button type="button" key={o.id} onClick={() => send(o)}>
-                  送给{o.seat === 0 ? '左边' : '右边'}客人 ↗
-                </button>
-              ))}
-            </fieldset>
-          ) : (
-            <button
-              type="button"
-              className="primary"
-              aria-expanded={waiting.length > 1 ? targets : undefined}
-              onClick={() => {
-                if (waiting.length === 1 && waiting[0]) send(waiting[0]);
-                else {
-                  const chosen = waiting.find((o) => o.id === ui.selectedGuest);
-                  if (chosen) send(chosen);
-                  else setTargets(!targets);
-                }
-              }}
-            >
-              {waiting.length > 1 && waiting.some((o) => o.id === ui.selectedGuest)
-                ? `送给${waiting.find((o) => o.id === ui.selectedGuest)?.seat === 0 ? '左边' : '右边'}客人 ↗`
-                : '送餐 ↗'}
-            </button>
-          )
-        ) : null}
-        {commission ? (
-          <button
-            type="button"
-            className="primary"
-            onClick={() => {
-              const r = controller.command({
-                type: 'adventure',
-                action: commission.action,
-                tray: ui.selectedTray,
-              });
-              if (r.kind === 'ok') audio.effect('place');
-            }}
-          >
-            {commission.label}
-          </button>
-        ) : null}
-      </div>
       {selectedItem
         ? (() => {
             const h = ui.hotspots.find((h) => h.id === `item-${selectedItem.id}`);
@@ -284,7 +134,7 @@ export function ServiceControls({
           ↶ 恢复成品
         </button>
       ) : null}
-      {picture && selected ? (
+      {selected ? (
         <button
           type="button"
           className="request-picture"
@@ -294,11 +144,13 @@ export function ServiceControls({
             top: l.regions.guests.y,
             width: 120,
           }}
-          onClick={() => activate(selected.id, controller, audio, ui)}
+          onClick={() => activate(`listen-${selected.id}`, controller, audio, ui)}
         >
-          {teachingFigures(REQUESTS[selected.request].products).map(({ product, id }) => (
-            <Food key={id} product={product} />
-          ))}
+          {(picture ? teachingFigures(REQUESTS[selected.request].products) : []).map(
+            ({ product, id }) => (
+              <Food key={id} product={product} />
+            ),
+          )}
           <span>♫</span>
         </button>
       ) : null}

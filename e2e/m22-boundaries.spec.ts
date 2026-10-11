@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { layoutFor } from '../src/game/layout';
-import { hot, lesson, startEndless, startStory, state, tap } from './helpers';
+import { handOver, hot, lesson, startEndless, startStory, state, tap } from './helpers';
 
 test.use({
   viewport: { width: 393, height: 665 },
@@ -25,13 +25,12 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     )
     .toBe(2);
   await tap(page, 'tray-0');
-  await page.getByRole('button', { name: /^(放盘|食材直接放盘)$/ }).tap();
+  await tap(page, 'tray-0', 26);
   await tap(page, 'supply-banana');
   await expect
     .poll(async () => (await state(page)).items.find((item) => item.product === 'banana')?.location)
     .toMatch(/^tray:0:/);
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
-  await page.getByRole('group', { name: '选择送餐客人' }).getByRole('button').first().tap();
+  await handOver(page);
   expect((await state(page)).attempts.at(-1)?.result).toBe('request-mismatch');
   const banana = (await state(page)).items[0];
   if (!banana) throw Error('banana');
@@ -63,7 +62,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     expect(stillFull.items.some((item) => item.id === apple?.id)).toBe(false);
   } else expect(stillFull.items).toEqual(full.items);
   const attempts = (await state(page)).attempts.length;
-  await page.getByRole('button', { name: '送给左边客人 ↗', exact: true }).tap();
+  await handOver(page, 0);
   expect((await state(page)).attempts).toHaveLength(attempts);
   await page.getByRole('button', { name: '暂停', exact: true }).tap();
   const frozen = await state(page);

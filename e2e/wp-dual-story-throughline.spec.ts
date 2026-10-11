@@ -2,7 +2,7 @@ import { expect, type Page, test } from '@playwright/test';
 import { REQUESTS } from '../src/content/catalog';
 import { RAW } from '../src/content/recipes';
 import { STORY_LEVELS, storyRequests, storyVisitors } from '../src/content/story-levels';
-import { choosePrep, make, state, tap } from './helpers';
+import { choosePrep, handOver, make, state, tap } from './helpers';
 
 async function overlapGrillAndSecondTray(page: Page) {
   const lesson = page.getByRole('dialog', { name: '场景小教学' });
@@ -13,13 +13,9 @@ async function overlapGrillAndSecondTray(page: Page) {
   await page.getByRole('button', { name: '▶ 煎熟肉饼' }).tap();
   expect((await state(page)).stations.grill.status).toBe('processing');
   await choosePrep(page, '● 2号盘');
-  await page.getByRole('button', { name: '选择食谱' }).tap();
-  await page
-    .getByRole('group', { name: '选择食谱工作台' })
-    .getByRole('button', { name: '果汁', exact: true })
-    .tap();
+  await tap(page, 'family-juice');
   await expect(page.locator('.loading-page')).toHaveCount(0);
-  await page.getByRole('button', { name: '食材直接放盘' }).tap();
+  await tap(page, 'tray-1', 26);
   await tap(page, 'supply-apple');
   const simultaneous = await state(page);
   expect(
@@ -29,19 +25,15 @@ async function overlapGrillAndSecondTray(page: Page) {
   ).toBe(true);
   expect(simultaneous.stations.grill.status).toBe('processing');
   await page.screenshot({
-    path: 'docs/evidence/dual-layout-playflow/overlap-prep-desktop-1440x900.png',
+    path: 'docs/evidence/adventure-direct-input/overlap-prep-desktop-1440x900.png',
   });
-  await page.getByRole('button', { name: '选择食谱' }).tap();
-  await page
-    .getByRole('group', { name: '选择食谱工作台' })
-    .getByRole('button', { name: '汉堡', exact: true })
-    .tap();
+  await tap(page, 'family-burger');
   await expect(page.locator('.loading-page')).toHaveCount(0);
   await page.screenshot({
-    path: 'docs/evidence/dual-layout-playflow/overlap-desktop-1440x900.png',
+    path: 'docs/evidence/adventure-direct-input/overlap-desktop-1440x900.png',
   });
   await tap(page, 'guest-1');
-  await page.getByRole('button', { name: '送给右边客人 ↗' }).tap();
+  await handOver(page, 1, 1);
   await expect
     .poll(async () => (await state(page)).orders[1]?.status, { timeout: 20000 })
     .toBe('done');
@@ -59,7 +51,7 @@ async function overlapGrillAndSecondTray(page: Page) {
       timeout: 15000,
     })
     .toBe(true);
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders[0]?.status, { timeout: 20000 })
     .toBe('done');
@@ -69,30 +61,18 @@ async function overlapTwoDevices(page: Page) {
   const lesson = page.getByRole('dialog', { name: '场景小教学' });
   if (await lesson.count()) await lesson.getByRole('button', { name: '我来试试' }).tap();
   await choosePrep(page, '● 1号盘');
-  await page.getByRole('button', { name: '选择食谱' }).tap();
-  await page
-    .getByRole('group', { name: '选择食谱工作台' })
-    .getByRole('button', { name: '汉堡', exact: true })
-    .tap();
+  await tap(page, 'family-burger');
   await expect(page.locator('.loading-page')).toHaveCount(0);
   await tap(page, 'station-grill');
   await tap(page, 'supply-patty');
   await choosePrep(page, '● 2号盘');
-  await page.getByRole('button', { name: '选择食谱' }).tap();
-  await page
-    .getByRole('group', { name: '选择食谱工作台' })
-    .getByRole('button', { name: '果汁', exact: true })
-    .tap();
+  await tap(page, 'family-juice');
   await expect(page.locator('.loading-page')).toHaveCount(0);
   await tap(page, 'supply-banana');
   await tap(page, 'supply-cup');
   await page.getByRole('button', { name: '▶ 榨成果汁' }).tap();
   expect((await state(page)).machine.status).toBe('processing');
-  await page.getByRole('button', { name: '选择食谱' }).tap();
-  await page
-    .getByRole('group', { name: '选择食谱工作台' })
-    .getByRole('button', { name: '汉堡', exact: true })
-    .tap();
+  await tap(page, 'family-burger');
   await expect(page.locator('.loading-page')).toHaveCount(0);
   await choosePrep(page, '● 1号盘');
   await tap(page, 'station-grill');
@@ -101,7 +81,7 @@ async function overlapTwoDevices(page: Page) {
   expect(simultaneous.machine.status).toBe('processing');
   expect(simultaneous.stations.grill.status).toBe('processing');
   await page.screenshot({
-    path: 'docs/evidence/dual-layout-playflow/parallel-devices-desktop-1440x900.png',
+    path: 'docs/evidence/adventure-direct-input/parallel-devices-desktop-1440x900.png',
   });
   await expect
     .poll(async () => (await state(page)).items.some((item) => item.product === 'banana-juice'), {
@@ -110,7 +90,7 @@ async function overlapTwoDevices(page: Page) {
     .toBe(true);
   await choosePrep(page, '● 2号盘');
   await tap(page, 'guest-1');
-  await page.getByRole('button', { name: '送给右边客人 ↗' }).tap();
+  await handOver(page, 1, 1);
   await expect
     .poll(async () => (await state(page)).orders[1]?.status, { timeout: 20000 })
     .toBe('done');
@@ -128,7 +108,7 @@ async function overlapTwoDevices(page: Page) {
       timeout: 15000,
     })
     .toBe(true);
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders[0]?.status, { timeout: 20000 })
     .toBe('done');
@@ -148,7 +128,6 @@ test('normal entrance reaches the community feast through every service level', 
   await page.goto('/');
   await page.locator('.yard-story .entry-main').tap();
   await page.getByRole('button', { name: '跳过序章' }).tap();
-  await page.getByRole('button', { name: '帮朋友完成这关' }).tap();
 
   for (const [index, level] of STORY_LEVELS.entries()) {
     console.log(`story progress ${index + 1}/${STORY_LEVELS.length}: ${level.id}`);
@@ -191,13 +170,9 @@ test('normal entrance reaches the community feast through every service level', 
             if (!(await state(page)).session.unlocked.includes('juice'))
               throw Error('missing juice');
             if ((await state(page)).session.family !== 'juice') {
-              await page.getByRole('button', { name: '选择食谱' }).tap();
-              await page
-                .getByRole('group', { name: '选择食谱工作台' })
-                .getByRole('button', { name: '果汁', exact: true })
-                .tap();
+              await tap(page, 'family-juice');
             }
-            await page.getByRole('button', { name: '食材直接放盘' }).tap();
+            await tap(page, `tray-${order.seat}`, 26);
             await tap(page, `supply-${product}`);
           } else {
             const id = await make(page, product);
@@ -209,14 +184,7 @@ test('normal entrance reaches the community feast through every service level', 
             }
           }
         }
-        if ((await state(page)).orders.filter((o) => o.status === 'waiting').length > 1) {
-          await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
-          await page
-            .getByRole('button', {
-              name: order.seat === 0 ? '送给左边客人 ↗' : '送给右边客人 ↗',
-            })
-            .tap();
-        } else await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+        await handOver(page, order.seat, order.seat);
         await expect
           .poll(async () => (await state(page)).orders.find((o) => o.id === order.id)?.status, {
             timeout: 20000,
@@ -228,7 +196,7 @@ test('normal entrance reaches the community feast through every service level', 
     if (index === STORY_LEVELS.length - 1) {
       await expect(page.locator('.ending')).toContainText('小院里的朋友，都到齐啦');
       await page.screenshot({
-        path: 'docs/evidence/dual-layout-playflow/story-finale-1440x900.png',
+        path: 'docs/evidence/adventure-direct-input/story-finale-1440x900.png',
       });
     } else if (STORY_LEVELS[index + 1]?.choice) {
       const next = STORY_LEVELS[index + 1];

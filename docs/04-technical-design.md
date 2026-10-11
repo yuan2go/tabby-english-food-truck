@@ -9,7 +9,7 @@
 | 有限章目标/委托/探索/主题 | content/adventure.ts；可食用产品来自recipes与catalog |
 | 活动规则、接收、分支、作品、守恒 | rules/adventure.ts；adventure命令和角色receive事件调用 |
 | 物品/设备/时钟/订单 | 现有rules/game/cooking/actions；严格订单保留原判定 |
-| 新版快照 | rules/snapshot.ts/schema7；保留旧schema3–6与m2.3-story-1迁移 |
+| 新版快照 | rules/snapshot.ts/schema7；保留旧schema3–6与m2.3-story-1/m2.4-adventure-1迁移 |
 | 活动入口与保存/成长同步 | platform/controller与ProfileStore；单活动可恢复，有限长期记忆 |
 | 厨房/小院/活动桌表现 | App仅组合，独立Adventure/FreeShop组件；既有TruckScene/ActorView复用 |
 
@@ -17,7 +17,7 @@
 
 schema7/content playable-adventure-1 增加可选活动状态与自由营业接客策略，旧档只迁移字段，未有活动收据的新增目标保持未完成。新活动使用独立 story-X-adventure 会话键；旧营业入口保留原会话指针，进入新活动再刷新后仍可恢复原食品、任务与加工。旧levelId会话继续原关，不暗改订单；旧完成章保留历史，活动完成另记。不推断旧章奖励或新作品。当前键tabby.foodtruck.save.m2、profile.m2保持，旧M1另键原文保留；损坏/未来档阻止覆盖且可导出/明确重开。迁移先完整校验旧版本关系再接受新版本。
 
-命令runId/commandId有界去重；角色/机器只用有效游戏时钟，暂停/后台丢大delta。已经接单不被菜单/主题/客流重写。物品、槽位与预留一致；加工的输出绑定盘、cancel释放；delivery接收与重读档不能复制食品/奖励。再玩新run可以产生新食品，长期章礼物去重，作品按有限记录保留。活动内最多12份食品/8件作品，长期最多16次活动记忆并保留每章最新完成收据，避免重玩挤掉已开放章节。
+命令runId/commandId有界去重；角色/机器只用有效游戏时钟，暂停/后台丢大delta；有效慢帧1000ms以内单次最多推进250ms，不因400ms渲染帧冻结加工，不补暂停时间。已经接单不被菜单/主题/客流重写。物品、槽位与预留一致；加工的输出绑定盘、cancel释放；delivery接收与重读档不能复制食品/奖励。再玩新run可以产生新食品，长期章礼物去重，作品按有限记录保留。活动内最多12份食品/8件作品，长期最多16次活动记忆并保留每章最新完成收据，避免重玩挤掉已开放章节。
 
 本地资源URL附实际manifest hash，来源/权利不随构建改为已审核。构建注入真实SHA/dirty/content/assets/时间；页面与设置可核验。DOM/Canvas同layout、语义按钮调用正常命令，无测试通关后门。输入取消、卸载解除订阅/捕获/音频/计时；低动态不影响规则。
 

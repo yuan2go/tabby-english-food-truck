@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { lesson, state, tap } from './helpers';
+import { handOver, lesson, state, tap } from './helpers';
 
 test.use({
   viewport: { width: 393, height: 665 },
@@ -17,8 +17,9 @@ test('teaching fruit is the real ingredient; fresh endless explicitly introduces
   await page.getByRole('button', { name: '来试一下 →', exact: true }).tap();
   await page.getByRole('button', { name: '苹果', exact: true }).tap();
   await expect.poll(async () => (await state(page)).items.map((i) => i.product)).toEqual(['apple']);
+  expect((await state(page)).items[0]?.location).toMatch(/^tray:0:/);
   await expect(page.getByRole('dialog', { name: '场景小教学' })).toHaveCount(0);
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   const growth = page.getByRole('dialog', { name: '今日新菜单' });
   await expect(growth).toBeVisible({ timeout: 18000 });
   expect((await state(page)).session.menu).toEqual(['apple']);
@@ -29,7 +30,7 @@ test('teaching fruit is the real ingredient; fresh endless explicitly introduces
   const picture = page.getByRole('button', { name: '点请求气泡重听' });
   const label = await picture.locator('img').getAttribute('alt');
   await tap(page, label?.includes('香蕉') ? 'supply-banana' : 'supply-apple');
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect(growth).toBeVisible({ timeout: 18000 });
   await growth.getByRole('button', { name: '加入今日菜单', exact: true }).tap();
   expect((await state(page)).session.menu).toEqual(['apple', 'banana', 'juice']);

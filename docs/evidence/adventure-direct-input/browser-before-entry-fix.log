@@ -1,0 +1,96 @@
+[WebServer] (node:47691) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:47739) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure-flow.spec.ts:9:3 › one connected scene flow 393 (27.3s)
+  ✓   2 e2e/adventure-flow.spec.ts:9:3 › one connected scene flow 1280 (37.3s)
+  ✓   3 e2e/adventure-flow.spec.ts:63:1 › listening to the full prologue starts the same first task (1.6s)
+  ✓   4 e2e/adventure-flow.spec.ts:73:1 › less support keeps an audio bubble while holding a tray (3.2s)
+  ✓   5 e2e/adventure-flow.spec.ts:88:1 › replaying the preceding page offers an explicit new branch instead of a completed snapshot (1.3m)
+  ✓   6 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (25.6s)
+  ✓   7 e2e/m22-boundaries.spec.ts:147:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (5.2s)
+  ✘   8 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (21.4s)
+(node:47878) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   9 e2e/m22-playability-visible.spec.ts:172:1 › visible picture and recipe walk completes four cooking families and mixed late service (1.2m)
+
+
+  1) e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: '今日新菜单' })
+    Expected: visible
+    Timeout: 18000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: '今日新菜单' }) with timeout 18000ms
+      - waiting for getByRole('dialog', { name: '今日新菜单' })
+
+
+      21 |   await handOver(page);
+      22 |   const growth = page.getByRole('dialog', { name: '今日新菜单' });
+    > 23 |   await expect(growth).toBeVisible({ timeout: 18000 });
+         |                        ^
+      24 |   expect((await state(page)).session.menu).toEqual(['apple']);
+      25 |   await growth.getByRole('button', { name: '加入今日菜单', exact: true }).tap();
+      26 |   expect((await state(page)).session.menu).toEqual(['apple', 'banana']);
+        at /Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/e2e/m22-growth.spec.ts:23:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-growth-teaching-fruit--4ede0-ntroduces-banana-then-juice/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-growth-teaching-fruit--4ede0-ntroduces-banana-then-juice/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-growth-teaching-fruit--4ede0-ntroduces-banana-then-juice/error-context.md
+
+  2) e2e/m22-playability-visible.spec.ts:172:1 › visible picture and recipe walk completes four cooking families and mixed late service 
+
+    Test was interrupted.
+
+    Error: locator.tap: Test ended.
+    Call log:
+      - waiting for getByRole('button', { name: '看看客人想要什么' })
+        - locator resolved to <button type="button">看看客人想要什么</button>
+      - attempting tap action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing tap action
+
+
+      28 |
+      29 | async function click(target: Locator, kind: keyof typeof cost) {
+    > 30 |   await target.tap();
+         |                ^
+      31 |   cost[kind]++;
+      32 | }
+      33 |
+        at click (/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/e2e/m22-playability-visible.spec.ts:30:16)
+        at pictureRequest (/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/e2e/m22-playability-visible.spec.ts:48:9)
+        at /Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck/e2e/m22-playability-visible.spec.ts:193:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-playability-visible-vi-72799-lies-and-mixed-late-service/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-playability-visible-vi-72799-lies-and-mixed-late-service/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-playability-visible-vi-72799-lies-and-mixed-late-service/error-context.md
+
+  1 failed
+    e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice 
+  1 interrupted
+    e2e/m22-playability-visible.spec.ts:172:1 › visible picture and recipe walk completes four cooking families and mixed late service 
+  7 did not run
+  7 passed (4.6m)

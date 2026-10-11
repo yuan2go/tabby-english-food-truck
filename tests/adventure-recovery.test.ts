@@ -1,5 +1,7 @@
+import { readFileSync } from 'node:fs';
 import { expect, it, vi } from 'vitest';
 import { emptyAdventure } from '../src/content/adventure';
+import { kitchenActions, layoutFor } from '../src/game/layout';
 import { GameController } from '../src/platform/controller';
 import { emptyProfile, ProfileStore } from '../src/platform/profile';
 import { SaveStore } from '../src/platform/save';
@@ -212,4 +214,55 @@ it('first activity food is observed as first exposure and replay as a revisit', 
   }
   expect(new ProfileStore(() => storage).value.receivedProducts).toEqual(['apple']);
   vi.unstubAllGlobals();
+});
+
+it('migrates real PR10 archived session snapshots without changing food, actor or support', () => {
+  let checked = 0;
+  for (const file of ['tabby-before-parallel.storage.json', 'tabby-before-overlap.storage.json']) {
+    const archive = JSON.parse(
+      readFileSync(
+        new URL(
+          `../docs/evidence/adventure-direct-input/execution-artifacts/checkpoints/${file}`,
+          import.meta.url,
+        ),
+        'utf8',
+      ),
+    );
+    for (const origin of archive.origins)
+      for (const entry of origin.localStorage) {
+        if (!entry.name.startsWith('tabby.foodtruck.save.m2')) continue;
+        const original = JSON.parse(entry.value);
+        if (original.schemaVersion !== 6 || original.contentVersion !== 'm2.4-adventure-1')
+          continue;
+        const decoded = decodeSnapshot(entry.value);
+        expect(decoded.ok, entry.name).toBe(true);
+        if (!decoded.ok) throw Error(decoded.reason);
+        expect(decoded.state.adventure).toBeNull();
+        for (const field of [
+          'items',
+          'actor',
+          'routing',
+          'orders',
+          'history',
+          'noteSupport',
+        ] as const)
+          expect(decoded.state[field]).toEqual(original[field]);
+        checked++;
+      }
+  }
+  expect(checked).toBeGreaterThan(0);
+});
+it('physical tools and activity handoff remain separate touch targets', () => {
+  for (const size of [
+    [390, 844],
+    [768, 1024],
+    [1440, 900],
+  ] as const) {
+    const l = layoutFor(size[0], size[1]);
+    const areas = kitchenActions(l, 5, true);
+    expect(areas.handoff?.width).toBeGreaterThanOrEqual(44);
+    expect(areas.tools.width / 5).toBeGreaterThanOrEqual(44);
+    expect(areas.tools.x + areas.tools.width).toBeLessThan(areas.handoff?.x ?? 0);
+    expect(areas.handoff && areas.handoff.x + areas.handoff.width).toBeLessThanOrEqual(l.width - 8);
+  }
 });

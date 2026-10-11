@@ -216,18 +216,21 @@ describe('adventure causal rules', () => {
     expect(s.adventure?.foods).toHaveLength(1);
     expect(s.items).toHaveLength(0);
   });
-  it('migrates the old schema6 world without inventing adventure completion', () => {
-    const old = JSON.parse(JSON.stringify(createGame('old')));
-    old.schemaVersion = 6;
-    old.contentVersion = 'm2.3-story-1';
-    delete old.adventure;
-    const r = decodeSnapshot(JSON.stringify(old));
-    expect(r.ok).toBe(true);
-    if (!r.ok) return;
-    expect(r.state.adventure).toBeNull();
-    expect(r.state.schemaVersion).toBe(7);
-    expect(r.state.orders.map((o) => o.request)).toEqual(['juice', 'fruit']);
-  });
+  it.each(['m2.3-story-1', 'm2.4-adventure-1'])(
+    'migrates schema6 %s without inventing adventure completion',
+    (version) => {
+      const old = JSON.parse(JSON.stringify(createGame('old')));
+      old.schemaVersion = 6;
+      old.contentVersion = version;
+      delete old.adventure;
+      const r = decodeSnapshot(JSON.stringify(old));
+      expect(r.ok).toBe(true);
+      if (!r.ok) return;
+      expect(r.state.adventure).toBeNull();
+      expect(r.state.schemaVersion).toBe(7);
+      expect(r.state.orders.map((o) => o.request)).toEqual(['juice', 'fruit']);
+    },
+  );
   it('rejects duplicate world ownership and forged activity receipts', () => {
     const s = deliver(start(), 0, 'sandwich');
     const duplicate = structuredClone(s);

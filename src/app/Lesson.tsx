@@ -54,7 +54,13 @@ export function Lesson({
   const [wrongChoice, setWrongChoice] = useState<readonly Product[]>([]);
   const [voiceResult, setVoiceResult] = useState<PlaybackResult | null>(null);
   const voiceToken = useRef(0);
-  const [destination, setDestination] = useState<Destination>({ tray: view.selectedTray });
+  const [destination, setDestination] = useState<Destination>(() =>
+    view.prep === 'machine'
+      ? { machine: UNITS[progress.units[progress.index] ?? '']?.id === 'cup' ? 'cup' : 'apple' }
+      : view.prep && view.prep !== 'tray'
+        ? { station: view.prep }
+        : { tray: view.selectedTray },
+  );
   const unit = UNITS[progress.units[progress.index] ?? ''];
   const spec = REQUESTS[request];
   const steps = preparationSteps(spec.products[0]);
@@ -157,7 +163,7 @@ export function Lesson({
         });
       close();
       controller.message = correct
-        ? '刚才选的食物已放好，接着制作或送餐。'
+        ? '刚才选的食物已放好，接着制作，或拿起餐盘递给朋友。'
         : '刚才选的食物保留了；点它可以放回，再听一听。';
       return;
     }

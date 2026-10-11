@@ -2,7 +2,7 @@ import { ADVENTURES, emptyAdventure, FAMILIES } from '../content/adventure';
 import type { Mode, RequestId } from '../content/catalog';
 import { type Activity, CHAPTERS, type Support } from '../content/chapters';
 import { type ShopTheme, themeAllows } from '../content/free-shop';
-import { storyLevel } from '../content/story-levels';
+import { storyLevel, storySituation } from '../content/story-levels';
 import { startAdventure } from '../rules/adventure';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
@@ -83,7 +83,10 @@ export class GameController {
     return result;
   }
   tick(delta: number): void {
-    if (this.pauses.size || delta <= 0 || delta > 250) return;
+    if (this.pauses.size || !Number.isFinite(delta) || delta <= 0 || delta > 1000) return;
+    // Active rendering can be slow. Bound each step instead of freezing every slow frame.
+    // Lifecycle pauses and discarded resume frames still prevent suspended-time catch-up.
+    delta = Math.min(delta, 250);
     const previous = this.state.revision;
     this.state = advance(this.state, delta);
     if (
@@ -253,9 +256,12 @@ export class GameController {
     const level = activity === 'story' ? storyLevel(levelId) : undefined;
     const key = `${activity}-${chapter}${level ? `-${level.id}` : ''}`;
     const stored = this.save.loadSession(key);
-    const choice = level ? (this.profile.value.storyChoices[level.id] ?? 0) : 0;
-    const previous =
-      replay || (level?.choice && stored?.session.storyChoice !== choice) ? null : stored;
+    const choice = level?.followUp
+      ? (this.profile.value.resolvedStoryChoices[level.followUp.from] ?? 0)
+      : level
+        ? (this.profile.value.storyChoices[level.id] ?? 0)
+        : 0;
+    const previous = replay ? null : stored;
     if (this.save.blocked) return;
     const history = this.history();
     this.state =
@@ -302,7 +308,9 @@ export class GameController {
     applyPolicy(this.state, support, concurrency);
     this.savedGame = Boolean(previous);
     this.checkpoint = 0;
-    this.message = level?.situation ?? '选好备餐位置，点食材就能放进去。';
+    this.message = level
+      ? storySituation(level, this.state.session.storyChoice ?? 0)
+      : '选好备餐位置，点食材就能放进去。';
     this.save.save(this.state);
     this.notify();
   }
