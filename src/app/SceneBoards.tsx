@@ -276,7 +276,7 @@ export function TheatreBoard(p: BoardProps) {
                 {o.place === 'guest'
                   ? '朋友收到了'
                   : o.state === 'filled'
-                    ? '杯里有水'
+                    ? '里面有水'
                     : o.state === 'stirred'
                       ? '水已搅拌'
                       : o.state === 'cut'

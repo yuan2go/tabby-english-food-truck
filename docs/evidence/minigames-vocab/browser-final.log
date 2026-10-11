@@ -1,0 +1,12 @@
+
+Running 3 tests using 1 worker
+
+(node:87146) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (2.1m)
+  ✓  2 e2e/minigames-vocab.spec.ts:335:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (43.6s)
+  ✓  3 e2e/minigames-vocab.spec.ts:357:1 › phone five-cup layout and theatre controls remain visible and individually usable (2.9m)
+
+  Slow test file: e2e/minigames-vocab.spec.ts (5.7m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  3 passed (5.8m)

@@ -357,6 +357,9 @@ test('yard minigames return to the activity and preserve adventure and free-kitc
 test('phone five-cup layout and theatre controls remain visible and individually usable', async ({
   page,
 }) => {
+  // Five full rounds, five distinct take-backs and the theatre help flow measured 174s locally.
+  // Action/expectation budgets stay unchanged; this is only the whole-flow budget.
+  test.setTimeout(240000);
   await page.setViewportSize({ width: 393, height: 665 });
   await enter(page);
   await choose(page, '餐桌设计师', '几位朋友');
@@ -369,7 +372,13 @@ test('phone five-cup layout and theatre controls remain visible and individually
     if (count === 5) {
       const props = page.locator('.place-on .scene-prop');
       await expect(props).toHaveCount(5);
-      for (const prop of await props.all()) {
+      const identities = await props.evaluateAll((buttons) =>
+        buttons.map((button) => [...button.classList].find((name) => name.startsWith('prop-'))),
+      );
+      expect(new Set(identities).size).toBe(5);
+      for (const identity of identities) {
+        if (!identity) throw Error('missing visible prop identity');
+        const prop = page.locator(`.place-on .${identity}`);
         const box = await prop.boundingBox();
         expect(box).not.toBeNull();
         if (!box) throw Error('prop');
