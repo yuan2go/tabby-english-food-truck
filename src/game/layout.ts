@@ -16,6 +16,7 @@ export interface Layout {
   landscape: boolean;
   form: 'phone' | 'short' | 'tablet' | 'desktop';
   stage: Region;
+  dialogue: Region;
   scale: number;
   regions: Record<'top' | 'guests' | 'work' | 'trays' | 'action' | 'supplies' | 'feedback', Region>;
   guests: [Point, Point];
@@ -43,7 +44,11 @@ export function kitchenActions(l: Layout, toolCount: number, commission: boolean
 }
 /** All positions are allocated from measured content space, in CSS pixels.
  * The host owns viewport and safe-area accounting; this function never subtracts it again. */
-export function layoutFor(width: number, height: number, mode: Mode = 'service'): Layout {
+function physicalLayout(
+  width: number,
+  height: number,
+  mode: Mode = 'service',
+): Omit<Layout, 'dialogue'> {
   const landscape = width > height * 1.2;
   const r = (x: number, y: number, w: number, h: number): Region => ({ x, y, width: w, height: h });
   const form: Layout['form'] =
@@ -259,4 +264,33 @@ export function projectActor(p: ActorPoint, l: Layout): Point {
   const x0 = anchors[i] ?? l.helper,
     x1 = anchors[i + 1] ?? l.helper;
   return { x: x0.x + (x1.x - x0.x) * t, y: x0.y + (x1.y - x0.y) * t };
+}
+
+/** Allocate sentence space before physical objects; Canvas and DOM share this projection. */
+export function layoutFor(width: number, height: number, mode: Mode = 'service'): Layout {
+  const short = width > height * 1.2 && height < 600;
+  if (short) {
+    const side = Math.min(260, width * 0.29);
+    const l = physicalLayout(width - side, height, mode);
+    const dx = side;
+    for (const name of Object.keys(l.regions) as (keyof Layout['regions'])[])
+      if (name !== 'top') l.regions[name].x += dx;
+    for (const p of [
+      ...new Set([...l.guests, l.machine, l.helper, ...l.trays, ...l.supplies, l.clear]),
+    ])
+      p.x += dx;
+    l.stage.x += dx;
+    l.width = width;
+    l.regions.top.width = width - 16;
+    return { ...l, dialogue: { x: 8, y: 60, width: side - 16, height: height - 70 } };
+  }
+  const reserve = 132;
+  const l = physicalLayout(width, height - reserve, mode);
+  for (const name of Object.keys(l.regions) as (keyof Layout['regions'])[])
+    if (name !== 'top') l.regions[name].y += reserve;
+  for (const p of [...new Set(l.guests), l.machine, l.helper, ...l.trays, ...l.supplies, l.clear])
+    p.y += reserve;
+  l.height = height;
+  l.stage.height = height;
+  return { ...l, dialogue: { x: l.stage.x + 8, y: 60, width: l.stage.width - 16, height: 124 } };
 }

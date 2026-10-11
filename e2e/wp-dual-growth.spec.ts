@@ -26,7 +26,9 @@ test('deferred menu introduction returns after another completed order', async (
     if (served === 1) await page.getByRole('button', { name: '这次先不加 ↗' }).click();
     else await page.getByRole('button', { name: '加入今日菜单' }).click();
   }
-  await expect(page.getByRole('dialog', { name: '今日新菜单' })).toContainText('Apple juice');
+  await expect(page.getByRole('dialog', { name: '今日新菜单' })).toContainText(
+    'Can I have some apple juice, please?',
+  );
   const menu = await page.evaluate(() => {
     const raw = localStorage.getItem('tabby.foodtruck.profile.m2');
     return raw ? JSON.parse(raw).presented : [];

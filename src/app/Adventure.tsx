@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { ADVENTURES, VISITOR_NAMES, type Visitor } from '../content/adventure';
 import { PRODUCT_NAMES } from '../content/catalog';
+import { lineFor, madeLine, workCaption } from '../content/dialogue';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import type { DialogueDirector } from '../platform/dialogue';
 import { activityHint, adventureReady, openCommission } from '../rules/adventure';
 import type { Command } from '../rules/types';
+import { Conversation, Sentence } from './Dialogue';
 import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import './adventure.css';
@@ -14,6 +17,7 @@ import './adventure.css';
 export function Adventure({
   controller,
   audio,
+  dialogue,
   kitchen,
   home,
   next,
@@ -21,6 +25,7 @@ export function Adventure({
 }: {
   controller: GameController;
   audio: ForegroundAudio;
+  dialogue: DialogueDirector;
   kitchen: () => void;
   home: () => void;
   next: () => void;
@@ -46,6 +51,8 @@ export function Adventure({
   const act = (command: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => {
     const r = controller.command({ type: 'adventure', ...command });
     if (command.action === 'invite' && r.kind === 'ok') {
+      if (!a.invitations.includes(command.visitor as Visitor))
+        dialogue.invite(command.visitor as Visitor);
       const picnic = memory(2);
       controller.message = !picnic
         ? `${VISITOR_NAMES[command.visitor as Visitor]}第一次来到你的分享桌，想尝尝你做的食品。`
@@ -92,7 +99,13 @@ export function Adventure({
       }}
     >
       <span className="object-art" aria-hidden="true" />
-      <span>{label}</span>
+      <span>
+        {label}
+        <small lang="en">
+          {' '}
+          {id === 'drawer' ? 'Drawer' : id === 'basket' ? 'Basket' : 'Recipe book'}
+        </small>
+      </span>
       {a.explored.includes(id) ? <b aria-hidden="true">✓</b> : null}
     </button>
   );
@@ -115,6 +128,11 @@ export function Adventure({
             去厨房备餐
           </button>
         </header>
+        <Conversation director={dialogue} audio={audio}>
+          <button type="button" aria-label="重听下一步行动" onClick={() => dialogue.prompt(false)}>
+            ➜ ♫
+          </button>
+        </Conversation>
         <div className="activity-world">
           <div className="scene-objects">
             {a.chapter === 2 && a.branch === 'rabbit'
@@ -248,7 +266,15 @@ export function Adventure({
                   type="button"
                   aria-label={`选择${PRODUCT_NAMES[f.product]}`}
                   aria-pressed={selection === f.id}
-                  onClick={() => setSelection(f.id)}
+                  onClick={() => {
+                    setSelection(f.id);
+                    const line = lineFor(
+                      ['juice', 'banana-juice', 'milk', 'smoothie', 'milkshake'].includes(f.product)
+                        ? 'place-cup'
+                        : 'place',
+                    );
+                    dialogue.show({ key: `${controller.state.runId}:select:${f.id}`, line }, true);
+                  }}
                 >
                   <Food product={f.product} />
                   {f.place === 'basket' ? <span>篮内</span> : null}
@@ -286,9 +312,23 @@ export function Adventure({
               {a.works.length ? (
                 a.works.map((w) => (
                   <div key={w.id}>
+                    <p className="work-description" lang="en">
+                      {workCaption(w.foods.map((f) => f.product))}
+                    </p>
                     {w.foods.map((f) => (
                       <Food key={f.id} product={f.product} />
                     ))}
+                    {[...new Set(w.foods.map((f) => f.product))].map((product) => {
+                      const line = madeLine(product);
+                      return line ? (
+                        <Sentence
+                          key={product}
+                          line={line}
+                          audio={audio}
+                          play={() => dialogue.show({ key: `${w.id}:${product}`, line })}
+                        />
+                      ) : null;
+                    })}
                   </div>
                 ))
               ) : (
@@ -299,9 +339,23 @@ export function Adventure({
                   <h3>上次留下的作品</h3>
                   {pastWorks.map((w) => (
                     <div key={w.id}>
+                      <p className="work-description" lang="en">
+                        {workCaption(w.foods.map((f) => f.product))}
+                      </p>
                       {w.foods.map((f) => (
                         <Food key={f.id} product={f.product} />
                       ))}
+                      {[...new Set(w.foods.map((f) => f.product))].map((product) => {
+                        const line = madeLine(product);
+                        return line ? (
+                          <Sentence
+                            key={product}
+                            line={line}
+                            audio={audio}
+                            play={() => dialogue.show({ key: `${w.id}:${product}`, line })}
+                          />
+                        ) : null;
+                      })}
                     </div>
                   ))}
                   <p>这些是食谱记忆。新作品用今天的食品重新制作。</p>

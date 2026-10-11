@@ -92,3 +92,15 @@ for (const f of foods) {
   assert.equal(catalogSpeech[f.contextAudio].text, f.context);
 }
 console.log('PASS: all 50 food concepts resolve real independent images and both speech clips');
+
+const immersion = JSON.parse(await readFile('art/immersion-audio.json', 'utf8'));
+assert.equal(immersion.humanListeningReview, 'NOT_RUN');
+assert.equal(immersion.rights, 'PENDING');
+assert.equal(new Set(immersion.records.map((r) => r.audio)).size, immersion.records.length);
+for (const r of immersion.records) {
+  assert.equal(catalogSpeech[r.audio]?.text, r.text, `sentence drift ${r.audio}`);
+  assert(ids.has(`audio-${r.audio}`), `missing whole sentence ${r.audio}`);
+}
+console.log(
+  `PASS: ${immersion.records.length} whole-sentence mappings; human listening NOT_RUN, rights PENDING`,
+);

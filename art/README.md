@@ -74,3 +74,7 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 篮子、储物抽屉、旧食谱、三餐位、花苗、彩旗、桌布和灯串为 Codex 本包原创 DOM/CSS 场景绘制，源文件 `src/app/Adventure.tsx`、`src/app/adventure.css`；文字独立 DOM，食品仍使用登记图像。道具直接接到探索/打包/摆放/布置规则，不是背景贴图或通关数装饰。作品缩图是食品记忆的投影，不另造可供应食品。代码版本与真实运行证据见 STATUS；不把 CSS 绘制写成 imagegen 原稿。
 
 接收、摆放、品尝、布置与完成复用已登记原创 place/success 音效；英语请求仍使用 DEVELOPMENT_TTS_UNREVIEWED 开发声音，活动叙事为短图文，没有冒称新增真人配音。347 文件 hash/尺寸/Alpha、196 speech 引用与50食品映射已复核；负责人视觉/手感、人工听审与分发权仍待审核。
+
+## WP-ENGLISH-IMMERSION-01 · 2026-10-12
+
+128段新增完整请求、行动、感谢、品尝、主动分享与真实食品作品/回访整句，见[语料与来源](immersion-audio.json)。`scripts/immersion-audio.mjs` 从 `dialogue-products.json` 的冠词/可数/不可数语义、catalog/food-orders的真实产品集合与 `dialogue-lines.json` 的角色/触发生成文本和离线完整句PCM WAV。资源制作脚本在macOS＋Node24.15环境执行，使用say / Samantha，140wpm、22050Hz；不拼接词、不在运行时合成。全部 DEVELOPMENT_TTS_UNREVIEWED；人工听审NOT_RUN、分发权PENDING。新增文件只增量登记至manifest，既有素材/语音/来源/权利与失败证据保持。资源校验与单元分别检查hash及整句文本完全一致，机器通过不替代人工听审。

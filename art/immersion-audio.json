@@ -1,0 +1,895 @@
+{
+  "source": "macOS say / Samantha 140 wpm, offline PCM 22050 Hz",
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "records": [
+    {
+      "text": "Can I have an apple, please?",
+      "audio": "imm-order-apple",
+      "emphasis": ["apple", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["apple"]
+    },
+    {
+      "text": "Can I have a banana, please?",
+      "audio": "imm-order-banana",
+      "emphasis": ["banana", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["banana"]
+    },
+    {
+      "text": "Can I have two apples, please?",
+      "audio": "imm-order-apple-apple",
+      "emphasis": ["apple", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["apple", "apple"]
+    },
+    {
+      "text": "Can I have some apple juice, please?",
+      "audio": "imm-order-juice",
+      "emphasis": ["apple juice", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["juice"]
+    },
+    {
+      "text": "Can I have an apple and a banana, please?",
+      "audio": "imm-order-apple-banana",
+      "emphasis": ["apple", "banana", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["apple", "banana"]
+    },
+    {
+      "text": "Can I have some banana juice, please?",
+      "audio": "imm-order-banana-juice",
+      "emphasis": ["banana juice", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["banana-juice"]
+    },
+    {
+      "text": "Can I have one scoop of vanilla ice cream in a cup, please?",
+      "audio": "imm-order-vanilla-cup",
+      "emphasis": ["vanilla ice cream in a cup", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["vanilla-cup"]
+    },
+    {
+      "text": "Can I have one scoop of vanilla ice cream in a cone, please?",
+      "audio": "imm-order-vanilla-cone",
+      "emphasis": ["vanilla ice cream in a cone", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["vanilla-cone"]
+    },
+    {
+      "text": "Can I have one scoop of strawberry ice cream in a cup, please?",
+      "audio": "imm-order-strawberry-cup",
+      "emphasis": ["strawberry ice cream in a cup", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["strawberry-cup"]
+    },
+    {
+      "text": "Can I have two scoops of ice cream in a cup, one vanilla and one strawberry, please?",
+      "audio": "imm-order-double-cream",
+      "emphasis": ["vanilla and strawberry ice cream", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["double-cream"]
+    },
+    {
+      "text": "Can I have one scoop of vanilla ice cream with banana in a cup, please?",
+      "audio": "imm-order-banana-cream",
+      "emphasis": ["vanilla ice cream with banana in a cup", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["banana-cream"]
+    },
+    {
+      "text": "Can I have a cheese sandwich, please?",
+      "audio": "imm-order-sandwich",
+      "emphasis": ["cheese sandwich", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["sandwich"]
+    },
+    {
+      "text": "Can I have a lettuce and tomato sandwich, please?",
+      "audio": "imm-order-salad-sandwich",
+      "emphasis": ["lettuce and tomato sandwich", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["salad-sandwich"]
+    },
+    {
+      "text": "Can I have a burger with lettuce and tomato, please?",
+      "audio": "imm-order-burger",
+      "emphasis": ["burger with lettuce and tomato", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["burger"]
+    },
+    {
+      "text": "Can I have a cheeseburger, please?",
+      "audio": "imm-order-cheese-burger",
+      "emphasis": ["cheeseburger", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["cheese-burger"]
+    },
+    {
+      "text": "Can I have an orange, please?",
+      "audio": "imm-order-orange",
+      "emphasis": ["orange", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["orange"]
+    },
+    {
+      "text": "Can I have a pear, please?",
+      "audio": "imm-order-pear",
+      "emphasis": ["pear", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["pear"]
+    },
+    {
+      "text": "Can I have a peach, please?",
+      "audio": "imm-order-peach",
+      "emphasis": ["peach", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["peach"]
+    },
+    {
+      "text": "Can I have a strawberry, please?",
+      "audio": "imm-order-fresh-strawberry",
+      "emphasis": ["strawberry", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["fresh-strawberry"]
+    },
+    {
+      "text": "Can I have some grapes, please?",
+      "audio": "imm-order-grape",
+      "emphasis": ["grapes", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["grape"]
+    },
+    {
+      "text": "Can I have some watermelon, please?",
+      "audio": "imm-order-watermelon",
+      "emphasis": ["watermelon", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["watermelon"]
+    },
+    {
+      "text": "Can I have a mango, please?",
+      "audio": "imm-order-mango",
+      "emphasis": ["mango", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["mango"]
+    },
+    {
+      "text": "Can I have a pineapple, please?",
+      "audio": "imm-order-pineapple",
+      "emphasis": ["pineapple", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["pineapple"]
+    },
+    {
+      "text": "Can I have some milk, please?",
+      "audio": "imm-order-milk",
+      "emphasis": ["milk", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["milk"]
+    },
+    {
+      "text": "Can I have some yogurt, please?",
+      "audio": "imm-order-yogurt",
+      "emphasis": ["yogurt", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["yogurt"]
+    },
+    {
+      "text": "Can I have a smoothie, please?",
+      "audio": "imm-order-smoothie",
+      "emphasis": ["smoothie", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["smoothie"]
+    },
+    {
+      "text": "Can I have a milkshake, please?",
+      "audio": "imm-order-milkshake",
+      "emphasis": ["milkshake", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["milkshake"]
+    },
+    {
+      "text": "Can I have some pizza, please?",
+      "audio": "imm-order-pizza",
+      "emphasis": ["pizza", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["pizza"]
+    },
+    {
+      "text": "Can I have some salad, please?",
+      "audio": "imm-order-salad",
+      "emphasis": ["salad", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["salad"]
+    },
+    {
+      "text": "Can I have some cake, please?",
+      "audio": "imm-order-cake",
+      "emphasis": ["cake", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["cake"]
+    },
+    {
+      "text": "Can I have a cookie, please?",
+      "audio": "imm-order-cookie",
+      "emphasis": ["cookie", "two", "three"],
+      "role": "guest",
+      "trigger": "order",
+      "products": ["cookie"]
+    },
+    {
+      "text": "Hello!",
+      "role": "dami",
+      "trigger": "welcome",
+      "audio": "imm-welcome"
+    },
+    {
+      "text": "Thank you!",
+      "role": "guest",
+      "trigger": "receive",
+      "audio": "imm-thanks"
+    },
+    {
+      "text": "This is for you.",
+      "role": "dami",
+      "trigger": "create",
+      "audio": "imm-share"
+    },
+    {
+      "text": "Yummy! I like it.",
+      "role": "dami",
+      "trigger": "taste",
+      "audio": "imm-taste"
+    },
+    {
+      "text": "Can I have ice cream in a cup, please? Any flavor is fine.",
+      "role": "hedgehog",
+      "trigger": "open",
+      "audio": "imm-open-cool"
+    },
+    {
+      "text": "Please pack a sandwich and a piece of fruit in the basket. An apple or a banana is fine.",
+      "role": "rabbit",
+      "trigger": "open",
+      "audio": "imm-open-pack"
+    },
+    {
+      "text": "Let’s make something to share.",
+      "role": "dami",
+      "trigger": "open",
+      "audio": "imm-open-create"
+    },
+    {
+      "text": "Please open the drawer.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-drawer"
+    },
+    {
+      "text": "Please open the basket.",
+      "role": "rabbit",
+      "trigger": "request-action",
+      "audio": "imm-basket"
+    },
+    {
+      "text": "Please open the recipe book.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-recipe"
+    },
+    {
+      "text": "Please plant the flower.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-plant"
+    },
+    {
+      "text": "Please hang the flags.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-bunting"
+    },
+    {
+      "text": "Please turn on the lights.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-light"
+    },
+    {
+      "text": "Please put the cloth on the table.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-cloth"
+    },
+    {
+      "text": "Please put the basket on the table.",
+      "role": "rabbit",
+      "trigger": "request-action",
+      "audio": "imm-unpack"
+    },
+    {
+      "text": "Please put the food on the table.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-place"
+    },
+    {
+      "text": "Put the cup on the table, please.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-place-cup"
+    },
+    {
+      "text": "Would you like to try it?",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-try"
+    },
+    {
+      "text": "Come and eat with us!",
+      "role": "dami",
+      "trigger": "invite",
+      "audio": "imm-invite"
+    },
+    {
+      "text": "Let’s save this in our recipe book.",
+      "role": "dami",
+      "trigger": "request-action",
+      "audio": "imm-save"
+    },
+    {
+      "text": "Here is the flower!",
+      "role": "dami",
+      "trigger": "explore",
+      "audio": "imm-found-flower"
+    },
+    {
+      "text": "Here are the lights!",
+      "role": "dami",
+      "trigger": "explore",
+      "audio": "imm-found-light"
+    },
+    {
+      "text": "Here are two places for our food.",
+      "role": "dami",
+      "trigger": "explore",
+      "audio": "imm-found-seats"
+    },
+    {
+      "text": "The basket is open.",
+      "role": "rabbit",
+      "trigger": "explore",
+      "audio": "imm-opened-basket"
+    },
+    {
+      "text": "The recipe book is open.",
+      "role": "dami",
+      "trigger": "explore",
+      "audio": "imm-opened-recipe"
+    },
+    {
+      "text": "We planted the flower!",
+      "role": "dami",
+      "trigger": "plant",
+      "audio": "imm-planted"
+    },
+    {
+      "text": "The flags are up!",
+      "role": "dami",
+      "trigger": "bunting",
+      "audio": "imm-hung"
+    },
+    {
+      "text": "The lights are on!",
+      "role": "dami",
+      "trigger": "light",
+      "audio": "imm-lit"
+    },
+    {
+      "text": "The cloth is on the table.",
+      "role": "dami",
+      "trigger": "cloth",
+      "audio": "imm-spread"
+    },
+    {
+      "text": "The basket is on the table.",
+      "role": "rabbit",
+      "trigger": "unpack",
+      "audio": "imm-unpacked"
+    },
+    {
+      "text": "The food is on the table.",
+      "role": "dami",
+      "trigger": "place",
+      "audio": "imm-placed"
+    },
+    {
+      "text": "Here is our recipe!",
+      "role": "dami",
+      "trigger": "save-work",
+      "audio": "imm-saved"
+    },
+    {
+      "text": "Let’s eat together!",
+      "role": "dami",
+      "trigger": "finish",
+      "audio": "imm-feast"
+    },
+    {
+      "text": "Please put a cup in the machine.",
+      "role": "dami",
+      "trigger": "preparation",
+      "audio": "imm-cup"
+    },
+    {
+      "text": "Please put some fruit in the machine.",
+      "role": "dami",
+      "trigger": "preparation",
+      "audio": "imm-fruit"
+    },
+    {
+      "text": "Please press the button.",
+      "role": "dami",
+      "trigger": "preparation",
+      "audio": "imm-start"
+    },
+    {
+      "text": "Your food is getting ready.",
+      "role": "dami",
+      "trigger": "process-start",
+      "audio": "imm-waiting"
+    },
+    {
+      "text": "The food is ready!",
+      "role": "dami",
+      "trigger": "process-ready",
+      "audio": "imm-ready"
+    },
+    {
+      "text": "Here you are!",
+      "role": "dami",
+      "trigger": "deliver",
+      "audio": "imm-carry"
+    },
+    {
+      "text": "I made an apple.",
+      "audio": "imm-made-apple",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["apple"]
+    },
+    {
+      "text": "I remember your apple.",
+      "audio": "imm-remember-apple",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["apple"]
+    },
+    {
+      "text": "I made a banana.",
+      "audio": "imm-made-banana",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["banana"]
+    },
+    {
+      "text": "I remember your banana.",
+      "audio": "imm-remember-banana",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["banana"]
+    },
+    {
+      "text": "I made an orange.",
+      "audio": "imm-made-orange",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["orange"]
+    },
+    {
+      "text": "I remember your orange.",
+      "audio": "imm-remember-orange",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["orange"]
+    },
+    {
+      "text": "I made a pear.",
+      "audio": "imm-made-pear",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["pear"]
+    },
+    {
+      "text": "I remember your pear.",
+      "audio": "imm-remember-pear",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["pear"]
+    },
+    {
+      "text": "I made a peach.",
+      "audio": "imm-made-peach",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["peach"]
+    },
+    {
+      "text": "I remember your peach.",
+      "audio": "imm-remember-peach",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["peach"]
+    },
+    {
+      "text": "I made a strawberry.",
+      "audio": "imm-made-fresh-strawberry",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["fresh-strawberry"]
+    },
+    {
+      "text": "I remember your strawberry.",
+      "audio": "imm-remember-fresh-strawberry",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["fresh-strawberry"]
+    },
+    {
+      "text": "I made a mango.",
+      "audio": "imm-made-mango",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["mango"]
+    },
+    {
+      "text": "I remember your mango.",
+      "audio": "imm-remember-mango",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["mango"]
+    },
+    {
+      "text": "I made a pineapple.",
+      "audio": "imm-made-pineapple",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["pineapple"]
+    },
+    {
+      "text": "I remember your pineapple.",
+      "audio": "imm-remember-pineapple",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["pineapple"]
+    },
+    {
+      "text": "I made a cheese sandwich.",
+      "audio": "imm-made-sandwich",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["sandwich"]
+    },
+    {
+      "text": "I remember your cheese sandwich.",
+      "audio": "imm-remember-sandwich",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["sandwich"]
+    },
+    {
+      "text": "I made a lettuce and tomato sandwich.",
+      "audio": "imm-made-salad-sandwich",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["salad-sandwich"]
+    },
+    {
+      "text": "I remember your lettuce and tomato sandwich.",
+      "audio": "imm-remember-salad-sandwich",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["salad-sandwich"]
+    },
+    {
+      "text": "I made a burger with lettuce and tomato.",
+      "audio": "imm-made-burger",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["burger"]
+    },
+    {
+      "text": "I remember your burger with lettuce and tomato.",
+      "audio": "imm-remember-burger",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["burger"]
+    },
+    {
+      "text": "I made a cheeseburger.",
+      "audio": "imm-made-cheese-burger",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["cheese-burger"]
+    },
+    {
+      "text": "I remember your cheeseburger.",
+      "audio": "imm-remember-cheese-burger",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["cheese-burger"]
+    },
+    {
+      "text": "I made a smoothie.",
+      "audio": "imm-made-smoothie",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["smoothie"]
+    },
+    {
+      "text": "I remember your smoothie.",
+      "audio": "imm-remember-smoothie",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["smoothie"]
+    },
+    {
+      "text": "I made a milkshake.",
+      "audio": "imm-made-milkshake",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["milkshake"]
+    },
+    {
+      "text": "I remember your milkshake.",
+      "audio": "imm-remember-milkshake",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["milkshake"]
+    },
+    {
+      "text": "I made a cookie.",
+      "audio": "imm-made-cookie",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["cookie"]
+    },
+    {
+      "text": "I remember your cookie.",
+      "audio": "imm-remember-cookie",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["cookie"]
+    },
+    {
+      "text": "I made some apple juice.",
+      "audio": "imm-made-juice",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["juice"]
+    },
+    {
+      "text": "I remember your apple juice.",
+      "audio": "imm-remember-juice",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["juice"]
+    },
+    {
+      "text": "I made some banana juice.",
+      "audio": "imm-made-banana-juice",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["banana-juice"]
+    },
+    {
+      "text": "I remember your banana juice.",
+      "audio": "imm-remember-banana-juice",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["banana-juice"]
+    },
+    {
+      "text": "I made some grapes.",
+      "audio": "imm-made-grape",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["grape"]
+    },
+    {
+      "text": "I remember your grapes.",
+      "audio": "imm-remember-grape",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["grape"]
+    },
+    {
+      "text": "I made some watermelon.",
+      "audio": "imm-made-watermelon",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["watermelon"]
+    },
+    {
+      "text": "I remember your watermelon.",
+      "audio": "imm-remember-watermelon",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["watermelon"]
+    },
+    {
+      "text": "I made some milk.",
+      "audio": "imm-made-milk",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["milk"]
+    },
+    {
+      "text": "I remember your milk.",
+      "audio": "imm-remember-milk",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["milk"]
+    },
+    {
+      "text": "I made some yogurt.",
+      "audio": "imm-made-yogurt",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["yogurt"]
+    },
+    {
+      "text": "I remember your yogurt.",
+      "audio": "imm-remember-yogurt",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["yogurt"]
+    },
+    {
+      "text": "I made some pizza.",
+      "audio": "imm-made-pizza",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["pizza"]
+    },
+    {
+      "text": "I remember your pizza.",
+      "audio": "imm-remember-pizza",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["pizza"]
+    },
+    {
+      "text": "I made some salad.",
+      "audio": "imm-made-salad",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["salad"]
+    },
+    {
+      "text": "I remember your salad.",
+      "audio": "imm-remember-salad",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["salad"]
+    },
+    {
+      "text": "I made some cake.",
+      "audio": "imm-made-cake",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["cake"]
+    },
+    {
+      "text": "I remember your cake.",
+      "audio": "imm-remember-cake",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["cake"]
+    },
+    {
+      "text": "I made one scoop of vanilla ice cream in a cup.",
+      "audio": "imm-made-vanilla-cup",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["vanilla-cup"]
+    },
+    {
+      "text": "I remember your vanilla ice cream in a cup.",
+      "audio": "imm-remember-vanilla-cup",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["vanilla-cup"]
+    },
+    {
+      "text": "I made one scoop of vanilla ice cream in a cone.",
+      "audio": "imm-made-vanilla-cone",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["vanilla-cone"]
+    },
+    {
+      "text": "I remember your vanilla ice cream in a cone.",
+      "audio": "imm-remember-vanilla-cone",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["vanilla-cone"]
+    },
+    {
+      "text": "I made one scoop of strawberry ice cream in a cup.",
+      "audio": "imm-made-strawberry-cup",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["strawberry-cup"]
+    },
+    {
+      "text": "I remember your strawberry ice cream in a cup.",
+      "audio": "imm-remember-strawberry-cup",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["strawberry-cup"]
+    },
+    {
+      "text": "I made one scoop of vanilla ice cream with banana in a cup.",
+      "audio": "imm-made-banana-cream",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["banana-cream"]
+    },
+    {
+      "text": "I remember your vanilla ice cream with banana in a cup.",
+      "audio": "imm-remember-banana-cream",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["banana-cream"]
+    },
+    {
+      "text": "I made two scoops of ice cream in a cup, one vanilla and one strawberry.",
+      "audio": "imm-made-double-cream",
+      "role": "dami",
+      "trigger": "work",
+      "products": ["double-cream"]
+    },
+    {
+      "text": "I remember your vanilla and strawberry ice cream.",
+      "audio": "imm-remember-double-cream",
+      "role": "guest",
+      "trigger": "revisit",
+      "products": ["double-cream"]
+    }
+  ]
+}

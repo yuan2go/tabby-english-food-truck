@@ -37,7 +37,7 @@ async function begin(page: Page) {
 
 test('visible activity entrance reaches all five chapters and saves a real creation', async ({
   page,
-}) => {
+}, info) => {
   test.setTimeout(300000);
   await page.setViewportSize({ width: 1440, height: 900 });
   await begin(page);
@@ -76,7 +76,7 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.getByRole('button', { name: '把篮子摆上桌' }).click();
   await page.getByRole('button', { name: '铺上叶子桌布' }).click();
   await page.getByRole('button', { name: '一起开席' }).click();
-  await page.screenshot({ path: 'docs/evidence/playable-adventure/picnic-rabbit-desktop.png' });
+  await page.screenshot({ path: info.outputPath('picnic-rabbit-desktop.png') });
   await page.getByRole('button', { name: '下一院活动' }).click();
   await kitchen(page);
   await send(page, 0, 'cheese-burger');
@@ -115,7 +115,7 @@ test('visible activity entrance reaches all five chapters and saves a real creat
       ),
     )
     .toBe(5);
-  await page.screenshot({ path: 'docs/evidence/playable-adventure/feast-desktop.png' });
+  await page.screenshot({ path: info.outputPath('feast-desktop.png') });
   const before = await state(page);
   await page.getByRole('button', { name: '收摊回小院' }).click();
   await page.reload();
@@ -132,7 +132,9 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   expect((await state(page)).adventure?.rewards).toEqual([]);
 });
 
-test('phone replay follows hedgehog path with real food and no packing task', async ({ page }) => {
+test('phone replay follows hedgehog path with real food and no packing task', async ({
+  page,
+}, info) => {
   test.setTimeout(300000);
   await begin(page);
   await kitchen(page);
@@ -170,12 +172,12 @@ test('phone replay follows hedgehog path with real food and no packing task', as
   expect((await state(page)).adventure?.branch).toBe('hedgehog');
   expect((await state(page)).adventure?.rewards).toEqual(['picnic-page']);
   await expect(page.getByRole('button', { name: '把篮子摆上桌' })).toHaveCount(0);
-  await page.screenshot({ path: 'docs/evidence/playable-adventure/picnic-hedgehog-phone.png' });
+  await page.screenshot({ path: info.outputPath('picnic-hedgehog-phone.png') });
 });
 
 test('free shop stops accepting, saves actual food, restores and returns to a natural ending', async ({
   page,
-}) => {
+}, info) => {
   test.setTimeout(90000);
   await page.goto('/');
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
@@ -206,7 +208,7 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
   await table(page);
   expect((await state(page)).adventure?.works).toEqual(before.adventure?.works);
-  await page.screenshot({ path: 'docs/evidence/playable-adventure/free-shop-phone.png' });
+  await page.screenshot({ path: info.outputPath('free-shop-phone.png') });
   await page.getByRole('button', { name: '收拾桌面' }).click();
   const dialog = page.getByRole('dialog', { name: '收拾活动桌' });
   await expect(dialog.getByRole('button', { name: '继续摆餐' })).toBeFocused();
@@ -220,7 +222,7 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
 
 test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload', async ({
   browser,
-}) => {
+}, info) => {
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     hasTouch: false,
@@ -265,7 +267,7 @@ test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on
       timeout: 15000,
     })
     .toBe(true);
-  await page.screenshot({ path: 'docs/evidence/playable-adventure/kitchen-desktop-mouse.png' });
+  await page.screenshot({ path: info.outputPath('kitchen-desktop-mouse.png') });
   await context.close();
 });
 

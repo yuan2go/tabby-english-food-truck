@@ -147,6 +147,7 @@ export function validateState(v: unknown): v is GameState {
         record(a) &&
         str(a.id) &&
         str(a.version) &&
+        (a.order === undefined || str(a.order)) &&
         ['started', 'completed', 'interrupted', 'failed', 'muted', 'skipped'].includes(
           a.status as string,
         ) &&

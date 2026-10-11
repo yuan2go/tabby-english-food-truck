@@ -5,14 +5,14 @@ import { MINI_LEVELS } from '../src/content/mini-levels';
 
 test('theme lobby reaches a four-task listening level and restores its progress', async ({
   page,
-}) => {
+}, info) => {
   test.setTimeout(180000);
   await page.goto('/');
   await page.locator('.yard-mini .entry-main').click();
   await page.getByRole('button', { name: /主题关卡 ·/ }).click();
   await expect(page.getByRole('region', { name: '主题关卡' })).toBeVisible();
   await page.screenshot({
-    path: 'docs/evidence/dual-layout-playflow/mini-theme-phone-390x844.png',
+    path: info.outputPath('mini-theme-phone-390x844.png'),
   });
   await page.getByRole('button', { name: '开始', exact: true }).first().click();
   const level = MINI_LEVELS[0];

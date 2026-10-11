@@ -30,7 +30,7 @@ export function orderFor(
       s.session.support === 'demonstration'
         ? ['guided', 'picture-request']
         : s.session.support === 'pictures'
-          ? ['picture-request']
+          ? []
           : [],
   };
 }
@@ -122,14 +122,7 @@ export function applyPolicy(s: GameState, support: Support, concurrency: 1 | 2):
   s.orders = s.orders.map((o) => (o.status === 'waiting' ? { ...o } : o));
   for (const o of s.orders) {
     if (o.status !== 'waiting') continue;
-    if (support !== 'less')
-      o.support = [
-        ...new Set([
-          ...o.support,
-          'picture-request',
-          ...(support === 'demonstration' ? ['guided'] : []),
-        ]),
-      ].slice(-24);
+    if (support === 'demonstration') o.support = [...new Set([...o.support, 'guided'])].slice(-24);
   }
   // A legacy one-tray layout changes only at an idle action boundary.
   if (concurrency === 2 && !s.actor.current && !s.helper && !s.trays.some((t) => t.remaining))

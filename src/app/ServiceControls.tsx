@@ -1,4 +1,5 @@
 import { REQUESTS } from '../content/catalog';
+import { lineFor } from '../content/dialogue';
 import { isFinished, SUPPLY_PAGES } from '../content/recipes';
 import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
@@ -6,8 +7,10 @@ import { stationPoint } from '../game/KitchenView';
 import { kitchenActions } from '../game/layout';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import type { DialogueDirector } from '../platform/dialogue';
 import { openCommission } from '../rules/adventure';
 import type { Item, Order } from '../rules/types';
+import { Conversation } from './Dialogue';
 import { Food } from './Food';
 
 interface Props {
@@ -17,8 +20,8 @@ interface Props {
   selected: Order | undefined;
   selectedItem: Item | null | undefined;
   picture: boolean | undefined;
-  caption: string | null;
-  setCaption: (id: string | null) => void;
+  dialogue: DialogueDirector;
+  help: () => void;
 }
 export function ServiceControls({
   controller,
@@ -27,13 +30,12 @@ export function ServiceControls({
   selected,
   selectedItem,
   picture,
-  caption,
-  setCaption,
+  dialogue,
+  help,
 }: Props) {
   const s = controller.state,
     l = ui.layout;
   if (!l) return null;
-  const g = selected ? l.guests[selected.seat] : l.guests[0];
   const commission = openCommission(s.adventure);
   const handoff = kitchenActions(l, s.session.unlocked.length, !!commission).handoff;
   return (
@@ -134,37 +136,59 @@ export function ServiceControls({
           ↶ 恢复成品
         </button>
       ) : null}
-      {selected ? (
-        <button
-          type="button"
-          className="request-picture"
-          aria-label="点请求气泡重听"
-          style={{
-            left: Math.max(8, Math.min(l.width - 120, g.x - 60)),
-            top: l.regions.guests.y,
-            width: 120,
-          }}
-          onClick={() => activate(`listen-${selected.id}`, controller, audio, ui)}
-        >
-          {(picture ? teachingFigures(REQUESTS[selected.request].products) : []).map(
-            ({ product, id }) => (
-              <Food key={id} product={product} />
-            ),
-          )}
-          <span>♫</span>
-        </button>
-      ) : null}
-      {caption === selected?.id && selected ? (
-        <div
-          className="request-caption"
-          style={{ left: 8, top: l.regions.guests.y, width: l.width - 16 }}
-        >
-          {REQUESTS[selected.request].text}
-          <button type="button" aria-label="收起文字帮助" onClick={() => setCaption(null)}>
-            ×
+      <Conversation
+        director={dialogue}
+        audio={audio}
+        help={help}
+        style={{
+          position: 'absolute',
+          left: l.dialogue.x,
+          top: l.dialogue.y,
+          width: l.dialogue.width,
+          minHeight: 88,
+        }}
+      >
+        {s.orders
+          .filter((o) => o.status === 'waiting')
+          .map((o) => (
+            <button
+              type="button"
+              key={o.id}
+              aria-pressed={dialogue.current?.order === o.id}
+              aria-label={`重听客人${o.seat === 0 ? 'A' : 'B'}的请求`}
+              onClick={() => activate(`listen-${o.id}`, controller, audio, ui)}
+            >
+              {o.seat === 0 ? 'A' : 'B'} ♫
+            </button>
+          ))}
+        {commission ? (
+          <button
+            type="button"
+            aria-label="重听开放请求"
+            onClick={() =>
+              dialogue.show({
+                key: `${s.runId}:commission:${commission.action}`,
+                line: lineFor(
+                  commission.action === 'cool'
+                    ? 'open-cool'
+                    : commission.action === 'pack'
+                      ? 'open-pack'
+                      : 'open-create',
+                ),
+              })
+            }
+          >
+            ▧ ♫
           </button>
-        </div>
-      ) : null}
+        ) : null}
+        {picture && selected ? (
+          <div className="request-figures">
+            {teachingFigures(REQUESTS[selected.request].products).map(({ product, id }) => (
+              <Food key={id} product={product} />
+            ))}
+          </div>
+        ) : null}
+      </Conversation>
     </>
   );
 }

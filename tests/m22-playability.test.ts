@@ -1,4 +1,5 @@
 import { expect, it } from 'vitest';
+import { REQUESTS } from '../src/content/catalog';
 import { advance, createGame, dispatch } from '../src/rules/game';
 import { eligibleWord } from '../src/rules/minigames';
 import { configureSession } from '../src/rules/sessions';
@@ -69,10 +70,12 @@ it('two later-story guests choose separate plates while juice and ice run in par
 
 it('request playback start and failure cannot become listening evidence', () => {
   let state = createGame('playback-fact', 0, {}, 'guided');
+  const order = state.orders[0]?.id;
+  if (!order) throw new Error('expected waiting order');
   for (const status of ['started', 'failed', 'interrupted', 'muted', 'skipped'] as const)
     state = send(state, {
       type: 'audio',
-      audio: { id: 'request-apple', version: 'dev', status },
+      audio: { id: REQUESTS.apple.audio, version: 'dev', status, order },
     }).state;
   expect(state.orders[0]?.heard).toBe(false);
   expect(state.orders[0]?.support).toContain('audio-unavailable');
@@ -81,7 +84,12 @@ it('request playback start and failure cannot become listening evidence', () => 
   expect(decodeSnapshot(JSON.stringify(state)).ok).toBe(true);
   state = send(state, {
     type: 'audio',
-    audio: { id: 'request-apple', version: 'dev', status: 'completed' },
+    audio: {
+      id: REQUESTS.apple.audio,
+      version: 'dev',
+      status: 'completed',
+      order,
+    },
   }).state;
   expect(state.orders[0]?.heard).toBe(true);
   expect(state.orders[0]?.support).toContain('audio-unavailable');

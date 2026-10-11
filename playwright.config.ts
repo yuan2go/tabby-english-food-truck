@@ -8,6 +8,7 @@ export default defineConfig({
   // Historical scripts and their evidence remain in the repository (see e2e/README).
   testMatch: [
     '**/adventure.spec.ts',
+    '**/immersion.spec.ts',
     '**/m22-boundaries.spec.ts',
     '**/m22-growth.spec.ts',
     '**/wp-dual-growth.spec.ts',
