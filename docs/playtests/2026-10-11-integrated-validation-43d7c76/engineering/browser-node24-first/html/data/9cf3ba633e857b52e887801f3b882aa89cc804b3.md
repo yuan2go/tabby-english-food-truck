@@ -1,0 +1,217 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: adventure.spec.ts >> visible activity entrance reaches all five chapters and saves a real creation
+- Location: ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:52:1
+
+# Error details
+
+```
+Error: expect(locator).toHaveClass(expected) failed
+
+Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+Expected pattern: /stage-0/
+Received string:  "friend-theatre theatre-finish stage-4 low-motion bite"
+Timeout: 15000ms
+
+Call log:
+  - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 15000ms
+  - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+    28 × locator resolved to <section aria-label="朋友实际使用食品" data-moment="adee366b-9563-4aaa-aee9-9cfa897269af:moment:8" class="friend-theatre theatre-finish stage-4 low-motion bite">…</section>
+       - unexpected value "friend-theatre theatre-finish stage-4 low-motion bite"
+
+```
+
+```yaml
+- region "朋友实际使用食品":
+  - img "接餐、携带、摆放、品尝、回应": 接餐 携带 摆放 品尝 回应
+  - img "刺刺品尝真实食品"
+  - img "第2份，共2份": ● ●
+  - button "重看朋友使用": ↻ ♫
+  - button "跳过朋友演出": ↗
+  - button "低动态表现" [pressed]: ◒
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Page, test } from '@playwright/test';
+  2   | import { choosePrep, handOver, hot, lesson, make, state, tap } from './helpers';
+  3   | 
+  4   | test.use({ hasTouch: true });
+  5   | 
+  6   | async function kitchen(page: Page) {
+  7   |   await page.getByRole('button', { name: '去厨房备餐', exact: true }).click();
+  8   |   await lesson(page);
+  9   | }
+  10  | async function table(page: Page) {
+  11  |   await lesson(page);
+  12  |   await page.getByRole('button', { name: '到活动桌', exact: true }).click();
+  13  | }
+  14  | async function send(page: Page, index: number, product: Parameters<typeof make>[1]) {
+  15  |   await lesson(page);
+  16  |   const order = (await state(page)).orders[index];
+  17  |   if (order?.status === 'queued') {
+  18  |     await table(page);
+  19  |     await page
+  20  |       .getByRole('button', {
+  21  |         name: order.visitor === 'hedgehog' ? '先帮刺刺' : '先帮兔兔',
+  22  |         exact: true,
+  23  |       })
+  24  |       .click();
+  25  |     await kitchen(page);
+  26  |   }
+  27  |   const orderId = order?.id;
+  28  |   if (product === 'apple' || product === 'banana') {
+  29  |     if ((await state(page)).session.family !== 'juice') await tap(page, 'family-juice');
+  30  |     await choosePrep(page, '● 1号盘');
+  31  |     await tap(page, `supply-${product}`);
+  32  |   } else {
+  33  |     await choosePrep(page, '● 1号盘');
+  34  |     await make(page, product);
+  35  |   }
+  36  |   const activeOrder = (await state(page)).orders.find((o) => o.id === orderId);
+  37  |   if (!activeOrder || activeOrder.status !== 'waiting')
+  38  |     throw Error('chosen friend was not admitted');
+  39  |   await handOver(page, activeOrder.seat);
+  40  |   await expect
+  41  |     .poll(async () => (await state(page)).orders.find((o) => o.id === orderId)?.status ?? 'done', {
+  42  |       timeout: 20000,
+  43  |     })
+  44  |     .toBe('done');
+  45  |   await lesson(page);
+  46  | }
+  47  | async function begin(page: Page) {
+  48  |   await page.goto('/');
+  49  |   await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
+  50  | }
+  51  | 
+  52  | test('visible activity entrance reaches all five chapters and saves a real creation', async ({
+  53  |   page,
+  54  | }) => {
+  55  |   test.setTimeout(900000);
+  56  |   page.setDefaultTimeout(30000);
+  57  |   const walkStarted = Date.now();
+  58  |   await page.setViewportSize({ width: 1280, height: 720 });
+  59  |   await begin(page);
+  60  |   await kitchen(page);
+  61  |   await send(page, 0, 'apple');
+  62  |   await send(page, 1, 'banana');
+  63  |   await table(page);
+  64  |   await page.getByRole('button', { name: '打开储物抽屉', exact: true }).click();
+  65  |   await page.getByRole('button', { name: '取出花苗', exact: true }).click();
+  66  |   await page.getByRole('button', { name: '把花种在中间', exact: true }).click();
+  67  |   await page.getByRole('button', { name: '取出浇水壶', exact: true }).click();
+  68  |   await page.getByRole('button', { name: '给迎客花浇水', exact: true }).click();
+  69  |   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  70  |   console.log('EVIDENCE_FEAST_START_SECONDS', (Date.now() - walkStarted) / 1000);
+  71  |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+  72  |   for (let stage = 0; stage < 5; stage++)
+> 73  |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+      |                         ^ Error: expect(locator).toHaveClass(expected) failed
+  74  |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+  75  |     timeout: 15000,
+  76  |   });
+  77  |   await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
+  78  |   await page.screenshot({
+  79  |     path: 'docs/evidence/adventure-experience-02/breakfast-friends-desktop.png',
+  80  |   });
+  81  |   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
+  82  |   await kitchen(page);
+  83  |   await send(page, 0, 'vanilla-cone');
+  84  |   await make(page, 'strawberry-cup');
+  85  |   await page.getByRole('button', { name: '送去树荫分享', exact: true }).click();
+  86  |   await expect.poll(async () => (await state(page)).adventure?.steps.includes('cool')).toBe(true);
+  87  |   await table(page);
+  88  |   await page.getByRole('button', { name: '翻开旧食谱', exact: true }).click();
+  89  |   await page.getByRole('button', { name: '收起食谱', exact: true }).click();
+  90  |   await page.getByRole('button', { name: '比较两种甜点', exact: true }).click();
+  91  |   await page.getByRole('button', { name: '选择草莓冰淇淋杯', exact: true }).click();
+  92  |   await page.getByRole('button', { name: '品尝草莓冰淇淋杯', exact: true }).click();
+  93  |   await page.getByRole('button', { name: '挂上清凉彩旗', exact: true }).click();
+  94  |   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  95  |   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
+  96  |   await kitchen(page);
+  97  |   await send(page, 0, 'sandwich');
+  98  |   await table(page);
+  99  |   await page.getByRole('button', { name: '检查野餐篮', exact: true }).click();
+  100 |   await kitchen(page);
+  101 |   await make(page, 'sandwich');
+  102 |   await tap(page, 'family-juice');
+  103 |   await choosePrep(page, '● 1号盘');
+  104 |   await tap(page, 'supply-banana');
+  105 |   await page.getByRole('button', { name: '装进野餐篮', exact: true }).click();
+  106 |   await expect.poll(async () => (await state(page)).adventure?.steps.includes('pack')).toBe(true);
+  107 |   await send(page, 1, 'salad-sandwich');
+  108 |   await table(page);
+  109 |   await page.getByRole('button', { name: '把篮子摆上桌', exact: true }).click();
+  110 |   await page.getByRole('button', { name: '铺上叶子桌布', exact: true }).click();
+  111 |   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  112 |   await page.screenshot({
+  113 |     path: 'docs/evidence/adventure-experience-02/picnic-rabbit-desktop.png',
+  114 |   });
+  115 |   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
+  116 |   await kitchen(page);
+  117 |   await send(page, 0, 'cheese-burger');
+  118 |   await send(page, 1, 'juice');
+  119 |   await table(page);
+  120 |   await page.getByRole('button', { name: '打开储物抽屉', exact: true }).click();
+  121 |   await page.getByRole('button', { name: '取出灯串', exact: true }).click();
+  122 |   await page.getByRole('button', { name: '请兔兔带灯', exact: true }).click();
+  123 |   await page.getByRole('button', { name: '选择芝士汉堡', exact: true }).click();
+  124 |   await page.getByRole('button', { name: '摆到1号餐位', exact: true }).click();
+  125 |   await page.getByRole('button', { name: '选择苹果汁', exact: true }).click();
+  126 |   await page.getByRole('button', { name: '摆到2号餐位', exact: true }).click();
+  127 |   await page.getByRole('button', { name: '点亮暖灯', exact: true }).click();
+  128 |   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  129 |   console.log('EVIDENCE_DINNER_START_SECONDS', (Date.now() - walkStarted) / 1000);
+  130 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+  131 |     timeout: 15000,
+  132 |   });
+  133 |   await expect(feast).toHaveClass(/sip/);
+  134 |   await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
+  135 |   await page.screenshot({ path: 'docs/evidence/adventure-experience-02/dinner-drink-desktop.png' });
+  136 |   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
+  137 |   await page.getByRole('button', { name: '邀请兔兔', exact: true }).click();
+  138 |   await page.getByRole('button', { name: '邀请刺刺', exact: true }).click();
+  139 |   await kitchen(page);
+  140 |   await choosePrep(page, '● 1号盘');
+  141 |   await make(page, 'sandwich');
+  142 |   await make(page, 'juice');
+  143 |   await page.getByRole('button', { name: '带作品到活动桌', exact: true }).click();
+  144 |   await expect.poll(async () => (await state(page)).adventure?.steps.includes('create')).toBe(true);
+  145 |   await table(page);
+  146 |   await page.getByRole('button', { name: '选择芝士三明治', exact: true }).click();
+  147 |   await page.getByRole('button', { name: '分享给兔兔', exact: true }).click();
+  148 |   await page.getByRole('button', { name: '品尝芝士三明治', exact: true }).click();
+  149 |   await page.getByRole('button', { name: '保存到食谱', exact: true }).click();
+  150 |   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  151 |   await expect
+  152 |     .poll(() =>
+  153 |       page.evaluate(
+  154 |         () =>
+  155 |           JSON.parse(
+  156 |             localStorage.getItem('tabby.foodtruck.profile.m2') ?? '{}',
+  157 |           ).activityMemories.filter((m: { state: { rewards: string[] } }) => m.state.rewards.length)
+  158 |             .length,
+  159 |       ),
+  160 |     )
+  161 |     .toBe(5);
+  162 |   await page.screenshot({ path: 'docs/evidence/adventure-experience-02/feast-desktop.png' });
+  163 |   const before = await state(page);
+  164 |   await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
+  165 |   await page.reload();
+  166 |   await page.getByRole('button', { name: '正在准备 · 社区小食会', exact: true }).click();
+  167 |   expect((await state(page)).adventure?.works).toEqual(before.adventure?.works);
+  168 |   await page.getByRole('button', { name: '再准备一次', exact: true }).click();
+  169 |   await page.getByRole('button', { name: '翻开旧食谱', exact: true }).click();
+  170 |   await expect(
+  171 |     page
+  172 |       .getByRole('region', { name: '上次留下的作品', exact: true })
+  173 |       .locator('.remembered-table')
+```

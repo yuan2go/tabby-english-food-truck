@@ -1,0 +1,10 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck
+
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  23:15:46
+   Duration  1.48s (transform 783ms, setup 0ms, import 940ms, tests 119ms, environment 0ms)
+
+EXIT_CODE=0

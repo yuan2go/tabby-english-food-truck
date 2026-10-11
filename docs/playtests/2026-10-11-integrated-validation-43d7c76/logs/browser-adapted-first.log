@@ -1,0 +1,172 @@
+(node:96313) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --config /Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/browser-isolated.config.ts
+
+(node:96328) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:96336) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[WebServer] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:96336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (node:96359) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[WebServer] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:96359) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+Running 26 tests using 1 worker
+
+(node:96405) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+EVIDENCE_FEAST_START_SECONDS 82.958
+  ✘   1 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (1.7m)
+(node:96517) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96517) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+EVIDENCE_FEAST_START_SECONDS 87.831
+  ✘   2 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement (1.8m)
+(node:96628) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+  ✓   3 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:237:1 › phone replay follows hedgehog path with real food and no packing task (2.8m)
+  ✓   4 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:288:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (1.6m)
+  ✓   5 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:379:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (33.5s)
+  ✓   6 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:433:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (59.3s)
+  ✓   7 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (16.6s)
+  ✓   8 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help (11.2s)
+  ✓   9 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/experience.spec.ts:66:1 › muting through visible settings retains picture goals and safe replay (9.7s)
+  ✘  10 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (1.1m)
+(node:97083) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:97083) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+  ✓  11 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (26.0s)
+  ✓  12 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (40.1s)
+  ✓  13 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (41.0s)
+  ✓  14 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (19.9s)
+  ✓  15 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (21.5s)
+  ✓  16 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (19.4s)
+  ✓  17 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (48.6s)
+  ✓  18 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:218:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (22.3s)
+  ✓  19 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:258:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (26.0s)
+  ✓  20 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:335:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (8.9s)
+  ✓  21 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:357:1 › phone five-cup layout and theatre controls remain visible and individually usable (38.9s)
+  ✓  22 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (26.0s)
+  ✓  23 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (45.3s)
+  ✓  24 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (10.1s)
+  ✓  25 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (39.2s)
+  ✓  26 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress (1.3m)
+
+
+  1) ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+    Expected pattern: /stage-0/
+    Received string:  "friend-theatre theatre-finish stage-4 low-motion bite"
+    Timeout: 15000ms
+
+    Call log:
+      - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 15000ms
+      - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+        28 × locator resolved to <section aria-label="朋友实际使用食品" data-moment="adee366b-9563-4aaa-aee9-9cfa897269af:moment:8" class="friend-theatre theatre-finish stage-4 low-motion bite">…</section>
+           - unexpected value "friend-theatre theatre-finish stage-4 low-motion bite"
+
+
+      71 |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+      72 |   for (let stage = 0; stage < 5; stage++)
+    > 73 |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+         |                         ^
+      74 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+      75 |     timeout: 15000,
+      76 |   });
+        at /Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:73:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  2) ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+    Expected pattern: /stage-0/
+    Received string:  "friend-theatre theatre-finish stage-4 low-motion bite"
+    Timeout: 15000ms
+
+    Call log:
+      - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 15000ms
+      - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+        27 × locator resolved to <section aria-label="朋友实际使用食品" data-moment="588dfe24-1b12-4bd5-931e-087664527cca:moment:8" class="friend-theatre theatre-finish stage-4 low-motion bite">…</section>
+           - unexpected value "friend-theatre theatre-finish stage-4 low-motion bite"
+
+
+      200 |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+      201 |   for (let stage = 0; stage < 5; stage++)
+    > 202 |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+          |                         ^
+      203 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+      204 |     timeout: 15000,
+      205 |   });
+        at /Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:202:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/error-context.md
+
+  3) ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.tap: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '继续营业', exact: true })
+        - locator resolved to <button type="button" class="primary">继续营业</button>
+
+
+      152 |     await tap(page, 'note');
+      153 |     await expect(page.getByRole('heading', { name: '大咪陪你一起做' })).toBeVisible();
+    > 154 |     await page.getByRole('button', { name: '继续营业', exact: true }).tap();
+          |                                                                   ^
+      155 |     await tap(page, 'tray-1', 25);
+      156 |     await tap(page, 'supply-apple');
+      157 |     const added = (await state(page)).items.find((i) => i.location.startsWith('tray:1:'));
+        at /Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:154:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  3 failed
+    ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+    ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+    ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  23 passed (19.9m)
+EXIT_CODE=1

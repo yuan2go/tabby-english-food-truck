@@ -38,3 +38,7 @@ npm run dev
 当前 **WP-MINIGAMES-VOCAB-EXPANSION-01** 工程实现已验证：十类可选小游戏、120学习概念、33短指令、15新场景关/51任务；外部接受仍待验。[完整报告与启动](docs/evidence/minigames-vocab/README.md)、[120词覆盖表](docs/evidence/minigames-vocab/vocabulary-coverage.csv)，实际结果以STATUS为准。[本包实施计划](docs/plans/2026-10-11-minigames-vocab.md)。
 
 2026-10-11 负责人授权统一提交、推送、PR并合并main，包括现存执行产物；负责人最新要求放弃试玩报告。本次整合版本测试/构建/运行检查均 **NOT_RUN**；历史工程结果仅对应原工作包。最新原PR云端CI均失败，详情与交付记录见[STATUS](docs/STATUS.md)。
+
+## 最新整合版本验证（2026-10-12）
+
+[完整报告](docs/playtests/2026-10-11-integrated-validation.md)和[证据索引](docs/playtests/2026-10-11-integrated-validation-43d7c76/README.md)：同一43d7c76构建的辅助UI五章、双野餐、自由厨房和十类小游戏代表路径完成，工程门禁仍失败，详见STATUS。本次只提交现存产物、不重跑测试，来源/hash见[交付索引](docs/evidence/validation-delivery-2026-10-12/README.md)。

@@ -1,0 +1,4343 @@
+{
+  "profile": {
+    "receivedProducts": [
+      "apple",
+      "banana",
+      "vanilla-cone",
+      "strawberry-cup",
+      "sandwich",
+      "salad-sandwich",
+      "juice",
+      "cheese-burger"
+    ],
+    "version": 3,
+    "activityMemories": [
+      {
+        "runId": "51b927f7-948b-41b8-95a8-d78c953fefa4",
+        "state": {
+          "chapter": 0,
+          "kind": "chapter",
+          "branch": null,
+          "explored": [
+            "drawer"
+          ],
+          "steps": [
+            "served:rabbit",
+            "served:hedgehog",
+            "plant",
+            "place:0",
+            "place:1",
+            "taste"
+          ],
+          "rewards": [
+            "flower-page"
+          ],
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "apple",
+              "source": "guest-0",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "rabbit"
+            },
+            {
+              "id": "food-3",
+              "product": "banana",
+              "source": "guest-1",
+              "place": "table:1",
+              "tasted": true,
+              "recipient": "hedgehog",
+              "tastedBy": "hedgehog"
+            }
+          ],
+          "works": [],
+          "decor": {
+            "flower": 0,
+            "bunting": "warm",
+            "cloth": "leaf",
+            "light": "warm"
+          },
+          "invitations": [],
+          "experience": {
+            "version": 2,
+            "tools": [
+              "seed",
+              "watering-can"
+            ],
+            "used": [
+              "water"
+            ],
+            "helpers": [],
+            "needs": [],
+            "known": [
+              "apple",
+              "banana"
+            ],
+            "picnic": null,
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "apple"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "rabbit",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:2",
+                "at": 65947.6
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "banana"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "hedgehog",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:4",
+                "at": 72964.00000000001
+              },
+              {
+                "kind": "tool",
+                "foods": [],
+                "tool": "seed",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:5",
+                "at": 76580.50000000001
+              },
+              {
+                "kind": "tool",
+                "foods": [],
+                "tool": "watering-can",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:6",
+                "at": 76880.6
+              },
+              {
+                "kind": "water",
+                "foods": [],
+                "seat": 0,
+                "tool": "watering-can",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:7",
+                "at": 84080.20000000001
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "apple"
+                  }
+                ],
+                "seat": 0,
+                "visitor": "rabbit",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:8",
+                "at": 84296.90000000002
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "banana"
+                  }
+                ],
+                "seat": 1,
+                "visitor": "hedgehog",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:9",
+                "at": 84546.90000000002
+              },
+              {
+                "kind": "taste",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "banana"
+                  }
+                ],
+                "visitor": "hedgehog",
+                "seat": 1,
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:10",
+                "at": 84663.5
+              },
+              {
+                "kind": "finish",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "apple",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-3",
+                    "product": "banana",
+                    "visitor": "hedgehog"
+                  }
+                ],
+                "destination": "table",
+                "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:moment:11",
+                "at": 86396.80000000002
+              }
+            ]
+          }
+        }
+      },
+      {
+        "runId": "74dee134-6fa8-4fe4-b671-6105e1378f77",
+        "state": {
+          "chapter": 1,
+          "kind": "chapter",
+          "branch": null,
+          "explored": [
+            "recipe"
+          ],
+          "steps": [
+            "served:rabbit",
+            "cool",
+            "place:0",
+            "place:1",
+            "taste",
+            "bunting"
+          ],
+          "rewards": [
+            "bunting-page"
+          ],
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "vanilla-cone",
+              "source": "guest-0",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "rabbit"
+            },
+            {
+              "id": "food-3",
+              "product": "strawberry-cup",
+              "source": "cool",
+              "place": "table:1",
+              "tasted": true,
+              "recipient": "hedgehog",
+              "tastedBy": "hedgehog"
+            }
+          ],
+          "works": [],
+          "decor": {
+            "flower": 0,
+            "bunting": "cool",
+            "cloth": "leaf",
+            "light": "warm"
+          },
+          "invitations": [],
+          "experience": {
+            "version": 2,
+            "tools": [
+              "spoon"
+            ],
+            "used": [
+              "compare"
+            ],
+            "helpers": [],
+            "needs": [],
+            "known": [
+              "apple",
+              "banana",
+              "vanilla-cone",
+              "strawberry-cup"
+            ],
+            "picnic": null,
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "vanilla-cone"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "rabbit",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:5",
+                "at": 21549
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "strawberry-cup"
+                  }
+                ],
+                "destination": "work",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:7",
+                "at": 28582.199999999983
+              },
+              {
+                "kind": "tool",
+                "foods": [],
+                "tool": "spoon",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:8",
+                "at": 32881.899999999994
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "vanilla-cone"
+                  }
+                ],
+                "seat": 0,
+                "visitor": "rabbit",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:9",
+                "at": 39315
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "strawberry-cup"
+                  }
+                ],
+                "seat": 1,
+                "visitor": "hedgehog",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:10",
+                "at": 39598.399999999994
+              },
+              {
+                "kind": "share",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "vanilla-cone"
+                  },
+                  {
+                    "id": "food-3",
+                    "product": "strawberry-cup"
+                  }
+                ],
+                "visitor": "hedgehog",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:11",
+                "at": 39715
+              },
+              {
+                "kind": "taste",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "strawberry-cup"
+                  }
+                ],
+                "visitor": "hedgehog",
+                "seat": 1,
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:12",
+                "at": 40065
+              },
+              {
+                "kind": "place",
+                "destination": "table",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "vanilla-cone",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-3",
+                    "product": "strawberry-cup",
+                    "visitor": "hedgehog"
+                  }
+                ],
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:13",
+                "at": 40365
+              },
+              {
+                "kind": "finish",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "vanilla-cone",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-3",
+                    "product": "strawberry-cup",
+                    "visitor": "hedgehog"
+                  }
+                ],
+                "destination": "table",
+                "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:moment:14",
+                "at": 47381.399999999994
+              }
+            ]
+          }
+        }
+      },
+      {
+        "runId": "33bf31a7-fbe8-4b9a-96c7-d28062419c00",
+        "state": {
+          "chapter": 3,
+          "kind": "chapter",
+          "branch": null,
+          "explored": [
+            "drawer"
+          ],
+          "steps": [
+            "served:hedgehog",
+            "place:1",
+            "served:rabbit",
+            "place:0",
+            "light"
+          ],
+          "rewards": [
+            "light-page"
+          ],
+          "foods": [
+            {
+              "id": "food-2",
+              "product": "juice",
+              "source": "guest-1",
+              "place": "table:1",
+              "tasted": true,
+              "recipient": "hedgehog",
+              "tastedBy": "hedgehog"
+            },
+            {
+              "id": "food-14",
+              "product": "cheese-burger",
+              "source": "guest-0",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "rabbit"
+            }
+          ],
+          "works": [],
+          "decor": {
+            "flower": 0,
+            "bunting": "warm",
+            "cloth": "leaf",
+            "light": "moon"
+          },
+          "invitations": [],
+          "experience": {
+            "version": 2,
+            "tools": [
+              "lantern"
+            ],
+            "used": [
+              "cooperate"
+            ],
+            "helpers": [
+              {
+                "visitor": "rabbit",
+                "role": "lantern"
+              },
+              {
+                "visitor": "hedgehog",
+                "role": "cups"
+              }
+            ],
+            "needs": [],
+            "known": [
+              "apple",
+              "banana",
+              "vanilla-cone",
+              "strawberry-cup",
+              "sandwich",
+              "salad-sandwich",
+              "juice",
+              "cheese-burger"
+            ],
+            "picnic": "rabbit",
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-2",
+                    "product": "juice"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "hedgehog",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:8",
+                "at": 80430.20000000001
+              },
+              {
+                "kind": "tool",
+                "foods": [],
+                "tool": "lantern",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:9",
+                "at": 105145.9
+              },
+              {
+                "kind": "cooperate",
+                "foods": [],
+                "visitor": "rabbit",
+                "tool": "lantern",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:10",
+                "at": 110829
+              },
+              {
+                "kind": "cooperate",
+                "foods": [],
+                "visitor": "hedgehog",
+                "prop": "cup",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:11",
+                "at": 110962.30000000002
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-2",
+                    "product": "juice"
+                  }
+                ],
+                "seat": 1,
+                "visitor": "hedgehog",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:12",
+                "at": 111095.6
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-14",
+                    "product": "cheese-burger"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "rabbit",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:16",
+                "at": 210625
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-14",
+                    "product": "cheese-burger"
+                  }
+                ],
+                "seat": 0,
+                "visitor": "rabbit",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:17",
+                "at": 219658
+              },
+              {
+                "kind": "finish",
+                "foods": [
+                  {
+                    "id": "food-2",
+                    "product": "juice",
+                    "visitor": "hedgehog"
+                  },
+                  {
+                    "id": "food-14",
+                    "product": "cheese-burger",
+                    "visitor": "rabbit"
+                  }
+                ],
+                "destination": "table",
+                "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:18",
+                "at": 221207.90000000002
+              }
+            ]
+          }
+        }
+      },
+      {
+        "runId": "2f86f28a-df16-4a08-ac77-398d28af779e",
+        "state": {
+          "chapter": 4,
+          "kind": "chapter",
+          "branch": null,
+          "explored": [],
+          "steps": [
+            "create",
+            "place:0",
+            "taste",
+            "place:1",
+            "save-work"
+          ],
+          "rewards": [
+            "feast-page"
+          ],
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "sandwich",
+              "source": "create:world-6",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "rabbit"
+            },
+            {
+              "id": "food-4",
+              "product": "vanilla-cone",
+              "source": "create:world-6",
+              "place": "table:1",
+              "tasted": true,
+              "recipient": "hedgehog",
+              "tastedBy": "hedgehog"
+            }
+          ],
+          "works": [
+            {
+              "id": "2f86f28a-df16-4a08-ac77-398d28af779e:work:12",
+              "foods": [
+                {
+                  "id": "food-1",
+                  "product": "sandwich",
+                  "source": "create:world-6",
+                  "place": "table:0",
+                  "tasted": true,
+                  "recipient": "rabbit",
+                  "tastedBy": "rabbit"
+                },
+                {
+                  "id": "food-4",
+                  "product": "vanilla-cone",
+                  "source": "create:world-6",
+                  "place": "table:1",
+                  "tasted": true,
+                  "recipient": "hedgehog",
+                  "tastedBy": "hedgehog"
+                }
+              ],
+              "signature": "food-1:sandwich:table:0:true|food-4:vanilla-cone:table:1:true"
+            }
+          ],
+          "decor": {
+            "flower": 0,
+            "bunting": "warm",
+            "cloth": "leaf",
+            "light": "warm"
+          },
+          "invitations": [
+            "rabbit",
+            "hedgehog"
+          ],
+          "experience": {
+            "version": 2,
+            "tools": [],
+            "used": [
+              "share"
+            ],
+            "helpers": [],
+            "needs": [
+              {
+                "visitor": "rabbit",
+                "kind": "savory",
+                "basis": "packing",
+                "fulfilled": [
+                  "food-1"
+                ]
+              },
+              {
+                "visitor": "hedgehog",
+                "kind": "cool",
+                "basis": "treat",
+                "fulfilled": [
+                  "food-4"
+                ]
+              }
+            ],
+            "known": [
+              "apple",
+              "banana",
+              "vanilla-cone",
+              "strawberry-cup",
+              "sandwich",
+              "salad-sandwich",
+              "juice",
+              "cheese-burger"
+            ],
+            "picnic": "rabbit",
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "sandwich"
+                  },
+                  {
+                    "id": "food-4",
+                    "product": "vanilla-cone"
+                  }
+                ],
+                "destination": "work",
+                "id": "2f86f28a-df16-4a08-ac77-398d28af779e:moment:7",
+                "at": 26349
+              },
+              {
+                "kind": "share",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "sandwich"
+                  }
+                ],
+                "visitor": "rabbit",
+                "seat": 0,
+                "id": "2f86f28a-df16-4a08-ac77-398d28af779e:moment:8",
+                "at": 36565.29999999999
+              },
+              {
+                "kind": "taste",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "sandwich"
+                  }
+                ],
+                "visitor": "rabbit",
+                "seat": 0,
+                "id": "2f86f28a-df16-4a08-ac77-398d28af779e:moment:9",
+                "at": 36748.5
+              },
+              {
+                "kind": "share",
+                "foods": [
+                  {
+                    "id": "food-4",
+                    "product": "vanilla-cone"
+                  }
+                ],
+                "visitor": "hedgehog",
+                "seat": 1,
+                "id": "2f86f28a-df16-4a08-ac77-398d28af779e:moment:10",
+                "at": 37198.59999999998
+              },
+              {
+                "kind": "taste",
+                "foods": [
+                  {
+                    "id": "food-4",
+                    "product": "vanilla-cone"
+                  }
+                ],
+                "visitor": "hedgehog",
+                "seat": 1,
+                "id": "2f86f28a-df16-4a08-ac77-398d28af779e:moment:11",
+                "at": 37465.20000000001
+              },
+              {
+                "kind": "finish",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "sandwich",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-4",
+                    "product": "vanilla-cone",
+                    "visitor": "hedgehog"
+                  }
+                ],
+                "destination": "table",
+                "id": "2f86f28a-df16-4a08-ac77-398d28af779e:moment:13",
+                "at": 39315.20000000001
+              }
+            ]
+          }
+        }
+      },
+      {
+        "runId": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4",
+        "state": {
+          "chapter": 2,
+          "kind": "chapter",
+          "branch": "rabbit",
+          "explored": [
+            "basket"
+          ],
+          "steps": [
+            "served:rabbit",
+            "served:hedgehog",
+            "pack",
+            "unpack",
+            "cloth"
+          ],
+          "rewards": [
+            "picnic-page"
+          ],
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "sandwich",
+              "source": "guest-0",
+              "place": "guest-rabbit",
+              "tasted": true,
+              "tastedBy": "rabbit"
+            },
+            {
+              "id": "food-5",
+              "product": "salad-sandwich",
+              "source": "guest-1",
+              "place": "guest-hedgehog",
+              "tasted": true,
+              "tastedBy": "hedgehog"
+            },
+            {
+              "id": "food-10",
+              "product": "sandwich",
+              "source": "pack",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "rabbit"
+            },
+            {
+              "id": "food-14",
+              "product": "apple",
+              "source": "pack",
+              "place": "table:1",
+              "tasted": true,
+              "recipient": "hedgehog",
+              "tastedBy": "hedgehog"
+            }
+          ],
+          "works": [],
+          "decor": {
+            "flower": 0,
+            "bunting": "warm",
+            "cloth": "leaf",
+            "light": "warm"
+          },
+          "invitations": [],
+          "experience": {
+            "version": 2,
+            "tools": [],
+            "used": [],
+            "helpers": [],
+            "needs": [],
+            "known": [
+              "apple",
+              "banana",
+              "vanilla-cone",
+              "strawberry-cup",
+              "sandwich",
+              "salad-sandwich",
+              "juice",
+              "cheese-burger"
+            ],
+            "picnic": "rabbit",
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "sandwich"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "rabbit",
+                "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:4",
+                "at": 21749.199999999983
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-5",
+                    "product": "salad-sandwich"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "hedgehog",
+                "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:9",
+                "at": 79480.30000000003
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-10",
+                    "product": "sandwich"
+                  },
+                  {
+                    "id": "food-14",
+                    "product": "apple"
+                  }
+                ],
+                "destination": "basket",
+                "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:16",
+                "at": 113212.2999999994
+              },
+              {
+                "kind": "place",
+                "destination": "table",
+                "foods": [
+                  {
+                    "id": "food-10",
+                    "product": "sandwich",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-14",
+                    "product": "apple",
+                    "visitor": "hedgehog"
+                  }
+                ],
+                "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:17",
+                "at": 122028.59999999958
+              },
+              {
+                "kind": "finish",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "sandwich",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-5",
+                    "product": "salad-sandwich",
+                    "visitor": "hedgehog"
+                  },
+                  {
+                    "id": "food-10",
+                    "product": "sandwich",
+                    "visitor": "rabbit"
+                  },
+                  {
+                    "id": "food-14",
+                    "product": "apple",
+                    "visitor": "hedgehog"
+                  }
+                ],
+                "destination": "table",
+                "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:18",
+                "at": 128961.69999999969
+              }
+            ]
+          }
+        }
+      },
+      {
+        "runId": "1209ced4-38aa-4b06-907c-849236ab130a",
+        "state": {
+          "chapter": 2,
+          "kind": "chapter",
+          "branch": "hedgehog",
+          "explored": [
+            "drawer"
+          ],
+          "steps": [
+            "served:hedgehog",
+            "place:1",
+            "served:rabbit",
+            "place:0",
+            "cloth"
+          ],
+          "rewards": [
+            "picnic-page"
+          ],
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "salad-sandwich",
+              "source": "guest-1",
+              "place": "table:1",
+              "tasted": true,
+              "recipient": "hedgehog",
+              "tastedBy": "hedgehog"
+            },
+            {
+              "id": "food-8",
+              "product": "sandwich",
+              "source": "guest-0",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "rabbit"
+            }
+          ],
+          "works": [],
+          "decor": {
+            "flower": 0,
+            "bunting": "warm",
+            "cloth": "sun",
+            "light": "warm"
+          },
+          "invitations": [],
+          "experience": {
+            "version": 2,
+            "tools": [
+              "mat"
+            ],
+            "used": [],
+            "helpers": [],
+            "needs": [],
+            "known": [
+              "apple",
+              "banana",
+              "vanilla-cone",
+              "strawberry-cup",
+              "sandwich",
+              "salad-sandwich",
+              "juice",
+              "cheese-burger"
+            ],
+            "picnic": "hedgehog",
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "salad-sandwich"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "hedgehog",
+                "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:5",
+                "at": 19949.3
+              },
+              {
+                "kind": "tool",
+                "foods": [],
+                "tool": "mat",
+                "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:6",
+                "at": 31965.500000000004
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "salad-sandwich"
+                  }
+                ],
+                "seat": 1,
+                "visitor": "hedgehog",
+                "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:7",
+                "at": 32098.8
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-8",
+                    "product": "sandwich"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "rabbit",
+                "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:11",
+                "at": 51264.7
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-8",
+                    "product": "sandwich"
+                  }
+                ],
+                "seat": 0,
+                "visitor": "rabbit",
+                "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:12",
+                "at": 54164.5
+              },
+              {
+                "kind": "finish",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "salad-sandwich",
+                    "visitor": "hedgehog"
+                  },
+                  {
+                    "id": "food-8",
+                    "product": "sandwich",
+                    "visitor": "rabbit"
+                  }
+                ],
+                "destination": "table",
+                "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:13",
+                "at": 54397.899999999994
+              }
+            ]
+          }
+        }
+      },
+      {
+        "runId": "49b2ef8c-b08d-432a-a64a-d620a51e7558",
+        "state": {
+          "chapter": 4,
+          "kind": "shop",
+          "branch": null,
+          "explored": [
+            "recipe"
+          ],
+          "steps": [
+            "served:rabbit",
+            "create",
+            "place:2",
+            "taste",
+            "place:0",
+            "save-work"
+          ],
+          "rewards": [],
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "apple",
+              "source": "guest-0",
+              "place": "guest-rabbit",
+              "tasted": false
+            },
+            {
+              "id": "food-3",
+              "product": "juice",
+              "source": "create:world-6",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "elder"
+            }
+          ],
+          "works": [
+            {
+              "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:work:11",
+              "foods": [
+                {
+                  "id": "food-3",
+                  "product": "juice",
+                  "source": "create:world-6",
+                  "place": "table:0",
+                  "tasted": true,
+                  "recipient": "rabbit",
+                  "tastedBy": "elder"
+                }
+              ],
+              "signature": "food-3:juice:table:0:true"
+            }
+          ],
+          "decor": {
+            "flower": 0,
+            "bunting": "warm",
+            "cloth": "leaf",
+            "light": "warm"
+          },
+          "invitations": [
+            "rabbit"
+          ],
+          "experience": {
+            "version": 2,
+            "tools": [],
+            "used": [],
+            "helpers": [],
+            "needs": [
+              {
+                "visitor": "rabbit",
+                "kind": "savory",
+                "basis": "packing",
+                "fulfilled": []
+              }
+            ],
+            "known": [
+              "apple",
+              "banana",
+              "vanilla-cone",
+              "strawberry-cup",
+              "sandwich",
+              "salad-sandwich",
+              "juice",
+              "cheese-burger"
+            ],
+            "picnic": "hedgehog",
+            "moments": [
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-1",
+                    "product": "apple"
+                  }
+                ],
+                "destination": "table",
+                "visitor": "rabbit",
+                "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:2",
+                "at": 4533.199999999953
+              },
+              {
+                "kind": "receive",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "juice"
+                  }
+                ],
+                "destination": "work",
+                "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:7",
+                "at": 30032.099999999977
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "juice"
+                  }
+                ],
+                "seat": 2,
+                "visitor": "elder",
+                "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:8",
+                "at": 41648.399999999965
+              },
+              {
+                "kind": "taste",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "juice"
+                  }
+                ],
+                "visitor": "elder",
+                "seat": 2,
+                "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:9",
+                "at": 41748.29999999999
+              },
+              {
+                "kind": "place",
+                "foods": [
+                  {
+                    "id": "food-3",
+                    "product": "juice"
+                  }
+                ],
+                "seat": 0,
+                "visitor": "elder",
+                "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:10",
+                "at": 42265
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "language": "flavor",
+    "concurrency": 2,
+    "observedIds": [
+      "lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-0:0",
+      "51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:14",
+      "world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-1",
+      "lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-1:0",
+      "51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:32",
+      "world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-3",
+      "operation:74dee134-6fa8-4fe4-b671-6105e1378f77:16",
+      "74dee134-6fa8-4fe4-b671-6105e1378f77:attempt:17",
+      "operation:74dee134-6fa8-4fe4-b671-6105e1378f77:21",
+      "world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-1",
+      "world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-3",
+      "operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:14",
+      "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:16",
+      "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-1",
+      "operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:39",
+      "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:45",
+      "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-5",
+      "operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:63",
+      "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-10",
+      "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-14",
+      "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:12",
+      "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:19",
+      "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:26",
+      "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:28",
+      "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:29",
+      "world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-2",
+      "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:37",
+      "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:55",
+      "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:59",
+      "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:62",
+      "world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-14",
+      "operation:2f86f28a-df16-4a08-ac77-398d28af779e:11",
+      "operation:2f86f28a-df16-4a08-ac77-398d28af779e:15",
+      "world:2f86f28a-df16-4a08-ac77-398d28af779e:food-1",
+      "world:2f86f28a-df16-4a08-ac77-398d28af779e:food-4",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558:attempt:2",
+      "world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-1",
+      "operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:15",
+      "world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-3",
+      "operation:1209ced4-38aa-4b06-907c-849236ab130a:12",
+      "1209ced4-38aa-4b06-907c-849236ab130a:attempt:15",
+      "world:1209ced4-38aa-4b06-907c-849236ab130a:food-1",
+      "operation:1209ced4-38aa-4b06-907c-849236ab130a:31",
+      "1209ced4-38aa-4b06-907c-849236ab130a:attempt:32",
+      "world:1209ced4-38aa-4b06-907c-849236ab130a:food-8",
+      "operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:44",
+      "ba8eb68e-e391-4599-ac15-ef2a86d7810d:0",
+      "ba8eb68e-e391-4599-ac15-ef2a86d7810d:1",
+      "ba8eb68e-e391-4599-ac15-ef2a86d7810d:2",
+      "ba8eb68e-e391-4599-ac15-ef2a86d7810d:3",
+      "ba8eb68e-e391-4599-ac15-ef2a86d7810d:4",
+      "83e06a06-2525-4ccb-83e2-61dbed778557:0",
+      "64d0497c-1825-426f-a7b8-7d881c62e68b:0",
+      "500aca79-691e-467e-a8fa-d9ac746dfb46:0",
+      "a86c1828-09bf-4710-9044-bbbcdb93d078:0"
+    ],
+    "presented": [
+      "request:apple",
+      "apple",
+      "menu:apple",
+      "request:banana",
+      "banana",
+      "menu:banana",
+      "request:vanilla-cone",
+      "ice-cream",
+      "menu:vanilla-cone",
+      "request:sandwich",
+      "bread",
+      "menu:sandwich",
+      "request:salad-sandwich",
+      "lettuce",
+      "menu:salad-sandwich",
+      "request:cheese-burger",
+      "bun",
+      "menu:juice",
+      "menu:cheese-burger"
+    ],
+    "learnedUnits": [],
+    "lessons": {
+      "51b927f7-948b-41b8-95a8-d78c953fefa4:guest-0": {
+        "request": "apple",
+        "units": [
+          "apple"
+        ],
+        "index": 0,
+        "phase": "done",
+        "step": 0,
+        "tries": 0,
+        "nextAttempt": 1,
+        "support": [
+          "meaning-picture"
+        ]
+      },
+      "51b927f7-948b-41b8-95a8-d78c953fefa4:guest-1": {
+        "request": "banana",
+        "units": [
+          "banana"
+        ],
+        "index": 0,
+        "phase": "done",
+        "step": 0,
+        "tries": 0,
+        "nextAttempt": 1,
+        "support": [
+          "meaning-picture"
+        ]
+      },
+      "74dee134-6fa8-4fe4-b671-6105e1378f77:guest-0": {
+        "request": "vanilla-cone",
+        "units": [
+          "ice-cream",
+          "vanilla-flavor",
+          "cone"
+        ],
+        "index": 0,
+        "phase": "skipped",
+        "step": 0,
+        "tries": 0,
+        "nextAttempt": 0,
+        "support": [
+          "meaning-picture",
+          "recipe-help"
+        ]
+      },
+      "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:guest-0": {
+        "request": "sandwich",
+        "units": [
+          "bread",
+          "cheese",
+          "sandwich"
+        ],
+        "index": 0,
+        "phase": "skipped",
+        "step": 0,
+        "tries": 0,
+        "nextAttempt": 0,
+        "support": [
+          "meaning-picture",
+          "recipe-help"
+        ]
+      },
+      "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:guest-1": {
+        "request": "salad-sandwich",
+        "units": [
+          "lettuce",
+          "tomato",
+          "and",
+          "sandwich"
+        ],
+        "index": 0,
+        "phase": "skipped",
+        "step": 0,
+        "tries": 0,
+        "nextAttempt": 0,
+        "support": [
+          "meaning-picture",
+          "recipe-help"
+        ]
+      },
+      "33bf31a7-fbe8-4b9a-96c7-d28062419c00:guest-0": {
+        "request": "cheese-burger",
+        "units": [
+          "bun",
+          "patty",
+          "cooked-patty",
+          "cheese",
+          "burger"
+        ],
+        "index": 0,
+        "phase": "skipped",
+        "step": 0,
+        "tries": 0,
+        "nextAttempt": 0,
+        "support": [
+          "meaning-picture",
+          "recipe-help"
+        ]
+      }
+    },
+    "prologue": true,
+    "completed": [],
+    "completedLevels": [],
+    "storyChoices": {},
+    "resolvedStoryChoices": {},
+    "introduced": [
+      "juice",
+      "ice",
+      "sandwich",
+      "burger"
+    ],
+    "tutorials": [
+      "request-apple",
+      "request-banana",
+      "operation-vanilla-cone",
+      "operation-strawberry-cup",
+      "operation-sandwich",
+      "operation-salad-sandwich",
+      "operation-patty",
+      "operation-juice",
+      "operation-burger",
+      "operation-cheese-burger"
+    ],
+    "exposure": [
+      "apple",
+      "guest-0",
+      "banana",
+      "guest-1",
+      "vanilla-cone",
+      "strawberry-cup",
+      "cool",
+      "sandwich",
+      "salad-sandwich",
+      "pack",
+      "patty",
+      "juice",
+      "burger",
+      "cheese-burger",
+      "create:world-6",
+      "orange",
+      "pear"
+    ],
+    "observations": [
+      {
+        "id": "lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-0:0",
+        "dimension": "meaning",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "meaning-picture"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:14",
+        "dimension": "listening",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "meaning-picture"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-1",
+        "dimension": "operation",
+        "target": "guest-0",
+        "result": "received:apple",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-1:0",
+        "dimension": "meaning",
+        "target": "banana",
+        "result": "completed",
+        "support": [
+          "meaning-picture"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:32",
+        "dimension": "listening",
+        "target": "banana",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "meaning-picture",
+          "audio-not-observed"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-3",
+        "dimension": "operation",
+        "target": "guest-1",
+        "result": "received:banana",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:74dee134-6fa8-4fe4-b671-6105e1378f77:16",
+        "dimension": "operation",
+        "target": "vanilla-cone",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "74dee134-6fa8-4fe4-b671-6105e1378f77:attempt:17",
+        "dimension": "listening",
+        "target": "vanilla-cone",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "meaning-picture"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:74dee134-6fa8-4fe4-b671-6105e1378f77:21",
+        "dimension": "operation",
+        "target": "strawberry-cup",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-1",
+        "dimension": "operation",
+        "target": "guest-0",
+        "result": "received:vanilla-cone",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-3",
+        "dimension": "operation",
+        "target": "cool",
+        "result": "received:strawberry-cup",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:14",
+        "dimension": "operation",
+        "target": "sandwich",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:16",
+        "dimension": "listening",
+        "target": "sandwich",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "meaning-picture"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-1",
+        "dimension": "operation",
+        "target": "guest-0",
+        "result": "received:sandwich",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:39",
+        "dimension": "operation",
+        "target": "salad-sandwich",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:45",
+        "dimension": "listening",
+        "target": "salad-sandwich",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "meaning-picture",
+          "audio-not-observed"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-5",
+        "dimension": "operation",
+        "target": "guest-1",
+        "result": "received:salad-sandwich",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:63",
+        "dimension": "operation",
+        "target": "sandwich",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-10",
+        "dimension": "operation",
+        "target": "pack",
+        "result": "received:sandwich",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-14",
+        "dimension": "operation",
+        "target": "pack",
+        "result": "received:apple",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:12",
+        "dimension": "operation",
+        "target": "patty",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:19",
+        "dimension": "operation",
+        "target": "juice",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:26",
+        "dimension": "operation",
+        "target": "burger",
+        "result": "process-started",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:28",
+        "dimension": "listening",
+        "target": "cheese-burger",
+        "result": "request-mismatch",
+        "support": [
+          "picture-request",
+          "meaning-picture"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:29",
+        "dimension": "listening",
+        "target": "juice",
+        "result": "completed",
+        "support": [
+          "picture-request"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-2",
+        "dimension": "operation",
+        "target": "guest-1",
+        "result": "received:juice",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:37",
+        "dimension": "listening",
+        "target": "cheese-burger",
+        "result": "request-mismatch",
+        "support": [
+          "picture-request",
+          "meaning-picture",
+          "mismatch-explanation"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:55",
+        "dimension": "operation",
+        "target": "patty",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:59",
+        "dimension": "operation",
+        "target": "cheese-burger",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:62",
+        "dimension": "listening",
+        "target": "cheese-burger",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "meaning-picture",
+          "mismatch-explanation"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-14",
+        "dimension": "operation",
+        "target": "guest-0",
+        "result": "received:cheese-burger",
+        "support": [],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:2f86f28a-df16-4a08-ac77-398d28af779e:11",
+        "dimension": "operation",
+        "target": "sandwich",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:2f86f28a-df16-4a08-ac77-398d28af779e:15",
+        "dimension": "operation",
+        "target": "vanilla-cone",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:2f86f28a-df16-4a08-ac77-398d28af779e:food-1",
+        "dimension": "operation",
+        "target": "create:world-6",
+        "result": "received:sandwich",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:2f86f28a-df16-4a08-ac77-398d28af779e:food-4",
+        "dimension": "operation",
+        "target": "create:world-6",
+        "result": "received:vanilla-cone",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:attempt:2",
+        "dimension": "listening",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "audio-not-observed"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-1",
+        "dimension": "operation",
+        "target": "guest-0",
+        "result": "received:apple",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:15",
+        "dimension": "operation",
+        "target": "juice",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-3",
+        "dimension": "operation",
+        "target": "create:world-6",
+        "result": "received:juice",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:1209ced4-38aa-4b06-907c-849236ab130a:12",
+        "dimension": "operation",
+        "target": "salad-sandwich",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "1209ced4-38aa-4b06-907c-849236ab130a:attempt:15",
+        "dimension": "listening",
+        "target": "salad-sandwich",
+        "result": "completed",
+        "support": [
+          "picture-request"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:1209ced4-38aa-4b06-907c-849236ab130a:food-1",
+        "dimension": "operation",
+        "target": "guest-1",
+        "result": "received:salad-sandwich",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:1209ced4-38aa-4b06-907c-849236ab130a:31",
+        "dimension": "operation",
+        "target": "sandwich",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "1209ced4-38aa-4b06-907c-849236ab130a:attempt:32",
+        "dimension": "listening",
+        "target": "sandwich",
+        "result": "completed",
+        "support": [
+          "picture-request"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "world:1209ced4-38aa-4b06-907c-849236ab130a:food-8",
+        "dimension": "operation",
+        "target": "guest-0",
+        "result": "received:sandwich",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:44",
+        "dimension": "operation",
+        "target": "juice",
+        "result": "process-started",
+        "support": [],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:0",
+        "dimension": "listening",
+        "target": "apple",
+        "result": "context-adjust",
+        "support": [
+          "meaning-picture",
+          "audio-not-observed"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:1",
+        "dimension": "listening",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "meaning-picture",
+          "difference-feedback",
+          "answer-help"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:2",
+        "dimension": "listening",
+        "target": "banana",
+        "result": "completed",
+        "support": [
+          "meaning-picture",
+          "audio-not-observed",
+          "difference-feedback",
+          "answer-help"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:3",
+        "dimension": "listening",
+        "target": "orange",
+        "result": "completed",
+        "support": [
+          "meaning-picture",
+          "audio-not-observed",
+          "difference-feedback",
+          "answer-help"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:4",
+        "dimension": "listening",
+        "target": "pear",
+        "result": "completed",
+        "support": [
+          "meaning-picture",
+          "audio-not-observed",
+          "difference-feedback",
+          "answer-help"
+        ],
+        "visit": "first",
+        "audioQualified": false
+      },
+      {
+        "id": "83e06a06-2525-4ccb-83e2-61dbed778557:0",
+        "dimension": "meaning",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "meaning-picture"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "64d0497c-1825-426f-a7b8-7d881c62e68b:0",
+        "dimension": "spelling",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "meaning-picture"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "500aca79-691e-467e-a8fa-d9ac746dfb46:0",
+        "dimension": "meaning",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "meaning-picture"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      },
+      {
+        "id": "a86c1828-09bf-4710-9044-bbbcdb93d078:0",
+        "dimension": "structure",
+        "target": "apple",
+        "result": "completed",
+        "support": [
+          "meaning-picture"
+        ],
+        "visit": "revisit",
+        "audioQualified": false
+      }
+    ],
+    "support": "pictures"
+  },
+  "session": {
+    "schemaVersion": 7,
+    "adventure": {
+      "chapter": 4,
+      "kind": "shop",
+      "branch": null,
+      "explored": [
+        "recipe"
+      ],
+      "steps": [
+        "served:rabbit",
+        "create",
+        "place:2",
+        "taste",
+        "place:0",
+        "save-work"
+      ],
+      "rewards": [],
+      "foods": [
+        {
+          "id": "food-1",
+          "product": "apple",
+          "source": "guest-0",
+          "place": "guest-rabbit",
+          "tasted": false
+        },
+        {
+          "id": "food-3",
+          "product": "juice",
+          "source": "create:world-6",
+          "place": "table:0",
+          "tasted": true,
+          "recipient": "rabbit",
+          "tastedBy": "elder"
+        }
+      ],
+      "works": [
+        {
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:work:11",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice",
+              "source": "create:world-6",
+              "place": "table:0",
+              "tasted": true,
+              "recipient": "rabbit",
+              "tastedBy": "elder"
+            }
+          ],
+          "signature": "food-3:juice:table:0:true"
+        }
+      ],
+      "decor": {
+        "flower": 0,
+        "bunting": "warm",
+        "cloth": "leaf",
+        "light": "warm"
+      },
+      "invitations": [
+        "rabbit"
+      ],
+      "experience": {
+        "version": 2,
+        "tools": [],
+        "used": [],
+        "helpers": [],
+        "needs": [
+          {
+            "visitor": "rabbit",
+            "kind": "savory",
+            "basis": "packing",
+            "fulfilled": []
+          }
+        ],
+        "known": [
+          "apple",
+          "banana",
+          "vanilla-cone",
+          "strawberry-cup",
+          "sandwich",
+          "salad-sandwich",
+          "juice",
+          "cheese-burger"
+        ],
+        "picnic": "hedgehog",
+        "moments": [
+          {
+            "kind": "receive",
+            "foods": [
+              {
+                "id": "food-1",
+                "product": "apple"
+              }
+            ],
+            "destination": "table",
+            "visitor": "rabbit",
+            "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:2",
+            "at": 4533.199999999953
+          },
+          {
+            "kind": "receive",
+            "foods": [
+              {
+                "id": "food-3",
+                "product": "juice"
+              }
+            ],
+            "destination": "work",
+            "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:7",
+            "at": 30032.099999999977
+          },
+          {
+            "kind": "place",
+            "foods": [
+              {
+                "id": "food-3",
+                "product": "juice"
+              }
+            ],
+            "seat": 2,
+            "visitor": "elder",
+            "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:8",
+            "at": 41648.399999999965
+          },
+          {
+            "kind": "taste",
+            "foods": [
+              {
+                "id": "food-3",
+                "product": "juice"
+              }
+            ],
+            "visitor": "elder",
+            "seat": 2,
+            "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:9",
+            "at": 41748.29999999999
+          },
+          {
+            "kind": "place",
+            "foods": [
+              {
+                "id": "food-3",
+                "product": "juice"
+              }
+            ],
+            "seat": 0,
+            "visitor": "elder",
+            "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:10",
+            "at": 42265
+          }
+        ]
+      }
+    },
+    "routing": {
+      "machine": null,
+      "ice": null,
+      "board": null,
+      "grill": null
+    },
+    "session": {
+      "activity": "endless",
+      "chapter": 0,
+      "support": "pictures",
+      "concurrency": 2,
+      "supplyPage": 0,
+      "language": "flavor",
+      "menu": [
+        "apple",
+        "banana",
+        "juice",
+        "vanilla-cone",
+        "sandwich",
+        "salad-sandwich",
+        "cheese-burger"
+      ],
+      "family": "juice",
+      "unlocked": [
+        "juice",
+        "ice",
+        "sandwich",
+        "burger"
+      ],
+      "seed": 1042832073,
+      "cursor": 3,
+      "served": 1,
+      "lastRequest": "banana",
+      "knownMenu": [
+        "apple",
+        "banana",
+        "juice",
+        "vanilla-cone",
+        "sandwich",
+        "salad-sandwich",
+        "cheese-burger"
+      ],
+      "shop": {
+        "accepting": true,
+        "theme": "all"
+      }
+    },
+    "stations": {
+      "ice": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "board": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "grill": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      }
+    },
+    "actor": {
+      "point": {
+        "x": 0.73,
+        "y": 0.43
+      },
+      "current": null,
+      "queue": []
+    },
+    "recycle": null,
+    "contentVersion": "adventure-experience-2",
+    "mode": "service",
+    "history": {
+      "apple": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before",
+        "seen-in-prior-run",
+        "audio-not-observed"
+      ],
+      "banana": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "vanilla-cone": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before",
+        "seen-in-prior-run"
+      ],
+      "sandwich": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before",
+        "seen-in-prior-run"
+      ],
+      "salad-sandwich": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "cheese-burger": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before",
+        "mismatch-explanation",
+        "seen-in-prior-run"
+      ],
+      "juice": [
+        "picture-request",
+        "seen-before",
+        "seen-in-prior-run"
+      ]
+    },
+    "runId": "49b2ef8c-b08d-432a-a64a-d620a51e7558",
+    "revision": 157,
+    "nextId": 16,
+    "variant": 0,
+    "gameTime": 118078.70000000036,
+    "items": [
+      {
+        "id": "food-12",
+        "product": "juice",
+        "location": "tray:0:0"
+      },
+      {
+        "id": "food-15",
+        "product": "banana",
+        "location": "tray:1:0"
+      }
+    ],
+    "orders": [
+      {
+        "id": "guest-1",
+        "request": "apple",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": true,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      },
+      {
+        "id": "guest-2",
+        "request": "banana",
+        "seat": 1,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": false,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      }
+    ],
+    "machine": {
+      "status": "empty",
+      "remaining": 0,
+      "jobId": null
+    },
+    "helper": null,
+    "trays": [
+      {
+        "remaining": 0
+      },
+      {
+        "remaining": 0
+      }
+    ],
+    "receipts": [
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733356042-10",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733371523-11",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733373647-12",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733380913-13",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733381448-14",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733382272-15",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733386472-16",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733392209-17",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733392613-18",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733392638-19",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733398414-20",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733408078-21",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733412047-22",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733427229-23",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733427412-24",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733427438-25",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733429156-26",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733439727-27",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733441417-28",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733448721-29",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733450441-30",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733464299-31",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733464450-32",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733464471-33",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733466414-34",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733480193-35",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733480627-36",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733480678-37",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733482910-38",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733495197-39",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733497094-40",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733498011-41",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733501027-42",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733515653-43",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733516214-44",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733516259-45",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733517360-46",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733538332-47",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733539222-48",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733580648-49",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733581012-50",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733581207-51",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733581610-52",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733583127-53",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733583362-54",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733583381-55",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733584839-56",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733602623-57",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733603028-58",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733603225-59",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733604151-60",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733604343-61",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733605065-62",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733606397-63",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733606759-64",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733606778-65",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733607703-66",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733618964-67",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733620140-68",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733633070-69",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791733633603-70",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791734163065-1",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791734164497-2",
+      "49b2ef8c-b08d-432a-a64a-d620a51e7558-cmd-1791734178928-3"
+    ],
+    "attempts": [
+      {
+        "activity": "delivery",
+        "input": "guest-0:apple",
+        "result": "completed",
+        "support": [
+          "picture-request",
+          "audio-not-observed"
+        ],
+        "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:attempt:2",
+        "condition": "assisted",
+        "visit": "revisit",
+        "audioQualified": false,
+        "runId": "49b2ef8c-b08d-432a-a64a-d620a51e7558",
+        "gameTime": 483.3999999999651,
+        "retry": 0
+      }
+    ],
+    "audio": [
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c997ae01",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c997ae01",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c997ae01",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c997ae01",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c997ae01",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c997ae01",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-memory",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-memory",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-36295808",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-sort",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-sort",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-3d8bb686",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-3d8bb686",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-3d8bb686",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-3d8bb686",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-design",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-design",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d8edf6ea",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d8edf6ea",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d8edf6ea",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d8edf6ea",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d63799b9",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d63799b9",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d63799b9",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d63799b9",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-14b35de5",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-14b35de5",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-14b35de5",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-14b35de5",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c022d2d3",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c022d2d3",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c022d2d3",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c022d2d3",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c022d2d3",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c022d2d3",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-theatre",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-scene-theatre",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-9c360d1b",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-9c360d1b",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-9c360d1b",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-9c360d1b",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-bedd6f48",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-bedd6f48",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-a511189e",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-a511189e",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-729ed51d",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-729ed51d",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-6ce96f9d",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-6ce96f9d",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-6ce96f9d",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-6ce96f9d",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-90d1c235",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-90d1c235",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-aaa68561",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-aaa68561",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-1292d7b",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-1292d7b",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d99d9912",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d99d9912",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d99d9912",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d99d9912",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c0ee6443",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-c0ee6443",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d81b097f",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "vocab-task-d81b097f",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 101879.29999999999
+      },
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 102129.29999999999
+      },
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "completed",
+        "gameTime": 103562.60000000003
+      }
+    ],
+    "lessons": [],
+    "noteSupport": []
+  },
+  "protectedRaw": null,
+  "legacy": null,
+  "protectedProfile": null,
+  "mini": {
+    "scenes": {
+      "hunt-2": {
+        "version": 1,
+        "id": "144dc334-2a06-42e8-b1b2-278c9b878265",
+        "levelId": "hunt-2",
+        "seed": 731538714,
+        "round": 0,
+        "phase": "feedback",
+        "mode": "task",
+        "objects": [
+          {
+            "id": "cup",
+            "word": "cup",
+            "place": "basket",
+            "state": "whole"
+          },
+          {
+            "id": "spoon",
+            "word": "spoon",
+            "place": "basket",
+            "state": "whole"
+          },
+          {
+            "id": "bowl",
+            "word": "bowl",
+            "place": "shelf",
+            "state": "whole"
+          }
+        ],
+        "support": [
+          "meaning-demonstration",
+          "difference-feedback"
+        ],
+        "carry": [
+          "meaning-demonstration"
+        ],
+        "heard": true,
+        "attempts": [
+          {
+            "id": "144dc334-2a06-42e8-b1b2-278c9b878265:0",
+            "round": 0,
+            "target": "cup|spoon",
+            "dimension": "listening",
+            "result": false,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "144dc334-2a06-42e8-b1b2-278c9b878265:1",
+            "round": 0,
+            "target": "cup|spoon",
+            "dimension": "listening",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "difference-feedback"
+            ],
+            "heard": true
+          },
+          {
+            "id": "144dc334-2a06-42e8-b1b2-278c9b878265:2",
+            "round": 0,
+            "target": "cup|spoon",
+            "dimension": "listening",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "difference-feedback"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 3,
+        "receipts": [
+          0
+        ],
+        "undo": [
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "shelf",
+              "state": "whole"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "shelf",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "shelf",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "basket",
+              "state": "whole"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "shelf",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "basket",
+              "state": "whole"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "shelf",
+              "state": "whole"
+            }
+          ]
+        ],
+        "feedback": "物件到位了！",
+        "paused": false,
+        "actor": {
+          "action": "deliver",
+          "object": "spoon",
+          "serial": 5
+        }
+      },
+      "memory-0": {
+        "version": 1,
+        "id": "b7e69139-91f1-456c-840b-eb8b9362e32e",
+        "levelId": "memory-0",
+        "seed": 731950097,
+        "round": 0,
+        "phase": "feedback",
+        "mode": "task",
+        "objects": [
+          {
+            "id": "cup",
+            "word": "cup",
+            "place": "table",
+            "state": "whole"
+          },
+          {
+            "id": "plate",
+            "word": "plate",
+            "place": "table",
+            "state": "whole"
+          },
+          {
+            "id": "spoon",
+            "word": "spoon",
+            "place": "bank",
+            "state": "whole"
+          },
+          {
+            "id": "book",
+            "word": "book",
+            "place": "bank",
+            "state": "whole"
+          }
+        ],
+        "support": [
+          "meaning-demonstration",
+          "difference-feedback",
+          "memory-relook"
+        ],
+        "carry": [
+          "meaning-demonstration",
+          "memory-relook"
+        ],
+        "heard": true,
+        "attempts": [
+          {
+            "id": "b7e69139-91f1-456c-840b-eb8b9362e32e:0",
+            "round": 0,
+            "target": "cup|plate",
+            "dimension": "memory",
+            "result": false,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "b7e69139-91f1-456c-840b-eb8b9362e32e:1",
+            "round": 0,
+            "target": "cup|plate",
+            "dimension": "memory",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "difference-feedback",
+              "memory-relook"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 2,
+        "receipts": [
+          0
+        ],
+        "undo": [
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "plate",
+              "word": "plate",
+              "place": "table",
+              "state": "whole"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "bank",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "plate",
+              "word": "plate",
+              "place": "table",
+              "state": "whole"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "bank",
+              "state": "whole"
+            }
+          ]
+        ],
+        "feedback": "物件到位了！",
+        "paused": false,
+        "actor": {
+          "action": "put",
+          "object": "cup",
+          "serial": 4
+        }
+      },
+      "sort-1": {
+        "version": 1,
+        "id": "acefffa4-34b3-44ff-be59-dc3d4d4fbf3b",
+        "levelId": "sort-1",
+        "seed": 732029593,
+        "round": 0,
+        "phase": "feedback",
+        "mode": "task",
+        "objects": [
+          {
+            "id": "basket",
+            "word": "basket",
+            "place": "garden",
+            "state": "whole"
+          },
+          {
+            "id": "jug",
+            "word": "jug",
+            "place": "kitchen",
+            "state": "whole"
+          },
+          {
+            "id": "watering-can",
+            "word": "watering-can",
+            "place": "garden",
+            "state": "whole"
+          }
+        ],
+        "support": [
+          "meaning-demonstration"
+        ],
+        "carry": [
+          "meaning-demonstration"
+        ],
+        "heard": true,
+        "attempts": [
+          {
+            "id": "acefffa4-34b3-44ff-be59-dc3d4d4fbf3b:0",
+            "round": 0,
+            "target": "basket|jug|watering-can",
+            "dimension": "meaning",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 1,
+        "receipts": [
+          0
+        ],
+        "undo": [
+          [
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "watering-can",
+              "word": "watering-can",
+              "place": "bank",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "watering-can",
+              "word": "watering-can",
+              "place": "bank",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "watering-can",
+              "word": "watering-can",
+              "place": "bank",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "watering-can",
+              "word": "watering-can",
+              "place": "bank",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "kitchen",
+              "state": "whole"
+            },
+            {
+              "id": "watering-can",
+              "word": "watering-can",
+              "place": "bank",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "garden",
+              "state": "whole"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "kitchen",
+              "state": "whole"
+            },
+            {
+              "id": "watering-can",
+              "word": "watering-can",
+              "place": "hand",
+              "state": "whole"
+            }
+          ]
+        ],
+        "feedback": "物件到位了！",
+        "paused": false,
+        "actor": {
+          "action": "put",
+          "object": "watering-can",
+          "serial": 6
+        }
+      },
+      "design-2": {
+        "version": 1,
+        "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de",
+        "levelId": "design-2",
+        "seed": 732064631,
+        "round": 3,
+        "phase": "play",
+        "mode": "free",
+        "objects": [
+          {
+            "id": "napkin",
+            "word": "napkin",
+            "place": "beside",
+            "state": "whole"
+          },
+          {
+            "id": "book",
+            "word": "book",
+            "place": "in",
+            "state": "whole"
+          },
+          {
+            "id": "plate",
+            "word": "plate",
+            "place": "on",
+            "state": "whole"
+          }
+        ],
+        "support": [
+          "meaning-demonstration"
+        ],
+        "carry": [
+          "meaning-demonstration"
+        ],
+        "heard": true,
+        "attempts": [
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:0",
+            "round": 0,
+            "target": "red|cup|on",
+            "dimension": "listening",
+            "result": false,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:1",
+            "round": 0,
+            "target": "red|cup|on",
+            "dimension": "listening",
+            "result": false,
+            "support": [
+              "meaning-demonstration",
+              "difference-feedback"
+            ],
+            "heard": true
+          },
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:2",
+            "round": 0,
+            "target": "red|cup|on",
+            "dimension": "listening",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "difference-feedback"
+            ],
+            "heard": true
+          },
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:3",
+            "round": 1,
+            "target": "big|small|bowl",
+            "dimension": "listening",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:4",
+            "round": 2,
+            "target": "white|cup|beside|plate",
+            "dimension": "listening",
+            "result": false,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:5",
+            "round": 2,
+            "target": "white|cup|beside|plate",
+            "dimension": "listening",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "difference-feedback"
+            ],
+            "heard": true
+          },
+          {
+            "id": "e910d57a-9024-4f59-8ca5-e77cf53cf8de:6",
+            "round": 3,
+            "target": "soft|napkin|beside",
+            "dimension": "listening",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 7,
+        "receipts": [],
+        "undo": [
+          [
+            {
+              "id": "napkin",
+              "word": "napkin",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "plate",
+              "word": "plate",
+              "place": "on",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "napkin",
+              "word": "napkin",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "plate",
+              "word": "plate",
+              "place": "on",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "napkin",
+              "word": "napkin",
+              "place": "beside",
+              "state": "whole"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "bank",
+              "state": "whole"
+            },
+            {
+              "id": "plate",
+              "word": "plate",
+              "place": "on",
+              "state": "whole"
+            }
+          ],
+          [
+            {
+              "id": "napkin",
+              "word": "napkin",
+              "place": "beside",
+              "state": "whole"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "plate",
+              "word": "plate",
+              "place": "on",
+              "state": "whole"
+            }
+          ]
+        ],
+        "feedback": "你的餐桌留下来了，还可以接着摆。",
+        "paused": false,
+        "actor": {
+          "action": "put",
+          "object": "book",
+          "serial": 18
+        }
+      },
+      "theatre-0": {
+        "version": 1,
+        "id": "8f3c5bca-486d-4f4b-9d17-144a01fbedb3",
+        "levelId": "theatre-0",
+        "seed": 732150687,
+        "round": 3,
+        "phase": "done",
+        "mode": "task",
+        "objects": [
+          {
+            "id": "box",
+            "word": "box",
+            "place": "on",
+            "state": "closed"
+          },
+          {
+            "id": "ball",
+            "word": "ball",
+            "place": "in",
+            "state": "whole"
+          },
+          {
+            "id": "basket",
+            "word": "basket",
+            "place": "on",
+            "state": "open"
+          },
+          {
+            "id": "book",
+            "word": "book",
+            "place": "on",
+            "state": "whole"
+          }
+        ],
+        "support": [
+          "meaning-demonstration"
+        ],
+        "carry": [
+          "meaning-demonstration"
+        ],
+        "heard": false,
+        "attempts": [
+          {
+            "id": "8f3c5bca-486d-4f4b-9d17-144a01fbedb3:0",
+            "round": 0,
+            "target": "open|box",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "8f3c5bca-486d-4f4b-9d17-144a01fbedb3:1",
+            "round": 1,
+            "target": "take|ball",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "8f3c5bca-486d-4f4b-9d17-144a01fbedb3:2",
+            "round": 2,
+            "target": "put|in|basket",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "audio-not-observed"
+            ],
+            "heard": false
+          },
+          {
+            "id": "8f3c5bca-486d-4f4b-9d17-144a01fbedb3:3",
+            "round": 3,
+            "target": "close|box",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "audio-not-observed"
+            ],
+            "heard": false
+          }
+        ],
+        "nextAttempt": 4,
+        "receipts": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "undo": [
+          [
+            {
+              "id": "box",
+              "word": "box",
+              "place": "on",
+              "state": "open"
+            },
+            {
+              "id": "ball",
+              "word": "ball",
+              "place": "in",
+              "state": "whole"
+            },
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "on",
+              "state": "open"
+            },
+            {
+              "id": "book",
+              "word": "book",
+              "place": "on",
+              "state": "whole"
+            }
+          ]
+        ],
+        "feedback": "物件到位了！",
+        "paused": false,
+        "actor": {
+          "action": "close",
+          "object": "box",
+          "serial": 4
+        }
+      },
+      "theatre-1": {
+        "version": 1,
+        "id": "0a6b401a-b42d-45cc-9bc2-db7b7b7d9824",
+        "levelId": "theatre-1",
+        "seed": 732220425,
+        "round": 3,
+        "phase": "done",
+        "mode": "task",
+        "objects": [
+          {
+            "id": "cup",
+            "word": "cup",
+            "place": "on",
+            "state": "stirred"
+          },
+          {
+            "id": "jug",
+            "word": "jug",
+            "place": "on",
+            "state": "filled"
+          },
+          {
+            "id": "spoon",
+            "word": "spoon",
+            "place": "on",
+            "state": "whole"
+          },
+          {
+            "id": "bowl",
+            "word": "bowl",
+            "place": "sink",
+            "state": "clean"
+          }
+        ],
+        "support": [
+          "meaning-demonstration"
+        ],
+        "carry": [
+          "meaning-demonstration"
+        ],
+        "heard": false,
+        "attempts": [
+          {
+            "id": "0a6b401a-b42d-45cc-9bc2-db7b7b7d9824:0",
+            "round": 0,
+            "target": "put|cup|on",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "0a6b401a-b42d-45cc-9bc2-db7b7b7d9824:1",
+            "round": 1,
+            "target": "pour|jug|cup",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "audio-not-observed"
+            ],
+            "heard": false
+          },
+          {
+            "id": "0a6b401a-b42d-45cc-9bc2-db7b7b7d9824:2",
+            "round": 2,
+            "target": "stir|spoon",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "audio-not-observed"
+            ],
+            "heard": false
+          },
+          {
+            "id": "0a6b401a-b42d-45cc-9bc2-db7b7b7d9824:3",
+            "round": 3,
+            "target": "wash|bowl",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "audio-not-observed"
+            ],
+            "heard": false
+          }
+        ],
+        "nextAttempt": 4,
+        "receipts": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "undo": [
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "on",
+              "state": "stirred"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "on",
+              "state": "filled"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "hand",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "bank",
+              "state": "dirty"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "on",
+              "state": "stirred"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "on",
+              "state": "filled"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "on",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "bank",
+              "state": "dirty"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "on",
+              "state": "stirred"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "on",
+              "state": "filled"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "on",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "hand",
+              "state": "dirty"
+            }
+          ],
+          [
+            {
+              "id": "cup",
+              "word": "cup",
+              "place": "on",
+              "state": "stirred"
+            },
+            {
+              "id": "jug",
+              "word": "jug",
+              "place": "on",
+              "state": "filled"
+            },
+            {
+              "id": "spoon",
+              "word": "spoon",
+              "place": "on",
+              "state": "whole"
+            },
+            {
+              "id": "bowl",
+              "word": "bowl",
+              "place": "sink",
+              "state": "dirty"
+            }
+          ]
+        ],
+        "feedback": "物件到位了！",
+        "paused": false,
+        "actor": {
+          "action": "wash",
+          "object": "bowl",
+          "serial": 11
+        }
+      },
+      "theatre-2": {
+        "version": 1,
+        "id": "c2459a96-4138-49ef-9335-4d2060922a2a",
+        "levelId": "theatre-2",
+        "seed": 732243693,
+        "round": 2,
+        "phase": "done",
+        "mode": "task",
+        "objects": [
+          {
+            "id": "apple",
+            "word": "apple",
+            "place": "guest",
+            "state": "cut"
+          },
+          {
+            "id": "knife",
+            "word": "knife",
+            "place": "on",
+            "state": "whole"
+          },
+          {
+            "id": "basket",
+            "word": "basket",
+            "place": "patio",
+            "state": "open"
+          },
+          {
+            "id": "napkin",
+            "word": "napkin",
+            "place": "bank",
+            "state": "whole"
+          }
+        ],
+        "support": [
+          "meaning-demonstration"
+        ],
+        "carry": [
+          "meaning-demonstration"
+        ],
+        "heard": false,
+        "attempts": [
+          {
+            "id": "c2459a96-4138-49ef-9335-4d2060922a2a:0",
+            "round": 0,
+            "target": "cut|apple|knife",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "c2459a96-4138-49ef-9335-4d2060922a2a:1",
+            "round": 1,
+            "target": "carry|basket",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration"
+            ],
+            "heard": true
+          },
+          {
+            "id": "c2459a96-4138-49ef-9335-4d2060922a2a:2",
+            "round": 2,
+            "target": "share|apple",
+            "dimension": "operation",
+            "result": true,
+            "support": [
+              "meaning-demonstration",
+              "audio-not-observed"
+            ],
+            "heard": false
+          }
+        ],
+        "nextAttempt": 3,
+        "receipts": [
+          0,
+          1,
+          2
+        ],
+        "undo": [
+          [
+            {
+              "id": "apple",
+              "word": "apple",
+              "place": "on",
+              "state": "cut"
+            },
+            {
+              "id": "knife",
+              "word": "knife",
+              "place": "on",
+              "state": "whole"
+            },
+            {
+              "id": "basket",
+              "word": "basket",
+              "place": "patio",
+              "state": "open"
+            },
+            {
+              "id": "napkin",
+              "word": "napkin",
+              "place": "bank",
+              "state": "whole"
+            }
+          ]
+        ],
+        "feedback": "物件到位了！",
+        "paused": false,
+        "actor": {
+          "action": "share",
+          "object": "apple",
+          "serial": 10
+        }
+      }
+    },
+    "completedScenes": [
+      "design-2",
+      "theatre-0",
+      "theatre-1",
+      "theatre-2"
+    ],
+    "protectedSceneRaw": null,
+    "sessions": {},
+    "courses": {
+      "listen-fruit-hello": {
+        "version": 1,
+        "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d",
+        "levelId": "listen-fruit-hello",
+        "round": 3,
+        "phase": "done",
+        "selected": [],
+        "used": [],
+        "support": [
+          "meaning-picture",
+          "audio-not-observed",
+          "difference-feedback",
+          "answer-help"
+        ],
+        "heard": false,
+        "feedback": "这份找对了。",
+        "attempts": [
+          {
+            "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:0",
+            "round": 0,
+            "target": "apple",
+            "grammar": true,
+            "task": false,
+            "support": [
+              "meaning-picture",
+              "audio-not-observed"
+            ],
+            "heard": false
+          },
+          {
+            "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:1",
+            "round": 0,
+            "target": "apple",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture",
+              "difference-feedback",
+              "answer-help"
+            ],
+            "heard": true
+          },
+          {
+            "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:2",
+            "round": 1,
+            "target": "banana",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture",
+              "audio-not-observed",
+              "difference-feedback",
+              "answer-help"
+            ],
+            "heard": false
+          },
+          {
+            "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:3",
+            "round": 2,
+            "target": "orange",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture",
+              "audio-not-observed",
+              "difference-feedback",
+              "answer-help"
+            ],
+            "heard": false
+          },
+          {
+            "id": "ba8eb68e-e391-4599-ac15-ef2a86d7810d:4",
+            "round": 3,
+            "target": "pear",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture",
+              "audio-not-observed",
+              "difference-feedback",
+              "answer-help"
+            ],
+            "heard": false
+          }
+        ],
+        "nextAttempt": 5,
+        "carry": [
+          "meaning-picture",
+          "audio-not-observed",
+          "difference-feedback",
+          "answer-help"
+        ],
+        "assembled": [],
+        "paused": false
+      },
+      "pair-fruit": {
+        "version": 1,
+        "id": "83e06a06-2525-4ccb-83e2-61dbed778557",
+        "levelId": "pair-fruit",
+        "round": 0,
+        "phase": "feedback",
+        "selected": [],
+        "used": [
+          "apple"
+        ],
+        "support": [
+          "meaning-picture"
+        ],
+        "heard": true,
+        "feedback": "这份找对了。",
+        "attempts": [
+          {
+            "id": "83e06a06-2525-4ccb-83e2-61dbed778557:0",
+            "round": 0,
+            "target": "apple",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 1,
+        "carry": [
+          "meaning-picture"
+        ]
+      },
+      "spell-short-fruit": {
+        "version": 1,
+        "id": "64d0497c-1825-426f-a7b8-7d881c62e68b",
+        "levelId": "spell-short-fruit",
+        "round": 0,
+        "phase": "feedback",
+        "selected": [
+          "tile-0-0",
+          "tile-0-1",
+          "tile-0-2",
+          "tile-0-3",
+          "tile-0-4"
+        ],
+        "used": [],
+        "support": [
+          "meaning-picture"
+        ],
+        "heard": true,
+        "feedback": "这份找对了。",
+        "attempts": [
+          {
+            "id": "64d0497c-1825-426f-a7b8-7d881c62e68b:0",
+            "round": 0,
+            "target": "apple",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 1,
+        "carry": [
+          "meaning-picture"
+        ]
+      },
+      "quantity-one-two": {
+        "version": 1,
+        "id": "500aca79-691e-467e-a8fa-d9ac746dfb46",
+        "levelId": "quantity-one-two",
+        "round": 0,
+        "phase": "feedback",
+        "selected": [],
+        "used": [],
+        "support": [
+          "meaning-picture"
+        ],
+        "heard": true,
+        "feedback": "这份找对了。",
+        "attempts": [
+          {
+            "id": "500aca79-691e-467e-a8fa-d9ac746dfb46:0",
+            "round": 0,
+            "target": "apple",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 1,
+        "assembly": true,
+        "assembled": [
+          "apple"
+        ],
+        "carry": [
+          "meaning-picture"
+        ]
+      },
+      "sentence-first-request": {
+        "version": 1,
+        "id": "a86c1828-09bf-4710-9044-bbbcdb93d078",
+        "levelId": "sentence-first-request",
+        "round": 0,
+        "phase": "feedback",
+        "selected": [
+          "tile-0-1"
+        ],
+        "used": [],
+        "support": [
+          "meaning-picture"
+        ],
+        "heard": true,
+        "feedback": "这份找对了。",
+        "attempts": [
+          {
+            "id": "a86c1828-09bf-4710-9044-bbbcdb93d078:0",
+            "round": 0,
+            "target": "apple",
+            "grammar": true,
+            "task": true,
+            "support": [
+              "meaning-picture"
+            ],
+            "heard": true
+          }
+        ],
+        "nextAttempt": 1,
+        "carry": [
+          "meaning-picture"
+        ]
+      }
+    },
+    "completedCourses": [
+      "listen-fruit-hello"
+    ],
+    "protectedCourseRaw": null,
+    "protectedRaw": null,
+    "legacyRaw": null
+  },
+  "originalProfile": "{\"receivedProducts\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\",\"sandwich\",\"salad-sandwich\",\"juice\",\"cheese-burger\"],\"version\":3,\"activityMemories\":[{\"runId\":\"51b927f7-948b-41b8-95a8-d78c953fefa4\",\"state\":{\"chapter\":0,\"kind\":\"chapter\",\"branch\":null,\"explored\":[\"drawer\"],\"steps\":[\"served:rabbit\",\"served:hedgehog\",\"plant\",\"place:0\",\"place:1\",\"taste\"],\"rewards\":[\"flower-page\"],\"foods\":[{\"id\":\"food-1\",\"product\":\"apple\",\"source\":\"guest-0\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"},{\"id\":\"food-3\",\"product\":\"banana\",\"source\":\"guest-1\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"}],\"works\":[],\"decor\":{\"flower\":0,\"bunting\":\"warm\",\"cloth\":\"leaf\",\"light\":\"warm\"},\"invitations\":[],\"experience\":{\"version\":2,\"tools\":[\"seed\",\"watering-can\"],\"used\":[\"water\"],\"helpers\":[],\"needs\":[],\"known\":[\"apple\",\"banana\"],\"picnic\":null,\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-1\",\"product\":\"apple\"}],\"destination\":\"table\",\"visitor\":\"rabbit\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:2\",\"at\":65947.6},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-3\",\"product\":\"banana\"}],\"destination\":\"table\",\"visitor\":\"hedgehog\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:4\",\"at\":72964.00000000001},{\"kind\":\"tool\",\"foods\":[],\"tool\":\"seed\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:5\",\"at\":76580.50000000001},{\"kind\":\"tool\",\"foods\":[],\"tool\":\"watering-can\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:6\",\"at\":76880.6},{\"kind\":\"water\",\"foods\":[],\"seat\":0,\"tool\":\"watering-can\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:7\",\"at\":84080.20000000001},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-1\",\"product\":\"apple\"}],\"seat\":0,\"visitor\":\"rabbit\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:8\",\"at\":84296.90000000002},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-3\",\"product\":\"banana\"}],\"seat\":1,\"visitor\":\"hedgehog\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:9\",\"at\":84546.90000000002},{\"kind\":\"taste\",\"foods\":[{\"id\":\"food-3\",\"product\":\"banana\"}],\"visitor\":\"hedgehog\",\"seat\":1,\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:10\",\"at\":84663.5},{\"kind\":\"finish\",\"foods\":[{\"id\":\"food-1\",\"product\":\"apple\",\"visitor\":\"rabbit\"},{\"id\":\"food-3\",\"product\":\"banana\",\"visitor\":\"hedgehog\"}],\"destination\":\"table\",\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:moment:11\",\"at\":86396.80000000002}]}}},{\"runId\":\"74dee134-6fa8-4fe4-b671-6105e1378f77\",\"state\":{\"chapter\":1,\"kind\":\"chapter\",\"branch\":null,\"explored\":[\"recipe\"],\"steps\":[\"served:rabbit\",\"cool\",\"place:0\",\"place:1\",\"taste\",\"bunting\"],\"rewards\":[\"bunting-page\"],\"foods\":[{\"id\":\"food-1\",\"product\":\"vanilla-cone\",\"source\":\"guest-0\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"},{\"id\":\"food-3\",\"product\":\"strawberry-cup\",\"source\":\"cool\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"}],\"works\":[],\"decor\":{\"flower\":0,\"bunting\":\"cool\",\"cloth\":\"leaf\",\"light\":\"warm\"},\"invitations\":[],\"experience\":{\"version\":2,\"tools\":[\"spoon\"],\"used\":[\"compare\"],\"helpers\":[],\"needs\":[],\"known\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\"],\"picnic\":null,\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-1\",\"product\":\"vanilla-cone\"}],\"destination\":\"table\",\"visitor\":\"rabbit\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:5\",\"at\":21549},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-3\",\"product\":\"strawberry-cup\"}],\"destination\":\"work\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:7\",\"at\":28582.199999999983},{\"kind\":\"tool\",\"foods\":[],\"tool\":\"spoon\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:8\",\"at\":32881.899999999994},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-1\",\"product\":\"vanilla-cone\"}],\"seat\":0,\"visitor\":\"rabbit\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:9\",\"at\":39315},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-3\",\"product\":\"strawberry-cup\"}],\"seat\":1,\"visitor\":\"hedgehog\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:10\",\"at\":39598.399999999994},{\"kind\":\"share\",\"foods\":[{\"id\":\"food-1\",\"product\":\"vanilla-cone\"},{\"id\":\"food-3\",\"product\":\"strawberry-cup\"}],\"visitor\":\"hedgehog\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:11\",\"at\":39715},{\"kind\":\"taste\",\"foods\":[{\"id\":\"food-3\",\"product\":\"strawberry-cup\"}],\"visitor\":\"hedgehog\",\"seat\":1,\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:12\",\"at\":40065},{\"kind\":\"place\",\"destination\":\"table\",\"foods\":[{\"id\":\"food-1\",\"product\":\"vanilla-cone\",\"visitor\":\"rabbit\"},{\"id\":\"food-3\",\"product\":\"strawberry-cup\",\"visitor\":\"hedgehog\"}],\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:13\",\"at\":40365},{\"kind\":\"finish\",\"foods\":[{\"id\":\"food-1\",\"product\":\"vanilla-cone\",\"visitor\":\"rabbit\"},{\"id\":\"food-3\",\"product\":\"strawberry-cup\",\"visitor\":\"hedgehog\"}],\"destination\":\"table\",\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:moment:14\",\"at\":47381.399999999994}]}}},{\"runId\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00\",\"state\":{\"chapter\":3,\"kind\":\"chapter\",\"branch\":null,\"explored\":[\"drawer\"],\"steps\":[\"served:hedgehog\",\"place:1\",\"served:rabbit\",\"place:0\",\"light\"],\"rewards\":[\"light-page\"],\"foods\":[{\"id\":\"food-2\",\"product\":\"juice\",\"source\":\"guest-1\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"},{\"id\":\"food-14\",\"product\":\"cheese-burger\",\"source\":\"guest-0\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"}],\"works\":[],\"decor\":{\"flower\":0,\"bunting\":\"warm\",\"cloth\":\"leaf\",\"light\":\"moon\"},\"invitations\":[],\"experience\":{\"version\":2,\"tools\":[\"lantern\"],\"used\":[\"cooperate\"],\"helpers\":[{\"visitor\":\"rabbit\",\"role\":\"lantern\"},{\"visitor\":\"hedgehog\",\"role\":\"cups\"}],\"needs\":[],\"known\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\",\"sandwich\",\"salad-sandwich\",\"juice\",\"cheese-burger\"],\"picnic\":\"rabbit\",\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-2\",\"product\":\"juice\"}],\"destination\":\"table\",\"visitor\":\"hedgehog\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:8\",\"at\":80430.20000000001},{\"kind\":\"tool\",\"foods\":[],\"tool\":\"lantern\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:9\",\"at\":105145.9},{\"kind\":\"cooperate\",\"foods\":[],\"visitor\":\"rabbit\",\"tool\":\"lantern\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:10\",\"at\":110829},{\"kind\":\"cooperate\",\"foods\":[],\"visitor\":\"hedgehog\",\"prop\":\"cup\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:11\",\"at\":110962.30000000002},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-2\",\"product\":\"juice\"}],\"seat\":1,\"visitor\":\"hedgehog\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:12\",\"at\":111095.6},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-14\",\"product\":\"cheese-burger\"}],\"destination\":\"table\",\"visitor\":\"rabbit\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:16\",\"at\":210625},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-14\",\"product\":\"cheese-burger\"}],\"seat\":0,\"visitor\":\"rabbit\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:17\",\"at\":219658},{\"kind\":\"finish\",\"foods\":[{\"id\":\"food-2\",\"product\":\"juice\",\"visitor\":\"hedgehog\"},{\"id\":\"food-14\",\"product\":\"cheese-burger\",\"visitor\":\"rabbit\"}],\"destination\":\"table\",\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:moment:18\",\"at\":221207.90000000002}]}}},{\"runId\":\"2f86f28a-df16-4a08-ac77-398d28af779e\",\"state\":{\"chapter\":4,\"kind\":\"chapter\",\"branch\":null,\"explored\":[],\"steps\":[\"create\",\"place:0\",\"taste\",\"place:1\",\"save-work\"],\"rewards\":[\"feast-page\"],\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\",\"source\":\"create:world-6\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"},{\"id\":\"food-4\",\"product\":\"vanilla-cone\",\"source\":\"create:world-6\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"}],\"works\":[{\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:work:12\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\",\"source\":\"create:world-6\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"},{\"id\":\"food-4\",\"product\":\"vanilla-cone\",\"source\":\"create:world-6\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"}],\"signature\":\"food-1:sandwich:table:0:true|food-4:vanilla-cone:table:1:true\"}],\"decor\":{\"flower\":0,\"bunting\":\"warm\",\"cloth\":\"leaf\",\"light\":\"warm\"},\"invitations\":[\"rabbit\",\"hedgehog\"],\"experience\":{\"version\":2,\"tools\":[],\"used\":[\"share\"],\"helpers\":[],\"needs\":[{\"visitor\":\"rabbit\",\"kind\":\"savory\",\"basis\":\"packing\",\"fulfilled\":[\"food-1\"]},{\"visitor\":\"hedgehog\",\"kind\":\"cool\",\"basis\":\"treat\",\"fulfilled\":[\"food-4\"]}],\"known\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\",\"sandwich\",\"salad-sandwich\",\"juice\",\"cheese-burger\"],\"picnic\":\"rabbit\",\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\"},{\"id\":\"food-4\",\"product\":\"vanilla-cone\"}],\"destination\":\"work\",\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:moment:7\",\"at\":26349},{\"kind\":\"share\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\"}],\"visitor\":\"rabbit\",\"seat\":0,\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:moment:8\",\"at\":36565.29999999999},{\"kind\":\"taste\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\"}],\"visitor\":\"rabbit\",\"seat\":0,\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:moment:9\",\"at\":36748.5},{\"kind\":\"share\",\"foods\":[{\"id\":\"food-4\",\"product\":\"vanilla-cone\"}],\"visitor\":\"hedgehog\",\"seat\":1,\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:moment:10\",\"at\":37198.59999999998},{\"kind\":\"taste\",\"foods\":[{\"id\":\"food-4\",\"product\":\"vanilla-cone\"}],\"visitor\":\"hedgehog\",\"seat\":1,\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:moment:11\",\"at\":37465.20000000001},{\"kind\":\"finish\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\",\"visitor\":\"rabbit\"},{\"id\":\"food-4\",\"product\":\"vanilla-cone\",\"visitor\":\"hedgehog\"}],\"destination\":\"table\",\"id\":\"2f86f28a-df16-4a08-ac77-398d28af779e:moment:13\",\"at\":39315.20000000001}]}}},{\"runId\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4\",\"state\":{\"chapter\":2,\"kind\":\"chapter\",\"branch\":\"rabbit\",\"explored\":[\"basket\"],\"steps\":[\"served:rabbit\",\"served:hedgehog\",\"pack\",\"unpack\",\"cloth\"],\"rewards\":[\"picnic-page\"],\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\",\"source\":\"guest-0\",\"place\":\"guest-rabbit\",\"tasted\":true,\"tastedBy\":\"rabbit\"},{\"id\":\"food-5\",\"product\":\"salad-sandwich\",\"source\":\"guest-1\",\"place\":\"guest-hedgehog\",\"tasted\":true,\"tastedBy\":\"hedgehog\"},{\"id\":\"food-10\",\"product\":\"sandwich\",\"source\":\"pack\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"},{\"id\":\"food-14\",\"product\":\"apple\",\"source\":\"pack\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"}],\"works\":[],\"decor\":{\"flower\":0,\"bunting\":\"warm\",\"cloth\":\"leaf\",\"light\":\"warm\"},\"invitations\":[],\"experience\":{\"version\":2,\"tools\":[],\"used\":[],\"helpers\":[],\"needs\":[],\"known\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\",\"sandwich\",\"salad-sandwich\",\"juice\",\"cheese-burger\"],\"picnic\":\"rabbit\",\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\"}],\"destination\":\"table\",\"visitor\":\"rabbit\",\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:4\",\"at\":21749.199999999983},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-5\",\"product\":\"salad-sandwich\"}],\"destination\":\"table\",\"visitor\":\"hedgehog\",\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:9\",\"at\":79480.30000000003},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-10\",\"product\":\"sandwich\"},{\"id\":\"food-14\",\"product\":\"apple\"}],\"destination\":\"basket\",\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:16\",\"at\":113212.2999999994},{\"kind\":\"place\",\"destination\":\"table\",\"foods\":[{\"id\":\"food-10\",\"product\":\"sandwich\",\"visitor\":\"rabbit\"},{\"id\":\"food-14\",\"product\":\"apple\",\"visitor\":\"hedgehog\"}],\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:17\",\"at\":122028.59999999958},{\"kind\":\"finish\",\"foods\":[{\"id\":\"food-1\",\"product\":\"sandwich\",\"visitor\":\"rabbit\"},{\"id\":\"food-5\",\"product\":\"salad-sandwich\",\"visitor\":\"hedgehog\"},{\"id\":\"food-10\",\"product\":\"sandwich\",\"visitor\":\"rabbit\"},{\"id\":\"food-14\",\"product\":\"apple\",\"visitor\":\"hedgehog\"}],\"destination\":\"table\",\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:moment:18\",\"at\":128961.69999999969}]}}},{\"runId\":\"1209ced4-38aa-4b06-907c-849236ab130a\",\"state\":{\"chapter\":2,\"kind\":\"chapter\",\"branch\":\"hedgehog\",\"explored\":[\"drawer\"],\"steps\":[\"served:hedgehog\",\"place:1\",\"served:rabbit\",\"place:0\",\"cloth\"],\"rewards\":[\"picnic-page\"],\"foods\":[{\"id\":\"food-1\",\"product\":\"salad-sandwich\",\"source\":\"guest-1\",\"place\":\"table:1\",\"tasted\":true,\"recipient\":\"hedgehog\",\"tastedBy\":\"hedgehog\"},{\"id\":\"food-8\",\"product\":\"sandwich\",\"source\":\"guest-0\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"rabbit\"}],\"works\":[],\"decor\":{\"flower\":0,\"bunting\":\"warm\",\"cloth\":\"sun\",\"light\":\"warm\"},\"invitations\":[],\"experience\":{\"version\":2,\"tools\":[\"mat\"],\"used\":[],\"helpers\":[],\"needs\":[],\"known\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\",\"sandwich\",\"salad-sandwich\",\"juice\",\"cheese-burger\"],\"picnic\":\"hedgehog\",\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-1\",\"product\":\"salad-sandwich\"}],\"destination\":\"table\",\"visitor\":\"hedgehog\",\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:moment:5\",\"at\":19949.3},{\"kind\":\"tool\",\"foods\":[],\"tool\":\"mat\",\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:moment:6\",\"at\":31965.500000000004},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-1\",\"product\":\"salad-sandwich\"}],\"seat\":1,\"visitor\":\"hedgehog\",\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:moment:7\",\"at\":32098.8},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-8\",\"product\":\"sandwich\"}],\"destination\":\"table\",\"visitor\":\"rabbit\",\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:moment:11\",\"at\":51264.7},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-8\",\"product\":\"sandwich\"}],\"seat\":0,\"visitor\":\"rabbit\",\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:moment:12\",\"at\":54164.5},{\"kind\":\"finish\",\"foods\":[{\"id\":\"food-1\",\"product\":\"salad-sandwich\",\"visitor\":\"hedgehog\"},{\"id\":\"food-8\",\"product\":\"sandwich\",\"visitor\":\"rabbit\"}],\"destination\":\"table\",\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:moment:13\",\"at\":54397.899999999994}]}}},{\"runId\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558\",\"state\":{\"chapter\":4,\"kind\":\"shop\",\"branch\":null,\"explored\":[\"recipe\"],\"steps\":[\"served:rabbit\",\"create\",\"place:2\",\"taste\",\"place:0\",\"save-work\"],\"rewards\":[],\"foods\":[{\"id\":\"food-1\",\"product\":\"apple\",\"source\":\"guest-0\",\"place\":\"guest-rabbit\",\"tasted\":false},{\"id\":\"food-3\",\"product\":\"juice\",\"source\":\"create:world-6\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"elder\"}],\"works\":[{\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:work:11\",\"foods\":[{\"id\":\"food-3\",\"product\":\"juice\",\"source\":\"create:world-6\",\"place\":\"table:0\",\"tasted\":true,\"recipient\":\"rabbit\",\"tastedBy\":\"elder\"}],\"signature\":\"food-3:juice:table:0:true\"}],\"decor\":{\"flower\":0,\"bunting\":\"warm\",\"cloth\":\"leaf\",\"light\":\"warm\"},\"invitations\":[\"rabbit\"],\"experience\":{\"version\":2,\"tools\":[],\"used\":[],\"helpers\":[],\"needs\":[{\"visitor\":\"rabbit\",\"kind\":\"savory\",\"basis\":\"packing\",\"fulfilled\":[]}],\"known\":[\"apple\",\"banana\",\"vanilla-cone\",\"strawberry-cup\",\"sandwich\",\"salad-sandwich\",\"juice\",\"cheese-burger\"],\"picnic\":\"hedgehog\",\"moments\":[{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-1\",\"product\":\"apple\"}],\"destination\":\"table\",\"visitor\":\"rabbit\",\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:2\",\"at\":4533.199999999953},{\"kind\":\"receive\",\"foods\":[{\"id\":\"food-3\",\"product\":\"juice\"}],\"destination\":\"work\",\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:7\",\"at\":30032.099999999977},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-3\",\"product\":\"juice\"}],\"seat\":2,\"visitor\":\"elder\",\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:8\",\"at\":41648.399999999965},{\"kind\":\"taste\",\"foods\":[{\"id\":\"food-3\",\"product\":\"juice\"}],\"visitor\":\"elder\",\"seat\":2,\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:9\",\"at\":41748.29999999999},{\"kind\":\"place\",\"foods\":[{\"id\":\"food-3\",\"product\":\"juice\"}],\"seat\":0,\"visitor\":\"elder\",\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:10\",\"at\":42265}]}}}],\"language\":\"flavor\",\"concurrency\":2,\"observedIds\":[\"lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-0:0\",\"51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:14\",\"world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-1\",\"lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-1:0\",\"51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:32\",\"world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-3\",\"operation:74dee134-6fa8-4fe4-b671-6105e1378f77:16\",\"74dee134-6fa8-4fe4-b671-6105e1378f77:attempt:17\",\"operation:74dee134-6fa8-4fe4-b671-6105e1378f77:21\",\"world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-1\",\"world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-3\",\"operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:14\",\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:16\",\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-1\",\"operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:39\",\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:45\",\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-5\",\"operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:63\",\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-10\",\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-14\",\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:12\",\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:19\",\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:26\",\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:28\",\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:29\",\"world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-2\",\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:37\",\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:55\",\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:59\",\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:62\",\"world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-14\",\"operation:2f86f28a-df16-4a08-ac77-398d28af779e:11\",\"operation:2f86f28a-df16-4a08-ac77-398d28af779e:15\",\"world:2f86f28a-df16-4a08-ac77-398d28af779e:food-1\",\"world:2f86f28a-df16-4a08-ac77-398d28af779e:food-4\",\"49b2ef8c-b08d-432a-a64a-d620a51e7558:attempt:2\",\"world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-1\",\"operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:15\",\"world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-3\",\"operation:1209ced4-38aa-4b06-907c-849236ab130a:12\",\"1209ced4-38aa-4b06-907c-849236ab130a:attempt:15\",\"world:1209ced4-38aa-4b06-907c-849236ab130a:food-1\",\"operation:1209ced4-38aa-4b06-907c-849236ab130a:31\",\"1209ced4-38aa-4b06-907c-849236ab130a:attempt:32\",\"world:1209ced4-38aa-4b06-907c-849236ab130a:food-8\",\"operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:44\",\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:0\",\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:1\",\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:2\",\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:3\",\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:4\",\"83e06a06-2525-4ccb-83e2-61dbed778557:0\",\"64d0497c-1825-426f-a7b8-7d881c62e68b:0\",\"500aca79-691e-467e-a8fa-d9ac746dfb46:0\",\"a86c1828-09bf-4710-9044-bbbcdb93d078:0\"],\"presented\":[\"request:apple\",\"apple\",\"menu:apple\",\"request:banana\",\"banana\",\"menu:banana\",\"request:vanilla-cone\",\"ice-cream\",\"menu:vanilla-cone\",\"request:sandwich\",\"bread\",\"menu:sandwich\",\"request:salad-sandwich\",\"lettuce\",\"menu:salad-sandwich\",\"request:cheese-burger\",\"bun\",\"menu:juice\",\"menu:cheese-burger\"],\"learnedUnits\":[],\"lessons\":{\"51b927f7-948b-41b8-95a8-d78c953fefa4:guest-0\":{\"request\":\"apple\",\"units\":[\"apple\"],\"index\":0,\"phase\":\"done\",\"step\":0,\"tries\":0,\"nextAttempt\":1,\"support\":[\"meaning-picture\"]},\"51b927f7-948b-41b8-95a8-d78c953fefa4:guest-1\":{\"request\":\"banana\",\"units\":[\"banana\"],\"index\":0,\"phase\":\"done\",\"step\":0,\"tries\":0,\"nextAttempt\":1,\"support\":[\"meaning-picture\"]},\"74dee134-6fa8-4fe4-b671-6105e1378f77:guest-0\":{\"request\":\"vanilla-cone\",\"units\":[\"ice-cream\",\"vanilla-flavor\",\"cone\"],\"index\":0,\"phase\":\"skipped\",\"step\":0,\"tries\":0,\"nextAttempt\":0,\"support\":[\"meaning-picture\",\"recipe-help\"]},\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:guest-0\":{\"request\":\"sandwich\",\"units\":[\"bread\",\"cheese\",\"sandwich\"],\"index\":0,\"phase\":\"skipped\",\"step\":0,\"tries\":0,\"nextAttempt\":0,\"support\":[\"meaning-picture\",\"recipe-help\"]},\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:guest-1\":{\"request\":\"salad-sandwich\",\"units\":[\"lettuce\",\"tomato\",\"and\",\"sandwich\"],\"index\":0,\"phase\":\"skipped\",\"step\":0,\"tries\":0,\"nextAttempt\":0,\"support\":[\"meaning-picture\",\"recipe-help\"]},\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:guest-0\":{\"request\":\"cheese-burger\",\"units\":[\"bun\",\"patty\",\"cooked-patty\",\"cheese\",\"burger\"],\"index\":0,\"phase\":\"skipped\",\"step\":0,\"tries\":0,\"nextAttempt\":0,\"support\":[\"meaning-picture\",\"recipe-help\"]}},\"prologue\":true,\"completed\":[],\"completedLevels\":[],\"storyChoices\":{},\"resolvedStoryChoices\":{},\"introduced\":[\"juice\",\"ice\",\"sandwich\",\"burger\"],\"tutorials\":[\"request-apple\",\"request-banana\",\"operation-vanilla-cone\",\"operation-strawberry-cup\",\"operation-sandwich\",\"operation-salad-sandwich\",\"operation-patty\",\"operation-juice\",\"operation-burger\",\"operation-cheese-burger\"],\"exposure\":[\"apple\",\"guest-0\",\"banana\",\"guest-1\",\"vanilla-cone\",\"strawberry-cup\",\"cool\",\"sandwich\",\"salad-sandwich\",\"pack\",\"patty\",\"juice\",\"burger\",\"cheese-burger\",\"create:world-6\",\"orange\",\"pear\"],\"observations\":[{\"id\":\"lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-0:0\",\"dimension\":\"meaning\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"meaning-picture\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:14\",\"dimension\":\"listening\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"picture-request\",\"meaning-picture\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-1\",\"dimension\":\"operation\",\"target\":\"guest-0\",\"result\":\"received:apple\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"lesson:51b927f7-948b-41b8-95a8-d78c953fefa4:guest-1:0\",\"dimension\":\"meaning\",\"target\":\"banana\",\"result\":\"completed\",\"support\":[\"meaning-picture\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"51b927f7-948b-41b8-95a8-d78c953fefa4:attempt:32\",\"dimension\":\"listening\",\"target\":\"banana\",\"result\":\"completed\",\"support\":[\"picture-request\",\"meaning-picture\",\"audio-not-observed\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:51b927f7-948b-41b8-95a8-d78c953fefa4:food-3\",\"dimension\":\"operation\",\"target\":\"guest-1\",\"result\":\"received:banana\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:74dee134-6fa8-4fe4-b671-6105e1378f77:16\",\"dimension\":\"operation\",\"target\":\"vanilla-cone\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"74dee134-6fa8-4fe4-b671-6105e1378f77:attempt:17\",\"dimension\":\"listening\",\"target\":\"vanilla-cone\",\"result\":\"completed\",\"support\":[\"picture-request\",\"meaning-picture\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:74dee134-6fa8-4fe4-b671-6105e1378f77:21\",\"dimension\":\"operation\",\"target\":\"strawberry-cup\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-1\",\"dimension\":\"operation\",\"target\":\"guest-0\",\"result\":\"received:vanilla-cone\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:74dee134-6fa8-4fe4-b671-6105e1378f77:food-3\",\"dimension\":\"operation\",\"target\":\"cool\",\"result\":\"received:strawberry-cup\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:14\",\"dimension\":\"operation\",\"target\":\"sandwich\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:16\",\"dimension\":\"listening\",\"target\":\"sandwich\",\"result\":\"completed\",\"support\":[\"picture-request\",\"meaning-picture\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-1\",\"dimension\":\"operation\",\"target\":\"guest-0\",\"result\":\"received:sandwich\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:39\",\"dimension\":\"operation\",\"target\":\"salad-sandwich\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:attempt:45\",\"dimension\":\"listening\",\"target\":\"salad-sandwich\",\"result\":\"completed\",\"support\":[\"picture-request\",\"meaning-picture\",\"audio-not-observed\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-5\",\"dimension\":\"operation\",\"target\":\"guest-1\",\"result\":\"received:salad-sandwich\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:63\",\"dimension\":\"operation\",\"target\":\"sandwich\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-10\",\"dimension\":\"operation\",\"target\":\"pack\",\"result\":\"received:sandwich\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:9a1ed3c0-0aae-4da2-ba4f-64eb909fb5f4:food-14\",\"dimension\":\"operation\",\"target\":\"pack\",\"result\":\"received:apple\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:12\",\"dimension\":\"operation\",\"target\":\"patty\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:19\",\"dimension\":\"operation\",\"target\":\"juice\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:26\",\"dimension\":\"operation\",\"target\":\"burger\",\"result\":\"process-started\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:28\",\"dimension\":\"listening\",\"target\":\"cheese-burger\",\"result\":\"request-mismatch\",\"support\":[\"picture-request\",\"meaning-picture\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:29\",\"dimension\":\"listening\",\"target\":\"juice\",\"result\":\"completed\",\"support\":[\"picture-request\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-2\",\"dimension\":\"operation\",\"target\":\"guest-1\",\"result\":\"received:juice\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:37\",\"dimension\":\"listening\",\"target\":\"cheese-burger\",\"result\":\"request-mismatch\",\"support\":[\"picture-request\",\"meaning-picture\",\"mismatch-explanation\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:55\",\"dimension\":\"operation\",\"target\":\"patty\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:33bf31a7-fbe8-4b9a-96c7-d28062419c00:59\",\"dimension\":\"operation\",\"target\":\"cheese-burger\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"33bf31a7-fbe8-4b9a-96c7-d28062419c00:attempt:62\",\"dimension\":\"listening\",\"target\":\"cheese-burger\",\"result\":\"completed\",\"support\":[\"picture-request\",\"meaning-picture\",\"mismatch-explanation\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"world:33bf31a7-fbe8-4b9a-96c7-d28062419c00:food-14\",\"dimension\":\"operation\",\"target\":\"guest-0\",\"result\":\"received:cheese-burger\",\"support\":[],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"operation:2f86f28a-df16-4a08-ac77-398d28af779e:11\",\"dimension\":\"operation\",\"target\":\"sandwich\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:2f86f28a-df16-4a08-ac77-398d28af779e:15\",\"dimension\":\"operation\",\"target\":\"vanilla-cone\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:2f86f28a-df16-4a08-ac77-398d28af779e:food-1\",\"dimension\":\"operation\",\"target\":\"create:world-6\",\"result\":\"received:sandwich\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:2f86f28a-df16-4a08-ac77-398d28af779e:food-4\",\"dimension\":\"operation\",\"target\":\"create:world-6\",\"result\":\"received:vanilla-cone\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"49b2ef8c-b08d-432a-a64a-d620a51e7558:attempt:2\",\"dimension\":\"listening\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"picture-request\",\"audio-not-observed\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-1\",\"dimension\":\"operation\",\"target\":\"guest-0\",\"result\":\"received:apple\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:15\",\"dimension\":\"operation\",\"target\":\"juice\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:49b2ef8c-b08d-432a-a64a-d620a51e7558:food-3\",\"dimension\":\"operation\",\"target\":\"create:world-6\",\"result\":\"received:juice\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:1209ced4-38aa-4b06-907c-849236ab130a:12\",\"dimension\":\"operation\",\"target\":\"salad-sandwich\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:attempt:15\",\"dimension\":\"listening\",\"target\":\"salad-sandwich\",\"result\":\"completed\",\"support\":[\"picture-request\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:1209ced4-38aa-4b06-907c-849236ab130a:food-1\",\"dimension\":\"operation\",\"target\":\"guest-1\",\"result\":\"received:salad-sandwich\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:1209ced4-38aa-4b06-907c-849236ab130a:31\",\"dimension\":\"operation\",\"target\":\"sandwich\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"1209ced4-38aa-4b06-907c-849236ab130a:attempt:32\",\"dimension\":\"listening\",\"target\":\"sandwich\",\"result\":\"completed\",\"support\":[\"picture-request\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"world:1209ced4-38aa-4b06-907c-849236ab130a:food-8\",\"dimension\":\"operation\",\"target\":\"guest-0\",\"result\":\"received:sandwich\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"operation:49b2ef8c-b08d-432a-a64a-d620a51e7558:44\",\"dimension\":\"operation\",\"target\":\"juice\",\"result\":\"process-started\",\"support\":[],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:0\",\"dimension\":\"listening\",\"target\":\"apple\",\"result\":\"context-adjust\",\"support\":[\"meaning-picture\",\"audio-not-observed\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:1\",\"dimension\":\"listening\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"meaning-picture\",\"difference-feedback\",\"answer-help\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:2\",\"dimension\":\"listening\",\"target\":\"banana\",\"result\":\"completed\",\"support\":[\"meaning-picture\",\"audio-not-observed\",\"difference-feedback\",\"answer-help\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:3\",\"dimension\":\"listening\",\"target\":\"orange\",\"result\":\"completed\",\"support\":[\"meaning-picture\",\"audio-not-observed\",\"difference-feedback\",\"answer-help\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"ba8eb68e-e391-4599-ac15-ef2a86d7810d:4\",\"dimension\":\"listening\",\"target\":\"pear\",\"result\":\"completed\",\"support\":[\"meaning-picture\",\"audio-not-observed\",\"difference-feedback\",\"answer-help\"],\"visit\":\"first\",\"audioQualified\":false},{\"id\":\"83e06a06-2525-4ccb-83e2-61dbed778557:0\",\"dimension\":\"meaning\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"meaning-picture\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"64d0497c-1825-426f-a7b8-7d881c62e68b:0\",\"dimension\":\"spelling\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"meaning-picture\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"500aca79-691e-467e-a8fa-d9ac746dfb46:0\",\"dimension\":\"meaning\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"meaning-picture\"],\"visit\":\"revisit\",\"audioQualified\":false},{\"id\":\"a86c1828-09bf-4710-9044-bbbcdb93d078:0\",\"dimension\":\"structure\",\"target\":\"apple\",\"result\":\"completed\",\"support\":[\"meaning-picture\"],\"visit\":\"revisit\",\"audioQualified\":false}],\"support\":\"pictures\"}"
+}

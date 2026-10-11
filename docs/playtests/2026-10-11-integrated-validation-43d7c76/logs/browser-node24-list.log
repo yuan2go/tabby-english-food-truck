@@ -1,0 +1,10 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --config /Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/browser-isolated.config.ts --list
+
+
+TypeError: Module "file:///Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/src/content/vocabulary-extra.json" needs an import attribute of "type: json"
+    at eval (<anonymous>:1:1)
+Listing tests:
+Total: 0 tests in 0 files
+EXIT_CODE=1

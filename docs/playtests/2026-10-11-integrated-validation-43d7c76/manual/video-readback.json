@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/manual/video/page@71d4f0bb9fc8912f637f770ed0aaf997.webm",
+    "duration": 782.88,
+    "width": 960,
+    "height": 540,
+    "readyState": 4,
+    "error": null
+  },
+  {
+    "path": "/manual/mobile-video/page@9cea73b27cadcb314b5db2aa7915b92b.webm",
+    "duration": 1383.44,
+    "width": 392,
+    "height": 664,
+    "readyState": 4,
+    "error": null
+  },
+  {
+    "path": "/manual/fault-video/page@2935673136bec63a826870b6287999a2.webm",
+    "duration": 155.48,
+    "width": 392,
+    "height": 664,
+    "readyState": 4,
+    "error": null
+  }
+]

@@ -1,0 +1,16 @@
+[libvpx @ 0xa4d400000] v1.14.1
+Input #0, matroska,webm, from 'docs/playtests/2026-10-11-integrated-validation-43d7c76/manual/fault-video/page@2935673136bec63a826870b6287999a2.webm':
+  Metadata:
+    creation_time   : 2026-10-11T15:51:17.707000Z
+    ENCODER         : Lavf61.1.100
+  Duration: 00:02:35.48, start: 0.000000, bitrate: 263 kb/s
+  Stream #0:0(eng): Video: vp8 (libvpx), yuv420p(tv, progressive), 392x664, SAR 1:1 DAR 49:83, 25 fps, 25 tbr, 1k tbn (default)
+      Metadata:
+        ENCODER         : Lavc61.3.100 libvpx
+        DURATION        : 00:02:35.480000000
+[AVFormatContext @ 0xa4cc2c280] Requested output format 'null' is not known.
+[out#0 @ 0xa4c804180] Error initializing the muxer for pipe:: Invalid argument
+Error opening output file -.
+Error opening output files: Invalid argument
+
+EXIT_CODE=234

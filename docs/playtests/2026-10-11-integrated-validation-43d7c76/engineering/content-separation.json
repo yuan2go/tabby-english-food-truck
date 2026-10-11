@@ -1,0 +1,569 @@
+{
+  "concepts": 120,
+  "foodCatalog": 50,
+  "extraConcepts": 70,
+  "rejectedNonSupply": 69,
+  "exception": "cup is an existing real recipe container, not a new food or business order",
+  "rows": [
+    {
+      "id": "cup",
+      "chinese": "杯子",
+      "legitimateContainer": true,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": false
+    },
+    {
+      "id": "plate",
+      "chinese": "盘子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "bowl",
+      "chinese": "碗",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "spoon",
+      "chinese": "勺子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "fork",
+      "chinese": "叉子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "knife",
+      "chinese": "餐刀",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "tray",
+      "chinese": "托盘",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "napkin",
+      "chinese": "餐巾",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "pot",
+      "chinese": "锅",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "pan",
+      "chinese": "平底锅",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "lid",
+      "chinese": "锅盖",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "kettle",
+      "chinese": "水壶",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "bottle",
+      "chinese": "瓶子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "glass",
+      "chinese": "玻璃杯",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "jug",
+      "chinese": "倒水壶",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "spatula",
+      "chinese": "锅铲",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "ladle",
+      "chinese": "汤勺",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "whisk",
+      "chinese": "打蛋器",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "cutting-board",
+      "chinese": "砧板",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "apron",
+      "chinese": "围裙",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "basket",
+      "chinese": "篮子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "box",
+      "chinese": "盒子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "bag",
+      "chinese": "袋子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "table",
+      "chinese": "桌子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "chair",
+      "chinese": "椅子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "bench",
+      "chinese": "长椅",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "door",
+      "chinese": "门",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "window",
+      "chinese": "窗户",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "shelf",
+      "chinese": "架子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "drawer",
+      "chinese": "抽屉",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "lamp",
+      "chinese": "灯",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "flower",
+      "chinese": "花",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "tree",
+      "chinese": "树",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "leaf",
+      "chinese": "叶子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "seed",
+      "chinese": "种子",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "watering-can",
+      "chinese": "浇水壶",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "ball",
+      "chinese": "球",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "book",
+      "chinese": "书",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "red",
+      "chinese": "红色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "yellow",
+      "chinese": "黄色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "blue",
+      "chinese": "蓝色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "green",
+      "chinese": "绿色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "purple",
+      "chinese": "紫色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "pink",
+      "chinese": "粉色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "brown",
+      "chinese": "棕色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "black",
+      "chinese": "黑色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "white",
+      "chinese": "白色",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "big",
+      "chinese": "大的",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "small",
+      "chinese": "小的",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "round",
+      "chinese": "圆的",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "soft",
+      "chinese": "柔软的",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "one",
+      "chinese": "一",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "two",
+      "chinese": "二",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "three",
+      "chinese": "三",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "four",
+      "chinese": "四",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "five",
+      "chinese": "五",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "take",
+      "chinese": "拿起",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "put",
+      "chinese": "放下",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "open",
+      "chinese": "打开",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "close",
+      "chinese": "关上",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "pour",
+      "chinese": "倒水",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "stir",
+      "chinese": "搅拌",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "wash",
+      "chinese": "清洗",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "cut",
+      "chinese": "切分",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "carry",
+      "chinese": "搬运",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "share",
+      "chinese": "分享",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "in",
+      "chinese": "在里面",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "on",
+      "chinese": "在上面",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "under",
+      "chinese": "在下面",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    },
+    {
+      "id": "beside",
+      "chinese": "在旁边",
+      "legitimateContainer": false,
+      "notMeal": true,
+      "notFoodCatalog": true,
+      "unexpectedSupplyRejected": true
+    }
+  ]
+}

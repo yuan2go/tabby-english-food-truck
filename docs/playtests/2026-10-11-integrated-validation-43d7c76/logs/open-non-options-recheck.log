@@ -1,0 +1,2 @@
+PASS 2 non-declared finished foods rejected without inventory loss
+EXIT_CODE=0

@@ -1,0 +1,115 @@
+{
+  "scenes": {
+    "hunt-0": {
+      "version": 1,
+      "id": "cd928b7c-6ad0-4ab6-82b0-ef5b161353f4",
+      "levelId": "hunt-0",
+      "seed": 733326939,
+      "round": 0,
+      "phase": "feedback",
+      "mode": "task",
+      "objects": [
+        {
+          "id": "cup",
+          "word": "cup",
+          "place": "basket",
+          "state": "whole"
+        },
+        {
+          "id": "spoon",
+          "word": "spoon",
+          "place": "shelf",
+          "state": "whole"
+        },
+        {
+          "id": "flower",
+          "word": "flower",
+          "place": "shelf",
+          "state": "whole"
+        }
+      ],
+      "support": [
+        "meaning-demonstration"
+      ],
+      "carry": [
+        "meaning-demonstration"
+      ],
+      "heard": false,
+      "attempts": [
+        {
+          "id": "cd928b7c-6ad0-4ab6-82b0-ef5b161353f4:0",
+          "round": 0,
+          "target": "cup",
+          "dimension": "listening",
+          "result": true,
+          "support": [
+            "meaning-demonstration",
+            "audio-not-observed"
+          ],
+          "heard": false
+        }
+      ],
+      "nextAttempt": 1,
+      "receipts": [
+        0
+      ],
+      "undo": [
+        [
+          {
+            "id": "cup",
+            "word": "cup",
+            "place": "garden",
+            "state": "whole"
+          },
+          {
+            "id": "spoon",
+            "word": "spoon",
+            "place": "shelf",
+            "state": "whole"
+          },
+          {
+            "id": "flower",
+            "word": "flower",
+            "place": "shelf",
+            "state": "whole"
+          }
+        ],
+        [
+          {
+            "id": "cup",
+            "word": "cup",
+            "place": "hand",
+            "state": "whole"
+          },
+          {
+            "id": "spoon",
+            "word": "spoon",
+            "place": "shelf",
+            "state": "whole"
+          },
+          {
+            "id": "flower",
+            "word": "flower",
+            "place": "shelf",
+            "state": "whole"
+          }
+        ]
+      ],
+      "feedback": "物件到位了！",
+      "paused": false,
+      "actor": {
+        "action": "deliver",
+        "object": "cup",
+        "serial": 2
+      }
+    }
+  },
+  "completedScenes": [],
+  "protectedSceneRaw": "{\"version\":999,\"scenes\":{},\"completed\":[]}",
+  "sessions": {},
+  "courses": {},
+  "completedCourses": [],
+  "protectedCourseRaw": null,
+  "protectedRaw": null,
+  "legacyRaw": null
+}

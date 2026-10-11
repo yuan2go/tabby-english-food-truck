@@ -1,0 +1,32 @@
+[
+  {
+    "aria": "暂停小游戏",
+    "text": "暂停",
+    "inside": false
+  },
+  {
+    "aria": null,
+    "text": "继续玩",
+    "inside": true
+  },
+  {
+    "aria": null,
+    "text": "回游乐角",
+    "inside": true
+  },
+  {
+    "aria": null,
+    "text": "返回游乐角小院寻物再相见 · 1/3暂停Bring me a cup and a spoon, please.看图示范先点物件→放回交给篮子下一段活动物件到位了！重玩这一组开发语音未听审 · 没有计时与能力评分休息一会儿继续玩回游乐角\n",
+    "inside": false
+  },
+  {
+    "aria": null,
+    "text": "返回游乐角",
+    "inside": false
+  },
+  {
+    "aria": "暂停小游戏",
+    "text": "暂停",
+    "inside": false
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "container": {
+    "x": 650,
+    "y": 301,
+    "w": 474,
+    "h": 141
+  },
+  "overflow": "hidden",
+  "controls": [
+    {
+      "name": "重看朋友使用",
+      "minWidth": "85px",
+      "rect": {
+        "x": 905.5,
+        "y": 314,
+        "w": 85,
+        "h": 44
+      },
+      "visibleWidth": 85
+    },
+    {
+      "name": "跳过朋友演出",
+      "minWidth": "85px",
+      "rect": {
+        "x": 1002.5,
+        "y": 314,
+        "w": 85,
+        "h": 44
+      },
+      "visibleWidth": 85
+    },
+    {
+      "name": "低动态表现",
+      "minWidth": "85px",
+      "rect": {
+        "x": 1099.5,
+        "y": 314,
+        "w": 85,
+        "h": 44
+      },
+      "visibleWidth": 24.5
+    }
+  ],
+  "controlGrid": "316px 148px"
+}

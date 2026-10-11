@@ -1,0 +1,14 @@
+[
+  {
+    "product": "vanilla-cone",
+    "result": "PASS",
+    "reason": "可选一杯香草、草莓、双球或香蕉冰淇淋。其他食物留在盘里。",
+    "inventoryPreserved": true
+  },
+  {
+    "product": "juice",
+    "result": "PASS",
+    "reason": "可选一杯香草、草莓、双球或香蕉冰淇淋。其他食物留在盘里。",
+    "inventoryPreserved": true
+  }
+]
