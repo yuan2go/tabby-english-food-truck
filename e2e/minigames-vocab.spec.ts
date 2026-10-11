@@ -1,6 +1,6 @@
 import { expect, type Page, test } from '@playwright/test';
 import { wordById } from '../src/content/learning';
-import { state as worldState } from './helpers';
+import { hot, state as worldState } from './helpers';
 
 test.setTimeout(180000);
 const enter = async (page: Page) => {
@@ -346,8 +346,10 @@ test('yard minigames return to the activity and preserve adventure and free-kitc
   await expect(page.locator('canvas')).toBeVisible();
   await page.getByRole('button', { name: '我来试试', exact: true }).click();
   await expect(page.getByRole('group', { name: '餐车操作' })).toBeVisible();
-  await page.getByRole('button', { name: '拿苹果', exact: true }).click();
-  await page.getByRole('button', { name: '1号托盘：放入食品或选择整盘', exact: true }).click();
+  const apple = await hot(page, 'supply-apple');
+  await page.mouse.click(apple.x, apple.y);
+  const tray = await hot(page, 'tray-0');
+  await page.mouse.click(tray.x, tray.y);
   await expect
     .poll(async () => (await worldState(page)).items.some((i) => i.product === 'apple'))
     .toBe(true);

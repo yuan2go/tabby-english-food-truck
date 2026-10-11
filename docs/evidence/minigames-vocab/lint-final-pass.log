@@ -1,0 +1,512 @@
+
+> tabby-english-food-truck@0.1.0 lint
+> biome check .
+
+scripts/check-vocabulary.mjs:201:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    199 │   await writeFile(
+    200 │     'docs/evidence/minigames-vocab/coverage.json',
+  > 201 │     JSON.stringify(summary, null, 2) + '\n',
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    202 │   );
+    203 │   await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    199 199 │     await writeFile(
+    200 200 │       'docs/evidence/minigames-vocab/coverage.json',
+    201     │ - ····JSON.stringify(summary,·null,·2)·+·'\n',
+        201 │ + ····`${JSON.stringify(summary,·null,·2)}\n`,
+    202 202 │     );
+    203 203 │     await writeFile(
+  
+
+scripts/export-m22.mjs:46:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    44 │ await writeFile(
+    45 │   'art/m22-production.json',
+  > 46 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 47 │     {
+        ...
+  > 56 │     2,
+  > 57 │   ) + '\n',
+       │   ^^^^^^^^
+    58 │ );
+    59 │ console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    44 44 │   await writeFile(
+    45 45 │     'art/m22-production.json',
+    46    │ - ··JSON.stringify(
+       46 │ + ··`${JSON.stringify(
+    47 47 │       {
+    48 48 │         tool: 'OpenAI built-in imagegen',
+    ····· │ 
+    55 55 │       null,
+    56 56 │       2,
+    57    │ - ··)·+·'\n',
+       57 │ + ··)}\n`,
+    58 58 │   );
+    59 59 │   console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+
+scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │   await writeFile(
+    59 │     'art/m21-audio.json',
+  > 60 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 61 │       {
+        ...
+  > 68 │       2,
+  > 69 │     ) + '\n',
+       │     ^^^^^^^^
+    70 │   );
+    71 │   console.log(`Generated ${ids.length} registered development clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    58 58 │     await writeFile(
+    59 59 │       'art/m21-audio.json',
+    60    │ - ····JSON.stringify(
+       60 │ + ····`${JSON.stringify(
+    61 61 │         {
+    62 62 │           humanListeningReview: 'NOT_RUN',
+    ····· │ 
+    67 67 │         null,
+    68 68 │         2,
+    69    │ - ····)·+·'\n',
+       69 │ + ····)}\n`,
+    70 70 │     );
+    71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+  
+
+scripts/m22-audio.mjs:44:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    42 │     ]);
+    43 │   }
+  > 44 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    42 42 │       ]);
+    43 43 │     }
+    44    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       44 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+  
+
+scripts/m22-audio.mjs:47:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  > 47 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 48 │       {
+        ...
+  > 55 │       2,
+  > 56 │     ) + '\n',
+       │     ^^^^^^^^
+    57 │   );
+    58 │   console.log(`Generated ${records.length} individual registered clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+    47    │ - ····JSON.stringify(
+       47 │ + ····`${JSON.stringify(
+    48 48 │         {
+    49 49 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    54 54 │         null,
+    55 55 │         2,
+    56    │ - ····)·+·'\n',
+       56 │ + ····)}\n`,
+    57 57 │     );
+    58 58 │     console.log(`Generated ${records.length} individual registered clips`);
+  
+
+scripts/m22-growth-audio.mjs:39:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    37 │     speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+    38 │   }
+  > 39 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    40 │   await writeFile(
+    41 │     'art/m22-growth-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    37 37 │       speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+    38 38 │     }
+    39    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       39 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    40 40 │     await writeFile(
+    41 41 │       'art/m22-growth-audio.json',
+  
+
+scripts/m22-growth-audio.mjs:42:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    40 │   await writeFile(
+    41 │     'art/m22-growth-audio.json',
+  > 42 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 43 │       {
+        ...
+  > 50 │       2,
+  > 51 │     ) + '\n',
+       │     ^^^^^^^^
+    52 │   );
+    53 │ } finally {
+  
+  i Unsafe fix: Use a template literal.
+  
+    40 40 │     await writeFile(
+    41 41 │       'art/m22-growth-audio.json',
+    42    │ - ····JSON.stringify(
+       42 │ + ····`${JSON.stringify(
+    43 43 │         {
+    44 44 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    49 49 │         null,
+    50 50 │         2,
+    51    │ - ····)·+·'\n',
+       51 │ + ····)}\n`,
+    52 52 │     );
+    53 53 │   } finally {
+  
+
+scripts/vocab-resources.mjs:405:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    403 │   review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 │ }));
+  > 405 │ await writeFile('src/content/vocabulary-extra.json', JSON.stringify(extra, null, 2) + '\n');
+        │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    406 │ const instructions = [
+    407 │   ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+  i Unsafe fix: Use a template literal.
+  
+    403 403 │     review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 404 │   }));
+    405     │ - await·writeFile('src/content/vocabulary-extra.json',·JSON.stringify(extra,·null,·2)·+·'\n');
+        405 │ + await·writeFile('src/content/vocabulary-extra.json',·`${JSON.stringify(extra,·null,·2)}\n`);
+    406 406 │   const instructions = [
+    407 407 │     ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+
+scripts/vocab-resources.mjs:454:55 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    452 │   ['lamp-on', 'Put the lamp on the table.'],
+    453 │ ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+  > 454 │ await writeFile('src/content/mini-instructions.json', JSON.stringify(instructions, null, 2) + '\n');
+        │                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    455 │ const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 │ const records = [
+  
+  i Unsafe fix: Use a template literal.
+  
+    452 452 │     ['lamp-on', 'Put the lamp on the table.'],
+    453 453 │   ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+    454     │ - await·writeFile('src/content/mini-instructions.json',·JSON.stringify(instructions,·null,·2)·+·'\n');
+        454 │ + await·writeFile('src/content/mini-instructions.json',·`${JSON.stringify(instructions,·null,·2)}\n`);
+    455 455 │   const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 456 │   const records = [
+  
+
+scripts/vocab-resources.mjs:492:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    490 │   .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 │   .concat(newAssets);
+  > 492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+        │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    490 490 │     .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 491 │     .concat(newAssets);
+    492     │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+        492 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    493 493 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 494 │   await writeFile(
+  
+
+scripts/vocab-resources.mjs:493:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    491 │   .concat(newAssets);
+    492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+        │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    491 491 │     .concat(newAssets);
+    492 492 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    493     │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+        493 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+  
+
+scripts/vocab-resources.mjs:496:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  > 496 │   JSON.stringify(
+        │   ^^^^^^^^^^^^^^^
+  > 497 │     {
+         ...
+  > 505 │     2,
+  > 506 │   ) + '\n',
+        │   ^^^^^^^^
+    507 │ );
+    508 │ console.log(
+  
+  i Unsafe fix: Use a template literal.
+  
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+    496     │ - ··JSON.stringify(
+        496 │ + ··`${JSON.stringify(
+    497 497 │       {
+    498 498 │         source: 'Original vector art and offline macOS Samantha development synthesis',
+    ······· │ 
+    504 504 │       null,
+    505 505 │       2,
+    506     │ - ··)·+·'\n',
+        506 │ + ··)}\n`,
+    507 507 │   );
+    508 508 │   console.log(
+  
+
+scripts/vocab-scene-audio.mjs:58:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    56 │   });
+    57 │ }
+  > 58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    60 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    56 56 │     });
+    57 57 │   }
+    58    │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       58 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    59 59 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    60 60 │   await writeFile(
+  
+
+scripts/vocab-scene-audio.mjs:59:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    57 │ }
+    58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+       │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    60 │ await writeFile(
+    61 │   'art/vocab-scene-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    57 57 │   }
+    58 58 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    59    │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+       59 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    60 60 │   await writeFile(
+    61 61 │     'art/vocab-scene-audio.json',
+  
+
+scripts/vocab-scene-audio.mjs:62:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    60 │ await writeFile(
+    61 │   'art/vocab-scene-audio.json',
+  > 62 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 63 │     {
+        ...
+  > 70 │     2,
+  > 71 │   ) + '\n',
+       │   ^^^^^^^^
+    72 │ );
+    73 │ console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    60 60 │   await writeFile(
+    61 61 │     'art/vocab-scene-audio.json',
+    62    │ - ··JSON.stringify(
+       62 │ + ··`${JSON.stringify(
+    63 63 │       {
+    64 64 │         source: 'macOS Samantha static development speech',
+    ····· │ 
+    69 69 │       null,
+    70 70 │       2,
+    71    │ - ··)·+·'\n',
+       71 │ + ··)}\n`,
+    72 72 │   );
+    73 73 │   console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+
+src/app/Lesson.tsx:115:5 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    113 │   };
+    114 │   const physical =
+  > 115 │     unit &&
+        │     ^^^^^^^
+  > 116 │     unit.choices.every((c) => c.products.length === 1 && c.products.every((p) => RAW.includes(p)));
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    117 │   const choose = (choice: string) => {
+    118 │     if (!unit) return;
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    113 113 │     };
+    114 114 │     const physical =
+    115     │ - ····unit·&&
+    116     │ - ····unit.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+        115 │ + ····unit?.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+    117 116 │     const choose = (choice: string) => {
+    118 117 │       if (!unit) return;
+  
+
+src/app/adventure.css:330:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    328 │   gap: 3px;
+    329 │ }
+  > 330 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    331 │   width: 34px;
+    332 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:345:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    343 │   background: #fff1c6;
+    344 │ }
+  > 345 │ .invitation-pegs img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    346 │   width: 38px;
+    347 │   height: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:505:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    503 │   min-height: 44px;
+    504 │ }
+  > 505 │ .free-shop-menu img {
+        │ ^^^^^^^^^^^^^^^^^^^
+    506 │   width: 40px;
+    507 │   height: 40px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:67:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    65 │   margin: 10px auto;
+    66 │ }
+  > 67 │ .basket-foods button {
+       │ ^^^^^^^^^^^^^^^^^^^^
+    68 │   padding: 6px;
+    69 │   aspect-ratio: 1.15;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    42 │   max-width: 680px;
+    43 │ }
+  > 44 │ .food-baskets nav button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   flex: 1;
+    46 │   min-width: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 106.
+Checked 199 files in 1279ms. No fixes applied.
+Found 110 warnings.
+Found 16 infos.

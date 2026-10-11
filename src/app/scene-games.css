@@ -1032,6 +1032,7 @@
   }
   .design-table .scene-place {
     min-width: 0;
+    max-width: none;
     min-height: 0;
   }
   .design-table .place-target {
@@ -1421,7 +1422,7 @@
 }
 @media (max-width: 600px) {
   .design-table > .object-artwork {
-    top: 38px;
+    top: 30px;
   }
   .design-table > .object-artwork > .vocab-art {
     height: 190px;
