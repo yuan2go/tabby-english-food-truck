@@ -1,8 +1,8 @@
 # 技术 · 单一世界与可恢复活动
 
-## WP-ADVENTURE-EXPERIENCE-02
+## 现有活动架构
 
-保留锁定TypeScript严格类型、Phaser3.90、React19.1.1、Vite7.3.6，不升级依赖、不加后端/模型/ECS/全局事件总线。规则核是唯一事实源；输入→命令→边界校验→原子状态→Phaser/DOM投影→音画，不由动画/音频回调改进度。
+保留锁定TypeScript严格类型、Phaser3.90、React19.1.1、Vite7.3.6，仅修复实际相关的依赖风险、不盲目升级，不加后端/模型/ECS/全局事件总线。规则核是唯一事实源；输入→命令→边界校验→原子状态→Phaser/DOM投影→音画，不由动画/音频回调改进度。
 
 | 责任 | 落点与接口 |
 | --- | --- |
@@ -44,3 +44,11 @@ content/vocabulary与独立JSON包含120学习概念，foods/recipes供应映射
 课程保留version1及旧键，新增paused/assembly/assembled/carry均为可选字段。原31关ID不改；新增56听音/配对小组。保存与读取共用课程3,000,000、场景1,500,000字符预算，写前超限留下内存/导出，不写出自身拒读的档。所有概念均有稳定供给之外的学习ID。SceneState version1包含显式covered/reveal、唯一归属、12步撤回、64次详细尝试和不会截断的有限支持汇总。记忆维度独立、自由不判语言、剧场状态后继不造成不可逆死局。
 
 表现拆为SceneGames生命周期/音频、SceneBoards五种空间交互、SceneGuide已记帮助的图示、VocabularyVisual意义/动作。示范只绘制，不向规则发送通关；音频完成只记heard。随机池为明确合法配置，run/seed/round/原物件随档保留；刷新不换答案。
+
+当前实施/验证见[05](05-delivery.md)和[STATUS](STATUS.md)；历史授权、已替代阶段计划见[归档](archive/pre-demo-repair-2026-10-12/index.md)。
+
+## 本轮修复职责
+
+vocabulary JSON使用原生导入属性，资源清单只格式化，不改变内容/hash事实。FriendTheatre只投影收据，SceneBoards剧场动作有独立CSS命名。dialog-focus统一处理模态焦点及背景隔离，覆盖小游戏暂停/重玩及同类确认；取消、卸载和后台沿用现有所有者。
+
+厨房端盘目标与食品目标分开，实际命令仍走game/input→controller→rules。持续指引为状态只读派生，不能由动画推进。默认演出过程与低动态事实/幂等分别测试，不以CI省电默认值替代产品合同。存档schema/内容和奖励规则保持，本轮不重构规则或引入新平台。

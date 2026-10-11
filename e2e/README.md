@@ -1,7 +1,9 @@
 # 当前浏览器合同
 
-WP-PLAYABLE-ADVENTURE-01 将“25个固定订单小关＋每关结算”替换为五章因果活动，WP-ADVENTURE-EXPERIENCE-02 深化活动与无识字路径。`playwright.config.ts` 明确选择当前17条风险用例：adventure 全主线/野餐另一分支/自由开店/桌面键鼠恢复、桌面演出控制不重复结算、恢复开店换菜单与补客，experience单/双客切换、较少帮助与音频失败、静音图示，m22-boundaries 库存/预留/取消/错单/音频失败，m22-growth 与 wp-dual-growth 首次教学和菜单延后，minigames 与 wp-dual-mini-course 保留小游戏/主题课入口和恢复。
+当前playwright.config.ts八套件在修复前预期收集26条：adventure（完整五章/另一野餐路线/自由厨房/桌面恢复/演出/重新开店菜单），experience（客流/较少帮助/静音），m22-boundaries（库存/预留/取消/错单/声音），m22-growth/wp-dual-growth（教学/菜单），minigames/wp-dual-mini-course/minigames-vocab（十类入口、恢复和边界）。最终实际数量以本轮原生`--list`为准，新增少量回归会明确列示。
 
-旧 adventure-flow、game、visible-walk、playability-visible、wp-dual-story-throughline、wp-dual-layout 等脚本仍保留原断言与历史证据，它们的25关/旧标题/结算入口已失效，不属于当前默认门禁。未删掉库存、错误交付、帮助、迁移或恢复断言；这些行为在共享单元、当前 boundary 和 adventure 用例中验证。旧脚本应在其对应历史提交上追溯，不能在新流程上冒报通过。
+默认演出过程须显式默认画质，低动态另验证收据事实、控制可达与幂等，不能把省电stage4断言为必须stage0。默认单worker/原断言保留，不依赖诊断JSON loader。`CHROMIUM_CHANNEL=chromium`可指定完整Chromium，环境与画质须分别记录；模拟触控不等于实体设备。
 
-现有工程 workflow 的触发条件/权限保持原样。本机执行不等于托管 CI 已通过。默认浏览器为 Playwright Chromium headless shell；`CHROMIUM_CHANNEL=chromium` 可明确使用锁定浏览器的完整 Chromium headless。较长路径的等待预算不改变操作或规则断言；当前9条相关路径的实际分批执行、环境、失败及截图/视频见[本包证据](../docs/evidence/adventure-experience-02/README.md)，上一包证据保留。
+旧25关/旧标题/每关结算的adventure-flow、game、visible-walk、playability-visible、wp-dual-story-throughline、wp-dual-layout等仅作历史追溯，不属于当前默认门禁；库存/帮助/错误/迁移断言仍在当前规则与boundary用例。工程workflow权限和触发条件保持。本地执行不等于云端CI通过。
+
+本轮范围及证据见[05](../docs/05-delivery.md)、[STATUS](../docs/STATUS.md)；原失败见[整合报告](../docs/playtests/2026-10-11-integrated-validation.md)。历史脚本不得覆盖旧工作包画面；本轮输出放独立证据目录。
