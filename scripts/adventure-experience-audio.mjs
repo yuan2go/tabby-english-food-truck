@@ -4,6 +4,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const lines = {
+  occupied: '这个餐位已经有食品了。先点图里的这一份，把它拿回桌边，再重新摆餐。',
+  fresh: '这份已经品尝过了。留在作品里，再做一份新的食品分享。',
   clear: '先把喜欢的作品放进食谱，再收拾桌面，就能继续创作。',
   welcome: '点一位朋友，自己决定先帮谁。',
   kitchen: '听朋友要什么。做好食品，拿起盘，再点这位朋友。',

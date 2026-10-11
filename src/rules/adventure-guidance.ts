@@ -1,7 +1,8 @@
+import { FOOD_GROUPS, NEED_AUDIO, needAccepts, visitorSeat } from '../content/adventure-experience';
 import { REQUESTS } from '../content/catalog';
 import type { Product } from '../content/recipes';
 import { adventureReady, openCommission } from './adventure';
-import type { GameState } from './types';
+import type { Command, GameState } from './types';
 export interface ActivityGuidance {
   id: string;
   from: string;
@@ -10,6 +11,95 @@ export interface ActivityGuidance {
   label: string;
   target: string;
   products: readonly Product[];
+  select?: string;
+}
+export type ActivityCommand = Omit<Extract<Command, { type: 'adventure' }>, 'type'>;
+/** Explain a rejected action from the same live inventory; this projection never accepts it. */
+export function activityObstacle(s: GameState, c: ActivityCommand): ActivityGuidance {
+  const a = s.adventure;
+  if (!a) return activityGuidance(s);
+  const food = a.foods.find((f) => f.id === c.item);
+  const need = a.experience?.needs.find((n) => n.visitor === c.visitor);
+  const guide = (
+    id: string,
+    from: string,
+    to: string,
+    label: string,
+    target: string,
+    products: readonly Product[] = [],
+    select?: string,
+  ): ActivityGuidance => ({
+    id,
+    from,
+    to,
+    label,
+    target,
+    products,
+    ...(select ? { select } : {}),
+    audio: `world-${id}`,
+  });
+  if (food?.place === 'basket')
+    return guide('unpack', 'basket', 'table', '食品还在篮子里，先打开摆上桌。', 'unpack');
+  if (c.action === 'share' && food?.tasted)
+    return guide(
+      'fresh',
+      'taste',
+      'kitchen',
+      '这份已尝过，留在作品里，再做一份新的分享。',
+      'kitchen',
+      [food.product],
+    );
+  if (c.action === 'share' && food && need && !needAccepts(need, food))
+    return {
+      ...guide(
+        'choice',
+        'ear',
+        'friend',
+        '食品留在原处。听朋友需要，再选这一类的食品。',
+        'share',
+        FOOD_GROUPS[need.kind].slice(0, 2),
+      ),
+      audio: NEED_AUDIO[need.kind],
+    };
+  if (c.action === 'place' || c.action === 'share') {
+    // Match rule precedence: the drawer must be available before placement.
+    if (
+      c.action === 'place' &&
+      !a.rewards.length &&
+      ((a.chapter === 2 && !a.explored.includes('drawer')) ||
+        (a.chapter === 3 && !a.explored.includes('drawer')))
+    )
+      return guide('drawer', 'drawer', 'mat', '先打开抽屉，取出摆餐的物件。', 'drawer');
+    const seat = c.action === 'share' && need ? visitorSeat(need.visitor) : c.seat;
+    const occupied = a.foods.find((f) => f.id !== c.item && f.place === `table:${seat}`);
+    if (food && occupied)
+      return guide(
+        'occupied',
+        'table',
+        'carry',
+        '餐位已经有这份食品。先选它，拿回桌边，再重新摆餐。',
+        'pickup',
+        [occupied.product],
+        occupied.id,
+      );
+    if (
+      c.action === 'place' &&
+      a.chapter === 2 &&
+      a.branch === 'hedgehog' &&
+      !a.rewards.length &&
+      !a.experience?.tools.includes('mat')
+    )
+      return guide('mat', 'drawer', 'mat', '先取出餐垫，食品就有摆放的位置。', 'mat');
+  }
+  if (c.action === 'share' && !need)
+    return guide('invite', 'friend', 'table', '先邀请一位朋友，听听分享需要。', 'invite');
+  if (
+    ['place', 'taste', 'share', 'save-work'].includes(c.action) &&
+    !food &&
+    c.action !== 'save-work'
+  )
+    return guide('create', 'kitchen', 'carry', '先制作，再把真实食品带到桌边。', 'kitchen');
+  return activityGuidance(s);
 }
 /** A read-only projection of the rule world, including the safe route out of blockers. */
 export function activityGuidance(s: GameState): ActivityGuidance {

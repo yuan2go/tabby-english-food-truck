@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { REQUESTS } from '../content/catalog';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
-import { activityGuidance } from '../rules/adventure-guidance';
+import { type ActivityGuidance, activityGuidance } from '../rules/adventure-guidance';
 import { Food } from './Food';
 import { SceneIcon } from './SceneIcon';
 export function AdventureGuide({
@@ -10,13 +10,15 @@ export function AdventureGuide({
   audio,
   compact = false,
   navigate,
+  obstacle,
 }: {
   controller: GameController;
   audio: ForegroundAudio;
   compact?: boolean;
-  navigate: (target: string) => void;
+  navigate: (target: string, select?: string) => void;
+  obstacle?: ActivityGuidance | undefined;
 }) {
-  const guide = activityGuidance(controller.state);
+  const guide = obstacle ?? activityGuidance(controller.state);
   const [demoId, setDemoId] = useState<string | null>(null);
   const demo = demoId === guide.id;
   const [failedId, setFailedId] = useState<string | null>(null);
@@ -52,7 +54,7 @@ export function AdventureGuide({
   }, [showFallback, waitingId, controller]);
   return (
     <section
-      className={`goal-guide ${compact ? 'compact-guide' : ''} ${demo ? 'demo-active' : ''}`}
+      className={`goal-guide ${compact ? 'compact-guide' : ''} ${demo ? 'demo-active' : ''} ${obstacle ? 'obstacle-guide' : ''}`}
       aria-label="图示下一步"
       data-guide={guide.id}
     >
@@ -60,7 +62,7 @@ export function AdventureGuide({
         type="button"
         className="goal-pictures"
         aria-label={`图示下一步：${guide.label}`}
-        onClick={() => navigate(guide.target)}
+        onClick={() => navigate(guide.target, guide.select)}
       >
         <SceneIcon kind={guide.from} />
         <span className="guide-arrow" aria-hidden="true">
@@ -80,6 +82,7 @@ export function AdventureGuide({
         ) : (
           <SceneIcon kind={guide.to} />
         )}
+        {obstacle && products.length ? <SceneIcon kind={guide.to} /> : null}
         <span className="guide-dots" aria-hidden="true">
           ●
         </span>

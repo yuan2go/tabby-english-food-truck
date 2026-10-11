@@ -740,6 +740,36 @@
   border-radius: 10px;
   padding: 8px;
 }
+.yard-activity-badge .scene-icon {
+  width: 32px;
+  height: 34px;
+  display: block;
+  margin: auto;
+}
+@media (max-width: 600px) {
+  .yard-activity-badge {
+    left: 5%;
+    bottom: 5%;
+    width: 43%;
+    max-width: none;
+    min-height: 92px;
+    padding: 6px;
+    font-size: 13px;
+    z-index: 2;
+  }
+  .yard-mini {
+    left: auto;
+    right: 5%;
+    bottom: 5%;
+    width: 43%;
+  }
+  .yard-mini .entry-main > span {
+    font-size: 22px;
+  }
+  .yard-mini .entry-main small {
+    font-size: 10px;
+  }
+}
 .m2-shell .commission-handoff {
   position: absolute;
   z-index: 5;
@@ -1141,14 +1171,20 @@
     0 -38px 0 10px #527b5844;
 }
 
-.blocked-pictures {
-  display: inline-flex;
+.clear-pictures {
+  display: flex;
   align-items: center;
-  vertical-align: middle;
+  justify-content: center;
+  gap: 8px;
 }
-.blocked-pictures .scene-icon {
-  width: 24px;
-  height: 28px;
+.clear-pictures .scene-icon,
+.world-confirm button .scene-icon {
+  width: 32px;
+  height: 36px;
+}
+.obstacle-guide {
+  border: 3px solid #b36f32;
+  background: #fff2c4;
 }
 .activity-header > button.primary .scene-icon {
   width: 32px;

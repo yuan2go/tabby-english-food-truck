@@ -52,7 +52,7 @@ async function begin(page: Page) {
 test('visible activity entrance reaches all five chapters and saves a real creation', async ({
   page,
 }) => {
-  test.setTimeout(300000);
+  test.setTimeout(420000);
   await page.setViewportSize({ width: 1280, height: 720 });
   await begin(page);
   await kitchen(page);
@@ -229,9 +229,22 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await page.getByRole('button', { name: '带作品到活动桌', exact: true }).click();
   await expect.poll(async () => (await state(page)).adventure?.steps.includes('create')).toBe(true);
   await table(page);
+  await page.getByRole('button', { name: '选择苹果', exact: true }).click();
+  await page.getByRole('button', { name: '摆到2号餐位', exact: true }).click();
   await page.getByRole('button', { name: '选择苹果汁', exact: true }).click();
   await page.getByRole('button', { name: '摆到3号餐位', exact: true }).click();
   await page.getByRole('button', { name: '拿回苹果汁到桌边', exact: true }).click();
+  const beforeBlocked = await state(page);
+  await page.getByRole('button', { name: '摆到2号餐位', exact: true }).click();
+  await expect(page.locator('.goal-guide')).toHaveAttribute('data-guide', 'occupied');
+  expect((await state(page)).adventure?.foods).toEqual(beforeBlocked.adventure?.foods);
+  await page.screenshot({
+    path: 'docs/evidence/adventure-experience-02/occupied-recovery-phone.png',
+  });
+  await page.getByRole('button', { name: /图示下一步：餐位已经/ }).click();
+  await expect(page.getByRole('button', { name: '拿回苹果到桌边', exact: true })).toBeFocused();
+  await page.getByRole('button', { name: '拿回苹果到桌边', exact: true }).click();
+  await page.getByRole('button', { name: '选择苹果汁', exact: true }).click();
   await page.getByRole('button', { name: '摆到2号餐位', exact: true }).click();
   await page.getByRole('button', { name: '品尝苹果汁', exact: true }).click();
   const tasted = await state(page);

@@ -79,6 +79,6 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 
 复用本仓库冻结角色与食品，未生成替代位图或读取旧项目。`SceneIcon.tsx` 的目标、工具、餐位、清理与回院符号为本包原创 SVG；`FriendTheatre.tsx`/`friend-theatre.css` 使用已登记角色姿态、独立食品和原创手臂/嘴/水流图层表现接餐、携带、摆放、咬食/啜饮与回应。不是骨骼动画或完整手绘逐帧。作品页按真实保存的位置、使用者和食品绘制，回看不生成库存。文字仍为独立 DOM。
 
-本机实际制作38条 WAV（30条 Tingting 中文情境提示、8条 Samantha 英语开放需要/反馈），精确文本、语速、来源与审核状态见 [制作登记](adventure-experience-audio.json)，脚本 [adventure-experience-audio.mjs](../scripts/adventure-experience-audio.mjs)。`say` 后用 `afconvert` 导出 PCM16/22050Hz，全部真实文件字节/hash登记到 manifest，运行由 speech/ForegroundAudio 引用；单通道打断、重听、跳过和后台取消沿用现有机制。脚本可传单个短 id（如 `clear`）只重制对应文件，登记仍完整。
+本机实际制作40条 WAV（32条 Tingting 中文情境提示、8条 Samantha 英语开放需要/反馈），精确文本、语速、来源与审核状态见 [制作登记](adventure-experience-audio.json)，脚本 [adventure-experience-audio.mjs](../scripts/adventure-experience-audio.mjs)。`say` 后用 `afconvert` 导出 PCM16/22050Hz，全部真实文件字节/hash登记到 manifest，运行由 speech/ForegroundAudio 引用；单通道打断、重听、跳过和后台取消沿用现有机制。脚本可传单个短 id（如 `clear`）只重制对应文件，登记仍完整。
 
 状态均为 DEVELOPMENT_TTS_UNREVIEWED，人工听审 NOT_RUN、分发权 PENDING。资源校验、浏览器播放事件与无音轨视频只能证明实际接入；不能冒称真人听审、适龄接受或公开发布许可。

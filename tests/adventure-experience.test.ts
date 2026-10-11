@@ -68,3 +68,19 @@ it('dual to single retains accepted requests, food and progress; single to dual 
   expect(s.adventure).toEqual(original.adventure);
   expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
 });
+
+it('a queued friend admitted after picture policy changes cannot be recorded as independent', () => {
+  let s = createGame('queued-help');
+  s.session.support = 'less';
+  s.session.concurrency = 1;
+  s = command(s, { type: 'adventure-start', chapter: 0 }).state;
+  s = command(s, { type: 'policy', support: 'pictures', concurrency: 1 }).state;
+  s = command(s, { type: 'adventure', action: 'welcome', visitor: 'rabbit' }).state;
+  expect(s.orders[0]?.support).toContain('picture-request');
+  s = command(s, { type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } }).state;
+  s = advance(s, 30000);
+  s = command(s, { type: 'deliver', tray: 0, order: 'guest-0' }).state;
+  s = advance(s, 30000);
+  expect(s.attempts.at(-1)?.condition).toBe('assisted');
+  expect(s.attempts.at(-1)?.support).toContain('picture-request');
+});

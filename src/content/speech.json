@@ -1447,5 +1447,19 @@
     "kind": "scene",
     "path": "audio/world-clear.wav",
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-occupied": {
+    "id": "world-occupied",
+    "text": "这个餐位已经有食品了。先点图里的这一份，把它拿回桌边，再重新摆餐。",
+    "kind": "scene",
+    "path": "audio/world-occupied.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-fresh": {
+    "id": "world-fresh",
+    "text": "这份已经品尝过了。留在作品里，再做一份新的食品分享。",
+    "kind": "scene",
+    "path": "audio/world-fresh.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
   }
 }

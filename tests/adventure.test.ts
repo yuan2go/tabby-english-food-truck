@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { type Product, RECIPES } from '../src/content/recipes';
+import { activityObstacle } from '../src/rules/adventure-guidance';
 import { advance, createGame, dispatch, trayItems } from '../src/rules/game';
 import { decodeSnapshot, validateState } from '../src/rules/snapshot';
 import type { Command, GameState } from '../src/rules/types';
@@ -79,6 +80,17 @@ describe('adventure causal rules', () => {
     s = act(s, 'place', { item: ids[0], seat: 1 }).state;
     s = act(s, 'place', { item: ids[1], seat: 0 }).state;
     expect(s.adventure?.foods.map((f) => f.place)).toEqual(['table:1', 'table:0', 'table:2']);
+    const frozen = structuredClone(s);
+    if (!ids[0] || !ids[2]) throw Error('placed foods');
+    const blocked = { action: 'place', item: ids[0], seat: 2 } as const;
+    expect(act(s, blocked.action, blocked).kind).toBe('blocked');
+    expect(activityObstacle(s, blocked)).toMatchObject({
+      id: 'occupied',
+      products: ['apple'],
+      select: ids[2],
+      target: 'pickup',
+    });
+    expect(s).toEqual(frozen);
     expect(s.items).toHaveLength(0);
     expect(validateState(s)).toBe(true);
   });
@@ -126,6 +138,12 @@ describe('adventure causal rules', () => {
     s = act(s, 'cloth', { value: 'leaf' }).state;
     s = act(s, 'finish').state;
     expect(s.adventure?.rewards).toEqual(['picnic-page']);
+    expect(s.adventure?.experience?.picnic).toBe('rabbit');
+    s = act(s, 'invite', { visitor: 'rabbit' }).state;
+    expect(s.adventure?.experience?.needs.find((n) => n.visitor === 'rabbit')).toMatchObject({
+      kind: 'savory',
+      basis: 'packing',
+    });
     expect(s.items).toHaveLength(0);
     expect(validateState(s)).toBe(true);
   });
@@ -316,6 +334,9 @@ it('friend sharing validates an open need and keeps wrong food and repeated tast
   const before = structuredClone(s.adventure?.foods);
   expect(act(s, 'share', { item: juice.id, visitor: 'rabbit' }).kind).toBe('blocked');
   expect(s.adventure?.foods).toEqual(before);
+  expect(activityObstacle(s, { action: 'share', item: juice.id, visitor: 'rabbit' })).toMatchObject(
+    { id: 'choice', products: ['apple', 'banana'], audio: 'world-need-fruit' },
+  );
   s = act(s, 'share', { item: banana.id, visitor: 'rabbit' }).state;
   expect(s.adventure?.foods.find((f) => f.id === banana.id)?.place).toBe('table:0');
   expect(act(s, 'share', { item: banana.id, visitor: 'rabbit' }).kind).toBe('duplicate');
@@ -470,4 +491,46 @@ it('an already tasted portion cannot fulfil a fresh sharing need', () => {
   expect(act(s, 'share', { item: id, visitor: 'rabbit' }).kind).toBe('blocked');
   expect(s.adventure?.foods).toEqual(foods);
   expect(s.adventure?.experience?.needs[0]?.fulfilled).toEqual([]);
+});
+
+it('same-session return needs remember desserts actually received, even after putting the food away', () => {
+  let s = deliver(start(1), 0, 'vanilla-cone');
+  s = make(s, 'strawberry-cup');
+  s = wait(act(s, 'cool', { tray: 0 }).state);
+  s = act(s, 'explore', { object: 'recipe' }).state;
+  s = act(s, 'compare').state;
+  s = act(s, 'taste', { item: s.adventure?.foods[1]?.id }).state;
+  s = act(s, 'bunting', { value: 'cool' }).state;
+  s = act(s, 'finish').state;
+  s = act(s, 'clear-table', { confirmed: true }).state;
+  s = act(s, 'invite', { visitor: 'hedgehog' }).state;
+  expect(s.adventure?.experience?.needs[0]).toMatchObject({
+    visitor: 'hedgehog',
+    kind: 'cool',
+    basis: 'treat',
+  });
+  expect(s.adventure?.experience?.known).toEqual(['vanilla-cone', 'strawberry-cup']);
+});
+
+it('clearing a free shop releases the consumed sharing slot for a genuinely new portion', () => {
+  const initial = createGame('free-share');
+  initial.session.concurrency = 1;
+  let s = cmd(initial, { type: 'adventure-start', chapter: 0, kind: 'shop' } as Command).state;
+  s = act(s, 'invite', { visitor: 'rabbit' }).state;
+  s = make(s, 'apple');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  s = act(s, 'share', { item: s.adventure?.foods[0]?.id, visitor: 'rabbit' }).state;
+  s = act(s, 'taste', { item: s.adventure?.foods[0]?.id }).state;
+  s = act(s, 'save-work').state;
+  const oldId = s.adventure?.foods[0]?.id;
+  s = act(s, 'clear-table', { confirmed: true }).state;
+  s = make(s, 'banana');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  const newId = s.adventure?.foods[0]?.id;
+  expect(newId).not.toBe(oldId);
+  const again = act(s, 'share', { item: newId, visitor: 'rabbit' });
+  expect(again.kind).toBe('ok');
+  expect(again.state.adventure?.experience?.needs[0]?.fulfilled).toEqual([newId]);
+  expect(again.state.adventure?.works).toHaveLength(1);
+  expect(again.state.items).toEqual([]);
 });

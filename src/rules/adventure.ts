@@ -125,6 +125,11 @@ export function receiveAdventure(
               : `guest-${visitor ?? 'hedgehog'}`,
         tasted: false,
       });
+  hydrateExperience(a);
+  if (a.experience)
+    a.experience.known = [
+      ...new Set([...a.experience.known, ...items.map((item) => item.product)]),
+    ];
   worldMoment(s, {
     kind: 'receive',
     foods: items.map(({ id, product }) => ({ id, product })),
@@ -343,10 +348,10 @@ export function adventureCommand(
       a.foods.filter((f) => complete || f.source.startsWith('create:')).map((f) => f.id),
     );
     a.foods = a.foods.filter((f) => !removed.has(f.id));
-    if (a.experience && !complete) {
+    if (a.experience) {
       for (const need of a.experience.needs)
         need.fulfilled = need.fulfilled.filter((id) => !removed.has(id));
-      if (!a.experience.needs.some((n) => n.fulfilled.length))
+      if (!complete && !a.experience.needs.some((n) => n.fulfilled.length))
         a.experience.used = a.experience.used.filter((x) => x !== 'share');
     }
     return result('ok', '桌面收拾好了，食谱作品保留，可以继续创作。');
@@ -450,6 +455,7 @@ export function adventureCommand(
     if (!reward) return result('blocked', '今天是自由开店。');
     if (a.rewards.includes(reward)) return result('duplicate', '这页活动已经记下了。');
     a.rewards.push(reward);
+    if (a.chapter === 2 && a.experience) a.experience.picnic = a.branch;
     for (const food of a.foods) {
       if (!food.tasted && food.place !== 'basket') {
         food.tasted = true;

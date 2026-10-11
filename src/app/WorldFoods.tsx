@@ -62,6 +62,7 @@ export function WorldFoods({
           {selected.place.startsWith('table:') ? (
             <button
               type="button"
+              data-world-target="pickup"
               aria-label={`拿回${PRODUCT_NAMES[selected.product]}到桌边`}
               onClick={() => act({ action: 'pickup', item: selected.id })}
             >

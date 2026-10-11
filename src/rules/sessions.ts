@@ -151,5 +151,13 @@ export function admitAdventure(s: GameState, visitor?: Visitor): boolean {
   if (seat === undefined) return false;
   order.seat = seat;
   order.status = 'waiting';
+  if (s.session.support !== 'less')
+    order.support = [
+      ...new Set([
+        ...order.support,
+        'picture-request',
+        ...(s.session.support === 'demonstration' ? ['guided'] : []),
+      ]),
+    ].slice(-24);
   return true;
 }

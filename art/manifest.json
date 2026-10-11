@@ -6805,6 +6805,32 @@
       "license": "Development use only; voice rights and listening review pending",
       "format": "wav",
       "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-world-occupied",
+      "path": "public/audio/world-occupied.wav",
+      "bytes": 326084,
+      "sha256": "8c1b5568ce17acda669fba5e004f4240950be9de426d924df564c89591ad0e25",
+      "runtime": true,
+      "source": "macOS say / Tingting, 180 wpm; scripts/adventure-experience-audio.mjs",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "PCM16 22050Hz via afconvert; exact text/voice art/adventure-experience-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-world-fresh",
+      "path": "public/audio/world-fresh.wav",
+      "bytes": 257476,
+      "sha256": "7715d90a42a9d8e1b16693ba2ebfb49d538badddac2799f6e373f96264924f42",
+      "runtime": true,
+      "source": "macOS say / Tingting, 180 wpm; scripts/adventure-experience-audio.mjs",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "PCM16 22050Hz via afconvert; exact text/voice art/adventure-experience-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
     }
   ]
 }

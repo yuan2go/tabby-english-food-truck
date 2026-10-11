@@ -5,6 +5,7 @@ import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { activityHint, adventureReady, openCommission } from '../rules/adventure';
+import { type ActivityCommand, activityObstacle } from '../rules/adventure-guidance';
 import type { Command } from '../rules/types';
 import { AdventureGuide } from './AdventureGuide';
 import { PicnicBasket, ToolShelf } from './AdventureObjects';
@@ -38,7 +39,7 @@ export function Adventure({
   const [book, setBook] = useState(false);
   const [clear, setClear] = useState(false);
   const [decorating, setDecorating] = useState(false);
-  const [blocked, setBlocked] = useState(false);
+  const [blocked, setBlocked] = useState<ActivityCommand | null>(null);
   useDialogFocus(clear ? 'clear-table' : null);
   useEffect(() => {
     controller.pause('world-confirm', clear);
@@ -54,7 +55,7 @@ export function Adventure({
   const food = a.foods.find((f) => f.id === selection);
   const act = (command: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => {
     const r = controller.command({ type: 'adventure', ...command });
-    setBlocked(!['ok', 'duplicate'].includes(r.kind));
+    setBlocked(['ok', 'duplicate'].includes(r.kind) ? null : command);
     if (r.kind === 'ok') {
       audio.effect(command.action === 'finish' ? 'success' : 'place');
       if (['taste', 'water', 'cooperate', 'finish'].includes(command.action))
@@ -205,17 +206,21 @@ export function Adventure({
           <AdventureGuide
             controller={controller}
             audio={audio}
-            navigate={(target) => {
+            obstacle={blocked ? activityObstacle(controller.state, blocked) : undefined}
+            navigate={(target, select) => {
+              if (select) setSelection(select);
               if (target === 'kitchen') {
                 kitchen();
                 return;
               }
-              const element = document.querySelector<HTMLElement>(
-                `[data-world-target="${target}"]`,
-              );
-              element?.focus();
-              element?.classList.add('show-target');
-              window.setTimeout(() => element?.classList.remove('show-target'), 1800);
+              window.requestAnimationFrame(() => {
+                const element = document.querySelector<HTMLElement>(
+                  `[data-world-target="${target}"]`,
+                );
+                element?.focus();
+                element?.classList.add('show-target');
+                window.setTimeout(() => element?.classList.remove('show-target'), 1800);
+              });
             }}
           />
           <p className="activity-hint sr-only">{activityHint(a)}</p>
@@ -500,13 +505,6 @@ export function Adventure({
             </fieldset>
           ) : null}
           <p role="status" className="world-feedback">
-            {blocked ? (
-              <span className="blocked-pictures">
-                <SceneIcon kind="missing" />
-                <span aria-hidden="true">➜</span>
-                <SceneIcon kind="ear" />
-              </span>
-            ) : null}
             {controller.message}
           </p>
           {completed || a.kind === 'shop' ? (
@@ -609,8 +607,16 @@ export function Adventure({
       </div>
       {clear ? (
         <section className="world-confirm" role="dialog" aria-modal="true" aria-label="收拾活动桌">
+          <div className="clear-pictures" aria-hidden="true">
+            <SceneIcon kind="recipe" />
+            <span>♡</span>
+            <SceneIcon kind="carry" />
+            <span>➜</span>
+            <SceneIcon kind="clear" />
+          </div>
           <p>食谱中保存的作品会留下。桌上食品收起后不会回到营业库存。</p>
           <button type="button" onClick={() => setClear(false)}>
+            <SceneIcon kind="table" />
             继续摆餐
           </button>
           <button
@@ -620,6 +626,7 @@ export function Adventure({
               setClear(false);
             }}
           >
+            <SceneIcon kind="clear" />
             确认收拾
           </button>
         </section>
