@@ -1,0 +1,15 @@
+{
+  "checkedDateBeijing": "2026-10-12",
+  "method": "Codex in-app browser opened the existing URL; read-only DOM inspection",
+  "url": "https://tabby-english-food-truck.yuan576264675.chatgpt.site/",
+  "visibleTitle": "大咪的英语餐车",
+  "pageAttributes": {
+    "data-build-sha": "cc36166f521fe5b92455321f0a4bd609a1d201fd",
+    "data-build-dirty": "false",
+    "data-content-version": "m2.2",
+    "data-asset-version": "9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead"
+  },
+  "conclusion": "Homepage accessible; historical content does not match the submission version",
+  "gameplayRetest": "NOT_RUN",
+  "recordKind": "Transcribed from this turn's browser observation; not a deployment receipt"
+}

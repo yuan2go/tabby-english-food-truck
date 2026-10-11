@@ -1,53 +1,42 @@
 # 项目状态
 
-## 2026-10-12 最新整合验证与产物交付 · ENGINEERING_FAILED / DELIVERY_PREPARED
+## 当前基线 · 2026-10-12
 
-[新验证报告](playtests/2026-10-11-integrated-validation.md)已于2026-10-12收尾；[120张截图、录像、脚本与原始日志索引](playtests/2026-10-11-integrated-validation-43d7c76/README.md)保留逐轮失败与来源。受测baseline/final均 `43d7c76c80df54361790c47ba1715fe7290f9039`、dirty=false。五章、双野餐、自由厨房及十类小游戏代表性辅助UI路径完成，但工程验收失败：原生Node22 JSON导入收集、manifest的lint格式错误、桌面演出按钮裁切仍存在；场景暂停焦点越界另已复现。首次单元与适配浏览器的失败、定向结果分开记录，没有把重试写成首次全绿。
+默认分支 `origin/main`。本轮fetch读回 **f359b4053cf73e0103bf13b46d26496f19868508**；PR #14整合源码在 `43d7c76c80df54361790c47ba1715fe7290f9039`，PR #15已合并验证报告与执行产物。43d7c76至f359b40之间的src/public/art/package/lock没有变化，因此最新报告仍对应当前游戏源码和资源；不冒称在f359b40重测。
 
-原验证任务未改业务代码；本次负责人授权提交全部新报告、文档及执行产物，明确不要测试。本次 **NOT_RUN**：测试、build、lint、资源脚本、浏览器、试玩。分支 `codex/oct12-validation-delivery` 基于上述SHA，收录新报告/独立脚本/证据与原验证工作树现存构建和最后浏览器产物；来源/hash及交付边界见[交付索引](evidence/validation-delivery-2026-10-12/README.md)。这与之前已放弃的旧试玩报告是不同任务，旧文件不收录、不删除。当前仅归档与Git交付，不自动修复产品问题或部署。
+原工作区分支 `codex/player-review-2026-10-11`、HEAD `64f03fc716de70e20f64f9bbc3802de7601a460f`，有未跟踪 `docs/playtests/`。本轮只读核查并保护这些文件，正式材料在独立分支 `codex/contest-design-description-2026-10-12` 制作。
 
-上次统一交付[PR #14](https://github.com/yuan2go/tabby-english-food-truck/pull/14)已合并，原PR #12/#13亦为MERGED；main最终为43d7c76c80df54361790c47ba1715fe7290f9039，较64f03fc716de70e20f64f9bbc3802de7601a460f新增28个提交。下面“DELIVERY_PREPARED”等原文为当时历史阶段；当前验证结论以本节及新报告为准。外部接受、真机、儿童/教研/听审与权利仍待验，不能把源码归档合并记为这些验收通过。
+另发现本地候选 `codex/demo-repair-2026-10-12`，核查时HEAD `005e2c06e9e5f43aecfeffb534f848527f1cb066`，尚未包含在本轮main基线。其变更及后续验收不属于本说明的已验证事实；不替另一个工作包确认修复。
 
-## 2026-10-11 统一交付 · DELIVERY_PREPARED / CHECKS_NOT_RUN
+## 实现与最新验证 · ENGINEERING_FAILED / EXTERNAL_ACCEPTANCE_PENDING
 
-负责人授权全部交付并合并main，明确不测试。整合基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/oct11-combined-delivery`。输入为小游戏与120词包 `d567e562808dbeb18f571e704a0ffacb0a611428`（PR #12，8个提交），五章体验深化包 `2be658b2267131f1d1bf28490890b44fad0dc00c`（PR #13，17个提交）；负责人最新要求放弃试玩报告，本次不收录试玩聊天文件。两个包原提交历史完整保留，共25个唯一提交；统一整合与执行产物归档另行提交，本次PR分支实际27个提交（25历史＋1整合＋1归档）；merge后main预期新增28个，最终数以Git读回为准。
+已实现五章共同活动、首次实际接收决定的野餐两路、自由厨房/作品/朋友回访、十类可选小游戏、120学习概念与独立供应目录。范围与规则见01–04；目标与设计约束不表示每项体验已验收。
 
-已保留双方实现与资源：五章体验入口连接小院游乐角、小游戏返回来源、120概念与十类小游戏、40条世界动作开发语音及222条词库/场景开发语音。厨房schema7和content `adventure-experience-2` 保留，场景小游戏独立状态不混入厨房。共享权威文档合并两包范围与规则；资源清单按assetId并集，语音按键并集，没有覆盖对方新增项。
+最新[整合验证报告](playtests/2026-10-11-integrated-validation.md)于2026-10-12收尾，[完整证据索引](playtests/2026-10-11-integrated-validation-43d7c76/README.md)保留截图、录像、读回及失败。受测baseline/final均为 **43d7c76c80df54361790c47ba1715fe7290f9039**、dirty=false、content `adventure-experience-2`。环境macOS26.6.2 arm64、Node22.12.0、Chromium153.0.8010.12；桌面1280×720、模拟触控393×665及短横屏。
 
-本轮整合版本测试/构建/lint/资源执行检查/浏览器检查全部 **NOT_RUN**。下文ENGINEERING_VERIFIED只代表源工作包的历史分批结果。最新源PR云端CI： [PR #12 run 38145372683](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38145372683) **FAILURE**（Node22加载JSON缺少type导入属性），[PR #13 run 38146000185](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38146000185) **FAILURE**（17项浏览器中15通过、五章与桌面宴会2项失败）；原日志已随执行产物保存，本轮不重跑或修改失败结论。后续推送与合并使用skip ci提交消息，不启动新CI。归档来源、hash、环境/退出码边界及Git交付见[统一报告](evidence/combined-delivery-2026-10-11/README.md)。
+| 观察/检查 | 已有结果及边界 |
+| --- | --- |
+| 五章、两路野餐、自由厨房 | 正常UI代表路径完成；使用图示、教学、反馈和可访问名称，非儿童独立通关 |
+| 十类小游戏 | 每类至少一条代表UI路径；不冒称所有关组或120词均逐项浏览器验收 |
+| build含typecheck、resources | 当次exit0；资源685文件/458语音引用；播放及文件检查不等于人工听审 |
+| lint | 当次exit1，manifest格式1 error；历史绿色结果不能替代 |
+| npm test | 首次280/281通过，缺两fixture造成ENOENT；补取同SHA fixture后仅相关9项通过，未重跑整套 |
+| 原生browser list/整套 | Node22 JSON导入收集失败，exit1；独立loader是诊断手段 |
+| 适配浏览器 | 首次23通过/3失败；完整Chromium默认画质定向2通过/1失败；不能合并成全绿 |
+| 交互 | 演出控制裁切、场景暂停焦点越界已复现；单件/整盘意图及旧进行提示有体验问题 |
 
-负责人已放弃试玩报告；试玩聊天现存文件留在原工作区，本次不收录，也不删除。负责人手感/实体设备/儿童观察/教研/听审/权利仍按历史状态待验。本次只合并源码，未部署。
+实体iPhone15 Pro＋Chrome新构建 **NOT_RUN**，历史 **NEEDS_REVISION**；Pad当前整合构建专门触控路径 **NOT_RUN**。负责人视觉/手感 **PENDING**；儿童观察、教研、人工听审 **NOT_RUN**；图片/开发声音分发权 **PENDING**；历史60fps **NOT_MET**，当前未重新验收。实际隐藏后台及普通回访轻食谱计时专项UI路径NOT_RUN。公开发布不能记为通过。
 
-## 原工作包历史记录（保留当时事实，Git/CI最新状态以上文为准）
+## 本轮文档工作包
 
+治理已独立提交 `ba4685144bfff0fe834acb37db1b2a87ec7da221`。正式正文、3页同稿PDF、三张真实浏览器运行配图和精简追溯附录见[参赛材料](submission/design-description.md)与[证据](submission/evidence.md)。必要文档核验已完成，见[记录](submission/validation.md)；这是材料完成，不是游戏/真机/发布审核通过。
 
-## 2026-10-11 · WP-ADVENTURE-EXPERIENCE-02 · CODE_IMPLEMENTED / ENGINEERING_VERIFIED / EXTERNAL_ACCEPTANCE_PENDING
+先将被替代的阶段合同、实施勾选、临时授权和旧状态原文归档，合并现行索引及验收说明；[治理索引](archive/pre-submission-2026-10-12/index.md)列明来源和非本轮候选。治理独立提交后撰写参赛材料。仅核查事实、引用、配图和阅读/导出效果；游戏完整单元、lint、资源运行检查、build、E2E及真机 **NOT_RUN**。材料制作阶段未新增玩法、运行时AI、依赖或部署，也未推送、合并、改权限或启动工作流。材料完成不表示游戏验收通过。
 
-基线为最新核对的origin/main `64f03fc716de70e20f64f9bbc3802de7601a460f`。原工作区 `codex/player-review-2026-10-11` 及未跟踪 `docs/playtests/` 保留未改。独立worktree `/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck`，分支 `codex/wp-adventure-experience-02`，一个实现负责人。分支已推送，草稿[PR #13](https://github.com/yuan2go/tabby-english-food-truck/pull/13)为OPEN/DRAFT、base=main；最终Git full SHA以PR实际head和交付回读为准。托管engineering-checks首次读回IN_PROGRESS，未记为通过。本包未合并、部署、强推或修改权限/工作流。
+负责人随后明确授权完整推送本次材料、创建PR并合并main，保留其他未提交修改，不部署、不重复游戏测试。仅本次Git交付范围采用该新授权；来源、操作边界与远端回执规则见[云端交付记录](submission/cloud-delivery.md)，最终实际结果在PR正文和交付回复读回，不修改历史受测结果。
 
-先核查AGENTS、README、01–05、STATUS、计划/资源、最新main与现有规则/界面/控制器/音频/存档。文档治理独立提交 `260b1f82ef918a260ba11d4bfa7747690385fd2a` 先于产品代码，历史正文、有效未实现需求、失败证据与来源/权利记录保留，旧引用修复。本包规则与验收写入现有01–05，没有另建并行最终蓝图。
+既有站点于2026-10-12通过浏览器实际打开，DOM标识为SHA `cc36166f521fe5b92455321f0a4bd609a1d201fd`、dirty=false、content `m2.2`；不能用于证明本说明的五章/自由厨房版本。
 
-已实现：故事默认单客主动迎入、双客可选与已接请求保持；静音/拒播仍有完整图示恢复路径，较少帮助隐藏严格答案；真实接餐、携带、摆放、品尝、回应及可跳过/重播/低动态；花苗浇水、不同甜点比较与彩旗分享、篮子装入/取出或餐垫分餐、搬灯/杯协作、基于实际历史的回访需要；自由制作/改位/品尝/作品回看/重新制作和自然收摊。新工具与分享记录可靠恢复，旧存档不推断新增完成。40条情境开发语音接入现有音频生命周期并登记为未审核。
+## 历史追溯
 
-最终运行源码及干净生产构建 `ab7978f16f1d27f3baf155c834666f225576cad4`；content `adventure-experience-2`，实际读回dirty=false、无pageerror。后续提交仅交付文档与证据。共享规则258/258通过，最终build（含typecheck）、lint、资源检查均exit0；lint保留66 warnings / 7 infos和构建分块提示。9条相关正常入口路径按实际构建分批取得PASS：完整五章7cafefb、手机另一野餐路线及策略/输入/无音图示a8d945a、完整自由路径db5ef12、最终请求重听与朋友控制/饮用ab7978f。没有冒称最终构建一次9/9全套；规则/存档/资源之后未变，表现修正针对复核。其他8条未改浏览器门禁本机NOT_RUN，托管CI单独读回。全部命令、环境、构建来源、失败历史、关键截图/短录像和hash见[本包证据](evidence/adventure-experience-02/README.md)。
-
-只读独立复查四项Important均修复关闭；最终实际走查另修复手机入口遮挡、场景撑宽、厨房请求重听覆盖和桌面演出控制裁切，保留失败，不以代码审查或单项通关代替体验证明。
-
-负责人手感PENDING；实体iPhone 15 Pro＋Chrome新构建NOT_RUN/历史NEEDS_REVISION；儿童观察、教研、人工听审NOT_RUN；素材与开发声音分发权PENDING；性能新构建NOT_RUN/历史60fps NOT_MET。开发语音仍为DEVELOPMENT_TTS_UNREVIEWED，工程完成不表示这些外部验收已通过或可公开发布。
-
-启动：在上述worktree运行 `npm ci`、`npm run dev`，打开终端本地HTTP地址；当前已构建生产预览 `http://127.0.0.1:4191/`。源码链接不是可玩网址。
-
-[上一包完整结果与失败证据](archive/pre-adventure-experience-02/STATUS.md)、[历史索引](archive/pre-adventure-experience-02/index.md)、[上一包云端合并记录](evidence/playable-adventure/cloud-delivery.md)。
-
-
-## 2026-10-11 · WP-MINIGAMES-VOCAB-EXPANSION-01 · ENGINEERING_VERIFIED / OWNER_ACCEPTANCE_PENDING
-
-基线及最后fetch origin/main：`64f03fc716de70e20f64f9bbc3802de7601a460f`（PR11已合并）。原工作区codex/player-review-2026-10-11未提交docs/playtests完整保留。本包独立worktree `/Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck`、分支codex/wp-minigames-vocab-expansion-01，一个实现负责人。
-
-文档先行独立提交`3685ecd8eecd7a4d7d0f6b0f1dd833e5e4ebf97a`；产品接入`ebe104d468b81eac5703b5a832827ed168cda17a`，最终受测运行源码`1b2d7b3d15cff2d2446939c59be5040e61bb802c`。随后仅交付文档/原始证据，final完整SHA由Git/PR交付消息列示。十类实际小游戏，新增15场景关/51任务、56小组课；120去重概念（50原食品+70新词）、33精确短指令。31原关（30主题+1混合）、旧进度、供应/配方和五章/自由厨房核心保持；新增38件源稿/WebP、222落盘开发WAV。来源/权利见art记录；完整120行资源/玩法覆盖、场景规则、命令/退出码/环境/失败见[交付报告](evidence/minigames-vocab/README.md)。
-
-严格类型/生产构建、lint（0 errors，110 warnings/16 infos）、资源645文件/418语音引用、120词可达及51实际有效解校验均exit0；264/264规则与恢复单元以maxWorkers=2在原断言/5秒预算通过。默认worker的旧无尽计时超时及定向恢复记录保留。Chromium正常入口9项第二轮7通过/2流程假设失败；音频修订5项3通过/2失败；修正暂停/教学/画布指针路径与手机桌面后定向3/3通过，最后稳定身份手机1/1通过，十类代表流程分轮走通。手机393×665、桌面1440×900，非实体设备；未重复完整五章浏览器或穷举120词。最终运行构建已读回SHA、dirty=false，截图/视频/只读审查及失败并列保留。
-
-真机/儿童/教研/人工听审NOT_RUN；负责人视觉/手感及分发权利PENDING；云端CI需看PR，公开发布BLOCKED。本次push/草稿PR，不合并/部署/强推，不改权限或工作流。历史真机NEEDS_REVISION、60fps NOT_MET保持，模拟与自动化不替代外部接受，新增内容未测定60fps。
-
-前包工程、失败、外部验收原文见[扩展前STATUS](archive/pre-minigames-vocab-01/STATUS.md)与原证据目录。
+原阶段完整记录在[治理前STATUS原文](archive/pre-submission-2026-10-12/STATUS.md.txt)；工作包受测结果仍见各[证据入口](evidence/README.md)。失败、资源来源/权利和未实现候选不删除。历史“不测试”“可合并”等仅对应当时任务，不作为当前或未来授权。
