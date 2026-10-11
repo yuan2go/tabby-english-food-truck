@@ -15,6 +15,7 @@ import type { GameController } from '../platform/controller';
 import {
   type CourseState,
   composeCourse,
+  courseAudio,
   courseKind,
   coursePool,
   courseTarget,
@@ -30,7 +31,7 @@ import {
   toggleTile,
 } from '../rules/mini-course';
 import { Food } from './Food';
-import { VocabularyVisual } from './VocabularyVisual';
+import { VocabularyVisual, VoiceIcon } from './VocabularyVisual';
 
 const names: Record<CourseKind, string> = {
   listen: '听音找物',
@@ -93,6 +94,7 @@ export function MiniCourse({
   const [confirmRestart, setConfirmRestart] = useState(false);
   const latest = useRef<CourseState | null>(null);
   const voiceToken = useRef(0);
+  const contextVoice = useRef(false);
   latest.current = state;
   const update = useCallback(
     (next: CourseState) => {
@@ -106,13 +108,12 @@ export function MiniCourse({
   const target = level && state ? courseTarget(level, state) : '';
   const mechanic = level && state ? courseKind(level, state) : 'listen';
   const say = useCallback(
-    (forState = latest.current) => {
-      if (!forState) return;
+    (forState = latest.current, context = false) => {
+      if (!forState || forState.paused) return;
       const current = miniLevel(forState.levelId);
       if (!current) return;
-      const asked = courseTarget(current, forState);
-      const sound =
-        wordById(asked)?.audio ?? (asked in REQUESTS ? REQUESTS[asked as RequestId].audio : '');
+      contextVoice.current = context;
+      const sound = courseAudio(current, forState, context);
       if (!sound) return;
       const token = ++voiceToken.current;
       setSoundIssue(null);
@@ -125,10 +126,11 @@ export function MiniCourse({
           now.phase !== forState.phase
         )
           return;
-        if (result === 'completed') update({ ...now, heard: true });
+        if (result === 'completed' && !context) update({ ...now, heard: true });
         else if (result === 'failed' || result === 'muted') {
           update({
             ...now,
+            heard: false,
             support: [
               ...new Set([
                 ...now.support,
@@ -399,6 +401,23 @@ export function MiniCourse({
             <button type="button" onClick={() => say()}>
               ♫ 听一遍
             </button>
+            {wordById(target) && mechanic !== 'quantity' && mechanic !== 'sentence' ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    update({
+                      ...state,
+                      support: [...new Set([...state.support, 'context-example'])],
+                    });
+                    say(state, true);
+                  }}
+                >
+                  <VoiceIcon /> 听一句怎么用
+                </button>
+                <p className="course-example">{wordById(target)?.context}</p>
+              </>
+            ) : null}
             <button type="button" className="primary" onClick={() => update(playCourse(state))}>
               我来试试
             </button>
@@ -557,6 +576,27 @@ export function MiniCourse({
             <p>这组活动完成了，故事和营业仍可继续。</p>
             <button type="button" className="primary" onClick={leave}>
               回主题关卡
+            </button>
+          </div>
+        ) : null}
+        {soundIssue ? (
+          <div role="status" className="course-audio-issue">
+            <p>声音没有播完整，可重试或看图继续。</p>
+            <button type="button" onClick={() => say(latest.current, contextVoice.current)}>
+              重试声音
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setSoundIssue(null);
+                update({
+                  ...state,
+                  heard: false,
+                  support: [...new Set([...state.support, 'audio-visual-alternative'])],
+                });
+              }}
+            >
+              看图继续
             </button>
           </div>
         ) : null}

@@ -176,3 +176,24 @@ it('paused courses reject queued phase changes as well as submissions', async ()
   };
   expect(nextCourse(l, success)).toEqual(success);
 });
+it('challenge audio is observed separately from the learning example', async () => {
+  const { playCourse } = await import('../src/rules/mini-course');
+  const l = MINI_LEVELS[0];
+  if (!l) throw Error('level');
+  const meaning = {
+    ...startCourse(createCourse(l, 'audio-phase')),
+    heard: true,
+    support: ['context-example'],
+  };
+  const challenge = playCourse(meaning);
+  expect(challenge.heard).toBe(false);
+  expect(challenge.support).toContain('context-example');
+});
+it('quantity and sentence cues use the full request despite overlapping dictionary IDs', async () => {
+  const { miniLevel } = await import('../src/content/mini-levels');
+  const { courseAudio } = await import('../src/rules/mini-course');
+  const { REQUESTS } = await import('../src/content/catalog');
+  const l = miniLevel('quantity-drinks');
+  if (!l) throw Error('level');
+  expect(courseAudio(l, createCourse(l, 'drink'))).toBe(REQUESTS.juice.audio);
+});

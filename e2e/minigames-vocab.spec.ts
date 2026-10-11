@@ -243,6 +243,16 @@ test('new vocabulary is reachable in small batches and audio failure keeps suppo
   await expect(page.locator('.course-level-grid article')).toHaveCount(1);
   await page.getByRole('button', { name: '认识下一小组' }).click();
   await expect(page.locator('.library-navigation')).toContainText('第2小组');
+  for (let i = 2; i < 11; i++) await page.getByRole('button', { name: '认识下一小组' }).click();
+  await page.getByRole('button', { name: '开始', exact: true }).click();
+  await page.getByRole('button', { name: '看看今天的内容' }).click();
+  await expect(page.getByRole('button', { name: '听一句怎么用' })).toBeVisible();
+  await page.getByRole('button', { name: '听一句怎么用' }).click();
+  const courses = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem('tabby.foodtruck.mini-course.v1') ?? '{}'),
+  );
+  expect(courses.courses['vocabulary-listen-vocab-0'].support).toContain('context-example');
+  expect(courses.courses['vocabulary-listen-vocab-0'].attempts).toHaveLength(0);
 });
 
 test('original five mechanics retain normal entry and optional literacy, with hands-on quantity', async ({

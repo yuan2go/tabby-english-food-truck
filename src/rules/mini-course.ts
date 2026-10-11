@@ -39,6 +39,13 @@ export const courseKind = (level: MiniLevel, state: CourseState): Exclude<Course
   level.kind === 'review' ? (level.taskKinds?.[state.round] ?? 'listen') : level.kind;
 export const coursePool = (level: MiniLevel, state: CourseState): readonly string[] =>
   level.kind === 'review' ? (level.pools?.[state.round] ?? []) : level.pool;
+export function courseAudio(level: MiniLevel, state: CourseState, context = false): string {
+  const target = courseTarget(level, state),
+    kind = courseKind(level, state);
+  if (kind === 'quantity' || kind === 'sentence')
+    return target in REQUESTS ? REQUESTS[target as RequestId].audio : '';
+  return context ? (wordById(target)?.contextAudio ?? '') : (wordById(target)?.audio ?? '');
+}
 export const createCourse = (level: MiniLevel, id: string): CourseState => ({
   version: 1,
   id,
@@ -66,7 +73,12 @@ export function startCourse(state: CourseState): CourseState {
 }
 export function playCourse(state: CourseState): CourseState {
   if (state.paused || state.phase !== 'meaning') return state;
-  return { ...state, phase: 'play', support: [...new Set([...state.support, 'meaning-picture'])] };
+  return {
+    ...state,
+    phase: 'play',
+    heard: false,
+    support: [...new Set([...state.support, 'meaning-picture'])],
+  };
 }
 export interface Tile {
   id: string;
