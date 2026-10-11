@@ -1,0 +1,44 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep free shop stops|phone wrong delivery|individual food and|phone five-cup
+
+[WebServer] (node:14236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+  ✓  1 e2e/adventure.spec.ts:310:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (22.5s)
+  ✓  2 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (7.2s)
+  ✘  3 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (21.1s)
+  ✓  4 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (3.7s)
+
+
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '↩ 放回这份' })
+
+
+      160 |     await page.waitForTimeout(300);
+      161 |     await tap(page, `item-${added.id}`);
+    > 162 |     await page.getByRole('button', { name: '↩ 放回这份' }).tap();
+          |                                                        ^
+      163 |     await page.screenshot({ path: info.outputPath(`short-landscape-${height}.png`) });
+      164 |   }
+      165 | });
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:162:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/targeted-tray/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/targeted-tray/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-demo-final-4-2026-10-12/targeted-tray/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  3 passed (57.2s)

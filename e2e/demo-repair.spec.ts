@@ -70,7 +70,7 @@ test('individual food and the whole tray remain distinct through touch, rehearin
       await expect(handle).toBeInViewport({ ratio: 1 });
       const box = await handle.boundingBox();
       if (!body || !box) throw Error('missing tray geometry');
-      expect(body.y + body.height).toBeLessThanOrEqual(box.y);
+      expect(box.x + box.width + 8).toBeLessThanOrEqual(body.x + 0.01);
       expect(box.width).toBeGreaterThanOrEqual(48);
       expect(box.height).toBeGreaterThanOrEqual(48);
       expect(

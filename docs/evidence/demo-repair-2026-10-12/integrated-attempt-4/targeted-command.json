@@ -1,0 +1,12 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "test:browser",
+    "--",
+    "--grep",
+    "free shop stops|phone wrong delivery|individual food and|phone five-cup"
+  ],
+  "exitCode": 1,
+  "buildDirty": true
+}

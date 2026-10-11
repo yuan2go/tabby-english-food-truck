@@ -267,11 +267,11 @@ export async function handOver(p: Page, seat?: 0 | 1, tray: 0 | 1 = 0) {
     (o) => o.status === 'waiting' && (seat === undefined || o.seat === seat),
   );
   if (!order) throw Error('no waiting guest');
-  await tap(p, `tray-${tray}`, 26);
+  await tap(p, `lift-tray-${tray}`);
   await tap(p, order.id, 20);
 }
 export async function drag(p: Page, from: string, to: string) {
-  const a = await hot(p, from, from.startsWith('tray') ? 25 : 0),
+  const a = await hot(p, from),
     b = await hot(p, to);
   const c = await p.context().newCDPSession(p);
   await c.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ ...a, id: 1 }] });

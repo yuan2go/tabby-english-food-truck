@@ -400,7 +400,7 @@ test('phone five-cup layout and theatre controls remain visible and individually
   await page.getByRole('button', { name: '返回游乐角' }).click();
   await choose(page, '大咪动作小剧场', '朋友的水杯');
   await page.getByRole('button', { name: '看图示范' }).click();
-  await expect(page.getByRole('dialog', { name: '物件与动作示范' })).toBeVisible();
+  await expect(page.getByRole('region', { name: '物件与动作示范' })).toBeVisible();
   await page.screenshot({
     path: evidencePath('docs/evidence/minigames-vocab/theatre-help-phone.png'),
   });

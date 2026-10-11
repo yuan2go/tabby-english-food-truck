@@ -384,6 +384,8 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await page.reload();
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: '今日新菜单' })).toBeVisible();
+  await page.getByRole('button', { name: '这次先不加 ↗' }).click();
   await table(page);
   expect((await state(page)).adventure?.works).toEqual(before.adventure?.works);
   await page.screenshot({
@@ -413,7 +415,7 @@ test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on
   await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
   await page.getByRole('button', { name: '去厨房备餐', exact: true }).click();
   await page.getByRole('button', { name: '我来试试', exact: true }).click();
-  const tray = await hot(page, 'tray-0', 26);
+  const tray = await hot(page, 'lift-tray-0');
   await page.mouse.click(tray.x, tray.y);
   const point = await hot(page, 'supply-banana');
   await page.mouse.click(point.x, point.y);
