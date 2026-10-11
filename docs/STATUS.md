@@ -1,14 +1,16 @@
 # 项目状态
 
-## 2026-10-11 WP-ADVENTURE-DIRECT-INPUT-01 · IMPLEMENTED / LOCAL_ENGINEERING_VERIFIED / HANDOFF_READY
+## 2026-10-11 WP-ADVENTURE-DIRECT-INPUT-01 · IMPLEMENTED / LOCAL_ENGINEERING_VERIFIED / GIT_DELIVERY_RECORDED
 
-默认分支 origin/main 基线 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`，干净工作范围，独立工作树 `/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck`，分支 `codex/adventure-direct-input`。本包执行负责人已采用的直接操作方案与三项故事增强。交接运行源码/干净生产构建完整 SHA `d874531f565f558d4a51cdb5b245b6beb06ee0a9`，内容 `m2.4-adventure-1`；其后仅整理文档和执行产物，尚未提交的归档由统一交付聊天接手。
+默认分支 origin/main 基线 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`，干净工作范围，独立工作树 `/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck`，分支 `codex/adventure-direct-input`。本包执行负责人已采用的直接操作方案与三项故事增强。交接运行源码/干净生产构建完整 SHA `d874531f565f558d4a51cdb5b245b6beb06ee0a9`，内容 `m2.4-adventure-1`；其后仅整理文档和执行产物；统一交付聊天已提交并推送全部归档，PR与Git读回见下文。
 
 托盘切换投料、拿起后点客人/拖盘交付、再点盘放下、纯声音气泡重听、原料回篮和实体设备开关贯通；完整/跳过序章统一第一小关，首页直接续玩，遇到未选的新分支先明确选择。目标常驻与真实收餐后的场景变化，已完成选择影响后续请求且活跃分支随存档固定。慢活动帧以最多250ms的小步推进，长挂起/后台暂停不补算，避免画面低帧使加工完全停住。本仓库上一版快照保持实例与输出预留迁移至 `m2.4-adventure-1`。
 
 最终候选 `npm test` 214/214、lint（49 warning / 7 info）、resources（347文件/196语音引用/50食品）、build（含typecheck）均退出0。同一构建的串行 Chromium 16/16，22.7分钟，退出0；含实际25关工程通关与仅用可见帮助25关走查、四类料理、续玩/分支重玩、错单/音频失败/恢复、无尽与小游戏。省电模拟不替代默认画质和实体设备。额外默认画质桌面长跑1/1失败，8.3分钟、进入23/25；双设备同时加工已断言，旧脚本在实际交付后重复送餐导致 `no waiting guest`，未修改或重跑。全部成功、中断、失败与未运行边界见[证据](evidence/adventure-direct-input/README.md)。
 
 负责人另在“提交并合并刚完成的修改”明确授权停止测试、统一提交全部代码/报告/文档/执行产物并推送、PR及合并main。实现聊天核对该实际授权后仅归档；保留3个本地阶段提交，不再提交、推送、创建PR或合并，交接后不再修改共享工作树。[交接清单](evidence/adventure-direct-input/HANDOFF.md)记录完整SHA、归档位置与未完成项；云端结果由[统一交付记录](evidence/adventure-direct-input/cloud-delivery.md)记录。实体 iPhone 15 Pro＋Chrome、负责人操作接受、儿童、教研、人工听审仍 PENDING / NOT_RUN；部署未执行。LOCAL_ENGINEERING_VERIFIED指上述已通过集合，不代表额外桌面脚本或全部验收通过。
+
+统一交付补记：写权限邀请已接受，普通推送成功，[PR #10](https://github.com/yuan2go/tabby-english-food-truck/pull/10)目标main，GitHub初始读回MERGEABLE/CLEAN。包含最终云端记录共6个工作包提交，另按负责人授权产生1个merge commit；最终合并状态/完整SHA由PR与交付消息读回。本次测试、构建、lint、资源和浏览器均NOT_RUN（负责人要求），提交及合并消息使用`[skip ci]`。首次403权限阻塞记录保留，现已解除。未部署，所有外部验收边界维持原记录。
 
 ## 2026-09-27 WP-DUAL-LAYOUT-PLAYFLOW-CONTENT-01 · IMPLEMENTED / LOCAL_VERIFIED · 实体设备待复核
 

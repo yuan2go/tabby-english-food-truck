@@ -14,10 +14,20 @@
 
 实体 iPhone、负责人操作体验接受、教研、儿童观察和人工听审仍 PENDING / NOT_RUN；本次没有部署试玩站点。源码合并不代表线上游戏已更新。
 
-## 本地交付与云端阻塞读回
+## 首次本地交付与云端阻塞记录（已解除）
 
 首次归档提交 `4b05eb86e84ee0766d6d9f2ee043e844de565f99` 已完成。随后补入仓库通用忽略规则影响的已归档 `test-results` 与 `playwright-report`，包括54,001,664字节完整录像；只对这两个证据子目录显式纳入，不修改全局忽略规则。完整证据目录共56个文件，92,414,829字节（本记录后续文字更新会改变总字节数）。
 
-`git push -u origin codex/adventure-direct-input` 退出128，GitHub返回403：当前账号 `aw9923299-alt` 无仓库写权限。`gh api repos/yuan2go/tabby-english-food-truck` 读回 `pull=true`、`push=false`、`admin=false`。云端推送、PR、合并为 BLOCKED（账号写入权限）；已请求负责人登录有权限账号。未强推、未调整仓库权限，未运行任何测试。
+`git push -u origin codex/adventure-direct-input` 退出128，GitHub返回403：当前账号 `aw9923299-alt` 无仓库写权限。`gh api repos/yuan2go/tabby-english-food-truck` 读回 `pull=true`、`push=false`、`admin=false`。首次云端推送、PR、合并曾为 BLOCKED（账号写入权限）；当时已请求负责人恢复权限。未强推、未调整仓库权限，未运行任何测试。
 
-本地待交付共5个提交：3个实现阶段提交、1个证据归档提交、1个补齐录像/浏览器报告与交付状态提交。最终完整SHA以交付消息及实际Git读回为准；云端阻塞解除后继续原分支交付。
+首次本地交付共5个提交：3个实现阶段提交、1个证据归档提交、1个补齐录像/浏览器报告与交付状态提交。最终完整SHA以交付消息及实际Git读回为准；云端阻塞解除后继续原分支交付。
+
+## 权限恢复、推送与 PR 读回
+
+2026-10-11负责人确认已给当前账号添加仓库权限。读取到仓库 `yuan2go/tabby-english-food-truck` 的write邀请（ID 337158512），接受后API读回 `push=true`、`admin=false`。原分支普通推送退出0，远端HEAD为 `218f3b5b38ef55fab00fd17b2a7e2ce59228b72c`；没有强推、修改工作流启用状态或运行测试。
+
+[PR #10：贯通餐车直接操作并增强故事反馈](https://github.com/yuan2go/tabby-english-food-truck/pull/10) 已创建并关联当前聊天，目标main，非草稿；创建后读回 `OPEN / MERGEABLE / CLEAN`，基线仍为 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`。GitHub未产生测试检查，提交消息保留 `[skip ci]`。
+
+最后补记权限恢复、PR和STATUS的文档提交后，本工作包共 **6个提交**：3个实现、2个产物归档及状态记录、1个云端交付记录。随后按负责人原授权通过PR执行merge commit合并main，合并消息亦使用 `[skip ci]`。成功合并后main相比基线共新增 **7个提交（含1个合并提交）**；实际合并结果、最终完整SHA及时间以PR状态和最终交付读回为准。本记录不将计划合并预填为已成功合并。
+
+交付前文件清单读回：证据目录56个文件全部被Git追踪，含录像、HTML报告、生产构建包、日志、PNG和JSON，无未追踪证据文件。原实现聊天已交接并停止修改工作树；当前交付不追加任何功能、测试或部署。
