@@ -1,0 +1,21 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/mini-expansion-recovery.test.ts (11 tests | 1 failed) 249ms
+   × quantity and sentence cues use the full request despite overlapping dictionary IDs 51ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > quantity and sentence cues use the full request despite overlapping dictionary IDs
+TypeError: courseAudio is not a function
+ ❯ tests/mini-expansion-recovery.test.ts:193:251
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  21:31:08
+   Duration  1.60s (transform 676ms, setup 0ms, import 781ms, tests 249ms, environment 0ms)
+

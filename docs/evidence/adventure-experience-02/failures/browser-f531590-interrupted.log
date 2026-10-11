@@ -1,0 +1,46 @@
+
+Running 3 tests using 1 worker
+
+(node:84381) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (1.1m)
+
+
+  1) e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    Test was interrupted.
+
+    Error: locator.boundingBox: Test ended.
+    Call log:
+      - waiting for locator('[data-hotspot="tray-0"]')
+        - locator resolved to visible <button tabindex="0" type="button" data-hotspot="tray-0" aria-label="1号托盘：放入食品或选择整盘">1号托盘：放入食品或选择整盘</button>
+
+
+       at helpers.ts:8
+
+       6 |   p.evaluate(() => JSON.parse(localStorage.getItem('tabby.foodtruck.save.m2') ?? '{}'));
+       7 | export async function hot(p: Page, id: string, dy = 0) {
+    >  8 |   const b = await p.locator(`[data-hotspot="${id}"]`).boundingBox();
+         |                                                       ^
+       9 |   if (!b) throw Error(id);
+      10 |   return { x: b.x + b.width / 2, y: b.y + b.height / 2 + dy };
+      11 | }
+        at hot (/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/helpers.ts:8:55)
+        at tap (/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/helpers.ts:13:19)
+        at choosePrep (/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/helpers.ts:61:9)
+        at send (/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:30:11)
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:61:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  1 interrupted
+    e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+  2 did not run

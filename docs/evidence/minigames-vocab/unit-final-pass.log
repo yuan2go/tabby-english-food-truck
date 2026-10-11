@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+
+ Test Files  20 passed (20)
+      Tests  264 passed (264)
+   Start at  21:32:12
+   Duration  15.12s (transform 3.47s, setup 0ms, import 7.72s, tests 7.97s, environment 6ms)
+

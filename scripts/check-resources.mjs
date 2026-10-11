@@ -12,7 +12,13 @@ for (const asset of manifest.assets) {
   const bytes = await readFile(asset.path);
   assert.equal(bytes.length, asset.bytes, asset.path);
   assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256, asset.path);
-  if (asset.format !== 'wav') {
+  if (asset.format === 'svg') {
+    const m = await sharp(bytes).metadata();
+    assert.equal(m.format, 'svg');
+    assert.equal(m.width, 320);
+    assert.equal(m.height, 320);
+    assert(!bytes.toString().includes('<text'), 'critical text must remain in DOM');
+  } else if (asset.format !== 'wav') {
     const image = sharp(bytes),
       m = await image.metadata(),
       s = await image.stats();

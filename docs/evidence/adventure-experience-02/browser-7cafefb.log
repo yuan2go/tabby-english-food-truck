@@ -1,0 +1,66 @@
+
+Running 2 tests using 1 worker
+
+(node:87224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_FEAST_START_SECONDS 33.124
+EVIDENCE_DINNER_START_SECONDS 159.524
+  ✓  1 e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (4.8m)
+  ✘  2 e2e/adventure.spec.ts:376:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (54.3s)
+
+
+  1) e2e/adventure.spec.ts:376:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+
+    TimeoutError: locator.click: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '点请求气泡重听', exact: true })
+        - locator resolved to <button type="button" aria-label="点请求气泡重听" class="request-picture">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <path fill="#c88455" d="m41 23 9 3-4 13z"></path> from <section data-guide="free" aria-label="图示下一步" class="goal-guide compact-guide  ">…</section> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <path fill="#c88455" d="m41 23 9 3-4 13z"></path> from <section data-guide="free" aria-label="图示下一步" class="goal-guide compact-guide  ">…</section> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        53 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <path fill="#c88455" d="m41 23 9 3-4 13z"></path> from <section data-guide="free" aria-label="图示下一步" class="goal-guide compact-guide  ">…</section> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      406 |   await page.goto('/');
+      407 |   await page.getByRole('button', { name: '自由开店', exact: true }).click();
+    > 408 |   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+          |                                                                    ^
+      409 |   await lesson(page);
+      410 |   await send(page, 0, 'apple');
+      411 |   await page
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:408:68
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/error-context.md
+
+  Slow test file: e2e/adventure.spec.ts (5.7m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    e2e/adventure.spec.ts:376:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+  1 passed (5.8m)

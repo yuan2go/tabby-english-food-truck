@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (25 tests | 1 failed) 162ms
+   × unfinished free creation can put away experiments without losing service food or recipes 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > unfinished free creation can put away experiments without losing service food or recipes
+AssertionError: expected 'blocked' to be 'confirm' // Object.is equality
+
+Expected: "confirm"
+Received: "blocked"
+
+ ❯ tests/adventure.test.ts:389:37
+    387|   s=act(s,'save-work').state;
+    388|   const works=structuredClone(s.adventure?.works);
+    389|   expect(act(s,'clear-table').kind).toBe('confirm');
+       |                                     ^
+    390|   s=act(s,'clear-table',{confirmed:true}).state;
+    391|   expect(s.adventure?.foods).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 24 passed (25)
+   Start at  20:35:09
+   Duration  901ms (transform 400ms, setup 0ms, import 487ms, tests 162ms, environment 0ms)
+

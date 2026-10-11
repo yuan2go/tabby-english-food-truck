@@ -1,4 +1,5 @@
 import type { RequestId } from './catalog';
+import { VOCAB_COURSES } from './vocabulary-courses';
 export type CourseKind = 'listen' | 'pair' | 'spell' | 'quantity' | 'sentence' | 'review';
 export type CourseFoundation = 'new' | 'letters' | 'phrases';
 export interface MiniLevel {
@@ -430,7 +431,8 @@ export const MINI_LEVELS: readonly MiniLevel[] = [
     completion: '五种练习都回访了',
   },
 ];
-export const miniLevel = (id: string) => MINI_LEVELS.find((level) => level.id === id);
+export const ALL_MINI_LEVELS = [...MINI_LEVELS, ...VOCAB_COURSES];
+export const miniLevel = (id: string) => ALL_MINI_LEVELS.find((level) => level.id === id);
 export const miniRequest = (id: string): id is RequestId =>
   [
     'apple',

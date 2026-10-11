@@ -1,0 +1,30 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/mini-expansion-recovery.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/mini-expansion-recovery.test.ts (6 tests | 1 failed) 59ms
+   × quantity composition judges actual content and count regardless of placement order 19ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > quantity composition judges actual content and count regardless of placement order
+TypeError: quantityProducts is not a function
+ ❯ tests/mini-expansion-recovery.test.ts:102:70
+    100|  const {miniLevel}=await import('../src/content/mini-levels');const {c…
+    101|  const l=miniLevel('quantity-fruit-mix');if(!l)throw Error('quantity');
+    102|  let s=playCourse(startCourse(createCourse(l,'composition')));expect(q…
+       |                                                                      ^
+    103|  s=composeCourse(l,s,'banana');s=composeCourse(l,s,'apple');s=submitCo…
+    104|  expect(composeCourse(l,s,'apple')).toEqual(s);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  20:56:25
+   Duration  1.59s (transform 812ms, setup 0ms, import 1.05s, tests 59ms, environment 0ms)
+

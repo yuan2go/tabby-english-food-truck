@@ -1,0 +1,26 @@
+scripts/check-vocabulary.mjs:193:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    191 │   await writeFile(
+    192 │     'docs/evidence/minigames-vocab/coverage.json',
+  > 193 │     JSON.stringify(summary, null, 2) + '\n',
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    194 │   );
+    195 │   await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    191 191 │     await writeFile(
+    192 192 │       'docs/evidence/minigames-vocab/coverage.json',
+    193     │ - ····JSON.stringify(summary,·null,·2)·+·'\n',
+        193 │ + ····`${JSON.stringify(summary,·null,·2)}\n`,
+    194 194 │     );
+    195 195 │     await writeFile(
+  
+
+Skipped 4 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 8 files in 115ms. Fixed 3 files.
+Found 1 info.

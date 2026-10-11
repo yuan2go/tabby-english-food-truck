@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:85088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/adventure.spec.ts:221:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (2.0m)
+
+  1 passed (2.0m)

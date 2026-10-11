@@ -1,0 +1,53 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure-experience.test.ts (3 tests | 2 failed) 23ms
+   × story controller passes single guest independently from less assistance 15ms
+   × single mode never chooses a friend via elapsed time or playback 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-experience.test.ts > story controller passes single guest independently from less assistance
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ tests/adventure-experience.test.ts:29:39
+     27|   const c = new GameController(new SaveStore(() => storage));
+     28|   c.enter('story', 2, 'less', false, 1);
+     29|   expect(c.state.session.concurrency).toBe(1);
+       |                                       ^
+     30|   expect(c.state.orders.filter(o => o.status === 'waiting')).toHaveLen…
+     31|   c.command({ type: 'adventure', action: 'welcome', visitor: 'hedgehog…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/adventure-experience.test.ts > single mode never chooses a friend via elapsed time or playback
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/adventure-experience.test.ts:39:54
+     37|   let s = start(1);
+     38|   s = advance(s, 30000);
+     39|   expect(s.orders.every(o => o.status === 'queued')).toBe(true);
+       |                                                      ^
+     40|   s = command(s, { type: 'audio', audio: { id: 'request-sandwich', sta…
+     41|   expect(s.adventure?.branch).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  20:16:52
+   Duration  705ms (transform 400ms, setup 0ms, import 478ms, tests 23ms, environment 0ms)
+

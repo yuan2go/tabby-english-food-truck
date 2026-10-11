@@ -1,0 +1,57 @@
+src/app/MiniCourse.tsx:449:42 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    447 │                     <button
+    448 │                       type="button"
+  > 449 │                       key={`${product}-${i}`}
+        │                                          ^
+    450 │                       disabled={state.phase !== 'play'}
+    451 │                       aria-label={`取回第${i + 1}份`}
+  
+  i This is the source of the key value.
+  
+    444 │                 </fieldset>
+    445 │                 <fieldset aria-label="亲手摆的餐盘">
+  > 446 │                   {(state.assembled ?? []).map((product, i) => (
+        │                                                          ^
+    447 │                     <button
+    448 │                       type="button"
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/SceneGuide.tsx:84:45 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    82 │               {Array.from({ length: g.count }, (_, i) => (
+    83 │                 <ObjectArt
+  > 84 │                   key={`${g.id ?? g.word}-${i}`}
+       │                                             ^
+    85 │                   word={g.word ?? task.objects.find((o) => o.id === g.id)?.word ?? 'cup'}
+    86 │                   color={g.color}
+  
+  i This is the source of the key value.
+  
+    80 │             />
+    81 │             <span className="guide-items">
+  > 82 │               {Array.from({ length: g.count }, (_, i) => (
+       │                                                    ^
+    83 │                 <ObjectArt
+    84 │                   key={`${g.id ?? g.word}-${i}`}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Checked 3 files in 148ms. Fixed 3 files.
+Found 2 errors.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

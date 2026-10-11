@@ -1,0 +1,19 @@
+Listing tests:
+  adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation
+  adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement
+  adventure.spec.ts:237:1 › phone replay follows hedgehog path with real food and no packing task
+  adventure.spec.ts:288:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending
+  adventure.spec.ts:379:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload
+  adventure.spec.ts:433:1 › opening a new seat uses the new menu while an accepted guest keeps the old request
+  experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing
+  experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help
+  experience.spec.ts:66:1 › muting through visible settings retains picture goals and safe replay
+  m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory
+  m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error
+  m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice
+  minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return
+  minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return
+  minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory
+  wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order
+  wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress
+Total: 17 tests in 7 files

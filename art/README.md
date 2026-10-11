@@ -74,3 +74,17 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 篮子、储物抽屉、旧食谱、三餐位、花苗、彩旗、桌布和灯串为 Codex 本包原创 DOM/CSS 场景绘制，源文件 `src/app/Adventure.tsx`、`src/app/adventure.css`；文字独立 DOM，食品仍使用登记图像。道具直接接到探索/打包/摆放/布置规则，不是背景贴图或通关数装饰。作品缩图是食品记忆的投影，不另造可供应食品。代码版本与真实运行证据见 STATUS；不把 CSS 绘制写成 imagegen 原稿。
 
 接收、摆放、品尝、布置与完成复用已登记原创 place/success 音效；英语请求仍使用 DEVELOPMENT_TTS_UNREVIEWED 开发声音，活动叙事为短图文，没有冒称新增真人配音。347 文件 hash/尺寸/Alpha、196 speech 引用与50食品映射已复核；负责人视觉/手感、人工听审与分发权仍待审核。
+
+## 2026-10-11 · WP-ADVENTURE-EXPERIENCE-02
+
+复用本仓库冻结角色与食品，未生成替代位图或读取旧项目。`SceneIcon.tsx` 的目标、工具、餐位、清理与回院符号为本包原创 SVG；`FriendTheatre.tsx`/`friend-theatre.css` 使用已登记角色姿态、独立食品和原创手臂/嘴/水流图层表现接餐、携带、摆放、咬食/啜饮与回应。不是骨骼动画或完整手绘逐帧。作品页按真实保存的位置、使用者和食品绘制，回看不生成库存。文字仍为独立 DOM。
+
+本机实际制作40条 WAV（32条 Tingting 中文情境提示、8条 Samantha 英语开放需要/反馈），精确文本、语速、来源与审核状态见 [制作登记](adventure-experience-audio.json)，脚本 [adventure-experience-audio.mjs](../scripts/adventure-experience-audio.mjs)。`say` 后用 `afconvert` 导出 PCM16/22050Hz，全部真实文件字节/hash登记到 manifest，运行由 speech/ForegroundAudio 引用；单通道打断、重听、跳过和后台取消沿用现有机制。脚本可传单个短 id（如 `clear`）只重制对应文件，登记仍完整。
+
+状态均为 DEVELOPMENT_TTS_UNREVIEWED，人工听审 NOT_RUN、分发权 PENDING。资源校验、浏览器播放事件与无音轨视频只能证明实际接入；不能冒称真人听审、适龄接受或公开发布许可。
+
+## WP-MINIGAMES-VOCAB-EXPANSION-01
+
+38件新增纸艺道具为本包原创矢量源稿`art/vocab-source`，320×320透明WebP经sharp导出；生成脚本`vocab-resources.mjs`、运行`VocabularyVisual/ObjectArt`。动作/颜色/数量/空间采用可观察物件、冻结大咪与既有客人投影，背景不烘焙关键文字，无emoji占位。现有50食品图与冻结角色原文件不改。
+
+新增222个落盘WAV含70词的名称/情境、46导航/短指令及精确任务指令（包含修订前声音保留）；当前33条场景短指令独立计数，任务全句和speech文本一致。来源macOS say / Samantha、135wpm、PCM16bit/22050Hz；`vocab-production.json`和`vocab-scene-audio.json`记录文本/来源/状态，manifest记录实际bytes/hash；无运行时临时发音。开发语音DEVELOPMENT_TTS_UNREVIEWED，人工听审NOT_RUN、分发权PENDING；原创道具与新图示负责人视觉/手感/教研接受PENDING。不能因可用资源或工程验证宣称发布审核通过。

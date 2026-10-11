@@ -1,0 +1,30 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/mini-expansion-recovery.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/mini-expansion-recovery.test.ts (5 tests | 1 failed) 17ms
+   × cannot wash course help through restart or the meaning phase 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > cannot wash course help through restart or the meaning phase
+TypeError: replayCourse is not a function
+ ❯ tests/mini-expansion-recovery.test.ts:36:26
+     34| it('cannot wash course help through restart or the meaning phase',()=>{
+     35|  const l=MINI_LEVELS[0];if(!l)throw Error('course');const old={...crea…
+     36|  const fresh=startCourse(replayCourse(l,old,'replay'));
+       |                          ^
+     37|  expect(fresh.support).toContain('answer-help');
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  20:50:37
+   Duration  891ms (transform 452ms, setup 0ms, import 548ms, tests 17ms, environment 0ms)
+

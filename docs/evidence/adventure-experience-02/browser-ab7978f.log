@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:88318) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_FEAST_START_SECONDS 20.107
+EVIDENCE_DRINK_START_SECONDS 42.935
+  ✓  1 e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement (51.6s)
+  ✓  2 e2e/adventure.spec.ts:433:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (23.3s)
+
+  2 passed (1.3m)

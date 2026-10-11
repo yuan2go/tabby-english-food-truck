@@ -1,3 +1,4 @@
+import type { AdventureExperience } from './adventure-experience';
 import type { RequestId } from './catalog';
 import type { Family, Product } from './recipes';
 export type Visitor = 'rabbit' | 'hedgehog' | 'elder';
@@ -118,6 +119,8 @@ export interface WorldFood {
   source: string;
   place: WorldPlace;
   tasted: boolean;
+  tastedBy?: Visitor;
+  recipient?: Visitor;
 }
 export interface Work {
   id: string;
@@ -125,6 +128,7 @@ export interface Work {
   signature: string;
 }
 export interface AdventureState {
+  experience?: AdventureExperience;
   chapter: number;
   kind: 'chapter' | 'shop';
   branch: 'rabbit' | 'hedgehog' | null;

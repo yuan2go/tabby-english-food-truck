@@ -1,0 +1,21 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/app/SceneBoards.tsx(8,4): error TS2375: Type '{ word: string; color: string | undefined; size: "big" | "small" | undefined; state: string; }' is not assignable to type '{ word: string; className?: string; color?: string; size?: string; state?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/SceneBoards.tsx(20,88): error TS2375: Type '{ word: string; color: string | undefined; size: "big" | "small" | undefined; state: string; }' is not assignable to type '{ word: string; className?: string; color?: string; size?: string; state?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/SceneBoards.tsx(22,672): error TS2375: Type '{ key: string; word: string; color: string | undefined; }' is not assignable to type '{ word: string; className?: string; color?: string; size?: string; state?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/VocabularyVisual.tsx(39,4): error TS2375: Type '{ word: string; color: string | undefined; size: string | undefined; }' is not assignable to type '{ word: string; className?: string; color?: string; size?: string; state?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/content/scene-levels.ts(15,29): error TS6133: 'audio' is declared but its value is never read.

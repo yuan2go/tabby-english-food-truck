@@ -25,6 +25,7 @@ import {
 } from '../rules/minigames';
 import { Food } from './Food';
 import { MiniCourse } from './MiniCourse';
+import { SceneGames } from './SceneGames';
 
 export function MiniGames({
   controller,
@@ -42,6 +43,7 @@ export function MiniGames({
   const store = controller.minis;
   const [state, setState] = useState<MiniState | null>(null);
   const [showCourse, setShowCourse] = useState(false);
+  const [showScenes, setShowScenes] = useState(false);
   const latest = useRef(state);
   latest.current = state;
   const [difficulty, setDifficulty] = useState<Difficulty>('demo');
@@ -256,6 +258,8 @@ export function MiniGames({
     update(next);
     setSlot(null);
   };
+  if (showScenes)
+    return <SceneGames store={store} audio={audio} exit={() => setShowScenes(false)} />;
   if (showCourse)
     return <MiniCourse controller={controller} audio={audio} exit={() => setShowCourse(false)} />;
   if (!state)
@@ -272,12 +276,16 @@ export function MiniGames({
           ← 小院
         </button>
         <h2>食物朋友的小摊</h2>
+        <button type="button" className="course-entry" onClick={() => setShowScenes(true)}>
+          小院场景小游戏 · 寻物、记忆、整理、布置、动作剧场
+          <small>先认识 · 换一种玩法 · 再相见；随时回到故事</small>
+        </button>
         <p>
           {collection ? '这一篮的食物朋友，听一听，再找一找。' : '随时回来，字母和这一题都会等你。'}
         </p>
         <button type="button" className="course-entry" onClick={() => setShowCourse(true)}>
           🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词组句
-          <small>30个有情境的短关；按语言基础选择，故事不设拼写门槛</small>
+          <small>原30个主题关与120词小组；按语言基础选择，故事不设拼写门槛</small>
         </button>
         {baskets ? (
           <button type="button" className="food-basket-entry" onClick={baskets}>

@@ -1,0 +1,432 @@
+scripts/check-vocabulary.mjs:194:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    192 │   await writeFile(
+    193 │     'docs/evidence/minigames-vocab/coverage.json',
+  > 194 │     JSON.stringify(summary, null, 2) + '\n',
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    195 │   );
+    196 │   await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    192 192 │     await writeFile(
+    193 193 │       'docs/evidence/minigames-vocab/coverage.json',
+    194     │ - ····JSON.stringify(summary,·null,·2)·+·'\n',
+        194 │ + ····`${JSON.stringify(summary,·null,·2)}\n`,
+    195 195 │     );
+    196 196 │     await writeFile(
+  
+
+scripts/vocab-resources.mjs:405:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    403 │   review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 │ }));
+  > 405 │ await writeFile('src/content/vocabulary-extra.json', JSON.stringify(extra, null, 2) + '\n');
+        │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    406 │ const instructions = [
+    407 │   ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+  i Unsafe fix: Use a template literal.
+  
+    403 403 │     review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 404 │   }));
+    405     │ - await·writeFile('src/content/vocabulary-extra.json',·JSON.stringify(extra,·null,·2)·+·'\n');
+        405 │ + await·writeFile('src/content/vocabulary-extra.json',·`${JSON.stringify(extra,·null,·2)}\n`);
+    406 406 │   const instructions = [
+    407 407 │     ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+
+scripts/vocab-resources.mjs:454:55 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    452 │   ['lamp-on', 'Put the lamp on the table.'],
+    453 │ ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+  > 454 │ await writeFile('src/content/mini-instructions.json', JSON.stringify(instructions, null, 2) + '\n');
+        │                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    455 │ const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 │ const records = [
+  
+  i Unsafe fix: Use a template literal.
+  
+    452 452 │     ['lamp-on', 'Put the lamp on the table.'],
+    453 453 │   ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+    454     │ - await·writeFile('src/content/mini-instructions.json',·JSON.stringify(instructions,·null,·2)·+·'\n');
+        454 │ + await·writeFile('src/content/mini-instructions.json',·`${JSON.stringify(instructions,·null,·2)}\n`);
+    455 455 │   const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 456 │   const records = [
+  
+
+scripts/vocab-resources.mjs:492:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    490 │   .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 │   .concat(newAssets);
+  > 492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+        │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    490 490 │     .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 491 │     .concat(newAssets);
+    492     │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+        492 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    493 493 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 494 │   await writeFile(
+  
+
+scripts/vocab-resources.mjs:493:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    491 │   .concat(newAssets);
+    492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+        │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    491 491 │     .concat(newAssets);
+    492 492 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    493     │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+        493 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+  
+
+scripts/vocab-resources.mjs:496:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  > 496 │   JSON.stringify(
+        │   ^^^^^^^^^^^^^^^
+  > 497 │     {
+         ...
+  > 505 │     2,
+  > 506 │   ) + '\n',
+        │   ^^^^^^^^
+    507 │ );
+    508 │ console.log(
+  
+  i Unsafe fix: Use a template literal.
+  
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+    496     │ - ··JSON.stringify(
+        496 │ + ··`${JSON.stringify(
+    497 497 │       {
+    498 498 │         source: 'Original vector art and offline macOS Samantha development synthesis',
+    ······· │ 
+    504 504 │       null,
+    505 505 │       2,
+    506     │ - ··)·+·'\n',
+        506 │ + ··)}\n`,
+    507 507 │   );
+    508 508 │   console.log(
+  
+
+scripts/vocab-scene-audio.mjs:58:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    56 │   });
+    57 │ }
+  > 58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    60 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    56 56 │     });
+    57 57 │   }
+    58    │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       58 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    59 59 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    60 60 │   await writeFile(
+  
+
+scripts/vocab-scene-audio.mjs:59:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    57 │ }
+    58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+       │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    60 │ await writeFile(
+    61 │   'art/vocab-scene-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    57 57 │   }
+    58 58 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    59    │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+       59 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    60 60 │   await writeFile(
+    61 61 │     'art/vocab-scene-audio.json',
+  
+
+scripts/vocab-scene-audio.mjs:62:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    60 │ await writeFile(
+    61 │   'art/vocab-scene-audio.json',
+  > 62 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 63 │     {
+        ...
+  > 70 │     2,
+  > 71 │   ) + '\n',
+       │   ^^^^^^^^
+    72 │ );
+    73 │ console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    60 60 │   await writeFile(
+    61 61 │     'art/vocab-scene-audio.json',
+    62    │ - ··JSON.stringify(
+       62 │ + ··`${JSON.stringify(
+    63 63 │       {
+    64 64 │         source: 'macOS Samantha static development speech',
+    ····· │ 
+    69 69 │       null,
+    70 70 │       2,
+    71    │ - ··)·+·'\n',
+       71 │ + ··)}\n`,
+    72 72 │   );
+    73 73 │   console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+
+src/app/scene-games.css:246:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    244 │ }
+    245 │ .meaning-table .vocab-art {
+  > 246 │   width: 100px !important;
+        │                ^^^^^^^^^^
+    247 │   height: 90px !important;
+    248 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    246 │ ··width:·100px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:247:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    245 │ .meaning-table .vocab-art {
+    246 │   width: 100px !important;
+  > 247 │   height: 90px !important;
+        │                ^^^^^^^^^^
+    248 │ }
+    249 │ .meaning-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    247 │ ··height:·90px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:255:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    253 │ }
+    254 │ .meaning-object .vocab-art {
+  > 255 │   width: 60px !important;
+        │               ^^^^^^^^^^
+    256 │   height: 60px !important;
+    257 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    255 │ ··width:·60px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:256:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    254 │ .meaning-object .vocab-art {
+    255 │   width: 60px !important;
+  > 256 │   height: 60px !important;
+        │                ^^^^^^^^^^
+    257 │ }
+    258 │ .meaning-cat {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    256 │ ··height:·60px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:302:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    300 │ }
+    301 │ .meaning-tool .vocab-art {
+  > 302 │   width: 54px !important;
+        │               ^^^^^^^^^^
+    303 │   height: 54px !important;
+    304 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    302 │ ··width:·54px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:303:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    301 │ .meaning-tool .vocab-art {
+    302 │   width: 54px !important;
+  > 303 │   height: 54px !important;
+        │                ^^^^^^^^^^
+    304 │ }
+    305 │ .meaning-stir .meaning-tool {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    303 │ ··height:·54px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:352:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    350 │ }
+    351 │ .meaning-number .vocab-art {
+  > 352 │   width: 51px !important;
+        │               ^^^^^^^^^^
+    353 │   height: 51px !important;
+    354 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    352 │ ··width:·51px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:353:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    351 │ .meaning-number .vocab-art {
+    352 │   width: 51px !important;
+  > 353 │   height: 51px !important;
+        │                ^^^^^^^^^^
+    354 │ }
+    355 │ .meaning-attribute {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    353 │ ··height:·51px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:366:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    364 │ }
+    365 │ .meaning-comparison .vocab-art {
+  > 366 │   width: 65px !important;
+        │               ^^^^^^^^^^
+    367 │   height: 65px !important;
+    368 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    366 │ ··width:·65px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:367:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    365 │ .meaning-comparison .vocab-art {
+    366 │   width: 65px !important;
+  > 367 │   height: 65px !important;
+        │                ^^^^^^^^^^
+    368 │ }
+    369 │ @keyframes take-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    367 │ ··height:·65px·!important;
+        │               ----------- 
+
+src/app/MiniCourse.tsx:416:40 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    414 │                   <button
+    415 │                     type="button"
+  > 416 │                     key={`${product}-${i}`}
+        │                                        ^
+    417 │                     disabled={state.phase !== 'play'}
+    418 │                     aria-label={`取回第${i + 1}份`}
+  
+  i This is the source of the key value.
+  
+    411 │               </fieldset>
+    412 │               <fieldset aria-label="亲手摆的餐盘">
+  > 413 │                 {(state.assembled ?? []).map((product, i) => (
+        │                                                        ^
+    414 │                   <button
+    415 │                     type="button"
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Skipped 39 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 41.
+Checked 30 files in 303ms. Fixed 17 files.
+Found 1 error.
+Found 51 warnings.
+Found 9 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

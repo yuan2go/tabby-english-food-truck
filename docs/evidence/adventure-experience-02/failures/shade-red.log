@@ -1,0 +1,41 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (27 tests | 1 failed) 123ms
+   × hanging shade flags moves both actual desserts once and recolouring preserves their seats 19ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > hanging shade flags moves both actual desserts once and recolouring preserves their seats
+AssertionError: expected [ 'guest-rabbit', 'guest-hedgehog' ] to deeply equal [ 'table:0', 'table:1' ]
+
+- Expected
++ Received
+
+  [
+-   "table:0",
+-   "table:1",
++   "guest-rabbit",
++   "guest-hedgehog",
+  ]
+
+ ❯ tests/adventure.test.ts:429:50
+    427|   const ids = s.adventure?.foods.map((f) => f.id);
+    428|   s = act(s, 'bunting', { value: 'cool' }).state;
+    429|   expect(s.adventure?.foods.map((f) => f.place)).toEqual(['table:0', '…
+       |                                                  ^
+    430|   const moved = structuredClone(s.adventure?.foods);
+    431|   s = act(s, 'bunting', { value: 'warm' }).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 26 passed (27)
+   Start at  20:40:42
+   Duration  775ms (transform 366ms, setup 0ms, import 432ms, tests 123ms, environment 0ms)
+

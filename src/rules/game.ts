@@ -691,7 +691,7 @@ export function advance(current: GameState, milliseconds: number): GameState {
       applyPolicy(s, s.session.support, s.session.concurrency);
       changed = true;
     }
-  } else {
+  } else if (s.adventure?.kind !== 'chapter') {
     const max = s.mode === 'service' ? s.session.concurrency : 1;
     while (s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving').length < max) {
       const next = s.orders.findIndex((o) => o.status === 'queued');

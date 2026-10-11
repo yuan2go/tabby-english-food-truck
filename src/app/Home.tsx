@@ -2,6 +2,7 @@ import { ADVENTURES } from '../content/adventure';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { Profile } from '../platform/profile';
+import { SceneIcon } from './SceneIcon';
 export function Home({
   profile,
   onChoose,
@@ -76,6 +77,7 @@ export function Home({
       {entry('story', `正在准备 · ${ADVENTURES[next]?.title}`, 'menu-story')}
       {entry('endless', '自由开店', 'menu-endless')}
       <button type="button" className="yard-activity-badge" onClick={() => onChoose('story')}>
+        <SceneIcon kind="recipe" />
         旧食谱 · 回访活动与作品
       </button>
       {entry('training', '教学练习', 'menu-training')}

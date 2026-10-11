@@ -1,0 +1,432 @@
+scripts/vocab-resources.mjs:405:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    403 │   review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 │ }));
+  > 405 │ await writeFile('src/content/vocabulary-extra.json', JSON.stringify(extra, null, 2) + '\n');
+        │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    406 │ const instructions = [
+    407 │   ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+  i Unsafe fix: Use a template literal.
+  
+    403 403 │     review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 404 │   }));
+    405     │ - await·writeFile('src/content/vocabulary-extra.json',·JSON.stringify(extra,·null,·2)·+·'\n');
+        405 │ + await·writeFile('src/content/vocabulary-extra.json',·`${JSON.stringify(extra,·null,·2)}\n`);
+    406 406 │   const instructions = [
+    407 407 │     ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+
+scripts/vocab-resources.mjs:454:55 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    452 │   ['lamp-on', 'Put the lamp on the table.'],
+    453 │ ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+  > 454 │ await writeFile('src/content/mini-instructions.json', JSON.stringify(instructions, null, 2) + '\n');
+        │                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    455 │ const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 │ const records = [
+  
+  i Unsafe fix: Use a template literal.
+  
+    452 452 │     ['lamp-on', 'Put the lamp on the table.'],
+    453 453 │   ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+    454     │ - await·writeFile('src/content/mini-instructions.json',·JSON.stringify(instructions,·null,·2)·+·'\n');
+        454 │ + await·writeFile('src/content/mini-instructions.json',·`${JSON.stringify(instructions,·null,·2)}\n`);
+    455 455 │   const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 456 │   const records = [
+  
+
+scripts/vocab-resources.mjs:492:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    490 │   .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 │   .concat(newAssets);
+  > 492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+        │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    490 490 │     .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 491 │     .concat(newAssets);
+    492     │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+        492 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    493 493 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 494 │   await writeFile(
+  
+
+scripts/vocab-resources.mjs:493:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    491 │   .concat(newAssets);
+    492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+        │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    491 491 │     .concat(newAssets);
+    492 492 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    493     │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+        493 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+  
+
+scripts/vocab-resources.mjs:496:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  > 496 │   JSON.stringify(
+        │   ^^^^^^^^^^^^^^^
+  > 497 │     {
+         ...
+  > 505 │     2,
+  > 506 │   ) + '\n',
+        │   ^^^^^^^^
+    507 │ );
+    508 │ console.log(
+  
+  i Unsafe fix: Use a template literal.
+  
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+    496     │ - ··JSON.stringify(
+        496 │ + ··`${JSON.stringify(
+    497 497 │       {
+    498 498 │         source: 'Original vector art and offline macOS Samantha development synthesis',
+    ······· │ 
+    504 504 │       null,
+    505 505 │       2,
+    506     │ - ··)·+·'\n',
+        506 │ + ··)}\n`,
+    507 507 │   );
+    508 508 │   console.log(
+  
+
+scripts/vocab-scene-audio.mjs:56:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    54 │   });
+    55 │ }
+  > 56 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    57 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    58 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    54 54 │     });
+    55 55 │   }
+    56    │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       56 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    57 57 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    58 58 │   await writeFile(
+  
+
+scripts/vocab-scene-audio.mjs:57:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    55 │ }
+    56 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 57 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+       │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    58 │ await writeFile(
+    59 │   'art/vocab-scene-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    55 55 │   }
+    56 56 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    57    │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+       57 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    58 58 │   await writeFile(
+    59 59 │     'art/vocab-scene-audio.json',
+  
+
+scripts/vocab-scene-audio.mjs:60:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │ await writeFile(
+    59 │   'art/vocab-scene-audio.json',
+  > 60 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 61 │     {
+        ...
+  > 68 │     2,
+  > 69 │   ) + '\n',
+       │   ^^^^^^^^
+    70 │ );
+    71 │ console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    58 58 │   await writeFile(
+    59 59 │     'art/vocab-scene-audio.json',
+    60    │ - ··JSON.stringify(
+       60 │ + ··`${JSON.stringify(
+    61 61 │       {
+    62 62 │         source: 'macOS Samantha static development speech',
+    ····· │ 
+    67 67 │       null,
+    68 68 │       2,
+    69    │ - ··)·+·'\n',
+       69 │ + ··)}\n`,
+    70 70 │   );
+    71 71 │   console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+
+src/app/scene-games.css:246:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    244 │ }
+    245 │ .meaning-table .vocab-art {
+  > 246 │   width: 100px !important;
+        │                ^^^^^^^^^^
+    247 │   height: 90px !important;
+    248 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    246 │ ··width:·100px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:247:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    245 │ .meaning-table .vocab-art {
+    246 │   width: 100px !important;
+  > 247 │   height: 90px !important;
+        │                ^^^^^^^^^^
+    248 │ }
+    249 │ .meaning-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    247 │ ··height:·90px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:255:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    253 │ }
+    254 │ .meaning-object .vocab-art {
+  > 255 │   width: 60px !important;
+        │               ^^^^^^^^^^
+    256 │   height: 60px !important;
+    257 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    255 │ ··width:·60px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:256:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    254 │ .meaning-object .vocab-art {
+    255 │   width: 60px !important;
+  > 256 │   height: 60px !important;
+        │                ^^^^^^^^^^
+    257 │ }
+    258 │ .meaning-cat {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    256 │ ··height:·60px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:302:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    300 │ }
+    301 │ .meaning-tool .vocab-art {
+  > 302 │   width: 54px !important;
+        │               ^^^^^^^^^^
+    303 │   height: 54px !important;
+    304 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    302 │ ··width:·54px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:303:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    301 │ .meaning-tool .vocab-art {
+    302 │   width: 54px !important;
+  > 303 │   height: 54px !important;
+        │                ^^^^^^^^^^
+    304 │ }
+    305 │ .meaning-stir .meaning-tool {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    303 │ ··height:·54px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:352:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    350 │ }
+    351 │ .meaning-number .vocab-art {
+  > 352 │   width: 51px !important;
+        │               ^^^^^^^^^^
+    353 │   height: 51px !important;
+    354 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    352 │ ··width:·51px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:353:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    351 │ .meaning-number .vocab-art {
+    352 │   width: 51px !important;
+  > 353 │   height: 51px !important;
+        │                ^^^^^^^^^^
+    354 │ }
+    355 │ .meaning-attribute {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    353 │ ··height:·51px·!important;
+        │               ----------- 
+
+src/app/SceneBoards.tsx:48:5 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    46 │   const held = state.objects.find((o) => o.place === 'hand');
+    47 │   return (
+  > 48 │     <div className={`scene-hand ${held ? 'holding' : ''}`} aria-label="大咪手里的物件">
+       │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    49 │       {held ? (
+    50 │         <ObjectArt word={held.word} color={held.color} size={held.size} state={held.state} />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/SceneGames.tsx:94:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies more dependencies than necessary: question.
+  
+    92 │   );
+    93 │   const question = state ? `${state.id}:${state.round}:${state.phase}:${state.paused}` : '';
+  > 94 │   useEffect(() => {
+       │   ^^^^^^^^^
+    95 │     const now = latest.current;
+    96 │     if (now && !now.paused && ['meaning', 'play', 'observe'].includes(now.phase)) void say();
+  
+  i This dependency can be removed from the list.
+  
+     96 │     if (now && !now.paused && ['meaning', 'play', 'observe'].includes(now.phase)) void say();
+     97 │     return stop;
+   > 98 │   }, [question, say, stop]);
+        │       ^^^^^^^^
+     99 │   useEffect(() => {
+    100 │     const pause = () => {
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Specifying more dependencies than required can lead to unnecessary re-rendering
+    and degraded performance.
+  
+  i Unsafe fix: Remove the extra dependencies from the list.
+  
+    98 │ ··},·[question,·say,·stop]);
+       │       ----------            
+
+src/app/VocabularyVisual.tsx:127:7 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    125 │   if (word.group === 'number')
+    126 │     return (
+  > 127 │       <span className="meaning-number" aria-label={`${word.chinese}个杯子`}>
+        │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    128 │         {Array.from({ length: VOCAB_NUMBERS[id] ?? 1 }, (_, i) => (
+    129 │           <ObjectArt key={`${id}-${i}`} word="cup" />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/VocabularyVisual.tsx:129:36 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    127 │       <span className="meaning-number" aria-label={`${word.chinese}个杯子`}>
+    128 │         {Array.from({ length: VOCAB_NUMBERS[id] ?? 1 }, (_, i) => (
+  > 129 │           <ObjectArt key={`${id}-${i}`} word="cup" />
+        │                                    ^
+    130 │         ))}
+    131 │       </span>
+  
+  i This is the source of the key value.
+  
+    126 │     return (
+    127 │       <span className="meaning-number" aria-label={`${word.chinese}个杯子`}>
+  > 128 │         {Array.from({ length: VOCAB_NUMBERS[id] ?? 1 }, (_, i) => (
+        │                                                             ^
+    129 │           <ObjectArt key={`${id}-${i}`} word="cup" />
+    130 │         ))}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Skipped 44 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 37.
+Checked 22 files in 159ms. Fixed 19 files.
+Found 4 errors.
+Found 45 warnings.
+Found 8 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

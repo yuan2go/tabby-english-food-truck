@@ -4,6 +4,7 @@ import { CHAPTERS, type Language } from '../content/chapters';
 import type { Family, Product } from '../content/recipes';
 import { levelsForChapter, storyLevel } from '../content/story-levels';
 import { validAdventure } from '../rules/adventure';
+import { hydrateExperience } from '../rules/adventure-experience';
 import type { StoragePort } from './save';
 export interface Observation {
   id: string;
@@ -147,6 +148,7 @@ export class ProfileStore {
       // The earlier five chapter receipts remain historical progress. New
       // service IDs start unfinished; no old receipt is treated as a new task.
       this.value.activityMemories ??= [];
+      for (const memory of this.value.activityMemories) hydrateExperience(memory.state);
       // Only actual world receipts establish a previous food encounter. The
       // finite catalog survives rotation of the detailed observation log.
       this.value.receivedProducts ??= [

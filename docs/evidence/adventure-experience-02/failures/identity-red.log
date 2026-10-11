@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (24 tests | 1 failed) 105ms
+   × invalid tasting identity cannot corrupt a recoverable portion 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > invalid tasting identity cannot corrupt a recoverable portion
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/adventure.test.ts:376:23
+    374|   const before=structuredClone(s.adventure);
+    375|   const result=act(s,'taste',{item:id,visitor:'unknown'});
+    376|   expect(result.kind).toBe('blocked');expect(result.state.adventure).t…
+       |                       ^
+    377|   expect(decodeSnapshot(JSON.stringify(result.state)).ok).toBe(true);
+    378| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 23 passed (24)
+   Start at  20:32:58
+   Duration  919ms (transform 514ms, setup 0ms, import 583ms, tests 105ms, environment 0ms)
+

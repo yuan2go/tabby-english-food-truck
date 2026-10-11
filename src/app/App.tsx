@@ -1,7 +1,9 @@
 import { ADVENTURES } from '../content/adventure';
 import { Adventure } from './Adventure';
+import { AdventureGuide } from './AdventureGuide';
 import { FoodBaskets } from './FoodBaskets';
 import { FreeShop } from './FreeShop';
+import { SceneIcon } from './SceneIcon';
 import './foods.css';
 import Phaser from 'phaser';
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
@@ -47,6 +49,7 @@ export function App() {
     [caption, setCaption] = useState<string | null>(null);
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
   const [activityTable, setActivityTable] = useState(false);
+  const [miniFromActivity, setMiniFromActivity] = useState(false);
   const [setup, setSetup] = useState<'endless' | 'training'>('endless');
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
@@ -60,10 +63,12 @@ export function App() {
       : controller.profile.value.concurrency,
   );
   const [storyGuests, setStoryGuests] = useState<1 | 2>(
-    controller.state.session.activity === 'story' && controller.state.session.chapter >= 2
-      ? controller.state.session.concurrency
-      : 1,
+    controller.state.session.activity === 'story' ? controller.state.session.concurrency : 1,
   );
+  useEffect(() => {
+    if (controller.state.adventure?.kind === 'chapter')
+      setStoryGuests(controller.state.session.concurrency);
+  }, [controller.state.adventure?.kind, controller.state.session.concurrency]);
   const announced = useRef('');
   const [settingsBack, setSettingsBack] = useState<Screen>('home');
   const [ui] = useState<ViewState>(() => ({
@@ -337,7 +342,7 @@ export function App() {
       chapter,
       support,
       replay,
-      activity === 'endless' ? concurrency : activity === 'story' && chapter >= 2 ? storyGuests : 1,
+      activity === 'endless' ? concurrency : activity === 'story' ? storyGuests : 1,
       levelId,
       shop,
     );
@@ -409,6 +414,11 @@ export function App() {
       <div className="canvas-host" ref={host} role="img" aria-label="英语餐车游戏画面" />
       {screen === 'game' && activityTable && s.adventure ? (
         <Adventure
+          games={() => {
+            audio.stop();
+            setMiniFromActivity(true);
+            setScreen('mini');
+          }}
           controller={controller}
           audio={audio}
           kitchen={() => {
@@ -426,6 +436,7 @@ export function App() {
           audio={audio}
           onChoose={(choice) => {
             audio.stop();
+            setMiniFromActivity(false);
             if (choice === 'endless' || choice === 'training') {
               setSetup(choice);
               setScreen('setup');
@@ -458,6 +469,10 @@ export function App() {
             if (collection) {
               setCollection(null);
               setScreen('foods');
+            } else if (miniFromActivity) {
+              audio.stop();
+              setScreen('game');
+              setMiniFromActivity(false);
             } else home();
           }}
           collection={collection}
@@ -611,8 +626,21 @@ export function App() {
                   setActivityTable(true);
                 }}
               >
+                <SceneIcon kind="table" />
                 到活动桌
               </button>
+            ) : null}
+            {s.adventure && !modal && !teaching && !note && opening === null ? (
+              <AdventureGuide
+                compact
+                controller={controller}
+                audio={audio}
+                navigate={() => {
+                  scene.current?.cancel();
+                  audio.stop();
+                  setActivityTable(true);
+                }}
+              />
             ) : null}
             {ui.assetFailure || controller.save.issue || controller.profile.issue ? (
               <button type="button" aria-label="保存与画面状态" onClick={() => setModal('issues')}>

@@ -1181,5 +1181,1617 @@
     "kind": "request",
     "path": "audio/request-cone-vanilla.wav",
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-cup": {
+    "text": "cup",
+    "kind": "word",
+    "path": "audio/vocab-name-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-cup": {
+    "text": "Bring me a cup, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-plate": {
+    "text": "plate",
+    "kind": "word",
+    "path": "audio/vocab-name-plate.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-plate": {
+    "text": "Bring me a plate, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-plate.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-bowl": {
+    "text": "bowl",
+    "kind": "word",
+    "path": "audio/vocab-name-bowl.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-bowl": {
+    "text": "Bring me a bowl, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-bowl.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-spoon": {
+    "text": "spoon",
+    "kind": "word",
+    "path": "audio/vocab-name-spoon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-spoon": {
+    "text": "Bring me a spoon, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-spoon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-fork": {
+    "text": "fork",
+    "kind": "word",
+    "path": "audio/vocab-name-fork.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-fork": {
+    "text": "Bring me a fork, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-fork.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-knife": {
+    "text": "knife",
+    "kind": "word",
+    "path": "audio/vocab-name-knife.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-knife": {
+    "text": "Bring me a knife, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-knife.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-tray": {
+    "text": "tray",
+    "kind": "word",
+    "path": "audio/vocab-name-tray.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-tray": {
+    "text": "Bring me a tray, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-tray.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-napkin": {
+    "text": "napkin",
+    "kind": "word",
+    "path": "audio/vocab-name-napkin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-napkin": {
+    "text": "Bring me a napkin, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-napkin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-pot": {
+    "text": "pot",
+    "kind": "word",
+    "path": "audio/vocab-name-pot.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-pot": {
+    "text": "Bring me a pot, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-pot.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-pan": {
+    "text": "pan",
+    "kind": "word",
+    "path": "audio/vocab-name-pan.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-pan": {
+    "text": "Bring me a pan, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-pan.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-lid": {
+    "text": "lid",
+    "kind": "word",
+    "path": "audio/vocab-name-lid.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-lid": {
+    "text": "Bring me a lid, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-lid.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-kettle": {
+    "text": "kettle",
+    "kind": "word",
+    "path": "audio/vocab-name-kettle.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-kettle": {
+    "text": "Bring me a kettle, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-kettle.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-bottle": {
+    "text": "bottle",
+    "kind": "word",
+    "path": "audio/vocab-name-bottle.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-bottle": {
+    "text": "Bring me a bottle, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-bottle.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-glass": {
+    "text": "glass",
+    "kind": "word",
+    "path": "audio/vocab-name-glass.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-glass": {
+    "text": "Bring me a glass, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-glass.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-jug": {
+    "text": "jug",
+    "kind": "word",
+    "path": "audio/vocab-name-jug.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-jug": {
+    "text": "Bring me a jug, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-jug.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-spatula": {
+    "text": "spatula",
+    "kind": "word",
+    "path": "audio/vocab-name-spatula.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-spatula": {
+    "text": "Bring me a spatula, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-spatula.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-ladle": {
+    "text": "ladle",
+    "kind": "word",
+    "path": "audio/vocab-name-ladle.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-ladle": {
+    "text": "Bring me a ladle, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-ladle.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-whisk": {
+    "text": "whisk",
+    "kind": "word",
+    "path": "audio/vocab-name-whisk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-whisk": {
+    "text": "Bring me a whisk, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-whisk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-cutting-board": {
+    "text": "cutting board",
+    "kind": "word",
+    "path": "audio/vocab-name-cutting-board.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-cutting-board": {
+    "text": "Bring me a cutting board, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-cutting-board.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-apron": {
+    "text": "apron",
+    "kind": "word",
+    "path": "audio/vocab-name-apron.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-apron": {
+    "text": "Bring me an apron, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-apron.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-basket": {
+    "text": "basket",
+    "kind": "word",
+    "path": "audio/vocab-name-basket.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-basket": {
+    "text": "Bring me a basket, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-basket.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-box": {
+    "text": "box",
+    "kind": "word",
+    "path": "audio/vocab-name-box.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-box": {
+    "text": "Bring me a box, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-box.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-bag": {
+    "text": "bag",
+    "kind": "word",
+    "path": "audio/vocab-name-bag.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-bag": {
+    "text": "Bring me a bag, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-bag.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-table": {
+    "text": "table",
+    "kind": "word",
+    "path": "audio/vocab-name-table.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-table": {
+    "text": "Bring me a table, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-table.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-chair": {
+    "text": "chair",
+    "kind": "word",
+    "path": "audio/vocab-name-chair.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-chair": {
+    "text": "Bring me a chair, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-chair.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-bench": {
+    "text": "bench",
+    "kind": "word",
+    "path": "audio/vocab-name-bench.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-bench": {
+    "text": "Bring me a bench, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-bench.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-door": {
+    "text": "door",
+    "kind": "word",
+    "path": "audio/vocab-name-door.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-door": {
+    "text": "Bring me a door, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-door.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-window": {
+    "text": "window",
+    "kind": "word",
+    "path": "audio/vocab-name-window.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-window": {
+    "text": "Bring me a window, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-window.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-shelf": {
+    "text": "shelf",
+    "kind": "word",
+    "path": "audio/vocab-name-shelf.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-shelf": {
+    "text": "Bring me a shelf, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-shelf.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-drawer": {
+    "text": "drawer",
+    "kind": "word",
+    "path": "audio/vocab-name-drawer.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-drawer": {
+    "text": "Bring me a drawer, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-drawer.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-lamp": {
+    "text": "lamp",
+    "kind": "word",
+    "path": "audio/vocab-name-lamp.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-lamp": {
+    "text": "Bring me a lamp, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-lamp.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-flower": {
+    "text": "flower",
+    "kind": "word",
+    "path": "audio/vocab-name-flower.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-flower": {
+    "text": "Bring me a flower, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-flower.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-tree": {
+    "text": "tree",
+    "kind": "word",
+    "path": "audio/vocab-name-tree.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-tree": {
+    "text": "Bring me a tree, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-tree.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-leaf": {
+    "text": "leaf",
+    "kind": "word",
+    "path": "audio/vocab-name-leaf.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-leaf": {
+    "text": "Bring me a leaf, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-leaf.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-seed": {
+    "text": "seed",
+    "kind": "word",
+    "path": "audio/vocab-name-seed.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-seed": {
+    "text": "Bring me a seed, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-seed.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-watering-can": {
+    "text": "watering can",
+    "kind": "word",
+    "path": "audio/vocab-name-watering-can.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-watering-can": {
+    "text": "Bring me a watering can, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-watering-can.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-ball": {
+    "text": "ball",
+    "kind": "word",
+    "path": "audio/vocab-name-ball.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-ball": {
+    "text": "Bring me a ball, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-ball.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-book": {
+    "text": "book",
+    "kind": "word",
+    "path": "audio/vocab-name-book.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-book": {
+    "text": "Bring me a book, please.",
+    "kind": "request",
+    "path": "audio/vocab-context-book.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-red": {
+    "text": "red",
+    "kind": "word",
+    "path": "audio/vocab-name-red.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-red": {
+    "text": "Find the red cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-red.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-yellow": {
+    "text": "yellow",
+    "kind": "word",
+    "path": "audio/vocab-name-yellow.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-yellow": {
+    "text": "Find the yellow cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-yellow.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-blue": {
+    "text": "blue",
+    "kind": "word",
+    "path": "audio/vocab-name-blue.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-blue": {
+    "text": "Find the blue cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-blue.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-green": {
+    "text": "green",
+    "kind": "word",
+    "path": "audio/vocab-name-green.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-green": {
+    "text": "Find the green cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-green.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-purple": {
+    "text": "purple",
+    "kind": "word",
+    "path": "audio/vocab-name-purple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-purple": {
+    "text": "Find the purple cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-purple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-pink": {
+    "text": "pink",
+    "kind": "word",
+    "path": "audio/vocab-name-pink.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-pink": {
+    "text": "Find the pink cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-pink.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-brown": {
+    "text": "brown",
+    "kind": "word",
+    "path": "audio/vocab-name-brown.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-brown": {
+    "text": "Find the brown cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-brown.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-black": {
+    "text": "black",
+    "kind": "word",
+    "path": "audio/vocab-name-black.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-black": {
+    "text": "Find the black cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-black.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-white": {
+    "text": "white",
+    "kind": "word",
+    "path": "audio/vocab-name-white.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-white": {
+    "text": "Find the white cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-white.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-big": {
+    "text": "big",
+    "kind": "word",
+    "path": "audio/vocab-name-big.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-big": {
+    "text": "Find the big bowl.",
+    "kind": "request",
+    "path": "audio/vocab-context-big.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-small": {
+    "text": "small",
+    "kind": "word",
+    "path": "audio/vocab-name-small.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-small": {
+    "text": "Find the small bowl.",
+    "kind": "request",
+    "path": "audio/vocab-context-small.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-round": {
+    "text": "round",
+    "kind": "word",
+    "path": "audio/vocab-name-round.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-round": {
+    "text": "Find the round plate.",
+    "kind": "request",
+    "path": "audio/vocab-context-round.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-soft": {
+    "text": "soft",
+    "kind": "word",
+    "path": "audio/vocab-name-soft.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-soft": {
+    "text": "Find the soft napkin.",
+    "kind": "request",
+    "path": "audio/vocab-context-soft.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-one": {
+    "text": "one",
+    "kind": "word",
+    "path": "audio/vocab-name-one.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-one": {
+    "text": "Put one cup on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-one.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-two": {
+    "text": "two",
+    "kind": "word",
+    "path": "audio/vocab-name-two.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-two": {
+    "text": "Put two cups on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-two.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-three": {
+    "text": "three",
+    "kind": "word",
+    "path": "audio/vocab-name-three.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-three": {
+    "text": "Put three cups on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-three.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-four": {
+    "text": "four",
+    "kind": "word",
+    "path": "audio/vocab-name-four.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-four": {
+    "text": "Put four cups on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-four.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-five": {
+    "text": "five",
+    "kind": "word",
+    "path": "audio/vocab-name-five.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-five": {
+    "text": "Put five cups on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-five.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-take": {
+    "text": "take",
+    "kind": "word",
+    "path": "audio/vocab-name-take.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-take": {
+    "text": "Take the ball.",
+    "kind": "request",
+    "path": "audio/vocab-context-take.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-put": {
+    "text": "put",
+    "kind": "word",
+    "path": "audio/vocab-name-put.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-put": {
+    "text": "Put the cup on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-put.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-open": {
+    "text": "open",
+    "kind": "word",
+    "path": "audio/vocab-name-open.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-open": {
+    "text": "Open the box.",
+    "kind": "request",
+    "path": "audio/vocab-context-open.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-close": {
+    "text": "close",
+    "kind": "word",
+    "path": "audio/vocab-name-close.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-close": {
+    "text": "Close the box.",
+    "kind": "request",
+    "path": "audio/vocab-context-close.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-pour": {
+    "text": "pour",
+    "kind": "word",
+    "path": "audio/vocab-name-pour.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-pour": {
+    "text": "Pour water into the cup.",
+    "kind": "request",
+    "path": "audio/vocab-context-pour.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-stir": {
+    "text": "stir",
+    "kind": "word",
+    "path": "audio/vocab-name-stir.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-stir": {
+    "text": "Stir the water.",
+    "kind": "request",
+    "path": "audio/vocab-context-stir.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-wash": {
+    "text": "wash",
+    "kind": "word",
+    "path": "audio/vocab-name-wash.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-wash": {
+    "text": "Wash the bowl.",
+    "kind": "request",
+    "path": "audio/vocab-context-wash.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-cut": {
+    "text": "cut",
+    "kind": "word",
+    "path": "audio/vocab-name-cut.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-cut": {
+    "text": "Cut the apple.",
+    "kind": "request",
+    "path": "audio/vocab-context-cut.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-carry": {
+    "text": "carry",
+    "kind": "word",
+    "path": "audio/vocab-name-carry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-carry": {
+    "text": "Carry the basket.",
+    "kind": "request",
+    "path": "audio/vocab-context-carry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-share": {
+    "text": "share",
+    "kind": "word",
+    "path": "audio/vocab-name-share.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-share": {
+    "text": "Share the apple.",
+    "kind": "request",
+    "path": "audio/vocab-context-share.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-in": {
+    "text": "in",
+    "kind": "word",
+    "path": "audio/vocab-name-in.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-in": {
+    "text": "Put the ball in the basket.",
+    "kind": "request",
+    "path": "audio/vocab-context-in.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-on": {
+    "text": "on",
+    "kind": "word",
+    "path": "audio/vocab-name-on.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-on": {
+    "text": "Put the cup on the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-on.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-under": {
+    "text": "under",
+    "kind": "word",
+    "path": "audio/vocab-name-under.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-under": {
+    "text": "Put the ball under the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-under.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-name-beside": {
+    "text": "beside",
+    "kind": "word",
+    "path": "audio/vocab-name-beside.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-context-beside": {
+    "text": "Put the chair beside the table.",
+    "kind": "request",
+    "path": "audio/vocab-context-beside.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-welcome": {
+    "text": "Touch an object. Touch a place. You can listen again.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-welcome.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-hunt": {
+    "text": "Find it in the yard. Bring it to the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-hunt.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-memory": {
+    "text": "Look carefully. Cover the table. What is missing? You can look again.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-memory.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-sort": {
+    "text": "Put things where they belong. Some things can go in more than one place.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-sort.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-design": {
+    "text": "Make a table for our friends. You can make your own table too.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-design.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-theatre": {
+    "text": "Help Dami. Move the things and see what happens.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-theatre.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-cover": {
+    "text": "Ready? Cover the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-cover.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-relook": {
+    "text": "Look again. Take your time.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-relook.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-help": {
+    "text": "Watch the picture. Then try it yourself.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-help.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-check": {
+    "text": "Ready? Show Dami.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-check.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-next": {
+    "text": "Another little adventure.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-next.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-scene-pause": {
+    "text": "Take a break. Your things will wait.",
+    "kind": "instruction",
+    "path": "audio/vocab-scene-pause.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-bring-cup": {
+    "text": "Bring me a cup, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-bring-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-bring-spoon": {
+    "text": "Bring me a spoon, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-bring-spoon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-bring-flower": {
+    "text": "Bring me a flower, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-bring-flower.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-bring-book": {
+    "text": "Bring me a book, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-bring-book.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-on-cup": {
+    "text": "Put the cup on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-on-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-in-ball": {
+    "text": "Put the ball in the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-in-ball.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-under-ball": {
+    "text": "Put the ball under the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-under-ball.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-beside-chair": {
+    "text": "Put the chair beside the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-beside-chair.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-open-box": {
+    "text": "Open the box.",
+    "kind": "instruction",
+    "path": "audio/vocab-open-box.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-take-ball": {
+    "text": "Take the ball.",
+    "kind": "instruction",
+    "path": "audio/vocab-take-ball.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-put-ball": {
+    "text": "Put the ball in the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-put-ball.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-close-box": {
+    "text": "Close the box.",
+    "kind": "instruction",
+    "path": "audio/vocab-close-box.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-pour-cup": {
+    "text": "Pour water into the cup.",
+    "kind": "instruction",
+    "path": "audio/vocab-pour-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-stir-cup": {
+    "text": "Stir the water.",
+    "kind": "instruction",
+    "path": "audio/vocab-stir-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-wash-bowl": {
+    "text": "Wash the bowl.",
+    "kind": "instruction",
+    "path": "audio/vocab-wash-bowl.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-cut-apple": {
+    "text": "Cut the apple.",
+    "kind": "instruction",
+    "path": "audio/vocab-cut-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-carry-basket": {
+    "text": "Carry the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-carry-basket.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-share-apple": {
+    "text": "Share the apple.",
+    "kind": "instruction",
+    "path": "audio/vocab-share-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-red-cup": {
+    "text": "Put the red cup on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-red-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-two-cups": {
+    "text": "Put two cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-two-cups.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-big-bowl": {
+    "text": "Put the big bowl on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-big-bowl.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-soft-napkin": {
+    "text": "Put the soft napkin beside the plate.",
+    "kind": "instruction",
+    "path": "audio/vocab-soft-napkin.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-sort-tools": {
+    "text": "Put the kitchen tools on the shelf.",
+    "kind": "instruction",
+    "path": "audio/vocab-sort-tools.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-sort-garden": {
+    "text": "Put the garden things in the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-sort-garden.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-sort-color": {
+    "text": "Put the blue things together.",
+    "kind": "instruction",
+    "path": "audio/vocab-sort-color.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-sort-round": {
+    "text": "Put the round things together.",
+    "kind": "instruction",
+    "path": "audio/vocab-sort-round.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-sort-food": {
+    "text": "Put the food in the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-sort-food.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-one-plate": {
+    "text": "Put one plate on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-one-plate.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-three-cups": {
+    "text": "Put three cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-three-cups.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-four-cups": {
+    "text": "Put four cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-four-cups.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-five-cups": {
+    "text": "Put five cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-five-cups.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-white-cup": {
+    "text": "Put the white cup beside the plate.",
+    "kind": "instruction",
+    "path": "audio/vocab-white-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-small-bowl": {
+    "text": "Put the small bowl under the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-small-bowl.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-lamp-on": {
+    "text": "Put the lamp on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-lamp-on.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-43f04668": {
+    "text": "Bring me a cup, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-43f04668.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-114c43c3": {
+    "text": "Bring me a spoon, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-114c43c3.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-60aa2079": {
+    "text": "Bring me a flower, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-60aa2079.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-934c35d3": {
+    "text": "Bring me a book, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-934c35d3.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-506a2ee8": {
+    "text": "Find the red cup.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-506a2ee8.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-c997ae01": {
+    "text": "Bring me a cup and a spoon, please.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-c997ae01.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-36295808": {
+    "text": "Look carefully. What is missing?",
+    "kind": "instruction",
+    "path": "audio/vocab-task-36295808.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-d446cb16": {
+    "text": "Put the kitchen tools on the shelf.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-d446cb16.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-bdceace1": {
+    "text": "Put things where they belong.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-bdceace1.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-6a819af8": {
+    "text": "Put the blue things together.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-6a819af8.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-6ce96f9d": {
+    "text": "Put the cup on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-6ce96f9d.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-a511189e": {
+    "text": "Put the ball in the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-a511189e.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-36a234c3": {
+    "text": "Put the ball under the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-36a234c3.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-14267691": {
+    "text": "Put the chair beside the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-14267691.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-1a824f32": {
+    "text": "Put one cup on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-1a824f32.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-c65b40ad": {
+    "text": "Put two cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-c65b40ad.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-dd1dd3b": {
+    "text": "Put three cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-dd1dd3b.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-f9ad5c2b": {
+    "text": "Put four cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-f9ad5c2b.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-f85402f3": {
+    "text": "Put five cups on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-f85402f3.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-d8edf6ea": {
+    "text": "Put the red cup on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-d8edf6ea.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-d63799b9": {
+    "text": "Put the big bowl on the table.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-d63799b9.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-14b35de5": {
+    "text": "Put the white cup beside the plate.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-14b35de5.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-c022d2d3": {
+    "text": "Put the soft napkin beside the plate.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-c022d2d3.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-9c360d1b": {
+    "text": "Open the box.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-9c360d1b.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-bedd6f48": {
+    "text": "Take the ball.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-bedd6f48.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-729ed51d": {
+    "text": "Close the box.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-729ed51d.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-90d1c235": {
+    "text": "Pour water into the cup.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-90d1c235.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-aaa68561": {
+    "text": "Stir the water.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-aaa68561.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-1292d7b": {
+    "text": "Wash the bowl.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-1292d7b.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-d99d9912": {
+    "text": "Cut the apple.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-d99d9912.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-c0ee6443": {
+    "text": "Carry the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-c0ee6443.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-d81b097f": {
+    "text": "Share the apple.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-d81b097f.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-a43b71c7": {
+    "text": "Put kitchen tools on the shelf, plants in the garden, and food in the basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-a43b71c7.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-3d8bb686": {
+    "text": "Put things in the kitchen or garden. Some things can go in either place. Put books on the shelf.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-3d8bb686.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-6c35f182": {
+    "text": "Put blue things together. Put other colors in the other basket.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-6c35f182.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "vocab-task-32c5e526": {
+    "text": "Put round things together. Put other shapes on the shelf.",
+    "kind": "instruction",
+    "path": "audio/vocab-task-32c5e526.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-welcome": {
+    "id": "world-welcome",
+    "text": "点一位朋友，自己决定先帮谁。",
+    "kind": "scene",
+    "path": "audio/world-welcome.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-kitchen": {
+    "id": "world-kitchen",
+    "text": "听朋友要什么。做好食品，拿起盘，再点这位朋友。",
+    "kind": "scene",
+    "path": "audio/world-kitchen.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-free": {
+    "id": "world-free",
+    "text": "继续搭配、摆放、分享。喜欢的作品放进食谱，也可以收摊。",
+    "kind": "scene",
+    "path": "audio/world-free.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-wait": {
+    "id": "world-wait",
+    "text": "朋友正在接餐。食品留在原处，慢慢来。",
+    "kind": "scene",
+    "path": "audio/world-wait.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-drawer": {
+    "id": "world-drawer",
+    "text": "朋友找到了抽屉。一起打开看看。",
+    "kind": "scene",
+    "path": "audio/world-drawer.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-seed": {
+    "id": "world-seed",
+    "text": "取出花苗，选一个花盆的位置。",
+    "kind": "scene",
+    "path": "audio/world-seed.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-plant": {
+    "id": "world-plant",
+    "text": "把花苗种在你喜欢的位置。",
+    "kind": "scene",
+    "path": "audio/world-plant.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-watering-can": {
+    "id": "world-watering-can",
+    "text": "从抽屉拿出小水壶。",
+    "kind": "scene",
+    "path": "audio/world-watering-can.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-water": {
+    "id": "world-water",
+    "text": "给花喝水。花展开了，蝴蝶也来了。",
+    "kind": "scene",
+    "path": "audio/world-water.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-cool": {
+    "id": "world-cool",
+    "text": "再做一杯不同的甜点，带到树荫下。",
+    "kind": "scene",
+    "path": "audio/world-cool.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-recipe": {
+    "id": "world-recipe",
+    "text": "翻开旧食谱，看看两份真实甜点。",
+    "kind": "scene",
+    "path": "audio/world-recipe.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-compare": {
+    "id": "world-compare",
+    "text": "一份用杯，一份用筒。球数和配料也能不同。尝尝自己的做法。",
+    "kind": "scene",
+    "path": "audio/world-compare.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-taste": {
+    "id": "world-taste",
+    "text": "选一份，让朋友尝一口，看看回应。",
+    "kind": "scene",
+    "path": "audio/world-taste.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-bunting": {
+    "id": "world-bunting",
+    "text": "挂起彩旗，找到阴凉的分享处。",
+    "kind": "scene",
+    "path": "audio/world-bunting.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-basket": {
+    "id": "world-basket",
+    "text": "打开篮子，看看里面和空的位置。",
+    "kind": "scene",
+    "path": "audio/world-basket.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-pack": {
+    "id": "world-pack",
+    "text": "一份三明治，一份水果。放在同一个盘里，带进篮子。",
+    "kind": "scene",
+    "path": "audio/world-pack.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-unpack": {
+    "id": "world-unpack",
+    "text": "把装好的篮子放到桌上，打开一起分享。",
+    "kind": "scene",
+    "path": "audio/world-unpack.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-mat": {
+    "id": "world-mat",
+    "text": "取出两张餐垫，给朋友找到自己的位置。",
+    "kind": "scene",
+    "path": "audio/world-mat.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-place": {
+    "id": "world-place",
+    "text": "选一份食品，再点空餐位。每位朋友都能有一份。",
+    "kind": "scene",
+    "path": "audio/world-place.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-cloth": {
+    "id": "world-cloth",
+    "text": "铺上喜欢的桌布，朋友可以围坐了。",
+    "kind": "scene",
+    "path": "audio/world-cloth.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-lantern": {
+    "id": "world-lantern",
+    "text": "找出灯串。让朋友帮忙带到桌边。",
+    "kind": "scene",
+    "path": "audio/world-lantern.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-cooperate": {
+    "id": "world-cooperate",
+    "text": "朋友可以带灯或带杯。你可以继续准备另一份。",
+    "kind": "scene",
+    "path": "audio/world-cooperate.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-light": {
+    "id": "world-light",
+    "text": "把灯点亮。两种灯光都能照亮朋友。",
+    "kind": "scene",
+    "path": "audio/world-light.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-invite": {
+    "id": "world-invite",
+    "text": "点朋友的邀请牌，听听今天新的分享需要。",
+    "kind": "scene",
+    "path": "audio/world-invite.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-create": {
+    "id": "world-create",
+    "text": "自己搭配，做好拼盘，带到桌边。",
+    "kind": "scene",
+    "path": "audio/world-create.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-share": {
+    "id": "world-share",
+    "text": "听朋友的分享需要。选好食品，再点朋友的分享牌。",
+    "kind": "scene",
+    "path": "audio/world-share.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-save": {
+    "id": "world-save",
+    "text": "把实际作品放进食谱。下次能翻看，也可以继续修改。",
+    "kind": "scene",
+    "path": "audio/world-save.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-finish": {
+    "id": "world-finish",
+    "text": "准备好了。大家一起开席。想玩还能继续做，想休息就收摊。",
+    "kind": "scene",
+    "path": "audio/world-finish.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-use": {
+    "id": "world-use",
+    "text": "朋友把物件带到桌边。",
+    "kind": "scene",
+    "path": "audio/world-use.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-need-fruit": {
+    "id": "world-need-fruit",
+    "text": "Some fruit to share, please.",
+    "kind": "open-request",
+    "path": "audio/world-need-fruit.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-need-drink": {
+    "id": "world-need-drink",
+    "text": "A drink to share, please.",
+    "kind": "open-request",
+    "path": "audio/world-need-drink.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-need-cool": {
+    "id": "world-need-cool",
+    "text": "Something cool, please.",
+    "kind": "open-request",
+    "path": "audio/world-need-cool.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-need-savory": {
+    "id": "world-need-savory",
+    "text": "A sandwich or a burger to share, please.",
+    "kind": "open-request",
+    "path": "audio/world-need-savory.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-need-any": {
+    "id": "world-need-any",
+    "text": "I would like to try your creation, please.",
+    "kind": "open-request",
+    "path": "audio/world-need-any.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-sip": {
+    "id": "world-sip",
+    "text": "Sip! A refreshing drink. Thank you!",
+    "kind": "scene",
+    "path": "audio/world-sip.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-cold": {
+    "id": "world-cold",
+    "text": "Cool and creamy! Thank you!",
+    "kind": "scene",
+    "path": "audio/world-cold.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-bite": {
+    "id": "world-bite",
+    "text": "Mmm! I can taste your food. Thank you!",
+    "kind": "scene",
+    "path": "audio/world-bite.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-clear": {
+    "id": "world-clear",
+    "text": "先把喜欢的作品放进食谱，再收拾桌面，就能继续创作。",
+    "kind": "scene",
+    "path": "audio/world-clear.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-occupied": {
+    "id": "world-occupied",
+    "text": "这个餐位已经有食品了。先点图里的这一份，把它拿回桌边，再重新摆餐。",
+    "kind": "scene",
+    "path": "audio/world-occupied.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "world-fresh": {
+    "id": "world-fresh",
+    "text": "这份已经品尝过了。留在作品里，再做一份新的食品分享。",
+    "kind": "scene",
+    "path": "audio/world-fresh.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
   }
 }

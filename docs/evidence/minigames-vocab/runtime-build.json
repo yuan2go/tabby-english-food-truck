@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:5195/",
+  "sha": "1b2d7b3d15cff2d2446939c59be5040e61bb802c",
+  "dirty": false,
+  "source": "CUA read-only main data-build-sha/data-build-dirty",
+  "observedAt": "2026-10-11 Asia/Shanghai",
+  "normalEntry": "首页→迷你游戏；原生按钮点击正常响应",
+  "previousVerifiedSha": "83c045313993e3b3a270266142da61232042f045",
+  "verifiedBuilds": [
+    "83c045313993e3b3a270266142da61232042f045",
+    "6edde73bb1fb4a00743d4fe74b90dac3ab031e4e",
+    "1b2d7b3d15cff2d2446939c59be5040e61bb802c"
+  ]
+}

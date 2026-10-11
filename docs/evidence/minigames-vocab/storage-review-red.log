@@ -1,0 +1,49 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/mini-expansion-recovery.test.ts (8 tests | 3 failed) 116ms
+   × quantity composition judges actual content and count regardless of placement order 6ms
+   × support survives bounded attempt history and later rounds 3ms
+   × all vocabulary courses with repeated attempts can be saved and restored 96ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > quantity composition judges actual content and count regardless of placement order
+TypeError: quantityProducts is not a function
+ ❯ tests/mini-expansion-recovery.test.ts:102:70
+    100|  const {miniLevel}=await import('../src/content/mini-levels');const {c…
+    101|  const l=miniLevel('quantity-fruit-mix');if(!l)throw Error('quantity');
+    102|  let s=playCourse(startCourse(createCourse(l,'composition')));expect(q…
+       |                                                                      ^
+    103|  s=composeCourse(l,s,'banana');s=composeCourse(l,s,'apple');s=submitCo…
+    104|  expect(composeCourse(l,s,'apple')).toEqual(s);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > support survives bounded attempt history and later rounds
+AssertionError: expected [ 'meaning-picture', …(2) ] to include 'answer-help'
+ ❯ tests/mini-expansion-recovery.test.ts:108:471
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > all vocabulary courses with repeated attempts can be saved and restored
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/mini-expansion-recovery.test.ts:113:75
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 5 passed (8)
+   Start at  21:01:33
+   Duration  855ms (transform 358ms, setup 0ms, import 459ms, tests 116ms, environment 0ms)
+
