@@ -58,3 +58,9 @@ layout的traySurface统一拥有食品、餐盘、选盘和端盘坐标，projec
 实现结果：模态连续替换保留原触发器，独占inert生命周期；help仅作为非模态时不拦场景输入，真正对比/确认采用圈定。Scene重玩先取消前景音频。source选择不消耗食品，明确lift-tray切换不会先移动单件；单件移动/错单恢复仍用现有命令。activityGuidance等待只看仍携食品的delivery任务，接收后立即回到当前目标。
 
 依赖只定向patch开发构建的sharp 0.35.5和source-map-js 1.2.2；无运行时框架升级。矢量脚本增加--images-only --objects=<登记ID>，校验选中范围，仅导出对应SVG/WebP、更新对应清单，禁止顺带重制声音/内容。
+
+## WP-ENGLISH-IMMERSION-01 边界
+
+content/dialogue统一类型化语义参数、完整文本、目标词、整句资源ID、角色及触发；订单catalog消费同一语义生成器，speech与离线制作登记由同一语料导出。不维护第二套订单判定或音频播放器。平台dialogue从实际规则状态差分生成接收/加工/行动事件，短句组件只呈现与重播。前景ForegroundAudio继续唯一通道，生命周期取消；规则进度不由声音决定。重听历史有界、运行态不写通关快照；活动作品/回访文本由已保存真实食品派生，无新增存档schema。真实接收食品即进入既有有界活动记忆，即使未领取章奖励；仅已完成奖励收据解锁装饰与后章。首次被资源加载阻塞的未完成请求仅在仍有效时开始，已播放或已中断的旧句不恢复补播；教学/新菜单/章节旁白可在各自时钟暂停下播放，离场/弹窗/后台/资源暂停取消前景。非订单语料播放只记音频日志；订单听取证据必须显式匹配订单ID。
+
+语音离线macOS Samantha完整句录制，明确DEVELOPMENT_TTS_UNREVIEWED、rights PENDING、人听NOT_RUN。不拼接词、不运行时合成、不录儿童声音。脚本验证文本/音频路径/hash/唯一映射与可达语料；数据化覆盖语法和分支。默认字幕在实际交付attempt支持中保留caption-visible，profile请求交付写meaning而非纯listening；历史记录原样保留。

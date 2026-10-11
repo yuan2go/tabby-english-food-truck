@@ -25,9 +25,10 @@ test('teaching fruit is the real ingredient; fresh endless explicitly introduces
   expect((await state(page)).session.menu).toEqual(['apple']);
   await growth.getByRole('button', { name: '加入今日菜单', exact: true }).tap();
   expect((await state(page)).session.menu).toEqual(['apple', 'banana']);
-  // Only the visible request picture guides preparation here.
+  // Ask for the existing picture support, then use only the visible picture.
   await lesson(page);
-  const picture = page.getByRole('button', { name: '点请求气泡重听' });
+  await page.getByRole('button', { name: '图示帮助', exact: true }).tap();
+  const picture = page.locator('.request-figures');
   const label = await picture.locator('img').getAttribute('alt');
   await tap(page, label?.includes('香蕉') ? 'supply-banana' : 'supply-apple');
   await handOver(page);

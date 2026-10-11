@@ -1,0 +1,56 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep normal entrance
+
+[WebServer] (node:21893) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:21975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:22024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (37.3s)
+
+
+  1) e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.conversation .sentence-text')
+    Expected substring: "Any flavor is fine."
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" locator('.conversation .sentence-text') with timeout 6000ms
+      - waiting for locator('.conversation .sentence-text')
+
+
+      41 |   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+      42 |   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
+    > 43 |   await expect(sentence(page)).toContainText('Any flavor is fine.');
+         |                                ^
+      44 |   await page.getByRole('button', { name: '去厨房备餐', exact: true }).click();
+      45 |   await lesson(page);
+      46 |   await make(page, 'vanilla-cone');
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/immersion.spec.ts:43:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/error-context.md
+
+  1 failed
+    e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory 

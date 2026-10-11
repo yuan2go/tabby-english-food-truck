@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import { JUICE_MS, MODES, PRODUCT_NAMES, type Product } from '../content/catalog';
-import { requestFamily } from '../content/chapters';
 import {
   FAMILY_STATIONS,
   foodAsset,
@@ -116,7 +115,23 @@ export class TruckScene extends Phaser.Scene {
     // A completed pointer can lose capture after a new gesture has started.
     if (this.press?.pointerId === event.pointerId) this.cancel();
   };
+  private consumedClick: { pointerId: number; x: number; y: number; at: number } | null = null;
+  private readonly ownedClick = (event: MouseEvent) => {
+    const owned = this.consumedClick;
+    this.consumedClick = null;
+    if (!owned || event.detail === 0 || performance.now() - owned.at > 750) return;
+    const matches =
+      event instanceof PointerEvent
+        ? event.pointerId === owned.pointerId
+        : Math.hypot(event.clientX - owned.x, event.clientY - owned.y) <= 2;
+    if (!matches) return;
+    // Canvas already consumed pointerup. Its trailing click must not activate
+    // DOM controls mounted by that same gesture (for example the help dialog).
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  };
   private readonly otherPointer = (event: PointerEvent) => {
+    this.consumedClick = null;
     if (this.press && this.press.pointerId !== event.pointerId) this.cancel();
   };
   private readonly key = (e: KeyboardEvent) => {
@@ -162,6 +177,7 @@ export class TruckScene extends Phaser.Scene {
     canvas.addEventListener('pointercancel', this.captureLost);
     canvas.addEventListener('lostpointercapture', this.captureLost);
     document.addEventListener('pointerdown', this.otherPointer, true);
+    document.addEventListener('click', this.ownedClick, true);
     canvas.addEventListener('contextmenu', this.prevent);
     document.addEventListener('visibilitychange', this.visibility);
     document.addEventListener('freeze', this.freeze);
@@ -185,6 +201,8 @@ export class TruckScene extends Phaser.Scene {
       canvas.removeEventListener('pointercancel', this.captureLost);
       canvas.removeEventListener('lostpointercapture', this.captureLost);
       document.removeEventListener('pointerdown', this.otherPointer, true);
+      document.removeEventListener('click', this.ownedClick, true);
+      this.consumedClick = null;
       canvas.removeEventListener('contextmenu', this.prevent);
       document.removeEventListener('visibilitychange', this.visibility);
       document.removeEventListener('freeze', this.freeze);
@@ -473,20 +491,7 @@ export class TruckScene extends Phaser.Scene {
         (job) => job?.kind === 'delivery' && job.order === o.id,
       );
       if (o.status === 'leaving' && delivery?.itemIds.length === 0)
-        this.badge(
-          `label-${o.id}`,
-          {
-            juice: 'So fresh!',
-            ice: 'So cool!',
-            sandwich: 'Yummy!',
-            burger: 'So tasty!',
-            ready: 'Thank you!',
-          }[requestFamily(o.request)],
-          p.x,
-          p.y + l.guestHeight * 0.47,
-          120,
-          36,
-        );
+        this.badge(`label-${o.id}`, 'Thank you!', p.x, p.y + l.guestHeight * 0.47, 120, 36);
       this.hot(
         o.id,
         `客人${o.seat === 0 ? 'A' : 'B'}·${{ rabbit: '兔兔', hedgehog: '刺刺', elder: '长辈' }[visitor]}：拿盘交付，空手重听请求`,
@@ -1131,6 +1136,12 @@ export class TruckScene extends Phaser.Scene {
   private readonly up = (e: PointerEvent): void => {
     const press = this.press;
     if (!press || press.pointerId !== e.pointerId) return;
+    this.consumedClick = {
+      pointerId: e.pointerId,
+      x: e.clientX,
+      y: e.clientY,
+      at: performance.now(),
+    };
     const p = this.point(e),
       h = this.hit(p.x, p.y),
       before = this.controller.state;

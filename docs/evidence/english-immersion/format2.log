@@ -1,0 +1,48 @@
+src/app/Dialogue.tsx:27:8 lint/complexity/noCommaOperator ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! The comma operator is disallowed.
+  
+    25 │       ) : (
+    26 │         part
+  > 27 │       ),
+       │        ^
+    28 │     });
+    29 │ }
+  
+  i Its use is often confusing and obscures side effects.
+  
+
+src/app/Dialogue.tsx:28:5 parse ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Expected an expression but instead found '}'.
+  
+    26 │         part
+    27 │       ),
+  > 28 │     });
+       │     ^
+    29 │ }
+    30 │ export function Sentence({
+  
+  i Expected an expression here.
+  
+    26 │         part
+    27 │       ),
+  > 28 │     });
+       │     ^
+    29 │ }
+    30 │ export function Sentence({
+  
+
+src/app/Dialogue.tsx format ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Code formatting aborted due to parsing errors. To format code with errors, enable the 'formatter.formatWithErrors' option.
+  
+
+Checked 7 files in 48ms. Fixed 3 files.
+Found 2 errors.
+Found 1 warning.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

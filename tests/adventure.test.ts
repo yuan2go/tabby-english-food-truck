@@ -340,7 +340,7 @@ it('friend sharing validates an open need and keeps wrong food and repeated tast
   expect(act(s, 'share', { item: juice.id, visitor: 'rabbit' }).kind).toBe('blocked');
   expect(s.adventure?.foods).toEqual(before);
   expect(activityObstacle(s, { action: 'share', item: juice.id, visitor: 'rabbit' })).toMatchObject(
-    { id: 'choice', products: ['apple', 'banana'], audio: 'world-need-fruit' },
+    { id: 'choice', products: ['apple', 'banana'], audio: 'imm-sharing-fruit' },
   );
   s = act(s, 'share', { item: banana.id, visitor: 'rabbit' }).state;
   expect(s.adventure?.foods.find((f) => f.id === banana.id)?.place).toBe('table:0');

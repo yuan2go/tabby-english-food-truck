@@ -11,6 +11,7 @@ export default defineConfig({
     '**/demo-repair.spec.ts',
     '**/adventure.spec.ts',
     '**/experience.spec.ts',
+    '**/immersion.spec.ts',
     '**/m22-boundaries.spec.ts',
     '**/m22-growth.spec.ts',
     '**/wp-dual-growth.spec.ts',

@@ -109,3 +109,14 @@ it('skip, mute and background stop have distinct results; late callbacks cannot 
     0,
   );
 });
+it('request replay carries one guest identity and replaces the prior whole sentence', async () => {
+  const first = audio.play('request-apple', undefined, 'guest-0');
+  const second = audio.play('request-apple', undefined, 'guest-1');
+  expect(await first).toBe('interrupted');
+  await Promise.resolve();
+  Player.all.at(-1)?.onended?.();
+  expect(await second).toBe('completed');
+  expect(events.filter((c) => c.type === 'audio' && c.audio.status === 'completed')).toEqual([
+    expect.objectContaining({ audio: expect.objectContaining({ order: 'guest-1' }) }),
+  ]);
+});

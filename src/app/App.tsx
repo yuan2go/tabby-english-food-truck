@@ -8,7 +8,7 @@ import { SceneIcon } from './SceneIcon';
 import './foods.css';
 import Phaser from 'phaser';
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
-import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
+import { CONTENT_VERSION, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Support } from '../content/chapters';
 import type { ShopTheme } from '../content/free-shop';
 import { STORY_LEVELS, storyLevel, storySituation } from '../content/story-levels';
@@ -21,6 +21,7 @@ import { TruckScene } from '../game/TruckScene';
 import { ForegroundAudio, type PlaybackResult } from '../platform/audio';
 import { BUILD_INFO } from '../platform/build';
 import { GameController } from '../platform/controller';
+import { DialogueDirector, preparationLine } from '../platform/dialogue';
 import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { Home } from './Home';
@@ -41,7 +42,8 @@ type Screen = 'foods' | 'home' | 'story' | 'game' | 'mini' | 'setup' | 'settings
 type Modal = 'issues' | 'help' | 'audio' | 'pause' | 'clear' | 'restart' | 'contrast' | null;
 export function App() {
   const [controller] = useState(() => new GameController()),
-    [audio] = useState(() => new ForegroundAudio(controller));
+    [audio] = useState(() => new ForegroundAudio(controller)),
+    [dialogue] = useState(() => new DialogueDirector(controller, audio));
   const [, refresh] = useReducer((n) => n + 1, 0);
   const [screen, setScreen] = useState<Screen>('home'),
     [modal, setModal] = useState<Modal>(null),
@@ -57,7 +59,9 @@ export function App() {
   const [opening, setOpening] = useState<number | null>(null);
   const [openingAudio, setOpeningAudio] = useState<PlaybackResult | null>(null);
   const [openingRetry, setOpeningRetry] = useState(0);
+  const [voiceRetry, setVoiceRetry] = useState(0);
   const openingAttempt = useRef(0);
+  const consumedVoiceRetry = useRef(0);
   const [concurrency, setConcurrency] = useState<1 | 2>(
     controller.state.session.activity === 'endless'
       ? controller.state.session.concurrency
@@ -70,7 +74,6 @@ export function App() {
     if (controller.state.adventure?.kind === 'chapter')
       setStoryGuests(controller.state.session.concurrency);
   }, [controller.state.adventure?.kind, controller.state.session.concurrency]);
-  const announced = useRef('');
   const [settingsBack, setSettingsBack] = useState<Screen>('home');
   const [ui] = useState<ViewState>(() => ({
     elements: new Map(),
@@ -218,11 +221,12 @@ export function App() {
     return () => {
       window.removeEventListener('pagehide', flush);
       unsub();
+      dialogue.destroy();
       audio.destroy();
       controller.destroy();
       game.destroy(true);
     };
-  }, [controller, audio, ui]);
+  }, [controller, audio, dialogue, ui]);
   useEffect(() => {
     controller.pause('home', screen !== 'game');
   }, [screen, controller]);
@@ -256,8 +260,50 @@ export function App() {
       controller.pause('opening', false);
     };
   }, [opening, openingRetry, screen, audio, controller]);
-  const activeId = active?.id,
-    activeRequest = active?.request;
+  const activeId = selected?.id,
+    activeRequest = selected?.request;
+  ui.listen = (order) => dialogue.request(order);
+  ui.preparation = () => {
+    const line = preparationLine(controller.state, ui.prep);
+    if (line) dialogue.show({ key: `${controller.state.runId}:prep:${line.audio}`, line }, true);
+  };
+  useEffect(() => {
+    dialogue.setSurface(
+      screen !== 'game' || modal || teaching || growth || note || opening !== null
+        ? 'off'
+        : activityTable
+          ? 'yard'
+          : 'kitchen',
+    );
+  }, [dialogue, screen, modal, teaching, growth, note, opening, activityTable]);
+  useEffect(() => {
+    if (
+      screen === 'game' &&
+      !activityTable &&
+      !modal &&
+      !teaching &&
+      !growth &&
+      !note &&
+      opening === null &&
+      selected &&
+      dialogue.current?.order === selected.id &&
+      !dialogue.current.historical &&
+      !selected.support.includes('caption-visible')
+    )
+      controller.command({ type: 'support', order: selected.id, reason: 'caption-visible' });
+  }, [
+    screen,
+    activityTable,
+    selected,
+    controller,
+    modal,
+    teaching,
+    growth,
+    note,
+    opening,
+    dialogue,
+    dialogue.current?.order,
+  ]);
   useEffect(() => {
     if (
       screen !== 'game' ||
@@ -285,13 +331,10 @@ export function App() {
       setTeaching(activeRequest);
       return;
     }
-    // New meaning pauses before preparation even while a friend is walking in.
-    // Automatic request playback may still wait for the actor to finish its job.
+    // Meaning teaching pauses immediately; automatic speech waits for the actor.
     if (actorBusy) return;
-    if (announced.current !== key) {
-      announced.current = key;
-      void audio.sequence([REQUESTS[activeRequest].audio]);
-    }
+    const order = controller.state.orders.find((o) => o.id === activeId);
+    if (order) dialogue.request(order, true);
   }, [
     screen,
     modal,
@@ -305,8 +348,15 @@ export function App() {
     s.runId,
     s.lessons,
     controller,
-    audio,
+    dialogue,
   ]);
+  useEffect(() => {
+    if (!voiceRetry || voiceRetry === consumedVoiceRetry.current || modal || screen !== 'game')
+      return;
+    consumedVoiceRetry.current = voiceRetry;
+    if (activityTable) dialogue.prompt(false);
+    else if (selected) dialogue.request(selected);
+  }, [voiceRetry, modal, screen, activityTable, dialogue, selected]);
   const closeTeaching = () => {
     audio.stop();
     setTeaching(null);
@@ -314,7 +364,6 @@ export function App() {
     controller.pause('teaching', false);
     ui.feedback = '';
     controller.message = preparationCue(controller.state, ui).text;
-    announced.current = '';
   };
   const home = () => {
     scene.current?.cancel();
@@ -382,7 +431,6 @@ export function App() {
         ? chapter
         : null,
     );
-    announced.current = '';
     setScreen('game');
     controller.pause('home', false);
     void audio.unlock();
@@ -404,7 +452,7 @@ export function App() {
       ? s.items.find((i) => i.id === (ui.selected as { item: string }).item)
       : null;
   const journey = chapterJourney(s, controller.profile.value.completedLevels);
-  const picture = selected && (s.session.support !== 'less' || caption === selected.id);
+  const picture = selected && caption === selected.id;
   return (
     <main
       ref={shell}
@@ -425,6 +473,7 @@ export function App() {
           }}
           controller={controller}
           audio={audio}
+          dialogue={dialogue}
           kitchen={() => {
             setActivityTable(false);
           }}
@@ -735,8 +784,8 @@ export function App() {
               selected={selected}
               selectedItem={selectedItem}
               picture={picture}
-              caption={caption}
-              setCaption={setCaption}
+              dialogue={dialogue}
+              help={help}
             />
           ) : null}
           {opening !== null ? (
@@ -1086,9 +1135,8 @@ export function App() {
                 <button
                   type="button"
                   onClick={() => {
-                    const id = audio.failedRequest ?? audio.lastRequested;
                     setModal(null);
-                    if (id) void audio.play(id);
+                    setVoiceRetry((n) => n + 1);
                   }}
                 >
                   重试声音

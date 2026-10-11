@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-director.test.ts (5 tests | 1 failed) 15ms
+   × a new chapter on the same yard surface immediately presents its own action sentence 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > a new chapter on the same yard surface immediately presents its own action sentence
+AssertionError: expected undefined to be 'imm-open-cool' // Object.is equality
+
+- Expected:
+"imm-open-cool"
+
++ Received:
+undefined
+
+ ❯ tests/immersion-director.test.ts:110:40
+    108|   director.setSurface('yard');
+    109|   controller.enter('story', 1, 'less', true);
+    110|   expect(director.current?.line.audio).toBe('imm-open-cool');
+       |                                        ^
+    111| });
+    112| it('explicit history replay of an already received request retains exa…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  02:13:33
+   Duration  358ms (transform 210ms, setup 0ms, import 254ms, tests 15ms, environment 0ms)
+

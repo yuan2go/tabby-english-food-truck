@@ -2,7 +2,7 @@ import { type Product, REQUESTS } from '../content/catalog';
 import { type Family, isFinished, type StationId } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
-import type { GameState, Source, TrayId } from '../rules/types';
+import type { GameState, Order, Source, TrayId } from '../rules/types';
 import type { DoubleTap } from './gestures';
 import type { Layout } from './layout';
 export type Selection = Source | { tray: TrayId } | null;
@@ -28,6 +28,8 @@ export interface Hotspot {
 export interface ViewState {
   layout?: Layout;
   openHelp: () => void;
+  listen?: (order: Order) => void;
+  preparation?: () => void;
   prep?: 'tray' | 'machine' | StationId;
   doubleTap?: DoubleTap;
   elements: Map<string, HTMLButtonElement>;
@@ -177,7 +179,10 @@ export function activate(
       command = { type: 'deliver', tray: selected.tray, order: guest };
     else {
       const order = s.orders.find((o) => o.id === guest);
-      if (order?.status === 'waiting') void audio.play(REQUESTS[order.request].audio);
+      if (order?.status === 'waiting') {
+        if (ui.listen) ui.listen(order);
+        else void audio.play(REQUESTS[order.request].audio, undefined, order.id);
+      }
       controller.message = '听朋友说一说。装好餐盘后，拿起来递给朋友。';
     }
   } else if (targetItem) {
@@ -245,5 +250,12 @@ export function activate(
       audio.effect('gentle');
     }
   }
+  if (
+    id.startsWith('machine-') ||
+    id.startsWith('station-') ||
+    id.startsWith('family-') ||
+    command?.type === 'move'
+  )
+    ui.preparation?.();
   ui.change();
 }

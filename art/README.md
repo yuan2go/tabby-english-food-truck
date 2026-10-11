@@ -96,3 +96,7 @@ FoodCompare、home-entry与盘把复用登记的食品/角色/数量语音；无
 458条speech引用全部列入本轮听审队列，核心请求、图音对比、活动语音优先；PCM参数/峰值检查不能代替发音、断句、听感音量、图音与适龄审查。详细范围和待验路径见本轮主报告。
 
 全部声音范围还包括audio-synthesis.json登记的4条合成层与9个短反馈；本轮逐项触发路径和源码hash列入待审，insert仅登记未发现实际调用，也保守列入。语音播放事件/混音状态不证明人听审。原生窗口后台专项未确认hidden，不冒称后台声音已验收；同构建听审页与明确待验路径见[主报告](../docs/evidence/demo-repair-2026-10-12/README.md)。
+
+## WP-ENGLISH-IMMERSION-01 · 2026-10-12
+
+128段新增完整请求、行动、感谢、品尝、主动分享与真实食品作品/回访整句，见[语料与来源](immersion-audio.json)。`scripts/immersion-audio.mjs` 从 `dialogue-products.json` 的冠词/可数/不可数语义、catalog/food-orders的真实产品集合与 `dialogue-lines.json` 的角色/触发生成文本和离线完整句PCM WAV。资源制作脚本在macOS＋Node24.15环境执行，使用say / Samantha，140wpm、22050Hz；不拼接词、不在运行时合成。全部 DEVELOPMENT_TTS_UNREVIEWED；人工听审NOT_RUN、分发权PENDING。新增文件只增量登记至manifest，既有素材/语音/来源/权利与失败证据保持。资源校验与单元分别检查hash及整句文本完全一致，机器通过不替代人工听审。

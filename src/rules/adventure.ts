@@ -49,7 +49,7 @@ export function startAdventure(
     remaining: 0,
     heard: false,
     revisit: Boolean(s.history[o.request]?.length),
-    support: s.session.support === 'less' ? [] : ['picture-request'],
+    support: s.session.support === 'demonstration' ? ['guided'] : [],
   }));
   return true;
 }

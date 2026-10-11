@@ -1,0 +1,29 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-events.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-events.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-events.test.ts [ tests/immersion-events.test.ts ]
+Error: Cannot find module '../src/platform/dialogue' imported from /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/tests/immersion-events.test.ts
+ ❯ tests/immersion-events.test.ts:4:1
+      2| import { createGame, dispatch, advance } from '../src/rules/game';
+      3| import { startAdventure } from '../src/rules/adventure';
+      4| import { dialogueEvents, actionPrompt } from '../src/platform/dialogue…
+       | ^
+      5| import { emptyAdventure } from '../src/content/adventure';
+      6|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  02:03:44
+   Duration  213ms (transform 103ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

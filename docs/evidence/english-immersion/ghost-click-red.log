@@ -1,0 +1,56 @@
+[WebServer] (node:28139) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:28217) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:28265) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+POINTER_DIAGNOSTIC_down {"client":[377.59375,144],"at":{"x":377.59375,"y":144},"hit":"note","primary":true,"paused":[],"blocked":false}
+POINTER_DIAGNOSTIC_up {"client":[377.59375,144],"at":{"x":377.59375,"y":144},"hit":"note","primary":true,"paused":[],"blocked":false,"press":"note","moved":false}
+POINTER_DIAGNOSTIC_note_activate
+POINTER_DIAGNOSTIC_app_help
+GHOST_CLICK {"target":"<button type=\"button\">看看客人想要什么</button>","detail":1,"pointerId":5,"x":378,"y":144}
+  ✘  1 e2e/m22-boundaries.spec.ts:197:2 › diagnostic ghostclick (9.9s)
+
+
+  1) e2e/m22-boundaries.spec.ts:197:2 › diagnostic ghostclick ──────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: '大咪陪你一起做' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: '大咪陪你一起做' }) with timeout 6000ms
+      - waiting for getByRole('heading', { name: '大咪陪你一起做' })
+
+
+      199 |  page.on('console',m=>console.log(m.text()));
+      200 |  await page.evaluate(()=>document.addEventListener('click',e=>console.info('GHOST_CLICK',JSON.stringify({target:(e.target as HTMLElement).outerHTML,detail:e.detail,pointerId:(e as PointerEvent).pointerId,x:e.clientX,y:e.clientY})),true));
+    > 201 |  await tap(page,'note'); await page.waitForTimeout(200); await expect(page.getByRole('heading',{name:'大咪陪你一起做'})).toBeVisible();
+          |                                                                                                                   ^
+      202 |  });
+      203 |
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:201:115
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-diagnostic-ghostclick/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-diagnostic-ghostclick/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-diagnostic-ghostclick/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:197:2 › diagnostic ghostclick ───────────────────────────────────────

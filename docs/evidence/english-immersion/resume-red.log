@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-director.test.ts (7 tests | 1 failed) 11ms
+   × an unresolved request first plays when assets allow sound; an interrupted sentence is never automatically resumed 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > an unresolved request first plays when assets allow sound; an interrupted sentence is never automatically resumed
+AssertionError: expected null to be 'imm-order-juice' // Object.is equality
+
+- Expected:
+"imm-order-juice"
+
++ Received:
+null
+
+ ❯ tests/immersion-director.test.ts:135:24
+    133|   expect(Player.all).toHaveLength(0);
+    134|   controller.pause('assets', false);
+    135|   expect(audio.active).toBe(REQUESTS[o.request].audio);
+       |                        ^
+    136|   await Promise.resolve();
+    137|   controller.pause('hidden', true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  02:15:41
+   Duration  293ms (transform 163ms, setup 0ms, import 198ms, tests 11ms, environment 0ms)
+

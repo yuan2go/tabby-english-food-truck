@@ -2793,5 +2793,803 @@
     "kind": "scene",
     "path": "audio/world-fresh.wav",
     "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-apple": {
+    "text": "Can I have an apple, please?",
+    "kind": "order",
+    "path": "audio/imm-order-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-banana": {
+    "text": "Can I have a banana, please?",
+    "kind": "order",
+    "path": "audio/imm-order-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-apple-apple": {
+    "text": "Can I have two apples, please?",
+    "kind": "order",
+    "path": "audio/imm-order-apple-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-juice": {
+    "text": "Can I have some apple juice, please?",
+    "kind": "order",
+    "path": "audio/imm-order-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-apple-banana": {
+    "text": "Can I have an apple and a banana, please?",
+    "kind": "order",
+    "path": "audio/imm-order-apple-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-banana-juice": {
+    "text": "Can I have some banana juice, please?",
+    "kind": "order",
+    "path": "audio/imm-order-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-vanilla-cup": {
+    "text": "Can I have one scoop of vanilla ice cream in a cup, please?",
+    "kind": "order",
+    "path": "audio/imm-order-vanilla-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-vanilla-cone": {
+    "text": "Can I have one scoop of vanilla ice cream in a cone, please?",
+    "kind": "order",
+    "path": "audio/imm-order-vanilla-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-strawberry-cup": {
+    "text": "Can I have one scoop of strawberry ice cream in a cup, please?",
+    "kind": "order",
+    "path": "audio/imm-order-strawberry-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-double-cream": {
+    "text": "Can I have two scoops of ice cream in a cup, one vanilla and one strawberry, please?",
+    "kind": "order",
+    "path": "audio/imm-order-double-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-banana-cream": {
+    "text": "Can I have one scoop of vanilla ice cream with banana in a cup, please?",
+    "kind": "order",
+    "path": "audio/imm-order-banana-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-sandwich": {
+    "text": "Can I have a cheese sandwich, please?",
+    "kind": "order",
+    "path": "audio/imm-order-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-salad-sandwich": {
+    "text": "Can I have a lettuce and tomato sandwich, please?",
+    "kind": "order",
+    "path": "audio/imm-order-salad-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-burger": {
+    "text": "Can I have a burger with lettuce and tomato, please?",
+    "kind": "order",
+    "path": "audio/imm-order-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-cheese-burger": {
+    "text": "Can I have a cheeseburger, please?",
+    "kind": "order",
+    "path": "audio/imm-order-cheese-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-orange": {
+    "text": "Can I have an orange, please?",
+    "kind": "order",
+    "path": "audio/imm-order-orange.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-pear": {
+    "text": "Can I have a pear, please?",
+    "kind": "order",
+    "path": "audio/imm-order-pear.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-peach": {
+    "text": "Can I have a peach, please?",
+    "kind": "order",
+    "path": "audio/imm-order-peach.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-fresh-strawberry": {
+    "text": "Can I have a strawberry, please?",
+    "kind": "order",
+    "path": "audio/imm-order-fresh-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-grape": {
+    "text": "Can I have some grapes, please?",
+    "kind": "order",
+    "path": "audio/imm-order-grape.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-watermelon": {
+    "text": "Can I have some watermelon, please?",
+    "kind": "order",
+    "path": "audio/imm-order-watermelon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-mango": {
+    "text": "Can I have a mango, please?",
+    "kind": "order",
+    "path": "audio/imm-order-mango.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-pineapple": {
+    "text": "Can I have a pineapple, please?",
+    "kind": "order",
+    "path": "audio/imm-order-pineapple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-milk": {
+    "text": "Can I have some milk, please?",
+    "kind": "order",
+    "path": "audio/imm-order-milk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-yogurt": {
+    "text": "Can I have some yogurt, please?",
+    "kind": "order",
+    "path": "audio/imm-order-yogurt.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-smoothie": {
+    "text": "Can I have a smoothie, please?",
+    "kind": "order",
+    "path": "audio/imm-order-smoothie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-milkshake": {
+    "text": "Can I have a milkshake, please?",
+    "kind": "order",
+    "path": "audio/imm-order-milkshake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-pizza": {
+    "text": "Can I have some pizza, please?",
+    "kind": "order",
+    "path": "audio/imm-order-pizza.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-salad": {
+    "text": "Can I have some salad, please?",
+    "kind": "order",
+    "path": "audio/imm-order-salad.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-cake": {
+    "text": "Can I have some cake, please?",
+    "kind": "order",
+    "path": "audio/imm-order-cake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-order-cookie": {
+    "text": "Can I have a cookie, please?",
+    "kind": "order",
+    "path": "audio/imm-order-cookie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-welcome": {
+    "text": "Hello!",
+    "kind": "welcome",
+    "path": "audio/imm-welcome.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-thanks": {
+    "text": "Thank you!",
+    "kind": "receive",
+    "path": "audio/imm-thanks.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-share": {
+    "text": "This is for you.",
+    "kind": "create",
+    "path": "audio/imm-share.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-taste": {
+    "text": "Yummy! I like it.",
+    "kind": "taste",
+    "path": "audio/imm-taste.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-open-cool": {
+    "text": "Can I have ice cream in a cup, please? Any flavor is fine.",
+    "kind": "open",
+    "path": "audio/imm-open-cool.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-open-pack": {
+    "text": "Please pack a sandwich and a piece of fruit in the basket. An apple or a banana is fine.",
+    "kind": "open",
+    "path": "audio/imm-open-pack.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-open-create": {
+    "text": "Let’s make something to share.",
+    "kind": "open",
+    "path": "audio/imm-open-create.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-drawer": {
+    "text": "Please open the drawer.",
+    "kind": "request-action",
+    "path": "audio/imm-drawer.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-basket": {
+    "text": "Please open the basket.",
+    "kind": "request-action",
+    "path": "audio/imm-basket.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-recipe": {
+    "text": "Please open the recipe book.",
+    "kind": "request-action",
+    "path": "audio/imm-recipe.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-plant": {
+    "text": "Please plant the flower.",
+    "kind": "request-action",
+    "path": "audio/imm-plant.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-bunting": {
+    "text": "Please hang the flags.",
+    "kind": "request-action",
+    "path": "audio/imm-bunting.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-light": {
+    "text": "Please turn on the lights.",
+    "kind": "request-action",
+    "path": "audio/imm-light.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-cloth": {
+    "text": "Please put the cloth on the table.",
+    "kind": "request-action",
+    "path": "audio/imm-cloth.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-unpack": {
+    "text": "Please put the basket on the table.",
+    "kind": "request-action",
+    "path": "audio/imm-unpack.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-place": {
+    "text": "Please put the food on the table.",
+    "kind": "request-action",
+    "path": "audio/imm-place.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-place-cup": {
+    "text": "Put the cup on the table, please.",
+    "kind": "request-action",
+    "path": "audio/imm-place-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-try": {
+    "text": "Would you like to try it?",
+    "kind": "request-action",
+    "path": "audio/imm-try.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-invite": {
+    "text": "Come and eat with us!",
+    "kind": "invite",
+    "path": "audio/imm-invite.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-save": {
+    "text": "Let’s save this in our recipe book.",
+    "kind": "request-action",
+    "path": "audio/imm-save.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-found-flower": {
+    "text": "Here is the flower!",
+    "kind": "explore",
+    "path": "audio/imm-found-flower.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-found-light": {
+    "text": "Here are the lights!",
+    "kind": "explore",
+    "path": "audio/imm-found-light.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-found-seats": {
+    "text": "Here are two places for our food.",
+    "kind": "explore",
+    "path": "audio/imm-found-seats.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-opened-basket": {
+    "text": "The basket is open.",
+    "kind": "explore",
+    "path": "audio/imm-opened-basket.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-opened-recipe": {
+    "text": "The recipe book is open.",
+    "kind": "explore",
+    "path": "audio/imm-opened-recipe.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-planted": {
+    "text": "We planted the flower!",
+    "kind": "plant",
+    "path": "audio/imm-planted.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-hung": {
+    "text": "The flags are up!",
+    "kind": "bunting",
+    "path": "audio/imm-hung.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-lit": {
+    "text": "The lights are on!",
+    "kind": "light",
+    "path": "audio/imm-lit.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-spread": {
+    "text": "The cloth is on the table.",
+    "kind": "cloth",
+    "path": "audio/imm-spread.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-unpacked": {
+    "text": "The basket is on the table.",
+    "kind": "unpack",
+    "path": "audio/imm-unpacked.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-placed": {
+    "text": "The food is on the table.",
+    "kind": "place",
+    "path": "audio/imm-placed.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-saved": {
+    "text": "Here is our recipe!",
+    "kind": "save-work",
+    "path": "audio/imm-saved.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-feast": {
+    "text": "Let’s eat together!",
+    "kind": "finish",
+    "path": "audio/imm-feast.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-cup": {
+    "text": "Please put a cup in the machine.",
+    "kind": "preparation",
+    "path": "audio/imm-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-fruit": {
+    "text": "Please put some fruit in the machine.",
+    "kind": "preparation",
+    "path": "audio/imm-fruit.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-start": {
+    "text": "Please press the button.",
+    "kind": "preparation",
+    "path": "audio/imm-start.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-waiting": {
+    "text": "Your food is getting ready.",
+    "kind": "process-start",
+    "path": "audio/imm-waiting.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-ready": {
+    "text": "The food is ready!",
+    "kind": "process-ready",
+    "path": "audio/imm-ready.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-carry": {
+    "text": "Here you are!",
+    "kind": "deliver",
+    "path": "audio/imm-carry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-apple": {
+    "text": "I made an apple.",
+    "kind": "work",
+    "path": "audio/imm-made-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-apple": {
+    "text": "I remember your apple.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-apple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-banana": {
+    "text": "I made a banana.",
+    "kind": "work",
+    "path": "audio/imm-made-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-banana": {
+    "text": "I remember your banana.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-banana.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-orange": {
+    "text": "I made an orange.",
+    "kind": "work",
+    "path": "audio/imm-made-orange.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-orange": {
+    "text": "I remember your orange.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-orange.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-pear": {
+    "text": "I made a pear.",
+    "kind": "work",
+    "path": "audio/imm-made-pear.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-pear": {
+    "text": "I remember your pear.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-pear.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-peach": {
+    "text": "I made a peach.",
+    "kind": "work",
+    "path": "audio/imm-made-peach.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-peach": {
+    "text": "I remember your peach.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-peach.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-fresh-strawberry": {
+    "text": "I made a strawberry.",
+    "kind": "work",
+    "path": "audio/imm-made-fresh-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-fresh-strawberry": {
+    "text": "I remember your strawberry.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-fresh-strawberry.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-mango": {
+    "text": "I made a mango.",
+    "kind": "work",
+    "path": "audio/imm-made-mango.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-mango": {
+    "text": "I remember your mango.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-mango.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-pineapple": {
+    "text": "I made a pineapple.",
+    "kind": "work",
+    "path": "audio/imm-made-pineapple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-pineapple": {
+    "text": "I remember your pineapple.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-pineapple.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-sandwich": {
+    "text": "I made a cheese sandwich.",
+    "kind": "work",
+    "path": "audio/imm-made-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-sandwich": {
+    "text": "I remember your cheese sandwich.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-salad-sandwich": {
+    "text": "I made a lettuce and tomato sandwich.",
+    "kind": "work",
+    "path": "audio/imm-made-salad-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-salad-sandwich": {
+    "text": "I remember your lettuce and tomato sandwich.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-salad-sandwich.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-burger": {
+    "text": "I made a burger with lettuce and tomato.",
+    "kind": "work",
+    "path": "audio/imm-made-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-burger": {
+    "text": "I remember your burger with lettuce and tomato.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-cheese-burger": {
+    "text": "I made a cheeseburger.",
+    "kind": "work",
+    "path": "audio/imm-made-cheese-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-cheese-burger": {
+    "text": "I remember your cheeseburger.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-cheese-burger.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-smoothie": {
+    "text": "I made a smoothie.",
+    "kind": "work",
+    "path": "audio/imm-made-smoothie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-smoothie": {
+    "text": "I remember your smoothie.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-smoothie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-milkshake": {
+    "text": "I made a milkshake.",
+    "kind": "work",
+    "path": "audio/imm-made-milkshake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-milkshake": {
+    "text": "I remember your milkshake.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-milkshake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-cookie": {
+    "text": "I made a cookie.",
+    "kind": "work",
+    "path": "audio/imm-made-cookie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-cookie": {
+    "text": "I remember your cookie.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-cookie.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-juice": {
+    "text": "I made some apple juice.",
+    "kind": "work",
+    "path": "audio/imm-made-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-juice": {
+    "text": "I remember your apple juice.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-banana-juice": {
+    "text": "I made some banana juice.",
+    "kind": "work",
+    "path": "audio/imm-made-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-banana-juice": {
+    "text": "I remember your banana juice.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-banana-juice.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-grape": {
+    "text": "I made some grapes.",
+    "kind": "work",
+    "path": "audio/imm-made-grape.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-grape": {
+    "text": "I remember your grapes.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-grape.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-watermelon": {
+    "text": "I made some watermelon.",
+    "kind": "work",
+    "path": "audio/imm-made-watermelon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-watermelon": {
+    "text": "I remember your watermelon.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-watermelon.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-milk": {
+    "text": "I made some milk.",
+    "kind": "work",
+    "path": "audio/imm-made-milk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-milk": {
+    "text": "I remember your milk.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-milk.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-yogurt": {
+    "text": "I made some yogurt.",
+    "kind": "work",
+    "path": "audio/imm-made-yogurt.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-yogurt": {
+    "text": "I remember your yogurt.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-yogurt.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-pizza": {
+    "text": "I made some pizza.",
+    "kind": "work",
+    "path": "audio/imm-made-pizza.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-pizza": {
+    "text": "I remember your pizza.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-pizza.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-salad": {
+    "text": "I made some salad.",
+    "kind": "work",
+    "path": "audio/imm-made-salad.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-salad": {
+    "text": "I remember your salad.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-salad.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-cake": {
+    "text": "I made some cake.",
+    "kind": "work",
+    "path": "audio/imm-made-cake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-cake": {
+    "text": "I remember your cake.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-cake.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-vanilla-cup": {
+    "text": "I made one scoop of vanilla ice cream in a cup.",
+    "kind": "work",
+    "path": "audio/imm-made-vanilla-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-vanilla-cup": {
+    "text": "I remember your vanilla ice cream in a cup.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-vanilla-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-vanilla-cone": {
+    "text": "I made one scoop of vanilla ice cream in a cone.",
+    "kind": "work",
+    "path": "audio/imm-made-vanilla-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-vanilla-cone": {
+    "text": "I remember your vanilla ice cream in a cone.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-vanilla-cone.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-strawberry-cup": {
+    "text": "I made one scoop of strawberry ice cream in a cup.",
+    "kind": "work",
+    "path": "audio/imm-made-strawberry-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-strawberry-cup": {
+    "text": "I remember your strawberry ice cream in a cup.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-strawberry-cup.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-banana-cream": {
+    "text": "I made one scoop of vanilla ice cream with banana in a cup.",
+    "kind": "work",
+    "path": "audio/imm-made-banana-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-banana-cream": {
+    "text": "I remember your vanilla ice cream with banana in a cup.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-banana-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-made-double-cream": {
+    "text": "I made two scoops of ice cream in a cup, one vanilla and one strawberry.",
+    "kind": "work",
+    "path": "audio/imm-made-double-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-remember-double-cream": {
+    "text": "I remember your vanilla and strawberry ice cream.",
+    "kind": "revisit",
+    "path": "audio/imm-remember-double-cream.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-sharing-fruit": {
+    "text": "Can I have some fruit to share, please?",
+    "kind": "open",
+    "path": "audio/imm-sharing-fruit.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-sharing-drink": {
+    "text": "Can I have a drink to share, please?",
+    "kind": "open",
+    "path": "audio/imm-sharing-drink.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-sharing-cool": {
+    "text": "Can I have something cool, please?",
+    "kind": "open",
+    "path": "audio/imm-sharing-cool.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-sharing-savory": {
+    "text": "Can I have a sandwich or a burger to share, please?",
+    "kind": "open",
+    "path": "audio/imm-sharing-savory.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
+  },
+  "imm-sharing-any": {
+    "text": "I would like to try your creation, please.",
+    "kind": "open",
+    "path": "audio/imm-sharing-any.wav",
+    "status": "DEVELOPMENT_TTS_UNREVIEWED"
   }
 }

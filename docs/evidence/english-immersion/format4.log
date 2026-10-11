@@ -1,0 +1,29 @@
+src/app/Lesson.tsx:117:5 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    115 │   };
+    116 │   const physical =
+  > 117 │     unit &&
+        │     ^^^^^^^
+  > 118 │     unit.choices.every((c) => c.products.length === 1 && c.products.every((p) => RAW.includes(p)));
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    119 │   const choose = (choice: string) => {
+    120 │     if (!unit) return;
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    115 115 │     };
+    116 116 │     const physical =
+    117     │ - ····unit·&&
+    118     │ - ····unit.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+        117 │ + ····unit?.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+    119 118 │     const choose = (choice: string) => {
+    120 119 │       if (!unit) return;
+  
+
+Skipped 2 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 7 files in 26ms. Fixed 7 files.
+Found 1 warning.

@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-director.test.ts (8 tests | 1 failed) 26ms
+   × food-shelf context sound records playback without crediting either identical waiting request 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > food-shelf context sound records playback without crediting either identical waiting request
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/immersion-director.test.ts:160:175
+    158|   for (const status of ['completed', 'failed', 'muted', 'skipped'] as …
+    159|     controller.command({type:'audio', audio:{id:REQUESTS.apple.audio,v…
+    160|   expect(controller.state.orders.every(o => !o.heard && !o.support.inc…
+       |                                                                                                                                                                               ^
+    161|   expect(controller.state.audio.at(-1)?.status).toBe('skipped');
+    162| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  02:16:23
+   Duration  1.05s (transform 659ms, setup 0ms, import 773ms, tests 26ms, environment 0ms)
+

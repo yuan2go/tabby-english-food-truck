@@ -1,0 +1,222 @@
+{
+  "welcome": {
+    "text": "Hello!",
+    "role": "dami",
+    "trigger": "welcome"
+  },
+  "thanks": {
+    "text": "Thank you!",
+    "role": "guest",
+    "trigger": "receive"
+  },
+  "share": {
+    "text": "This is for you.",
+    "role": "dami",
+    "trigger": "create"
+  },
+  "taste": {
+    "text": "Yummy! I like it.",
+    "role": "dami",
+    "trigger": "taste"
+  },
+  "open-cool": {
+    "text": "Can I have ice cream in a cup, please? Any flavor is fine.",
+    "role": "hedgehog",
+    "trigger": "open"
+  },
+  "open-pack": {
+    "text": "Please pack a sandwich and a piece of fruit in the basket. An apple or a banana is fine.",
+    "role": "rabbit",
+    "trigger": "open"
+  },
+  "open-create": {
+    "text": "Let’s make something to share.",
+    "role": "dami",
+    "trigger": "open"
+  },
+  "drawer": {
+    "text": "Please open the drawer.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "basket": {
+    "text": "Please open the basket.",
+    "role": "rabbit",
+    "trigger": "request-action"
+  },
+  "recipe": {
+    "text": "Please open the recipe book.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "plant": {
+    "text": "Please plant the flower.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "bunting": {
+    "text": "Please hang the flags.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "light": {
+    "text": "Please turn on the lights.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "cloth": {
+    "text": "Please put the cloth on the table.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "unpack": {
+    "text": "Please put the basket on the table.",
+    "role": "rabbit",
+    "trigger": "request-action"
+  },
+  "place": {
+    "text": "Please put the food on the table.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "place-cup": {
+    "text": "Put the cup on the table, please.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "try": {
+    "text": "Would you like to try it?",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "invite": {
+    "text": "Come and eat with us!",
+    "role": "dami",
+    "trigger": "invite"
+  },
+  "save": {
+    "text": "Let’s save this in our recipe book.",
+    "role": "dami",
+    "trigger": "request-action"
+  },
+  "found-flower": {
+    "text": "Here is the flower!",
+    "role": "dami",
+    "trigger": "explore"
+  },
+  "found-light": {
+    "text": "Here are the lights!",
+    "role": "dami",
+    "trigger": "explore"
+  },
+  "found-seats": {
+    "text": "Here are two places for our food.",
+    "role": "dami",
+    "trigger": "explore"
+  },
+  "opened-basket": {
+    "text": "The basket is open.",
+    "role": "rabbit",
+    "trigger": "explore"
+  },
+  "opened-recipe": {
+    "text": "The recipe book is open.",
+    "role": "dami",
+    "trigger": "explore"
+  },
+  "planted": {
+    "text": "We planted the flower!",
+    "role": "dami",
+    "trigger": "plant"
+  },
+  "hung": {
+    "text": "The flags are up!",
+    "role": "dami",
+    "trigger": "bunting"
+  },
+  "lit": {
+    "text": "The lights are on!",
+    "role": "dami",
+    "trigger": "light"
+  },
+  "spread": {
+    "text": "The cloth is on the table.",
+    "role": "dami",
+    "trigger": "cloth"
+  },
+  "unpacked": {
+    "text": "The basket is on the table.",
+    "role": "rabbit",
+    "trigger": "unpack"
+  },
+  "placed": {
+    "text": "The food is on the table.",
+    "role": "dami",
+    "trigger": "place"
+  },
+  "saved": {
+    "text": "Here is our recipe!",
+    "role": "dami",
+    "trigger": "save-work"
+  },
+  "feast": {
+    "text": "Let’s eat together!",
+    "role": "dami",
+    "trigger": "finish"
+  },
+  "cup": {
+    "text": "Please put a cup in the machine.",
+    "role": "dami",
+    "trigger": "preparation"
+  },
+  "fruit": {
+    "text": "Please put some fruit in the machine.",
+    "role": "dami",
+    "trigger": "preparation"
+  },
+  "start": {
+    "text": "Please press the button.",
+    "role": "dami",
+    "trigger": "preparation"
+  },
+  "waiting": {
+    "text": "Your food is getting ready.",
+    "role": "dami",
+    "trigger": "process-start"
+  },
+  "ready": {
+    "text": "The food is ready!",
+    "role": "dami",
+    "trigger": "process-ready"
+  },
+  "carry": {
+    "text": "Here you are!",
+    "role": "dami",
+    "trigger": "deliver"
+  },
+  "sharing-fruit": {
+    "text": "Can I have some fruit to share, please?",
+    "role": "guest",
+    "trigger": "open"
+  },
+  "sharing-drink": {
+    "text": "Can I have a drink to share, please?",
+    "role": "guest",
+    "trigger": "open"
+  },
+  "sharing-cool": {
+    "text": "Can I have something cool, please?",
+    "role": "guest",
+    "trigger": "open"
+  },
+  "sharing-savory": {
+    "text": "Can I have a sandwich or a burger to share, please?",
+    "role": "guest",
+    "trigger": "open"
+  },
+  "sharing-any": {
+    "text": "I would like to try your creation, please.",
+    "role": "guest",
+    "trigger": "open"
+  }
+}

@@ -214,7 +214,8 @@ export class ProfileStore {
     this.save();
   }
   rememberActivity(runId: string, state: AdventureState): void {
-    if (!state.rewards.length && !state.works.length) return;
+    // A received food is real history even when the child leaves before a chapter reward.
+    if (!state.rewards.length && !state.works.length && !state.foods.length) return;
     const prior = this.value.activityMemories.find(
       (m) => m.runId === runId && m.state.kind === state.kind && m.state.chapter === state.chapter,
     );

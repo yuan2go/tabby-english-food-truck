@@ -1,0 +1,46 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m21-audio.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/m21-audio.test.ts (4 tests | 1 failed) 8ms
+   × request replay carries one guest identity and replaces the prior whole sentence 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m21-audio.test.ts > request replay carries one guest identity and replaces the prior whole sentence
+AssertionError: expected [ { type: 'audio', audio: { …(3) } } ] to deeply equal [ ObjectContaining{…} ]
+
+- Expected
++ Received
+
+  [
+    {
+      "audio": {
+-       "order": "guest-1",
++       "id": "request-apple",
++       "status": "completed",
++       "version": "samantha-dev-m22-140-dami",
+      },
++     "type": "audio",
+    },
+  ]
+
+ ❯ tests/m21-audio.test.ts:119:86
+    117|   Player.all.at(-1)?.onended?.();
+    118|   expect(await second).toBe('completed');
+    119|   expect(events.filter((c) => c.type === 'audio' && c.audio.status ===…
+       |                                                                                      ^
+    120|     expect.objectContaining({ audio: expect.objectContaining({ order: …
+    121|   ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  02:03:45
+   Duration  215ms (transform 109ms, setup 0ms, import 132ms, tests 8ms, environment 0ms)
+

@@ -1,0 +1,111 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:25443) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:25511) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+(node:25557) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:38:1 › visible activity entrance reaches all five chapters and saves a real creation (2.7m)
+  ✓   2 e2e/adventure.spec.ts:135:1 › phone replay follows hedgehog path with real food and no packing task (1.0m)
+  ✓   3 e2e/adventure.spec.ts:178:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (25.1s)
+  ✓   4 e2e/adventure.spec.ts:223:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (13.2s)
+  ✓   5 e2e/adventure.spec.ts:274:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (24.8s)
+  ✓   6 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (1.1m)
+  ✓   7 e2e/immersion.spec.ts:104:1 › phone: held tray and two guests replay without delivery; cancellation, pause, failure and short landscape (5.8s)
+  ✘   8 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (32.2s)
+(node:26683) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 e2e/m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (8.9s)
+  ✓  10 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (25.4s)
+  ✓  11 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (20.2s)
+  ✓  12 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (41.6s)
+  ✓  13 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (9.0s)
+  ✘  14 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (25.7s)
+(node:27135) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 e2e/wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress (8.3s)
+
+
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: '大咪陪你一起做' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: '大咪陪你一起做' }) with timeout 6000ms
+      - waiting for getByRole('heading', { name: '大咪陪你一起做' })
+
+
+      151 |       .toBe('CANVAS');
+      152 |     await tap(page, 'note');
+    > 153 |     await expect(page.getByRole('heading', { name: '大咪陪你一起做' })).toBeVisible();
+          |                                                                  ^
+      154 |     await page.getByRole('button', { name: '继续营业', exact: true }).tap();
+      155 |     await tap(page, 'tray-1', 25);
+      156 |     await tap(page, 'supply-apple');
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:153:66
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  2) e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('dialog', { name: '今日新菜单' })
+    Expected substring: "Apple juice"
+    Received string:    "大咪发现一个新味道这次先不加 ↗认识后，再放上菜单Can I have some apple juice, please?♫→这里的果汁是一杯。点机器，自己选水果，启动后会放到绑定的盘里。加入今日菜单这是认识新菜单，不是考试。随时可请大咪帮忙。"
+    Timeout: 6000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('dialog', { name: '今日新菜单' }) with timeout 6000ms
+      - waiting for getByRole('dialog', { name: '今日新菜单' })
+        15 × locator resolved to <section role="dialog" aria-modal="true" aria-label="今日新菜单" class="lesson-dialog short-lesson">…</section>
+           - unexpected value "大咪发现一个新味道这次先不加 ↗认识后，再放上菜单Can I have some apple juice, please?♫→这里的果汁是一杯。点机器，自己选水果，启动后会放到绑定的盘里。加入今日菜单这是认识新菜单，不是考试。随时可请大咪帮忙。"
+
+
+      27 |     else await page.getByRole('button', { name: '加入今日菜单' }).click();
+      28 |   }
+    > 29 |   await expect(page.getByRole('dialog', { name: '今日新菜单' })).toContainText('Apple juice');
+         |                                                             ^
+      30 |   const menu = await page.evaluate(() => {
+      31 |     const raw = localStorage.getItem('tabby.foodtruck.profile.m2');
+      32 |     return raw ? JSON.parse(raw).presented : [];
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/wp-dual-growth.spec.ts:29:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wp-dual-growth-deferred-me-b264d-ter-another-completed-order/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/wp-dual-growth-deferred-me-b264d-ter-another-completed-order/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wp-dual-growth-deferred-me-b264d-ter-another-completed-order/error-context.md
+
+  2 failed
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+    e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order 
+  13 passed (9.0m)

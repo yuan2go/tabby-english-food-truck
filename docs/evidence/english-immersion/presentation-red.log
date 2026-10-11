@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-director.test.ts (10 tests | 1 failed) 90ms
+   × menu introduction voice uses its clock pause without interrupting the shared channel 25ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > menu introduction voice uses its clock pause without interrupting the shared channel
+AssertionError: expected null to be 'imm-order-banana' // Object.is equality
+
+- Expected:
+"imm-order-banana"
+
++ Received:
+null
+
+ ❯ tests/immersion-director.test.ts:180:24
+    178|   director.setSurface('off');
+    179|   await Promise.resolve();
+    180|   expect(audio.active).toBe(REQUESTS.banana.audio);
+       |                        ^
+    181|   const before = controller.state.gameTime;
+    182|   controller.tick(250);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  02:24:57
+   Duration  1.15s (transform 699ms, setup 0ms, import 823ms, tests 90ms, environment 0ms)
+
