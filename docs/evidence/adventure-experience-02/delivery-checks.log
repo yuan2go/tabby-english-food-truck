@@ -1,0 +1,43 @@
+Markdown files: 81; local relative links: 436; missing: 0
+Full baseline-to-HEAD diff check exit=2; raw artifact files=28; original whitespace preserved
+Raw artifact: docs/evidence/adventure-experience-02/browser-7cafefb.log
+Raw artifact: docs/evidence/adventure-experience-02/browser-a8d945a.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/browser-0243361.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/browser-055219d.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/browser-f531590-interrupted.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/busy-home-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/capacity-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/completed-clear-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/content-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/covered-home-book-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/covered-request-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/desktop-controls-red-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/desktop-controls-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/free-run-time-limit-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/identity-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/order-audio-completion-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/queued-help-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/receipt-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/return-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/shade-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/sharing-used-red.log
+Raw artifact: docs/evidence/adventure-experience-02/failures/slow-visual-clock-context.md
+Raw artifact: docs/evidence/adventure-experience-02/failures/ui-red.log
+Raw artifact: docs/evidence/adventure-experience-02/lint-ab7978f.log
+Raw artifact: docs/evidence/adventure-experience-02/lint-cb44b1d.log
+Raw artifact: docs/evidence/adventure-experience-02/lint.log
+Raw artifact: docs/evidence/adventure-experience-02/unit.log
+Authored product/docs/evidence metadata or current working diff check exit=0
+Authored product/docs/evidence metadata or current working diff check exit=0
+Authored product/docs/evidence metadata or current working diff check exit=0
+Changes since shared-rule suite a8d945a (presentation only):
+src/app/Adventure.tsx
+src/app/App.tsx
+src/app/FriendTheatre.tsx
+src/app/SharingPegs.tsx
+src/app/adventure.css
+src/app/friend-theatre.css
+
+Runtime/config/tests/resources change after final clean build: NONE
+Shared-rule/content/save/audio/resources/dependency diff after 258-test run: NONE

@@ -9,6 +9,7 @@ export default defineConfig({
   testMatch: [
     '**/minigames-vocab.spec.ts',
     '**/adventure.spec.ts',
+    '**/experience.spec.ts',
     '**/m22-boundaries.spec.ts',
     '**/m22-growth.spec.ts',
     '**/wp-dual-growth.spec.ts',
@@ -23,6 +24,7 @@ export default defineConfig({
   use: {
     baseURL,
     browserName: process.env.BROWSER === 'webkit' ? 'webkit' : 'chromium',
+    channel: process.env.BROWSER === 'webkit' ? undefined : process.env.CHROMIUM_CHANNEL,
     storageState: process.env.CI
       ? {
           cookies: [],

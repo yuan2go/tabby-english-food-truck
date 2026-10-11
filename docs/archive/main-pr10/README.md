@@ -8,7 +8,7 @@
 
 ## 当前状态
 
-当前工作包为 **WP-ADVENTURE-DIRECT-INPUT-01**，从 `origin/main` `e3724a59cfe958a1d584aa4864988aeec73ba7e9` 开始。点托盘/设备选投料，按设备实体开关制作，拿起整盘后点客人递出，气泡重听；首页续玩直接回柜台，小关完成后直接接下一件事。五章目标常驻，接餐使场景逐步变化，已完成选择会影响后续请求。50食品、25故事小关与30主题小游戏及混合复习保留。当前验证见 [STATUS](docs/STATUS.md) 与 [本包证据](docs/evidence/adventure-direct-input/README.md)。此前工作包作为历史保留。
+当前工作包为 **WP-ADVENTURE-DIRECT-INPUT-01**，从 `origin/main` `e3724a59cfe958a1d584aa4864988aeec73ba7e9` 开始。点托盘/设备选投料，按设备实体开关制作，拿起整盘后点客人递出，气泡重听；首页续玩直接回柜台，小关完成后直接接下一件事。五章目标常驻，接餐使场景逐步变化，已完成选择会影响后续请求。50食品、25故事小关与30主题小游戏及混合复习保留。当前验证见 [STATUS](STATUS.md) 与 [本包证据](../../evidence/adventure-direct-input/README.md)。此前工作包作为历史保留。
 
 [既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 是历史部署；本工作包不部署。冻结的大咪形象继续使用，新增对白使用既有开发语音或文本；听审、教研、权利、实体设备和儿童观察分别验收。
 
@@ -34,7 +34,7 @@ npm run dev
 | `npm run resources` | 校验真实资源尺寸/字节/hash/Alpha/引用 |
 | `npm run test:browser` | 构建生产包，以 HTTP 启动 Chromium 操作测试，保留录像 |
 
-资源重新导出：`node scripts/export-assets.mjs` 与 `node scripts/export-character.mjs`、`node scripts/export-m2.mjs`；只有确实更新生产文件后才运行 `node scripts/manifest.mjs` 重登记，再执行资源检查。不要靠改清单掩盖坏资源。原稿、来源、权利与审核见 [art/README](art/README.md)。
+资源重新导出：`node scripts/export-assets.mjs` 与 `node scripts/export-character.mjs`、`node scripts/export-m2.mjs`；只有确实更新生产文件后才运行 `node scripts/manifest.mjs` 重登记，再执行资源检查。不要靠改清单掩盖坏资源。原稿、来源、权利与审核见 [art/README](../../../art/README.md)。
 
 ## 当前操作说明
 
@@ -65,13 +65,13 @@ npm run dev
 
 | 文档 | 唯一职责 |
 | --- | --- |
-| [产品文档](docs/01-product.md) | 目标用户、产品范围、学习路径、非目标、价值假设和优先级 |
-| [游戏设计](docs/02-game-design.md) | 角色分工、订单/食物/设备规则、配方、场次、支持和失败恢复 |
-| [交互、美术与音频设计](docs/03-experience-design.md) | 场景布局、触屏、角色动作、资源生产和体验质量门槛 |
-| [技术设计](docs/04-technical-design.md) | 新工程架构、单一规则核、时间、保存、资源和语言判定 |
-| [交付与验收](docs/05-delivery.md) | M0/M1历史、M2完整分阶段交付、必要验证和发布边界 |
-| [状态](docs/STATUS.md) | 已实现、已验证、未运行、待审核和实际提交身份 |
-| [开发协作约束](AGENTS.md) | 新仓库隔离、执行顺序、工程与 Git 规则 |
+| [产品文档](../../01-product.md) | 目标用户、产品范围、学习路径、非目标、价值假设和优先级 |
+| [游戏设计](02-game-design.md) | 角色分工、订单/食物/设备规则、配方、场次、支持和失败恢复 |
+| [交互、美术与音频设计](03-experience-design.md) | 场景布局、触屏、角色动作、资源生产和体验质量门槛 |
+| [技术设计](04-technical-design.md) | 新工程架构、单一规则核、时间、保存、资源和语言判定 |
+| [交付与验收](05-delivery.md) | M0/M1历史、M2完整分阶段交付、必要验证和发布边界 |
+| [状态](STATUS.md) | 已实现、已验证、未运行、待审核和实际提交身份 |
+| [开发协作约束](../../../AGENTS.md) | 新仓库隔离、执行顺序、工程与 Git 规则 |
 
 读产品与游戏设计后，再读体验、技术和交付文档。冲突应修正对应权威文档，不追加另一套“最终蓝图”。
 
@@ -83,6 +83,6 @@ npm run dev
 
 ## 当前交付边界
 
-当前运行候选、逐项工程检查、同视口截图与连续录像见[本包证据](docs/evidence/dual-layout-playflow/README.md)；本包未做新的真实 FPS 测量，新代码尚未部署。最终画面和手感仍交负责人确认，教研、听审、实机与儿童观察分别报告，不用本地通过代替公开发布资格。
+当前运行候选、逐项工程检查、同视口截图与连续录像见[本包证据](../../evidence/dual-layout-playflow/README.md)；本包未做新的真实 FPS 测量，新代码尚未部署。最终画面和手感仍交负责人确认，教研、听审、实机与儿童观察分别报告，不用本地通过代替公开发布资格。
 
 无账号、支付、广告、多人、后台或运行时 AI 依赖。代码授权与资产权利分别登记；本 README 不授予第三方素材使用权。

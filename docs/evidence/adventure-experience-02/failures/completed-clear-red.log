@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (28 tests | 1 failed) 145ms
+   × a completed feast survives clearing and old-version migration without inventing new activity facts 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > a completed feast survives clearing and old-version migration without inventing new activity facts
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/adventure.test.ts:451:48
+    449|   expect(s.adventure?.rewards).toEqual(['feast-page']);
+    450|   s = act(s, 'clear-table', { confirmed: true }).state;
+    451|   expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+       |                                                ^
+    452|   const old = JSON.parse(JSON.stringify(s));
+    453|   old.contentVersion = 'playable-adventure-1';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 27 passed (28)
+   Start at  20:43:12
+   Duration  912ms (transform 400ms, setup 0ms, import 477ms, tests 145ms, environment 0ms)
+

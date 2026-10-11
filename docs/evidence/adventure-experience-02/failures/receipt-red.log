@@ -1,0 +1,38 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (26 tests | 1 failed) 472ms
+   × a shared-meal receipt retains each actual eater and food location 23ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > a shared-meal receipt retains each actual eater and food location
+AssertionError: expected [ [ 'apple', undefined ], …(1) ] to deeply equal [ [ 'apple', 'rabbit' ], …(1) ]
+
+- Expected
++ Received
+
+  [
+    [
+      "apple",
+-     "rabbit",
++     undefined,
+    ],
+    [
+      "banana",
+-     "hedgehog",
++     undefined,
+    ],
+  ]
+
+ ❯ tests/adventure.test.ts:405:88
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 25 passed (26)
+   Start at  20:36:29
+   Duration  1.85s (transform 863ms, setup 0ms, import 1.12s, tests 472ms, environment 0ms)
+

@@ -1,0 +1,104 @@
+
+Running 8 tests using 1 worker
+
+(node:77991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (5.1m)
+(node:79278) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/adventure.spec.ts:160:1 › phone replay follows hedgehog path with real food and no packing task (2.9m)
+  ✓  3 e2e/adventure.spec.ts:211:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (49.8s)
+  ✓  4 e2e/adventure.spec.ts:274:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (20.8s)
+  ✓  5 e2e/adventure.spec.ts:328:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (36.2s)
+  ✓  6 e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (9.3s)
+  ✘  7 e2e/experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help (13.5s)
+(node:80185) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  8 e2e/experience.spec.ts:66:1 › muting through visible settings retains picture goals and safe replay (7.2s)
+
+
+  1) e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Test timeout of 300000ms exceeded
+
+       at helpers.ts:212
+
+      210 |       { timeout: 15000 },
+      211 |     )
+    > 212 |     .toBe(true);
+          |      ^
+      213 |   const item = (await state(p)).items.find(
+      214 |     (i) =>
+      215 |       i.product === product &&
+        at make (/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/helpers.ts:212:6)
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:122:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  2) e2e/experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '旧食谱 · 回访活动与作品', exact: true })
+        - locator resolved to <button type="button" class="yard-activity-badge">旧食谱 · 回访活动与作品</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" aria-label="迷你游戏" class="entry-main">…</button> from <div class="yard-entry yard-mini">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" aria-label="迷你游戏" class="entry-main">…</button> from <div class="yard-entry yard-mini">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        8 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" aria-label="迷你游戏" class="entry-main">…</button> from <div class="yard-entry yard-mini">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+
+
+      39 |   await page.setViewportSize({ width: 393, height: 665 });
+      40 |   await page.goto('/');
+    > 41 |   await page.getByRole('button', { name: '旧食谱 · 回访活动与作品', exact: true }).click();
+         |                                                                          ^
+      42 |   await page.getByRole('button', { name: '跳过序章', exact: true }).click();
+      43 |   await page.getByRole('button', { name: '少些帮助，听一听', exact: true }).click();
+      44 |   await page.getByRole('button', { name: '晨光开门', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/experience.spec.ts:41:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/experience-less-support-ke-14264-vides-recorded-picture-help/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/experience-less-support-ke-14264-vides-recorded-picture-help/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/experience-less-support-ke-14264-vides-recorded-picture-help/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+    e2e/experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help 
+  6 passed (10.4m)

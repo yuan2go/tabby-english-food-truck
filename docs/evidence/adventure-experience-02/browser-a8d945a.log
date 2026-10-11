@@ -1,0 +1,88 @@
+
+Running 8 tests using 1 worker
+
+(node:81149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_FEAST_START_SECONDS 49.939
+  ✓  1 e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (6.7m)
+  ✓  2 e2e/adventure.spec.ts:170:1 › phone replay follows hedgehog path with real food and no packing task (3.5m)
+  ✘  3 e2e/adventure.spec.ts:221:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (1.6m)
+(node:83471) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 e2e/adventure.spec.ts:297:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (41.2s)
+  ✘  5 e2e/adventure.spec.ts:351:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (1.4m)
+(node:83769) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (30.1s)
+  ✓  7 e2e/experience.spec.ts:36:1 › less support keeps the order answer private until failed speech provides recorded picture help (22.3s)
+  ✓  8 e2e/experience.spec.ts:66:1 › muting through visible settings retains picture goals and safe replay (8.9s)
+
+
+  1) e2e/adventure.spec.ts:221:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('dialog', { name: '收拾活动桌', exact: true }).getByRole('button', { name: '确认收拾', exact: true })
+
+
+      287 |   await expect(
+      288 |     page.locator('.remembered-seat').nth(1).getByRole('img', { name: '苹果汁', exact: true }),
+    > 289 |   ).toBeVisible();
+          |                   ^
+      290 |   await page.getByRole('button', { name: '收起食谱', exact: true }).click();
+      291 |   const before = await state(page);
+      292 |   await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:289:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/error-context.md
+
+  2) e2e/adventure.spec.ts:351:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,7 +1,7 @@
+      Object {
+    -   "heard": false,
+    +   "heard": true,
+        "id": "guest-2",
+        "remaining": 0,
+        "request": "banana",
+        "revisit": false,
+        "seat": 0,
+
+      388 |   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+      389 |   await lesson(page);
+    > 390 |   const pendingMenu = page.getByRole('dialog', { name: '今日新菜单', exact: true });
+          |                          ^
+      391 |   if (await pendingMenu.count())
+      392 |     await pendingMenu.getByRole('button', { name: '这次先不加 ↗', exact: true }).click();
+      393 |   const old = (await state(page)).orders[0];
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:390:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:221:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+    e2e/adventure.spec.ts:351:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+  6 passed (15.0m)

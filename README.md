@@ -2,9 +2,7 @@
 
 和大咪一起做早餐、分享甜点、准备野餐、点亮餐桌和邀请朋友。单人、触控优先、面向3–6岁，以轻冒险、玩具厨房与轻量调度组成完整游戏。
 
-前包 **WP-PLAYABLE-ADVENTURE-01** 已实现五章连续共同活动、野餐真实双路径、自由制作/摆放/品尝/作品食谱、互动小院和熟悉菜单自由开店。交付改变活动，花、彩旗、桌布和灯随真实探索与协作解锁；收摊、重玩与回访保留作品及活动记忆。严格订单、开放委托、自由制作共用规则核并分别判定。
-
-工程结果与外部验收见[STATUS](docs/STATUS.md)，正常入口与少量画面见[本包证据](docs/evidence/playable-adventure/README.md)，规则与验收见下表。进入小院当前活动即可开始五章；“自由开店”选择已介绍菜单与主题，停止接客后可继续做作品并自然收摊。
+同次交付的 **WP-ADVENTURE-EXPERIENCE-02** 已实现五章、野餐真实双路径和自由厨房的体验深化：单/双客支持策略、图示与可重听引导、朋友连续使用食品、工具探索和回访创作。相关工程与正常入口路径已有实际通过结果；负责人、真机、儿童观察与听审仍待验。实现与验证状态见[STATUS](docs/STATUS.md)，验收见[05](docs/05-delivery.md)，构建身份、分批结果和影像见[本包证据](docs/evidence/adventure-experience-02/README.md)。此前包已合并，证据保留[历史索引](docs/archive/pre-adventure-experience-02/index.md)。
 
 ## 启动
 
@@ -38,3 +36,5 @@ npm run dev
 [既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/)为历史部署；本包未经授权不部署。工程验证、负责人视觉/手感、真机、教研/听审/权利与儿童观察分别报告，开发语音明确未审核。
 
 当前 **WP-MINIGAMES-VOCAB-EXPANSION-01** 工程实现已验证：十类可选小游戏、120学习概念、33短指令、15新场景关/51任务；外部接受仍待验。[完整报告与启动](docs/evidence/minigames-vocab/README.md)、[120词覆盖表](docs/evidence/minigames-vocab/vocabulary-coverage.csv)，实际结果以STATUS为准。[本包实施计划](docs/plans/2026-10-11-minigames-vocab.md)。
+
+2026-10-11 负责人授权统一提交、推送、PR并合并main，包括现存执行产物；负责人最新要求放弃试玩报告。本次整合版本测试/构建/运行检查均 **NOT_RUN**；历史工程结果仅对应原工作包。最新原PR云端CI均失败，详情与交付记录见[STATUS](docs/STATUS.md)。

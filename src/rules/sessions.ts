@@ -1,3 +1,4 @@
+import type { Visitor } from '../content/adventure';
 import type { RequestId } from '../content/catalog';
 import {
   type Activity,
@@ -134,5 +135,29 @@ export function applyPolicy(s: GameState, support: Support, concurrency: 1 | 2):
   // A legacy one-tray layout changes only at an idle action boundary.
   if (concurrency === 2 && !s.actor.current && !s.helper && !s.trays.some((t) => t.remaining))
     s.mode = 'service';
+  if (s.adventure?.kind === 'chapter' && concurrency === 2)
+    for (const order of s.orders.filter((o) => o.status === 'queued'))
+      admitAdventure(s, order.visitor);
   if (s.mode === 'service' || concurrency === 1) replenish(s);
+}
+
+/** Admission is a player choice in a single-guest adventure, never a queue side effect. */
+export function admitAdventure(s: GameState, visitor?: Visitor): boolean {
+  if (s.adventure?.kind !== 'chapter' || !visitor) return false;
+  const order = s.orders.find((o) => o.visitor === visitor && o.status === 'queued');
+  const active = s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving');
+  if (!order || active.length >= s.session.concurrency) return false;
+  const seat = ([0, 1] as const).find((seat) => !active.some((o) => o.seat === seat));
+  if (seat === undefined) return false;
+  order.seat = seat;
+  order.status = 'waiting';
+  if (s.session.support !== 'less')
+    order.support = [
+      ...new Set([
+        ...order.support,
+        'picture-request',
+        ...(s.session.support === 'demonstration' ? ['guided'] : []),
+      ]),
+    ].slice(-24);
+  return true;
 }

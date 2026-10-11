@@ -4,6 +4,7 @@ import { type Activity, CHAPTERS, type Support } from '../content/chapters';
 import { type ShopTheme, themeAllows } from '../content/free-shop';
 import { storyLevel, storySituation } from '../content/story-levels';
 import { startAdventure } from '../rules/adventure';
+import { hydrateExperience } from '../rules/adventure-experience';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
 import type { Command, GameState, Result } from '../rules/types';
@@ -132,7 +133,12 @@ export class GameController {
       });
     }
   }
-  private enterAdventure(chapter: number, support: Support, replay: boolean): void {
+  private enterAdventure(
+    chapter: number,
+    support: Support,
+    replay: boolean,
+    concurrency: 1 | 2,
+  ): void {
     if (!ADVENTURES[chapter]) return;
     this.save.save(this.state);
     const stored = this.save.loadSession(`story-${chapter}-adventure`);
@@ -141,9 +147,21 @@ export class GameController {
     this.state = !replay && stored ? stored : createGame(this.runId(), 0, history, 'practice');
     if (!this.state.adventure) {
       this.state.session.support = support;
+      this.state.session.concurrency = concurrency;
       startAdventure(this.state, chapter);
     }
-    this.state.session.support = support;
+    applyPolicy(this.state, support, concurrency);
+    if (this.state.adventure) {
+      hydrateExperience(this.state.adventure);
+      const e = this.state.adventure.experience;
+      if (e) {
+        e.known = [...this.profile.value.receivedProducts];
+        e.picnic =
+          this.profile.value.activityMemories
+            .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
+            .at(-1)?.state.branch ?? null;
+      }
+    }
     if (stored) {
       this.state.noteSupport = [
         ...new Set([...this.state.noteSupport, ...stored.noteSupport]),
@@ -235,7 +253,7 @@ export class GameController {
     shop?: { menu: RequestId[]; theme: ShopTheme },
   ): void {
     if (activity === 'story' && !levelId) {
-      this.enterAdventure(chapter, support, replay);
+      this.enterAdventure(chapter, support, replay, concurrency);
       return;
     }
     if (
@@ -305,6 +323,17 @@ export class GameController {
     this.state.session.language = this.profile.value.language;
     if (activity === 'endless' && !this.state.adventure)
       this.state.adventure = emptyAdventure(4, 'shop');
+    if (this.state.adventure) {
+      hydrateExperience(this.state.adventure);
+      const e = this.state.adventure.experience;
+      if (e) {
+        e.known = [...this.profile.value.receivedProducts];
+        e.picnic =
+          this.profile.value.activityMemories
+            .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
+            .at(-1)?.state.branch ?? null;
+      }
+    }
     applyPolicy(this.state, support, concurrency);
     this.savedGame = Boolean(previous);
     this.checkpoint = 0;

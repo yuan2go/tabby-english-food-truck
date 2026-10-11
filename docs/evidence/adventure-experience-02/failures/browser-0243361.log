@@ -1,0 +1,77 @@
+
+Running 2 tests using 1 worker
+
+(node:85877) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_FEAST_START_SECONDS 126.623
+  ✘  1 e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (2.5m)
+(node:86247) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/adventure.spec.ts:371:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (1.3m)
+
+
+  1) e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+    Expected pattern: /stage-2/
+    Received string:  "friend-theatre theatre-finish stage-1  bite"
+    Timeout: 6000ms
+
+    Call log:
+      - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 6000ms
+      - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+        9 × locator resolved to <section aria-label="朋友实际使用食品" class="friend-theatre theatre-finish stage-1  bite" data-moment="e3420f11-b5ee-4f1d-9367-4613a8a2216f:moment:8">…</section>
+          - unexpected value "friend-theatre theatre-finish stage-1  bite"
+
+
+      70 |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+      71 |   for (let stage = 0; stage < 5; stage++)
+    > 72 |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`));
+         |                         ^
+      73 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible();
+      74 |   await expect(feast).toHaveClass(/stage-4/);
+      75 |   await page.screenshot({
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:72:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  2) e2e/adventure.spec.ts:371:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '自由开店', exact: true })
+        - locator resolved to <button type="button" aria-label="自由开店" class="entry-main">…</button>
+
+
+      374 |   test.setTimeout(150000);
+      375 |   await page.goto('/');
+    > 376 |   await page.getByRole('button', { name: '自由开店', exact: true }).click();
+          |                                                                 ^
+      377 |   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+      378 |   await lesson(page);
+      379 |   await send(page, 0, 'apple');
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/adventure.spec.ts:376:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation 
+    e2e/adventure.spec.ts:371:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 

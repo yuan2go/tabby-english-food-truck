@@ -42,6 +42,7 @@ export async function lesson(p: Page) {
 export async function startStory(p: Page) {
   await p.goto('/');
   await p.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).tap();
+  await p.getByRole('button', { name: '先帮兔兔', exact: true }).tap();
   await p.getByRole('button', { name: '去厨房备餐', exact: true }).tap();
   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
   await lesson(p);

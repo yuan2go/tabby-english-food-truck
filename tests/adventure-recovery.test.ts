@@ -204,6 +204,7 @@ it('first activity food is observed as first exposure and replay as a revisit', 
         });
     }
     c.enter('story', 0, 'pictures', replay);
+    c.command({ type: 'adventure', action: 'welcome', visitor: 'rabbit' });
     c.pauses.clear();
     c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
     c.command({ type: 'deliver', tray: 0, order: c.state.orders[0]?.id ?? '' });

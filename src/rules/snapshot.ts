@@ -4,6 +4,7 @@ import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
 import { storyLevel, storyRequests } from '../content/story-levels';
 import { validAdventure } from './adventure';
+import { hydrateExperience } from './adventure-experience';
 import { stationItems } from './cooking';
 import { emptyRouting, targetLocation } from './routing';
 import type { GameState } from './types';
@@ -621,9 +622,16 @@ export function decodeSnapshot(raw: string): DecodeResult {
       value.contentVersion = CONTENT_VERSION;
       value.adventure = null;
     }
-    return validateState(value)
-      ? { ok: true, state: value }
-      : { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };
+    if (
+      record(value) &&
+      value.schemaVersion === 7 &&
+      value.contentVersion === 'playable-adventure-1'
+    )
+      value.contentVersion = CONTENT_VERSION;
+    if (!validateState(value))
+      return { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };
+    if (value.adventure) hydrateExperience(value.adventure);
+    return { ok: true, state: value };
   } catch {
     return { ok: false, reason: '存档损坏，已保留原文。', raw };
   }

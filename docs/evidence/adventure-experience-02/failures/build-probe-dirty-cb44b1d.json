@@ -1,0 +1,17 @@
+{
+  "build": {
+    "buildSha": "cb44b1d3d1edc053e4a3ccc8d05ff6254be1ea80",
+    "buildDirty": "true",
+    "contentVersion": "adventure-experience-2",
+    "assetVersion": "a7f1f7f13f1921ca797c5e691d78de3cf45a7e1ef8bb8a1fe9bd70099aafb501",
+    "audioState": "{\"active\":null,\"failure\":null,\"loops\":[],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"not-created\",\"effects\":0}"
+  },
+  "errors": [],
+  "url": "http://127.0.0.1:4191/",
+  "viewport": {
+    "width": 393,
+    "height": 665
+  },
+  "browser": "153.0.8010.12",
+  "channel": "chromium"
+}

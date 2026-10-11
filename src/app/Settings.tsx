@@ -137,7 +137,7 @@ export function Settings({
             {
               {
                 master: '全部声音',
-                voice: '英语',
+                voice: '语音（英语与情境提示）',
                 music: '音乐',
                 ambience: '小院环境',
                 effects: '取放与设备',

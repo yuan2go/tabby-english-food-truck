@@ -1,0 +1,30 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure-experience.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure-experience.test.ts (4 tests | 1 failed) 62ms
+   × a queued friend admitted after picture policy changes cannot be recorded as independent 23ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-experience.test.ts > a queued friend admitted after picture policy changes cannot be recorded as independent
+AssertionError: expected [] to include 'picture-request'
+ ❯ tests/adventure-experience.test.ts:79:32
+     77|   s = command(s, {type: 'policy', support: 'pictures', concurrency: 1}…
+     78|   s = command(s, {type: 'adventure', action: 'welcome', visitor: 'rabb…
+     79|   expect(s.orders[0]?.support).toContain('picture-request');
+       |                                ^
+     80|   s = command(s, {type: 'move', source: {supply: 'apple'}, destination…
+     81|   s = advance(s, 30000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  20:51:17
+   Duration  1.18s (transform 665ms, setup 0ms, import 769ms, tests 62ms, environment 4ms)
+
