@@ -121,6 +121,11 @@ describe('adventure causal rules', () => {
   });
   it('rabbit path needs real two-part packing, then merges with the same picnic reward', () => {
     let s = deliver(start(), 0, 'sandwich');
+    const received = s.adventure?.foods[0];
+    if (!received) throw Error('received sandwich');
+    const blockedPlace = { action: 'place', item: received.id, seat: 0 } as const;
+    expect(act(s, 'place', blockedPlace).kind).toBe('blocked');
+    expect(activityObstacle(s, blockedPlace)).toMatchObject({ id: 'basket', target: 'basket' });
     expect(act(s, 'pack', { tray: 0 }).kind).toBe('blocked');
     s = act(s, 'explore', { object: 'basket' }).state;
     s = make(s, 'apple');

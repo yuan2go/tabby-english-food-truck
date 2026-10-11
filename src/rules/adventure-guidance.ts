@@ -63,10 +63,12 @@ export function activityObstacle(s: GameState, c: ActivityCommand): ActivityGuid
     };
   if (c.action === 'place' || c.action === 'share') {
     // Match rule precedence: the drawer must be available before placement.
+    if (c.action === 'place' && !a.rewards.length && a.chapter === 2 && a.branch !== 'hedgehog')
+      return activityGuidance(s);
     if (
       c.action === 'place' &&
       !a.rewards.length &&
-      ((a.chapter === 2 && !a.explored.includes('drawer')) ||
+      ((a.chapter === 2 && a.branch === 'hedgehog' && !a.explored.includes('drawer')) ||
         (a.chapter === 3 && !a.explored.includes('drawer')))
     )
       return guide('drawer', 'drawer', 'mat', '先打开抽屉，取出摆餐的物件。', 'drawer');
