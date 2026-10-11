@@ -1,0 +1,232 @@
+[
+  {
+    "id": "vocab-scene-welcome",
+    "text": "Touch an object. Touch a place. You can listen again.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-hunt",
+    "text": "Find it in the yard. Bring it to the basket.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-memory",
+    "text": "Look carefully. Cover the table. What is missing? You can look again.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-sort",
+    "text": "Put things where they belong. Some things can go in more than one place.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-design",
+    "text": "Make a table for our friends. You can make your own table too.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-theatre",
+    "text": "Help Dami. Move the things and see what happens.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-cover",
+    "text": "Ready? Cover the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-relook",
+    "text": "Look again. Take your time.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-help",
+    "text": "Watch the picture. Then try it yourself.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-check",
+    "text": "Ready? Show Dami.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-next",
+    "text": "Another little adventure.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-scene-pause",
+    "text": "Take a break. Your things will wait.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-bring-cup",
+    "text": "Bring me a cup, please.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-bring-spoon",
+    "text": "Bring me a spoon, please.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-bring-flower",
+    "text": "Bring me a flower, please.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-bring-book",
+    "text": "Bring me a book, please.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-on-cup",
+    "text": "Put the cup on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-in-ball",
+    "text": "Put the ball in the basket.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-under-ball",
+    "text": "Put the ball under the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-beside-chair",
+    "text": "Put the chair beside the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-open-box",
+    "text": "Open the box.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-take-ball",
+    "text": "Take the ball.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-put-ball",
+    "text": "Put the ball in the basket.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-close-box",
+    "text": "Close the box.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-pour-cup",
+    "text": "Pour water into the cup.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-stir-cup",
+    "text": "Stir the water.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-wash-bowl",
+    "text": "Wash the bowl.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-cut-apple",
+    "text": "Cut the apple.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-carry-basket",
+    "text": "Carry the basket.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-share-apple",
+    "text": "Share the apple.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-red-cup",
+    "text": "Put the red cup on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-two-cups",
+    "text": "Put two cups on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-big-bowl",
+    "text": "Put the big bowl on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-soft-napkin",
+    "text": "Put the soft napkin beside the plate.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-sort-tools",
+    "text": "Put the kitchen tools on the shelf.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-sort-garden",
+    "text": "Put the garden things in the basket.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-sort-color",
+    "text": "Put the blue things together.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-sort-round",
+    "text": "Put the round things together.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-sort-food",
+    "text": "Put the food in the basket.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-one-plate",
+    "text": "Put one plate on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-three-cups",
+    "text": "Put three cups on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-four-cups",
+    "text": "Put four cups on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-five-cups",
+    "text": "Put five cups on the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-white-cup",
+    "text": "Put the white cup beside the plate.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-small-bowl",
+    "text": "Put the small bowl under the table.",
+    "kind": "instruction"
+  },
+  {
+    "id": "vocab-lamp-on",
+    "text": "Put the lamp on the table.",
+    "kind": "instruction"
+  }
+]

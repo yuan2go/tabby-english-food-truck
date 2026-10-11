@@ -74,3 +74,9 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 篮子、储物抽屉、旧食谱、三餐位、花苗、彩旗、桌布和灯串为 Codex 本包原创 DOM/CSS 场景绘制，源文件 `src/app/Adventure.tsx`、`src/app/adventure.css`；文字独立 DOM，食品仍使用登记图像。道具直接接到探索/打包/摆放/布置规则，不是背景贴图或通关数装饰。作品缩图是食品记忆的投影，不另造可供应食品。代码版本与真实运行证据见 STATUS；不把 CSS 绘制写成 imagegen 原稿。
 
 接收、摆放、品尝、布置与完成复用已登记原创 place/success 音效；英语请求仍使用 DEVELOPMENT_TTS_UNREVIEWED 开发声音，活动叙事为短图文，没有冒称新增真人配音。347 文件 hash/尺寸/Alpha、196 speech 引用与50食品映射已复核；负责人视觉/手感、人工听审与分发权仍待审核。
+
+## WP-MINIGAMES-VOCAB-EXPANSION-01
+
+38件新增纸艺道具为本包原创矢量源稿`art/vocab-source`，320×320透明WebP经sharp导出；生成脚本`vocab-resources.mjs`、运行`VocabularyVisual/ObjectArt`。动作/颜色/数量/空间采用可观察物件、冻结大咪与既有客人投影，背景不烘焙关键文字，无emoji占位。现有50食品图与冻结角色原文件不改。
+
+新增222个落盘WAV含70词的名称/情境、46导航/短指令及精确任务指令（包含修订前声音保留）；当前33条场景短指令独立计数，任务全句和speech文本一致。来源macOS say / Samantha、135wpm、PCM16bit/22050Hz；`vocab-production.json`和`vocab-scene-audio.json`记录文本/来源/状态，manifest记录实际bytes/hash；无运行时临时发音。开发语音DEVELOPMENT_TTS_UNREVIEWED，人工听审NOT_RUN、分发权PENDING；原创道具与新图示负责人视觉/手感/教研接受PENDING。不能因可用资源或工程验证宣称发布审核通过。

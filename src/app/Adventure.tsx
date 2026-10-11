@@ -18,6 +18,7 @@ export function Adventure({
   home,
   next,
   replay,
+  games,
 }: {
   controller: GameController;
   audio: ForegroundAudio;
@@ -25,6 +26,7 @@ export function Adventure({
   home: () => void;
   next: () => void;
   replay: () => void;
+  games: () => void;
 }) {
   const a = controller.state.adventure;
   const [selection, setSelection] = useState('');
@@ -117,6 +119,15 @@ export function Adventure({
         </header>
         <div className="activity-world">
           <div className="scene-objects">
+            <button
+              type="button"
+              className="world-object book"
+              aria-label="去小院游乐角"
+              onClick={games}
+            >
+              <span className="object-art" aria-hidden="true" />
+              <span>去游乐角 · 随时回来</span>
+            </button>
             {a.chapter === 2 && a.branch === 'rabbit'
               ? object('basket', '检查野餐篮', 'basket')
               : object('drawer', '打开储物抽屉', 'drawer')}

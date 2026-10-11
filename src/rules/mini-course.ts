@@ -1,7 +1,8 @@
 import { REQUESTS, type RequestId } from '../content/catalog';
-import { wordById } from '../content/learning';
 import { type CourseKind, type MiniLevel, miniLevel } from '../content/mini-levels';
 import { parsePhrase } from '../content/phrases';
+import type { Product } from '../content/recipes';
+import { vocabularyWord as wordById } from '../content/vocabulary';
 import { shuffle } from './minigames';
 export interface CourseAttempt {
   id: string;
@@ -14,6 +15,10 @@ export interface CourseAttempt {
 }
 export interface CourseState {
   version: 1;
+  carry?: string[];
+  assembly?: boolean;
+  paused?: boolean;
+  assembled?: Product[];
   id: string;
   levelId: string;
   round: number;
@@ -50,7 +55,14 @@ export const createCourse = (level: MiniLevel, id: string): CourseState => ({
 });
 export function startCourse(state: CourseState): CourseState {
   if (state.phase !== 'intro') return state;
-  return { ...state, phase: 'meaning', selected: [], support: [], heard: false, feedback: '' };
+  return {
+    ...state,
+    phase: 'meaning',
+    selected: [],
+    support: [...(state.carry ?? [])],
+    heard: false,
+    feedback: '',
+  };
 }
 export function playCourse(state: CourseState): CourseState {
   if (state.phase !== 'meaning') return state;
@@ -89,6 +101,7 @@ export function tileBank(level: MiniLevel, state: CourseState): Tile[] {
 }
 export function toggleTile(level: MiniLevel, state: CourseState, id: string): CourseState {
   if (
+    state.paused ||
     state.phase !== 'play' ||
     !['spell', 'sentence'].includes(courseKind(level, state)) ||
     !tileBank(level, state).some((tile) => tile.id === id)
@@ -145,8 +158,48 @@ export function judgeSentence(target: string, text: string): { grammar: boolean;
       return { grammar: true, task: target === request };
   return { grammar: false, task: false };
 }
+export function quantityProducts(level: MiniLevel, state: CourseState): Product[] {
+  if (courseKind(level, state) !== 'quantity') return [];
+  return [
+    ...new Set(
+      coursePool(level, state).flatMap((id) =>
+        id in REQUESTS ? REQUESTS[id as RequestId].products : [],
+      ),
+    ),
+  ];
+}
+export function composeCourse(level: MiniLevel, state: CourseState, product: Product): CourseState {
+  if (
+    state.paused ||
+    state.phase !== 'play' ||
+    !quantityProducts(level, state).includes(product) ||
+    (state.assembled?.length ?? 0) >= 3
+  )
+    return state;
+  return {
+    ...state,
+    assembly: true,
+    assembled: [...(state.assembled ?? []), product],
+    feedback: '',
+  };
+}
+export function removeComposed(state: CourseState, index: number): CourseState {
+  if (
+    state.paused ||
+    state.phase !== 'play' ||
+    !Number.isInteger(index) ||
+    index < 0 ||
+    index >= (state.assembled?.length ?? 0)
+  )
+    return state;
+  return {
+    ...state,
+    assembled: state.assembled?.filter((_, i) => i !== index) ?? [],
+    feedback: '',
+  };
+}
 export function submitCourse(level: MiniLevel, state: CourseState, answer?: string): CourseState {
-  if (state.phase !== 'play') return state;
+  if (state.paused || state.phase !== 'play') return state;
   const target = courseTarget(level, state);
   const kind = courseKind(level, state);
   let grammar = true;
@@ -160,6 +213,11 @@ export function submitCourse(level: MiniLevel, state: CourseState, answer?: stri
       task = text === wordById(target)?.text.replaceAll(' ', '').toUpperCase();
       grammar = task;
     } else ({ grammar, task } = judgeSentence(target, text));
+  } else if (kind === 'quantity' && state.assembly && !answer) {
+    if (!state.assembled?.length) return state;
+    task =
+      [...state.assembled].sort().join('|') ===
+      [...REQUESTS[target as RequestId].products].sort().join('|');
   } else {
     if (
       !answer ||
@@ -175,7 +233,7 @@ export function submitCourse(level: MiniLevel, state: CourseState, answer?: stri
     target,
     grammar,
     task,
-    support: [...state.support],
+    support: [...new Set([...state.support, ...(!state.heard ? ['audio-not-observed'] : [])])],
     heard: state.heard,
   };
   return {
@@ -186,6 +244,7 @@ export function submitCourse(level: MiniLevel, state: CourseState, answer?: stri
       : grammar
         ? '表达可以用，但这位朋友要的不同。再看情境。'
         : '词块顺序还要调整，可以撤回重摆。',
+    carry: [...new Set([...(state.carry ?? []), ...attempt.support])],
     attempts: [...state.attempts, attempt].slice(-64),
     nextAttempt: state.nextAttempt + 1,
     support: task ? state.support : [...new Set([...state.support, 'difference-feedback'])],
@@ -200,9 +259,11 @@ export function nextCourse(level: MiniLevel, state: CourseState): CourseState {
     : {
         ...state,
         round: next,
+        assembled: [],
+        carry: [...new Set([...(state.carry ?? []), ...state.support])],
         phase: 'meaning',
         selected: [],
-        support: [],
+        support: [...(state.carry ?? [])],
         heard: false,
         feedback: '',
       };
@@ -214,6 +275,16 @@ export function validateCourse(value: unknown): value is CourseState {
   return Boolean(
     level &&
       s.version === 1 &&
+      (s.paused === undefined || typeof s.paused === 'boolean') &&
+      (s.assembly === undefined || typeof s.assembly === 'boolean') &&
+      (s.assembled === undefined ||
+        (Array.isArray(s.assembled) &&
+          s.assembled.length <= 3 &&
+          s.assembled.every((p) => quantityProducts(level, s).includes(p)))) &&
+      (s.carry === undefined ||
+        (Array.isArray(s.carry) &&
+          s.carry.length <= 20 &&
+          s.carry.every((id) => typeof id === 'string' && id.length < 160))) &&
       typeof s.id === 'string' &&
       s.id.length < 100 &&
       Number.isInteger(s.round) &&
@@ -265,4 +336,15 @@ export function validateCourse(value: unknown): value is CourseState {
           : Boolean(wordById(id)),
       ),
   );
+}
+
+export function replayCourse(level: MiniLevel, state: CourseState, id: string): CourseState {
+  const carry = [
+    ...new Set([
+      ...(state.carry ?? []),
+      ...state.support,
+      ...state.attempts.flatMap((a) => a.support),
+    ]),
+  ];
+  return { ...createCourse(level, id), carry, support: carry };
 }

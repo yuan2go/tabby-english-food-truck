@@ -7,6 +7,7 @@ export default defineConfig({
   // Current scope: causal chapters replace the retired fixed-order throughline.
   // Historical scripts and their evidence remain in the repository (see e2e/README).
   testMatch: [
+    '**/minigames-vocab.spec.ts',
     '**/adventure.spec.ts',
     '**/m22-boundaries.spec.ts',
     '**/m22-growth.spec.ts',

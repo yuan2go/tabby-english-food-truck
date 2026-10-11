@@ -1,6 +1,6 @@
 # 技术 · 单一世界与可恢复活动
 
-## WP-PLAYABLE-ADVENTURE-01
+## 现有世界、厨房与活动基线
 
 保留锁定TypeScript严格类型、Phaser3.90、React19.1.1、Vite7.3.6，不升级依赖、不加后端/模型/ECS/全局事件总线。规则核是唯一事实源；输入→命令→边界校验→原子状态→Phaser/DOM投影→音画，不由动画/音频回调改进度。
 
@@ -32,3 +32,7 @@ schema7/content playable-adventure-1 增加可选活动状态与自由营业接�
 content/vocabulary与独立JSON包含120学习概念，foods/recipes供应映射不改。content/scene-levels配置具象场景、有效解与短请求；rules/scene-games负责实例归属、状态前置、空间/数量/多解、明确提交与有界尝试；app/SceneGames组合独立场景表现，app/VocabularyVisual负责静态道具与动作空间投影。既有mini-course使用新的学习查询，原31关与旧小游戏保存保持。
 
 新场景快照独立键/version1，MiniStore统一拥有内存和持久化，损坏/未来档保留原文、拒存可玩可导出可重试；不推断旧完成变新完成。保存seed、题号、实际物件、支持、提交收据和自由作品；命令绑定轮次并去重，重复输入/切换/恢复不重复完成。重玩支持累积，不洗白。旧存档键与schema7厨房不变。资源清单记录矢量源文件、WAV文本/实际hash/来源，不改旧素材审核状态。
+
+课程保留version1及旧键，新增paused/assembly/assembled/carry均为可选字段。原31关ID不改；新增56听音/配对小组。保存与读取共用课程3,000,000、场景1,500,000字符预算，写前超限留下内存/导出，不写出自身拒读的档。所有概念均有稳定供给之外的学习ID。SceneState version1包含显式covered/reveal、唯一归属、12步撤回、64次详细尝试和不会截断的有限支持汇总。记忆维度独立、自由不判语言、剧场状态后继不造成不可逆死局。
+
+表现拆为SceneGames生命周期/音频、SceneBoards五种空间交互、SceneGuide已记帮助的图示、VocabularyVisual意义/动作。示范只绘制，不向规则发送通关；音频完成只记heard。随机池为明确合法配置，run/seed/round/原物件随档保留；刷新不换答案。

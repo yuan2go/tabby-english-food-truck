@@ -47,6 +47,7 @@ export function App() {
     [caption, setCaption] = useState<string | null>(null);
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
   const [activityTable, setActivityTable] = useState(false);
+  const [miniFromActivity, setMiniFromActivity] = useState(false);
   const [setup, setSetup] = useState<'endless' | 'training'>('endless');
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
@@ -409,6 +410,11 @@ export function App() {
       <div className="canvas-host" ref={host} role="img" aria-label="英语餐车游戏画面" />
       {screen === 'game' && activityTable && s.adventure ? (
         <Adventure
+          games={() => {
+            audio.stop();
+            setMiniFromActivity(true);
+            setScreen('mini');
+          }}
           controller={controller}
           audio={audio}
           kitchen={() => {
@@ -426,6 +432,7 @@ export function App() {
           audio={audio}
           onChoose={(choice) => {
             audio.stop();
+            setMiniFromActivity(false);
             if (choice === 'endless' || choice === 'training') {
               setSetup(choice);
               setScreen('setup');
@@ -458,6 +465,10 @@ export function App() {
             if (collection) {
               setCollection(null);
               setScreen('foods');
+            } else if (miniFromActivity) {
+              audio.stop();
+              setScreen('game');
+              setMiniFromActivity(false);
             } else home();
           }}
           collection={collection}

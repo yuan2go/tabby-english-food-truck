@@ -1,0 +1,1201 @@
+{
+  "source": "Original vector art and offline macOS Samantha development synthesis",
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "records": [
+    {
+      "id": "vocab-name-cup",
+      "text": "cup",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-cup",
+      "text": "Bring me a cup, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-plate",
+      "text": "plate",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-plate",
+      "text": "Bring me a plate, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-bowl",
+      "text": "bowl",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-bowl",
+      "text": "Bring me a bowl, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-spoon",
+      "text": "spoon",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-spoon",
+      "text": "Bring me a spoon, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-fork",
+      "text": "fork",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-fork",
+      "text": "Bring me a fork, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-knife",
+      "text": "knife",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-knife",
+      "text": "Bring me a knife, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-tray",
+      "text": "tray",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-tray",
+      "text": "Bring me a tray, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-napkin",
+      "text": "napkin",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-napkin",
+      "text": "Bring me a napkin, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-pot",
+      "text": "pot",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-pot",
+      "text": "Bring me a pot, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-pan",
+      "text": "pan",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-pan",
+      "text": "Bring me a pan, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-lid",
+      "text": "lid",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-lid",
+      "text": "Bring me a lid, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-kettle",
+      "text": "kettle",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-kettle",
+      "text": "Bring me a kettle, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-bottle",
+      "text": "bottle",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-bottle",
+      "text": "Bring me a bottle, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-glass",
+      "text": "glass",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-glass",
+      "text": "Bring me a glass, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-jug",
+      "text": "jug",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-jug",
+      "text": "Bring me a jug, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-spatula",
+      "text": "spatula",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-spatula",
+      "text": "Bring me a spatula, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-ladle",
+      "text": "ladle",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-ladle",
+      "text": "Bring me a ladle, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-whisk",
+      "text": "whisk",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-whisk",
+      "text": "Bring me a whisk, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-cutting-board",
+      "text": "cutting board",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-cutting-board",
+      "text": "Bring me a cutting board, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-apron",
+      "text": "apron",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-apron",
+      "text": "Bring me an apron, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-basket",
+      "text": "basket",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-basket",
+      "text": "Bring me a basket, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-box",
+      "text": "box",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-box",
+      "text": "Bring me a box, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-bag",
+      "text": "bag",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-bag",
+      "text": "Bring me a bag, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-table",
+      "text": "table",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-table",
+      "text": "Bring me a table, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-chair",
+      "text": "chair",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-chair",
+      "text": "Bring me a chair, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-bench",
+      "text": "bench",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-bench",
+      "text": "Bring me a bench, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-door",
+      "text": "door",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-door",
+      "text": "Bring me a door, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-window",
+      "text": "window",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-window",
+      "text": "Bring me a window, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-shelf",
+      "text": "shelf",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-shelf",
+      "text": "Bring me a shelf, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-drawer",
+      "text": "drawer",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-drawer",
+      "text": "Bring me a drawer, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-lamp",
+      "text": "lamp",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-lamp",
+      "text": "Bring me a lamp, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-flower",
+      "text": "flower",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-flower",
+      "text": "Bring me a flower, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-tree",
+      "text": "tree",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-tree",
+      "text": "Bring me a tree, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-leaf",
+      "text": "leaf",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-leaf",
+      "text": "Bring me a leaf, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-seed",
+      "text": "seed",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-seed",
+      "text": "Bring me a seed, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-watering-can",
+      "text": "watering can",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-watering-can",
+      "text": "Bring me a watering can, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-ball",
+      "text": "ball",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-ball",
+      "text": "Bring me a ball, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-book",
+      "text": "book",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-book",
+      "text": "Bring me a book, please.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-red",
+      "text": "red",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-red",
+      "text": "Find the red cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-yellow",
+      "text": "yellow",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-yellow",
+      "text": "Find the yellow cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-blue",
+      "text": "blue",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-blue",
+      "text": "Find the blue cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-green",
+      "text": "green",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-green",
+      "text": "Find the green cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-purple",
+      "text": "purple",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-purple",
+      "text": "Find the purple cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-pink",
+      "text": "pink",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-pink",
+      "text": "Find the pink cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-brown",
+      "text": "brown",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-brown",
+      "text": "Find the brown cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-black",
+      "text": "black",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-black",
+      "text": "Find the black cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-white",
+      "text": "white",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-white",
+      "text": "Find the white cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-big",
+      "text": "big",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-big",
+      "text": "Find the big bowl.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-small",
+      "text": "small",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-small",
+      "text": "Find the small bowl.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-round",
+      "text": "round",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-round",
+      "text": "Find the round plate.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-soft",
+      "text": "soft",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-soft",
+      "text": "Find the soft napkin.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-one",
+      "text": "one",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-one",
+      "text": "Put one cup on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-two",
+      "text": "two",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-two",
+      "text": "Put two cups on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-three",
+      "text": "three",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-three",
+      "text": "Put three cups on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-four",
+      "text": "four",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-four",
+      "text": "Put four cups on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-five",
+      "text": "five",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-five",
+      "text": "Put five cups on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-take",
+      "text": "take",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-take",
+      "text": "Take the ball.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-put",
+      "text": "put",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-put",
+      "text": "Put the cup on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-open",
+      "text": "open",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-open",
+      "text": "Open the box.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-close",
+      "text": "close",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-close",
+      "text": "Close the box.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-pour",
+      "text": "pour",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-pour",
+      "text": "Pour water into the cup.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-stir",
+      "text": "stir",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-stir",
+      "text": "Stir the water.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-wash",
+      "text": "wash",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-wash",
+      "text": "Wash the bowl.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-cut",
+      "text": "cut",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-cut",
+      "text": "Cut the apple.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-carry",
+      "text": "carry",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-carry",
+      "text": "Carry the basket.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-share",
+      "text": "share",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-share",
+      "text": "Share the apple.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-in",
+      "text": "in",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-in",
+      "text": "Put the ball in the basket.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-on",
+      "text": "on",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-on",
+      "text": "Put the cup on the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-under",
+      "text": "under",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-under",
+      "text": "Put the ball under the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-name-beside",
+      "text": "beside",
+      "kind": "word"
+    },
+    {
+      "id": "vocab-context-beside",
+      "text": "Put the chair beside the table.",
+      "kind": "request"
+    },
+    {
+      "id": "vocab-scene-welcome",
+      "text": "Touch an object. Touch a place. You can listen again.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-hunt",
+      "text": "Find it in the yard. Bring it to the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-memory",
+      "text": "Look carefully. Cover the table. What is missing? You can look again.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-sort",
+      "text": "Put things where they belong. Some things can go in more than one place.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-design",
+      "text": "Make a table for our friends. You can make your own table too.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-theatre",
+      "text": "Help Dami. Move the things and see what happens.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-cover",
+      "text": "Ready? Cover the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-relook",
+      "text": "Look again. Take your time.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-help",
+      "text": "Watch the picture. Then try it yourself.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-check",
+      "text": "Ready? Show Dami.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-next",
+      "text": "Another little adventure.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-scene-pause",
+      "text": "Take a break. Your things will wait.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-bring-cup",
+      "text": "Bring me a cup, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-bring-spoon",
+      "text": "Bring me a spoon, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-bring-flower",
+      "text": "Bring me a flower, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-bring-book",
+      "text": "Bring me a book, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-on-cup",
+      "text": "Put the cup on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-in-ball",
+      "text": "Put the ball in the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-under-ball",
+      "text": "Put the ball under the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-beside-chair",
+      "text": "Put the chair beside the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-open-box",
+      "text": "Open the box.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-take-ball",
+      "text": "Take the ball.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-put-ball",
+      "text": "Put the ball in the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-close-box",
+      "text": "Close the box.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-pour-cup",
+      "text": "Pour water into the cup.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-stir-cup",
+      "text": "Stir the water.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-wash-bowl",
+      "text": "Wash the bowl.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-cut-apple",
+      "text": "Cut the apple.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-carry-basket",
+      "text": "Carry the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-share-apple",
+      "text": "Share the apple.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-red-cup",
+      "text": "Put the red cup on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-two-cups",
+      "text": "Put two cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-big-bowl",
+      "text": "Put the big bowl on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-soft-napkin",
+      "text": "Put the soft napkin beside the plate.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-sort-tools",
+      "text": "Put the kitchen tools on the shelf.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-sort-garden",
+      "text": "Put the garden things in the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-sort-color",
+      "text": "Put the blue things together.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-sort-round",
+      "text": "Put the round things together.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-sort-food",
+      "text": "Put the food in the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-one-plate",
+      "text": "Put one plate on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-three-cups",
+      "text": "Put three cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-four-cups",
+      "text": "Put four cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-five-cups",
+      "text": "Put five cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-white-cup",
+      "text": "Put the white cup beside the plate.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-small-bowl",
+      "text": "Put the small bowl under the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-lamp-on",
+      "text": "Put the lamp on the table.",
+      "kind": "instruction"
+    }
+  ],
+  "assets": [
+    "vocab-source-cup",
+    "vocab-cup",
+    "vocab-source-plate",
+    "vocab-plate",
+    "vocab-source-bowl",
+    "vocab-bowl",
+    "vocab-source-spoon",
+    "vocab-spoon",
+    "vocab-source-fork",
+    "vocab-fork",
+    "vocab-source-knife",
+    "vocab-knife",
+    "vocab-source-tray",
+    "vocab-tray",
+    "vocab-source-napkin",
+    "vocab-napkin",
+    "vocab-source-pot",
+    "vocab-pot",
+    "vocab-source-pan",
+    "vocab-pan",
+    "vocab-source-lid",
+    "vocab-lid",
+    "vocab-source-kettle",
+    "vocab-kettle",
+    "vocab-source-bottle",
+    "vocab-bottle",
+    "vocab-source-glass",
+    "vocab-glass",
+    "vocab-source-jug",
+    "vocab-jug",
+    "vocab-source-spatula",
+    "vocab-spatula",
+    "vocab-source-ladle",
+    "vocab-ladle",
+    "vocab-source-whisk",
+    "vocab-whisk",
+    "vocab-source-cutting-board",
+    "vocab-cutting-board",
+    "vocab-source-apron",
+    "vocab-apron",
+    "vocab-source-basket",
+    "vocab-basket",
+    "vocab-source-box",
+    "vocab-box",
+    "vocab-source-bag",
+    "vocab-bag",
+    "vocab-source-table",
+    "vocab-table",
+    "vocab-source-chair",
+    "vocab-chair",
+    "vocab-source-bench",
+    "vocab-bench",
+    "vocab-source-door",
+    "vocab-door",
+    "vocab-source-window",
+    "vocab-window",
+    "vocab-source-shelf",
+    "vocab-shelf",
+    "vocab-source-drawer",
+    "vocab-drawer",
+    "vocab-source-lamp",
+    "vocab-lamp",
+    "vocab-source-flower",
+    "vocab-flower",
+    "vocab-source-tree",
+    "vocab-tree",
+    "vocab-source-leaf",
+    "vocab-leaf",
+    "vocab-source-seed",
+    "vocab-seed",
+    "vocab-source-watering-can",
+    "vocab-watering-can",
+    "vocab-source-ball",
+    "vocab-ball",
+    "vocab-source-book",
+    "vocab-book",
+    "audio-vocab-name-cup",
+    "audio-vocab-context-cup",
+    "audio-vocab-name-plate",
+    "audio-vocab-context-plate",
+    "audio-vocab-name-bowl",
+    "audio-vocab-context-bowl",
+    "audio-vocab-name-spoon",
+    "audio-vocab-context-spoon",
+    "audio-vocab-name-fork",
+    "audio-vocab-context-fork",
+    "audio-vocab-name-knife",
+    "audio-vocab-context-knife",
+    "audio-vocab-name-tray",
+    "audio-vocab-context-tray",
+    "audio-vocab-name-napkin",
+    "audio-vocab-context-napkin",
+    "audio-vocab-name-pot",
+    "audio-vocab-context-pot",
+    "audio-vocab-name-pan",
+    "audio-vocab-context-pan",
+    "audio-vocab-name-lid",
+    "audio-vocab-context-lid",
+    "audio-vocab-name-kettle",
+    "audio-vocab-context-kettle",
+    "audio-vocab-name-bottle",
+    "audio-vocab-context-bottle",
+    "audio-vocab-name-glass",
+    "audio-vocab-context-glass",
+    "audio-vocab-name-jug",
+    "audio-vocab-context-jug",
+    "audio-vocab-name-spatula",
+    "audio-vocab-context-spatula",
+    "audio-vocab-name-ladle",
+    "audio-vocab-context-ladle",
+    "audio-vocab-name-whisk",
+    "audio-vocab-context-whisk",
+    "audio-vocab-name-cutting-board",
+    "audio-vocab-context-cutting-board",
+    "audio-vocab-name-apron",
+    "audio-vocab-context-apron",
+    "audio-vocab-name-basket",
+    "audio-vocab-context-basket",
+    "audio-vocab-name-box",
+    "audio-vocab-context-box",
+    "audio-vocab-name-bag",
+    "audio-vocab-context-bag",
+    "audio-vocab-name-table",
+    "audio-vocab-context-table",
+    "audio-vocab-name-chair",
+    "audio-vocab-context-chair",
+    "audio-vocab-name-bench",
+    "audio-vocab-context-bench",
+    "audio-vocab-name-door",
+    "audio-vocab-context-door",
+    "audio-vocab-name-window",
+    "audio-vocab-context-window",
+    "audio-vocab-name-shelf",
+    "audio-vocab-context-shelf",
+    "audio-vocab-name-drawer",
+    "audio-vocab-context-drawer",
+    "audio-vocab-name-lamp",
+    "audio-vocab-context-lamp",
+    "audio-vocab-name-flower",
+    "audio-vocab-context-flower",
+    "audio-vocab-name-tree",
+    "audio-vocab-context-tree",
+    "audio-vocab-name-leaf",
+    "audio-vocab-context-leaf",
+    "audio-vocab-name-seed",
+    "audio-vocab-context-seed",
+    "audio-vocab-name-watering-can",
+    "audio-vocab-context-watering-can",
+    "audio-vocab-name-ball",
+    "audio-vocab-context-ball",
+    "audio-vocab-name-book",
+    "audio-vocab-context-book",
+    "audio-vocab-name-red",
+    "audio-vocab-context-red",
+    "audio-vocab-name-yellow",
+    "audio-vocab-context-yellow",
+    "audio-vocab-name-blue",
+    "audio-vocab-context-blue",
+    "audio-vocab-name-green",
+    "audio-vocab-context-green",
+    "audio-vocab-name-purple",
+    "audio-vocab-context-purple",
+    "audio-vocab-name-pink",
+    "audio-vocab-context-pink",
+    "audio-vocab-name-brown",
+    "audio-vocab-context-brown",
+    "audio-vocab-name-black",
+    "audio-vocab-context-black",
+    "audio-vocab-name-white",
+    "audio-vocab-context-white",
+    "audio-vocab-name-big",
+    "audio-vocab-context-big",
+    "audio-vocab-name-small",
+    "audio-vocab-context-small",
+    "audio-vocab-name-round",
+    "audio-vocab-context-round",
+    "audio-vocab-name-soft",
+    "audio-vocab-context-soft",
+    "audio-vocab-name-one",
+    "audio-vocab-context-one",
+    "audio-vocab-name-two",
+    "audio-vocab-context-two",
+    "audio-vocab-name-three",
+    "audio-vocab-context-three",
+    "audio-vocab-name-four",
+    "audio-vocab-context-four",
+    "audio-vocab-name-five",
+    "audio-vocab-context-five",
+    "audio-vocab-name-take",
+    "audio-vocab-context-take",
+    "audio-vocab-name-put",
+    "audio-vocab-context-put",
+    "audio-vocab-name-open",
+    "audio-vocab-context-open",
+    "audio-vocab-name-close",
+    "audio-vocab-context-close",
+    "audio-vocab-name-pour",
+    "audio-vocab-context-pour",
+    "audio-vocab-name-stir",
+    "audio-vocab-context-stir",
+    "audio-vocab-name-wash",
+    "audio-vocab-context-wash",
+    "audio-vocab-name-cut",
+    "audio-vocab-context-cut",
+    "audio-vocab-name-carry",
+    "audio-vocab-context-carry",
+    "audio-vocab-name-share",
+    "audio-vocab-context-share",
+    "audio-vocab-name-in",
+    "audio-vocab-context-in",
+    "audio-vocab-name-on",
+    "audio-vocab-context-on",
+    "audio-vocab-name-under",
+    "audio-vocab-context-under",
+    "audio-vocab-name-beside",
+    "audio-vocab-context-beside",
+    "audio-vocab-scene-welcome",
+    "audio-vocab-scene-hunt",
+    "audio-vocab-scene-memory",
+    "audio-vocab-scene-sort",
+    "audio-vocab-scene-design",
+    "audio-vocab-scene-theatre",
+    "audio-vocab-scene-cover",
+    "audio-vocab-scene-relook",
+    "audio-vocab-scene-help",
+    "audio-vocab-scene-check",
+    "audio-vocab-scene-next",
+    "audio-vocab-scene-pause",
+    "audio-vocab-bring-cup",
+    "audio-vocab-bring-spoon",
+    "audio-vocab-bring-flower",
+    "audio-vocab-bring-book",
+    "audio-vocab-on-cup",
+    "audio-vocab-in-ball",
+    "audio-vocab-under-ball",
+    "audio-vocab-beside-chair",
+    "audio-vocab-open-box",
+    "audio-vocab-take-ball",
+    "audio-vocab-put-ball",
+    "audio-vocab-close-box",
+    "audio-vocab-pour-cup",
+    "audio-vocab-stir-cup",
+    "audio-vocab-wash-bowl",
+    "audio-vocab-cut-apple",
+    "audio-vocab-carry-basket",
+    "audio-vocab-share-apple",
+    "audio-vocab-red-cup",
+    "audio-vocab-two-cups",
+    "audio-vocab-big-bowl",
+    "audio-vocab-soft-napkin",
+    "audio-vocab-sort-tools",
+    "audio-vocab-sort-garden",
+    "audio-vocab-sort-color",
+    "audio-vocab-sort-round",
+    "audio-vocab-sort-food",
+    "audio-vocab-one-plate",
+    "audio-vocab-three-cups",
+    "audio-vocab-four-cups",
+    "audio-vocab-five-cups",
+    "audio-vocab-white-cup",
+    "audio-vocab-small-bowl",
+    "audio-vocab-lamp-on"
+  ]
+}

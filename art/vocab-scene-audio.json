@@ -1,0 +1,172 @@
+{
+  "source": "macOS Samantha static development speech",
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "records": [
+    {
+      "id": "vocab-task-43f04668",
+      "text": "Bring me a cup, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-114c43c3",
+      "text": "Bring me a spoon, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-60aa2079",
+      "text": "Bring me a flower, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-934c35d3",
+      "text": "Bring me a book, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-506a2ee8",
+      "text": "Find the red cup.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-c997ae01",
+      "text": "Bring me a cup and a spoon, please.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-36295808",
+      "text": "Look carefully. What is missing?",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-a43b71c7",
+      "text": "Put kitchen tools on the shelf, plants in the garden, and food in the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-3d8bb686",
+      "text": "Put things in the kitchen or garden. Some things can go in either place. Put books on the shelf.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-6c35f182",
+      "text": "Put blue things together. Put other colors in the other basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-32c5e526",
+      "text": "Put round things together. Put other shapes on the shelf.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-6ce96f9d",
+      "text": "Put the cup on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-a511189e",
+      "text": "Put the ball in the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-36a234c3",
+      "text": "Put the ball under the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-14267691",
+      "text": "Put the chair beside the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-1a824f32",
+      "text": "Put one cup on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-c65b40ad",
+      "text": "Put two cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-dd1dd3b",
+      "text": "Put three cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-f9ad5c2b",
+      "text": "Put four cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-f85402f3",
+      "text": "Put five cups on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-d8edf6ea",
+      "text": "Put the red cup on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-d63799b9",
+      "text": "Put the big bowl on the table.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-14b35de5",
+      "text": "Put the white cup beside the plate.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-c022d2d3",
+      "text": "Put the soft napkin beside the plate.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-9c360d1b",
+      "text": "Open the box.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-bedd6f48",
+      "text": "Take the ball.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-729ed51d",
+      "text": "Close the box.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-90d1c235",
+      "text": "Pour water into the cup.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-aaa68561",
+      "text": "Stir the water.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-1292d7b",
+      "text": "Wash the bowl.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-d99d9912",
+      "text": "Cut the apple.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-c0ee6443",
+      "text": "Carry the basket.",
+      "kind": "instruction"
+    },
+    {
+      "id": "vocab-task-d81b097f",
+      "text": "Share the apple.",
+      "kind": "instruction"
+    }
+  ]
+}

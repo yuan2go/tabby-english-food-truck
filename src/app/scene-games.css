@@ -1,0 +1,1412 @@
+/* Original paper scene, authored here. Objects remain interactive native buttons. */
+.scene-lobby,
+.scene-game {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: #3f493b;
+  background: #f4ead5;
+  font-family: inherit;
+  position: relative;
+  padding: 18px 24px;
+  box-sizing: border-box;
+}
+.scene-lobby {
+  background-size: cover;
+  background-position: center;
+}
+.scene-lobby > header,
+.scene-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.scene-lobby h2,
+.scene-game h2 {
+  margin: 6px;
+  font-size: 24px;
+}
+.scene-top h2 small {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.scene-game button,
+.scene-lobby button {
+  min-width: 48px;
+  min-height: 48px;
+  border: 2px solid #a89470;
+  border-radius: 16px;
+  background: #fff4df;
+  color: #3e4a3a;
+  padding: 9px 15px;
+  box-shadow: 0 3px 0 #baa57e;
+  font: inherit;
+  cursor: pointer;
+}
+.scene-game button:hover,
+.scene-lobby button:hover {
+  background: #f7dfa9;
+}
+.scene-game button:focus-visible,
+.scene-lobby button:focus-visible {
+  outline: 4px solid #477964;
+  outline-offset: 3px;
+}
+.scene-game button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.scene-game .primary {
+  background: #587b5c;
+  color: #fff8e6;
+  border-color: #405c43;
+}
+.scene-game button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #baa57e;
+}
+.scene-kind-path {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 30px 0;
+}
+.scene-kind-path button {
+  width: 160px;
+  background: #f8eacf;
+}
+.scene-kind-path button[aria-pressed="true"] {
+  border-color: #497459;
+  background: #d4ddbd;
+}
+.scene-kind-path .vocab-art {
+  width: 85px;
+  height: 85px;
+}
+.scene-kind-path span {
+  display: block;
+}
+.scene-level-path {
+  display: flex;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 15px auto;
+}
+.scene-level-path button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 18px;
+  background: #f9efda;
+}
+.scene-level-path button > span {
+  background: #e5bd77;
+  border-radius: 20px;
+  padding: 5px 15px;
+  align-self: start;
+}
+.scene-level-path small {
+  font-size: 13px;
+}
+.scene-lobby > p,
+.scene-lobby > small {
+  display: block;
+  text-align: center;
+  background: #f7efdcdd;
+  max-width: 800px;
+  margin: 14px auto;
+  padding: 8px;
+  border-radius: 12px;
+}
+.vocab-art {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 3px 2px #65533b28);
+  pointer-events: none;
+}
+.object-artwork {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.size-small .vocab-art,
+.vocab-art.size-small {
+  width: 64px;
+  height: 64px;
+}
+.size-big .vocab-art,
+.vocab-art.size-big {
+  width: 114px;
+  height: 114px;
+}
+.object-water {
+  position: absolute;
+  left: 30%;
+  right: 28%;
+  top: 41%;
+  height: 22%;
+  background: #96c0cacc;
+  border-radius: 0 0 9px 9px;
+  pointer-events: none;
+}
+.object-open {
+  position: absolute;
+  left: 17%;
+  top: 18%;
+  width: 65%;
+  height: 18%;
+  background: #d4ba82;
+  border: 3px solid #7b6850;
+  transform: rotate(-28deg);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.object-shine {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  width: 32%;
+  height: 20%;
+  border-top: 4px solid #fffbed;
+  border-right: 4px solid #fffbed;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.object-cut {
+  position: absolute;
+  left: 49%;
+  top: 20%;
+  height: 55%;
+  width: 5px;
+  background: #efe4c6;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+.scene-intro,
+.scene-done {
+  text-align: center;
+  max-width: 780px;
+  margin: 22px auto;
+}
+.scene-intro > img,
+.scene-done > img {
+  width: 180px;
+  height: 185px;
+  object-fit: contain;
+}
+.scene-intro button,
+.scene-done button {
+  margin: 10px;
+}
+.meaning-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 36px 0;
+}
+.meaning-gallery > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 180px;
+  min-height: 210px;
+}
+.scene-meaning {
+  text-align: center;
+}
+.scene-meaning > .primary {
+  margin: 12px;
+}
+.scene-meaning .vocab-art {
+  width: 120px;
+  height: 120px;
+}
+.meaning-scene {
+  display: block;
+  width: 170px;
+  height: 140px;
+  position: relative;
+  background: linear-gradient(#dce5cf 68%, #cab894 68%);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.meaning-table {
+  position: absolute;
+  left: 38px;
+  top: 48px;
+}
+.meaning-table .vocab-art {
+  width: 100px !important;
+  height: 90px !important;
+}
+.meaning-object {
+  position: absolute;
+  left: 63px;
+  top: 28px;
+}
+.meaning-object .vocab-art {
+  width: 60px !important;
+  height: 60px !important;
+}
+.meaning-cat {
+  position: absolute;
+  left: 0;
+  top: 52px;
+  width: 62px;
+  height: 76px;
+  object-fit: contain;
+}
+.meaning-under .meaning-object {
+  top: 84px;
+  left: 72px;
+}
+.meaning-beside .meaning-object {
+  left: 118px;
+  top: 83px;
+}
+.meaning-in .meaning-object {
+  top: 61px;
+  left: 61px;
+}
+.meaning-in .meaning-table {
+  z-index: 2;
+  opacity: 0.8;
+}
+.meaning-take .meaning-object {
+  animation: take-object 3s ease-in-out infinite;
+}
+.meaning-put .meaning-object {
+  animation: take-object 3s ease-in-out infinite reverse;
+}
+.meaning-carry .meaning-cat,
+.meaning-carry .meaning-object {
+  animation: carry-object 3s ease-in-out infinite;
+}
+.meaning-share .meaning-object {
+  animation: share-object 3s ease-in-out infinite;
+}
+.meaning-tool {
+  position: absolute;
+  left: 94px;
+  top: 10px;
+  transform: rotate(-28deg);
+}
+.meaning-tool .vocab-art {
+  width: 54px !important;
+  height: 54px !important;
+}
+.meaning-stir .meaning-tool {
+  animation: stir-tool 2s ease-in-out infinite;
+}
+.meaning-cut .meaning-tool {
+  animation: cut-tool 2s ease-in-out infinite;
+}
+.meaning-stream {
+  position: absolute;
+  left: 101px;
+  top: 52px;
+  width: 6px;
+  height: 38px;
+  background: #80b8c6;
+  border-radius: 9px;
+  animation: flow-water 3s ease-in-out infinite;
+}
+.meaning-water {
+  position: absolute;
+  left: 53px;
+  top: 54px;
+  width: 91px;
+  height: 24px;
+  background: #92c3cd99;
+  border-radius: 50%;
+  animation: flow-water 3s ease-in-out infinite;
+}
+.meaning-lid {
+  position: absolute;
+  left: 62px;
+  top: 47px;
+  width: 64px;
+  height: 13px;
+  background: #d0ab75;
+  border: 2px solid #7d6949;
+  transform-origin: left bottom;
+  animation: open-lid 3s ease-in-out infinite;
+}
+.meaning-close .meaning-lid {
+  animation-direction: reverse;
+}
+.meaning-number {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 170px;
+  justify-content: center;
+}
+.meaning-number .vocab-art {
+  width: 51px !important;
+  height: 51px !important;
+}
+.meaning-attribute {
+  display: flex;
+  align-items: center;
+}
+.meaning-comparison {
+  opacity: 0.8;
+}
+.attribute-soft {
+  animation: soft-fabric 3s ease-in-out infinite;
+}
+.meaning-comparison .vocab-art {
+  width: 65px !important;
+  height: 65px !important;
+}
+@keyframes take-object {
+  0%,
+  25%,
+  100% {
+    transform: translate(0, 0);
+  }
+  55%,
+  80% {
+    transform: translate(-52px, 40px);
+  }
+}
+@keyframes carry-object {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(55px);
+  }
+}
+@keyframes share-object {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  55% {
+    transform: translateX(70px);
+  }
+}
+@keyframes stir-tool {
+  0%,
+  100% {
+    transform: rotate(-28deg);
+  }
+  50% {
+    transform: rotate(28deg);
+  }
+}
+@keyframes cut-tool {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-25deg);
+  }
+  50% {
+    transform: translateY(24px) rotate(5deg);
+  }
+}
+@keyframes flow-water {
+  0%,
+  20%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  35%,
+  75% {
+    opacity: 1;
+  }
+}
+@keyframes open-lid {
+  0%,
+  20%,
+  100% {
+    transform: rotate(0);
+  }
+  50%,
+  80% {
+    transform: rotate(-65deg);
+  }
+}
+@keyframes soft-fabric {
+  0%,
+  100% {
+    transform: skew(0deg);
+  }
+  50% {
+    transform: skew(6deg) scaleY(0.85);
+  }
+}
+.scene-prompt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1000px;
+  margin: 12px auto;
+  background: #fff7e4;
+  border-radius: 18px;
+  padding: 8px 14px;
+}
+.scene-prompt > p {
+  flex: 1;
+  margin: 0;
+  font-size: 20px;
+}
+.scene-help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #e3e8d3;
+  border-radius: 12px;
+  margin: 6px auto;
+  max-width: 900px;
+}
+.scene-help .vocab-art {
+  width: 54px;
+  height: 54px;
+}
+.scene-stage {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  padding: 12px 16px 12px 115px;
+  border-radius: 26px;
+  background: linear-gradient(#dae2c7 0 56%, #ddc8a0 56%);
+  min-height: 320px;
+}
+.scene-dami {
+  position: absolute;
+  left: 6px;
+  bottom: 80px;
+  width: 108px;
+  height: 155px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.scene-dami:not(.action-idle) {
+  animation: dami-respond 0.6s ease-out;
+}
+@keyframes dami-respond {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.scene-prop {
+  position: relative;
+  padding: 2px !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  width: 94px;
+  height: 94px;
+  border-radius: 12px !important;
+}
+.scene-prop:focus-visible,
+.scene-prop:hover {
+  background: #fff4ca88 !important;
+}
+.scene-prop .vocab-art {
+  width: 86px;
+  height: 86px;
+}
+.scene-hand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 8px auto;
+  min-height: 62px;
+  background: #f5ebdacc;
+  border: 2px dashed #938063;
+  border-radius: 40px;
+  width: max-content;
+  max-width: 100%;
+  padding: 3px 13px;
+}
+.scene-hand .vocab-art {
+  width: 55px;
+  height: 55px;
+}
+.scene-hand > span {
+  font-size: 16px;
+}
+.scene-hand.holding {
+  background: #efddb4;
+}
+.scene-bank {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 85px;
+  background: #f8edd6cc;
+  border-radius: 20px;
+  padding: 4px;
+}
+.hunt-zones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.hunt-zone {
+  position: relative;
+  min-height: 155px;
+}
+.hunt-zone > .object-artwork > .vocab-art {
+  width: 155px;
+  height: 155px;
+}
+.hunt-objects {
+  position: absolute;
+  left: 18px;
+  right: 3px;
+  bottom: 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.delivery-basket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: auto;
+  min-width: 230px;
+}
+.delivery-basket > .object-artwork .vocab-art {
+  width: 75px;
+  height: 75px;
+}
+.delivered-items {
+  display: flex;
+}
+.delivered-items .vocab-art {
+  width: 48px;
+  height: 48px;
+}
+.memory-table {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 155px;
+  padding-bottom: 20px;
+}
+.memory-table > .object-artwork {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -12px;
+  pointer-events: none;
+}
+.memory-table > .object-artwork > .vocab-art {
+  width: 100%;
+  height: 195px;
+  object-fit: fill;
+  opacity: 0.7;
+}
+.memory-table > .scene-prop {
+  z-index: 1;
+}
+.memory-return {
+  margin: 6px;
+}
+.memory-return .vocab-art {
+  width: 50px;
+  height: 50px;
+}
+.memory-board {
+  text-align: center;
+}
+.sorting-places {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+}
+.scene-place {
+  position: relative;
+  flex: 1;
+  min-width: 100px;
+  max-width: 225px;
+  min-height: 140px;
+  text-align: center;
+}
+.place-target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 3px !important;
+  min-height: 100px !important;
+  background: #f4e3c099 !important;
+}
+.place-target .vocab-art {
+  width: 77px;
+  height: 77px;
+}
+.place-target > span {
+  font-size: 14px;
+}
+.place-objects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  min-height: 36px;
+}
+.place-objects .scene-prop {
+  width: 58px;
+  height: 58px;
+}
+.place-objects .vocab-art {
+  width: 55px;
+  height: 55px;
+}
+.design-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 130px 115px;
+  position: relative;
+  gap: 8px;
+  min-height: 250px;
+}
+.design-table > .object-artwork {
+  position: absolute;
+  left: 22%;
+  top: 45px;
+  width: 56%;
+  pointer-events: none;
+}
+.design-table > .object-artwork > .vocab-art {
+  width: 100%;
+  height: 195px;
+  object-fit: fill;
+}
+.design-table .place-on {
+  grid-column: 2;
+  grid-row: 1;
+  z-index: 1;
+}
+.design-table .place-under {
+  grid-column: 2;
+  grid-row: 2;
+  z-index: 1;
+}
+.design-table .place-in {
+  grid-column: 1;
+  grid-row: 2;
+}
+.design-table .place-beside {
+  grid-column: 3;
+  grid-row: 1;
+}
+.design-table .place-target {
+  background: #f5e6c977 !important;
+  border: 2px dashed #8e7955;
+}
+.theatre-world {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-height: 145px;
+}
+.theatre-object small {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+}
+.theatre-object.location-box {
+  background: #c59f6a55;
+  border: 3px solid #96754f;
+  border-radius: 12px;
+}
+.theatre-object.location-sink {
+  background: #9fc8cc88;
+  border-radius: 18px;
+}
+.theatre-object.location-board {
+  background: #c39d6d77;
+  border-radius: 14px;
+}
+.theatre-object.location-guest {
+  background: #accbaa88;
+  border-radius: 20px;
+}
+.theatre-object.location-patio {
+  background: #d0d9a4;
+  border-radius: 20px;
+}
+.theatre-places,
+.theatre-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.theatre-places .scene-place {
+  min-height: 105px;
+}
+.theatre-controls button {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 5px !important;
+}
+.theatre-controls .vocab-art {
+  width: 46px;
+  height: 46px;
+}
+.scene-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 10px;
+}
+.scene-feedback {
+  min-height: 20px;
+  text-align: center;
+  margin: 6px;
+}
+.scene-audio-issue {
+  padding: 10px;
+  background: #f5d9a1;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 850px;
+  margin: auto;
+}
+.scene-bottom {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+.scene-bottom > small {
+  font-size: 12px;
+}
+.scene-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: #f2e6cff5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.scene-overlay button {
+  min-width: 190px;
+}
+.scene-content[inert] {
+  opacity: 0.4;
+}
+@media (max-width: 650px) {
+  .scene-game,
+  .scene-lobby {
+    padding: 8px 10px;
+  }
+  .scene-top h2,
+  .scene-lobby h2 {
+    font-size: 17px;
+    margin: 0;
+  }
+  .scene-top {
+    gap: 4px;
+  }
+  .scene-top button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+  .scene-kind-path {
+    gap: 7px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .scene-kind-path button {
+    width: 30%;
+    min-height: 118px;
+    font-size: 13px;
+    padding: 5px;
+  }
+  .scene-kind-path .vocab-art {
+    width: 58px;
+    height: 58px;
+  }
+  .scene-kind-path .meaning-scene {
+    width: 90px;
+    height: 78px;
+    zoom: 0.8;
+  }
+  .scene-level-path {
+    flex-direction: column;
+    gap: 8px;
+    margin: 8px auto;
+  }
+  .scene-level-path button {
+    padding: 10px 14px;
+    gap: 6px;
+    min-height: 92px;
+    text-align: left;
+  }
+  .scene-level-path button > span {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+  .scene-level-path strong {
+    font-size: 15px;
+  }
+  .scene-lobby > p,
+  .scene-lobby > small {
+    font-size: 13px;
+    margin: 5px auto;
+  }
+  .scene-intro,
+  .scene-done {
+    margin: 8px auto;
+  }
+  .scene-intro > img,
+  .scene-done > img {
+    width: 115px;
+    height: 128px;
+  }
+  .scene-intro h3,
+  .scene-done h3 {
+    font-size: 20px;
+  }
+  .scene-intro p,
+  .scene-done p {
+    font-size: 14px;
+  }
+  .meaning-gallery {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px auto;
+  }
+  .meaning-gallery > button {
+    width: 46%;
+    min-height: 170px;
+    padding: 7px;
+    gap: 4px;
+  }
+  .scene-meaning .vocab-art {
+    width: 88px;
+    height: 88px;
+  }
+  .scene-prompt {
+    gap: 5px;
+    padding: 5px 7px;
+    margin: 8px auto;
+  }
+  .scene-prompt > p {
+    font-size: 15px;
+  }
+  .scene-prompt > button {
+    font-size: 12px;
+    padding: 5px 7px;
+  }
+  .scene-prompt > button:last-child {
+    max-width: 58px;
+  }
+  .scene-stage {
+    padding: 8px 6px 8px 45px;
+    min-height: 310px;
+  }
+  .scene-dami {
+    width: 52px;
+    height: 100px;
+    bottom: 95px;
+    left: 0;
+  }
+  .scene-prop {
+    width: 69px;
+    height: 69px;
+    min-width: 48px !important;
+  }
+  .scene-prop .vocab-art {
+    width: 66px;
+    height: 66px;
+  }
+  .scene-prop .size-big .vocab-art {
+    width: 80px;
+    height: 80px;
+  }
+  .scene-prop .size-small .vocab-art {
+    width: 47px;
+    height: 47px;
+  }
+  .hunt-zone > .object-artwork > .vocab-art {
+    width: 115px;
+    height: 115px;
+  }
+  .hunt-zone {
+    min-height: 145px;
+  }
+  .hunt-zones {
+    gap: 0;
+  }
+  .hunt-objects {
+    left: 0;
+    right: 0;
+    gap: 0;
+  }
+  .scene-hand {
+    gap: 9px;
+    margin: 6px auto;
+  }
+  .scene-hand .vocab-art {
+    width: 43px;
+    height: 43px;
+  }
+  .scene-hand button {
+    font-size: 13px;
+    padding: 6px;
+  }
+  .delivery-basket {
+    min-width: 210px;
+    padding: 4px !important;
+  }
+  .delivery-basket > .object-artwork .vocab-art {
+    width: 58px;
+    height: 58px;
+  }
+  .sorting-places {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .sorting-places .scene-place {
+    min-width: 42%;
+    max-width: 46%;
+    min-height: 108px;
+  }
+  .place-target {
+    min-height: 82px !important;
+  }
+  .place-target .vocab-art {
+    width: 54px;
+    height: 54px;
+  }
+  .place-target > span {
+    font-size: 12px;
+  }
+  .place-objects .scene-prop {
+    width: 48px;
+    height: 48px;
+  }
+  .place-objects .vocab-art {
+    width: 45px;
+    height: 45px;
+  }
+  .memory-table {
+    gap: 0;
+    min-height: 120px;
+  }
+  .scene-bank {
+    padding: 1px;
+  }
+  .design-table {
+    grid-template-rows: 108px 108px;
+    min-height: 220px;
+    gap: 5px;
+  }
+  .design-table .scene-place {
+    min-width: 0;
+    min-height: 0;
+  }
+  .design-table .place-target {
+    min-height: 81px !important;
+  }
+  .design-table > .object-artwork > .vocab-art {
+    height: 158px;
+  }
+  .theatre-world {
+    gap: 2px;
+    min-height: 110px;
+  }
+  .theatre-object small {
+    font-size: 11px;
+    max-width: 68px;
+  }
+  .theatre-controls {
+    gap: 5px;
+  }
+  .theatre-controls button {
+    flex-direction: column;
+    font-size: 13px;
+    min-width: 65px;
+  }
+  .theatre-controls .vocab-art {
+    width: 40px;
+    height: 40px;
+  }
+  .scene-actions {
+    gap: 8px;
+    margin: 8px 0;
+  }
+  .scene-actions button {
+    font-size: 14px;
+    padding: 7px 11px;
+  }
+  .scene-bottom {
+    gap: 7px;
+    flex-wrap: wrap;
+    margin: 6px 0;
+  }
+  .scene-bottom > button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  .scene-feedback {
+    font-size: 13px;
+    min-height: 18px;
+    margin: 4px;
+  }
+  .scene-help {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .scene-help .vocab-art {
+    width: 45px;
+    height: 45px;
+  }
+  .scene-help small {
+    font-size: 11px;
+  }
+  .scene-audio-issue {
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 12px;
+  }
+  .scene-audio-issue button {
+    font-size: 12px;
+  }
+  .meaning-scene {
+    width: 148px;
+    height: 135px;
+  }
+  .theatre-places .scene-place {
+    min-height: 88px;
+  }
+  .scene-lobby > header button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+@media (max-height: 500px) and (min-width: 651px) {
+  .scene-game {
+    padding: 5px 15px;
+  }
+  .scene-stage {
+    min-height: 180px;
+  }
+  .scene-intro > img {
+    height: 75px;
+  }
+  .scene-prompt {
+    margin: 4px auto;
+  }
+  .scene-stage .vocab-art {
+    width: 55px;
+    height: 55px;
+  }
+  .scene-stage .scene-prop {
+    width: 58px;
+    height: 58px;
+  }
+  .scene-top h2 {
+    font-size: 17px;
+  }
+  .scene-kind-path {
+    margin: 4px;
+  }
+  .scene-level-path {
+    margin: 4px;
+  }
+  .scene-dami {
+    height: 100px;
+  }
+  .meaning-gallery {
+    margin: 4px;
+  }
+  .meaning-gallery > button {
+    min-height: 135px;
+  }
+  .scene-bottom {
+    margin: 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .meaning-object,
+  .meaning-cat,
+  .meaning-tool,
+  .meaning-stream,
+  .meaning-water,
+  .meaning-lid,
+  .attribute-soft,
+  .scene-dami {
+    animation: none !important;
+  }
+  .meaning-take .meaning-object {
+    transform: translate(-52px, 40px);
+  }
+  .meaning-carry .meaning-object {
+    transform: translateX(45px);
+  }
+  .meaning-open .meaning-lid {
+    transform: rotate(-65deg);
+  }
+  .meaning-pour .meaning-stream,
+  .meaning-wash .meaning-water {
+    opacity: 1;
+  }
+}
+.memory-board.cloth-covered .memory-table:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: repeating-linear-gradient(0deg, #739980 0 12px, #91ac8c 12px 24px);
+  border-radius: 16px;
+  border: 4px solid #c6b17d;
+  box-shadow: 0 6px 10px #67543644;
+}
+.memory-board.cloth-covered .memory-table .scene-prop {
+  visibility: hidden;
+}
+.state-open > .vocab-art {
+  opacity: 0.7;
+}
+.actor-pour .prop-cup:after {
+  content: "";
+  position: absolute;
+  left: 52%;
+  top: 5%;
+  height: 35%;
+  width: 5px;
+  background: #88bdc9;
+  border-radius: 10px;
+  animation: flow-water 0.8s;
+}
+.actor-stir .prop-cup .object-water {
+  animation: stir-tool 0.6s;
+}
+.actor-wash .prop-bowl .object-shine {
+  animation: flow-water 0.8s;
+}
+.library-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px auto;
+}
+.library-navigation > span {
+  font-size: 14px;
+}
+
+.meaning-attribute .object-artwork.size-small .vocab-art {
+  width: 48px !important;
+  height: 48px !important;
+}
+.meaning-attribute .object-artwork.size-big .vocab-art {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.quantity-workbench fieldset {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px auto;
+  max-width: 500px;
+  border: 2px solid #c7b896;
+  border-radius: 24px;
+  padding: 16px;
+}
+.quantity-workbench fieldset[aria-label="亲手摆的餐盘"] {
+  min-height: 100px;
+  background: #e3d2a6;
+}
+.quantity-workbench .food {
+  width: 60px;
+  height: 60px;
+}
+
+.scene-guide {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.guide-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4e6c6;
+  border-radius: 12px;
+  padding: 5px;
+}
+.scene-guide .guide-step .vocab-art {
+  width: 45px;
+  height: 45px;
+}
+.guide-placement {
+  position: relative;
+  display: block;
+  width: 120px;
+  height: 100px;
+}
+.guide-placement .guide-reference {
+  position: absolute;
+  left: 30px;
+  top: 25px;
+}
+.guide-placement .guide-items {
+  position: absolute;
+  top: 0;
+  left: 35px;
+  display: flex;
+}
+.guide-placement.guide-under .guide-items {
+  top: 60px;
+}
+.guide-placement.guide-beside .guide-items {
+  top: 30px;
+  left: 80px;
+}
+.guide-placement.guide-in .guide-items {
+  top: 30px;
+  left: 40px;
+}
+.guide-placement .vocab-art {
+  width: 45px;
+  height: 45px;
+}
+.theatre-guide .meaning-scene {
+  transform: scale(0.7);
+  margin: -20px -15px;
+}
+
+.scene-help {
+  position: fixed;
+  z-index: 30;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90vw, 660px);
+  max-height: 70vh;
+  overflow: auto;
+  box-shadow: 0 12px 45px #443c4d77;
+  border: 3px solid #c0a274;
+  background: #f4e7ca;
+  flex-wrap: wrap;
+}
+.scene-help > button {
+  flex-basis: 100%;
+}
+.guide-placement {
+  width: 200px;
+}
+.guide-placement .guide-items {
+  max-width: 150px;
+  flex-wrap: wrap;
+}
+.guide-placement.guide-beside .guide-items {
+  max-width: 90px;
+}
+@media (max-width: 600px) {
+  .design-table {
+    grid-template-rows: 145px 108px;
+    min-height: 260px;
+  }
+  .design-table .place-on {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
+  .design-table .place-beside {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .design-table.has-reference .place-on {
+    grid-column: 1 / 3;
+  }
+  .design-table.has-reference .place-beside {
+    grid-row: 1;
+  }
+  .design-table .place-objects {
+    flex-wrap: nowrap;
+  }
+  .theatre-world {
+    min-height: 80px;
+  }
+  .theatre-places .place-objects {
+    flex-wrap: nowrap;
+  }
+  .theatre-places {
+    gap: 5px;
+  }
+  .theatre-places .scene-place {
+    min-width: 0;
+    flex: 1;
+  }
+  .scene-stage:has(.theatre-board) {
+    padding: 8px;
+  }
+  .theatre-board .scene-hand {
+    margin: 0 auto;
+  }
+  .theatre-object .scene-prop {
+    width: 64px;
+    height: 64px;
+  }
+  .theatre-controls button {
+    padding: 4px !important;
+    min-height: 64px;
+  }
+  .scene-help {
+    top: 55px;
+    max-height: 70vh;
+  }
+  .guide-placement .guide-items {
+    max-width: 150px;
+  }
+  .scene-guide .meaning-scene {
+    max-width: 150px;
+  }
+}
+
+.meaning-friend {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  width: 65px;
+  height: 85px;
+  object-fit: contain;
+}
+.meaning-share .meaning-object {
+  z-index: 2;
+}
