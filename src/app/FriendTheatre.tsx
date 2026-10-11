@@ -126,6 +126,14 @@ export function FriendTheatre({
           alt={name}
         />
         <span className="theatre-arm" aria-hidden="true" />
+        {food ? (
+          <span
+            className={`theatre-serving-place ${moment.destination === 'basket' ? 'serving-basket' : ''}`}
+            aria-hidden="true"
+          >
+            {moment.destination === 'basket' ? <SceneIcon kind="basket" /> : <i />}
+          </span>
+        ) : null}
         <span className="theatre-held">
           {food ? <Food product={food.product} /> : null}
           {moment.tool ? <SceneIcon kind={moment.tool} /> : null}

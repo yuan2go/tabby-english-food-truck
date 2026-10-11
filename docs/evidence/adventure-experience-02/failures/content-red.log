@@ -1,0 +1,67 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (21 tests | 3 failed) 87ms
+   × new breakfast uses actual drawer tools and watering without duplicating food 9ms
+   × friend sharing validates an open need and keeps wrong food and repeated tasting stable 2ms
+   × an earlier incomplete adventure gains no new tool or use fact on migration 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > new breakfast uses actual drawer tools and watering without duplicating food
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/adventure.test.ts:291:45
+    289|   s = deliver(s, 1, 'banana');
+    290|   s = act(s, 'explore', { object: 'drawer' }).state;
+    291|   expect(act(s, 'plant', { seat: 1 }).kind).toBe('blocked');
+       |                                             ^
+    292|   s = act(s, 'take-tool', { object: 'seed' }).state;
+    293|   s = act(s, 'plant', { seat: 1 }).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/adventure.test.ts > friend sharing validates an open need and keeps wrong food and repeated tasting stable
+AssertionError: expected 'work' to be 'table:0' // Object.is equality
+
+Expected: "table:0"
+Received: "work"
+
+ ❯ tests/adventure.test.ts:317:67
+    315|   expect(s.adventure?.foods).toEqual(before);
+    316|   s = act(s, 'share', { item: banana.id, visitor: 'rabbit' }).state;
+    317|   expect(s.adventure?.foods.find(f => f.id === banana.id)?.place).toBe…
+       |                                                                   ^
+    318|   expect(act(s, 'share', { item: banana.id, visitor: 'rabbit' }).kind)…
+    319|   s = act(s, 'taste', { item: banana.id, visitor: 'rabbit' }).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/adventure.test.ts > an earlier incomplete adventure gains no new tool or use fact on migration
+AssertionError: expected undefined to deeply equal []
+
+- Expected:
+[]
+
++ Received:
+undefined
+
+ ❯ tests/adventure.test.ts:335:56
+    333|   expect(recovered.ok).toBe(true);
+    334|   if (!recovered.ok) return;
+    335|   expect(recovered.state.adventure?.experience?.tools).toEqual([]);
+       |                                                        ^
+    336|   expect(recovered.state.adventure?.experience?.used).toEqual([]);
+    337|   expect(recovered.state.adventure?.rewards).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 18 passed (21)
+   Start at  20:18:32
+   Duration  678ms (transform 319ms, setup 0ms, import 377ms, tests 87ms, environment 0ms)
+

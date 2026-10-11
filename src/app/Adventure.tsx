@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ADVENTURES, VISITOR_NAMES, type Visitor } from '../content/adventure';
+import { drawerTools } from '../content/adventure-experience';
 import { PRODUCT_NAMES } from '../content/catalog';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
@@ -160,7 +161,9 @@ export function Adventure({
             去厨房备餐
           </button>
         </header>
-        <div className="activity-world">
+        <div
+          className={`activity-world ${a.experience?.needs.length ? 'has-sharing-needs' : ''} ${drawerTools(a).length ? 'with-tool-shelf' : ''}`}
+        >
           <div className="scene-objects">
             {a.chapter === 2 && a.branch === 'rabbit'
               ? object('basket', '检查野餐篮', 'basket')

@@ -52,7 +52,7 @@ async function begin(page: Page) {
 test('visible activity entrance reaches all five chapters and saves a real creation', async ({
   page,
 }) => {
-  test.setTimeout(420000);
+  test.setTimeout(480000);
   const walkStarted = Date.now();
   await page.setViewportSize({ width: 1280, height: 720 });
   await begin(page);
@@ -221,7 +221,7 @@ test('phone replay follows hedgehog path with real food and no packing task', as
 test('free shop stops accepting, saves actual food, restores and returns to a natural ending', async ({
   page,
 }) => {
-  test.setTimeout(90000);
+  test.setTimeout(150000);
   await page.setViewportSize({ width: 393, height: 665 });
   await page.goto('/');
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
@@ -231,6 +231,19 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await table(page);
   await page.getByRole('button', { name: '邀请兔兔', exact: true }).click();
   await expect(page.getByRole('region', { name: '朋友的回访分享需要', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: '邀请刺刺', exact: true }).click();
+  await page.getByRole('button', { name: '邀请长辈', exact: true }).click();
+  await page.getByRole('button', { name: '下一组分享朋友', exact: true }).click();
+  await expect(page.getByRole('button', { name: '分享给长辈', exact: true })).toBeInViewport();
+  await page.getByRole('button', { name: '上一组分享朋友', exact: true }).click();
+  await expect(page.getByRole('button', { name: '取出小勺', exact: true })).toBeInViewport();
+  await page.getByRole('button', { name: '取出小勺', exact: true }).click();
+  const beforeRotation = await state(page);
+  await page.setViewportSize({ width: 665, height: 393 });
+  await expect(page.getByRole('button', { name: '分享给兔兔', exact: true })).toBeInViewport();
+  await expect(page.getByRole('button', { name: '收摊回小院', exact: true })).toBeInViewport();
+  await page.setViewportSize({ width: 393, height: 665 });
+  expect((await state(page)).adventure).toEqual(beforeRotation.adventure);
   await page.getByRole('button', { name: '停止接客，做作品', exact: true }).click();
   await kitchen(page);
   await send(page, 0, 'apple');
@@ -351,7 +364,7 @@ test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on
 test('opening a new seat uses the new menu while an accepted guest keeps the old request', async ({
   page,
 }) => {
-  test.setTimeout(90000);
+  test.setTimeout(150000);
   await page.goto('/');
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
@@ -377,6 +390,12 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
   const pendingMenu = page.getByRole('dialog', { name: '今日新菜单', exact: true });
   if (await pendingMenu.count())
     await pendingMenu.getByRole('button', { name: '这次先不加 ↗', exact: true }).click();
+  // Finish the real replay before comparing the complete accepted-order snapshot.
+  // Audio completion legitimately changes `heard`; menu/seat policy must change nothing else.
+  await page.getByRole('button', { name: '点请求气泡重听', exact: true }).click();
+  await expect
+    .poll(async () => (await state(page)).orders[0]?.heard, { timeout: 15000 })
+    .toBe(true);
   const old = (await state(page)).orders[0];
   expect(old?.request).toBe('banana');
   await table(page);

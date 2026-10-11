@@ -1,0 +1,52 @@
+[WebServer] (node:69715) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:69803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:69851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/experience.spec.ts:4:1 › single guest goal has a complete picture path before reading or hearing (9.0s)
+
+
+  1) e2e/experience.spec.ts:4:1 › single guest goal has a complete picture path before reading or hearing 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('region', { name: '图示下一步' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('region', { name: '图示下一步' }) with timeout 6000ms
+      - waiting for getByRole('region', { name: '图示下一步' })
+
+
+       6 |   await page.goto('/');
+       7 |   await page.getByRole('button',{name:'正在准备 · 晨光开门',exact:true}).click();
+    >  8 |   await expect(page.getByRole('region',{name:'图示下一步'})).toBeVisible();
+         |                                                         ^
+       9 |   await expect(page.locator('.goal-pictures svg')).not.toHaveCount(0);
+      10 |   expect((await state(page)).session.concurrency).toBe(1);
+      11 |   await page.getByRole('button',{name:'先帮刺刺',exact:true}).click();
+        at /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/e2e/experience.spec.ts:8:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/experience-single-guest-go-b70ea-h-before-reading-or-hearing/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/experience-single-guest-go-b70ea-h-before-reading-or-hearing/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/experience-single-guest-go-b70ea-h-before-reading-or-hearing/error-context.md
+
+  1 failed
+    e2e/experience.spec.ts:4:1 › single guest goal has a complete picture path before reading or hearing 

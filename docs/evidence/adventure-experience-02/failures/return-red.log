@@ -1,0 +1,60 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/adventure.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (31 tests | 2 failed) 791ms
+   × same-session return needs remember desserts actually received, even after putting the food away 100ms
+   × clearing a free shop releases the consumed sharing slot for a genuinely new portion 26ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > same-session return needs remember desserts actually received, even after putting the food away
+AssertionError: expected { visitor: 'hedgehog', …(3) } to match object { visitor: 'hedgehog', …(2) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "basis": "treat",
+-   "kind": "cool",
++   "basis": "first",
++   "kind": "drink",
+    "visitor": "hedgehog",
+  }
+
+ ❯ tests/adventure.test.ts:486:45
+    484|   s = act(s, 'clear-table', {confirmed: true}).state;
+    485|   s = act(s, 'invite', {visitor: 'hedgehog'}).state;
+    486|   expect(s.adventure?.experience?.needs[0]).toMatchObject({visitor:'he…
+       |                                             ^
+    487|   expect(s.adventure?.experience?.known).toEqual(['vanilla-cone','stra…
+    488| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/adventure.test.ts > clearing a free shop releases the consumed sharing slot for a genuinely new portion
+AssertionError: expected 'duplicate' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "duplicate"
+
+ ❯ tests/adventure.test.ts:507:22
+    505|   expect(newId).not.toBe(oldId);
+    506|   const again = act(s,'share',{item:newId,visitor:'rabbit'});
+    507|   expect(again.kind).toBe('ok');
+       |                      ^
+    508|   expect(again.state.adventure?.experience?.needs[0]?.fulfilled).toEqu…
+    509|   expect(again.state.adventure?.works).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 29 passed (31)
+   Start at  20:53:17
+   Duration  2.84s (transform 1.13s, setup 0ms, import 1.37s, tests 791ms, environment 0ms)
+

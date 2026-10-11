@@ -1,0 +1,21 @@
+
+> tabby-english-food-truck@0.1.0 resources
+> node scripts/check-resources.mjs
+
+PASS: 385 files, actual hashes/dimensions/alpha and runtime registry checked
+PASS: four procedural audio layers and nine cues registered; listening review remains NOT_RUN
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: missing registered speech world-clear
+    at file:///Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck/scripts/check-resources.mjs:77:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.15.0

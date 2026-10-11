@@ -1,4 +1,5 @@
 .friend-theatre {
+  --portion-size: 42px;
   grid-area: 3 / 2;
   position: relative;
   align-self: stretch;
@@ -76,7 +77,62 @@
 }
 .stage-2 .theatre-held {
   left: 58%;
-  top: 66%;
+  top: calc(77% - var(--portion-size) + 6px);
+}
+.theatre-serving-place {
+  position: absolute;
+  left: 58%;
+  top: 77%;
+  width: 68px;
+  height: 13px;
+  transform: translateX(-25%);
+  background: #c29860;
+  border: 2px solid #806138;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.theatre-serving-place::before,
+.theatre-serving-place::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  width: 4px;
+  height: 10px;
+  background: #806138;
+}
+.theatre-serving-place::before {
+  left: 10px;
+}
+.theatre-serving-place::after {
+  right: 10px;
+}
+.theatre-serving-place i {
+  position: absolute;
+  inset: 0 10px 2px;
+  border-radius: 50%;
+  background: #fff0ce;
+  border: 1px solid #a78654;
+}
+.stage-2 .theatre-serving-place,
+.stage-3 .theatre-serving-place,
+.stage-4 .theatre-serving-place {
+  opacity: 1;
+}
+.serving-basket {
+  border: 0;
+  background: none;
+  height: 40px;
+  top: 64%;
+}
+.serving-basket::before,
+.serving-basket::after {
+  display: none;
+}
+.serving-basket .scene-icon {
+  width: 58px;
+  height: 44px;
 }
 .theatre-arm {
   position: absolute;
@@ -141,7 +197,7 @@
 }
 .stage-4 .theatre-held {
   left: 58%;
-  top: 68%;
+  top: calc(77% - var(--portion-size) + 6px);
 }
 .theatre-caption {
   position: absolute;

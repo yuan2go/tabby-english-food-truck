@@ -1,0 +1,16 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/app/Adventure.tsx(206,12): error TS2375: Type '{ controller: GameController; audio: ForegroundAudio; obstacle: ActivityGuidance | undefined; navigate: (target: string, select: string | undefined) => void; }' is not assignable to type '{ controller: GameController; audio: ForegroundAudio; compact?: boolean; navigate: (target: string, select?: string | undefined) => void; obstacle?: ActivityGuidance; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'obstacle' are incompatible.
+    Type 'ActivityGuidance | undefined' is not assignable to type 'ActivityGuidance'.
+      Type 'undefined' is not assignable to type 'ActivityGuidance'.
+src/rules/adventure-guidance.ts(31,27): error TS2375: Type '{ id: string; from: string; to: string; label: string; target: string; products: readonly ("apple" | "banana" | "orange" | "pear" | "peach" | "strawberry" | "fresh-strawberry" | "grape" | "watermelon" | ... 53 more ... | "cooked-patty")[]; select: string | undefined; audio: string; }' is not assignable to type 'ActivityGuidance' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'select' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+tests/adventure.test.ts(86,32): error TS2379: Argument of type '{ readonly action: "place"; readonly item: string | undefined; readonly seat: 2; }' is not assignable to parameter of type 'ActivityCommand' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'item' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.

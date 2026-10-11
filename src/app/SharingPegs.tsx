@@ -24,9 +24,23 @@ export function SharingPegs({
   selection: string;
   act: (c: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => void;
 }) {
+  const [page, setPage] = useState(0);
+  const needs = a.experience?.needs ?? [];
+  const lastPage = Math.max(0, Math.ceil(needs.length / 2) - 1);
+  const current = Math.min(page, lastPage);
   return (
     <section className="sharing-pegs" aria-label="朋友的回访分享需要">
-      {(a.experience?.needs ?? []).map((need) => (
+      {lastPage ? (
+        <button
+          type="button"
+          aria-label="上一组分享朋友"
+          disabled={current === 0}
+          onClick={() => setPage(current - 1)}
+        >
+          ◀
+        </button>
+      ) : null}
+      {needs.slice(current * 2, current * 2 + 2).map((need) => (
         <div
           className={`sharing-peg ${need.fulfilled.length ? 'need-met' : ''}`}
           key={need.visitor}
@@ -72,6 +86,18 @@ export function SharingPegs({
           </button>
         </div>
       ))}
+      {lastPage ? (
+        <button
+          type="button"
+          aria-label="下一组分享朋友"
+          disabled={current === lastPage}
+          onClick={() => setPage(current + 1)}
+        >
+          ▶
+        </button>
+      ) : null}
     </section>
   );
 }
+
+import { useState } from 'react';
