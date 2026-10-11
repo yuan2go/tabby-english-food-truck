@@ -19,10 +19,10 @@ export function MenuGrowth({
   const replay = useCallback(() => {
     const token = ++voiceToken.current;
     setVoiceResult(null);
-    void audio.play(`grow-${request}`).then((result) => {
+    void audio.play(spec.audio).then((result) => {
       if (token === voiceToken.current) setVoiceResult(result);
     });
-  }, [audio, request]);
+  }, [audio, spec.audio]);
   useEffect(() => {
     replay();
     return () => {

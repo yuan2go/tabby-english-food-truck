@@ -1,0 +1,147 @@
+{
+  "apple": {
+    "one": "an apple",
+    "plural": "apples",
+    "name": "apple"
+  },
+  "banana": {
+    "one": "a banana",
+    "plural": "bananas",
+    "name": "banana"
+  },
+  "orange": {
+    "one": "an orange",
+    "plural": "oranges",
+    "name": "orange"
+  },
+  "pear": {
+    "one": "a pear",
+    "plural": "pears",
+    "name": "pear"
+  },
+  "peach": {
+    "one": "a peach",
+    "plural": "peaches",
+    "name": "peach"
+  },
+  "fresh-strawberry": {
+    "one": "a strawberry",
+    "plural": "strawberries",
+    "name": "strawberry"
+  },
+  "mango": {
+    "one": "a mango",
+    "plural": "mangoes",
+    "name": "mango"
+  },
+  "pineapple": {
+    "one": "a pineapple",
+    "plural": "pineapples",
+    "name": "pineapple"
+  },
+  "sandwich": {
+    "one": "a cheese sandwich",
+    "plural": "cheese sandwiches",
+    "name": "cheese sandwich"
+  },
+  "salad-sandwich": {
+    "one": "a lettuce and tomato sandwich",
+    "plural": "lettuce and tomato sandwiches",
+    "name": "lettuce and tomato sandwich"
+  },
+  "burger": {
+    "one": "a burger with lettuce and tomato",
+    "plural": "burgers with lettuce and tomato",
+    "name": "burger with lettuce and tomato"
+  },
+  "cheese-burger": {
+    "one": "a cheeseburger",
+    "plural": "cheeseburgers",
+    "name": "cheeseburger"
+  },
+  "smoothie": {
+    "one": "a smoothie",
+    "plural": "smoothies",
+    "name": "smoothie"
+  },
+  "milkshake": {
+    "one": "a milkshake",
+    "plural": "milkshakes",
+    "name": "milkshake"
+  },
+  "cookie": {
+    "one": "a cookie",
+    "plural": "cookies",
+    "name": "cookie"
+  },
+  "juice": {
+    "one": "some apple juice",
+    "plural": "portions of apple juice",
+    "name": "apple juice"
+  },
+  "banana-juice": {
+    "one": "some banana juice",
+    "plural": "portions of banana juice",
+    "name": "banana juice"
+  },
+  "grape": {
+    "one": "some grapes",
+    "plural": "portions of grapes",
+    "name": "grapes"
+  },
+  "watermelon": {
+    "one": "some watermelon",
+    "plural": "portions of watermelon",
+    "name": "watermelon"
+  },
+  "milk": {
+    "one": "some milk",
+    "plural": "portions of milk",
+    "name": "milk"
+  },
+  "yogurt": {
+    "one": "some yogurt",
+    "plural": "portions of yogurt",
+    "name": "yogurt"
+  },
+  "pizza": {
+    "one": "some pizza",
+    "plural": "portions of pizza",
+    "name": "pizza"
+  },
+  "salad": {
+    "one": "some salad",
+    "plural": "portions of salad",
+    "name": "salad"
+  },
+  "cake": {
+    "one": "some cake",
+    "plural": "portions of cake",
+    "name": "cake"
+  },
+  "vanilla-cup": {
+    "one": "one scoop of vanilla ice cream in a cup",
+    "plural": "portions of vanilla ice cream in a cup",
+    "name": "vanilla ice cream in a cup"
+  },
+  "vanilla-cone": {
+    "one": "one scoop of vanilla ice cream in a cone",
+    "plural": "portions of vanilla ice cream in a cone",
+    "name": "vanilla ice cream in a cone"
+  },
+  "strawberry-cup": {
+    "one": "one scoop of strawberry ice cream in a cup",
+    "plural": "portions of strawberry ice cream in a cup",
+    "name": "strawberry ice cream in a cup"
+  },
+  "banana-cream": {
+    "one": "one scoop of vanilla ice cream with banana in a cup",
+    "plural": "portions of vanilla ice cream with banana in a cup",
+    "name": "vanilla ice cream with banana in a cup"
+  },
+  "double-cream": {
+    "one": "two scoops of ice cream in a cup, one vanilla and one strawberry",
+    "plural": "cups of ice cream with one vanilla scoop and one strawberry scoop",
+    "name": "vanilla and strawberry ice cream"
+  }
+}

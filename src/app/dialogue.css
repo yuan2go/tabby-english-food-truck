@@ -1,0 +1,169 @@
+.conversation {
+  position: relative;
+  color: #214635;
+  background: #fff5dcf5;
+  border: 2px solid #97794c;
+  border-radius: 14px;
+  z-index: 9;
+  padding: 3px 6px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.conversation-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+}
+.conversation-tabs > button,
+.sentence-help {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+.conversation-tabs > button[aria-pressed="true"] {
+  background: #346d49;
+  color: #fff4d4;
+}
+.speaker-name {
+  margin-left: auto;
+  font-size: 12px;
+}
+.spoken-sentence {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.spoken-sentence button {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  box-shadow: none;
+}
+.spoken-sentence .sentence-text {
+  flex: 1;
+  text-align: left;
+  font-size: clamp(16px, 2.5vw, 21px);
+  font-weight: 500;
+  line-height: 1.17;
+  padding: 2px 4px;
+  min-height: 48px;
+  min-width: 0;
+}
+.sentence-text strong {
+  color: #713e1c;
+  font-weight: 750;
+}
+.spoken-sentence .sentence-play {
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  background: #356b4c;
+  color: #fff6d9;
+  font-size: 23px;
+  flex-shrink: 0;
+}
+.spoken-sentence[data-playback="playing"] .sentence-play {
+  background: #925d2f;
+}
+.conversation-history {
+  position: relative;
+}
+.conversation-history summary {
+  cursor: pointer;
+  padding: 3px 6px;
+  min-width: 24px;
+}
+.conversation-history > div {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: min(330px, 80vw);
+  max-height: 190px;
+  overflow: auto;
+  background: #fff2cf;
+  border: 2px solid #967446;
+  border-radius: 10px;
+  z-index: 20;
+}
+.conversation-history button {
+  display: block;
+  text-align: left;
+  min-height: 48px;
+  width: 100%;
+  font-size: 15px;
+}
+.adventure-content > .conversation {
+  flex-shrink: 0;
+  margin: 0 8px 4px;
+}
+.work-description {
+  margin: 4px;
+  font-size: 16px;
+}
+.work-description + .spoken-sentence {
+  margin-bottom: 5px;
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .adventure-content > .conversation {
+    margin-left: 31%;
+    min-height: 74px;
+  }
+  .adventure-content > .conversation .conversation-tabs {
+    height: 22px;
+  }
+  .adventure-content > .conversation .sentence-text {
+    font-size: 16px;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .service-surface .conversation .speaker-name {
+    display: none;
+  }
+  .service-surface .conversation-tabs {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 44px;
+  }
+}
+.request-figures {
+  display: flex;
+  gap: 3px;
+  background: #fff4d6;
+  border-radius: 12px;
+  z-index: 10;
+  padding: 0;
+}
+.request-figures .food-art {
+  width: 28px;
+  height: 28px;
+}
+
+/* Beside the activity world, the sentence uses space that never belonged to food or exit controls. */
+@media (min-width: 600px) {
+  .adventure-scene .adventure-content {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.27fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .adventure-scene .adventure-content > .activity-header {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .adventure-scene .adventure-content > .conversation {
+    grid-area: 2 / 1;
+    align-self: start;
+    margin: 0 4px 4px 8px;
+  }
+  .adventure-scene .adventure-content > .activity-world {
+    grid-area: 2 / 2;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .adventure-scene .adventure-content > .activity-footer {
+    grid-area: 3 / 1 / 4 / 3;
+  }
+}

@@ -1,0 +1,1146 @@
+{
+  "checked": [
+    {
+      "source": "README.md",
+      "target": "docs/STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "e2e/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/01-product.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/02-game-design.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/03-experience-design.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/04-technical-design.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/index.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/submission/index.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "AGENTS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "art/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "e2e/README.md",
+      "target": "../docs/05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "e2e/README.md",
+      "target": "../docs/STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "e2e/README.md",
+      "target": "../docs/playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "prompts.md",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "character-prompts.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "character-exports.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "audio-synthesis.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "m2-production.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "m21-audio.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "m22-production.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "m22-audio.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "m22-vanilla-cup.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "m22-growth-audio.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "adventure-experience-audio.json",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "../scripts/adventure-experience-audio.mjs",
+      "exists": true
+    },
+    {
+      "source": "art/README.md",
+      "target": "../docs/evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "submission/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "submission/evidence.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "01-product.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "02-game-design.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "03-experience-design.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "04-technical-design.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "evidence/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "AI-usage.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "../art/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/index.md",
+      "target": "archive/pre-submission-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "../STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "../playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "validation-delivery-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "combined-delivery-2026-10-11/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "adventure-experience-02/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "minigames-vocab/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "playable-adventure/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "adventure-direct-input/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "dual-layout-playflow/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "m22/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "m21/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "m2/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "m1-upgrade/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "../archive/pre-submission-2026-10-12/evidence-README.md.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "playability-closure/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "../../art/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/README.md",
+      "target": "../AI-usage.md",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "../art/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "../art/m2-production.json",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "../art/m2-exports.json",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "../scripts/export-m2.mjs",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "../src/content/recipes.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "../src/game/assets.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "archive/pre-submission-2026-10-12/AI-usage.md.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/AI-usage.md",
+      "target": "evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/STATUS.md",
+      "target": "05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/STATUS.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/STATUS.md",
+      "target": "evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/STATUS.md",
+      "target": "playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/STATUS.md",
+      "target": "submission/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "archive/pre-playable-adventure-01/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "evidence/minigames-vocab/vocabulary-coverage.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "archive/pre-minigames-vocab-01/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/01-product.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/02-game-design.md",
+      "target": "archive/pre-playable-adventure-01/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/02-game-design.md",
+      "target": "05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/02-game-design.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/02-game-design.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/03-experience-design.md",
+      "target": "archive/pre-playable-adventure-01/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/03-experience-design.md",
+      "target": "05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/03-experience-design.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/03-experience-design.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/04-technical-design.md",
+      "target": "archive/pre-playable-adventure-01/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/04-technical-design.md",
+      "target": "05-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/04-technical-design.md",
+      "target": "STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/04-technical-design.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/05-delivery.md",
+      "target": "playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/05-delivery.md",
+      "target": "../e2e/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/05-delivery.md",
+      "target": "archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/05-delivery.md",
+      "target": "evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/05-delivery.md",
+      "target": "submission/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/cloud-delivery.md",
+      "target": "design-description.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/cloud-delivery.md",
+      "target": "design-description.pdf",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/cloud-delivery.md",
+      "target": "evidence.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/cloud-delivery.md",
+      "target": "validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/design-description.md",
+      "target": "evidence.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/design-description.md",
+      "target": "assets/01-making-icecream.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/design-description.md",
+      "target": "assets/02-picnic-sharing.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/design-description.md",
+      "target": "assets/03-saved-work.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "design-description.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/manual/runtime.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../01-product.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/adventure.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/app/Home.tsx",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/recipes.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/catalog.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/speech.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/adventure.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/adventure-experience.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/manual/readback-comparison.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../02-game-design.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/game.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/adventure.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../03-experience-design.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/game/TruckScene.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/adventure.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/app/FriendTheatre.tsx",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/app/FreeShop.tsx",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/app/WorkGallery.tsx",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/adventure.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/manual/free-work-gallery.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/adventure-experience.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/adventure-experience.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/mini-course.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/rules/scene-games.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../03-experience-design.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/vocabulary.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/content/scene-levels.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/m2-production.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/source/m2-foods.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/source/recipe-outputs.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/m2-exports.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../scripts/export-m2.mjs",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../src/game/assets.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../AI-usage.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../archive/pre-submission-2026-10-12/AI-usage.md.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/adventure-experience-audio.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../../art/vocab-scene-audio.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "assets/01-making-icecream.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/manual/09-icecream-processing.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "assets/02-picnic-sharing.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/manual/24-ch3-rabbit-complete.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "assets/03-saved-work.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "../playtests/2026-10-11-integrated-validation-43d7c76/manual/52-free-gallery.png",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "assets/screenshots.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "assets/historical-site-check.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/evidence.md",
+      "target": "validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "design-description.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "design-description.pdf",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "evidence.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "validation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "cloud-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "../evidence/demo-repair-2026-10-12/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/index.md",
+      "target": "../STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/validation.md",
+      "target": "design-description.md",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/validation.md",
+      "target": "design-description.pdf",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/validation.md",
+      "target": "assets/historical-site-check.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/validation.md",
+      "target": "assets/screenshots.json",
+      "exists": true
+    },
+    {
+      "source": "docs/submission/validation.md",
+      "target": "cloud-delivery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/archive/pre-submission-2026-10-12/index.md",
+      "target": "../../index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/archive/pre-submission-2026-10-12/index.md",
+      "target": "../pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/archive/pre-submission-2026-10-12/index.md",
+      "target": "AI-usage.md.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/archive/pre-submission-2026-10-12/index.md",
+      "target": "evidence-README.md.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/archive/pre-submission-2026-10-12/index.md",
+      "target": "../../submission/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/archive/pre-submission-2026-10-12/index.md",
+      "target": "../../evidence/demo-repair-2026-10-12/final/archive-dedup.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/main-advance.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/build-identity.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "/Users/dafangzi/.codex/artifacts/tabby-demo-2026-10-12/delivery-receipt.json",
+      "exists": false
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "../../archive/pre-demo-repair-2026-10-12/index.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "manifest-semantic-check-corrected.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/build.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/unit.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/lint.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/resources.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/audit.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/vocabulary.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/html/index.html",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser.log",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/manual/browser-measurements.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/package-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/commands.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser-command.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "before/html/index.html",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "logs/",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "experience-converged/html/index.html",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "code-review.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser-acceptance.mjs",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/manual/browser-measurements.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/native-background/result.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/native-background-command.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "audio-review-queue.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "audio-technical-summary.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/audio-review-synthesis.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "/Users/dafangzi/.codex/artifacts/tabby-demo-2026-10-12/game-build-e0542ff.tar.gz",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/home-393x665.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/home-768x1024.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/home-852x300.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/short-landscape-300.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/individual-food-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/whole-tray-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/received-current-goal-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/burger-contrast-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/cup-cone-contrast-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/quantity-contrast-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/vessel-contrast-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/breakfast-friends-desktop.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/picnic-rabbit-desktop.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/picnic-hedgehog-phone.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/dinner-drink-desktop.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "final/browser/screenshots/receipt-852x300.png",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "evidence-index.tsv",
+      "exists": false
+    }
+  ],
+  "missing": [
+    {
+      "source": "docs/evidence/demo-repair-2026-10-12/README.md",
+      "target": "evidence-index.tsv"
+    }
+  ],
+  "receiptCreatedAfterCommit": "/Users/dafangzi/.codex/artifacts/tabby-demo-2026-10-12/delivery-receipt.json"
+}

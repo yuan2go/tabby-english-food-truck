@@ -1,0 +1,14 @@
+id,kind,source,source_sha256,method,route,human_status,rights
+music,layer,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,16 second mono pentatonic sine/mallet loop with decaying envelopes,首次手势解锁后前台游戏；与英语重听对照音乐让位,NOT_RUN,PENDING_OWNER_CONFIRMATION
+ambience,layer,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,8 second mono outdoor chirp and low rustle approximation synthesized from sine waves; not a field recording,前台小院环境；总静音/后台停止,NOT_RUN,PENDING_OWNER_CONFIRMATION
+machine,layer,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,1 second periodic 75/150 Hz motor with 8 Hz modulation; strictly foreground PROCESSING,果汁或煎制处理中；完成/暂停/后台终止,NOT_RUN,PENDING_OWNER_CONFIRMATION
+effects,layer,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,"Short sine frequency sweeps with exponential gain envelope, at most six simultaneous nodes",以下短反馈共享总线；语音期间压低,NOT_RUN,PENDING_OWNER_CONFIRMATION
+press,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,点厨房操作目标,NOT_RUN,PENDING_OWNER_CONFIRMATION
+place,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,移放食品/活动摆放,NOT_RUN,PENDING_OWNER_CONFIRMATION
+insert,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,仅注册，静态调用未发现；保守保留待审项,NOT_RUN,PENDING_OWNER_CONFIRMATION
+start,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,实际开始设备加工,NOT_RUN,PENDING_OWNER_CONFIRMATION
+success,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,真实交付成功,NOT_RUN,PENDING_OWNER_CONFIRMATION
+ready,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,设备真实完成,NOT_RUN,PENDING_OWNER_CONFIRMATION
+arrive,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,朋友实际到达,NOT_RUN,PENDING_OWNER_CONFIRMATION
+cat,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,请求大咪帮助,NOT_RUN,PENDING_OWNER_CONFIRMATION
+gentle,cue,src/platform/audio.ts,d4ab132fa8cf28350792af2b78ec1a5e0a1f01015410d2b836cfc9caccb196f5,Original sine sweep; no sampled recording,无效/受阻操作的温和反馈,NOT_RUN,PENDING_OWNER_CONFIRMATION

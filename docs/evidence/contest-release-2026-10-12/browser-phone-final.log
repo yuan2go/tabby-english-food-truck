@@ -1,0 +1,23 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep phone replay|whole tray|normal entrance: complete|phone: held tray|phone wrong delivery
+
+[WebServer] (node:32712) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:32803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+  ✓  1 e2e/adventure.spec.ts:259:1 › phone replay follows hedgehog path with real food and no packing task (48.0s)
+  ✓  2 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (6.9s)
+  ✓  3 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (35.0s)
+  ✓  4 e2e/immersion.spec.ts:113:1 › phone: held tray and two guests replay without delivery; cancellation, pause, failure and short landscape (2.7s)
+  ✓  5 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (11.8s)
+
+  5 passed (1.9m)

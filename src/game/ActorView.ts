@@ -3,7 +3,7 @@ import { foodAsset, type Product, suppliesFor } from '../content/recipes';
 import type { GameController } from '../platform/controller';
 import { ActorScheduler } from './actor';
 import type { ViewState } from './input';
-import { type Layout, type Point, projectActor, supplyPoint } from './layout';
+import { type Layout, type Point, projectActor, supplyPoint, traySurface } from './layout';
 /** Presentation samples the rule clock; hands and tray interpolate inside the same phases. */
 export class ActorView {
   private scheduler = new ActorScheduler();
@@ -110,7 +110,7 @@ export class ActorView {
       (j) => j.kind === 'delivery',
     )) {
       const trayId = delivery.tray ?? 0,
-        rest = l.trays[trayId];
+        rest = traySurface(l, trayId).food;
       const active = delivery === job;
       const phase = active ? frame.phase : -1;
       const lift = delivery.plan.phases.findIndex((p) => p.event === 'lift');
@@ -126,7 +126,7 @@ export class ActorView {
               : hand;
         this.tray
           .setVisible(true)
-          .setPosition(at.x, at.y + 10)
+          .setPosition(at.x, at.y + 7)
           .setDisplaySize(
             l.trayWidth *
               (phase === lift
@@ -149,10 +149,12 @@ export class ActorView {
             at.x +
             (Number(item.location.split(':')[2]) - 1) *
               Math.min(76, Math.max(46, l.trayWidth * 0.26)),
-          y: at.y - 7,
+          y: at.y,
         };
-        if (active && phase >= lift)
-          p = { x: at.x + (i - (foods.length - 1) / 2) * 30 * l.scale, y: at.y };
+        if (active && phase >= lift) {
+          const compact = { x: at.x + (i - (foods.length - 1) / 2) * 30 * l.scale, y: at.y };
+          p = phase === lift ? mix(p, compact, frame.progress) : compact;
+        }
         if (active && phase === receive) {
           const guest = l.guests[s.orders.find((o) => o.id === delivery.order)?.seat ?? 0];
           p = mix(
@@ -181,13 +183,13 @@ export class ActorView {
         let p = { x: hand.x + (i - (items.length - 1) / 2) * 28, y: hand.y };
         if (frame.event === pick) p = mix(source, p, frame.progress);
         if (frame.event === 'place') {
-          const center = l.trays[job.tray ?? 0],
+          const center = traySurface(l, job.tray ?? 0).food,
             slot = s.helper?.slots[i] ?? i;
           p = mix(
             p,
             {
               x: center.x + (slot - 1) * Math.min(76, Math.max(46, l.trayWidth * 0.26)),
-              y: center.y - 7,
+              y: center.y,
             },
             frame.progress,
           );

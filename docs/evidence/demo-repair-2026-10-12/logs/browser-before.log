@@ -1,0 +1,6 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep scene pause|desktop feast exposes
+
+Error: http://127.0.0.1:4292 is already used, make sure that nothing is running on the port/url or set reuseExistingServer:true in config.webServer.
+

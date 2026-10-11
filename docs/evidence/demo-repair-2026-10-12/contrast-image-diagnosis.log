@@ -1,0 +1,23 @@
+[
+  {
+    src: 'http://127.0.0.1:4294/assets/burger.webp?v=79265eef53a63450',
+    complete: true,
+    nw: 492,
+    r: { x: 87.734375, y: 268.203125, w: 55.015625, h: 85 },
+    opacity: '1',
+    display: 'block',
+    visibility: 'visible',
+    flex: '0 1 auto'
+  },
+  {
+    src: 'http://127.0.0.1:4294/assets/cheese-burger.webp?v=79265eef53a63450',
+    complete: true,
+    nw: 447,
+    r: { x: 250.234375, y: 268.203125, w: 55.015625, h: 85 },
+    opacity: '1',
+    display: 'block',
+    visibility: 'visible',
+    flex: '0 1 auto'
+  }
+]
+[ { complete: true, nw: 492 }, { complete: true, nw: 447 } ]

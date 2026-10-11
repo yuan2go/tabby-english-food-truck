@@ -2,7 +2,7 @@ import { type Product, REQUESTS } from '../content/catalog';
 import { type Family, isFinished, type StationId } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
-import type { GameState, Source, TrayId } from '../rules/types';
+import type { GameState, Order, Source, TrayId } from '../rules/types';
 import type { DoubleTap } from './gestures';
 import type { Layout } from './layout';
 export type Selection = Source | { tray: TrayId } | null;
@@ -28,6 +28,8 @@ export interface Hotspot {
 export interface ViewState {
   layout?: Layout;
   openHelp: () => void;
+  listen?: (order: Order) => void;
+  preparation?: () => void;
   prep?: 'tray' | 'machine' | StationId;
   doubleTap?: DoubleTap;
   elements: Map<string, HTMLButtonElement>;
@@ -53,6 +55,7 @@ export function sourceFor(id: string, s: GameState): Selection {
   if (id.startsWith('supply-')) return { supply: id.slice(7) as Product };
   if (id.startsWith('item-') && s.items.some((i) => i.id === id.slice(5)))
     return { item: id.slice(5) };
+  if (id.startsWith('lift-tray-')) return { tray: Number(id.slice(10)) as TrayId };
   if (id.startsWith('tray-')) return { tray: Number(id.slice(5)) as TrayId };
   return null;
 }
@@ -110,6 +113,24 @@ export function activate(
             ? { machine: product === 'cup' ? 'cup' : 'apple' }
             : { station: prep },
     };
+  } else if (id.startsWith('lift-tray-')) {
+    const tray = Number(id.slice(10));
+    if (tray !== 0 && tray !== 1) return;
+    if (s.trays[tray].remaining) {
+      ui.feedback = '空盘还在回来，另一盘可以继续准备。';
+    } else {
+      const filled = s.items.some((item) => item.location.startsWith(`tray:${tray}:`));
+      const putDown = selected && 'tray' in selected && selected.tray === tray;
+      ui.selectedTray = tray;
+      ui.prep = 'tray';
+      ui.doubleTap?.cancel();
+      ui.selected = filled && !putDown ? { tray } : null;
+      controller.message = putDown
+        ? '整盘放下了，食物仍在盘中。'
+        : filled
+          ? '拿起整盘，点你选择的朋友交付；气泡只重听。'
+          : '这只盘还空着，点食品放进来。';
+    }
   } else if (id.startsWith('tray-')) {
     const tray = Number(id.slice(5)) as TrayId;
     ui.selectedTray = tray;
@@ -158,7 +179,10 @@ export function activate(
       command = { type: 'deliver', tray: selected.tray, order: guest };
     else {
       const order = s.orders.find((o) => o.id === guest);
-      if (order?.status === 'waiting') void audio.play(REQUESTS[order.request].audio);
+      if (order?.status === 'waiting') {
+        if (ui.listen) ui.listen(order);
+        else void audio.play(REQUESTS[order.request].audio, undefined, order.id);
+      }
       controller.message = '听朋友说一说。装好餐盘后，拿起来递给朋友。';
     }
   } else if (targetItem) {
@@ -226,5 +250,12 @@ export function activate(
       audio.effect('gentle');
     }
   }
+  if (
+    id.startsWith('machine-') ||
+    id.startsWith('station-') ||
+    id.startsWith('family-') ||
+    command?.type === 'move'
+  )
+    ui.preparation?.();
   ui.change();
 }

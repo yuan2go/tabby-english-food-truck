@@ -1,0 +1,97 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep scene pause|desktop feast exposes|low motion receipts
+
+[WebServer] (node:5891) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+EVIDENCE_FEAST_START_SECONDS 13.322
+(node:5937) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_DRINK_START_SECONDS 33.581
+  ✓  1 e2e/adventure.spec.ts:192:1 › desktop feast exposes replay skip and low motion without repeating settlement (37.0s)
+  ✘  2 e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts (7.7s)
+  ✘  3 e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger (13.7s)
+
+
+  1) e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      539 |           );
+      540 |         }),
+    > 541 |       ).toBe(true);
+          |         ^
+      542 |     }
+      543 |     await page.screenshot({
+      544 |       path: evidencePath(
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/adventure.spec.ts:541:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/engineering-after/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/engineering-after/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/engineering-after/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/error-context.md
+
+  2) e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '重玩这一组', exact: true })
+        - locator resolved to <button type="button">重玩这一组</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <section data-scene-mode="task" data-scene-phase="play" data-scene-level="hunt-2" aria-label="小院寻物 · 朋友的两份心意" class="scene-game game-hunt">…</section> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <section data-scene-mode="task" data-scene-phase="play" data-scene-level="hunt-2" aria-label="小院寻物 · 朋友的两份心意" class="scene-game game-hunt">…</section> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        22 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <section data-scene-mode="task" data-scene-phase="play" data-scene-level="hunt-2" aria-label="小院寻物 · 朋友的两份心意" class="scene-game game-hunt">…</section> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+      32 |   expect(before).not.toBe('');
+      33 |   const restart = page.getByRole('button', { name: '重玩这一组', exact: true });
+    > 34 |   await restart.click();
+         |                 ^
+      35 |   const confirm = page.getByRole('dialog', { name: '重玩场景小游戏' });
+      36 |   await expect(confirm.getByRole('button', { name: '继续这一轮' })).toBeFocused();
+      37 |   await page.keyboard.press('Shift+Tab');
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/demo-repair.spec.ts:34:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/engineering-after/test-results/demo-repair-scene-pause-an-92336-cus-and-restore-the-trigger/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/engineering-after/test-results/demo-repair-scene-pause-an-92336-cus-and-restore-the-trigger/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/engineering-after/test-results/demo-repair-scene-pause-an-92336-cus-and-restore-the-trigger/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts 
+    e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger 
+  1 passed (1.0m)

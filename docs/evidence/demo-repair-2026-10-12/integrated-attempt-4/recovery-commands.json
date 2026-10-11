@@ -1,0 +1,27 @@
+{
+  "buildDirty": true,
+  "records": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "result": "289/289",
+      "log": "recovery-unit.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "recovery-final-build.log"
+    },
+    {
+      "command": "CI=1 TEST_PORT=4293 CHROMIUM_CHANNEL=chromium EVIDENCE_DIR=/tmp/tabby-demo-final-4-2026-10-12/recovery-boundary npx playwright test e2e/m22-boundaries.spec.ts --grep \"phone wrong delivery\"",
+      "exitCode": 0,
+      "result": "1/1",
+      "log": "recovery-boundary.log"
+    },
+    {
+      "command": "npx biome check --write <11 affected TS/TSX files>",
+      "exitCode": 0,
+      "log": "final-format.log"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+
+ Test Files  20 passed (20)
+      Tests  259 passed (259)
+   Start at  02:35:14
+   Duration  3.04s (transform 5.05s, setup 0ms, import 8.36s, tests 2.87s, environment 2ms)
+

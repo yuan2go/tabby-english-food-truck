@@ -1,0 +1,88 @@
+{
+  "environment": {
+    "node": "22.12.0",
+    "npm": "10.9.0",
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "nodePath": "/tmp/node-v22.12.0-darwin-arm64/bin/node"
+  },
+  "results": [
+    {
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "files": 24,
+      "passed": 310
+    },
+    {
+      "command": "npm run resources",
+      "exitCode": 0,
+      "registeredFiles": 818,
+      "speechReferences": 591,
+      "wholeSentences": 133
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "warning": "Vite chunks over 500 kB"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "warnings": 122,
+      "infos": 20
+    },
+    {
+      "command": "node scripts/check-vocabulary.mjs",
+      "exitCode": 0,
+      "concepts": 120,
+      "realSceneSolutions": 51,
+      "separateInstructions": 33
+    }
+  ],
+  "browser": {
+    "initialFull": {
+      "passed": 26,
+      "failed": 7,
+      "total": 33,
+      "exitCode": 1,
+      "log": "browser-first.log",
+      "environment": "macOS ARM64; Node22.12.0; headless Chrome; default quality; 1 worker"
+    },
+    "affectedAfterLayout1": {
+      "passed": 4,
+      "failed": 3,
+      "total": 7,
+      "exitCode": 1,
+      "log": "browser-affected.log"
+    },
+    "activityAndEnglishFinal": {
+      "passed": 3,
+      "total": 3,
+      "exitCode": 0,
+      "log": "browser-affected-final.log"
+    },
+    "finalPhoneAndBoundary": {
+      "passed": 5,
+      "total": 5,
+      "exitCode": 0,
+      "log": "browser-phone-final.log"
+    },
+    "finalEnvironment": "macOS ARM64; Node22.12.0; Chromium channel; default quality; one worker; touch/mouse/keyboard through real entrance; saves read only",
+    "CI": "PENDING exact-head full 33 before merge"
+  },
+  "external": {
+    "physicalDevice": "PENDING",
+    "childObservation": "NOT_RUN",
+    "teachingReview": "PENDING",
+    "humanListening": "NOT_RUN",
+    "distributionRights": "PENDING",
+    "realBackgroundVisibility": "NOT_CONFIRMED"
+  }
+}

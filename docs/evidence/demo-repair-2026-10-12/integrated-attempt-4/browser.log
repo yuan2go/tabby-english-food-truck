@@ -1,0 +1,169 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:13208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 31 tests using 1 worker
+
+EVIDENCE_FEAST_START_SECONDS 12.918
+(node:13254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_DINNER_START_SECONDS 90.882
+  ✓   1 e2e/adventure.spec.ts:68:1 › visible activity entrance reaches all five chapters and saves a real creation (1.9m)
+EVIDENCE_FEAST_START_SECONDS 12.942
+EVIDENCE_DRINK_START_SECONDS 32.965
+  ✓   2 e2e/adventure.spec.ts:200:1 › desktop feast exposes replay skip and low motion without repeating settlement (36.2s)
+  ✓   3 e2e/adventure.spec.ts:259:1 › phone replay follows hedgehog path with real food and no packing task (47.2s)
+  ✘   4 e2e/adventure.spec.ts:310:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (33.4s)
+  ✓   5 e2e/adventure.spec.ts:403:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (9.3s)
+  ✓   6 e2e/adventure.spec.ts:457:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (16.1s)
+  ✓   7 e2e/adventure.spec.ts:509:1 › low motion receipts retain actual foods and reachable controls across compact layouts (8.7s)
+  ✓   8 e2e/demo-repair.spec.ts:7:1 › scene pause and restart isolate background, trap focus and restore the trigger (1.3s)
+  ✓   9 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (7.1s)
+  ✓  10 e2e/demo-repair.spec.ts:133:1 › optional visual contrasts preserve assistance and leave the choice to the player (2.8s)
+  ✓  11 e2e/demo-repair.spec.ts:179:1 › home main invitation and autonomous entrances are physically reachable in compact layouts (1.6s)
+  ✓  12 e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (3.5s)
+  ✓  13 e2e/experience.spec.ts:38:1 › less support keeps the order answer private until failed speech provides recorded picture help (1.7s)
+  ✓  14 e2e/experience.spec.ts:68:1 › muting through visible settings retains picture goals and safe replay (4.0s)
+  ✘  15 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (21.1s)
+  ✓  16 e2e/m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (2.8s)
+  ✓  17 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (13.2s)
+  ✓  18 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (2.6s)
+  ✓  19 e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (2.1s)
+  ✓  20 e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (2.3s)
+  ✓  21 e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (2.2s)
+  ✓  22 e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (2.1s)
+  ✓  23 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (2.1s)
+  ✓  24 e2e/minigames-vocab.spec.ts:260:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (2.4s)
+  ✓  25 e2e/minigames-vocab.spec.ts:337:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (1.4s)
+  ✘  26 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (9.2s)
+  ✓  27 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (3.5s)
+  ✓  28 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (5.2s)
+  ✓  29 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (1.7s)
+  ✓  30 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (11.8s)
+  ✓  31 e2e/wp-dual-mini-course.spec.ts:7:1 › theme lobby reaches a four-task listening level and restores its progress (3.1s)
+
+
+  1) e2e/adventure.spec.ts:310:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '到活动桌', exact: true })
+        - locator resolved to <button type="button" class="activity-kitchen-link">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <main data-build-dirty="false" class="game-shell m2-shell screen-game" data-content-version="adventure-experience-2" data-build-sha="337bd84c7a24264f038a9d45be83b867fbac012b" data-asset-version="325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02" data-audio-state="{"active":"grow-banana","failure":null,"loops":[],"settings":{"master":true,"voice":true,"music":true,"ambience":true,"effects":true},"context":"running","musicGain":0.1417950540781021,"machineGain":0.11448267102241516,"effec…>…</main> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <main data-build-dirty="false" class="game-shell m2-shell screen-game" data-content-version="adventure-experience-2" data-build-sha="337bd84c7a24264f038a9d45be83b867fbac012b" data-asset-version="325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02" data-audio-state="{"active":"grow-banana","failure":null,"loops":[],"settings":{"master":true,"voice":true,"music":true,"ambience":true,"effects":true},"context":"running","musicGain":0.1417950540781021,"machineGain":0.11448267102241516,"effec…>…</main> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        4 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <main data-build-dirty="false" class="game-shell m2-shell screen-game" data-content-version="adventure-experience-2" data-build-sha="337bd84c7a24264f038a9d45be83b867fbac012b" data-asset-version="325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02" data-audio-state="{"active":"grow-banana","failure":null,"loops":[],"settings":{"master":true,"voice":true,"music":true,"ambience":true,"effects":true},"context":"running","musicGain":0.1417950540781021,"machineGain":0.11448267102241516,"effec…>…</main> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+        18 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <main data-build-dirty="false" class="game-shell m2-shell screen-game" data-content-version="adventure-experience-2" data-build-sha="337bd84c7a24264f038a9d45be83b867fbac012b" data-asset-version="325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02" data-audio-state="{"active":null,"failure":null,"loops":[],"settings":{"master":true,"voice":true,"music":true,"ambience":true,"effects":true},"context":"running","musicGain":0.1417950540781021,"machineGain":0.02500000037252903,"effects":0}">…</main> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+      26 | async function table(page: Page) {
+      27 |   await lesson(page);
+    > 28 |   await page.getByRole('button', { name: '到活动桌', exact: true }).click();
+         |                                                                 ^
+      29 | }
+      30 | async function send(page: Page, index: number, product: Parameters<typeof make>[1]) {
+      31 |   await lesson(page);
+        at table (/Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/adventure.spec.ts:28:65)
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/adventure.spec.ts:387:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/error-context.md
+
+  2) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    TimeoutError: locator.tap: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '↩ 放回这份' })
+
+
+      160 |     await page.waitForTimeout(300);
+      161 |     await tap(page, `item-${added.id}`);
+    > 162 |     await page.getByRole('button', { name: '↩ 放回这份' }).tap();
+          |                                                        ^
+      163 |     await page.screenshot({ path: info.outputPath(`short-landscape-${height}.png`) });
+      164 |   }
+      165 | });
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:162:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  3) e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: '物件与动作示范' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: '物件与动作示范' }) with timeout 6000ms
+      - waiting for getByRole('dialog', { name: '物件与动作示范' })
+
+
+      401 |   await choose(page, '大咪动作小剧场', '朋友的水杯');
+      402 |   await page.getByRole('button', { name: '看图示范' }).click();
+    > 403 |   await expect(page.getByRole('dialog', { name: '物件与动作示范' })).toBeVisible();
+          |                                                               ^
+      404 |   await page.screenshot({
+      405 |     path: evidencePath('docs/evidence/minigames-vocab/theatre-help-phone.png'),
+      406 |   });
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:403:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-demo-final-4-2026-10-12/browser/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/error-context.md
+
+  3 failed
+    e2e/adventure.spec.ts:310:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+    e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable 
+  28 passed (6.4m)

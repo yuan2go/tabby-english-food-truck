@@ -109,9 +109,9 @@ export function returningNeed(exp: AdventureExperience, visitor: Visitor): Shari
   };
 }
 export const NEED_AUDIO: Record<NeedKind, string> = {
-  fruit: 'world-need-fruit',
-  drink: 'world-need-drink',
-  cool: 'world-need-cool',
-  savory: 'world-need-savory',
-  any: 'world-need-any',
+  fruit: 'imm-sharing-fruit',
+  drink: 'imm-sharing-drink',
+  cool: 'imm-sharing-cool',
+  savory: 'imm-sharing-savory',
+  any: 'imm-sharing-any',
 };

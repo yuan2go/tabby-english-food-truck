@@ -1,0 +1,25 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep desktop feast|low motion receipts|normal entrance: complete
+
+[WebServer] (node:32081) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:32150) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+EVIDENCE_FEAST_START_SECONDS 13.394
+(node:32196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_DRINK_START_SECONDS 33.61
+  ✓  1 e2e/adventure.spec.ts:200:1 › desktop feast exposes replay skip and low motion without repeating settlement (36.8s)
+  ✓  2 e2e/adventure.spec.ts:511:1 › low motion receipts retain actual foods and reachable controls across compact layouts (8.9s)
+  ✓  3 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (34.7s)
+
+  3 passed (1.5m)

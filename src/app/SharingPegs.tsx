@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { type AdventureState, VISITOR_NAMES } from '../content/adventure';
 import { FOOD_GROUPS, NEED_AUDIO } from '../content/adventure-experience';
+import { spokenResource } from '../content/dialogue';
 import { assetUrl } from '../game/assets';
-import type { ForegroundAudio } from '../platform/audio';
+import type { DialogueDirector } from '../platform/dialogue';
 import type { Command } from '../rules/types';
 import { Food } from './Food';
 import { SceneIcon } from './SceneIcon';
@@ -16,13 +17,13 @@ const descriptions = {
 };
 export function SharingPegs({
   a,
-  audio,
+  dialogue,
   selection,
   act,
   canInvite,
 }: {
   a: AdventureState;
-  audio: ForegroundAudio;
+  dialogue: DialogueDirector;
   selection: string;
   act: (c: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => void;
   canInvite: boolean;
@@ -71,7 +72,16 @@ export function SharingPegs({
           <button
             type="button"
             aria-label={`重听${VISITOR_NAMES[need.visitor]}的分享需要`}
-            onClick={() => void audio.play(NEED_AUDIO[need.kind])}
+            onClick={() =>
+              dialogue.show({
+                key: `sharing:${a.chapter}:${need.visitor}:${need.kind}`,
+                line: {
+                  ...spokenResource(NEED_AUDIO[need.kind]),
+                  role: need.visitor,
+                  trigger: 'open',
+                },
+              })
+            }
           >
             <img
               src={assetUrl(
@@ -88,16 +98,7 @@ export function SharingPegs({
               FOOD_GROUPS[need.kind].slice(0, 2).map((p) => <Food key={p} product={p} />)
             )}
           </span>
-          <small>
-            {need.basis === 'first'
-              ? '今天的新朋友'
-              : need.basis === 'packing'
-                ? '记得一起打包'
-                : need.basis === 'table'
-                  ? '记得桌边分餐'
-                  : '记得树荫甜点'}{' '}
-            · {descriptions[need.kind]}
-          </small>
+          <small lang="en">{spokenResource(NEED_AUDIO[need.kind]).text}</small>
           <button
             type="button"
             data-world-target="share"

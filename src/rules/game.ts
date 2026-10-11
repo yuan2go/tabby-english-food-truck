@@ -280,14 +280,27 @@ export function dispatch(current: GameState, e: Envelope): Result {
     // This flag records a completed request clip, never proof that a child understood it.
     if (c.audio.status === 'completed')
       for (const o of s.orders)
-        if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id) o.heard = true;
+        if (
+          o.status === 'waiting' &&
+          REQUESTS[o.request].audio === c.audio.id &&
+          c.audio.order === o.id
+        )
+          o.heard = true;
     if (c.audio.status === 'failed')
       for (const o of s.orders)
-        if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id)
+        if (
+          o.status === 'waiting' &&
+          REQUESTS[o.request].audio === c.audio.id &&
+          c.audio.order === o.id
+        )
           o.support = [...new Set([...o.support, 'audio-unavailable'])].slice(-24);
     if (c.audio.status === 'muted' || c.audio.status === 'skipped')
       for (const o of s.orders)
-        if (o.status === 'waiting' && REQUESTS[o.request].audio === c.audio.id)
+        if (
+          o.status === 'waiting' &&
+          REQUESTS[o.request].audio === c.audio.id &&
+          c.audio.order === o.id
+        )
           o.support = [
             ...new Set([
               ...o.support,

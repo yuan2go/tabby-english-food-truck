@@ -2,11 +2,15 @@
 
 最新游戏结论以[STATUS](../STATUS.md)与受测版本为准。正常UI截图/录像、领域命令检查、故障注入和外部接受不能混同。
 
-## 当前整合基线
+## 当前修复与整合验收
+
+- [2026-10-12参赛Demo修复主报告](demo-repair-2026-10-12/README.md)：受测e0542ff，文档、工程、体验分阶段提交；289单元与31整合通过，物理设备/听审/儿童与权利仍待验。
+
+## 修复前整合基线
 
 - [2026-10-12整合验证报告](../playtests/2026-10-11-integrated-validation.md)：受测43d7c76完整SHA、content adventure-experience-2；代表玩法走通，工程及交互仍有失败。
 - [该报告完整证据/哈希索引](../playtests/2026-10-11-integrated-validation-43d7c76/README.md)：自然旅程、模拟触控、失败日志、截图和原始读回。
-- [PR15验证产物交付](validation-delivery-2026-10-12/README.md)：归档已有结果，没有重新测试；当前main f359b40不改变受测游戏源码。
+- [PR15验证产物交付](validation-delivery-2026-10-12/README.md)：归档已有结果，没有重新测试；当时main f359b40不改变受测游戏源码。
 
 ## 历史工作包
 

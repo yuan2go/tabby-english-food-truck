@@ -1,0 +1,30 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/m22-layout.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck
+
+ ❯ tests/m22-layout.test.ts (6 tests | 1 failed) 6ms
+   × desktop and Pad tray handles stay above the entire device and commission row 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m22-layout.test.ts > desktop and Pad tray handles stay above the entire device and commission row
+AssertionError: expected 524.4 to be less than or equal to 479
+ ❯ tests/m22-layout.test.ts:46:51
+     44|   for (const [width,height] of [[1280,720],[768,1024],[1024,768]]) {
+     45|     const l=layoutFor(width,height,'service');
+     46|     for (const tray of l.trays) expect(tray.y+96).toBeLessThanOrEqual(…
+       |                                                   ^
+     47|   }
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  01:35:43
+   Duration  181ms (transform 52ms, setup 0ms, import 69ms, tests 6ms, environment 0ms)
+

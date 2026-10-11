@@ -1,0 +1,19 @@
+{
+  "initialBaseline": "f359b4053cf73e0103bf13b46d26496f19868508",
+  "remoteMainAtReadback": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+  "remoteCommand": "git ls-remote origin refs/heads/main",
+  "runtimeAndTestDiffPaths": [
+    "src",
+    "public",
+    "art",
+    "scripts",
+    "package.json",
+    "package-lock.json",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "tests"
+  ],
+  "runtimeAndTestDiff": "",
+  "status": "DOCS_ONLY",
+  "newMaterialIdentity": "Historical jury description remains based on 43d7c76; not rewritten as acceptance of this repair."
+}

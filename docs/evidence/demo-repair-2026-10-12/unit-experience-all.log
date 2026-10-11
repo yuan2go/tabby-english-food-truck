@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run --maxWorkers=2
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck
+
+
+ Test Files  21 passed (21)
+      Tests  284 passed (284)
+   Start at  01:22:29
+   Duration  3.19s (transform 675ms, setup 0ms, import 1.71s, tests 1.12s, environment 2ms)
+

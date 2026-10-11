@@ -2,14 +2,21 @@ import { useEffect, useState } from 'react';
 import { ADVENTURES, VISITOR_NAMES, type Visitor } from '../content/adventure';
 import { drawerTools } from '../content/adventure-experience';
 import { PRODUCT_NAMES } from '../content/catalog';
+import { lineFor } from '../content/dialogue';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
+import type { DialogueDirector } from '../platform/dialogue';
 import { activityHint, adventureReady, openCommission } from '../rules/adventure';
-import { type ActivityCommand, activityObstacle } from '../rules/adventure-guidance';
+import {
+  type ActivityCommand,
+  activityGuidance,
+  activityObstacle,
+} from '../rules/adventure-guidance';
 import type { Command } from '../rules/types';
 import { AdventureGuide } from './AdventureGuide';
 import { PicnicBasket, ToolShelf } from './AdventureObjects';
+import { Conversation } from './Dialogue';
 import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { FriendTheatre } from './FriendTheatre';
@@ -23,6 +30,7 @@ import './adventure.css';
 export function Adventure({
   controller,
   audio,
+  dialogue,
   kitchen,
   home,
   next,
@@ -31,6 +39,7 @@ export function Adventure({
 }: {
   controller: GameController;
   audio: ForegroundAudio;
+  dialogue: DialogueDirector;
   kitchen: () => void;
   home: () => void;
   next: () => void;
@@ -60,31 +69,22 @@ export function Adventure({
   const act = (command: Omit<Extract<Command, { type: 'adventure' }>, 'type'>) => {
     const r = controller.command({ type: 'adventure', ...command });
     setBlocked(['ok', 'duplicate'].includes(r.kind) ? null : command);
-    if (r.kind === 'ok') {
-      audio.effect(command.action === 'finish' ? 'success' : 'place');
-      if (['taste', 'water', 'cooperate', 'finish'].includes(command.action))
-        void audio.play(
-          command.action === 'taste'
-            ? ['juice', 'banana-juice', 'milk', 'smoothie', 'milkshake'].includes(
-                food?.product ?? '',
-              )
-              ? 'world-sip'
-              : [
-                    'vanilla-cup',
-                    'vanilla-cone',
-                    'strawberry-cup',
-                    'double-cream',
-                    'banana-cream',
-                    'yogurt',
-                  ].includes(food?.product ?? '')
-                ? 'world-cold'
-                : 'world-bite'
-            : command.action === 'water'
-              ? 'world-water'
-              : command.action === 'finish'
-                ? 'world-finish'
-                : 'world-cooperate',
-        );
+    if (r.kind === 'ok') audio.effect(command.action === 'finish' ? 'success' : 'place');
+    if (command.action === 'invite' && r.kind === 'ok') {
+      if (!a.invitations.includes(command.visitor as Visitor))
+        dialogue.invite(command.visitor as Visitor);
+      const picnic = memory(2);
+      controller.message = !picnic
+        ? `${VISITOR_NAMES[command.visitor as Visitor]}第一次来到你的分享桌，想尝尝你做的食品。`
+        : command.visitor === 'rabbit'
+          ? picnic?.branch === 'rabbit'
+            ? '兔兔记得你补齐的野餐篮，今天也想一起打包分享。'
+            : '兔兔记得你摆好的野餐桌，今天来帮忙选餐位。'
+          : command.visitor === 'hedgehog'
+            ? picnic?.branch === 'hedgehog'
+              ? '刺刺记得桌边分餐，带着一起摆餐的心意来了。'
+              : '刺刺记得打开的野餐篮，今天也想尝你的新作品。'
+            : '长辈来看看你写好的新食谱。';
     }
   };
   const commission = openCommission(a);
@@ -121,7 +121,13 @@ export function Adventure({
       <span className="object-art" aria-hidden="true">
         <SceneIcon kind={shape === 'book' ? 'recipe' : shape} />
       </span>
-      <span>{label}</span>
+      <span>
+        {label}
+        <small lang="en">
+          {' '}
+          {id === 'drawer' ? 'Drawer' : id === 'basket' ? 'Basket' : 'Recipe book'}
+        </small>
+      </span>
       {a.explored.includes(id) ? <b aria-hidden="true">✓</b> : null}
     </button>
   );
@@ -131,7 +137,7 @@ export function Adventure({
       aria-label="小院活动桌"
       style={{ backgroundImage: `url(${assetUrl('courtyard')})` }}
     >
-      <div className="adventure-content" inert={clear}>
+      <div className="adventure-content">
         <header className="activity-header">
           <button type="button" onClick={home} aria-label="返回小院">
             ← 小院
@@ -164,6 +170,11 @@ export function Adventure({
             去厨房备餐
           </button>
         </header>
+        <Conversation director={dialogue} audio={audio}>
+          <button type="button" aria-label="重听下一步行动" onClick={() => dialogue.prompt(false)}>
+            ➜ ♫
+          </button>
+        </Conversation>
         <div
           className={`activity-world ${canInvite ? 'has-sharing-needs' : ''} ${drawerTools(a).length ? 'with-tool-shelf' : ''}`}
         >
@@ -340,16 +351,51 @@ export function Adventure({
               </button>
             ))}
           </div>
-          <WorldFoods a={a} selection={selection} select={setSelection} act={act} />
-          <SharingPegs a={a} audio={audio} selection={selection} act={act} canInvite={canInvite} />
+          <WorldFoods
+            a={a}
+            selection={selection}
+            select={(id) => {
+              setSelection(id);
+              const selectedFood = a.foods.find((f) => f.id === id);
+              if (!selectedFood) return;
+              const line = lineFor(
+                ['juice', 'banana-juice', 'milk', 'smoothie', 'milkshake'].includes(
+                  selectedFood.product,
+                )
+                  ? 'place-cup'
+                  : 'place',
+              );
+              dialogue.show({ key: `${controller.state.runId}:select:${id}`, line }, true);
+            }}
+            act={act}
+          />
+          <SharingPegs
+            a={a}
+            dialogue={dialogue}
+            selection={selection}
+            act={act}
+            canInvite={canInvite}
+          />
           {book ? (
             <section className="world-recipe" aria-label="食谱中的活动与作品">
               <button type="button" aria-label="收起食谱" onClick={() => setBook(false)}>
                 ×
               </button>
-              <WorkGallery works={a.works} title="今天留下的味道" revise={kitchen} />
+              <WorkGallery
+                works={a.works}
+                title="今天留下的味道"
+                revise={kitchen}
+                audio={audio}
+                dialogue={dialogue}
+              />
               {pastWorks.length ? (
-                <WorkGallery works={pastWorks} title="上次留下的作品" revise={kitchen} />
+                <WorkGallery
+                  works={pastWorks}
+                  title="上次留下的作品"
+                  revise={kitchen}
+                  audio={audio}
+                  dialogue={dialogue}
+                />
               ) : null}
               <p>图里保留原来的摆法和谁尝过。重新制作时可以换搭配，重新摆放并保存新的一页。</p>
             </section>
@@ -501,7 +547,12 @@ export function Adventure({
             </fieldset>
           ) : null}
           <p role="status" className="world-feedback">
-            {controller.message}
+            {
+              (blocked
+                ? activityObstacle(controller.state, blocked)
+                : activityGuidance(controller.state)
+              ).label
+            }
           </p>
           {completed || a.kind === 'shop' ? (
             <div className="free-decor-workshop">

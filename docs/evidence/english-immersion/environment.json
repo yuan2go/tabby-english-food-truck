@@ -1,0 +1,36 @@
+{
+  "baseline": "64f03fc716de70e20f64f9bbc3802de7601a460f",
+  "governanceCommit": "081e57e8aa8f0e251995c301e8f017c66e6716c8",
+  "branch": "codex/wp-english-immersion-01",
+  "os": "26.6.2",
+  "arch": "arm64",
+  "node": "v24.15.0",
+  "npm": "11.12.1",
+  "chromium": "Google Chrome for Testing 153.0.8010.12",
+  "sourceFingerprint": "eda4aaba26b2f01799a954fdecc4aab1016f0b10700e8f1f236dae6ecd17f768",
+  "sourceIdentityNote": "Implementation uncommitted during browser gate; build SHA is governance commit with dirty=true. Fingerprint binds actual tested sources/resources.",
+  "http": "http://127.0.0.1:4186/",
+  "physicalDevice": "NOT_RUN",
+  "humanListening": "NOT_RUN",
+  "rights": "PENDING",
+  "affectedRun": {
+    "command": "TEST_PORT=4186 npx playwright test e2e/immersion.spec.ts e2e/m22-boundaries.spec.ts e2e/m22-growth.spec.ts e2e/wp-dual-growth.spec.ts",
+    "sourceFingerprint": "55ab4f386df87b86a4f8d59df7b396bd470492de3124b957250df2439aa173fa",
+    "buildSha": "081e57e8aa8f0e251995c301e8f017c66e6716c8",
+    "dirty": true,
+    "results": "6/6 PASS, exit 0",
+    "fingerprintManifest": "affected-source-files.json"
+  },
+  "initialFullRun": {
+    "command": "TEST_PORT=4186 npm run test:browser",
+    "results": "13/15 PASS, exit 1; note ghost click and obsolete fragment assertion; both retained and repaired"
+  },
+  "implementationCommit": "c51c4f6bdc08cc581f948b4f797c6443634534d5",
+  "build": {
+    "command": "npm run build",
+    "results": "PASS, exit 0",
+    "sha": "c51c4f6bdc08cc581f948b4f797c6443634534d5",
+    "dirty": true,
+    "note": "Clean final delivery HEAD rebuild/readback is reported separately in delivery reply; no second full E2E claim."
+  }
+}

@@ -2,7 +2,7 @@ import speech from '../content/speech.json' with { type: 'json' };
 import type { GameState } from '../rules/types';
 import { resourceUrl } from './build';
 import type { GameController } from './controller';
-export const AUDIO_VERSION = 'samantha-tingting-dev-experience-02';
+export const AUDIO_VERSION = 'samantha-dev-immersion-140';
 export type PlaybackResult = 'completed' | 'interrupted' | 'failed' | 'muted' | 'skipped';
 export type SoundSetting = 'master' | 'voice' | 'music' | 'ambience' | 'effects';
 export type Effect =
@@ -32,6 +32,7 @@ export class ForegroundAudio {
   active: string | null = null;
   private player: HTMLAudioElement | null = null;
   private epoch = 0;
+  private order: string | undefined;
   private flow = 0;
   private settle: ((result: PlaybackResult) => void) | null = null;
   lastRequested: string | null = null;
@@ -82,6 +83,7 @@ export class ForegroundAudio {
     }
     if (!this.enabled || !this.settings.effects) this.stopEffects();
     this.sync();
+    this.controller.notify();
   }
   async unlock(): Promise<void> {
     if (this.disposed || !this.enabled) return;
@@ -112,9 +114,9 @@ export class ForegroundAudio {
     }
   }
   /** Explicit user playback replaces the foreground sequence. */
-  play(id: string, started?: () => void): Promise<PlaybackResult> {
+  play(id: string, started?: () => void, order?: string): Promise<PlaybackResult> {
     this.flow++;
-    return this.clip(id, started);
+    return this.clip(id, started, order);
   }
   async sequence(ids: readonly string[]): Promise<PlaybackResult> {
     const flow = ++this.flow;
@@ -125,9 +127,10 @@ export class ForegroundAudio {
     }
     return flow === this.flow ? 'completed' : 'interrupted';
   }
-  private clip(id: string, started?: () => void): Promise<PlaybackResult> {
+  private clip(id: string, started?: () => void, order?: string): Promise<PlaybackResult> {
     this.stopPlayer();
     this.lastRequested = id;
+    this.order = order;
     if (document.hidden || this.disposed) return Promise.resolve('interrupted');
     if (!this.enabled || !this.settings.voice) {
       this.record(id, 'muted');
@@ -217,7 +220,10 @@ export class ForegroundAudio {
     status: 'started' | 'completed' | 'interrupted' | 'failed' | 'muted' | 'skipped',
   ): void {
     if (!this.disposed)
-      this.controller.command({ type: 'audio', audio: { id, version: AUDIO_VERSION, status } });
+      this.controller.command({
+        type: 'audio',
+        audio: { id, version: AUDIO_VERSION, status, ...(this.order ? { order: this.order } : {}) },
+      });
   }
   private stopPlayer(result: 'interrupted' | 'muted' | 'skipped' = 'interrupted'): void {
     const id = this.active;
@@ -347,6 +353,14 @@ export class ForegroundAudio {
     const s = this.controller.state,
       old = this.last;
     this.last = s;
+    // Teaching, menu and chapter narration intentionally use the same foreground channel
+    // while their game-clock pauses are held. Other suspended surfaces cancel voice.
+    if (
+      this.active &&
+      (document.hidden ||
+        [...this.controller.pauses].some((r) => !['teaching', 'opening', 'growth'].includes(r)))
+    )
+      this.stop();
     const canRun =
       this.enabled && this.unlocked && !document.hidden && this.controller.pauses.size === 0;
     if (old.runId !== s.runId) {
@@ -371,14 +385,6 @@ export class ForegroundAudio {
           this.effect('start');
         if (old.stations[id].status === 'processing' && s.stations[id].status === 'ready')
           this.effect('ready');
-      }
-      const oldDelivery = old.actor.current;
-      if (
-        oldDelivery?.kind === 'delivery' &&
-        oldDelivery.itemIds.length &&
-        !s.items.some((i) => oldDelivery.itemIds.includes(i.id))
-      ) {
-        if (!this.active) void this.play('thanks');
       }
       if (old.machine.status !== 'processing' && s.machine.status === 'processing')
         this.effect('start');

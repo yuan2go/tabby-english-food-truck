@@ -1,0 +1,56 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-content.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-content.test.ts (3 tests | 2 failed) 10ms
+   × every reachable order and dialogue resolves exactly the displayed whole sentence resource 6ms
+   × works and revisits describe actual foods; absent history never fabricates a memory 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-content.test.ts > every reachable order and dialogue resolves exactly the displayed whole sentence resource
+AssertionError: expected 'Can I have ice cream in a cup, please…' to contain 'any flavor'
+
+Expected: "any flavor"
+Received: "Can I have ice cream in a cup, please? Any flavor is fine."
+
+ ❯ tests/immersion-content.test.ts:31:37
+     29|     expect(clip.status).toBe('DEVELOPMENT_TTS_UNREVIEWED');
+     30|   }
+     31|   expect(lineFor('open-cool').text).toContain('any flavor');
+       |                                     ^
+     32|   expect(lineFor('open-pack').text).toContain('a sandwich and a piece …
+     33| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/immersion-content.test.ts > works and revisits describe actual foods; absent history never fabricates a memory
+AssertionError: expected { text: 'Hello! Welcome back.', …(4) } to be { text: 'Hello! Welcome back.', …(4) } // Object.is equality
+
+If it should pass with deep equality, replace "toBe" with "toStrictEqual"
+
+Expected: { text: 'Hello! Welcome back.', …(4) }
+Received: serializes to the same string
+
+
+Compared values have no visual difference.
+
+ ❯ tests/immersion-content.test.ts:36:34
+     34| it('works and revisits describe actual foods; absent history never fab…
+     35|   expect(workCaption(['banana', 'juice'])).toBe('I made a banana and s…
+     36|   expect(revisitLine(undefined)).toBe(lineFor('welcome'));
+       |                                  ^
+     37|   expect(revisitLine('sandwich').text).toBe('I remember your cheese sa…
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  02:05:01
+   Duration  156ms (transform 45ms, setup 0ms, import 59ms, tests 10ms, environment 0ms)
+

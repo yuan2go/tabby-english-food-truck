@@ -24,12 +24,7 @@
         "height": 1254,
         "visible": 1572516
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "source-cat-blocked",
@@ -54,12 +49,7 @@
         "height": 1230,
         "visible": 586064
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-carry",
@@ -84,12 +74,7 @@
         "height": 1220,
         "visible": 573852
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-celebrate",
@@ -114,12 +99,7 @@
         "height": 1175,
         "visible": 607563
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-greet",
@@ -144,12 +124,7 @@
         "height": 1227,
         "visible": 586744
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-idle",
@@ -174,12 +149,7 @@
         "height": 1231,
         "visible": 570201
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-place",
@@ -204,12 +174,7 @@
         "height": 1093,
         "visible": 682252
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-reach",
@@ -234,12 +199,7 @@
         "height": 1054,
         "visible": 726854
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-cat-read",
@@ -264,12 +224,7 @@
         "height": 1231,
         "visible": 599820
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-walk",
@@ -294,12 +249,7 @@
         "height": 1230,
         "visible": 550402
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-courtyard",
@@ -324,12 +274,7 @@
         "height": 1024,
         "visible": 1572864
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "source-elder",
@@ -354,12 +299,7 @@
         "height": 1514,
         "visible": 777061
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-beef",
@@ -384,12 +324,7 @@
         "height": 1015,
         "visible": 796404
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-broccoli",
@@ -414,12 +349,7 @@
         "height": 1218,
         "visible": 800343
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-butter",
@@ -444,12 +374,7 @@
         "height": 1077,
         "visible": 836303
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cake",
@@ -474,12 +399,7 @@
         "height": 1071,
         "visible": 864701
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-carrot",
@@ -504,12 +424,7 @@
         "height": 1152,
         "visible": 430682
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-chicken",
@@ -534,12 +449,7 @@
         "height": 996,
         "visible": 512232
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-chocolate",
@@ -564,12 +474,7 @@
         "height": 1025,
         "visible": 664499
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-coconut",
@@ -594,12 +499,7 @@
         "height": 1146,
         "visible": 867404
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cookie",
@@ -624,12 +524,7 @@
         "height": 1088,
         "visible": 912576
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-corn",
@@ -654,12 +549,7 @@
         "height": 1213,
         "visible": 669395
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cream",
@@ -684,12 +574,7 @@
         "height": 978,
         "visible": 823874
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cucumber",
@@ -714,12 +599,7 @@
         "height": 887,
         "visible": 649342
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-egg",
@@ -744,12 +624,7 @@
         "height": 1046,
         "visible": 800214
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-fish",
@@ -774,12 +649,7 @@
         "height": 902,
         "visible": 642100
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-grape",
@@ -804,12 +674,7 @@
         "height": 1115,
         "visible": 688192
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-honey",
@@ -834,12 +699,7 @@
         "height": 1196,
         "visible": 770020
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-jam",
@@ -864,12 +724,7 @@
         "height": 1145,
         "visible": 861293
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-mango",
@@ -894,12 +749,7 @@
         "height": 1096,
         "visible": 933831
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-milk",
@@ -924,12 +774,7 @@
         "height": 1052,
         "visible": 720141
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-milkshake",
@@ -954,12 +799,7 @@
         "height": 1205,
         "visible": 527050
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-mushroom",
@@ -984,12 +824,7 @@
         "height": 1107,
         "visible": 859726
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-noodles",
@@ -1014,12 +849,7 @@
         "height": 978,
         "visible": 813383
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-orange",
@@ -1044,12 +874,7 @@
         "height": 1130,
         "visible": 978454
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-pea",
@@ -1074,12 +899,7 @@
         "height": 938,
         "visible": 483740
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-peach",
@@ -1104,12 +924,7 @@
         "height": 1140,
         "visible": 960005
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-pear",
@@ -1134,12 +949,7 @@
         "height": 1197,
         "visible": 656842
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-pineapple",
@@ -1164,12 +974,7 @@
         "height": 1211,
         "visible": 586645
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-pizza",
@@ -1194,12 +999,7 @@
         "height": 1174,
         "visible": 660778
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-potato",
@@ -1224,12 +1024,7 @@
         "height": 902,
         "visible": 769874
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-pumpkin",
@@ -1254,12 +1049,7 @@
         "height": 1057,
         "visible": 807742
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-raisin",
@@ -1284,12 +1074,7 @@
         "height": 979,
         "visible": 761496
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-rice",
@@ -1314,12 +1099,7 @@
         "height": 981,
         "visible": 801498
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-salad",
@@ -1344,12 +1124,7 @@
         "height": 1091,
         "visible": 933577
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-smoothie",
@@ -1374,12 +1149,7 @@
         "height": 1114,
         "visible": 810905
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-strawberry",
@@ -1404,12 +1174,7 @@
         "height": 1186,
         "visible": 775331
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-tofu",
@@ -1434,12 +1199,7 @@
         "height": 1091,
         "visible": 812309
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-vanilla",
@@ -1464,12 +1224,7 @@
         "height": 1204,
         "visible": 581243
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-variants",
@@ -1494,12 +1249,7 @@
         "height": 576,
         "visible": 505837
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-watermelon",
@@ -1524,12 +1274,7 @@
         "height": 1110,
         "visible": 755097
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-yogurt",
@@ -1554,12 +1299,7 @@
         "height": 1157,
         "visible": 998169
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-guests",
@@ -1584,12 +1324,7 @@
         "height": 988,
         "visible": 494528
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-ice-products",
@@ -1614,12 +1349,7 @@
         "height": 1196,
         "visible": 683330
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-m2-foods",
@@ -1644,12 +1374,7 @@
         "height": 982,
         "visible": 852012
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-m2-stations",
@@ -1674,12 +1399,7 @@
         "height": 599,
         "visible": 614468
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-market",
@@ -1704,12 +1424,7 @@
         "height": 1024,
         "visible": 1572864
       },
-      "edgeAlpha": [
-        239,
-        238,
-        237,
-        241
-      ]
+      "edgeAlpha": [239, 238, 237, 241]
     },
     {
       "assetId": "source-props",
@@ -1734,12 +1449,7 @@
         "height": 975,
         "visible": 685609
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-recipe-outputs",
@@ -1764,12 +1474,7 @@
         "height": 635,
         "visible": 653302
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-tray-hd",
@@ -1794,12 +1499,7 @@
         "height": 833,
         "visible": 913270
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-vanilla-cup",
@@ -1824,12 +1524,7 @@
         "height": 1288,
         "visible": 1161107
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "apple",
@@ -1854,12 +1549,7 @@
         "height": 280,
         "visible": 50760
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "banana-cream",
@@ -1884,12 +1574,7 @@
         "height": 480,
         "visible": 144086
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "banana-juice",
@@ -1914,12 +1599,7 @@
         "height": 480,
         "visible": 114698
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "banana",
@@ -1944,12 +1624,7 @@
         "height": 248,
         "visible": 28045
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "board-station",
@@ -1974,12 +1649,7 @@
         "height": 592,
         "visible": 223469
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "bread",
@@ -2004,12 +1674,7 @@
         "height": 306,
         "visible": 84149
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "bun",
@@ -2034,12 +1699,7 @@
         "height": 286,
         "visible": 76159
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "burger",
@@ -2064,12 +1724,7 @@
         "height": 404,
         "visible": 150682
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-blocked",
@@ -2094,12 +1749,7 @@
         "height": 635,
         "visible": 156424
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-carry",
@@ -2124,12 +1774,7 @@
         "height": 634,
         "visible": 155755
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-celebrate",
@@ -2154,12 +1799,7 @@
         "height": 634,
         "visible": 177514
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-greet",
@@ -2184,12 +1824,7 @@
         "height": 636,
         "visible": 157437
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-idle",
@@ -2214,12 +1849,7 @@
         "height": 635,
         "visible": 152190
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-place",
@@ -2244,12 +1874,7 @@
         "height": 611,
         "visible": 213232
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-reach",
@@ -2274,12 +1899,7 @@
         "height": 560,
         "visible": 206238
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-read",
@@ -2304,12 +1924,7 @@
         "height": 634,
         "visible": 159902
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-0",
@@ -2334,12 +1949,7 @@
         "height": 600,
         "visible": 140806
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-1",
@@ -2364,12 +1974,7 @@
         "height": 579,
         "visible": 130068
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-2",
@@ -2394,12 +1999,7 @@
         "height": 596,
         "visible": 137069
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-3",
@@ -2424,12 +2024,7 @@
         "height": 600,
         "visible": 137315
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cheese-burger",
@@ -2454,12 +2049,7 @@
         "height": 455,
         "visible": 169153
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cheese",
@@ -2484,12 +2074,7 @@
         "height": 252,
         "visible": 65864
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cone",
@@ -2514,12 +2099,7 @@
         "height": 296,
         "visible": 39804
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cooked-patty",
@@ -2544,12 +2124,7 @@
         "height": 263,
         "visible": 65363
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "courtyard",
@@ -2574,12 +2149,7 @@
         "height": 1024,
         "visible": 1572864
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "cup",
@@ -2604,12 +2174,7 @@
         "height": 305,
         "visible": 62769
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "double-cream",
@@ -2634,12 +2199,7 @@
         "height": 475,
         "visible": 174949
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "elder",
@@ -2664,12 +2224,7 @@
         "height": 720,
         "visible": 176525
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-beef",
@@ -2694,12 +2249,7 @@
         "height": 397,
         "visible": 122259
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-broccoli",
@@ -2724,12 +2274,7 @@
         "height": 464,
         "visible": 116504
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-butter",
@@ -2754,12 +2299,7 @@
         "height": 461,
         "visible": 153344
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cake",
@@ -2784,12 +2324,7 @@
         "height": 443,
         "visible": 147960
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-carrot",
@@ -2814,12 +2349,7 @@
         "height": 464,
         "visible": 70366
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-chicken",
@@ -2844,12 +2374,7 @@
         "height": 417,
         "visible": 89951
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-chocolate",
@@ -2874,12 +2399,7 @@
         "height": 414,
         "visible": 108587
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-coconut",
@@ -2904,12 +2424,7 @@
         "height": 433,
         "visible": 124931
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cookie",
@@ -2934,12 +2449,7 @@
         "height": 457,
         "visible": 161813
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-corn",
@@ -2964,12 +2474,7 @@
         "height": 464,
         "visible": 98350
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cream",
@@ -2994,12 +2499,7 @@
         "height": 405,
         "visible": 141431
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cucumber",
@@ -3024,12 +2524,7 @@
         "height": 344,
         "visible": 97735
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-egg",
@@ -3054,12 +2549,7 @@
         "height": 426,
         "visible": 133134
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-fish",
@@ -3084,12 +2574,7 @@
         "height": 355,
         "visible": 99862
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-grape",
@@ -3114,12 +2599,7 @@
         "height": 464,
         "visible": 119646
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-honey",
@@ -3144,12 +2624,7 @@
         "height": 464,
         "visible": 116317
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-jam",
@@ -3174,12 +2649,7 @@
         "height": 464,
         "visible": 141766
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-mango",
@@ -3204,12 +2674,7 @@
         "height": 440,
         "visible": 151114
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-milk",
@@ -3234,12 +2699,7 @@
         "height": 464,
         "visible": 140785
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-milkshake",
@@ -3264,12 +2724,7 @@
         "height": 464,
         "visible": 78461
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-mushroom",
@@ -3294,12 +2749,7 @@
         "height": 453,
         "visible": 144226
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-noodles",
@@ -3324,12 +2774,7 @@
         "height": 411,
         "visible": 143728
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-orange",
@@ -3354,12 +2799,7 @@
         "height": 464,
         "visible": 165641
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pea",
@@ -3384,12 +2824,7 @@
         "height": 362,
         "visible": 72509
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-peach",
@@ -3414,12 +2849,7 @@
         "height": 464,
         "visible": 159431
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pear",
@@ -3444,12 +2874,7 @@
         "height": 464,
         "visible": 99274
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pineapple",
@@ -3474,12 +2899,7 @@
         "height": 464,
         "visible": 86663
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pizza",
@@ -3504,12 +2924,7 @@
         "height": 464,
         "visible": 103547
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-potato",
@@ -3534,12 +2949,7 @@
         "height": 365,
         "visible": 126058
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pumpkin",
@@ -3564,12 +2974,7 @@
         "height": 455,
         "visible": 149724
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-raisin",
@@ -3594,12 +2999,7 @@
         "height": 377,
         "visible": 113425
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-rice",
@@ -3624,12 +3024,7 @@
         "height": 418,
         "visible": 145812
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-salad",
@@ -3654,12 +3049,7 @@
         "height": 435,
         "visible": 148701
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-smoothie",
@@ -3684,12 +3074,7 @@
         "height": 464,
         "visible": 141033
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-strawberry",
@@ -3714,12 +3099,7 @@
         "height": 464,
         "visible": 119255
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-tofu",
@@ -3744,12 +3124,7 @@
         "height": 448,
         "visible": 137197
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-vanilla",
@@ -3774,12 +3149,7 @@
         "height": 464,
         "visible": 86976
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-watermelon",
@@ -3804,12 +3174,7 @@
         "height": 447,
         "visible": 122765
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-yogurt",
@@ -3834,12 +3199,7 @@
         "height": 464,
         "visible": 160912
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "grill-station",
@@ -3864,12 +3224,7 @@
         "height": 395,
         "visible": 169842
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-0-0",
@@ -3894,12 +3249,7 @@
         "height": 474,
         "visible": 62073
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "guest-0-1",
@@ -3924,12 +3274,7 @@
         "height": 479,
         "visible": 61599
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-0-2",
@@ -3954,12 +3299,7 @@
         "height": 477,
         "visible": 61394
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-1-0",
@@ -3984,12 +3324,7 @@
         "height": 460,
         "visible": 93389
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-1-1",
@@ -4014,12 +3349,7 @@
         "height": 461,
         "visible": 94338
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-1-2",
@@ -4044,12 +3374,7 @@
         "height": 454,
         "visible": 95330
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "ice-station",
@@ -4074,12 +3399,7 @@
         "height": 519,
         "visible": 221156
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "juice",
@@ -4104,12 +3424,7 @@
         "height": 280,
         "visible": 52279
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "lettuce",
@@ -4134,12 +3449,7 @@
         "height": 316,
         "visible": 72840
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "machine",
@@ -4164,12 +3474,7 @@
         "height": 512,
         "visible": 125419
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "market",
@@ -4194,12 +3499,7 @@
         "height": 960,
         "visible": 1382400
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "patty",
@@ -4224,12 +3524,7 @@
         "height": 272,
         "visible": 69163
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "salad-sandwich",
@@ -4254,12 +3549,7 @@
         "height": 423,
         "visible": 140345
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "sandwich",
@@ -4284,12 +3574,7 @@
         "height": 414,
         "visible": 137200
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "strawberry-cup",
@@ -4314,12 +3599,7 @@
         "height": 480,
         "visible": 161730
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "strawberry",
@@ -4344,12 +3624,7 @@
         "height": 299,
         "visible": 72695
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "tomato",
@@ -4374,12 +3649,7 @@
         "height": 280,
         "visible": 64253
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "tray",
@@ -4404,12 +3674,7 @@
         "height": 520,
         "visible": 357133
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vanilla-cone",
@@ -4434,12 +3699,7 @@
         "height": 480,
         "visible": 76924
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vanilla-cup",
@@ -4464,12 +3724,7 @@
         "height": 473,
         "visible": 156391
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vanilla",
@@ -4494,12 +3749,7 @@
         "height": 300,
         "visible": 72810
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "audio-apple",
@@ -7093,12 +6343,7 @@
       "effectivePixels": {
         "visible": 14006
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-plate",
@@ -7131,12 +6376,7 @@
       "effectivePixels": {
         "visible": 34006
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bowl",
@@ -7169,12 +6409,7 @@
       "effectivePixels": {
         "visible": 26595
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-spoon",
@@ -7207,12 +6442,7 @@
       "effectivePixels": {
         "visible": 10959
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-fork",
@@ -7245,12 +6475,7 @@
       "effectivePixels": {
         "visible": 10870
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-knife",
@@ -7283,12 +6508,7 @@
       "effectivePixels": {
         "visible": 10707
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-tray",
@@ -7321,12 +6541,7 @@
       "effectivePixels": {
         "visible": 37877
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-napkin",
@@ -7359,12 +6574,7 @@
       "effectivePixels": {
         "visible": 36233
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-pot",
@@ -7397,12 +6607,7 @@
       "effectivePixels": {
         "visible": 27167
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-pan",
@@ -7435,12 +6640,7 @@
       "effectivePixels": {
         "visible": 23184
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-lid",
@@ -7473,18 +6673,13 @@
       "effectivePixels": {
         "visible": 21399
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-kettle",
       "path": "art/vocab-source/kettle.svg",
-      "bytes": 786,
-      "sha256": "ba242570b727fcd7bf475457313096b9bbcf9848aa82f5a5d55bd331fe7a07c8",
+      "bytes": 864,
+      "sha256": "d07333987e3f0d443aa07a952f60deef538832a253254a51aafb5691aac9f0cf",
       "runtime": false,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -7495,8 +6690,8 @@
     {
       "assetId": "vocab-kettle",
       "path": "public/assets/vocab-kettle.webp",
-      "bytes": 13128,
-      "sha256": "312c182f82e704d00f9cd60b6faf81eb800520affd63330dc74b76af918bebe9",
+      "bytes": 11620,
+      "sha256": "5f1418c7e2dfe841ce217bda79fb4144a5abb20cc9f23913d775403722db16c5",
       "runtime": true,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -7509,14 +6704,9 @@
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "visible": 28241
+        "visible": 27077
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bottle",
@@ -7549,12 +6739,7 @@
       "effectivePixels": {
         "visible": 28024
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-glass",
@@ -7587,12 +6772,7 @@
       "effectivePixels": {
         "visible": 26058
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-jug",
@@ -7625,12 +6805,7 @@
       "effectivePixels": {
         "visible": 25887
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-spatula",
@@ -7663,12 +6838,7 @@
       "effectivePixels": {
         "visible": 16852
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-ladle",
@@ -7701,12 +6871,7 @@
       "effectivePixels": {
         "visible": 13869
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-whisk",
@@ -7739,12 +6904,7 @@
       "effectivePixels": {
         "visible": 10118
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-cutting-board",
@@ -7777,12 +6937,7 @@
       "effectivePixels": {
         "visible": 43804
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-apron",
@@ -7815,12 +6970,7 @@
       "effectivePixels": {
         "visible": 32172
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-basket",
@@ -7853,12 +7003,7 @@
       "effectivePixels": {
         "visible": 32406
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-box",
@@ -7891,12 +7036,7 @@
       "effectivePixels": {
         "visible": 40151
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bag",
@@ -7929,12 +7069,7 @@
       "effectivePixels": {
         "visible": 34557
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-table",
@@ -7967,12 +7102,7 @@
       "effectivePixels": {
         "visible": 16225
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-chair",
@@ -8005,12 +7135,7 @@
       "effectivePixels": {
         "visible": 24386
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bench",
@@ -8043,12 +7168,7 @@
       "effectivePixels": {
         "visible": 29161
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-door",
@@ -8081,12 +7201,7 @@
       "effectivePixels": {
         "visible": 53449
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-window",
@@ -8119,12 +7234,7 @@
       "effectivePixels": {
         "visible": 55754
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-shelf",
@@ -8157,12 +7267,7 @@
       "effectivePixels": {
         "visible": 32208
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-drawer",
@@ -8195,12 +7300,7 @@
       "effectivePixels": {
         "visible": 44261
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-lamp",
@@ -8233,12 +7333,7 @@
       "effectivePixels": {
         "visible": 26396
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-flower",
@@ -8271,12 +7366,7 @@
       "effectivePixels": {
         "visible": 26335
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-tree",
@@ -8309,12 +7399,7 @@
       "effectivePixels": {
         "visible": 36578
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-leaf",
@@ -8347,12 +7432,7 @@
       "effectivePixels": {
         "visible": 27686
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-seed",
@@ -8385,18 +7465,13 @@
       "effectivePixels": {
         "visible": 24025
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-watering-can",
       "path": "art/vocab-source/watering-can.svg",
-      "bytes": 791,
-      "sha256": "3805a923eff6a26a6ffddcea7d8d575990d2058aebf4eaeb8bc1fc69682cc7bb",
+      "bytes": 1029,
+      "sha256": "1f0005203f851d24e0a4636772343cc7bdbc7e6f36798adb76c48c4ece4f2b3b",
       "runtime": false,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -8407,8 +7482,8 @@
     {
       "assetId": "vocab-watering-can",
       "path": "public/assets/vocab-watering-can.webp",
-      "bytes": 12894,
-      "sha256": "bb59cb7eb232a7e987262387004fe45d65d804e1fdc1bf28aa7d5bdf50079aea",
+      "bytes": 11980,
+      "sha256": "b205001aaf4bf82b502cc854df9cd63dfa39372d859bbf056d063928e3796664",
       "runtime": true,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -8421,14 +7496,9 @@
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "visible": 28028
+        "visible": 29003
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-ball",
@@ -8461,12 +7531,7 @@
       "effectivePixels": {
         "visible": 41690
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-book",
@@ -8499,12 +7564,7 @@
       "effectivePixels": {
         "visible": 49281
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "audio-vocab-name-cup",
@@ -11908,6 +10968,1735 @@
       "source": "macOS say / Tingting, 180 wpm; scripts/adventure-experience-audio.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
       "derivation": "PCM16 22050Hz via afconvert; exact text/voice art/adventure-experience-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-apple",
+      "path": "public/audio/imm-order-apple.wav",
+      "bytes": 86860,
+      "sha256": "b79d66b9363257446b1a01817febb34e28686e00f36ee34866f4f0d9bd4e2b81",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-banana",
+      "path": "public/audio/imm-order-banana.wav",
+      "bytes": 90444,
+      "sha256": "34b96b9e4dd4db2bde035740dd3d6f443cd14e47a22ab6b6c2f6202454ea190d",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-apple-apple",
+      "path": "public/audio/imm-order-apple-apple.wav",
+      "bytes": 99148,
+      "sha256": "ab64a7853511179eac8130acd78aa4cf76b0d2fc8317b69800f6b907a5d949c4",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-juice",
+      "path": "public/audio/imm-order-juice.wav",
+      "bytes": 109900,
+      "sha256": "6ce99fceb12198c752b9fd875c4ca723a5ce2b53f1e1c47d53b85ff67997695d",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-apple-banana",
+      "path": "public/audio/imm-order-apple-banana.wav",
+      "bytes": 118092,
+      "sha256": "3e1d6eca953819dceddfd18ab261bc8bb6e3a8d02dfeca78600ce8e60820c023",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-banana-juice",
+      "path": "public/audio/imm-order-banana-juice.wav",
+      "bytes": 115532,
+      "sha256": "ed54d651942a5557bbab6d13e3ae3df6ceebae9545f1d6483306b0ac54c39952",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-vanilla-cup",
+      "path": "public/audio/imm-order-vanilla-cup.wav",
+      "bytes": 166220,
+      "sha256": "449cdd0b7f25fc3af8e8f38383e8b9bc8c62c9415a1951c426a98eb71e92e484",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-vanilla-cone",
+      "path": "public/audio/imm-order-vanilla-cone.wav",
+      "bytes": 167756,
+      "sha256": "e88a1330e63ff7678d12acbcbf9dc2e19cc9d8a0397382a60cfac52675f50d72",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-strawberry-cup",
+      "path": "public/audio/imm-order-strawberry-cup.wav",
+      "bytes": 177996,
+      "sha256": "b1387bdf234aa74e1fc3d727b249f060127d65878859159fadb34796af6d0b6e",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-double-cream",
+      "path": "public/audio/imm-order-double-cream.wav",
+      "bytes": 243532,
+      "sha256": "55dc9bc40836f90ff5fc62d5be7666f4e63cc340689a3df698223ac2ba848362",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-banana-cream",
+      "path": "public/audio/imm-order-banana-cream.wav",
+      "bytes": 196428,
+      "sha256": "ec9109d5440c68e72c5a785882e1c1582c29c8687f85546805f078721f93a8fb",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-sandwich",
+      "path": "public/audio/imm-order-sandwich.wav",
+      "bytes": 114508,
+      "sha256": "9e576d4dfe7cc780b258c167b696cd041df3fb213b4e34f7127de386edc2efea",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-salad-sandwich",
+      "path": "public/audio/imm-order-salad-sandwich.wav",
+      "bytes": 146764,
+      "sha256": "5d07933ceb8eaa45fac54132a09165b6a5531ce3d3d4ac20490280f57f7743ba",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-burger",
+      "path": "public/audio/imm-order-burger.wav",
+      "bytes": 141644,
+      "sha256": "1dbf22322e8e60998adf843cad00039962dbf90acb4a3ad2b49ea497603e4e41",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-cheese-burger",
+      "path": "public/audio/imm-order-cheese-burger.wav",
+      "bytes": 101196,
+      "sha256": "a45482859eadd3d5298964966f53380a654c7ba7131aa07aaf16f262068dfc1f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-orange",
+      "path": "public/audio/imm-order-orange.wav",
+      "bytes": 90956,
+      "sha256": "2749da268f86a4ea05c0b4004a4f3a06f3336a3a290fb9bf9dbc9c9844a6f60e",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-pear",
+      "path": "public/audio/imm-order-pear.wav",
+      "bytes": 84300,
+      "sha256": "f023ccfa9f9facc0651d61a0ba34c3f2c89127b31529e673cc1ec4daddc80a3f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-peach",
+      "path": "public/audio/imm-order-peach.wav",
+      "bytes": 90956,
+      "sha256": "b5f7fbe09413b660e854c51281ae63cb1ad0bdf246faa84606eee3dc62bf59fe",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-fresh-strawberry",
+      "path": "public/audio/imm-order-fresh-strawberry.wav",
+      "bytes": 98636,
+      "sha256": "6d5a7016c9ba5fb3dfe41d6def93a1173409125ec5e95d393f00da6875928cdf",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-grape",
+      "path": "public/audio/imm-order-grape.wav",
+      "bytes": 98636,
+      "sha256": "5b855e8f29d4e6ee15e7f11e1a2c7807ef671ed323c60077f08fa5930dac9dcb",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-watermelon",
+      "path": "public/audio/imm-order-watermelon.wav",
+      "bytes": 106828,
+      "sha256": "18423df81ba502d83b419b42b8d98cf8e6f918414b1c580d4e5f04753e0f3d73",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-mango",
+      "path": "public/audio/imm-order-mango.wav",
+      "bytes": 92492,
+      "sha256": "689edf727e60bc559d43253ee995becda248005cbf4c28deae96c11729eef44a",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-pineapple",
+      "path": "public/audio/imm-order-pineapple.wav",
+      "bytes": 98636,
+      "sha256": "6354233b57b8fc3ecdcbb6bfb8bc261d1a05165d42f9095b58f20724b074eae3",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-milk",
+      "path": "public/audio/imm-order-milk.wav",
+      "bytes": 90956,
+      "sha256": "84d8f8d3f3794b48e13b0e8b01ccd2926cb0fdd4ce9a2841338da353a58a9897",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-yogurt",
+      "path": "public/audio/imm-order-yogurt.wav",
+      "bytes": 96076,
+      "sha256": "8fdce282967d95b8e728f267bae91ec234bc30b4b12fbbb619141f223a7105d2",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-smoothie",
+      "path": "public/audio/imm-order-smoothie.wav",
+      "bytes": 91468,
+      "sha256": "a7038cad227e2654ed686bc26b322ebc644f8519ddbead45fbc99329520329a6",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-milkshake",
+      "path": "public/audio/imm-order-milkshake.wav",
+      "bytes": 99660,
+      "sha256": "994e5cc08773bc9bc939753d248cbb73fb3dd922cf5e024f56f4334253d18961",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-pizza",
+      "path": "public/audio/imm-order-pizza.wav",
+      "bytes": 97100,
+      "sha256": "df9174691409cdc06e20482112c9bc10724c81f20693741b096c052076c9b988",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-salad",
+      "path": "public/audio/imm-order-salad.wav",
+      "bytes": 96588,
+      "sha256": "86b4d63df4f43dfa25a96d0529b991fb0fe4d9b9f682172058c0bd51c5c5b8d7",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-cake",
+      "path": "public/audio/imm-order-cake.wav",
+      "bytes": 94540,
+      "sha256": "05df1dddb523bed988d51df83e89f23159b5c395b2fbeb796dbe822d4fd35b80",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-order-cookie",
+      "path": "public/audio/imm-order-cookie.wav",
+      "bytes": 88908,
+      "sha256": "f9919090ceb6b3df340be2d6b83f13a42d5d649cc7abb599e2b98497844f2b38",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-welcome",
+      "path": "public/audio/imm-welcome.wav",
+      "bytes": 30446,
+      "sha256": "248aeae445918f1f071f61edecca1b247893344c7a59d6d2f12846a77bab20d9",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-thanks",
+      "path": "public/audio/imm-thanks.wav",
+      "bytes": 35300,
+      "sha256": "08fd51473a2c38810e2107902dbd9b97848de7b7ba304f369501ef671d75eb17",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-share",
+      "path": "public/audio/imm-share.wav",
+      "bytes": 43352,
+      "sha256": "05c187e59a8a572d6c402637ac66014377b08279edf3af94214010e6534f1240",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-taste",
+      "path": "public/audio/imm-taste.wav",
+      "bytes": 65118,
+      "sha256": "8b8abb5a1703498c0762a2996ea969084aac74bb64ba035950e90080bd2723fa",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-open-cool",
+      "path": "public/audio/imm-open-cool.wav",
+      "bytes": 186700,
+      "sha256": "cc4420cb76583b09fbede43464aaa96407b53a4028d6c0487a56488f18a5d04c",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-open-pack",
+      "path": "public/audio/imm-open-pack.wav",
+      "bytes": 235822,
+      "sha256": "3c584dabd61c1ff8cf7555485d7ad7add95b2a1b885986732f3e77fe6b73502f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-open-create",
+      "path": "public/audio/imm-open-create.wav",
+      "bytes": 74856,
+      "sha256": "75b89942e01041225bfe484a6fa0a98fbc17a819b078258397dcc538bb3427ad",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-drawer",
+      "path": "public/audio/imm-drawer.wav",
+      "bytes": 58670,
+      "sha256": "86bb19c31887962d84f2ce6127c0a7fd709a16926dbf7df4613823d2b1b9bcae",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-basket",
+      "path": "public/audio/imm-basket.wav",
+      "bytes": 66350,
+      "sha256": "569eff679a02f8034a62356cede2bf4c9a24c069adce9ebced3aa90b187226d8",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-recipe",
+      "path": "public/audio/imm-recipe.wav",
+      "bytes": 79662,
+      "sha256": "419dc07fdcb1efb57c24f5a5ba490e49d6728b8b6b33af1b1a78d96a4686e6ef",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-plant",
+      "path": "public/audio/imm-plant.wav",
+      "bytes": 61230,
+      "sha256": "eb6efde4a730ed1e09491eb0bb097e07ada0f84a4c9c1b6a07098fc477d9a3c5",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-bunting",
+      "path": "public/audio/imm-bunting.wav",
+      "bytes": 65326,
+      "sha256": "f8f9a2919c069f15dc108b3b3c9735f91d158bfbdc854a7cc09e0b949d86c5b1",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-light",
+      "path": "public/audio/imm-light.wav",
+      "bytes": 66350,
+      "sha256": "d699e038c7e68d22200f4198c275b6aa2095f4639432055846c457319cf3068b",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-cloth",
+      "path": "public/audio/imm-cloth.wav",
+      "bytes": 86318,
+      "sha256": "11a801cb2b61ace5d486dc99db0c0e7779d4ded9cbb53b37c884ba6d1b85d0ec",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-unpack",
+      "path": "public/audio/imm-unpack.wav",
+      "bytes": 90926,
+      "sha256": "b869b46a13df7c639f075dca94a140a09134c7ed3c696ddbcc18c4d9b40b377e",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-place",
+      "path": "public/audio/imm-place.wav",
+      "bytes": 81198,
+      "sha256": "94ad71b5362ec1ee3e42ffa9cf003a1f0d58fd32f215bbcf9890bf7347c2d317",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-place-cup",
+      "path": "public/audio/imm-place-cup.wav",
+      "bytes": 99622,
+      "sha256": "f1ad8b41e4bb1e30240b9da5d63cacad1873ab0fc128c75a688f0616b96ef620",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-try",
+      "path": "public/audio/imm-try.wav",
+      "bytes": 60434,
+      "sha256": "1986f6afd40a9ed61844f21b96f37a92807e552085af5a6eaa1d40e7c7728dc7",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-invite",
+      "path": "public/audio/imm-invite.wav",
+      "bytes": 55630,
+      "sha256": "0afa5bc0eeb68f181c764fee7b7bfe2b71144e97320017914edb3bc57159cad1",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-save",
+      "path": "public/audio/imm-save.wav",
+      "bytes": 92264,
+      "sha256": "94ee99d8354be1f7544962c39b45f7bae7960cdc9401f30fb9daf016eb239a99",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-found-flower",
+      "path": "public/audio/imm-found-flower.wav",
+      "bytes": 49352,
+      "sha256": "2f46013f4a041b4c415514035ddec833e4bde472663490514321e7d9f24d10ac",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-found-light",
+      "path": "public/audio/imm-found-light.wav",
+      "bytes": 48840,
+      "sha256": "44f9b864bdbb0ce8c7fa3f68b241e56d90e87b043432028c3a7a7cfdc108a19e",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-found-seats",
+      "path": "public/audio/imm-found-seats.wav",
+      "bytes": 91336,
+      "sha256": "13745503360695b880caa13a3700d0b4bbc62dfe508a1cca429d08e4eecabe24",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-opened-basket",
+      "path": "public/audio/imm-opened-basket.wav",
+      "bytes": 57724,
+      "sha256": "f9039129cff4ea45210317e681efec6bf8a04bc97aadfd4e8dc26db87bb06f11",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-opened-recipe",
+      "path": "public/audio/imm-opened-recipe.wav",
+      "bytes": 72060,
+      "sha256": "45bb226c41893300cb98d3300daa81068309b57cf9e9043fafbc0fcd3ff650fa",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-planted",
+      "path": "public/audio/imm-planted.wav",
+      "bytes": 59404,
+      "sha256": "36674a2ec617c2ece13cdbdb937e09833fb55851287a607bd8035ada1fedb1dc",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-hung",
+      "path": "public/audio/imm-hung.wav",
+      "bytes": 47996,
+      "sha256": "a6b15b852542bf1f9a4141d4dfe76558e17adb6694d51a689eb5a7cb655c81d2",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-lit",
+      "path": "public/audio/imm-lit.wav",
+      "bytes": 49532,
+      "sha256": "bca122d581a6388552692664626bd574005e153373d6a4eb74f4a08085c10d08",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-spread",
+      "path": "public/audio/imm-spread.wav",
+      "bytes": 69500,
+      "sha256": "352f7a5fde5f850e628f1ff4f7b5e942b4cc50c8b33195c7ffa625ef65569824",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-unpacked",
+      "path": "public/audio/imm-unpacked.wav",
+      "bytes": 73084,
+      "sha256": "5c5cf08f3b7af0d7045107ea414753890819bf4fd8ac6510b620afe5c516b309",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-placed",
+      "path": "public/audio/imm-placed.wav",
+      "bytes": 63356,
+      "sha256": "b0056f32f8519e65b7cb4d7c00cf2d67f009f619cd1096f3c88b1ef96d84d683",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-saved",
+      "path": "public/audio/imm-saved.wav",
+      "bytes": 55496,
+      "sha256": "107e36c433022d679d80a18bded87c7e52f1c091338f46774a78a098c6b6e90c",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-feast",
+      "path": "public/audio/imm-feast.wav",
+      "bytes": 51816,
+      "sha256": "6116f3e41979321de7ae3b24e08fe48c76b3445ca666c22edd5e7839e964eaf1",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-cup",
+      "path": "public/audio/imm-cup.wav",
+      "bytes": 83246,
+      "sha256": "4e028c94e36bb6414eea5b6e910c06aa99f27f41a49ab8367f35408870f70595",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-fruit",
+      "path": "public/audio/imm-fruit.wav",
+      "bytes": 91438,
+      "sha256": "5004a32c150fd5a44f5e12770ce3462901357dfe593a91add50be4ba1852881a",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-start",
+      "path": "public/audio/imm-start.wav",
+      "bytes": 61742,
+      "sha256": "2b0394f9ba9fbb8e5f1a71b2738cae2d294c60beca8c94bdb68d5a9d9209c3ff",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-waiting",
+      "path": "public/audio/imm-waiting.wav",
+      "bytes": 64602,
+      "sha256": "0d3c2e7a5ea8e4316c3e7f8197d5373e3a58ae550b004520bb12a328a4c5d5d5",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-ready",
+      "path": "public/audio/imm-ready.wav",
+      "bytes": 46972,
+      "sha256": "d284f87e874e0964a7cc4e9b78443891e55170f6ac74b9c4c997bfa4f73d7673",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-carry",
+      "path": "public/audio/imm-carry.wav",
+      "bytes": 39112,
+      "sha256": "36a9e9ac44a1c47aa9085d167cd0d33de51bf3c95f6b7c3917a2ee8e727bf036",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-apple",
+      "path": "public/audio/imm-made-apple.wav",
+      "bytes": 50440,
+      "sha256": "7a23f9360e8a9cac0f30550c48b6b934868714a3223782c75a5dc3111f7944ef",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-apple",
+      "path": "public/audio/imm-remember-apple.wav",
+      "bytes": 61204,
+      "sha256": "ac0357a893859aefdd962af2cbffc9d4af3f7314b76ca9d67ad2172ff6349559",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-banana",
+      "path": "public/audio/imm-made-banana.wav",
+      "bytes": 49918,
+      "sha256": "32631f3199cc844abac22aaa85b267992cb035e145b48cc3af5b56be55e03ba6",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-banana",
+      "path": "public/audio/imm-remember-banana.wav",
+      "bytes": 64276,
+      "sha256": "12869584a988ad57e3de2ef68a5f7b5d02cee6308adeade8cd62328ab87deb09",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-orange",
+      "path": "public/audio/imm-made-orange.wav",
+      "bytes": 51464,
+      "sha256": "9fbb6fd8876ff632f81d8ff94689d3f3afc7bb415816ff0c29147b667d541080",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-orange",
+      "path": "public/audio/imm-remember-orange.wav",
+      "bytes": 65300,
+      "sha256": "0bb9d425201e6c586968114f37e33e485f2ac80de8d9919922a55712050935e1",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-pear",
+      "path": "public/audio/imm-made-pear.wav",
+      "bytes": 44808,
+      "sha256": "9d946f6fd0a30c196bef3abd8f63fae942f46bff40c0011d265d2384c1dd88cd",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-pear",
+      "path": "public/audio/imm-remember-pear.wav",
+      "bytes": 58110,
+      "sha256": "633c5f1acf96f9fd6bfbc06fb9e325345276754a801421e3ddf818f3fb44464f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-peach",
+      "path": "public/audio/imm-made-peach.wav",
+      "bytes": 51464,
+      "sha256": "168fcb4b2eab24addfac1eba4eac54a312f8ba113d97f01f193de743ed22e56e",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-peach",
+      "path": "public/audio/imm-remember-peach.wav",
+      "bytes": 64766,
+      "sha256": "a54dcdb1b5bf89de1baab489c227fc8e6b66dcaf48f74e1a9241eb08bb065b2f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-fresh-strawberry",
+      "path": "public/audio/imm-made-fresh-strawberry.wav",
+      "bytes": 58622,
+      "sha256": "d97103cc352638fbb1fe28f8c19399fc243ce66b46b586ab7e8899e6df6e1bf7",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-fresh-strawberry",
+      "path": "public/audio/imm-remember-fresh-strawberry.wav",
+      "bytes": 72980,
+      "sha256": "4f01c86706a088c385d2e73eaba915bbb0ba2cba2fc8927a95e26dffbabb5e3d",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-mango",
+      "path": "public/audio/imm-made-mango.wav",
+      "bytes": 53000,
+      "sha256": "d7928db30c0a8f67b38db5660d10e87111347d18b1b847c231f9ce84de44289b",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-mango",
+      "path": "public/audio/imm-remember-mango.wav",
+      "bytes": 66324,
+      "sha256": "8482948feae3cbf818a30d6b08b62b59a3ee5c49d65e38a9943f2f0bd555d230",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-pineapple",
+      "path": "public/audio/imm-made-pineapple.wav",
+      "bytes": 58622,
+      "sha256": "d822a64390ca6b87cba1579170f1e5ad03675cbe52909b740b54d0a2ffc2068b",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-pineapple",
+      "path": "public/audio/imm-remember-pineapple.wav",
+      "bytes": 72980,
+      "sha256": "6f8225893aac5d8369f126138dab6f80be9e693e08c93dcab46fff720d9087e5",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-sandwich",
+      "path": "public/audio/imm-made-sandwich.wav",
+      "bytes": 73982,
+      "sha256": "8f4959a7e19d262e97de90ba19803de17677bdf433d9a81d7cf44ebc05fdd7c8",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-sandwich",
+      "path": "public/audio/imm-remember-sandwich.wav",
+      "bytes": 88340,
+      "sha256": "ee64da4c14d76878784fdf57c77796601816ddc22ddabeba02a6f33e53fef3ee",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-salad-sandwich",
+      "path": "public/audio/imm-made-salad-sandwich.wav",
+      "bytes": 106772,
+      "sha256": "11ef2cfcfd5f9c673d8031abad361236ffca0ff74a4139110ce5c0f91a722662",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-salad-sandwich",
+      "path": "public/audio/imm-remember-salad-sandwich.wav",
+      "bytes": 120596,
+      "sha256": "c7975e000430782c81486c208c0d284a490af6ad3252209200e2822c79231fea",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-burger",
+      "path": "public/audio/imm-made-burger.wav",
+      "bytes": 101140,
+      "sha256": "c5071ae986c85cb7f0cb3b955434106c634b1d6d5f76308bdd059919e99eeed1",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-burger",
+      "path": "public/audio/imm-remember-burger.wav",
+      "bytes": 115988,
+      "sha256": "c9b2e0f57e2301b54cbc8743fe6f06fa098744ed801f1212fcc9ab4ba83ee184",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-cheese-burger",
+      "path": "public/audio/imm-made-cheese-burger.wav",
+      "bytes": 60670,
+      "sha256": "36f7e41673742acae212291ac60ffe803239200a586ace3be07500cd2376a45f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-cheese-burger",
+      "path": "public/audio/imm-remember-cheese-burger.wav",
+      "bytes": 75540,
+      "sha256": "1def643ae595079bd3d5d9e570aee171a03fac31398e1539da1880af9a450295",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-smoothie",
+      "path": "public/audio/imm-made-smoothie.wav",
+      "bytes": 52488,
+      "sha256": "cb8dce0b202557d5ba8127a0e6622591fed6875d3b0e17bfb09503773cf2697f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-smoothie",
+      "path": "public/audio/imm-remember-smoothie.wav",
+      "bytes": 65812,
+      "sha256": "e918c13bb2a8eefd24d0896c5dbbdcc6e5ffd0b62ad677f0102febdffe982b6f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-milkshake",
+      "path": "public/audio/imm-made-milkshake.wav",
+      "bytes": 60168,
+      "sha256": "bbe093292ee113fd868c5838fa66e5f9aca455e7ff359739223ccfa41d352116",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-milkshake",
+      "path": "public/audio/imm-remember-milkshake.wav",
+      "bytes": 73492,
+      "sha256": "09fe3658af8edf3d09d9233e9d8fb966691208f93d8af82b46279ebfd70f0097",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-cookie",
+      "path": "public/audio/imm-made-cookie.wav",
+      "bytes": 49416,
+      "sha256": "dbd31c0a356b3d09d702c21d112efcba7909578bca0d1c4435357dd9900ae56c",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-cookie",
+      "path": "public/audio/imm-remember-cookie.wav",
+      "bytes": 62740,
+      "sha256": "76e69cf7740f5a0e7a365bfbc4211d16caee3ca462a433d4015b0bbd08064449",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-juice",
+      "path": "public/audio/imm-made-juice.wav",
+      "bytes": 69886,
+      "sha256": "b7c4507c3a3e1b64ce6a6951835e7ba3d15bfdcef7c97cf25e9e61cc0c91e72a",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-juice",
+      "path": "public/audio/imm-remember-juice.wav",
+      "bytes": 79636,
+      "sha256": "533fa4ea3afb7cd3f280d5f428fd222f442638ad0f322323455940f6f725318a",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-banana-juice",
+      "path": "public/audio/imm-made-banana-juice.wav",
+      "bytes": 75540,
+      "sha256": "2770aecfe669fee4d4d396c869e8f2fe90c1219279fe9d2d99e68950dffc9365",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-banana-juice",
+      "path": "public/audio/imm-remember-banana-juice.wav",
+      "bytes": 83222,
+      "sha256": "ad1ef60c6b72cc8f2f9b421e6f88c28dc40cd43d0fd779f0f7e4f4250e566841",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-grape",
+      "path": "public/audio/imm-made-grape.wav",
+      "bytes": 59656,
+      "sha256": "4cb7d9d5fb983dca2218a46c954910b63d03179439d1404928084b18f0f4a512",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-grape",
+      "path": "public/audio/imm-remember-grape.wav",
+      "bytes": 66814,
+      "sha256": "f8f94bafbbf02ff6d7148e4cc145793cdf89d382c0b97fe764b633df608e5ffa",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-watermelon",
+      "path": "public/audio/imm-made-watermelon.wav",
+      "bytes": 65300,
+      "sha256": "9487db36fa0959ba1eef7796c944fbefd13a634fb3dbae7566e4b66934a10a24",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-watermelon",
+      "path": "public/audio/imm-remember-watermelon.wav",
+      "bytes": 72982,
+      "sha256": "c20ba888b93d020bc548b5dbbdb600f355bfb41143a990ef69640eb8d94162bd",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-milk",
+      "path": "public/audio/imm-made-milk.wav",
+      "bytes": 51976,
+      "sha256": "03b797a5f5817d7f0fce51439214e5bdf3d564dc1fda12d01ef7164431fb08e5",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-milk",
+      "path": "public/audio/imm-remember-milk.wav",
+      "bytes": 58110,
+      "sha256": "fdb3477f4e88a5ae3f73a4b452b9ff7799b918f5504073c3cca297238afb4909",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-yogurt",
+      "path": "public/audio/imm-made-yogurt.wav",
+      "bytes": 57608,
+      "sha256": "fb2b16bcff087c647615b0f515c03100f0df14a16c6e140815563e01ed4b91df",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-yogurt",
+      "path": "public/audio/imm-remember-yogurt.wav",
+      "bytes": 66324,
+      "sha256": "99148390eeea837d356ba650251e63356b3861aa40915bcb9f4e966fcb7d17ca",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-pizza",
+      "path": "public/audio/imm-made-pizza.wav",
+      "bytes": 58120,
+      "sha256": "84a038f845a9a62fb3149efa971827f40ca27fc17f18dab2c2752956dba45ac6",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-pizza",
+      "path": "public/audio/imm-remember-pizza.wav",
+      "bytes": 64788,
+      "sha256": "f5040abb53041967aefdbe6bc883c8aeae679e1755286b96b80e4f82aa0deecb",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-salad",
+      "path": "public/audio/imm-made-salad.wav",
+      "bytes": 57608,
+      "sha256": "efd0772241191b6d612533714c1bcddfc9374d043e43694a77c6f803404d371a",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-salad",
+      "path": "public/audio/imm-remember-salad.wav",
+      "bytes": 63252,
+      "sha256": "e6d8e0aa331dafc3a41e57e262e0e80b0f3eb2963004f79e77e8b4c980624cc7",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-cake",
+      "path": "public/audio/imm-made-cake.wav",
+      "bytes": 56072,
+      "sha256": "f659112571878089aaec892fadc28812567efa2a65c66f0f5cc07430766e3692",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-cake",
+      "path": "public/audio/imm-remember-cake.wav",
+      "bytes": 62718,
+      "sha256": "dd46f72b7429c1a903e3248866d68796b31d253fd347c9a4078568e4b8cbf5f3",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-vanilla-cup",
+      "path": "public/audio/imm-made-vanilla-cup.wav",
+      "bytes": 126740,
+      "sha256": "0c05a5be2d3862463d40e73895b80d09789c3b33381fd061f8145e80b9992376",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-vanilla-cup",
+      "path": "public/audio/imm-remember-vanilla-cup.wav",
+      "bytes": 110356,
+      "sha256": "0e94ad390028c5302f67cea4011af7ce0006904dde363419d16af424e165632f",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-vanilla-cone",
+      "path": "public/audio/imm-made-vanilla-cone.wav",
+      "bytes": 128276,
+      "sha256": "997f32bd0b4c0a8278af3d1c91abbde19e34fe44aa43eabcd1d3f3457c7fa725",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-vanilla-cone",
+      "path": "public/audio/imm-remember-vanilla-cone.wav",
+      "bytes": 111892,
+      "sha256": "592100b9d3d8f77ee870ca0ae20b8b8e1d6b4f0a15189839e955695d349d9d8b",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-strawberry-cup",
+      "path": "public/audio/imm-made-strawberry-cup.wav",
+      "bytes": 139028,
+      "sha256": "e156a8ef66eaaaa864db6a3f7c84a78f19f3210cbfc8beeeb38a74c389c0bc44",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-strawberry-cup",
+      "path": "public/audio/imm-remember-strawberry-cup.wav",
+      "bytes": 122132,
+      "sha256": "f05290e2f3d83ed2033e1277603f96007eae1b95fb3e96bc13981d8cc3c53975",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-banana-cream",
+      "path": "public/audio/imm-made-banana-cream.wav",
+      "bytes": 157460,
+      "sha256": "3579a42a2fd0bafdc163d0e9713c2241edec1a85aa7a2e05f70c9071c284fb32",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-banana-cream",
+      "path": "public/audio/imm-remember-banana-cream.wav",
+      "bytes": 141076,
+      "sha256": "aeb1c2c2a7a8ed909c4563249f33c7d3770167cf3fb54babe439bf43a66f843e",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-made-double-cream",
+      "path": "public/audio/imm-made-double-cream.wav",
+      "bytes": 202494,
+      "sha256": "4490416c4eec07af827df8ad890068fe2fe8b282f5594c50cdd777ceb1c16578",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-remember-double-cream",
+      "path": "public/audio/imm-remember-double-cream.wav",
+      "bytes": 127764,
+      "sha256": "03048eb0413fd6c3e9faa9cc6edf5023f23fa34c6cf57631ea823c573b06788b",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-sharing-fruit",
+      "path": "public/audio/imm-sharing-fruit.wav",
+      "bytes": 111436,
+      "sha256": "beeb36c390ce78036ced03218664576aae924ce0b250e9a3aaa3441730599d8d",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-sharing-drink",
+      "path": "public/audio/imm-sharing-drink.wav",
+      "bytes": 104780,
+      "sha256": "83cc3f6559831188d2cf66a65c32e2bf6f5af57682df647755ae19cf227221d6",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-sharing-cool",
+      "path": "public/audio/imm-sharing-cool.wav",
+      "bytes": 101708,
+      "sha256": "9f55beb7d330c8874046c995dd9158250228543f3152ac05a4741acff3778047",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-sharing-savory",
+      "path": "public/audio/imm-sharing-savory.wav",
+      "bytes": 143692,
+      "sha256": "c853acdbdc504f959930f30a620f20a57e477f657e6262ca0b4924af0046b176",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
+      "license": "Development use only; voice rights and listening review pending",
+      "format": "wav",
+      "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"
+    },
+    {
+      "assetId": "audio-imm-sharing-any",
+      "path": "public/audio/imm-sharing-any.wav",
+      "bytes": 120562,
+      "sha256": "7600190163d48ff38117982ed1809323381ff212ff5acf846abf3bb40337cdc6",
+      "runtime": true,
+      "source": "macOS say / Samantha 140 wpm, offline whole-sentence PCM 22050 Hz",
+      "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
+      "derivation": "scripts/immersion-audio.mjs; semantic corpus; art/immersion-audio.json",
       "license": "Development use only; voice rights and listening review pending",
       "format": "wav",
       "audioStatus": "DEVELOPMENT_TTS_UNREVIEWED"

@@ -1,5 +1,5 @@
 import { FOODS } from './foods';
-import extra from './vocabulary-extra.json';
+import extra from './vocabulary-extra.json' with { type: 'json' };
 export interface VocabularyWord {
   id: string;
   text: string;

@@ -139,7 +139,12 @@ export function activityGuidance(s: GameState): ActivityGuidance {
       '继续搭配、分享或修改，喜欢的作品留在食谱。',
       'kitchen',
     );
-  if (!waiting && s.orders.some((o) => o.status === 'leaving'))
+  if (
+    !waiting &&
+    [s.actor.current, ...s.actor.queue].some(
+      (job) => job?.kind === 'delivery' && job.itemIds.length > 0,
+    )
+  )
     return guide('wait', 'carry', 'friend', '朋友正在接餐，盘里和篮里的食品都会保留。', 'friend');
   if (
     s.orders.some((o) => o.status === 'queued') &&

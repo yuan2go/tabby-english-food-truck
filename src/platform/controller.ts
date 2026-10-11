@@ -347,7 +347,12 @@ export class GameController {
     for (const a of this.state.attempts.filter((a) => !prior.has(a.id))) {
       this.profile.observe({
         id: a.id,
-        dimension: a.activity === 'delivery' ? 'listening' : 'structure',
+        dimension:
+          a.activity === 'delivery'
+            ? a.support.includes('caption-visible')
+              ? 'meaning'
+              : 'listening'
+            : 'structure',
         target:
           a.activity === 'delivery'
             ? (this.state.orders.find((o) => a.input.startsWith(`${o.id}:`))?.request ?? 'request')

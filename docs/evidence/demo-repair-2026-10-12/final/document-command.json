@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "command": "Python compare 10 imported submission files against git show 0b249b0:<path>",
+      "exitCode": 0,
+      "result": "submission-preservation.json"
+    },
+    {
+      "command": "Python compare 10 duplicate historical documents byte-for-byte",
+      "exitCode": 0,
+      "result": "archive-dedup.json"
+    },
+    {
+      "command": "Python scan all 228 current local Markdown targets",
+      "beforeIndexExit": 1,
+      "exitCode": 0,
+      "result": "document-links.json",
+      "note": "First check happened before evidence-index.tsv generation; original missing-index result retained."
+    },
+    {
+      "command": "npx biome check docs/submission/assets/screenshots.json docs/submission/assets/historical-site-check.json",
+      "exitCode": 0,
+      "log": "imported-json-format.log"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "log": "diff-check.log"
+    },
+    {
+      "command": "git diff e0542ff -- <runtime paths recorded in runtime-diff.json>",
+      "exitCode": 0,
+      "result": "runtime-diff.json"
+    }
+  ]
+}

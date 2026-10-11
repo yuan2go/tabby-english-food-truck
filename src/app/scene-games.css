@@ -721,56 +721,56 @@
   background: #f5e6c977 !important;
   border: 2px dashed #8e7955;
 }
-.theatre-world {
+.scene-theatre-world {
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
   min-height: 145px;
 }
-.theatre-object small {
+.scene-theatre-object small {
   display: block;
   text-align: center;
   font-size: 12px;
 }
-.theatre-object.location-box {
+.scene-theatre-object.location-box {
   background: #c59f6a55;
   border: 3px solid #96754f;
   border-radius: 12px;
 }
-.theatre-object.location-sink {
+.scene-theatre-object.location-sink {
   background: #9fc8cc88;
   border-radius: 18px;
 }
-.theatre-object.location-board {
+.scene-theatre-object.location-board {
   background: #c39d6d77;
   border-radius: 14px;
 }
-.theatre-object.location-guest {
+.scene-theatre-object.location-guest {
   background: #accbaa88;
   border-radius: 20px;
 }
-.theatre-object.location-patio {
+.scene-theatre-object.location-patio {
   background: #d0d9a4;
   border-radius: 20px;
 }
-.theatre-places,
-.theatre-controls {
+.scene-theatre-places,
+.scene-theatre-controls {
   display: flex;
   justify-content: center;
   gap: 12px;
   margin-top: 8px;
 }
-.theatre-places .scene-place {
+.scene-theatre-places .scene-place {
   min-height: 105px;
 }
-.theatre-controls button {
+.scene-theatre-controls button {
   display: flex;
   align-items: center;
   gap: 3px;
   padding: 5px !important;
 }
-.theatre-controls .vocab-art {
+.scene-theatre-controls .vocab-art {
   width: 46px;
   height: 46px;
 }
@@ -1041,23 +1041,23 @@
   .design-table > .object-artwork > .vocab-art {
     height: 158px;
   }
-  .theatre-world {
+  .scene-theatre-world {
     gap: 2px;
     min-height: 110px;
   }
-  .theatre-object small {
+  .scene-theatre-object small {
     font-size: 11px;
     max-width: 68px;
   }
-  .theatre-controls {
+  .scene-theatre-controls {
     gap: 5px;
   }
-  .theatre-controls button {
+  .scene-theatre-controls button {
     flex-direction: column;
     font-size: 13px;
     min-width: 65px;
   }
-  .theatre-controls .vocab-art {
+  .scene-theatre-controls .vocab-art {
     width: 40px;
     height: 40px;
   }
@@ -1106,7 +1106,7 @@
     width: 148px;
     height: 135px;
   }
-  .theatre-places .scene-place {
+  .scene-theatre-places .scene-place {
     min-height: 88px;
   }
   .scene-lobby > header button {
@@ -1361,30 +1361,30 @@
   .design-table .place-objects {
     flex-wrap: nowrap;
   }
-  .theatre-world {
+  .scene-theatre-world {
     min-height: 80px;
   }
-  .theatre-places .place-objects {
+  .scene-theatre-places .place-objects {
     flex-wrap: nowrap;
   }
-  .theatre-places {
+  .scene-theatre-places {
     gap: 5px;
   }
-  .theatre-places .scene-place {
+  .scene-theatre-places .scene-place {
     min-width: 0;
     flex: 1;
   }
-  .scene-stage:has(.theatre-board) {
+  .scene-stage:has(.scene-theatre-board) {
     padding: 8px;
   }
-  .theatre-board .scene-hand {
+  .scene-theatre-board .scene-hand {
     margin: 0 auto;
   }
-  .theatre-object .scene-prop {
+  .scene-theatre-object .scene-prop {
     width: 64px;
     height: 64px;
   }
-  .theatre-controls button {
+  .scene-theatre-controls button {
     padding: 4px !important;
     min-height: 64px;
   }
@@ -1443,6 +1443,6 @@
   transform: scale(0.44);
   transform-origin: top left;
 }
-.theatre-controls button {
+.scene-theatre-controls button {
   min-width: 85px;
 }

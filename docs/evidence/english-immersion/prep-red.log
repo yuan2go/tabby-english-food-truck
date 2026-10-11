@@ -1,0 +1,30 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-events.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-events.test.ts (3 tests | 1 failed) 10ms
+   × preparation instructions describe available objects before the action rather than an order answer 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-events.test.ts > preparation instructions describe available objects before the action rather than an order answer
+TypeError: preparationLine is not a function
+ ❯ tests/immersion-events.test.ts:64:10
+     62|   const { preparationLine } = await import('../src/platform/dialogue');
+     63|   const s = createGame('prep');
+     64|   expect(preparationLine(s, 'machine')?.audio).toBe('imm-cup');
+       |          ^
+     65|   s.items.push({ id: 'cup', product: 'cup', location: 'machine:cup' });
+     66|   expect(preparationLine(s, 'machine')?.audio).toBe('imm-fruit');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  02:11:28
+   Duration  242ms (transform 118ms, setup 0ms, import 145ms, tests 10ms, environment 0ms)
+

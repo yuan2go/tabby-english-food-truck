@@ -1,0 +1,89 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep scene pause|desktop feast exposes
+
+[WebServer] (node:4998) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+EVIDENCE_FEAST_START_SECONDS 13.259
+(node:5060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:181:1 › desktop feast exposes replay skip and low motion without repeating settlement (29.2s)
+  ✘  2 e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger (7.5s)
+
+
+  1) e2e/adventure.spec.ts:181:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: getByRole('region', { name: '朋友实际使用食品', exact: true })
+    Expected pattern: /stage-0/
+    Received string:  "friend-theatre theatre-finish stage-4 low-motion bite"
+    Timeout: 15000ms
+
+    Call log:
+      - Expect "toHaveClass" getByRole('region', { name: '朋友实际使用食品', exact: true }) with timeout 15000ms
+      - waiting for getByRole('region', { name: '朋友实际使用食品', exact: true })
+        34 × locator resolved to <section aria-label="朋友实际使用食品" data-moment="0b2046a0-0116-49f7-9751-45b5f7794f78:moment:8" class="friend-theatre theatre-finish stage-4 low-motion bite">…</section>
+           - unexpected value "friend-theatre theatre-finish stage-4 low-motion bite"
+
+
+      201 |   const feast = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+      202 |   for (let stage = 0; stage < 5; stage++)
+    > 203 |     await expect(feast).toHaveClass(new RegExp(`stage-${stage}`), { timeout: 15000 });
+          |                         ^
+      204 |   await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible({
+      205 |     timeout: 15000,
+      206 |   });
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/adventure.spec.ts:203:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/before/test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/before/test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/before/test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/error-context.md
+
+  2) e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('dialog', { name: '小游戏已暂停' }).getByRole('button', { name: '继续玩' })
+    Expected: focused
+    Received: inactive
+    Timeout:  6000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('dialog', { name: '小游戏已暂停' }).getByRole('button', { name: '继续玩' }) with timeout 6000ms
+      - waiting for getByRole('dialog', { name: '小游戏已暂停' }).getByRole('button', { name: '继续玩' })
+        16 × locator resolved to <button type="button" class="primary">继续玩</button>
+           - unexpected value "inactive"
+
+
+      14 |   await pause.click();
+      15 |   const dialog = page.getByRole('dialog', { name: '小游戏已暂停' });
+    > 16 |   await expect(dialog.getByRole('button', { name: '继续玩' })).toBeFocused();
+         |                                                             ^
+      17 |   for (let i = 0; i < 6; i++) {
+      18 |     await page.keyboard.press(i % 2 ? 'Shift+Tab' : 'Tab');
+      19 |     expect(await dialog.evaluate((el) => el.contains(document.activeElement))).toBe(true);
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/demo-repair.spec.ts:16:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/before/test-results/demo-repair-scene-pause-an-92336-cus-and-restore-the-trigger/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/before/test-results/demo-repair-scene-pause-an-92336-cus-and-restore-the-trigger/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/before/test-results/demo-repair-scene-pause-an-92336-cus-and-restore-the-trigger/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:181:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+    e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger 

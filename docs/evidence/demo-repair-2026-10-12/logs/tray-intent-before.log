@@ -1,0 +1,35 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck
+
+ ❯ tests/adventure-input.test.ts (13 tests | 1 failed) 23ms
+   × explicit tray handle takes the whole tray from a single-food selection without moving it 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-input.test.ts > explicit tray handle takes the whole tray from a single-food selection without moving it
+AssertionError: expected null to deeply equal { tray: +0 }
+
+- Expected:
+{
+  "tray": 0,
+}
+
++ Received:
+null
+
+ ❯ tests/adventure-input.test.ts:189:23
+    187|   expect(ui.selected).toEqual({ item: before[0]?.id });
+    188|   tap('lift-tray-0');
+    189|   expect(ui.selected).toEqual({ tray: 0 });
+       |                       ^
+    190|   expect(controller.state.items).toEqual(before);
+    191|   expect(controller.state.attempts).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  01:12:39
+   Duration  446ms (transform 255ms, setup 0ms, import 302ms, tests 23ms, environment 0ms)
+

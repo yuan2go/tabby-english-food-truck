@@ -1,17 +1,9 @@
-# 参赛材料前的文档治理归档
+# 参赛材料前的治理与独立历史记录
 
-来源：默认分支main **f359b4053cf73e0103bf13b46d26496f19868508**，2026-10-12治理前。以下纯文本文件保留原字节与当时链接文字；原相对链接按原仓库位置解释，导航使用[现行索引](../../index.md)或来源SHA，避免把历史正文误作现行权威。
+远端main在本轮工作期间合入`0b249b04697b1df43d74bbe1a4f532175b2d04f1`，仅文档/参赛材料，游戏源码、资源、依赖及测试保持初始baseline。原治理来源同为`f359b4053cf73e0103bf13b46d26496f19868508`。当前合同与验收见[现行索引](../../index.md)，本目录的旧授权不支配本轮。
 
-| 原文 | 历史身份 |
-| --- | --- |
-| [AGENTS](AGENTS.md.txt) | M1/M2/M2.2阶段限制及替代授权；长期不变量保留在当前AGENTS |
-| [README](README.md.txt) / [STATUS](STATUS.md.txt) | 原包工程状态、PR/Git过程、统一交付及最新报告补记 |
-| [01](01-product.md.txt) / [02](02-game-design.md.txt) / [03](03-experience-design.md.txt) / [04](04-technical-design.md.txt) | 原包标题及设计叠加；现行设计不变，清理阶段语句 |
-| [05](05-delivery.md.txt) | 两份实施计划、勾选和临时“不测试/可合并”授权，不支配未来任务 |
-| [小游戏词库计划](2026-10-11-minigames-vocab.md.txt) | 已交付实现计划，移出现行plans |
-| [AI制作史](AI-usage.md.txt) | 全部历史制作与修复记录；当时Git/CI状态不当当前结果 |
-| [M0/M1证据原索引](evidence-README.md.txt) / [E2E原说明](e2e-README.md.txt) | 原始受测代码及过期17条数量 |
+十份重复原文经逐字节比较相同，引用已有[本轮治理快照](../pre-demo-repair-2026-10-12/index.md)，不再复制一套：AGENTS、README、docs/STATUS、01–05、e2e/README及docs/plans/2026-10-11-minigames-vocab。原目录结构和历史文字均保持；相对链接按原仓库位置理解。
 
-早期归档：[pre-playable](../pre-playable-adventure-01/index.md)、[main PR10](../main-pr10/index.md)、[pre-experience](../pre-adventure-experience-02/index.md)、[pre-minigames](../pre-minigames-vocab-01/index.md)。它们均为本仓库历史，不是可导入的旧项目。
+独立价值保留：[全部AI制作史](AI-usage.md.txt)、[M0/M1原证据索引](evidence-README.md.txt)，原字节来自上述remote提交。[正式材料/PDF](../../submission/index.md)与其受测43d7c76、配图hash、核验及历史云端交付记录完整保留。原治理索引完整原文可在该SHA的本路径读取；不将历史说明中的“未修复/不测试/可合并”当当前状态或新授权。
 
-本次清理：现行01–04统一为整合产品而非正在执行的源包合同；05只保留有效行为验收和本轮文档范围；STATUS用最新报告及Git读回替代过期OPEN/DRAFT/预期merge状态；README、证据与E2E索引修复引用。设计要求与已验证事实分开。原失败日志/截图/录像及art来源/权利记录不改。吐司、4秒烤面包机、额外自选速度模式仍在01作为有效未实现候选，不列为本轮任务。尚未合入的本地修复分支不纳入参赛事实。
+历史失败、资源原件/来源/权利、有效吐司/烤面包机/自选速度候选均保留；候选不属于本轮。重复档等值证据见[archive-dedup](../../evidence/demo-repair-2026-10-12/final/archive-dedup.json)。

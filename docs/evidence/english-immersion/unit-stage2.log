@@ -1,0 +1,46 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/m22-growth.test.ts (6 tests | 1 failed) 20ms
+   × promoting a single-customer story allocates free seats and produces a restorable snapshot 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m22-growth.test.ts > promoting a single-customer story allocates free seats and produces a restorable snapshot
+AssertionError: expected { id: 'guest-0', …(7) } to deeply equal { id: 'guest-0', …(7) }
+
+- Expected
++ Received
+
+@@ -4,7 +4,9 @@
+    "remaining": 0,
+    "request": "apple",
+    "revisit": false,
+    "seat": 0,
+    "status": "waiting",
+-   "support": [],
++   "support": [
++     "picture-request",
++   ],
+  }
+
+ ❯ tests/m22-growth.test.ts:131:23
+    129|   }).state;
+    130|   s = advance(s, 16);
+    131|   expect(s.orders[0]).toEqual(accepted);
+       |                       ^
+    132|   expect(new Set(s.orders.filter((o) => o.status === 'waiting').map((o…
+    133|   expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  1 failed | 246 passed (247)
+   Start at  02:07:43
+   Duration  1.88s (transform 2.85s, setup 0ms, import 4.96s, tests 1.64s, environment 3ms)
+

@@ -1,0 +1,26 @@
+e2e/adventure.spec.ts:53:7 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    51 │   }
+    52 │   const activeOrder = (await state(page)).orders.find((o) => o.id === orderId);
+  > 53 │   if (!activeOrder || activeOrder.status !== 'waiting')
+       │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    54 │     throw Error('chosen friend was not admitted');
+    55 │   await handOver(page, activeOrder.seat);
+  
+  i Unsafe fix: Change to an optional chain.
+  
+     51  51 │     }
+     52  52 │     const activeOrder = (await state(page)).orders.find((o) => o.id === orderId);
+     53     │ - ··if·(!activeOrder·||·activeOrder.status·!==·'waiting')
+         53 │ + ··if·(activeOrder?.status·!==·'waiting')
+     54  54 │       throw Error('chosen friend was not admitted');
+     55  55 │     await handOver(page, activeOrder.seat);
+  
+
+Skipped 1 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 11 files in 69ms. No fixes applied.
+Found 1 warning.

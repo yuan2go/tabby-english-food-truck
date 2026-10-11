@@ -18,7 +18,10 @@ export function preparationCue(
       target: undefined,
     };
   if (ui.selected && 'item' in ui.selected)
-    return { text: '点托盘或制作台移动这份；原料可拖回篮子', target: `tray-${ui.selectedTray}` };
+    return {
+      text: '选中这一份 → 点盘内或制作台移动；要端整盘，点盘把',
+      target: `tray-${ui.selectedTray}`,
+    };
   const busy =
     s.machine.status === 'processing' ||
     Object.values(s.stations).some((st) => st.status === 'processing');

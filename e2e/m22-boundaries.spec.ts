@@ -25,7 +25,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     )
     .toBe(2);
   await tap(page, 'tray-0');
-  await tap(page, 'tray-0', 26);
+  await tap(page, 'lift-tray-0');
   await tap(page, 'supply-banana');
   await expect
     .poll(async () => (await state(page)).items.find((item) => item.product === 'banana')?.location)
@@ -152,7 +152,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     await tap(page, 'note');
     await expect(page.getByRole('heading', { name: '大咪陪你一起做' })).toBeVisible();
     await page.getByRole('button', { name: '继续营业', exact: true }).tap();
-    await tap(page, 'tray-1', 25);
+    await tap(page, 'tray-1');
     await tap(page, 'supply-apple');
     const added = (await state(page)).items.find((i) => i.location.startsWith('tray:1:'));
     expect(added?.product).toBe('apple');

@@ -30,6 +30,7 @@ import {
   tileBank,
   toggleTile,
 } from '../rules/mini-course';
+import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { VocabularyVisual, VoiceIcon } from './VocabularyVisual';
 
@@ -38,7 +39,7 @@ const names: Record<CourseKind, string> = {
   pair: '多组配对',
   spell: 'WordSpell',
   quantity: '数量与组合',
-  sentence: '选词组句',
+  sentence: '选词表达',
   review: '混合复习',
 };
 const foundations: Record<CourseFoundation, number> = { new: 0, letters: 1, phrases: 2 };
@@ -92,6 +93,7 @@ export function MiniCourse({
   const [showHelp, setShowHelp] = useState(false);
   const [soundIssue, setSoundIssue] = useState<PlaybackResult | null>(null);
   const [confirmRestart, setConfirmRestart] = useState(false);
+  useDialogFocus(confirmRestart ? 'course-restart' : state?.paused ? 'course-pause' : null);
   const latest = useRef<CourseState | null>(null);
   const voiceToken = useRef(0);
   const contextVoice = useRef(false);
@@ -209,7 +211,9 @@ export function MiniCourse({
           mechanic === 'spell'
             ? 'spelling'
             : mechanic === 'sentence'
-              ? 'structure'
+              ? state.selected.length === 1
+                ? 'meaning'
+                : 'structure'
               : mechanic === 'listen'
                 ? 'listening'
                 : 'meaning',
@@ -353,26 +357,26 @@ export function MiniCourse({
         {state.paused ? '继续小游戏' : '暂停小游戏'}
       </button>
       {state.paused ? (
-        <div role="dialog" aria-label="主题关卡已暂停">
+        <div role="dialog" aria-modal="true" aria-label="主题关卡已暂停">
           <p>回来继续，物件和答案都保留。</p>
           <button type="button" onClick={() => update({ ...state, paused: false })}>
             继续玩
           </button>
         </div>
       ) : null}
-      <div inert={state.paused ?? false}>
+      <div>
         <h2>{level.title}</h2>
         <p>{level.scene}</p>
         <div className="course-progress">
           {names[mechanic]} · {state.round + 1}/{level.targets.length} · {level.goal}
         </div>
         {confirmRestart ? (
-          <div className="course-confirm" role="dialog" aria-label="重玩关卡">
+          <div className="course-confirm" role="dialog" aria-modal="true" aria-label="重玩关卡">
             <p>重玩会从第一题开始，已用帮助仍保留。</p>
             <button type="button" onClick={() => open(level, true)}>
               确认重玩
             </button>
-            <button type="button" onClick={() => setConfirmRestart(false)}>
+            <button type="button" data-dialog-initial onClick={() => setConfirmRestart(false)}>
               继续本题
             </button>
           </div>
@@ -537,7 +541,7 @@ export function MiniCourse({
                 </fieldset>
                 {state.phase === 'play' ? (
                   <button type="button" className="primary" onClick={() => submit()}>
-                    完成这句
+                    表达这个需要
                   </button>
                 ) : null}
               </>

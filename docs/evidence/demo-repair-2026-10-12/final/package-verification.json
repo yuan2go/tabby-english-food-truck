@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "productSha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+  "dirty": false,
+  "package": "/Users/dafangzi/.codex/artifacts/tabby-demo-2026-10-12/game-build-e0542ff.tar.gz",
+  "packageSha256": "9adb5bc06dc4a47370fc93fd4a14bb19193071d7e7562372db2d0917a32b6662",
+  "packageBytes": 34475111,
+  "runtimeFilesVerified": 590,
+  "runtimeBytes": 41700545,
+  "method": "Exact tar file set, byte length and SHA-256 of every runtime file against frozen build identity; no AppleDouble sidecars."
+}

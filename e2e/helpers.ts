@@ -1,3 +1,5 @@
+import { mkdirSync } from 'node:fs';
+import { basename, join } from 'node:path';
 import { expect, type Page } from '@playwright/test';
 import { REQUESTS } from '../src/content/catalog';
 import { type Product, RAW, RECIPES } from '../src/content/recipes';
@@ -58,6 +60,15 @@ export async function startEndless(p: Page, less = true) {
   await lesson(p);
 }
 export async function choosePrep(p: Page, name: string) {
+  // A receipt may arrive before its empty tray returns. Let the real game clock
+  // finish that journey before selecting it as a production destination; the
+  // boundary tests deliberately tap busy trays without this helper.
+  if (name.includes('盘')) {
+    const tray = name.includes('2') ? 1 : 0;
+    await expect
+      .poll(async () => (await state(p)).trays[tray].remaining, { timeout: 18000 })
+      .toBe(0);
+  }
   await tap(
     p,
     name.includes('盘')
@@ -256,11 +267,11 @@ export async function handOver(p: Page, seat?: 0 | 1, tray: 0 | 1 = 0) {
     (o) => o.status === 'waiting' && (seat === undefined || o.seat === seat),
   );
   if (!order) throw Error('no waiting guest');
-  await tap(p, `tray-${tray}`, 26);
+  await tap(p, `lift-tray-${tray}`);
   await tap(p, order.id, 20);
 }
 export async function drag(p: Page, from: string, to: string) {
-  const a = await hot(p, from, from.startsWith('tray') ? 25 : 0),
+  const a = await hot(p, from),
     b = await hot(p, to);
   const c = await p.context().newCDPSession(p);
   await c.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ ...a, id: 1 }] });
@@ -271,4 +282,11 @@ export async function drag(p: Page, from: string, to: string) {
     });
   await c.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await c.detach();
+}
+
+export function evidencePath(original: string) {
+  if (!process.env.EVIDENCE_DIR) return original;
+  const dir = join(process.env.EVIDENCE_DIR, 'screenshots');
+  mkdirSync(dir, { recursive: true });
+  return join(dir, basename(original));
 }

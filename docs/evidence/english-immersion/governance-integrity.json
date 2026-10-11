@@ -1,0 +1,36 @@
+{
+  "baseline": "64f03fc716de70e20f64f9bbc3802de7601a460f",
+  "documents": [
+    {
+      "source": "docs/01-product.md",
+      "archived": "docs/archive/pre-english-immersion-01/01-product.md",
+      "sha256": "79c962f1026fe112c03b13eb2ae188d3295833ca75a2e4df9c19e52d5131856d"
+    },
+    {
+      "source": "docs/02-game-design.md",
+      "archived": "docs/archive/pre-english-immersion-01/02-game-design.md",
+      "sha256": "f29bf5bab96d2374f6c722668f48006d957b3d3c607d176cc09f2f3eb73061a7"
+    },
+    {
+      "source": "docs/03-experience-design.md",
+      "archived": "docs/archive/pre-english-immersion-01/03-experience-design.md",
+      "sha256": "63b2cebba1dca9b3cff9349504684def4309131b8fea8190f91111278acee8df"
+    },
+    {
+      "source": "docs/04-technical-design.md",
+      "archived": "docs/archive/pre-english-immersion-01/04-technical-design.md",
+      "sha256": "db2e8873379a9a76d73b40cb282f0a35bb5897185f5c3027d922d0d981ee2110"
+    },
+    {
+      "source": "docs/05-delivery.md",
+      "archived": "docs/archive/pre-english-immersion-01/05-delivery.md",
+      "sha256": "bd3f5c6d9cec5026d2762bada75a08083a18a6a7164c88b5c5f046d4a6d0e7a6"
+    },
+    {
+      "source": "README.md",
+      "archived": "docs/archive/pre-english-immersion-01/README.md",
+      "sha256": "c3e46847321b0d14b0b30fd52f279d3fbd4680dfdc8f12e0eb9eb0c84b54b03c"
+    }
+  ],
+  "byteIdentical": true
+}

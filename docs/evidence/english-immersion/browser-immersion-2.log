@@ -1,0 +1,62 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep normal entrance|phone: held
+
+[WebServer] (node:24266) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:24334) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:24380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (1.1m)
+(node:25025) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/immersion.spec.ts:104:1 › phone: held tray and two guests replay without delivery; cancellation, pause, failure and short landscape (5.4s)
+
+
+  1) e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('.conversation .sentence-text')
+    Expected: "I remember your vanilla ice cream in a cone."
+    Received: "I remember your apple."
+    Timeout:  6000ms
+
+    Call log:
+      - Expect "toHaveText" locator('.conversation .sentence-text') with timeout 6000ms
+      - waiting for locator('.conversation .sentence-text')
+        15 × locator resolved to <button lang="en" type="button" class="sentence-text" aria-label="重听兔兔：I remember your apple.">…</button>
+           - unexpected value "I remember your apple."
+
+
+      73 |   await page.getByRole('button', { name: '到活动桌', exact: true }).click();
+      74 |   await page.getByRole('button', { name: '邀请兔兔', exact: true }).click();
+    > 75 |   await expect(sentence(page)).toHaveText('I remember your vanilla ice cream in a cone.');
+         |                                ^
+      76 |   await page.getByRole('button', { name: '停止接客，做作品', exact: true }).click();
+      77 |   await page.getByRole('button', { name: '去厨房备餐', exact: true }).click();
+      78 |   await choosePrep(page, '● 1号盘');
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/immersion.spec.ts:75:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/error-context.md
+
+  1 failed
+    e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory 
+  1 passed (1.3m)

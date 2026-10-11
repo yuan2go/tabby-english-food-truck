@@ -3,6 +3,7 @@ import { REQUESTS, type RequestId } from '../content/catalog';
 import { requestFamily } from '../content/chapters';
 import { FOOD_GROUPS, FOODS, foodBatch } from '../content/foods';
 import type { Product } from '../content/recipes';
+import { dialogueProducts, orderLine } from '../content/request-language';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { Food } from './Food';
@@ -25,6 +26,12 @@ export function FoodBaskets({
   const [selected, select] = useState<string | null>(null);
   const foods = foodBatch(batch),
     food = FOODS.find((f) => f.id === selected);
+  const context =
+    food && Object.hasOwn(dialogueProducts, food.product)
+      ? orderLine([food.product])
+      : food
+        ? { audio: food.contextAudio, text: food.context }
+        : null;
   const say = (id: string) => {
     const f = FOODS.find((f) => f.id === id);
     if (!f) return;
@@ -94,8 +101,8 @@ export function FoodBaskets({
           <button type="button" onClick={() => void audio.play(food.audio)}>
             <strong>{food.text}</strong> ♫ <span>{food.chinese}</span>
           </button>
-          <button type="button" onClick={() => void audio.play(food.contextAudio)}>
-            ♫ {food.context}
+          <button type="button" onClick={() => context && void audio.play(context.audio)}>
+            ♫ {context?.text}
           </button>
           <p>
             {food.role === 'recognition'

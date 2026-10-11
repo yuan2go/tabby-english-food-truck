@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { REQUESTS, type RequestId } from '../content/catalog';
+import { spokenResource } from '../content/dialogue';
 import { ITEM_AUDIO, lessonWords } from '../content/learning';
 import { FOOD, type Product, RAW } from '../content/recipes';
 import {
@@ -15,6 +16,7 @@ import type { GameController } from '../platform/controller';
 import type { LessonProgress } from '../platform/profile';
 import { shuffle } from '../rules/minigames';
 import type { Destination } from '../rules/types';
+import { Sentence } from './Dialogue';
 import { Food } from './Food';
 
 /** Meaning first; a child-selected raw choice uses the same real inventory command as the scene. */
@@ -309,13 +311,11 @@ export function Lesson({
             </>
           ) : (
             <>
-              <button
-                type="button"
-                className="sound-tile"
-                onClick={() => void audio.play(unit.prompt)}
-              >
-                ♫ 再听一遍
-              </button>
+              <Sentence
+                line={spokenResource(unit.prompt)}
+                audio={audio}
+                play={() => void audio.play(unit.prompt)}
+              />
               {physical ? (
                 <fieldset className="choice-row">
                   <legend>选一个工作对象，食物会真的放进去</legend>

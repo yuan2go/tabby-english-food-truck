@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck
+
+ ❯ tests/mini-expansion-recovery.test.ts (12 tests | 1 failed) 30ms
+   × word-only requests stay valid and feedback describes words rather than sentence mastery 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > word-only requests stay valid and feedback describes words rather than sentence mastery
+AssertionError: expected '这份找对了。' to contain '词语'
+
+Expected: "词语"
+Received: "这份找对了。"
+
+ ❯ tests/mini-expansion-recovery.test.ts:212:22
+    210|   expect(s.phase).toBe('feedback');
+    211|   expect(s.attempts.at(-1)?.task).toBe(true);
+    212|   expect(s.feedback).toContain('词语');
+       |                      ^
+    213|   expect(s.feedback).not.toContain('掌握');
+    214| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Start at  01:16:04
+   Duration  259ms (transform 105ms, setup 0ms, import 128ms, tests 30ms, environment 0ms)
+

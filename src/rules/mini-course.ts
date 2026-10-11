@@ -252,7 +252,11 @@ export function submitCourse(level: MiniLevel, state: CourseState, answer?: stri
     ...state,
     phase: task ? 'feedback' : 'play',
     feedback: task
-      ? '这份找对了。'
+      ? kind === 'sentence'
+        ? state.selected.length === 1
+          ? '用词语把需要说清了；还可以试试带数量的短请求。'
+          : '短请求表达清楚了。'
+        : '这份找对了。'
       : grammar
         ? '表达可以用，但这位朋友要的不同。再看情境。'
         : '词块顺序还要调整，可以撤回重摆。',

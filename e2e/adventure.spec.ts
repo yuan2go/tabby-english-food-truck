@@ -1,7 +1,23 @@
 import { expect, type Page, test } from '@playwright/test';
-import { choosePrep, handOver, hot, lesson, make, state, tap } from './helpers';
+import { choosePrep, evidencePath, handOver, hot, lesson, make, state, tap } from './helpers';
 
 test.use({ hasTouch: true });
+test.afterEach(async ({ page }, info) => {
+  if (info.status !== info.expectedStatus) {
+    await info.attach('actual-failure-state', {
+      body: JSON.stringify(await state(page), null, 2),
+      contentType: 'application/json',
+    });
+  }
+});
+// These cases inspect the full visual process; CI's low-graphics preference is
+// valid, but has a separate receipt/idempotence case below.
+test.beforeEach(async ({ page }, info) => {
+  if (/visible activity entrance|desktop feast exposes/.test(info.title)) {
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.addInitScript(() => localStorage.setItem('tabby.foodtruck.lowGraphics', 'false'));
+  }
+});
 
 async function kitchen(page: Page) {
   await page.getByRole('button', { name: '去厨房备餐', exact: true }).click();
@@ -76,7 +92,7 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   });
   await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/breakfast-friends-desktop.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/breakfast-friends-desktop.png'),
   });
   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
   await kitchen(page);
@@ -110,7 +126,7 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.getByRole('button', { name: '铺上叶子桌布', exact: true }).click();
   await page.getByRole('button', { name: '一起开席', exact: true }).click();
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/picnic-rabbit-desktop.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/picnic-rabbit-desktop.png'),
   });
   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
   await kitchen(page);
@@ -132,7 +148,9 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   });
   await expect(feast).toHaveClass(/sip/);
   await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
-  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/dinner-drink-desktop.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/adventure-experience-02/dinner-drink-desktop.png'),
+  });
   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
   await page.getByRole('button', { name: '邀请兔兔', exact: true }).click();
   await page.getByRole('button', { name: '邀请刺刺', exact: true }).click();
@@ -159,7 +177,9 @@ test('visible activity entrance reaches all five chapters and saves a real creat
       ),
     )
     .toBe(5);
-  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/feast-desktop.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/adventure-experience-02/feast-desktop.png'),
+  });
   const before = await state(page);
   await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
   await page.reload();
@@ -205,7 +225,7 @@ test('desktop feast exposes replay skip and low motion without repeating settlem
   });
   await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/breakfast-friends-desktop.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/breakfast-friends-desktop.png'),
   });
   for (const name of ['重看朋友使用', '跳过朋友演出', '低动态表现']) {
     const button = page.getByRole('button', { name, exact: true });
@@ -214,7 +234,7 @@ test('desktop feast exposes replay skip and low motion without repeating settlem
   }
   expect((await state(page)).adventure).toEqual(before.adventure);
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/desktop-friend-controls.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/desktop-friend-controls.png'),
   });
   await page.getByRole('button', { name: '低动态表现', exact: true }).click();
   await kitchen(page);
@@ -228,7 +248,9 @@ test('desktop feast exposes replay skip and low motion without repeating settlem
   const tasted = await state(page);
   await expect(feast).toHaveClass(/sip.*stage-3|stage-3.*sip/, { timeout: 15000 });
   await expect(feast).toHaveClass(/stage-4/, { timeout: 15000 });
-  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/drink-use-desktop.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/adventure-experience-02/drink-use-desktop.png'),
+  });
   await page.getByRole('button', { name: '重看朋友使用', exact: true }).click();
   await page.getByRole('button', { name: '跳过朋友演出', exact: true }).click();
   expect((await state(page)).adventure).toEqual(tasted.adventure);
@@ -281,7 +303,7 @@ test('phone replay follows hedgehog path with real food and no packing task', as
   expect((await state(page)).adventure?.rewards).toEqual(['picnic-page']);
   await expect(page.getByRole('button', { name: '把篮子摆上桌', exact: true })).toHaveCount(0);
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/picnic-hedgehog-phone.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/picnic-hedgehog-phone.png'),
   });
 });
 
@@ -329,7 +351,7 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await expect(page.locator('.goal-guide')).toHaveAttribute('data-guide', 'occupied');
   expect((await state(page)).adventure?.foods).toEqual(beforeBlocked.adventure?.foods);
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/occupied-recovery-phone.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/occupied-recovery-phone.png'),
   });
   await page.getByRole('button', { name: /图示下一步：餐位已经/ }).click();
   await expect(page.getByRole('button', { name: '拿回苹果到桌边', exact: true })).toBeFocused();
@@ -343,7 +365,7 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await expect(page.getByRole('button', { name: '重看朋友使用', exact: true })).toBeInViewport();
   await page.waitForTimeout(900);
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/friend-drinking-phone.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/friend-drinking-phone.png'),
   });
   await page.getByRole('button', { name: '重看朋友使用', exact: true }).click();
   await page.getByRole('button', { name: '跳过朋友演出', exact: true }).click();
@@ -362,9 +384,13 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await page.reload();
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: '今日新菜单' })).toBeVisible();
+  await page.getByRole('button', { name: '这次先不加 ↗' }).click();
   await table(page);
   expect((await state(page)).adventure?.works).toEqual(before.adventure?.works);
-  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/free-shop-phone.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/adventure-experience-02/free-shop-phone.png'),
+  });
   await page.getByRole('button', { name: '收拾桌面', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: '收拾活动桌', exact: true });
   await expect(dialog.getByRole('button', { name: '继续摆餐', exact: true })).toBeFocused();
@@ -389,7 +415,7 @@ test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on
   await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
   await page.getByRole('button', { name: '去厨房备餐', exact: true }).click();
   await page.getByRole('button', { name: '我来试试', exact: true }).click();
-  const tray = await hot(page, 'tray-0', 26);
+  const tray = await hot(page, 'lift-tray-0');
   await page.mouse.click(tray.x, tray.y);
   const point = await hot(page, 'supply-banana');
   await page.mouse.click(point.x, point.y);
@@ -425,7 +451,7 @@ test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on
     })
     .toBe(true);
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/kitchen-desktop-mouse.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/kitchen-desktop-mouse.png'),
   });
   await context.close();
 });
@@ -463,7 +489,7 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
     await pendingMenu.getByRole('button', { name: '这次先不加 ↗', exact: true }).click();
   // Finish the real replay before comparing the complete accepted-order snapshot.
   // Audio completion legitimately changes `heard`; menu/seat policy must change nothing else.
-  await page.getByRole('button', { name: '点请求气泡重听', exact: true }).click();
+  await page.getByRole('button', { name: '重听客人A的请求', exact: true }).click();
   await expect
     .poll(async () => (await state(page)).orders[0]?.heard, { timeout: 15000 })
     .toBe(true);
@@ -480,4 +506,57 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
   expect(next.orders[0]).toEqual(old);
   expect(next.orders[1]?.request).toBe('apple');
   expect(next.session.menu).toEqual(['apple']);
+});
+
+test('low motion receipts retain actual foods and reachable controls across compact layouts', async ({
+  page,
+}) => {
+  test.setTimeout(180000);
+  await page.addInitScript(() => localStorage.setItem('tabby.foodtruck.lowGraphics', 'true'));
+  await begin(page);
+  await kitchen(page);
+  await send(page, 0, 'apple');
+  await table(page);
+  const theatre = page.getByRole('region', { name: '朋友实际使用食品', exact: true });
+  await expect(theatre).toHaveClass(/low-motion/);
+  await expect(theatre).toHaveClass(/stage-2/);
+  const before = (await state(page)).adventure;
+  expect(before?.foods.map((food) => food.product)).toEqual(['apple']);
+  for (const size of [
+    { width: 1280, height: 720 },
+    { width: 393, height: 665 },
+    { width: 852, height: 300 },
+    { width: 768, height: 1024 },
+  ]) {
+    await page.setViewportSize(size);
+    for (const name of ['重看朋友使用', '跳过朋友演出', '低动态表现']) {
+      const button = page.getByRole('button', { name, exact: true });
+      await expect(button).toBeInViewport({ ratio: 1 });
+      expect(
+        await button.evaluate((el) => {
+          const b = el.getBoundingClientRect();
+          return (
+            b.width >= 48 &&
+            b.height >= 48 &&
+            [
+              [b.left + b.width * 0.25, b.top + b.height * 0.25],
+              [b.left + b.width * 0.75, b.top + b.height * 0.75],
+              [b.left + b.width / 2, b.top + b.height / 2],
+            ].every(([x, y]) => {
+              const hit = document.elementFromPoint(x ?? 0, y ?? 0);
+              return hit === el || (hit !== null && el.contains(hit));
+            })
+          );
+        }),
+      ).toBe(true);
+    }
+    await page.screenshot({
+      path: evidencePath(
+        `docs/evidence/demo-repair-2026-10-12/receipt-${size.width}x${size.height}.png`,
+      ),
+    });
+    await page.getByRole('button', { name: '重看朋友使用', exact: true }).click();
+    await page.getByRole('button', { name: '跳过朋友演出', exact: true }).click();
+    expect((await state(page)).adventure).toEqual(before);
+  }
 });

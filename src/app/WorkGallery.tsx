@@ -1,5 +1,9 @@
 import { VISITOR_NAMES, type Work } from '../content/adventure';
+import { madeLine, workCaption } from '../content/dialogue';
 import { assetUrl } from '../game/assets';
+import type { ForegroundAudio } from '../platform/audio';
+import type { DialogueDirector } from '../platform/dialogue';
+import { Sentence } from './Dialogue';
 import { Food } from './Food';
 import { SceneIcon } from './SceneIcon';
 
@@ -8,16 +12,23 @@ export function WorkGallery({
   works,
   title,
   revise,
+  audio,
+  dialogue,
 }: {
   works: readonly Work[];
   title: string;
   revise: () => void;
+  audio: ForegroundAudio;
+  dialogue: DialogueDirector;
 }) {
   return (
     <section className="work-gallery" aria-label={title}>
       <h3>{title}</h3>
       {works.map((work) => (
         <article className="work-memory" key={work.id} aria-label="保存的实际摆盘与品尝">
+          <p className="work-description" lang="en">
+            {workCaption(work.foods.map((food) => food.product))}
+          </p>
           <div className="remembered-table">
             {([0, 1, 2] as const).map((seat) => (
               <div className="remembered-seat" key={seat}>
@@ -60,6 +71,17 @@ export function WorkGallery({
                 </span>
               ))}
           </section>
+          {[...new Set(work.foods.map((food) => food.product))].map((product) => {
+            const line = madeLine(product);
+            return line ? (
+              <Sentence
+                key={product}
+                line={line}
+                audio={audio}
+                play={() => dialogue.show({ key: `${work.id}:${product}`, line })}
+              />
+            ) : null;
+          })}
           <button type="button" aria-label="重新制作并修改这个作品" onClick={revise}>
             <SceneIcon kind="kitchen" />
             <span aria-hidden="true">↻</span>

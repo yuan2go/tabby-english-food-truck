@@ -1,43 +1,34 @@
 # 大咪的英语餐车 / Dami's English Food Truck
 
-和大咪一起做早餐、分享甜点、准备野餐、点亮餐桌和邀请朋友。面向3–6岁、单人、触控优先的英语轻冒险，以玩具厨房、共同活动和自由创作承载听理解与情境动作。
+和大咪一起听需要、亲手制作、明确交付、看朋友使用，再改变小院。单人、面向3–6岁、手机/Pad触控优先的轻冒险与玩具厨房。
 
-当前产品合并了五章活动、野餐双路径、自由厨房、朋友回访与十类可选小游戏。规则和范围以01–04为准；实现不等于验收。最新整合验证走通了代表性辅助UI路径，工程门禁及部分交互仍失败，真机、儿童观察、教研、人工听审与资源权利待验，详见[STATUS](docs/STATUS.md)。
+现行范围：五章、双野餐路线、自由厨房、十类可选小游戏；50食品概念与120学习概念分开，认知项不自动成为可供应料理，拼写/组句不锁主线。当前整合工程修复、首次体验、完整英文短句/整句重听与同构建设备/内容验收准备，实际结果见[STATUS](docs/STATUS.md)。
 
-## 启动
+## 启动与验证
 
-Node >=22.12.0，依赖由真实package-lock锁定。
+Node >=22.12.0，依赖锁于package-lock.json。`npm ci`、`npm run dev`，访问终端HTTP（默认 http://127.0.0.1:5173）。生产：`npm run build`、`npm run preview`。不双击index.html。
 
-```sh
-npm ci
-npm run dev
-```
+必要门禁：`npm run lint`、`npm test`、`npm run build`（含typecheck）、`npm run resources`；内容：`node scripts/check-vocabulary.mjs`。浏览器先安装 `npx playwright install chromium`，再 `npm run test:browser`；当前有效范围见[e2e合同](e2e/README.md)。原生Node22运行，不使用诊断loader。
 
-打开终端显示的本地HTTP地址。生产预览使用 `npm run build`、`npm run preview`，不双击index.html。本地地址是开发/评审预览，不是在线Demo。
+## 权威入口
 
-工程命令：`npm run typecheck`、`npm run lint`、`npm test`、`npm run build`、`npm run resources`；浏览器命令为 `npm run test:browser`。当前失败与受测版本见STATUS，不承诺所有命令已通过。
-
-## 文档入口
-
-参赛材料：[正式《设计说明》](docs/submission/design-description.md) · [3页打印PDF](docs/submission/design-description.pdf) · [证据附录](docs/submission/evidence.md)。Markdown为唯一权威稿，PDF为同稿派生，配图来自真实运行；材料完成不表示Demo、真机或发布审核已通过。
-
-完整[现行文档索引](docs/index.md)区分产品权威、实际验证、AI/资源记录与历史归档。
-
-| 文档 | 职责 |
+| 文档 | 唯一职责 |
 | --- | --- |
-| [01 产品](docs/01-product.md) | 目标、五章、厨房、小游戏范围与有效候选 |
-| [02 规则](docs/02-game-design.md) | 明确订单、开放委托、自由制作与状态判定 |
-| [03 体验](docs/03-experience-design.md) | 场景、触控、音画及角色约束 |
-| [04 技术](docs/04-technical-design.md) | 单规则核、状态、存档与生命周期 |
-| [05 交付](docs/05-delivery.md) | 当前验收边界及文档工作包范围 |
-| [STATUS](docs/STATUS.md) | 最新Git基线、实际结果、失败与待验事项 |
-| [证据索引](docs/evidence/README.md) | 最新整合报告与历史证据入口 |
-| [AI使用](docs/AI-usage.md) / [资源登记](art/README.md) | 实际制作、修订、接入、来源及审核状态 |
-| [AGENTS](AGENTS.md) | 长期协作约束 |
-| [治理归档](docs/archive/pre-submission-2026-10-12/index.md) | 被替代阶段说明、授权和旧计划原文 |
+| [01 产品](docs/01-product.md) | 目标、范围与非目标 |
+| [02 规则](docs/02-game-design.md) | 严格/开放/自由、单归属、奖励及支持 |
+| [03 体验](docs/03-experience-design.md) | 首次路径、意图、布局、冻结形象、音画 |
+| [04 技术](docs/04-technical-design.md) | 状态源、模块职责、迁移及生命周期 |
+| [05 验收](docs/05-delivery.md) | 本轮顺序、验证与交付合同 |
+| [STATUS](docs/STATUS.md) | 实际实现与验证状态 |
+| [本轮主报告](docs/evidence/demo-repair-2026-10-12/README.md) | 同构建289单元/31整合、模拟体验、失败与外部待验 |
+| [现行索引](docs/index.md) / [既有参赛材料](docs/submission/index.md) | 当前合同与原正式稿/PDF的版本关系 |
+| [AGENTS](AGENTS.md) | 协作边界 |
+| [资源登记](art/README.md) | 来源、hash、制作、审核与权利 |
+| [本轮前历史索引](docs/archive/pre-demo-repair-2026-10-12/index.md) | 被替代合同、授权和实施记录 |
+| [上轮整合报告](docs/playtests/2026-10-11-integrated-validation.md) | D01–D04、T01、X01/X02原始失败及证据 |
 
-原料、加工、交付共用规则；错单保留食品，允许慢想、重听、帮助和重新准备。五十食品概念含仅认知项，不能写成五十道可制作料理；120学习概念也不代表120份营业食品。拼写与组句不锁主线。
+规则是唯一事实源，错误交付留盘，可慢想、重听、撤回与重新准备。本仓库从零制作，不导入旧项目。本仓库存档恢复不推断新活动完成；无后端、账号、麦克风、儿童身份采集或运行时AI。
 
-本仓库从零制作，不导入旧项目。无后端、账号、运行时AI或儿童个人数据采集。
+开发语音未听审、分发权待确认。代码、工程、代理体验、真机、教研/听审/权利与儿童观察分别记录。[既有站点](https://tabby-english-food-truck.aw9923299.chatgpt.site/)是历史部署。2026-10-12负责人授权本次双包集成后的云端提交、PR合并与公开站点更新；实际部署及验证见STATUS。
 
-[既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/)于2026-10-12打开核实仍是历史 `m2.2`，不对应当前五章版本。源码链接和本地预览均不作为正式在线Demo；本轮不部署。
+明确点餐、制作提示、实际接收、品尝、小院行动、分享与历史回访使用统一完整英文台词及可重听声音。默认有英文字幕，字幕理解、听取、帮助和操作记录分开；不把角色代读当孩子口语输出。
