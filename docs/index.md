@@ -4,6 +4,7 @@
 
 | 入口 | 用途 |
 | --- | --- |
+| [参赛设计说明](submission/design-description.md)、[精简证据附录](submission/evidence.md) | 面向评委的正式作品介绍与受测/AI/截图追溯 |
 | [01产品](01-product.md)、[02规则](02-game-design.md)、[03体验](03-experience-design.md)、[04技术](04-technical-design.md) | 现行设计，合并五章/体验深化与小游戏词库范围 |
 | [05交付](05-delivery.md)、[STATUS](STATUS.md) | 验收标准、本轮边界与真实失败/待验 |
 | [证据](evidence/README.md) | 最新整合版报告优先，源包结果带原版本 |

@@ -19,6 +19,8 @@ npm run dev
 
 ## 文档入口
 
+参赛材料：[正式《设计说明》](docs/submission/design-description.md) · [3页打印PDF](docs/submission/design-description.pdf) · [证据附录](docs/submission/evidence.md)。Markdown为唯一权威稿，PDF为同稿派生，配图来自真实运行；材料完成不表示Demo、真机或发布审核已通过。
+
 完整[现行文档索引](docs/index.md)区分产品权威、实际验证、AI/资源记录与历史归档。
 
 | 文档 | 职责 |
