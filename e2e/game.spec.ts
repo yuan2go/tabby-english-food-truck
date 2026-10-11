@@ -2,7 +2,7 @@ import { writeFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 import { STORY_LEVELS } from '../src/content/story-levels';
 import { letters, type MiniState, targetWord } from '../src/rules/minigames';
-import { choosePrep, hot, lesson, serve, startStory, state, tap } from './helpers';
+import { choosePrep, handOver, hot, lesson, serve, startStory, state, tap } from './helpers';
 import { endMeasure, installMeasure, startMeasure } from './measure';
 
 test.use({
@@ -130,7 +130,7 @@ test('M2 quick input: immediate taps, same-entity double tap, nearby removal and
   await tap(page, 'supply-apple');
   await tap(page, 'supply-apple');
   expect((await state(page)).items).toHaveLength(3);
-  await page.getByRole('button', { name: '送餐 ↗' }).tap();
+  await handOver(page);
   let s = await state(page);
   expect(s.attempts.at(-1)?.result).toBe('request-mismatch');
   expect(s.items).toHaveLength(3);
@@ -150,7 +150,7 @@ test('M2 quick input: immediate taps, same-entity double tap, nearby removal and
   const attempts = (await state(page)).attempts.length;
   await tap(page, 'guest-0');
   expect((await state(page)).attempts).toHaveLength(attempts);
-  await page.getByRole('button', { name: '送餐 ↗' }).tap();
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders[0]?.status, { timeout: 18000 })
     .toBe('done');
@@ -172,8 +172,6 @@ test('M2 pause and homepage resume keep world; tutorials are separate from the s
   await page.getByRole('button', { name: '保存并回到首页' }).tap();
   await page.reload();
   await page.locator('.yard-story .entry-main').tap();
-  await page.getByRole('button', { name: '晨光果汁', exact: true }).tap();
-  await page.getByRole('button', { name: '继续这一关' }).tap();
   expect(await page.getByRole('dialog', { name: '场景小教学' }).count()).toBe(0);
   const after = await state(page);
   expect(after.runId).toBe(before.runId);

@@ -1,0 +1,21 @@
+{
+  "baseline": "e3724a59cfe958a1d584aa4864988aeec73ba7e9",
+  "productionCandidate": "d874531f565f558d4a51cdb5b245b6beb06ee0a9",
+  "dirty": false,
+  "contentVersion": "m2.4-adventure-1",
+  "assets": "9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead",
+  "environment": {
+    "node": "v24.15.0",
+    "npm": "11.12.1",
+    "os": "macOS 26.6.2",
+    "playwright": "1.63.0",
+    "chromium": "153.0.8010.12"
+  },
+  "paths": {
+    "ci": "http://127.0.0.1:4192/",
+    "preview": "http://127.0.0.1:4193/"
+  },
+  "ciGraphics": "existing lowGraphics setting; simulated touch",
+  "ownerAndPhysicalDevice": "PENDING",
+  "childrenTeachingHumanListening": "NOT_RUN"
+}

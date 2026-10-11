@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CHAPTERS, type Support } from '../content/chapters';
-import { levelsForChapter, STORY_LEVELS } from '../content/story-levels';
+import {
+  levelsForChapter,
+  STORY_LEVELS,
+  storySituation,
+  storyVisitors,
+} from '../content/story-levels';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio, PlaybackResult } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -69,6 +74,7 @@ export function Story({
             controller.profile.save();
             setPrologue(false);
             audio.skip();
+            enter(0, false, 'c1-open-door');
           }}
         >
           跳过序章
@@ -97,7 +103,7 @@ export function Story({
                 p.prologue = true;
                 controller.profile.save();
                 setPrologue(false);
-                enter(0);
+                enter(0, false, 'c1-open-door');
               }
             }}
           >
@@ -167,14 +173,25 @@ export function Story({
           const unfinished =
             controller.state.session.levelId === level.id &&
             controller.state.orders.some((order) => order.status !== 'done');
-          const choice = p.storyChoices[level.id] ?? 0;
+          const choice = unfinished
+            ? (controller.state.session.storyChoice ?? 0)
+            : level.followUp
+              ? (p.resolvedStoryChoices[level.followUp.from] ?? 0)
+              : (p.storyChoices[level.id] ?? 0);
           return (
             <article key={level.id} className="story-level">
               <h3>
                 {index + 1}. {level.title} {completed ? '✓' : ''}
               </h3>
               <p>
-                <strong>{level.who}</strong> · {level.situation}
+                <strong>
+                  {storyVisitors(level, choice)
+                    .map(
+                      (visitor) => ({ rabbit: '兔兔', hedgehog: '刺刺', elder: '长辈' })[visitor],
+                    )
+                    .join('与')}
+                </strong>{' '}
+                · {storySituation(level, choice)}
               </p>
               <p>{level.objective}</p>
               {completed ? (
@@ -184,7 +201,7 @@ export function Story({
                 </p>
               ) : null}
               {level.choice && unlocked ? (
-                <fieldset className="story-choice">
+                <fieldset className="story-choice" disabled={unfinished}>
                   <legend>{level.choice.prompt}</legend>
                   {level.choice.labels.map((label, option) => (
                     <button
@@ -199,6 +216,7 @@ export function Story({
                       {label}
                     </button>
                   ))}
+                  {unfinished ? <p>这关已经开始，接着帮刚才选好的朋友吧。</p> : null}
                 </fieldset>
               ) : null}
               <button

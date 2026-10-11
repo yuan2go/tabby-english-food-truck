@@ -8,7 +8,7 @@
 
 ## 当前状态
 
-当前工作包为 **WP-DUAL-LAYOUT-PLAYFLOW-CONTENT-01**，从 `origin/main` `0217871ca06a6b36d8cf0a34b7280a6f83283fe2` 开始。桌面受控舞台、手机工作台和短横屏/平板适配共用同一规则与存档；制作对象、成品托盘、启动动作和客人目标显式分开。五章各五个营业小关，30个主题小游戏关卡加一个混合复习关卡进入正式入口。当前验证和证据见[STATUS](docs/STATUS.md)与[本包证据](docs/evidence/dual-layout-playflow/README.md)；此前 M2.2 工程记录保留在 STATUS 历史段落。
+当前工作包为 **WP-ADVENTURE-DIRECT-INPUT-01**，从 `origin/main` `e3724a59cfe958a1d584aa4864988aeec73ba7e9` 开始。点托盘/设备选投料，按设备实体开关制作，拿起整盘后点客人递出，气泡重听；首页续玩直接回柜台，小关完成后直接接下一件事。五章目标常驻，接餐使场景逐步变化，已完成选择会影响后续请求。50食品、25故事小关与30主题小游戏及混合复习保留。当前验证见 [STATUS](docs/STATUS.md) 与 [本包证据](docs/evidence/adventure-direct-input/README.md)。此前工作包作为历史保留。
 
 [既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/) 是历史部署；本工作包不部署。冻结的大咪形象继续使用，新增对白使用既有开发语音或文本；听审、教研、权利、实体设备和儿童观察分别验收。
 

@@ -1,4 +1,7 @@
 import { defineConfig } from '@playwright/test';
+
+const port = process.env.TEST_PORT ?? '4174';
+const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
   testDir: './e2e',
   timeout: 60000,
@@ -7,14 +10,14 @@ export default defineConfig({
   workers: 1,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:4174',
+    baseURL,
     browserName: process.env.BROWSER === 'webkit' ? 'webkit' : 'chromium',
     storageState: process.env.CI
       ? {
           cookies: [],
           origins: [
             {
-              origin: 'http://127.0.0.1:4174',
+              origin: baseURL,
               localStorage: [{ name: 'tabby.foodtruck.lowGraphics', value: 'true' }],
             },
           ],
@@ -31,9 +34,9 @@ export default defineConfig({
   },
   webServer: {
     command: process.env.CI
-      ? 'npm run preview -- --port 4174 --strictPort'
-      : 'npm run build && npm run preview -- --port 4174 --strictPort',
-    url: 'http://127.0.0.1:4174',
+      ? `npm run preview -- --port ${port} --strictPort`
+      : `npm run build && npm run preview -- --port ${port} --strictPort`,
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
   },
 });

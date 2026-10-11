@@ -11,6 +11,12 @@ export interface StoryLevel {
   objective: string;
   result: string;
   requests: readonly RequestId[];
+  followUp?: {
+    from: string;
+    alternate: readonly RequestId[];
+    visitors: readonly Visitor[];
+    situation: string;
+  };
   choice?: {
     prompt: string;
     labels: readonly [string, string];
@@ -80,6 +86,12 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     objective: '准备两只苹果和一杯果汁，招呼新朋友。',
     result: '小花放上窗台。旧食谱夹着一张写着“树荫”的纸条。',
     requests: ['two', 'juice'],
+    followUp: {
+      from: 'c1-two-friends',
+      alternate: ['two', 'banana-juice'],
+      visitors: ['elder', 'hedgehog'],
+      situation: '上次先喝到香蕉汁的刺刺带来小花，想再喝一杯。长辈来帮忙摆花盆。',
+    },
   },
   {
     id: 'c2-cup',
@@ -251,6 +263,12 @@ export const STORY_LEVELS: readonly StoryLevel[] = [
     objective: '分清两种夹层，完成双客服务。',
     result: '灯亮时，朋友们说出了秘密：欢迎大咪第一次独立开店。大咪决定办小食会。',
     requests: ['burger', 'cheese-burger'],
+    followUp: {
+      from: 'c4-two-boards',
+      alternate: ['sandwich', 'cheese-burger'],
+      visitors: ['hedgehog', 'rabbit'],
+      situation: '上次先拿到三明治的刺刺带着灯串回来，想再要一份。兔兔还想吃芝士汉堡。',
+    },
   },
   {
     id: 'c5-invite',
@@ -312,6 +330,12 @@ export const storyLevel = (id: string | undefined) => STORY_LEVELS.find((level) 
 export const levelsForChapter = (chapter: number) =>
   STORY_LEVELS.filter((level) => level.chapter === chapter);
 export const storyRequests = (level: StoryLevel, choice: 0 | 1 = 0) =>
-  choice === 1 && level.choice ? level.choice.alternate : level.requests;
+  choice === 1
+    ? (level.choice?.alternate ?? level.followUp?.alternate ?? level.requests)
+    : level.requests;
 export const storyVisitors = (level: StoryLevel, choice: 0 | 1 = 0) =>
-  choice === 1 && level.choice ? [...level.visitors].reverse() : level.visitors;
+  choice === 1
+    ? (level.followUp?.visitors ?? (level.choice ? [...level.visitors].reverse() : level.visitors))
+    : level.visitors;
+export const storySituation = (level: StoryLevel, choice: 0 | 1 = 0) =>
+  choice === 1 && level.followUp ? level.followUp.situation : level.situation;
