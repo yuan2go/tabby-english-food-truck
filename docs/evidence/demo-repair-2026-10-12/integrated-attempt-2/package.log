@@ -1,0 +1,10 @@
+{
+  "sha": "e45201943f03214e9694f9932ad4f67ce399b7e2",
+  "dirty": false,
+  "manifestSha256": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02",
+  "content": "adventure-experience-2",
+  "entryFileMtimeUTC": "2026-10-11T17:37:18.493744+00:00",
+  "timestampMethod": "Actual generated entry mtime. Vite tree-shakes unused builtAt; no claim this is a runtime exposed timestamp.",
+  "runtimeFileCount": 590,
+  "runtimeBytes": 41699168
+}

@@ -267,8 +267,7 @@ export function App() {
       growth ||
       opening !== null ||
       !activeId ||
-      !activeRequest ||
-      actorBusy
+      !activeRequest
     )
       return;
     const key = `${s.runId}:${activeId}`;
@@ -286,6 +285,9 @@ export function App() {
       setTeaching(activeRequest);
       return;
     }
+    // New meaning pauses before preparation even while a friend is walking in.
+    // Automatic request playback may still wait for the actor to finish its job.
+    if (actorBusy) return;
     if (announced.current !== key) {
       announced.current = key;
       void audio.sequence([REQUESTS[activeRequest].audio]);
