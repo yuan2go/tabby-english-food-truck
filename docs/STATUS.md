@@ -1,9 +1,12 @@
 # 项目状态
 
-## 2026-10-12 · 双工作包集成与公开站点交付 · IN_PROGRESS
+## 2026-10-12 · 双工作包集成与公开站点交付 · PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING
 
-负责人已授权两个工程任务完成后提交、推送、PR合并main、更新现有公开站点及参赛说明并复制桌面；此授权替代以下源包的仅本地交付限制。发布基线 `0b249b04697b1df43d74bbe1a4f532175b2d04f1`，隔离分支 `codex/contest-release-2026-10-12`。源包最终SHA分别为Demo `36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5`、英语 `103c2bb2272ddaa86fe32e342fc20e86feeb3a80`。本地typecheck/lint/310单元/resources818/build已通过；首轮浏览器26/33，真实遮挡修复后针对活动/英语3/3及最终手机5/5通过，具体范围见[集成记录](evidence/contest-release-2026-10-12/README.md)。两个源分支已推送，整合PR将跑精确head完整33条GitHub门禁后按授权合并；站点尚未更新。外部待验维持原事实。
+两工程聊天实际完整交付后，按负责人授权将两包全部代码/资源/报告/文档推送并经PR17整合main；Demo最终36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5、英语最终103c2bb2272ddaa86fe32e342fc20e86feeb3a80，两包531件原证据Git blob相同，无缺失/修改。发布baseline `0b249b04697b1df43d74bbe1a4f532175b2d04f1`，最终游戏代码main `7339c5119007e913327609fa6e24d89a5a86cb21`。本地310单元/typecheck/lint/资源818/构建/词库通过；PR17及最终PR18精确head完整33条云端浏览器、310单元和其他强制工程门禁全部通过。原失败、针对性复跑和实际线上发现/修正图带叠压的红绿回归保留，详见[完整记录](evidence/contest-release-2026-10-12/README.md)。
 
+[原站点](https://tabby-english-food-truck.aw9923299.chatgpt.site)已更新为version 3、public、部署succeeded；正常匿名首页→完整英文请求→真实苹果交付与活动桌，以及四种视口控制/图示边界已核验。Sites来源 `1ab58709b1d557099180f28174cb0526cdfc7160`、版本/部署ID和GitHub来源映射可追溯。简短[四项设计说明与一页PDF](submission/index.md)包含实际网址及“访问需要开启 VPN”，同稿文字及全页渲染通过，正常复制桌面且内容hash相同。最后文档PR合并回执另在云端交付/该PR正文及最终回复实际读回，不用文档HEAD冒称游戏重测。
+
+实体手机/Pad、儿童观察、教研、人工听审及素材/声音分发权各自待验；开发语音UNREVIEWED，真实后台hidden NOT_CONFIRMED，历史真机NEEDS_REVISION及60fps NOT_MET保留。用户已授权公开部署，未把部署或代理检查冒称人工接受。下列源包中的“不推送/未部署”等是当时事实，本轮云端操作已按新授权完成；原工作区及无关未提交内容保留。
 
 ## 2026-10-12 · WP-ENGLISH-IMMERSION-01 · ENGINEERING_PASS / OWNER_ACCEPTANCE_PENDING
 

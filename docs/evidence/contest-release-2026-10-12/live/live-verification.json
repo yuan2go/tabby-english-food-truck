@@ -1,0 +1,241 @@
+{
+  "checkedAt": "2026-10-11T20:26:24.916Z",
+  "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+  "actualUrl": "https://tabby-english-food-truck.aw9923299.chatgpt.site/",
+  "htmlStatus": 200,
+  "initialCookies": 0,
+  "freshAnonymousContext": true,
+  "browser": "153.0.8010.12",
+  "identity": {
+    "buildSha": "1ab58709b1d557099180f28174cb0526cdfc7160",
+    "buildDirty": "false",
+    "contentVersion": "adventure-experience-2",
+    "assetVersion": "aee135e9f33a2fa387ba5319e0f7ced101841b38207d06e2e303bf67db230caa",
+    "audioState": "{\"active\":null,\"failure\":null,\"loops\":[],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"not-created\",\"effects\":0}"
+  },
+  "release": {
+    "release": "contest-2026-10-12",
+    "githubMainSha": "7339c5119007e913327609fa6e24d89a5a86cb21",
+    "testedPullRequestHead": "53c072bda4a5c3668f4bd973232f46e5f25cde0d",
+    "demoPackageSha": "36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5",
+    "englishPackageSha": "103c2bb2272ddaa86fe32e342fc20e86feeb3a80",
+    "layoutFixPullRequest": 18,
+    "siteProjectId": "appgprj_6ab141055ab8819186112dee423d0d04"
+  },
+  "staticBuildFiles": [
+    {
+      "file": "assets/index-CMi-2Rfr.js",
+      "status": 200,
+      "localSha256": "5bd387022447b90378f2fc266af00e97c09bcd79770912bdf82b99f1db850264",
+      "deployedSha256": "5bd387022447b90378f2fc266af00e97c09bcd79770912bdf82b99f1db850264"
+    },
+    {
+      "file": "assets/index-hEwAHvZh.css",
+      "status": 200,
+      "localSha256": "058b246dcc79d6430d38d3032ec24d92668f6591cf796d2a73f6daba97222b81",
+      "deployedSha256": "058b246dcc79d6430d38d3032ec24d92668f6591cf796d2a73f6daba97222b81"
+    },
+    {
+      "file": "assets/phaser-DXXWZowi.js",
+      "status": 200,
+      "localSha256": "9031f79935ba598df03915ec937779c0480dc35b2e58e0cb9f95b910e56df425",
+      "deployedSha256": "9031f79935ba598df03915ec937779c0480dc35b2e58e0cb9f95b910e56df425"
+    }
+  ],
+  "normalPath": "fresh homepage -> morning -> welcome rabbit -> picture lesson -> complete English apple request -> supply apple -> lift whole tray -> explicit delivery -> actual receipt -> activity table",
+  "receivedFoods": [
+    {
+      "id": "food-1",
+      "product": "apple",
+      "source": "guest-0",
+      "place": "guest-rabbit",
+      "tasted": false
+    }
+  ],
+  "attempts": [
+    {
+      "activity": "delivery",
+      "input": "guest-0:apple",
+      "result": "completed",
+      "support": [
+        "picture-request",
+        "meaning-picture",
+        "caption-visible",
+        "audio-not-observed"
+      ],
+      "id": "7bdc5157-5e12-4f3f-9df5-80e2f9543832:attempt:9",
+      "condition": "assisted",
+      "visit": "first",
+      "audioQualified": false,
+      "runId": "7bdc5157-5e12-4f3f-9df5-80e2f9543832",
+      "gameTime": 733.2999999999993,
+      "retry": 0
+    }
+  ],
+  "layouts": [
+    {
+      "width": 1280,
+      "height": 720,
+      "controls": [
+        {
+          "name": "重看朋友使用",
+          "x": 1095.0625,
+          "y": 231,
+          "width": 50.65625,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "跳过朋友演出",
+          "x": 1149.71875,
+          "y": 231,
+          "width": 50.671875,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "低动态表现",
+          "x": 1204.390625,
+          "y": 231,
+          "width": 50.671875,
+          "height": 48,
+          "reachable": true
+        }
+      ],
+      "guide": {
+        "valid": true,
+        "picturesContained": true,
+        "separated": true,
+        "width": 474,
+        "captionVisible": true
+      },
+      "sentence": "Please open the drawer.",
+      "image": "online-table-1280x720.png"
+    },
+    {
+      "width": 393,
+      "height": 665,
+      "controls": [
+        {
+          "name": "重看朋友使用",
+          "x": 204,
+          "y": 435.5,
+          "width": 59,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "跳过朋友演出",
+          "x": 264,
+          "y": 435.5,
+          "width": 59,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "低动态表现",
+          "x": 324,
+          "y": 435.5,
+          "width": 59,
+          "height": 48,
+          "reachable": true
+        }
+      ],
+      "guide": {
+        "valid": true,
+        "picturesContained": true,
+        "separated": true,
+        "width": 185,
+        "captionVisible": false
+      },
+      "sentence": "Please open the drawer.",
+      "image": "online-table-393x665.png"
+    },
+    {
+      "width": 852,
+      "height": 300,
+      "controls": [
+        {
+          "name": "重看朋友使用",
+          "x": 677,
+          "y": 187.21875,
+          "width": 51.328125,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "跳过朋友演出",
+          "x": 732.328125,
+          "y": 187.21875,
+          "width": 51.328125,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "低动态表现",
+          "x": 787.65625,
+          "y": 187.21875,
+          "width": 51.328125,
+          "height": 48,
+          "reachable": true
+        }
+      ],
+      "guide": {
+        "valid": true,
+        "picturesContained": true,
+        "separated": true,
+        "width": 356,
+        "captionVisible": false
+      },
+      "sentence": "Please open the drawer.",
+      "image": "online-table-852x300.png"
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "controls": [
+        {
+          "name": "重看朋友使用",
+          "x": 499,
+          "y": 788,
+          "width": 80,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "跳过朋友演出",
+          "x": 583,
+          "y": 788,
+          "width": 80,
+          "height": 48,
+          "reachable": true
+        },
+        {
+          "name": "低动态表现",
+          "x": 667,
+          "y": 788,
+          "width": 80,
+          "height": 48,
+          "reachable": true
+        }
+      ],
+      "guide": {
+        "valid": true,
+        "picturesContained": true,
+        "separated": true,
+        "width": 258,
+        "captionVisible": false
+      },
+      "sentence": "Please open the drawer.",
+      "image": "online-table-768x1024.png"
+    }
+  ],
+  "pageErrors": [],
+  "screenshots": {
+    "04-online-kitchen.png": "d16376dcbe54c8fabe75ed9092b77b5d71f895d2edf74421984622d4b358d1ce",
+    "online-table-1280x720.png": "3600e4f2254077c2dc5e1181e7e4a57ce7dc600d01662d80d62f11cf3744513b",
+    "online-table-393x665.png": "7151b02c9b73bdb30688c4a5d7c70d1153d525d3dc2ffcd9d11982e4b4f7a0a3",
+    "online-table-852x300.png": "f229a3796ddeba71fc2c58795a949be5672ff12d8196a2bacfa16369b9ed6870",
+    "online-table-768x1024.png": "7557cce15e9f30543a5ff95da7b8b39f86b040cecd0ccf7ace8e40c15a9c618e"
+  }
+}

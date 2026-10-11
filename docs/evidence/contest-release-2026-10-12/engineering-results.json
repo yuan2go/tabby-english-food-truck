@@ -75,7 +75,37 @@
       "log": "browser-phone-final.log"
     },
     "finalEnvironment": "macOS ARM64; Node22.12.0; Chromium channel; default quality; one worker; touch/mouse/keyboard through real entrance; saves read only",
-    "CI": "PENDING exact-head full 33 before merge"
+    "CI": {
+      "status": "PASS",
+      "headSha": "cbdd515ebe035e2a1241d04389a7eccbf135d9ff",
+      "pullRequest": 17,
+      "runId": 38167502728,
+      "jobId": 114553007075,
+      "passed": 33,
+      "total": 33,
+      "retries": 0,
+      "duration": "20.1 minutes",
+      "environment": "GitHub Actions ubuntu-24.04; Node22.12.0; one worker; Chromium; CI lowGraphics preference with explicit default-quality visual cases",
+      "requiredSteps": "npm ci, lint, 310 unit tests, resources, build, install Chromium, full 33 Playwright cases all succeeded",
+      "mergeMainSha": "2a7b774a33d6586aa586bb6a3ed59c9ac2b83405",
+      "mergeTreeEqualsTestedHead": true
+    },
+    "finalCI": {
+      "status": "PASS",
+      "headSha": "53c072bda4a5c3668f4bd973232f46e5f25cde0d",
+      "mergeMainSha": "7339c5119007e913327609fa6e24d89a5a86cb21",
+      "mergeTreeEqualsTestedHead": true,
+      "pullRequest": 18,
+      "runId": 38170676642,
+      "jobId": 114562447473,
+      "passed": 33,
+      "total": 33,
+      "unitPassed": 310,
+      "duration": "15.1 minutes",
+      "retries": 0,
+      "allMandatorySteps": "SUCCESS",
+      "environment": "GitHub Actions ubuntu-24.04; Node22.12.0; Chromium; one worker"
+    }
   },
   "external": {
     "physicalDevice": "PENDING",

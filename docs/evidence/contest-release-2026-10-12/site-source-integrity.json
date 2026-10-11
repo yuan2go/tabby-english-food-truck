@@ -1,0 +1,18 @@
+{
+  "githubMainSha": "7339c5119007e913327609fa6e24d89a5a86cb21",
+  "providerHead": "1ab58709b1d557099180f28174cb0526cdfc7160",
+  "comparedPaths": 1102,
+  "changedOrMissing": [],
+  "addedPaths": [
+    "public/site-release.json"
+  ],
+  "excludedPrefixes": [
+    "docs/evidence/",
+    "docs/playtests/"
+  ],
+  "excludedRawEvidencePaths": 2213,
+  "allRawEvidenceCompleteInMergedGitHub": true,
+  "sourceCopiedFrom": "git archive of exact merged main, not dirty worktree",
+  "comparison": "Git mode/type/blob identity for every retained source path",
+  "checkoutStatus": ""
+}

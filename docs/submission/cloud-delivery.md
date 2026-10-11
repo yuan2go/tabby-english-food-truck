@@ -1,29 +1,20 @@
-# 参赛文档云端交付记录
+# 本轮云端与桌面交付
 
-2026-10-12。负责人在完成材料后明确授权：完整推送本次文档治理、设计说明、配图、PDF和证据附录，创建PR并合并main；保留其他未提交修改，不部署、不重复运行游戏测试。该授权替代材料制作阶段“不自动推送/合并”的边界，仅适用于本次文档交付。
+负责人已明确授权：两个完成包及全部代码、资源、报告、文档提交/推送，PR合并main，更新原公开网站，按最新线上内容更新简短四项说明与同稿PDF，再复制桌面。未重复请求确认。
 
-## 基线与范围
+发布baseline `0b249b04697b1df43d74bbe1a4f532175b2d04f1`；[PR17](https://github.com/yuan2go/tabby-english-food-truck/pull/17)整合两包，精确head cbdd515的310单元/33浏览器及其他工程门禁通过后合并 `2a7b774a33d6586aa586bb6a3ed59c9ac2b83405`；[PR18](https://github.com/yuan2go/tabby-english-food-truck/pull/18)修正实际线上发现的图带叠压，最终代码head `53c072bda4a5c3668f4bd973232f46e5f25cde0d`，门禁通过后main `7339c5119007e913327609fa6e24d89a5a86cb21`。源分支推送与531件原工作包证据同一性见[主报告](../evidence/contest-release-2026-10-12/README.md)。
 
-- 默认分支main，交付前fetch仍为 `f359b4053cf73e0103bf13b46d26496f19868508`。
-- 分支 `codex/contest-design-description-2026-10-12`。
-- 治理提交 `ba4685144bfff0fe834acb37db1b2a87ec7da221`。
-- 正式材料提交 `acc7ebf481992a8a8b9b7e2e2fef99a5519e6b54`。
-- 本次追加Git交付记录及PDF文件属性，未改正文、PDF、配图、源码、运行资源或依赖。
+| 部署对应 | 实际值 |
+| --- | --- |
+| 站点ID | appgprj_6ab141055ab8819186112dee423d0d04 |
+| 网址与权限 | https://tabby-english-food-truck.aw9923299.chatgpt.site，public，空cookie免登录HTTP200 |
+| Sites来源SHA | `1ab58709b1d557099180f28174cb0526cdfc7160` |
+| 保存版本 | 3，`appgprj_6ab141055ab8819186112dee423d0d04~appgver_c315d17ab284819181f3887729a4eeb5` |
+| 部署 | `appgdep_6acbf0bdd1b08191b4e863c6d50c7fe2`，succeeded |
+| GitHub代码来源 | `7339c5119007e913327609fa6e24d89a5a86cb21` |
 
-交付包括：现行文档/索引治理及12份历史原文归档，唯一[设计说明](design-description.md)、[3页PDF](design-description.pdf)、[证据附录](evidence.md)、[核验记录](validation.md)、3张真实运行配图及来源/hash/历史站点读回。正文和PDF仍对应原材料SHA-256，受测游戏仍为43d7c76，不能把合并后的新Git SHA当成游戏重新验收版本。
+[部署JSON](../evidence/contest-release-2026-10-12/deployment.json)分别记GitHub SHA、Sites SHA、原生版本/部署ID、服务器存储hash和本地archive hash；凭证仅会话内存/隐藏stdin，不写文件或参数。所有保留源码及资源按Git blob逐路径同一，仅新增只读版本映射；大量原验证录像完整留在GitHub，未重复灌入Sites源仓库。首次v2匿名访问与后续图带修正事实分别保存，不覆盖原成功/失败。
 
-## 本次必要检查
+最终[说明](design-description.md)、[一页PDF](design-description.pdf)、新配图、核验和本轮报告在独立codex文档分支交付。文档最终完整SHA及PR/main合并回执从GitHub读回写入该PR正文与最终回复，避免在文件中自引用尚不存在的提交SHA。最后文档提交不会改变src/public/art/scripts/依赖等运行输入，本站已是最新游戏代码，无需为文档再重复部署。
 
-本次仅Git状态/分支/main/权限可用性读取、文件清单和hash、文本差异检查及远端交付读回。完整游戏test/build/lint/typecheck/resources/E2E、浏览器玩法、真机、部署全部 **NOT_RUN**。所有新提交及merge消息使用 `[skip ci]`，不修改CI配置、触发条件或权限。
-
-首次对整包执行 `git diff --check <baseline>..HEAD` 时，Git将PDF识别为文本并报告PDF内部二进制/交叉引用行的尾空白，退出2。仅针对该文件声明binary；PDF字节保持不变。随后整个基线差异及当前未提交差异的check均退出0，PDF的diff/merge/text属性均为unset，不重生成PDF。
-
-本次Python核查正文/PDF与acc7ebf逐字节一致及原记录hash、三张配图hash、173个本地引用和src/public/art/package/lock空差异，均通过/退出0。这些是文件完整性和文档检查，不是重复游戏测试。
-
-原工作区仍在 `codex/player-review-2026-10-11`，HEAD `64f03fc716de70e20f64f9bbc3802de7601a460f`，未跟踪docs/playtests保留。全部修改及Git写操作在本次独立交付分支进行；不checkout/reset/stash/clean其他工作区，不删除其他分支或worktree。
-
-## 远端回执
-
-本记录随交付提交；push、PR、merge后完整SHA与提交数量从GitHub及远端main实际读回，写入同一PR正文的云端交付回执，并在最终回复报告。未完成的操作不预先标为成功。
-
-材料交付不等于游戏、真机、学习效果或发布审核通过。已有失败及听审/权利等外部边界保持不变；本次不部署，也不更新历史体验站点。
+桌面文件：`/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf`，正常系统复制后内容SHA256 `ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10`，[实际核验](../evidence/contest-release-2026-10-12/desktop-copy.json)。原工作区64f03fc和未跟踪docs/playtests保持；没有强推、修改仓库权限或覆盖无关修改。实体设备、儿童、教研、人工听审及权利状态仍分别待验，不把实际上线冒称这些审核通过。

@@ -4,7 +4,7 @@
 
 | 入口 | 用途 |
 | --- | --- |
-| [既有参赛材料](submission/index.md)、[精简证据附录](submission/evidence.md) | 原正式稿/PDF与43d7c76受测身份保留；当前修复与体验结果看本轮主报告 |
+| [参赛说明](submission/index.md)、[证据附录](submission/evidence.md) | 最新公开站点的一页四项说明、同稿PDF及真实线上配图；历史3图保留 |
 | [01产品](01-product.md)、[02规则](02-game-design.md)、[03体验](03-experience-design.md)、[04技术](04-technical-design.md) | 现行设计，合并五章/体验深化与小游戏词库范围 |
 | [05交付](05-delivery.md)、[STATUS](STATUS.md) | 验收标准、本轮边界与真实失败/待验 |
 | [修复主报告](evidence/demo-repair-2026-10-12/README.md)、[证据](evidence/README.md) | 本轮同构建结果优先，源包结果带原版本 |

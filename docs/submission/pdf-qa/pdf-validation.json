@@ -1,0 +1,15 @@
+{
+  "markdownSha256": "8dfe4381031e7bca64d5927c20ebac13ac978c29c83324c1171d17769e415921",
+  "pdfSha256": "ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10",
+  "pages": 1,
+  "textBlocks": 16,
+  "exactTextMatch": true,
+  "font": "Arial Unicode embedded subset",
+  "visualInspection": "PASS all 1 final rendered page; complete words/link/caption readable, original image aspect ratio preserved, no clipping/overlap/blank page",
+  "literalVpnText": true,
+  "clickableSiteLink": true,
+  "sections": ["玩法", "主题", "用了哪些 AI", "核心亮点"],
+  "hanCharacters": 566,
+  "siteVersion": 3,
+  "siteSourceSha": "1ab58709b1d557099180f28174cb0526cdfc7160"
+}
