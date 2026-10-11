@@ -15,7 +15,9 @@ import { trayItems } from '../rules/game';
 import type { GameState, Item, Location, TrayId } from '../rules/types';
 import { ActorView } from './ActorView';
 import { assetUrl, CORE_ASSETS } from './assets';
+import { preparationCue } from './flow';
 import { activate, type Hotspot, type Selection, sourceFor, type ViewState } from './input';
+import { chapterJourney } from './journey';
 import { KitchenView, stationSlotPoint } from './KitchenView';
 import { type Layout, layoutFor, type Point, supplyPoint } from './layout';
 import { renderScale } from './rendering';
@@ -367,7 +369,9 @@ export class TruckScene extends Phaser.Scene {
     const required = [
       ...suppliesFor(s.session).map(foodAsset),
       ...RECIPES.filter((r) => r.family === s.session.family).map((r) => foodAsset(r.output)),
-      ...FAMILY_STATIONS[s.session.family].map((id) => `${id}-station`),
+      ...s.session.unlocked.flatMap((family) =>
+        FAMILY_STATIONS[family].map((id) => `${id}-station`),
+      ),
       ...s.items.map((i) => foodAsset(i.product)),
     ];
     const missing = [...new Set([...required, ...this.failed])].filter(
@@ -517,23 +521,77 @@ export class TruckScene extends Phaser.Scene {
           : s.machine.status === 'ready'
             ? '果汁好了'
             : s.items.some((i) => i.location === 'machine:apple')
-              ? '水果和杯已放好？'
-              : '先选水果，再放杯',
+              ? '按绿色开关制作'
+              : '果汁机',
         l.form === 'phone' ? l.regions.work.x + l.regions.work.width * 0.75 : m.x,
         l.form === 'phone' ? l.regions.work.y + 30 : m.y - 94 * l.scale,
         l.form === 'phone' ? 142 : Math.max(145, 150 * l.scale),
       );
       this.hot(
         'start',
-        '启动果汁机',
+        '▶ 榨成果汁',
         'start',
         m.x,
         Math.min(l.regions.work.y + l.regions.work.height - 24, m.y + 103 * l.scale),
-        126 * l.scale,
+        48,
         48,
       );
     }
     this.kitchen?.draw(s, l, this.ui, this.density);
+    // The power switches belong to the appliances. DOM only supplies keyboard labels.
+    for (const h of this.ui.hotspots.filter((h) => h.kind === 'start')) {
+      const busy =
+        h.id === 'start'
+          ? s.machine.status === 'processing'
+          : s.stations[h.id.slice(14) as StationId].status === 'processing';
+      this.decor
+        .fillStyle(0x65472c)
+        .fillCircle(h.x, h.y + 3, 24)
+        .fillStyle(busy ? 0xd6b66a : 0x79ad78)
+        .fillCircle(h.x, h.y, 21)
+        .lineStyle(3, 0xfff4cb)
+        .strokeCircle(h.x, h.y + 2, 10)
+        .fillStyle(0x79ad78)
+        .fillRect(h.x - 6, h.y - 11, 12, 9)
+        .lineStyle(3, 0xfff4cb)
+        .lineBetween(h.x, h.y - 13, h.x, h.y);
+    }
+    const rack = l.regions.action;
+    const tools = s.session.unlocked;
+    const toolWidth = Math.min(56, rack.width / tools.length);
+    const rackX = rack.x + rack.width / 2 - (tools.length * toolWidth) / 2;
+    this.decor
+      .fillStyle(0x755333, 0.9)
+      .fillRoundedRect(rackX - 4, rack.y + 3, tools.length * toolWidth + 8, 44, 8);
+    tools.forEach((family, i) => {
+      const x = rackX + (i + 0.5) * toolWidth,
+        y = rack.y + 25;
+      this.image(
+        `tool-${family}`,
+        {
+          juice: 'machine',
+          ice: 'ice-station',
+          sandwich: 'board-station',
+          burger: 'grill-station',
+          ready: 'tray',
+        }[family],
+        x,
+        y,
+        39,
+        38,
+        5,
+      );
+      this.hot(
+        `family-${family}`,
+        `切换${{ juice: '果汁机', ice: '冰淇淋台', sandwich: '组合板', burger: '汉堡台', ready: '点心篮' }[family]}`,
+        'tool',
+        x,
+        y,
+        Math.max(44, toolWidth),
+        44,
+      );
+    });
+    this.drawJourney(s, l);
     this.hot('note', '请大咪帮忙', 'note', l.helper.x, l.helper.y - 20, 64, 88);
     for (const tray of MODES[s.mode].trays) {
       const p = l.trays[tray],
@@ -575,8 +633,10 @@ export class TruckScene extends Phaser.Scene {
     for (const product of suppliesFor(s.session)) {
       const p = this.supplyPoint(product);
       this.decor
-        .fillStyle(0x163f32, 0.95)
-        .fillRoundedRect(p.x - 33 * l.scale, p.y - 33 * l.scale, 66 * l.scale, 72 * l.scale, 12);
+        .fillStyle(0x91683c, 0.95)
+        .fillRoundedRect(p.x - 33 * l.scale, p.y - 26 * l.scale, 66 * l.scale, 64 * l.scale, 16)
+        .lineStyle(4, 0xd7b573)
+        .strokeEllipse(p.x, p.y + 27 * l.scale, 63 * l.scale, 18 * l.scale);
       this.image(`supply-${product}`, foodAsset(product), p.x, p.y, 53 * l.scale, 55 * l.scale);
       this.hot(
         `supply-${product}`,
@@ -667,6 +727,58 @@ export class TruckScene extends Phaser.Scene {
                 location.split(':')[1] as StationId
               ]
             : '送餐途中';
+  }
+  private drawJourney(s: GameState, l: Layout): void {
+    if (s.session.activity !== 'story') return;
+    const j = chapterJourney(s, this.controller.profile.value.completedLevels);
+    const x = l.form === 'phone' ? l.width - 75 : l.stage.x + l.stage.width * 0.79;
+    const y = l.regions.guests.y + 38;
+    const g = this.decor;
+    const count = Math.min(5, Math.ceil(j.fraction));
+    if (s.session.chapter === 0) {
+      g.fillStyle(0xaf7650).fillRoundedRect(x - 22, y + 10, 44, 24, 6);
+      for (let i = 0; i < count; i++) {
+        const fx = x - 20 + i * 10,
+          fy = y - 5 - (i % 2) * 12;
+        g.lineStyle(3, 0x5a914c).lineBetween(fx, y + 16, fx, fy);
+        g.fillStyle(0x7ca75b).fillEllipse(fx + 6, fy + 10, 14, 6);
+        if (j.fraction >= 3) {
+          g.fillStyle(0xf4b286).fillCircle(fx, fy, 8).fillStyle(0xffe388).fillCircle(fx, fy, 3);
+        }
+      }
+    } else if (s.session.chapter === 1 || s.session.chapter === 3) {
+      g.lineStyle(2, 0x654a2a).lineBetween(x - 50, y - 15, x + 50, y - 15);
+      for (let i = 0; i < 5; i++) {
+        const bx = x - 42 + i * 21;
+        if (s.session.chapter === 1)
+          g.fillStyle(
+            i < count ? ([0xedb857, 0x91bd91, 0xe9a3ac][i % 3] ?? 0xedb857) : 0x947b62,
+            i < count ? 1 : 0.3,
+          ).fillTriangle(bx - 8, y - 14, bx + 8, y - 14, bx, y + 6);
+        else {
+          if (i < count) g.fillStyle(0xffdf8b, 0.22).fillCircle(bx, y + 3, 15);
+          g.lineStyle(2, 0x654a2a)
+            .lineBetween(bx, y - 15, bx, y - 4)
+            .fillStyle(i < count ? 0xffdf8b : 0x8c7863)
+            .fillCircle(bx, y + 3, 6);
+        }
+      }
+    } else {
+      g.fillStyle(0x795733).fillRoundedRect(x - 52, y + 8, 104, 12, 4);
+      g.fillStyle(0xf5e7b9).fillRoundedRect(
+        x - 44,
+        y + 3,
+        Math.max(8, (88 * j.fraction) / 5),
+        12,
+        3,
+      );
+      for (let i = 0; i < count; i++)
+        g.fillStyle(0xfff5db)
+          .fillEllipse(x - 35 + i * 18, y, 16, 7)
+          .fillStyle(0xe6b45e)
+          .fillCircle(x - 35 + i * 18, y - 2, 4);
+    }
+    if (j.received) this.badge('journey-receipt', '朋友接好啦！', x, y + 51, 112, 28);
   }
   private reduced(): boolean {
     return this.ui.lowGraphics || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -771,6 +883,37 @@ export class TruckScene extends Phaser.Scene {
         ?.setVisible(!s.trays[tray].remaining || !delivery || delivery.elapsed < liftAt);
     }
     this.hideDragged();
+    const held = this.ui.selected && 'tray' in this.ui.selected ? this.ui.selected.tray : null;
+    for (const tray of MODES[s.mode].trays) {
+      this.texts
+        .get(`tray-label-${tray}`)
+        ?.setText(
+          held === tray
+            ? '点朋友递出 ↗'
+            : s.trays[tray].remaining
+              ? '回盘中'
+              : `${tray + 1}号备餐盘`,
+        );
+      const lift = held === tray && !s.trays[tray].remaining && !this.press?.moved ? 9 : 0;
+      this.images.get(`tray-${tray}`)?.setY(l.trays[tray].y - lift);
+      for (const item of trayItems(s, tray)) {
+        const key = `item-${item.id}`;
+        if (!this.motions.has(key)) this.images.get(key)?.setY(this.itemPoint(item).y - lift);
+      }
+    }
+    if (held !== null && !this.ui.inputBlocked)
+      for (const o of s.orders.filter((o) => o.status === 'waiting')) {
+        const p = l.guests[o.seat];
+        this.focusRing
+          .lineStyle(3, 0xffdc73)
+          .strokeEllipse(p.x, p.y + l.guestHeight * 0.35, 72, 25);
+      }
+    const cue = preparationCue(s, this.ui);
+    const next = this.ui.hotspots.find((h) => h.id === cue.target);
+    if (next && !this.ui.inputBlocked && !this.ui.selected)
+      this.focusRing
+        .lineStyle(2, 0xffedb2, 0.8)
+        .strokeCircle(next.x, next.y, Math.max(24, next.height / 2));
     const preparation =
       this.ui.prep === 'tray'
         ? `tray-${this.ui.selectedTray}`

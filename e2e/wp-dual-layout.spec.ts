@@ -1,5 +1,5 @@
 import { expect, type Page, test } from '@playwright/test';
-import { state } from './helpers';
+import { handOver, state } from './helpers';
 
 test.use({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 async function mouseHot(page: Page, id: string) {
@@ -16,7 +16,7 @@ async function begin(page: Page) {
   await expect(page.locator('.loading-page')).toHaveCount(0);
 }
 async function send(page: Page) {
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).click();
+  await handOver(page);
   await expect(page.locator('.ending')).toBeVisible({ timeout: 18000 });
 }
 async function start(page: Page, family: 'juice' | 'ice') {
@@ -72,7 +72,7 @@ test('desktop mouse opens first story services and makes cup ice cream', async (
   await begin(page);
   await mouseHot(page, 'supply-apple');
   await mouseHot(page, 'supply-banana');
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).click();
+  await handOver(page);
   await expect
     .poll(async () => page.locator('.service-count b').innerText(), { timeout: 12000 })
     .toContain('1 / 2');
@@ -96,7 +96,7 @@ test('desktop mouse opens first story services and makes cup ice cream', async (
   await begin(page);
   await mouseHot(page, 'supply-apple');
   await mouseHot(page, 'supply-apple');
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).click();
+  await handOver(page);
   await expect
     .poll(async () => page.locator('.service-count b').innerText(), { timeout: 12000 })
     .toContain('1 / 2');
@@ -160,7 +160,7 @@ test('phone touch makes a cone after desktop progress and survives layout change
   await expect(page.locator('[data-hotspot="tray-0"]')).toBeVisible();
   await page.screenshot({ path: 'docs/evidence/dual-layout-playflow/tablet-768x1024.png' });
   await page.setViewportSize({ width: 393, height: 665 });
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect(page.locator('.ending')).toBeVisible({ timeout: 16000 });
   await context.close();
 });
@@ -185,7 +185,7 @@ test('phone first service uses the same viewport as its baseline screenshot', as
   const box = await page.locator('[data-hotspot="supply-apple"]').boundingBox();
   if (!box) throw Error('apple hotspot missing');
   await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2);
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect(page.locator('.ending')).toBeVisible({ timeout: 16000 });
   await context.close();
 });
@@ -210,7 +210,7 @@ test('desktop mouse corrects a wrong cone order, withdraws ingredients and makes
   await expect
     .poll(async () => (await state(page)).items.some((i) => i.product === 'vanilla-cup'))
     .toBe(true);
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).click();
+  await handOver(page);
   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('waiting');
   const wrong = (await state(page)).items.find((i) => i.product === 'vanilla-cup');
   if (!wrong) throw Error('wrong cup disappeared');

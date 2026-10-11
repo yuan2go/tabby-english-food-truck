@@ -345,3 +345,70 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Scene controls retain native focus and labels around drawn appliance switches. */
+.service-surface .semantic-layer .physical-control {
+  pointer-events: auto;
+}
+.journey-accessibility {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.yard-book {
+  position: absolute;
+  right: 18px;
+  bottom: 38px;
+  z-index: 8;
+}
+.m2-shell .ending.scene-result {
+  top: auto;
+  bottom: 8px;
+  transform: translateX(-50%);
+  max-height: 47%;
+  border-radius: 22px;
+  padding: 12px 18px;
+  width: min(430px, 94%);
+}
+.m2-shell .ending.scene-result > img {
+  display: none;
+}
+.m2-shell .ending.scene-result h2 {
+  font-size: 19px;
+  margin: 2px 0 6px;
+}
+.m2-shell .ending.scene-result p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+.m2-shell .ending.scene-result > button {
+  margin: 3px 0;
+  min-height: 44px;
+}
+.m2-shell .ending.scene-result > button:not(.primary) {
+  width: auto;
+  margin: 3px 6px;
+  font-size: 13px;
+  padding: 8px;
+}
+.lesson-dialog.short-lesson {
+  inset: auto;
+  left: 50%;
+  top: 17%;
+  transform: translateX(-50%);
+  width: min(540px, 94%);
+  max-height: 76%;
+  border-radius: 24px;
+  box-shadow: 0 9px 32px #153b2e60;
+}
+.chapter-opening {
+  inset: auto;
+  left: 50%;
+  top: 18%;
+  transform: translateX(-50%);
+  width: min(420px, 94%);
+  max-height: 60%;
+  border-radius: 24px;
+}

@@ -1,5 +1,9 @@
 # 技术设计 · 独立餐车游戏
 
+## 当前活动帧与直接操作（2026-10-11）
+
+本包保持规则时钟与输入命令唯一。活动画面帧不超过1000ms时，每次至多推进250ms，避免持续慢帧全部被丢弃而使加工停住；更大挂起间隔仍丢弃，隐藏/失焦/模态暂停和恢复首帧丢弃继续生效。不存在离线加工补算。托盘/设备/工具架/气泡共用命中几何与 activate；工具架所有解锁设备的贴图纳入所需资源。场景后果只投影规则的接收事件及已有完成记录，任务分支绑定现有 session.storyChoice。
+
 ## 当前实现边界 · WP-DUAL-LAYOUT-PLAYFLOW-CONTENT-01
 
 保留锁定的 Phaser＋React＋TypeScript/Vite 与唯一规则核。`src/game/layout.ts` 根据实测容器尺寸输出 desktop/tablet/phone/short 四种表现编排；`TruckScene`、`KitchenView`、DOM控制使用同一CSS世界与命中坐标，布局变化只重投影。`ViewState.prep` 表示原料目标，`selectedTray` 表示成品目的盘，`selectedGuest` 表示交付目标，互不隐式覆盖。

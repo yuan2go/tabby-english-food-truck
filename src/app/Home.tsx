@@ -8,7 +8,7 @@ export function Home({
   legacy,
 }: {
   profile: Profile;
-  onChoose: (screen: 'story' | 'endless' | 'mini' | 'training' | 'settings') => void;
+  onChoose: (screen: 'story' | 'endless' | 'mini' | 'training' | 'settings' | 'book') => void;
   audio: ForegroundAudio;
   legacy: boolean;
 }) {
@@ -25,7 +25,9 @@ export function Home({
         <span>{name}</span>
         <small>
           {id === 'story'
-            ? '接过钥匙，一起开店'
+            ? profile.prologue
+              ? '接着上次，直接回柜台'
+              : '接过钥匙，一起开店'
             : id === 'endless'
               ? '今天也有新朋友'
               : id === 'mini'
@@ -68,6 +70,11 @@ export function Home({
         profile.completed.length || profile.prologue ? '继续故事' : '故事模式',
         'menu-story',
       )}
+      {profile.prologue ? (
+        <button className="yard-book" type="button" onClick={() => onChoose('book')}>
+          ▤ 翻旧食谱
+        </button>
+      ) : null}
       {entry('endless', '无尽营业', 'menu-endless')}
       {entry('training', '教学练习', 'menu-training')}
       {entry('mini', '迷你游戏', 'menu-mini')}

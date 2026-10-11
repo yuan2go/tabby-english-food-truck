@@ -1,5 +1,13 @@
 # 项目状态
 
+## 2026-10-11 WP-ADVENTURE-DIRECT-INPUT-01 · IMPLEMENTED / VERIFICATION_RUNNING
+
+默认分支 origin/main 基线 `e3724a59cfe958a1d584aa4864988aeec73ba7e9`，干净工作范围，独立工作树 `/Users/dafangzi/.codex/worktrees/adventure-direct-input/tabby-english-food-truck`，分支 `codex/adventure-direct-input`。本包执行负责人已采用的直接操作方案与三项故事增强，当前最终候选检查进行中，不预填最终通过。
+
+托盘切换投料、拿起后点客人/拖盘交付、再点盘放下、纯声音气泡重听、原料回篮和实体设备开关贯通；完整/跳过序章统一第一小关，首页直接续玩，遇到未选的新分支先明确选择。目标常驻与真实收餐后的场景变化，已完成选择影响后续请求且活跃分支随存档固定。慢活动帧以最多250ms的小步推进，长挂起/后台暂停不补算，避免画面低帧使加工完全停住。本仓库上一版快照保持实例与输出预留迁移至 `m2.4-adventure-1`。
+
+首轮连续两单手机/桌面与完整序章3项浏览器通过；审查发现并修正杯子提示、工具架贴图、首页未选分支3项P2。首轮并发长跑被停止：手机在第三章机器等待超时，桌面到第15关中断，均不算整轮通过；最后串行重跑与实际退出码见[证据](evidence/adventure-direct-input/README.md)。实体 iPhone 15 Pro＋Chrome、负责人操作接受、儿童、教研、人工听审仍 PENDING / NOT_RUN；未合并、未部署。
+
 ## 2026-09-27 WP-DUAL-LAYOUT-PLAYFLOW-CONTENT-01 · IMPLEMENTED / LOCAL_VERIFIED · 实体设备待复核
 
 从默认分支 `origin/main` 完整 SHA `0217871ca06a6b36d8cf0a34b7280a6f83283fe2` 的干净基线，在独立工作树及分支 `codex/dual-layout-playflow-content` 实现；交付前再次 fetch，默认分支未漂移。最终运行代码提交与干净生产构建完整 SHA `72895eb8b0c6e68298f769826c4a432a64c32330`，页面实测 `dirty=false`。现行合同是五章各五个营业小关、30 个主题小游戏关卡和 1 个混合复习；下文旧关卡数及旧布局 PASS 均只作历史证据。最后证据提交/PR 见交付消息。

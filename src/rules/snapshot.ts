@@ -530,7 +530,11 @@ export function decodeSnapshot(raw: string): DecodeResult {
       value.schemaVersion = 6;
       value.session.language = 'flavor';
     }
-    if (record(value) && value.schemaVersion === 6 && value.contentVersion === 'm2.2')
+    if (
+      record(value) &&
+      value.schemaVersion === 6 &&
+      (value.contentVersion === 'm2.2' || value.contentVersion === 'm2.3-story-1')
+    )
       value.contentVersion = CONTENT_VERSION;
     return validateState(value)
       ? { ok: true, state: value }

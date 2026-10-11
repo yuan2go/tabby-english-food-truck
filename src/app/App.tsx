@@ -4,11 +4,12 @@ import Phaser from 'phaser';
 import { useEffect, useReducer, useRef, useState } from 'react';
 import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Support } from '../content/chapters';
-import type { Family } from '../content/recipes';
-import { STORY_LEVELS, storyLevel } from '../content/story-levels';
+import { STORY_LEVELS, type StoryLevel, storyLevel, storySituation } from '../content/story-levels';
 import { assetUrl } from '../game/assets';
+import { preparationCue } from '../game/flow';
 import { DoubleTap } from '../game/gestures';
 import { activate, type ViewState } from '../game/input';
+import { chapterJourney, continueLevel } from '../game/journey';
 import { TruckScene } from '../game/TruckScene';
 import { ForegroundAudio, type PlaybackResult } from '../platform/audio';
 import { BUILD_INFO } from '../platform/build';
@@ -41,6 +42,7 @@ export function App() {
     [note, setNote] = useState(false),
     [caption, setCaption] = useState<string | null>(null);
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
+  const [pendingStory, setPendingStory] = useState<StoryLevel | null>(null);
   const [setup, setSetup] = useState<'endless' | 'training'>('endless');
   const [trainingChapter, setTrainingChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
@@ -129,15 +131,17 @@ export function App() {
   }, [controller, growth]);
   useDialogFocus(
     modal ??
-      (teaching
-        ? 'teaching'
-        : growth
-          ? 'growth'
-          : opening !== null
-            ? 'opening'
-            : note
-              ? 'note'
-              : null),
+      (pendingStory
+        ? 'story-choice'
+        : teaching
+          ? 'teaching'
+          : growth
+            ? 'growth'
+            : opening !== null
+              ? 'opening'
+              : note
+                ? 'note'
+                : null),
   );
   const selected = waiting.find((o) => o.id === ui.selectedGuest) ?? active;
   const done = s.session.activity !== 'endless' && s.orders.every((o) => o.status === 'done');
@@ -282,7 +286,8 @@ export function App() {
     setTeaching(null);
     ui.teaching = null;
     controller.pause('teaching', false);
-    controller.message = '点食物直接放盘；做果汁先点机器。准备好后点送餐。';
+    ui.feedback = '';
+    controller.message = preparationCue(controller.state, ui).text;
     announced.current = '';
   };
   const home = () => {
@@ -323,6 +328,7 @@ export function App() {
     ui.selected = null;
     ui.selectedTray = 0;
     ui.selectedGuest = '';
+    ui.feedback = '';
     ui.prep =
       activity === 'story' && chapter === 0
         ? 'tray'
@@ -356,16 +362,6 @@ export function App() {
       setCaption(selected.id);
     }
   };
-  const family = (f: Family) => {
-    const result = controller.command({ type: 'family', family: f });
-    if (result.kind !== 'ok') return;
-    ui.prep = { juice: 'machine', ice: 'ice', sandwich: 'board', burger: 'grill', ready: 'tray' }[
-      f
-    ] as NonNullable<ViewState['prep']>;
-    ui.doubleTap?.cancel();
-    ui.selected = null;
-    refresh();
-  };
   const showSettings = (back: Screen) => {
     audio.stop();
     setSettingsBack(back);
@@ -376,6 +372,7 @@ export function App() {
     ui.selected && 'item' in ui.selected
       ? s.items.find((i) => i.id === (ui.selected as { item: string }).item)
       : null;
+  const journey = chapterJourney(s, controller.profile.value.completedLevels);
   const picture = selected && (s.session.support !== 'less' || caption === selected.id);
   return (
     <main
@@ -395,11 +392,28 @@ export function App() {
           audio={audio}
           onChoose={(choice) => {
             audio.stop();
+            setPendingStory(null);
             if (choice === 'endless' || choice === 'training') {
               setSetup(choice);
               setScreen('setup');
             } else if (choice === 'settings') showSettings('home');
-            else setScreen(choice);
+            else if (choice === 'book') setScreen('story');
+            else if (choice === 'story' && controller.profile.value.prologue) {
+              const next = continueLevel(
+                controller.state,
+                controller.profile.value.completedLevels,
+              );
+              const continuing =
+                controller.state.session.levelId === next.id &&
+                controller.state.orders.some((order) => order.status !== 'done');
+              if (
+                !continuing &&
+                next.choice &&
+                controller.profile.value.storyChoices[next.id] === undefined
+              )
+                setPendingStory(next);
+              else enter('story', next.chapter, false, next.id);
+            } else setScreen(choice);
           }}
         />
       ) : screen === 'story' ? (
@@ -545,7 +559,7 @@ export function App() {
               </b>
               {currentLevel ? (
                 <small className="story-task">
-                  {currentLevel.who} · {currentLevel.objective}
+                  {journey.goal} · {journey.completed}/5
                 </small>
               ) : null}
             </span>
@@ -560,12 +574,24 @@ export function App() {
               </button>
             ) : null}
           </header>
+          {currentLevel ? (
+            <div
+              className="journey-accessibility"
+              role="progressbar"
+              aria-label={journey.goal}
+              aria-valuemin={0}
+              aria-valuemax={5}
+              aria-valuenow={journey.completed}
+              aria-valuetext={`${journey.completed}/5 · 已递出 ${journey.received}/${s.orders.length} 份`}
+            />
+          ) : null}
           <fieldset className="semantic-layer" aria-label="餐车操作">
             {ui.hotspots.map((h) => (
               <button
                 type="button"
                 key={h.id}
                 data-hotspot={h.id}
+                className={h.kind === 'start' || h.kind === 'tool' ? 'physical-control' : undefined}
                 aria-pressed={
                   h.kind === 'item'
                     ? Boolean(
@@ -605,19 +631,20 @@ export function App() {
               controller={controller}
               audio={audio}
               ui={ui}
-              waiting={waiting}
               selected={selected}
               selectedItem={selectedItem}
               picture={picture}
               caption={caption}
               setCaption={setCaption}
-              help={help}
-              family={family}
             />
           ) : null}
           {opening !== null ? (
             <section className="chapter-opening" role="dialog" aria-label="章节开场">
-              <p>{currentLevel?.situation ?? CHAPTERS[opening]?.line}</p>
+              <p>
+                {currentLevel
+                  ? storySituation(currentLevel, s.session.storyChoice ?? 0)
+                  : CHAPTERS[opening]?.line}
+              </p>
               {openingAudio === 'failed' ||
               openingAudio === 'muted' ||
               openingAudio === 'interrupted' ? (
@@ -710,7 +737,7 @@ export function App() {
                 : undefined
             }
           >
-            <p role="status">{controller.message}</p>
+            <p role="status">{ui.feedback || preparationCue(s, ui).text}</p>
           </footer>
           {note ? (
             <Note
@@ -721,7 +748,7 @@ export function App() {
             />
           ) : null}
           {done ? (
-            <section className="ending">
+            <section className={`ending ${currentLevel && nextLevel ? 'scene-result' : ''}`}>
               {currentLevel?.id === 'c5-last-page' ? (
                 <div
                   className="story-photo"
@@ -825,6 +852,36 @@ export function App() {
           ) : null}
         </div>
       )}
+      {screen === 'home' && pendingStory?.choice ? (
+        <div className="modal-backdrop">
+          <section
+            className="modal resume-choice"
+            role="dialog"
+            aria-modal="true"
+            aria-label={pendingStory.choice.prompt}
+          >
+            <h2>{pendingStory.choice.prompt}</h2>
+            <p>{pendingStory.situation}</p>
+            {pendingStory.choice.labels.map((label, option) => (
+              <button
+                type="button"
+                className="primary"
+                key={label}
+                onClick={() => {
+                  controller.profile.chooseStory(pendingStory.id, option as 0 | 1);
+                  enter('story', pendingStory.chapter, false, pendingStory.id);
+                  setPendingStory(null);
+                }}
+              >
+                {label}
+              </button>
+            ))}
+            <button type="button" onClick={() => setPendingStory(null)}>
+              先回小院
+            </button>
+          </section>
+        </div>
+      ) : null}
       {modal ? (
         <div className="modal-backdrop">
           <section

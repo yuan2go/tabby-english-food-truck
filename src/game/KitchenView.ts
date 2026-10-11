@@ -132,9 +132,9 @@ export class KitchenView {
         {
           id: `start-station-${id}`,
           kind: 'start',
-          label: `${label}开始制作`,
+          label: `▶ ${id === 'ice' ? '接好冰淇淋' : id === 'grill' ? '煎熟肉饼' : '盖合食物'}`,
           ...stationActionPoint(id, l),
-          width: Math.max(110, 112 * l.scale),
+          width: 48,
           height: 48,
         },
       );

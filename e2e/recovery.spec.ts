@@ -5,6 +5,7 @@ import { REQUESTS } from '../src/content/catalog';
 import { RAW } from '../src/content/recipes';
 import {
   choosePrep,
+  handOver,
   hot,
   lesson,
   make,
@@ -61,7 +62,7 @@ test('M2 Pad prologue and real processing restore in portrait and landscape', as
     )
     .toEqual({ machine: 'empty', route: null, food: [['juice', 'tray:0:0']] });
   await page.screenshot({ path: info.outputPath('pad-portrait-collected.png') });
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await handOver(page);
   await expect
     .poll(async () => (await state(page)).orders.filter((o) => o.status === 'done').length, {
       timeout: 15000,

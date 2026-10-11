@@ -1,5 +1,5 @@
 import { type Product, REQUESTS } from '../content/catalog';
-import { isFinished, type StationId } from '../content/recipes';
+import { type Family, isFinished, type StationId } from '../content/recipes';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { GameState, Source, TrayId } from '../rules/types';
@@ -13,7 +13,17 @@ export interface Hotspot {
   y: number;
   width: number;
   height: number;
-  kind: 'supply' | 'item' | 'tray' | 'guest' | 'machine' | 'start' | 'clear' | 'note' | 'station';
+  kind:
+    | 'supply'
+    | 'item'
+    | 'tray'
+    | 'guest'
+    | 'machine'
+    | 'start'
+    | 'clear'
+    | 'note'
+    | 'station'
+    | 'tool';
 }
 export interface ViewState {
   layout?: Layout;
@@ -34,6 +44,7 @@ export interface ViewState {
   assetFailure: boolean;
   assetLoading?: boolean;
   resourceMessage: string;
+  feedback?: string;
   openNote: () => void;
   confirmClear: (action: () => void) => void;
   change: () => void;
@@ -54,6 +65,7 @@ export function activate(
 ): void {
   const s = controller.state,
     selected = dragSource ?? ui.selected;
+  ui.feedback = '';
   const source = selected && ('supply' in selected || 'item' in selected) ? selected : null;
   let command: Parameters<GameController['command']>[0] | undefined;
   const targetItem = id.startsWith('item-') ? s.items.find((i) => i.id === id.slice(5)) : undefined;
@@ -72,7 +84,8 @@ export function activate(
     ui.openHelp();
     return;
   }
-  if (id === 'start') command = { type: 'start-machine', tray: ui.selectedTray };
+  if (id.startsWith('family-')) command = { type: 'family', family: id.slice(7) as Family };
+  else if (id === 'start') command = { type: 'start-machine', tray: ui.selectedTray };
   else if (id.startsWith('start-station-'))
     command = { type: 'start-station', station: id.slice(14) as StationId, tray: ui.selectedTray };
   else if (id.startsWith('send-'))
@@ -80,7 +93,11 @@ export function activate(
   else if (id === 'restore') command = { type: 'restore-cleared', tray: ui.selectedTray };
   else if (id === 'clear' && source)
     command = { type: 'move', source, destination: { discard: true, confirmed: false } };
-  else if (id.startsWith('supply-') && !dragSource) {
+  else if (id.startsWith('supply-') && dragSource && source && 'item' in source) {
+    const item = s.items.find((food) => food.id === source.item);
+    if (item?.product === id.slice(7))
+      command = { type: 'move', source, destination: { discard: true, confirmed: false } };
+  } else if (id.startsWith('supply-') && !dragSource) {
     const product = id.slice(7) as Product;
     const prep = ui.prep ?? 'tray';
     command = {
@@ -96,10 +113,17 @@ export function activate(
   } else if (id.startsWith('tray-')) {
     const tray = Number(id.slice(5)) as TrayId;
     ui.selectedTray = tray;
+    ui.prep = 'tray';
     if (source) command = { type: 'move', source, destination: { tray } };
     else {
-      ui.selected = { tray };
-      controller.message = `${tray + 1}号盘是成品目的盘；工作台和食材投放位置仍可单独选。`;
+      const filled = s.items.some((item) => item.location.startsWith(`tray:${tray}:`));
+      const putDown = selected && 'tray' in selected && selected.tray === tray;
+      ui.selected = filled && !putDown ? { tray } : null;
+      controller.message = putDown
+        ? '餐盘放好了，随时可以再拿起。'
+        : filled
+          ? '餐盘拿好了，点要招呼的朋友递出。'
+          : '点食材，直接放到这个盘子里。';
     }
   } else if (id.startsWith('machine-')) {
     ui.prep = 'machine';
@@ -127,14 +151,15 @@ export function activate(
       ui.selected = null;
       controller.message = '备餐台已选中，点食材放到这里。';
     }
-  } else if (id.startsWith('guest-')) {
-    ui.selectedGuest = id;
-    if (dragSource && 'tray' in dragSource)
-      command = { type: 'deliver', tray: dragSource.tray, order: id };
+  } else if (id.startsWith('guest-') || id.startsWith('listen-guest-')) {
+    const guest = id.replace(/^listen-/, '');
+    ui.selectedGuest = guest;
+    if (!id.startsWith('listen-') && selected && 'tray' in selected)
+      command = { type: 'deliver', tray: selected.tray, order: guest };
     else {
-      const order = s.orders.find((o) => o.id === id);
+      const order = s.orders.find((o) => o.id === guest);
       if (order?.status === 'waiting') void audio.play(REQUESTS[order.request].audio);
-      controller.message = '听这位客人的请求；准备好后点送餐。';
+      controller.message = '听朋友说一说。装好餐盘后，拿起来递给朋友。';
     }
   } else if (targetItem) {
     if (targetItem.location.startsWith('delivery:')) return;
@@ -175,8 +200,31 @@ export function activate(
       });
     if (r.kind === 'ok') {
       ui.selected = null;
+      if (action.type === 'family')
+        ui.prep = (
+          {
+            juice: 'machine',
+            ice: 'ice',
+            sandwich: 'board',
+            burger: 'grill',
+            ready: 'tray',
+          } as const
+        )[action.family];
+      if (
+        action.type === 'family' &&
+        action.family === 'juice' &&
+        !ui.teaching &&
+        !controller.state.items.some((i) => i.location === 'machine:cup') &&
+        ['empty', 'loaded'].includes(controller.state.machine.status)
+      )
+        controller.command({ type: 'prepare-cup' });
+      if (action.type === 'start-machine') ui.prep = 'tray';
+      if (action.type === 'start-station') ui.prep = action.station === 'grill' ? 'board' : 'tray';
       if (action.type === 'move') audio.effect('place');
-    } else if (r.kind !== 'confirm') audio.effect('gentle');
+    } else if (r.kind !== 'confirm') {
+      ui.feedback = r.message;
+      audio.effect('gentle');
+    }
   }
   ui.change();
 }

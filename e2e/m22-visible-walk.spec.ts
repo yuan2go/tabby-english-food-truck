@@ -15,8 +15,6 @@ test('visible interface and formal help walk: apple and juice without hidden ans
   await page.goto('/');
   await page.locator('.yard-story .entry-main').tap();
   await page.getByRole('button', { name: '跳过序章' }).tap();
-  await page.getByRole('button', { name: '晨光果汁', exact: true }).tap();
-  await page.getByRole('button', { name: '帮朋友完成这关' }).first().tap();
   const opening = page.getByRole('button', { name: '跳过开场' });
   if (await opening.count()) await opening.tap();
   await page.getByRole('button', { name: '我来试试', exact: true }).tap();
@@ -28,10 +26,16 @@ test('visible interface and formal help walk: apple and juice without hidden ans
   const touch = async (name: string) => {
     const b = await page.getByRole('button', { name, exact: true }).boundingBox();
     if (!b) throw Error(name);
-    await page.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2);
+    await page.touchscreen.tap(
+      b.x + b.width / 2,
+      b.y + b.height / 2 + (name.startsWith('1号托盘') ? 26 : 0),
+    );
   };
   await touch('拿苹果');
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await touch('1号托盘：放入食品或选择整盘');
+  const guest = await page.locator('[data-hotspot="guest-0"]').boundingBox();
+  if (!guest) throw Error('guest');
+  await page.touchscreen.tap(guest.x + guest.width / 2, guest.y + guest.height * 0.75);
   await expect(page.locator('.ending')).toBeVisible({ timeout: 18000 });
   await page.getByRole('button', { name: '继续下一小关' }).tap();
   await expect(page.getByRole('dialog', { name: '场景小教学' })).toBeVisible({ timeout: 18000 });
@@ -42,12 +46,18 @@ test('visible interface and formal help walk: apple and juice without hidden ans
   await page.getByRole('button', { name: '回餐车，亲手做 ↗', exact: true }).tap();
   await touch('果汁机苹果入口');
   await touch('拿苹果');
-  await touch('启动果汁机');
+  await touch('▶ 榨成果汁');
   await expect(page.getByRole('button', { name: '苹果汁，1号盘', exact: true })).toBeAttached({
     timeout: 15000,
   });
   await page.screenshot({ path: info.outputPath('visible-walk-juice.png') });
-  await page.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
+  await touch('1号托盘：放入食品或选择整盘');
+  const nextGuest = await page.locator('[data-hotspot="guest-0"]').boundingBox();
+  if (!nextGuest) throw Error('guest');
+  await page.touchscreen.tap(
+    nextGuest.x + nextGuest.width / 2,
+    nextGuest.y + nextGuest.height * 0.75,
+  );
   await expect(page.locator('.ending')).toBeVisible({ timeout: 18000 });
   await writeFile(
     info.outputPath('walk.json'),
@@ -55,7 +65,7 @@ test('visible interface and formal help walk: apple and juice without hidden ans
       {
         method: 'VISIBLE_UI_AND_FORMAL_HELP',
         hiddenAnswers: false,
-        gameplayClicks: { apple: 2, juice: 4 },
+        gameplayClicks: { apple: 3, juice: 5 },
         extraRecipeHelpClicks: 2,
         audibleHumanListening: 'NOT_RUN',
         result: 'two real deliveries',

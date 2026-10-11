@@ -1,6 +1,5 @@
 import { expect, type Page } from '@playwright/test';
 import { REQUESTS } from '../src/content/catalog';
-import { CHAPTERS } from '../src/content/chapters';
 import { type Product, RAW, RECIPES } from '../src/content/recipes';
 import type { GameState } from '../src/rules/types';
 export const state = (p: Page): Promise<GameState> =>
@@ -44,8 +43,6 @@ export async function startStory(p: Page) {
   await p.goto('/');
   await p.locator('.yard-story .entry-main').tap();
   await p.getByRole('button', { name: '跳过序章' }).tap();
-  await p.getByRole('button', { name: '晨光果汁', exact: true }).tap();
-  await p.getByRole('button', { name: '帮朋友完成这关' }).first().tap();
   await dismissOpening(p);
   await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
   await lesson(p);
@@ -87,20 +84,7 @@ export async function make(
   }
   const recipe = RECIPES.find((r) => r.output === product);
   if (!recipe) throw Error(product);
-  const family = {
-    juice: '果汁',
-    ice: '冰淇淋',
-    sandwich: '三明治',
-    burger: '汉堡',
-    ready: '水果与预制点心',
-  }[recipe.family];
-  if ((await state(p)).session.family !== recipe.family) {
-    await p.getByRole('button', { name: '选择食谱', exact: true }).tap();
-    await p
-      .getByRole('group', { name: '选择食谱工作台' })
-      .getByRole('button', { name: family, exact: true })
-      .tap();
-  }
+  if ((await state(p)).session.family !== recipe.family) await tap(p, `family-${recipe.family}`);
   await expect(p.locator('.loading-page')).toHaveCount(0);
   const prep =
     recipe.station === 'machine'
@@ -151,8 +135,6 @@ export async function make(
     restore.delete(recipe.station);
     await p.getByRole('button', { name: '暂停', exact: true }).tap();
     const before = await state(p);
-    const chapter = CHAPTERS[before.session.chapter];
-    if (!chapter) throw Error('chapter');
     const beforeStatus =
       recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status;
     if (beforeStatus === 'empty') {
@@ -170,8 +152,6 @@ export async function make(
     if (recipe.station === 'grill') await p.setViewportSize({ width: 768, height: 1024 });
     await p.reload();
     await p.locator('.yard-story .entry-main').tap();
-    await p.getByRole('button', { name: chapter.title, exact: true }).tap();
-    await p.getByRole('button', { name: '继续这一关' }).tap();
     await lesson(p);
     const after = await state(p);
     expect(after.runId).toBe(before.runId);
@@ -248,15 +228,9 @@ export async function serve(p: Page, restore?: Set<string>) {
   for (const product of REQUESTS[order.request].products) {
     if (RAW.includes(product)) {
       if (!(await p.locator(`[data-hotspot="supply-${product}"]`).count())) {
-        await p.getByRole('button', { name: '选择食谱', exact: true }).tap();
-        await p
-          .getByRole('group', { name: '选择食谱工作台' })
-          .getByRole('button', { name: '果汁', exact: true })
-          .tap();
+        await tap(p, 'family-juice');
       }
       await choosePrep(p, '● 1号盘');
-      const directTray = p.getByRole('button', { name: /^(放盘|食材直接放盘)$/ });
-      if (await directTray.count()) await directTray.tap();
       await make(p, product);
     } else {
       const id = await make(p, product, restore);
@@ -266,16 +240,7 @@ export async function serve(p: Page, restore?: Set<string>) {
       }
     }
   }
-  // Explicit target chosen without a UI correctness gate. Tests read state; never inject it.
-  const label =
-    s.orders.filter((o) => o.status === 'waiting').length === 1
-      ? '送餐 ↗'
-      : order.seat === 0
-        ? '送给左边客人 ↗'
-        : '送给右边客人 ↗';
-  if (s.orders.filter((o) => o.status === 'waiting').length > 1)
-    await p.getByRole('button', { name: '送餐 ↗', exact: true }).tap();
-  await p.getByRole('button', { name: label, exact: true }).tap();
+  await handOver(p, order.seat);
   await expect
     .poll(
       async () => {
@@ -285,6 +250,14 @@ export async function serve(p: Page, restore?: Set<string>) {
       { timeout: 18000 },
     )
     .toBe('done');
+}
+export async function handOver(p: Page, seat?: 0 | 1, tray: 0 | 1 = 0) {
+  const order = (await state(p)).orders.find(
+    (o) => o.status === 'waiting' && (seat === undefined || o.seat === seat),
+  );
+  if (!order) throw Error('no waiting guest');
+  await tap(p, `tray-${tray}`, 26);
+  await tap(p, order.id, 20);
 }
 export async function drag(p: Page, from: string, to: string) {
   const a = await hot(p, from, from.startsWith('tray') ? 25 : 0),

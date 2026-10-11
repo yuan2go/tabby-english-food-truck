@@ -86,13 +86,9 @@ async function chooseFamily(page: Page, step: Step) {
       : step.station.includes('煎台') || step.inputs.includes('圆面包')
         ? '汉堡'
         : '三明治';
-  const switcher = page.getByRole('button', { name: '选择食谱', exact: true });
-  if (!(await switcher.count())) return;
-  await click(switcher, 'preparation');
-  await click(
-    page.getByRole('group', { name: '选择食谱工作台' }).getByRole('button', { name, exact: true }),
-    'preparation',
-  );
+  const id = { 果汁: 'juice', 冰淇淋: 'ice', 汉堡: 'burger', 三明治: 'sandwich' }[name];
+  const tool = page.locator(`[data-hotspot="family-${id}"]`);
+  if (await tool.count()) await touch(page, tool, 'preparation');
 }
 
 async function prepareStep(page: Page, step: Step, tray: 0 | 1, previousOutput: string | null) {
@@ -136,14 +132,8 @@ async function makeVisible(page: Page, product: string, tray: 0 | 1) {
   await touch(page, page.locator(`[data-hotspot="tray-${tray}"]`), 'preparation');
   let raw = page.locator(`[aria-label="拿${product}"]`);
   if (!(await raw.count()) && (product === '苹果' || product === '香蕉')) {
-    await click(page.getByRole('button', { name: '选择食谱', exact: true }), 'preparation');
-    await click(
-      page.getByRole('group', { name: '选择食谱工作台' }).getByRole('button', {
-        name: '果汁',
-        exact: true,
-      }),
-      'preparation',
-    );
+    await touch(page, page.locator('[data-hotspot="family-juice"]'), 'preparation');
+    await touch(page, page.locator(`[data-hotspot="tray-${tray}"]`), 'preparation');
     raw = page.locator(`[aria-label="拿${product}"]`);
   }
   if (await raw.count()) {
@@ -160,6 +150,18 @@ async function makeVisible(page: Page, product: string, tray: 0 | 1) {
   }
 }
 
+async function deliverVisible(page: Page, seat: 0 | 1, tray: 0 | 1, kind: keyof typeof cost) {
+  const box = await page.locator(`[data-hotspot="tray-${tray}"]`).boundingBox();
+  if (!box) throw Error('tray');
+  await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2 + 26);
+  await touch(
+    page,
+    page.locator(`[data-hotspot^="guest-"][aria-label^="客人${seat === 0 ? 'A' : 'B'}"]`),
+    kind,
+  );
+  cost[kind]++;
+}
+
 async function served(page: Page): Promise<[number, number]> {
   const text = await page.locator('.service-count').innerText();
   const match = text.match(/(\d+)\s*\/\s*(\d+)/);
@@ -174,8 +176,6 @@ test('visible picture and recipe walk completes four cooking families and mixed 
   await page.goto('/');
   await click(page.locator('.yard-story .entry-main'), 'navigation');
   await click(page.getByRole('button', { name: '跳过序章' }), 'teaching');
-  await click(page.getByRole('button', { name: '晨光果汁', exact: true }), 'navigation');
-  await click(page.getByRole('button', { name: '帮朋友完成这关' }).first(), 'navigation');
   for (let levelIndex = 0; levelIndex < 25; levelIndex++) {
     await dismissTeaching(page);
     const [, total] = await served(page);
@@ -196,7 +196,7 @@ test('visible picture and recipe walk completes four cooking families and mixed 
       if (levelIndex === 0 && n === 0) {
         await page.screenshot({ path: info.outputPath('opening-393x665.png') });
         await touch(page, page.locator('[aria-label="拿香蕉"]'), 'preparation');
-        await click(page.locator('.delivery-actions .primary'), 'correction');
+        await deliverVisible(page, seat, tray, 'correction');
         await expect.poll(async () => (await served(page))[0]).toBe(before);
         const misplaced = page.locator('[data-hotspot^="item-"][aria-label^="香蕉，"]');
         await expect(misplaced).toBeAttached();
@@ -212,7 +212,7 @@ test('visible picture and recipe walk completes four cooking families and mixed 
         await page.screenshot({ path: info.outputPath('sandwich-393x665.png') });
       if (levelIndex === 15 && n === 0)
         await page.screenshot({ path: info.outputPath('burger-393x665.png') });
-      await click(page.locator('.delivery-actions .primary'), 'delivery');
+      await deliverVisible(page, seat, tray, 'delivery');
       await expect.poll(async () => (await served(page))[0], { timeout: 18000 }).toBe(before + 1);
     }
     await expect(page.locator('.ending')).toBeVisible();
