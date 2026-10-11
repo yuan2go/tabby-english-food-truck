@@ -1,0 +1,1139 @@
+﻿2026-10-11T20:04:42.3153328Z Current runner version: '2.337.0'
+2026-10-11T20:04:42.3174245Z ##[group]Runner Image Provisioner
+2026-10-11T20:04:42.3175190Z Hosted Compute Agent
+2026-10-11T20:04:42.3175681Z Version: 20261002.596
+2026-10-11T20:04:42.3176272Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-11T20:04:42.3176900Z Build Date: 2026-10-02T22:28:27Z
+2026-10-11T20:04:42.3177486Z Worker ID: {fd7e698a-8382-40ec-876a-543b7ad34908}
+2026-10-11T20:04:42.3178116Z Region: mexicocentral
+2026-10-11T20:04:42.3178592Z Cloud: Azure
+2026-10-11T20:04:42.3179098Z ##[endgroup]
+2026-10-11T20:04:42.3180204Z ##[group]Operating System
+2026-10-11T20:04:42.3180696Z Ubuntu
+2026-10-11T20:04:42.3181187Z 24.04.5
+2026-10-11T20:04:42.3181609Z LTS
+2026-10-11T20:04:42.3182047Z ##[endgroup]
+2026-10-11T20:04:42.3182541Z ##[group]Runner Image
+2026-10-11T20:04:42.3183055Z Image: ubuntu-24.04
+2026-10-11T20:04:42.3183574Z Version: 20261004.327.1
+2026-10-11T20:04:42.3184589Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-11T20:04:42.3186092Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-11T20:04:42.3186880Z ##[endgroup]
+2026-10-11T20:04:42.3187811Z ##[group]GITHUB_TOKEN Permissions
+2026-10-11T20:04:42.3189557Z Contents: read
+2026-10-11T20:04:42.3190151Z Metadata: read
+2026-10-11T20:04:42.3190607Z ##[endgroup]
+2026-10-11T20:04:42.3192335Z Secret source: Actions
+2026-10-11T20:04:42.3193126Z Cache mode: write
+2026-10-11T20:04:42.3193739Z Prepare workflow directory
+2026-10-11T20:04:42.3474553Z Prepare all required actions
+2026-10-11T20:04:42.3526320Z Getting action download info
+2026-10-11T20:04:42.6511987Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-11T20:04:42.7852753Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-11T20:04:43.0080669Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-11T20:04:43.3366974Z Complete job name: game
+2026-10-11T20:04:43.4056083Z ##[group]Run actions/checkout@v4
+2026-10-11T20:04:43.4056794Z with:
+2026-10-11T20:04:43.4057218Z   repository: yuan2go/tabby-english-food-truck
+2026-10-11T20:04:43.4060505Z   token: ***
+2026-10-11T20:04:43.4060890Z   ssh-strict: true
+2026-10-11T20:04:43.4061266Z   ssh-user: git
+2026-10-11T20:04:43.4061644Z   persist-credentials: true
+2026-10-11T20:04:43.4062061Z   clean: true
+2026-10-11T20:04:43.4062447Z   sparse-checkout-cone-mode: true
+2026-10-11T20:04:43.4062887Z   fetch-depth: 1
+2026-10-11T20:04:43.4063273Z   fetch-tags: false
+2026-10-11T20:04:43.4063646Z   show-progress: true
+2026-10-11T20:04:43.4064022Z   lfs: false
+2026-10-11T20:04:43.4064380Z   submodules: false
+2026-10-11T20:04:43.4064776Z   set-safe-directory: true
+2026-10-11T20:04:43.4065393Z   allow-unsafe-pr-checkout: false
+2026-10-11T20:04:43.4066048Z ##[endgroup]
+2026-10-11T20:04:43.4891959Z Syncing repository: yuan2go/tabby-english-food-truck
+2026-10-11T20:04:43.4894232Z ##[group]Getting Git version info
+2026-10-11T20:04:43.4895667Z Working directory is '/home/runner/work/tabby-english-food-truck/tabby-english-food-truck'
+2026-10-11T20:04:43.4897300Z [command]/usr/bin/git version
+2026-10-11T20:04:43.5618067Z git version 2.55.0
+2026-10-11T20:04:43.5634562Z ##[endgroup]
+2026-10-11T20:04:43.5646774Z Temporarily overriding HOME='/home/runner/work/_temp/b2d7ecc5-bb56-454f-a3f6-377d8bb486c5' before making global git config changes
+2026-10-11T20:04:43.5648622Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-11T20:04:43.5651303Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tabby-english-food-truck/tabby-english-food-truck
+2026-10-11T20:04:43.5698439Z Deleting the contents of '/home/runner/work/tabby-english-food-truck/tabby-english-food-truck'
+2026-10-11T20:04:43.5701869Z ##[group]Initializing the repository
+2026-10-11T20:04:43.5705800Z [command]/usr/bin/git init /home/runner/work/tabby-english-food-truck/tabby-english-food-truck
+2026-10-11T20:04:43.6447683Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-11T20:04:43.6449185Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-11T20:04:43.6450564Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-11T20:04:43.6451677Z hint: call:
+2026-10-11T20:04:43.6452129Z hint:
+2026-10-11T20:04:43.6452625Z hint: 	git config --global init.defaultBranch <name>
+2026-10-11T20:04:43.6453197Z hint:
+2026-10-11T20:04:43.6453738Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-11T20:04:43.6454594Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-11T20:04:43.6455504Z hint:
+2026-10-11T20:04:43.6455913Z hint: 	git branch -m <name>
+2026-10-11T20:04:43.6456364Z hint:
+2026-10-11T20:04:43.6456951Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-11T20:04:43.6458263Z Initialized empty Git repository in /home/runner/work/tabby-english-food-truck/tabby-english-food-truck/.git/
+2026-10-11T20:04:43.6461443Z [command]/usr/bin/git remote add origin https://github.com/yuan2go/tabby-english-food-truck
+2026-10-11T20:04:43.6638417Z ##[endgroup]
+2026-10-11T20:04:43.6639151Z ##[group]Disabling automatic garbage collection
+2026-10-11T20:04:43.6640837Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-11T20:04:43.6670343Z ##[endgroup]
+2026-10-11T20:04:43.6670972Z ##[group]Setting up auth
+2026-10-11T20:04:43.6675582Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-11T20:04:43.6703517Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-11T20:04:43.7172402Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-11T20:04:43.7201302Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-11T20:04:43.7420952Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-11T20:04:43.7427770Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-11T20:04:43.7632284Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-11T20:04:43.7669654Z ##[endgroup]
+2026-10-11T20:04:43.7670660Z ##[group]Fetching the repository
+2026-10-11T20:04:43.7679002Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +46a2653efa39f92fdd8334b50d3df63f5e95bf73:refs/remotes/pull/18/merge
+2026-10-11T20:05:24.4841323Z From https://github.com/yuan2go/tabby-english-food-truck
+2026-10-11T20:05:24.4842581Z  * [new ref]         46a2653efa39f92fdd8334b50d3df63f5e95bf73 -> pull/18/merge
+2026-10-11T20:05:24.4847308Z ##[endgroup]
+2026-10-11T20:05:24.4847959Z ##[group]Determining the checkout info
+2026-10-11T20:05:24.4855135Z ##[endgroup]
+2026-10-11T20:05:24.4856877Z [command]/usr/bin/git sparse-checkout disable
+2026-10-11T20:05:24.5987629Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-11T20:05:24.6626240Z ##[group]Checking out the ref
+2026-10-11T20:05:24.6630288Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/18/merge
+2026-10-11T20:05:25.6889826Z Updating files:  17% (576/3315)
+2026-10-11T20:05:25.7157690Z Updating files:  18% (597/3315)
+2026-10-11T20:05:25.7275714Z Updating files:  19% (630/3315)
+2026-10-11T20:05:25.7435575Z Updating files:  20% (663/3315)
+2026-10-11T20:05:25.7607001Z Updating files:  21% (697/3315)
+2026-10-11T20:05:25.7851993Z Updating files:  22% (730/3315)
+2026-10-11T20:05:25.8403518Z Updating files:  23% (763/3315)
+2026-10-11T20:05:25.8867433Z Updating files:  24% (796/3315)
+2026-10-11T20:05:25.9104336Z Updating files:  25% (829/3315)
+2026-10-11T20:05:25.9345056Z Updating files:  26% (862/3315)
+2026-10-11T20:05:25.9491587Z Updating files:  27% (896/3315)
+2026-10-11T20:05:25.9549627Z Updating files:  28% (929/3315)
+2026-10-11T20:05:25.9633914Z Updating files:  29% (962/3315)
+2026-10-11T20:05:25.9782197Z Updating files:  30% (995/3315)
+2026-10-11T20:05:26.1348325Z Updating files:  31% (1028/3315)
+2026-10-11T20:05:26.1674696Z Updating files:  32% (1061/3315)
+2026-10-11T20:05:26.1712044Z Updating files:  33% (1094/3315)
+2026-10-11T20:05:26.1739031Z Updating files:  34% (1128/3315)
+2026-10-11T20:05:26.2021884Z Updating files:  35% (1161/3315)
+2026-10-11T20:05:26.2406291Z Updating files:  36% (1194/3315)
+2026-10-11T20:05:26.3204197Z Updating files:  37% (1227/3315)
+2026-10-11T20:05:26.3383533Z Updating files:  38% (1260/3315)
+2026-10-11T20:05:26.4127601Z Updating files:  39% (1293/3315)
+2026-10-11T20:05:26.4869113Z Updating files:  40% (1326/3315)
+2026-10-11T20:05:26.5221645Z Updating files:  41% (1360/3315)
+2026-10-11T20:05:26.5530869Z Updating files:  42% (1393/3315)
+2026-10-11T20:05:26.6422442Z Updating files:  43% (1426/3315)
+2026-10-11T20:05:26.6714496Z Updating files:  44% (1459/3315)
+2026-10-11T20:05:26.6776278Z Updating files:  44% (1488/3315)
+2026-10-11T20:05:26.7401981Z Updating files:  45% (1492/3315)
+2026-10-11T20:05:26.7601973Z Updating files:  46% (1525/3315)
+2026-10-11T20:05:26.8078234Z Updating files:  47% (1559/3315)
+2026-10-11T20:05:26.8510425Z Updating files:  48% (1592/3315)
+2026-10-11T20:05:26.9614069Z Updating files:  49% (1625/3315)
+2026-10-11T20:05:27.0055989Z Updating files:  50% (1658/3315)
+2026-10-11T20:05:27.0237787Z Updating files:  51% (1691/3315)
+2026-10-11T20:05:27.1372940Z Updating files:  52% (1724/3315)
+2026-10-11T20:05:27.2265436Z Updating files:  53% (1757/3315)
+2026-10-11T20:05:27.2290317Z Updating files:  54% (1791/3315)
+2026-10-11T20:05:27.2311384Z Updating files:  55% (1824/3315)
+2026-10-11T20:05:27.2973709Z Updating files:  56% (1857/3315)
+2026-10-11T20:05:27.3211867Z Updating files:  57% (1890/3315)
+2026-10-11T20:05:27.4555603Z Updating files:  58% (1923/3315)
+2026-10-11T20:05:27.4844412Z Updating files:  59% (1956/3315)
+2026-10-11T20:05:27.4859950Z Updating files:  60% (1989/3315)
+2026-10-11T20:05:27.5056657Z Updating files:  61% (2023/3315)
+2026-10-11T20:05:27.5702884Z Updating files:  62% (2056/3315)
+2026-10-11T20:05:27.6819946Z Updating files:  63% (2089/3315)
+2026-10-11T20:05:27.7599067Z Updating files:  63% (2106/3315)
+2026-10-11T20:05:27.8670705Z Updating files:  64% (2122/3315)
+2026-10-11T20:05:27.8727881Z Updating files:  65% (2155/3315)
+2026-10-11T20:05:27.8823618Z Updating files:  66% (2188/3315)
+2026-10-11T20:05:27.9017037Z Updating files:  67% (2222/3315)
+2026-10-11T20:05:27.9311648Z Updating files:  68% (2255/3315)
+2026-10-11T20:05:27.9395691Z Updating files:  69% (2288/3315)
+2026-10-11T20:05:27.9570872Z Updating files:  70% (2321/3315)
+2026-10-11T20:05:28.0417988Z Updating files:  71% (2354/3315)
+2026-10-11T20:05:28.1548384Z Updating files:  72% (2387/3315)
+2026-10-11T20:05:28.1569646Z Updating files:  73% (2420/3315)
+2026-10-11T20:05:28.1607056Z Updating files:  74% (2454/3315)
+2026-10-11T20:05:28.1636948Z Updating files:  75% (2487/3315)
+2026-10-11T20:05:28.1661526Z Updating files:  76% (2520/3315)
+2026-10-11T20:05:28.1709630Z Updating files:  77% (2553/3315)
+2026-10-11T20:05:28.1810121Z Updating files:  78% (2586/3315)
+2026-10-11T20:05:28.1886301Z Updating files:  79% (2619/3315)
+2026-10-11T20:05:28.1941890Z Updating files:  80% (2652/3315)
+2026-10-11T20:05:28.2044224Z Updating files:  81% (2686/3315)
+2026-10-11T20:05:28.2186832Z Updating files:  82% (2719/3315)
+2026-10-11T20:05:28.2330629Z Updating files:  83% (2752/3315)
+2026-10-11T20:05:28.2455220Z Updating files:  84% (2785/3315)
+2026-10-11T20:05:28.2576620Z Updating files:  85% (2818/3315)
+2026-10-11T20:05:28.2682133Z Updating files:  86% (2851/3315)
+2026-10-11T20:05:28.2790626Z Updating files:  87% (2885/3315)
+2026-10-11T20:05:28.2896962Z Updating files:  88% (2918/3315)
+2026-10-11T20:05:28.2972698Z Updating files:  89% (2951/3315)
+2026-10-11T20:05:28.3015818Z Updating files:  90% (2984/3315)
+2026-10-11T20:05:28.3104207Z Updating files:  91% (3017/3315)
+2026-10-11T20:05:28.3289266Z Updating files:  92% (3050/3315)
+2026-10-11T20:05:28.3393057Z Updating files:  93% (3083/3315)
+2026-10-11T20:05:28.3592664Z Updating files:  94% (3117/3315)
+2026-10-11T20:05:28.3726017Z Updating files:  95% (3150/3315)
+2026-10-11T20:05:28.3744596Z Updating files:  96% (3183/3315)
+2026-10-11T20:05:28.3759020Z Updating files:  97% (3216/3315)
+2026-10-11T20:05:28.3780107Z Updating files:  98% (3249/3315)
+2026-10-11T20:05:28.3796738Z Updating files:  99% (3282/3315)
+2026-10-11T20:05:28.3797149Z Updating files: 100% (3315/3315)
+2026-10-11T20:05:28.3797508Z Updating files: 100% (3315/3315), done.
+2026-10-11T20:05:28.4563336Z Note: switching to 'refs/remotes/pull/18/merge'.
+2026-10-11T20:05:28.4565287Z 
+2026-10-11T20:05:28.4565602Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-11T20:05:28.4566247Z changes and commit them, and you can discard any commits you make in this
+2026-10-11T20:05:28.4566828Z state without impacting any branches by switching back to a branch.
+2026-10-11T20:05:28.4567172Z 
+2026-10-11T20:05:28.4567406Z If you want to create a new branch to retain commits you create, you may
+2026-10-11T20:05:28.4567951Z do so (now or later) by using -c with the switch command. Example:
+2026-10-11T20:05:28.4568272Z 
+2026-10-11T20:05:28.4568402Z   git switch -c <new-branch-name>
+2026-10-11T20:05:28.4568625Z 
+2026-10-11T20:05:28.4568743Z Or undo this operation with:
+2026-10-11T20:05:28.4568946Z 
+2026-10-11T20:05:28.4569047Z   git switch -
+2026-10-11T20:05:28.4569198Z 
+2026-10-11T20:05:28.4569437Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-11T20:05:28.4569769Z 
+2026-10-11T20:05:28.4570194Z HEAD is now at 46a2653 Merge 53c072bda4a5c3668f4bd973232f46e5f25cde0d into 2a7b774a33d6586aa586bb6a3ed59c9ac2b83405
+2026-10-11T20:05:28.4777054Z ##[endgroup]
+2026-10-11T20:05:28.4819292Z [command]/usr/bin/git log -1 --format=%H
+2026-10-11T20:05:28.4849457Z 46a2653efa39f92fdd8334b50d3df63f5e95bf73
+2026-10-11T20:05:28.6999048Z ##[group]Run actions/setup-node@v4
+2026-10-11T20:05:28.6999283Z with:
+2026-10-11T20:05:28.6999458Z   node-version: 22.12.0
+2026-10-11T20:05:28.6999640Z   cache: npm
+2026-10-11T20:05:28.6999805Z   always-auth: false
+2026-10-11T20:05:28.6999994Z   check-latest: false
+2026-10-11T20:05:28.7002071Z   token: ***
+2026-10-11T20:05:28.7002244Z ##[endgroup]
+2026-10-11T20:05:28.8136887Z Attempting to download 22.12.0...
+2026-10-11T20:05:28.8217675Z (node:2103) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-11T20:05:28.8218316Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-11T20:05:29.8038467Z Acquiring 22.12.0 - x64 from https://github.com/actions/node-versions/releases/download/22.12.0-12152383658/node-22.12.0-linux-x64.tar.gz
+2026-10-11T20:05:30.3062492Z Extracting ...
+2026-10-11T20:05:30.3157542Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/659e7a4c-bc57-4f49-ad56-f597d2788bb6 -f /home/runner/work/_temp/f9cbbd4d-e08d-44da-ab81-a335327af169
+2026-10-11T20:05:31.3063919Z Adding to the cache ...
+2026-10-11T20:05:35.4411085Z ##[group]Environment details
+2026-10-11T20:05:35.6487108Z node: v22.12.0
+2026-10-11T20:05:35.6487402Z npm: 10.9.0
+2026-10-11T20:05:35.6487613Z yarn: 1.22.22
+2026-10-11T20:05:35.6490820Z ##[endgroup]
+2026-10-11T20:05:35.6501676Z [command]/opt/hostedtoolcache/node/22.12.0/x64/bin/npm config get cache
+2026-10-11T20:05:35.7263067Z /home/runner/.npm
+2026-10-11T20:05:36.0357780Z Cache hit for: node-cache-Linux-x64-npm-a1f178a045965ed76fd0c8d4815b9e22b19ce6b2acad1ac6437563f3eed5679e
+2026-10-11T20:05:36.0440661Z (node:2103) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-11T20:05:37.2427625Z Received 46137344 of 85846894 (53.7%), 44.0 MBs/sec
+2026-10-11T20:05:38.0220615Z Received 85846894 of 85846894 (100.0%), 46.0 MBs/sec
+2026-10-11T20:05:38.0221087Z Cache Size: ~82 MB (85846894 B)
+2026-10-11T20:05:38.0244138Z [command]/usr/bin/tar -xf /home/runner/work/_temp/6c714311-23c7-41eb-8c72-4e44015dff76/cache.tzst -P -C /home/runner/work/tabby-english-food-truck/tabby-english-food-truck --use-compress-program unzstd
+2026-10-11T20:05:38.1349807Z Cache restored successfully
+2026-10-11T20:05:38.1390371Z Cache restored from key: node-cache-Linux-x64-npm-a1f178a045965ed76fd0c8d4815b9e22b19ce6b2acad1ac6437563f3eed5679e
+2026-10-11T20:05:38.1568750Z ##[group]Run npm ci --no-audit --no-fund
+2026-10-11T20:05:38.1569078Z [36;1mnpm ci --no-audit --no-fund[0m
+2026-10-11T20:05:38.1796493Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:05:38.1796755Z ##[endgroup]
+2026-10-11T20:05:41.0021100Z 
+2026-10-11T20:05:41.0028109Z added 68 packages in 3s
+2026-10-11T20:05:41.0934753Z ##[group]Run npm run lint
+2026-10-11T20:05:41.0935264Z [36;1mnpm run lint[0m
+2026-10-11T20:05:41.0991347Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:05:41.0991573Z ##[endgroup]
+2026-10-11T20:05:41.2835493Z 
+2026-10-11T20:05:41.2836015Z > tabby-english-food-truck@0.1.0 lint
+2026-10-11T20:05:41.2836472Z > biome check .
+2026-10-11T20:05:41.2836678Z 
+2026-10-11T20:05:41.7644773Z scripts/check-vocabulary.mjs:201:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7645516Z 
+2026-10-11T20:05:41.7645839Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7646315Z   
+2026-10-11T20:05:41.7646625Z     199 │   await writeFile(
+2026-10-11T20:05:41.7647169Z     200 │     'docs/evidence/minigames-vocab/coverage.json',
+2026-10-11T20:05:41.7647791Z   > 201 │     JSON.stringify(summary, null, 2) + '\n',
+2026-10-11T20:05:41.7648341Z         │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7648794Z     202 │   );
+2026-10-11T20:05:41.7649201Z     203 │   await writeFile(
+2026-10-11T20:05:41.7649512Z   
+2026-10-11T20:05:41.7649822Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7650182Z   
+2026-10-11T20:05:41.7650550Z     199 199 │     await writeFile(
+2026-10-11T20:05:41.7651496Z     200 200 │       'docs/evidence/minigames-vocab/coverage.json',
+2026-10-11T20:05:41.7666384Z     201     │ - ····JSON.stringify(summary,·null,·2)·+·'\n',
+2026-10-11T20:05:41.7667295Z         201 │ + ····`${JSON.stringify(summary,·null,·2)}\n`,
+2026-10-11T20:05:41.7667934Z     202 202 │     );
+2026-10-11T20:05:41.7668329Z     203 203 │     await writeFile(
+2026-10-11T20:05:41.7668650Z   
+2026-10-11T20:05:41.7668782Z 
+2026-10-11T20:05:41.7669485Z scripts/export-m22.mjs:46:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7670009Z 
+2026-10-11T20:05:41.7670294Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7670761Z   
+2026-10-11T20:05:41.7671067Z     44 │ await writeFile(
+2026-10-11T20:05:41.7671492Z     45 │   'art/m22-production.json',
+2026-10-11T20:05:41.7671898Z   > 46 │   JSON.stringify(
+2026-10-11T20:05:41.7672245Z        │   ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7672577Z   > 47 │     {
+2026-10-11T20:05:41.7672842Z         ...
+2026-10-11T20:05:41.7673177Z   > 56 │     2,
+2026-10-11T20:05:41.7673471Z   > 57 │   ) + '\n',
+2026-10-11T20:05:41.7673792Z        │   ^^^^^^^^
+2026-10-11T20:05:41.7674092Z     58 │ );
+2026-10-11T20:05:41.7674881Z     59 │ console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+2026-10-11T20:05:41.7675677Z   
+2026-10-11T20:05:41.7676059Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7676420Z   
+2026-10-11T20:05:41.7676802Z     44 44 │   await writeFile(
+2026-10-11T20:05:41.7677245Z     45 45 │     'art/m22-production.json',
+2026-10-11T20:05:41.7677736Z     46    │ - ··JSON.stringify(
+2026-10-11T20:05:41.7678488Z        46 │ + ··`${JSON.stringify(
+2026-10-11T20:05:41.7678870Z     47 47 │       {
+2026-10-11T20:05:41.7679297Z     48 48 │         tool: 'OpenAI built-in imagegen',
+2026-10-11T20:05:41.7679738Z     ····· │ 
+2026-10-11T20:05:41.7680042Z     55 55 │       null,
+2026-10-11T20:05:41.7680364Z     56 56 │       2,
+2026-10-11T20:05:41.7680695Z     57    │ - ··)·+·'\n',
+2026-10-11T20:05:41.7681039Z        57 │ + ··)}\n`,
+2026-10-11T20:05:41.7681349Z     58 58 │   );
+2026-10-11T20:05:41.7682142Z     59 59 │   console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+2026-10-11T20:05:41.7682796Z   
+2026-10-11T20:05:41.7682932Z 
+2026-10-11T20:05:41.7683614Z scripts/immersion-audio.mjs:72:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7684143Z 
+2026-10-11T20:05:41.7684433Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7684881Z   
+2026-10-11T20:05:41.7685444Z     70 │     else manifest.assets[index] = entry;
+2026-10-11T20:05:41.7685894Z     71 │   }
+2026-10-11T20:05:41.7686799Z   > 72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7687631Z        │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7688445Z     73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7689069Z     74 │   await writeFile(
+2026-10-11T20:05:41.7689370Z   
+2026-10-11T20:05:41.7689663Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7690016Z   
+2026-10-11T20:05:41.7690426Z      70  70 │       else manifest.assets[index] = entry;
+2026-10-11T20:05:41.7690860Z      71  71 │     }
+2026-10-11T20:05:41.7691605Z      72     │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7692664Z          72 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+2026-10-11T20:05:41.7693688Z      73  73 │     await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7694369Z      74  74 │     await writeFile(
+2026-10-11T20:05:41.7694692Z   
+2026-10-11T20:05:41.7694825Z 
+2026-10-11T20:05:41.7695625Z scripts/immersion-audio.mjs:73:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7696155Z 
+2026-10-11T20:05:41.7696446Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7696896Z   
+2026-10-11T20:05:41.7698812Z     71 │   }
+2026-10-11T20:05:41.7727892Z     72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7728900Z   > 73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7729886Z        │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7730388Z     74 │   await writeFile(
+2026-10-11T20:05:41.7730830Z     75 │     'art/immersion-audio.json',
+2026-10-11T20:05:41.7731224Z   
+2026-10-11T20:05:41.7731546Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7731987Z   
+2026-10-11T20:05:41.7732268Z      71  71 │     }
+2026-10-11T20:05:41.7732987Z      72  72 │     await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7734034Z      73     │ - ··await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7735163Z          73 │ + ··await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+2026-10-11T20:05:41.7735847Z      74  74 │     await writeFile(
+2026-10-11T20:05:41.7736321Z      75  75 │       'art/immersion-audio.json',
+2026-10-11T20:05:41.7736706Z   
+2026-10-11T20:05:41.7736837Z 
+2026-10-11T20:05:41.7737545Z scripts/immersion-audio.mjs:76:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7738072Z 
+2026-10-11T20:05:41.7738351Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7739025Z   
+2026-10-11T20:05:41.7739340Z     74 │   await writeFile(
+2026-10-11T20:05:41.7739779Z     75 │     'art/immersion-audio.json',
+2026-10-11T20:05:41.7740200Z   > 76 │     JSON.stringify(
+2026-10-11T20:05:41.7740577Z        │     ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7740908Z   > 77 │       {
+2026-10-11T20:05:41.7741172Z         ...
+2026-10-11T20:05:41.7741476Z   > 84 │       2,
+2026-10-11T20:05:41.7741780Z   > 85 │     ) + '\n',
+2026-10-11T20:05:41.7742092Z        │     ^^^^^^^^
+2026-10-11T20:05:41.7742413Z     86 │   );
+2026-10-11T20:05:41.7742729Z     87 │   execFileSync(
+2026-10-11T20:05:41.7743024Z   
+2026-10-11T20:05:41.7743335Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7743681Z   
+2026-10-11T20:05:41.7743998Z      74  74 │     await writeFile(
+2026-10-11T20:05:41.7744471Z      75  75 │       'art/immersion-audio.json',
+2026-10-11T20:05:41.7745141Z      76     │ - ····JSON.stringify(
+2026-10-11T20:05:41.7745605Z          76 │ + ····`${JSON.stringify(
+2026-10-11T20:05:41.7746160Z      77  77 │         {
+2026-10-11T20:05:41.7746745Z      78  78 │           source: 'macOS say / Samantha 140 wpm, offline PCM 22050 Hz',
+2026-10-11T20:05:41.7747299Z     ······· │ 
+2026-10-11T20:05:41.7747616Z      83  83 │         null,
+2026-10-11T20:05:41.7747960Z      84  84 │         2,
+2026-10-11T20:05:41.7748321Z      85     │ - ····)·+·'\n',
+2026-10-11T20:05:41.7748688Z          85 │ + ····)}\n`,
+2026-10-11T20:05:41.7749027Z      86  86 │     );
+2026-10-11T20:05:41.7749383Z      87  87 │     execFileSync(
+2026-10-11T20:05:41.7749703Z   
+2026-10-11T20:05:41.7749835Z 
+2026-10-11T20:05:41.7750516Z scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7751038Z 
+2026-10-11T20:05:41.7751316Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7751773Z   
+2026-10-11T20:05:41.7752063Z     58 │   await writeFile(
+2026-10-11T20:05:41.7752452Z     59 │     'art/m21-audio.json',
+2026-10-11T20:05:41.7752878Z   > 60 │     JSON.stringify(
+2026-10-11T20:05:41.7753236Z        │     ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7753564Z   > 61 │       {
+2026-10-11T20:05:41.7753829Z         ...
+2026-10-11T20:05:41.7754124Z   > 68 │       2,
+2026-10-11T20:05:41.7754423Z   > 69 │     ) + '\n',
+2026-10-11T20:05:41.7754740Z        │     ^^^^^^^^
+2026-10-11T20:05:41.7755201Z     70 │   );
+2026-10-11T20:05:41.7755757Z     71 │   console.log(`Generated ${ids.length} registered development clips`);
+2026-10-11T20:05:41.7756259Z   
+2026-10-11T20:05:41.7756554Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7756908Z   
+2026-10-11T20:05:41.7757231Z     58 58 │     await writeFile(
+2026-10-11T20:05:41.7757655Z     59 59 │       'art/m21-audio.json',
+2026-10-11T20:05:41.7758105Z     60    │ - ····JSON.stringify(
+2026-10-11T20:05:41.7758532Z        60 │ + ····`${JSON.stringify(
+2026-10-11T20:05:41.7758911Z     61 61 │         {
+2026-10-11T20:05:41.7759361Z     62 62 │           humanListeningReview: 'NOT_RUN',
+2026-10-11T20:05:41.7759814Z     ····· │ 
+2026-10-11T20:05:41.7760125Z     67 67 │         null,
+2026-10-11T20:05:41.7760461Z     68 68 │         2,
+2026-10-11T20:05:41.7760796Z     69    │ - ····)·+·'\n',
+2026-10-11T20:05:41.7761142Z        69 │ + ····)}\n`,
+2026-10-11T20:05:41.7761468Z     70 70 │     );
+2026-10-11T20:05:41.7762074Z     71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+2026-10-11T20:05:41.7762593Z   
+2026-10-11T20:05:41.7762734Z 
+2026-10-11T20:05:41.7763402Z scripts/m22-audio.mjs:44:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7763920Z 
+2026-10-11T20:05:41.7764208Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7764655Z   
+2026-10-11T20:05:41.7765109Z     42 │     ]);
+2026-10-11T20:05:41.7765430Z     43 │   }
+2026-10-11T20:05:41.7766074Z   > 44 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7767106Z        │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7767600Z     45 │   await writeFile(
+2026-10-11T20:05:41.7767997Z     46 │     'art/m22-audio.json',
+2026-10-11T20:05:41.7768315Z   
+2026-10-11T20:05:41.7768601Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7768955Z   
+2026-10-11T20:05:41.7769229Z     42 42 │       ]);
+2026-10-11T20:05:41.7769533Z     43 43 │     }
+2026-10-11T20:05:41.7770250Z     44    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7771268Z        44 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+2026-10-11T20:05:41.7771945Z     45 45 │     await writeFile(
+2026-10-11T20:05:41.7772376Z     46 46 │       'art/m22-audio.json',
+2026-10-11T20:05:41.7772706Z   
+2026-10-11T20:05:41.7772838Z 
+2026-10-11T20:05:41.7773497Z scripts/m22-audio.mjs:47:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7774020Z 
+2026-10-11T20:05:41.7774434Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7774887Z   
+2026-10-11T20:05:41.7775287Z     45 │   await writeFile(
+2026-10-11T20:05:41.7775683Z     46 │     'art/m22-audio.json',
+2026-10-11T20:05:41.7776070Z   > 47 │     JSON.stringify(
+2026-10-11T20:05:41.7776428Z        │     ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7776754Z   > 48 │       {
+2026-10-11T20:05:41.7777022Z         ...
+2026-10-11T20:05:41.7777301Z   > 55 │       2,
+2026-10-11T20:05:41.7777597Z   > 56 │     ) + '\n',
+2026-10-11T20:05:41.7777918Z        │     ^^^^^^^^
+2026-10-11T20:05:41.7778218Z     57 │   );
+2026-10-11T20:05:41.7778797Z     58 │   console.log(`Generated ${records.length} individual registered clips`);
+2026-10-11T20:05:41.7779330Z   
+2026-10-11T20:05:41.7779625Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7779988Z   
+2026-10-11T20:05:41.7780303Z     45 45 │     await writeFile(
+2026-10-11T20:05:41.7780731Z     46 46 │       'art/m22-audio.json',
+2026-10-11T20:05:41.7781196Z     47    │ - ····JSON.stringify(
+2026-10-11T20:05:41.7781620Z        47 │ + ····`${JSON.stringify(
+2026-10-11T20:05:41.7781999Z     48 48 │         {
+2026-10-11T20:05:41.7782520Z     49 49 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+2026-10-11T20:05:41.7783017Z     ····· │ 
+2026-10-11T20:05:41.7783319Z     54 54 │         null,
+2026-10-11T20:05:41.7783646Z     55 55 │         2,
+2026-10-11T20:05:41.7783976Z     56    │ - ····)·+·'\n',
+2026-10-11T20:05:41.7784327Z        56 │ + ····)}\n`,
+2026-10-11T20:05:41.7784653Z     57 57 │     );
+2026-10-11T20:05:41.7785366Z     58 58 │     console.log(`Generated ${records.length} individual registered clips`);
+2026-10-11T20:05:41.7785896Z   
+2026-10-11T20:05:41.7786028Z 
+2026-10-11T20:05:41.7786703Z scripts/m22-growth-audio.mjs:39:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7787211Z 
+2026-10-11T20:05:41.7787498Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7788100Z   
+2026-10-11T20:05:41.7788647Z     37 │     speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+2026-10-11T20:05:41.7789158Z     38 │   }
+2026-10-11T20:05:41.7789813Z   > 39 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7790640Z        │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7791126Z     40 │   await writeFile(
+2026-10-11T20:05:41.7791547Z     41 │     'art/m22-growth-audio.json',
+2026-10-11T20:05:41.7791906Z   
+2026-10-11T20:05:41.7792206Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7792549Z   
+2026-10-11T20:05:41.7793078Z     37 37 │       speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+2026-10-11T20:05:41.7793619Z     38 38 │     }
+2026-10-11T20:05:41.7794322Z     39    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7795590Z        39 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+2026-10-11T20:05:41.7796280Z     40 40 │     await writeFile(
+2026-10-11T20:05:41.7796743Z     41 41 │       'art/m22-growth-audio.json',
+2026-10-11T20:05:41.7797111Z   
+2026-10-11T20:05:41.7797247Z 
+2026-10-11T20:05:41.7797927Z scripts/m22-growth-audio.mjs:42:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7798439Z 
+2026-10-11T20:05:41.7798724Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7799170Z   
+2026-10-11T20:05:41.7799468Z     40 │   await writeFile(
+2026-10-11T20:05:41.7799883Z     41 │     'art/m22-growth-audio.json',
+2026-10-11T20:05:41.7800291Z   > 42 │     JSON.stringify(
+2026-10-11T20:05:41.7800664Z        │     ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7800986Z   > 43 │       {
+2026-10-11T20:05:41.7801255Z         ...
+2026-10-11T20:05:41.7801534Z   > 50 │       2,
+2026-10-11T20:05:41.7801831Z   > 51 │     ) + '\n',
+2026-10-11T20:05:41.7802166Z        │     ^^^^^^^^
+2026-10-11T20:05:41.7802485Z     52 │   );
+2026-10-11T20:05:41.7802780Z     53 │ } finally {
+2026-10-11T20:05:41.7803062Z   
+2026-10-11T20:05:41.7803358Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7803715Z   
+2026-10-11T20:05:41.7804037Z     40 40 │     await writeFile(
+2026-10-11T20:05:41.7804496Z     41 41 │       'art/m22-growth-audio.json',
+2026-10-11T20:05:41.7805072Z     42    │ - ····JSON.stringify(
+2026-10-11T20:05:41.7805502Z        42 │ + ····`${JSON.stringify(
+2026-10-11T20:05:41.7805884Z     43 43 │         {
+2026-10-11T20:05:41.7806404Z     44 44 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+2026-10-11T20:05:41.7806899Z     ····· │ 
+2026-10-11T20:05:41.7807213Z     49 49 │         null,
+2026-10-11T20:05:41.7807546Z     50 50 │         2,
+2026-10-11T20:05:41.7807877Z     51    │ - ····)·+·'\n',
+2026-10-11T20:05:41.7808250Z        51 │ + ····)}\n`,
+2026-10-11T20:05:41.7808583Z     52 52 │     );
+2026-10-11T20:05:41.7808920Z     53 53 │   } finally {
+2026-10-11T20:05:41.7809212Z   
+2026-10-11T20:05:41.7809354Z 
+2026-10-11T20:05:41.7810030Z scripts/vocab-resources.mjs:351:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7810551Z 
+2026-10-11T20:05:41.7810841Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7811292Z   
+2026-10-11T20:05:41.7811975Z     349 │   // Update only the selected vector/image records in place; audio and text remain untouched.
+2026-10-11T20:05:41.7813073Z     350 │   manifest.assets = manifest.assets.map((a) => newAssets.find((n) => n.assetId === a.assetId) ?? a);
+2026-10-11T20:05:41.7814085Z   > 351 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7814885Z         │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7815971Z     352 │   console.log(`Exported ${newAssets.length / 2} registered objects; speech untouched.`);
+2026-10-11T20:05:41.7816862Z     353 │   process.exit(0);
+2026-10-11T20:05:41.7817179Z   
+2026-10-11T20:05:41.7817481Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7817827Z   
+2026-10-11T20:05:41.7818540Z     349 349 │     // Update only the selected vector/image records in place; audio and text remain untouched.
+2026-10-11T20:05:41.7819676Z     350 350 │     manifest.assets = manifest.assets.map((a) => newAssets.find((n) => n.assetId === a.assetId) ?? a);
+2026-10-11T20:05:41.7820760Z     351     │ - ··await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7821759Z         351 │ + ··await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+2026-10-11T20:05:41.7822776Z     352 352 │     console.log(`Exported ${newAssets.length / 2} registered objects; speech untouched.`);
+2026-10-11T20:05:41.7823483Z     353 353 │     process.exit(0);
+2026-10-11T20:05:41.7823818Z   
+2026-10-11T20:05:41.7823944Z 
+2026-10-11T20:05:41.7824766Z scripts/vocab-resources.mjs:426:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7825394Z 
+2026-10-11T20:05:41.7825673Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7826136Z   
+2026-10-11T20:05:41.7826584Z     424 │   review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+2026-10-11T20:05:41.7827036Z     425 │ }));
+2026-10-11T20:05:41.7827763Z   > 426 │ await writeFile('src/content/vocabulary-extra.json', JSON.stringify(extra, null, 2) + '\n');
+2026-10-11T20:05:41.7828662Z         │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7829227Z     427 │ const instructions = [
+2026-10-11T20:05:41.7829901Z     428 │   ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+2026-10-11T20:05:41.7830431Z   
+2026-10-11T20:05:41.7830734Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7831077Z   
+2026-10-11T20:05:41.7831527Z     424 424 │     review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+2026-10-11T20:05:41.7832035Z     425 425 │   }));
+2026-10-11T20:05:41.7832817Z     426     │ - await·writeFile('src/content/vocabulary-extra.json',·JSON.stringify(extra,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7833952Z         426 │ + await·writeFile('src/content/vocabulary-extra.json',·`${JSON.stringify(extra,·null,·2)}\n`);
+2026-10-11T20:05:41.7834711Z     427 427 │   const instructions = [
+2026-10-11T20:05:41.7835525Z     428 428 │     ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+2026-10-11T20:05:41.7855460Z   
+2026-10-11T20:05:41.7855620Z 
+2026-10-11T20:05:41.7856376Z scripts/vocab-resources.mjs:475:55 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7856900Z 
+2026-10-11T20:05:41.7857193Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7857646Z   
+2026-10-11T20:05:41.7858060Z     473 │   ['lamp-on', 'Put the lamp on the table.'],
+2026-10-11T20:05:41.7858773Z     474 │ ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+2026-10-11T20:05:41.7859798Z   > 475 │ await writeFile('src/content/mini-instructions.json', JSON.stringify(instructions, null, 2) + '\n');
+2026-10-11T20:05:41.7860794Z         │                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7861594Z     476 │ const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+2026-10-11T20:05:41.7862195Z     477 │ const records = [
+2026-10-11T20:05:41.7862502Z   
+2026-10-11T20:05:41.7862799Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7863147Z   
+2026-10-11T20:05:41.7863575Z     473 473 │     ['lamp-on', 'Put the lamp on the table.'],
+2026-10-11T20:05:41.7864297Z     474 474 │   ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+2026-10-11T20:05:41.7865475Z     475     │ - await·writeFile('src/content/mini-instructions.json',·JSON.stringify(instructions,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7866996Z         475 │ + await·writeFile('src/content/mini-instructions.json',·`${JSON.stringify(instructions,·null,·2)}\n`);
+2026-10-11T20:05:41.7868064Z     476 476 │   const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+2026-10-11T20:05:41.7868716Z     477 477 │   const records = [
+2026-10-11T20:05:41.7869042Z   
+2026-10-11T20:05:41.7869170Z 
+2026-10-11T20:05:41.7869842Z scripts/vocab-resources.mjs:513:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7870364Z 
+2026-10-11T20:05:41.7870641Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7871092Z   
+2026-10-11T20:05:41.7871594Z     511 │   .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+2026-10-11T20:05:41.7872141Z     512 │   .concat(newAssets);
+2026-10-11T20:05:41.7872862Z   > 513 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7873682Z         │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7874740Z     514 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7875469Z     515 │ await writeFile(
+2026-10-11T20:05:41.7875776Z   
+2026-10-11T20:05:41.7876080Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7876423Z   
+2026-10-11T20:05:41.7876947Z     511 511 │     .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+2026-10-11T20:05:41.7877541Z     512 512 │     .concat(newAssets);
+2026-10-11T20:05:41.7878322Z     513     │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7879332Z         513 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+2026-10-11T20:05:41.7880331Z     514 514 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7881001Z     515 515 │   await writeFile(
+2026-10-11T20:05:41.7881312Z   
+2026-10-11T20:05:41.7881467Z 
+2026-10-11T20:05:41.7882157Z scripts/vocab-resources.mjs:514:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7882675Z 
+2026-10-11T20:05:41.7882961Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7883406Z   
+2026-10-11T20:05:41.7883731Z     512 │   .concat(newAssets);
+2026-10-11T20:05:41.7884435Z     513 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7885480Z   > 514 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7886273Z         │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7886742Z     515 │ await writeFile(
+2026-10-11T20:05:41.7887163Z     516 │   'art/vocab-production.json',
+2026-10-11T20:05:41.7887523Z   
+2026-10-11T20:05:41.7887816Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7888157Z   
+2026-10-11T20:05:41.7888487Z     512 512 │     .concat(newAssets);
+2026-10-11T20:05:41.7889283Z     513 513 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7890301Z     514     │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7891287Z         514 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+2026-10-11T20:05:41.7891942Z     515 515 │   await writeFile(
+2026-10-11T20:05:41.7892408Z     516 516 │     'art/vocab-production.json',
+2026-10-11T20:05:41.7892787Z   
+2026-10-11T20:05:41.7892917Z 
+2026-10-11T20:05:41.7893599Z scripts/vocab-resources.mjs:517:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7894140Z 
+2026-10-11T20:05:41.7894423Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7894883Z   
+2026-10-11T20:05:41.7895273Z     515 │ await writeFile(
+2026-10-11T20:05:41.7895690Z     516 │   'art/vocab-production.json',
+2026-10-11T20:05:41.7896264Z   > 517 │   JSON.stringify(
+2026-10-11T20:05:41.7896633Z         │   ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7896950Z   > 518 │     {
+2026-10-11T20:05:41.7897211Z          ...
+2026-10-11T20:05:41.7897503Z   > 526 │     2,
+2026-10-11T20:05:41.7897804Z   > 527 │   ) + '\n',
+2026-10-11T20:05:41.7898111Z         │   ^^^^^^^^
+2026-10-11T20:05:41.7898416Z     528 │ );
+2026-10-11T20:05:41.7898708Z     529 │ console.log(
+2026-10-11T20:05:41.7898977Z   
+2026-10-11T20:05:41.7899269Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7899620Z   
+2026-10-11T20:05:41.7899939Z     515 515 │   await writeFile(
+2026-10-11T20:05:41.7900397Z     516 516 │     'art/vocab-production.json',
+2026-10-11T20:05:41.7900876Z     517     │ - ··JSON.stringify(
+2026-10-11T20:05:41.7901302Z         517 │ + ··`${JSON.stringify(
+2026-10-11T20:05:41.7901680Z     518 518 │       {
+2026-10-11T20:05:41.7902375Z     519 519 │         source: 'Original vector art and offline macOS Samantha development synthesis',
+2026-10-11T20:05:41.7903024Z     ······· │ 
+2026-10-11T20:05:41.7903471Z     525 525 │       null,
+2026-10-11T20:05:41.7903809Z     526 526 │       2,
+2026-10-11T20:05:41.7904144Z     527     │ - ··)·+·'\n',
+2026-10-11T20:05:41.7904494Z         527 │ + ··)}\n`,
+2026-10-11T20:05:41.7904826Z     528 528 │   );
+2026-10-11T20:05:41.7905261Z     529 529 │   console.log(
+2026-10-11T20:05:41.7905559Z   
+2026-10-11T20:05:41.7905692Z 
+2026-10-11T20:05:41.7906365Z scripts/vocab-scene-audio.mjs:58:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7906893Z 
+2026-10-11T20:05:41.7907178Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7907623Z   
+2026-10-11T20:05:41.7907888Z     56 │   });
+2026-10-11T20:05:41.7908175Z     57 │ }
+2026-10-11T20:05:41.7908809Z   > 58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7909624Z        │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7910441Z     59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7911043Z     60 │ await writeFile(
+2026-10-11T20:05:41.7911334Z   
+2026-10-11T20:05:41.7911629Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7911980Z   
+2026-10-11T20:05:41.7912243Z     56 56 │     });
+2026-10-11T20:05:41.7912537Z     57 57 │   }
+2026-10-11T20:05:41.7913231Z     58    │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7914227Z        58 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+2026-10-11T20:05:41.7915305Z     59 59 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7916025Z     60 60 │   await writeFile(
+2026-10-11T20:05:41.7916330Z   
+2026-10-11T20:05:41.7916459Z 
+2026-10-11T20:05:41.7917122Z scripts/vocab-scene-audio.mjs:59:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7917672Z 
+2026-10-11T20:05:41.7917970Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7918415Z   
+2026-10-11T20:05:41.7918677Z     57 │ }
+2026-10-11T20:05:41.7919321Z     58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7920254Z   > 59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+2026-10-11T20:05:41.7921022Z        │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7921500Z     60 │ await writeFile(
+2026-10-11T20:05:41.7921916Z     61 │   'art/vocab-scene-audio.json',
+2026-10-11T20:05:41.7922268Z   
+2026-10-11T20:05:41.7922568Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7922907Z   
+2026-10-11T20:05:41.7923165Z     57 57 │   }
+2026-10-11T20:05:41.7923820Z     58 58 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+2026-10-11T20:05:41.7925072Z     59    │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+2026-10-11T20:05:41.7926026Z        59 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+2026-10-11T20:05:41.7926664Z     60 60 │   await writeFile(
+2026-10-11T20:05:41.7927125Z     61 61 │     'art/vocab-scene-audio.json',
+2026-10-11T20:05:41.7927489Z   
+2026-10-11T20:05:41.7927624Z 
+2026-10-11T20:05:41.7928288Z scripts/vocab-scene-audio.mjs:62:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7928822Z 
+2026-10-11T20:05:41.7929113Z   i Template literals are preferred over string concatenation.
+2026-10-11T20:05:41.7929563Z   
+2026-10-11T20:05:41.7929848Z     60 │ await writeFile(
+2026-10-11T20:05:41.7930270Z     61 │   'art/vocab-scene-audio.json',
+2026-10-11T20:05:41.7930697Z   > 62 │   JSON.stringify(
+2026-10-11T20:05:41.7931043Z        │   ^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7931372Z   > 63 │     {
+2026-10-11T20:05:41.7931622Z         ...
+2026-10-11T20:05:41.7931909Z   > 70 │     2,
+2026-10-11T20:05:41.7932336Z   > 71 │   ) + '\n',
+2026-10-11T20:05:41.7932663Z        │   ^^^^^^^^
+2026-10-11T20:05:41.7932964Z     72 │ );
+2026-10-11T20:05:41.7933695Z     73 │ console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+2026-10-11T20:05:41.7934341Z   
+2026-10-11T20:05:41.7934641Z   i Unsafe fix: Use a template literal.
+2026-10-11T20:05:41.7935088Z   
+2026-10-11T20:05:41.7935408Z     60 60 │   await writeFile(
+2026-10-11T20:05:41.7935872Z     61 61 │     'art/vocab-scene-audio.json',
+2026-10-11T20:05:41.7936341Z     62    │ - ··JSON.stringify(
+2026-10-11T20:05:41.7936753Z        62 │ + ··`${JSON.stringify(
+2026-10-11T20:05:41.7937128Z     63 63 │       {
+2026-10-11T20:05:41.7937629Z     64 64 │         source: 'macOS Samantha static development speech',
+2026-10-11T20:05:41.7938116Z     ····· │ 
+2026-10-11T20:05:41.7938422Z     69 69 │       null,
+2026-10-11T20:05:41.7938741Z     70 70 │       2,
+2026-10-11T20:05:41.7939074Z     71    │ - ··)·+·'\n',
+2026-10-11T20:05:41.7939436Z        71 │ + ··)}\n`,
+2026-10-11T20:05:41.7939742Z     72 72 │   );
+2026-10-11T20:05:41.7940510Z     73 73 │   console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+2026-10-11T20:05:41.7941153Z   
+2026-10-11T20:05:41.7941289Z 
+2026-10-11T20:05:41.7941976Z e2e/adventure.spec.ts:53:7 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-11T20:05:41.7942509Z 
+2026-10-11T20:05:41.7942677Z   ! Change to an optional chain.
+2026-10-11T20:05:41.7943001Z   
+2026-10-11T20:05:41.7943275Z     51 │   }
+2026-10-11T20:05:41.7943879Z     52 │   const activeOrder = (await state(page)).orders.find((o) => o.id === orderId);
+2026-10-11T20:05:41.7944634Z   > 53 │   if (!activeOrder || activeOrder.status !== 'waiting')
+2026-10-11T20:05:41.7945319Z        │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-11T20:05:41.7945827Z     54 │     throw Error('chosen friend was not admitted');
+2026-10-11T20:05:41.7946487Z     55 │   await handOver(page, activeOrder.seat);
+2026-10-11T20:05:41.7946833Z   
+2026-10-11T20:05:41.7947116Z   i Unsafe fix: Change to an optional chain.
+2026-10-11T20:05:41.7947438Z   
+2026-10-11T20:05:41.7947688Z      51  51 │     }
+2026-10-11T20:05:41.7948252Z      52  52 │     const activeOrder = (await state(page)).orders.find((o) => o.id === orderId);
+2026-10-11T20:05:41.7948979Z      53     │ - ··if·(!activeOrder·||·activeOrder.status·!==·'waiting')
+2026-10-11T20:05:41.7949583Z          53 │ + ··if·(activeOrder?.status·!==·'waiting')
+2026-10-11T20:05:41.7950139Z      54  54 │       throw Error('chosen friend was not admitted');
+2026-10-11T20:05:41.7950711Z      55  55 │     await handOver(page, activeOrder.seat);
+2026-10-11T20:05:41.7951094Z   
+2026-10-11T20:05:41.7951215Z 
+2026-10-11T20:05:41.7951717Z The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+2026-10-11T20:05:41.7952319Z Diagnostics not shown: 122.
+2026-10-11T20:05:41.7952749Z Checked 234 files in 449ms. No fixes applied.
+2026-10-11T20:05:41.7953269Z Found 122 warnings.
+2026-10-11T20:05:41.7953534Z Found 20 infos.
+2026-10-11T20:05:41.8100655Z ##[group]Run npm test
+2026-10-11T20:05:41.8100978Z [36;1mnpm test[0m
+2026-10-11T20:05:41.8167416Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:05:41.8167642Z ##[endgroup]
+2026-10-11T20:05:41.9049495Z 
+2026-10-11T20:05:41.9050067Z > tabby-english-food-truck@0.1.0 test
+2026-10-11T20:05:41.9050533Z > vitest run
+2026-10-11T20:05:41.9050697Z 
+2026-10-11T20:05:42.1677724Z 
+2026-10-11T20:05:42.1679747Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/tabby-english-food-truck/tabby-english-food-truck[39m
+2026-10-11T20:05:42.1680649Z 
+2026-10-11T20:05:42.7381740Z  [32m✓[39m tests/adventure.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 89[2mms[22m[39m
+2026-10-11T20:05:42.7808552Z  [32m✓[39m tests/rules.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+2026-10-11T20:05:43.0090693Z  [32m✓[39m tests/adventure-recovery.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+2026-10-11T20:05:43.0590743Z  [32m✓[39m tests/adventure-input.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+2026-10-11T20:05:43.2607475Z  [32m✓[39m tests/mini-expansion-recovery.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 52[2mms[22m[39m
+2026-10-11T20:05:43.2966990Z  [32m✓[39m tests/wp-dual-layout.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 52[2mms[22m[39m
+2026-10-11T20:05:43.5826886Z  [32m✓[39m tests/m21-contracts.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+2026-10-11T20:05:43.5916954Z  [32m✓[39m tests/immersion-director.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+2026-10-11T20:05:43.7207961Z  [32m✓[39m tests/m2-world.test.ts [2m([22m[2m9 tests[22m[2m)[22m[33m 985[2mms[22m[39m
+2026-10-11T20:05:43.7209539Z      [33m[2m✓[22m[39m 100 endless orders stay reachable, deterministic across refresh and bounded [33m 875[2mms[22m[39m
+2026-10-11T20:05:43.7522845Z  [32m✓[39m tests/scene-games.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+2026-10-11T20:05:43.8568857Z  [32m✓[39m tests/m22-content.test.ts [2m([22m[2m119 tests[22m[2m)[22m[32m 75[2mms[22m[39m
+2026-10-11T20:05:43.9106772Z  [32m✓[39m tests/m22-layout.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+2026-10-11T20:05:43.9485735Z  [32m✓[39m tests/m22-growth.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+2026-10-11T20:05:44.0617386Z  [32m✓[39m tests/m21-audio.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+2026-10-11T20:05:44.1123203Z  [32m✓[39m tests/adventure-experience.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+2026-10-11T20:05:44.1417340Z  [32m✓[39m tests/m22-playability.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+2026-10-11T20:05:44.2575783Z  [32m✓[39m tests/m22-routing.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+2026-10-11T20:05:44.3175180Z  [32m✓[39m tests/immersion-events.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+2026-10-11T20:05:44.3340826Z  [32m✓[39m tests/immersion-content.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+2026-10-11T20:05:44.4642391Z  [32m✓[39m tests/journey.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+2026-10-11T20:05:44.4703786Z  [32m✓[39m tests/m2-regressions.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+2026-10-11T20:05:44.5318512Z  [32m✓[39m tests/m21-regressions.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+2026-10-11T20:05:44.5940091Z  [32m✓[39m tests/note-order.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+2026-10-11T20:05:44.5948628Z  [32m✓[39m tests/vocabulary-expansion.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+2026-10-11T20:05:44.5983868Z 
+2026-10-11T20:05:44.5988881Z [2m Test Files [22m [1m[32m24 passed[39m[22m[90m (24)[39m
+2026-10-11T20:05:44.5990300Z [2m      Tests [22m [1m[32m310 passed[39m[22m[90m (310)[39m
+2026-10-11T20:05:44.5990874Z [2m   Start at [22m 20:05:42
+2026-10-11T20:05:44.5992363Z [2m   Duration [22m 2.42s[2m (transform 1.30s, setup 0ms, import 2.48s, tests 1.63s, environment 2ms)[22m
+2026-10-11T20:05:44.6005567Z 
+2026-10-11T20:05:44.6540226Z ##[group]Run npm run resources
+2026-10-11T20:05:44.6540481Z [36;1mnpm run resources[0m
+2026-10-11T20:05:44.6596042Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:05:44.6596273Z ##[endgroup]
+2026-10-11T20:05:44.7450824Z 
+2026-10-11T20:05:44.7451439Z > tabby-english-food-truck@0.1.0 resources
+2026-10-11T20:05:44.7452041Z > node scripts/check-resources.mjs
+2026-10-11T20:05:44.7452325Z 
+2026-10-11T20:05:54.4577556Z PASS: 818 files, actual hashes/dimensions/alpha and runtime registry checked
+2026-10-11T20:05:54.4584088Z PASS: four procedural audio layers and nine cues registered; listening review remains NOT_RUN
+2026-10-11T20:05:54.4598104Z PASS: 591 explicit speech references; no guessed item paths
+2026-10-11T20:05:54.4608647Z PASS: all 50 food concepts resolve real independent images and both speech clips
+2026-10-11T20:05:54.4612877Z PASS: 133 whole-sentence mappings; human listening NOT_RUN, rights PENDING
+2026-10-11T20:05:54.4777352Z ##[group]Run npm run build
+2026-10-11T20:05:54.4777596Z [36;1mnpm run build[0m
+2026-10-11T20:05:54.4832803Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:05:54.4833028Z ##[endgroup]
+2026-10-11T20:05:54.5691450Z 
+2026-10-11T20:05:54.5691984Z > tabby-english-food-truck@0.1.0 build
+2026-10-11T20:05:54.5692352Z > npm run typecheck && vite build
+2026-10-11T20:05:54.5692514Z 
+2026-10-11T20:05:54.6508892Z 
+2026-10-11T20:05:54.6509543Z > tabby-english-food-truck@0.1.0 typecheck
+2026-10-11T20:05:54.6510042Z > tsc --noEmit
+2026-10-11T20:05:54.6510245Z 
+2026-10-11T20:06:00.3477839Z [36mvite v7.3.6 [32mbuilding client environment for production...[36m[39m
+2026-10-11T20:06:00.4003739Z transforming...
+2026-10-11T20:06:04.7733059Z [32m✓[39m 124 modules transformed.
+2026-10-11T20:06:07.3217443Z rendering chunks...
+2026-10-11T20:06:07.5812483Z computing gzip size...
+2026-10-11T20:06:07.6096679Z [2mdist/[22m[32mindex.html                 [39m[1m[2m    0.60 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+2026-10-11T20:06:07.6097853Z [2mdist/[22m[2massets/[22m[35mindex-hEwAHvZh.css  [39m[1m[2m   87.18 kB[22m[1m[22m[2m │ gzip:  19.17 kB[22m
+2026-10-11T20:06:07.6099010Z [2mdist/[22m[2massets/[22m[36mindex-dSYGLMko.js   [39m[1m[33m  697.35 kB[39m[22m[2m │ gzip: 195.44 kB[22m
+2026-10-11T20:06:07.6099805Z [33m
+2026-10-11T20:06:07.6100298Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-10-11T20:06:07.6100913Z - Using dynamic import() to code-split the application
+2026-10-11T20:06:07.6101984Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-10-11T20:06:07.6103165Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-10-11T20:06:07.6104215Z [2mdist/[22m[2massets/[22m[36mphaser-DXXWZowi.js  [39m[1m[33m1,208.05 kB[39m[22m[2m │ gzip: 332.16 kB[22m
+2026-10-11T20:06:07.6105078Z [32m✓ built in 7.24s[39m
+2026-10-11T20:06:07.6898402Z ##[group]Run npx playwright install --with-deps chromium
+2026-10-11T20:06:07.6898953Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-10-11T20:06:07.6955053Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:06:07.6955388Z ##[endgroup]
+2026-10-11T20:06:08.3444310Z Installing dependencies...
+2026-10-11T20:06:08.3490646Z Switching to root user to install dependencies...
+2026-10-11T20:06:08.7530113Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-11T20:06:08.9000306Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-11T20:06:08.9001678Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-11T20:06:08.9203384Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-11T20:06:09.0472862Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-11T20:06:09.0483011Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-11T20:06:09.2261032Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.3 kB]
+2026-10-11T20:06:09.2342854Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [492 kB]
+2026-10-11T20:06:09.2425335Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [548 kB]
+2026-10-11T20:06:09.2446198Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main all Packages [640 B]
+2026-10-11T20:06:09.2853486Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1375 kB]
+2026-10-11T20:06:09.4156712Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [306 kB]
+2026-10-11T20:06:09.4384295Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1702 kB]
+2026-10-11T20:06:09.4970530Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+2026-10-11T20:06:09.5179945Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1761 kB]
+2026-10-11T20:06:09.5581306Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [401 kB]
+2026-10-11T20:06:09.5791637Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [55.0 kB]
+2026-10-11T20:06:09.5990588Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+2026-10-11T20:06:09.6191725Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1121 kB]
+2026-10-11T20:06:09.6428170Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [228 kB]
+2026-10-11T20:06:09.7231115Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1220 kB]
+2026-10-11T20:06:09.7468584Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [245 kB]
+2026-10-11T20:06:09.7676487Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1669 kB]
+2026-10-11T20:06:09.7934299Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [383 kB]
+2026-10-11T20:06:09.8145921Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [49.8 kB]
+2026-10-11T20:06:09.8344598Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+2026-10-11T20:06:16.7015353Z Fetched 12.3 MB in 1s (8237 kB/s)
+2026-10-11T20:06:17.3726604Z Reading package lists...
+2026-10-11T20:06:17.3936550Z Reading package lists...
+2026-10-11T20:06:17.5832481Z Building dependency tree...
+2026-10-11T20:06:17.5838512Z Reading state information...
+2026-10-11T20:06:17.7290573Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-11T20:06:17.7291762Z libasound2t64 set to manually installed.
+2026-10-11T20:06:17.7292630Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-11T20:06:17.7293344Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-11T20:06:17.7294413Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-11T20:06:17.7295399Z libatk1.0-0t64 set to manually installed.
+2026-10-11T20:06:17.7296169Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-11T20:06:17.7296835Z libatspi2.0-0t64 set to manually installed.
+2026-10-11T20:06:17.7297518Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-11T20:06:17.7298225Z libcairo2 set to manually installed.
+2026-10-11T20:06:17.7298711Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-11T20:06:17.7299154Z libcups2t64 set to manually installed.
+2026-10-11T20:06:17.7299631Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-11T20:06:17.7300060Z libdbus-1-3 set to manually installed.
+2026-10-11T20:06:17.7300548Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-11T20:06:17.7301003Z libdrm2 set to manually installed.
+2026-10-11T20:06:17.7301463Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-10-11T20:06:17.7301892Z libgbm1 set to manually installed.
+2026-10-11T20:06:17.7302371Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-11T20:06:17.7302826Z libglib2.0-0t64 set to manually installed.
+2026-10-11T20:06:17.7303269Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-11T20:06:17.7303758Z libnspr4 set to manually installed.
+2026-10-11T20:06:17.7304196Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-11T20:06:17.7304603Z libnss3 set to manually installed.
+2026-10-11T20:06:17.7305194Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-11T20:06:17.7305617Z libpango-1.0-0 set to manually installed.
+2026-10-11T20:06:17.7305936Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-10-11T20:06:17.7306225Z libx11-6 set to manually installed.
+2026-10-11T20:06:17.7306518Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-11T20:06:17.7306810Z libxcb1 set to manually installed.
+2026-10-11T20:06:17.7307133Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-11T20:06:17.7307457Z libxcomposite1 set to manually installed.
+2026-10-11T20:06:17.7307785Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-11T20:06:17.7308091Z libxdamage1 set to manually installed.
+2026-10-11T20:06:17.7308403Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-11T20:06:17.7308695Z libxext6 set to manually installed.
+2026-10-11T20:06:17.7309001Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-11T20:06:17.7309297Z libxfixes3 set to manually installed.
+2026-10-11T20:06:17.7309621Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-11T20:06:17.7309941Z libxkbcommon0 set to manually installed.
+2026-10-11T20:06:17.7310263Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-11T20:06:17.7310561Z libxrandr2 set to manually installed.
+2026-10-11T20:06:17.7310887Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-11T20:06:17.7311317Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-11T20:06:17.7311760Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-11T20:06:17.7312096Z libfontconfig1 set to manually installed.
+2026-10-11T20:06:17.7312425Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-11T20:06:17.7312739Z fonts-liberation set to manually installed.
+2026-10-11T20:06:17.7313062Z The following additional packages will be installed:
+2026-10-11T20:06:17.7313358Z   xfonts-encodings xfonts-utils
+2026-10-11T20:06:17.7313590Z Recommended packages:
+2026-10-11T20:06:17.7313826Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-11T20:06:17.7513827Z The following NEW packages will be installed:
+2026-10-11T20:06:17.7514500Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-11T20:06:17.7518867Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-10-11T20:06:17.7519661Z   xfonts-utils
+2026-10-11T20:06:17.7522071Z The following packages will be upgraded:
+2026-10-11T20:06:17.7525733Z   libfreetype6
+2026-10-11T20:06:17.7674259Z 1 upgraded, 9 newly installed, 0 to remove and 22 not upgraded.
+2026-10-11T20:06:17.7674682Z Need to get 21.5 MB of archives.
+2026-10-11T20:06:17.7675321Z After this operation, 79.5 MB of additional disk space will be used.
+2026-10-11T20:06:17.7675910Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-11T20:06:17.8726811Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-11T20:06:22.2500031Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-11T20:06:28.5531645Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-11T20:06:28.7350389Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-11T20:06:31.9531824Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-11T20:06:40.7642139Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libfreetype6 amd64 2.13.2+dfsg-1ubuntu0.2 [403 kB]
+2026-10-11T20:06:41.3218934Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-11T20:06:42.3418820Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-11T20:06:42.5257470Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-11T20:06:43.0692175Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-11T20:06:43.9396089Z Fetched 21.5 MB in 26s (837 kB/s)
+2026-10-11T20:06:43.9834043Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-11T20:06:44.0298386Z (Reading database ... 
+2026-10-11T20:06:44.0298914Z (Reading database ... 5%
+2026-10-11T20:06:44.0299166Z (Reading database ... 10%
+2026-10-11T20:06:44.0299402Z (Reading database ... 15%
+2026-10-11T20:06:44.0299631Z (Reading database ... 20%
+2026-10-11T20:06:44.0299827Z (Reading database ... 25%
+2026-10-11T20:06:44.0300039Z (Reading database ... 30%
+2026-10-11T20:06:44.0300234Z (Reading database ... 35%
+2026-10-11T20:06:44.0300428Z (Reading database ... 40%
+2026-10-11T20:06:44.0300630Z (Reading database ... 45%
+2026-10-11T20:06:44.0300825Z (Reading database ... 50%
+2026-10-11T20:06:44.0842705Z (Reading database ... 55%
+2026-10-11T20:06:44.4144096Z (Reading database ... 60%
+2026-10-11T20:06:44.7276379Z (Reading database ... 65%
+2026-10-11T20:06:45.1178226Z (Reading database ... 70%
+2026-10-11T20:06:45.7888125Z (Reading database ... 75%
+2026-10-11T20:06:47.4317372Z (Reading database ... 80%
+2026-10-11T20:06:48.1241292Z (Reading database ... 85%
+2026-10-11T20:06:49.0247315Z (Reading database ... 90%
+2026-10-11T20:06:50.5424522Z (Reading database ... 95%
+2026-10-11T20:06:50.5426365Z (Reading database ... 100%
+2026-10-11T20:06:50.5426957Z (Reading database ... 203191 files and directories currently installed.)
+2026-10-11T20:06:50.5467296Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-11T20:06:50.6141269Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-11T20:06:51.5266525Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-11T20:06:51.5379273Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-11T20:06:51.6546390Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-11T20:06:52.6925943Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-11T20:06:52.7035778Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-11T20:06:52.7042368Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-11T20:06:52.7241820Z Selecting previously unselected package fonts-unifont.
+2026-10-11T20:06:52.7350164Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-11T20:06:52.7355883Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-11T20:06:52.9881085Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-11T20:06:52.9992410Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-11T20:06:53.1124709Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-11T20:06:53.7635670Z Preparing to unpack .../5-libfreetype6_2.13.2+dfsg-1ubuntu0.2_amd64.deb ...
+2026-10-11T20:06:53.9974254Z Unpacking libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) over (2.13.2+dfsg-1ubuntu0.1) ...
+2026-10-11T20:06:54.1662443Z Selecting previously unselected package xfonts-encodings.
+2026-10-11T20:06:54.1776065Z Preparing to unpack .../6-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-11T20:06:54.1781513Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-11T20:06:54.3054552Z Selecting previously unselected package xfonts-utils.
+2026-10-11T20:06:54.3164534Z Preparing to unpack .../7-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-11T20:06:54.3170452Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-11T20:06:54.3750706Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-11T20:06:54.3860995Z Preparing to unpack .../8-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-11T20:06:54.4855977Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-11T20:06:54.6828273Z Selecting previously unselected package xfonts-scalable.
+2026-10-11T20:06:54.6941473Z Preparing to unpack .../9-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-11T20:06:54.6947596Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-11T20:06:54.7336438Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-11T20:06:54.7435545Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-11T20:06:54.7454001Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-11T20:06:54.7467236Z Setting up libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) ...
+2026-10-11T20:06:54.7481043Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-11T20:06:54.7495393Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-11T20:06:54.7548553Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-11T20:06:54.7562359Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-11T20:06:54.7673642Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-11T20:06:54.7707010Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-11T20:06:54.9078439Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-11T20:06:54.9706538Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-11T20:06:57.5489504Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-11T20:06:57.5509227Z Not building database; man-db/auto-update is not 'true'.
+2026-10-11T20:06:57.5517965Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-11T20:07:01.4111684Z 
+2026-10-11T20:07:01.4112377Z Running kernel seems to be up-to-date.
+2026-10-11T20:07:01.4112700Z 
+2026-10-11T20:07:01.4112849Z Restarting services...
+2026-10-11T20:07:01.4177262Z  systemctl restart php8.3-fpm.service
+2026-10-11T20:07:01.5132438Z 
+2026-10-11T20:07:01.5133875Z No containers need to be restarted.
+2026-10-11T20:07:01.5134153Z 
+2026-10-11T20:07:01.5134498Z No user sessions are running outdated binaries.
+2026-10-11T20:07:01.5134846Z 
+2026-10-11T20:07:01.5135495Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-11T20:07:02.3177584Z Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+2026-10-11T20:07:02.8393627Z |                                                                                |   0% of 186.8 MiB
+2026-10-11T20:07:03.7022229Z |■■■■■■■■                                                                        |  10% of 186.8 MiB
+2026-10-11T20:07:03.8270524Z |■■■■■■■■■■■■■■■■                                                                |  20% of 186.8 MiB
+2026-10-11T20:07:03.9714305Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 186.8 MiB
+2026-10-11T20:07:04.1307428Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 186.8 MiB
+2026-10-11T20:07:04.2722248Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 186.8 MiB
+2026-10-11T20:07:04.4069144Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 186.8 MiB
+2026-10-11T20:07:04.5410540Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 186.8 MiB
+2026-10-11T20:07:04.6867680Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 186.8 MiB
+2026-10-11T20:07:04.8273755Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 186.8 MiB
+2026-10-11T20:07:04.9738051Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 186.8 MiB
+2026-10-11T20:07:06.9761916Z Chrome for Testing 153.0.8010.12 (playwright chromium v1243) downloaded to /home/runner/.cache/ms-playwright/chromium-1243
+2026-10-11T20:07:06.9764877Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-11T20:07:07.4048245Z |                                                                                |   0% of 2.3 MiB
+2026-10-11T20:07:07.4611510Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-11T20:07:07.5114143Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-11T20:07:07.5369382Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-11T20:07:07.5572994Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-11T20:07:07.5659246Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-11T20:07:07.5817682Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-11T20:07:07.5910604Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-11T20:07:07.5996419Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-11T20:07:07.6112752Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-11T20:07:07.6148209Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-11T20:07:07.6578990Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-11T20:07:07.6581822Z Downloading Chrome Headless Shell 153.0.8010.12 (playwright chromium-headless-shell v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-headless-shell-linux64.zip
+2026-10-11T20:07:08.1836598Z |                                                                                |   0% of 114.3 MiB
+2026-10-11T20:07:08.9496533Z |■■■■■■■■                                                                        |  10% of 114.3 MiB
+2026-10-11T20:07:09.0545325Z |■■■■■■■■■■■■■■■■                                                                |  20% of 114.3 MiB
+2026-10-11T20:07:09.1449660Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 114.3 MiB
+2026-10-11T20:07:09.2489434Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 114.3 MiB
+2026-10-11T20:07:09.4138548Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 114.3 MiB
+2026-10-11T20:07:09.4940243Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 114.3 MiB
+2026-10-11T20:07:09.6160481Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 114.3 MiB
+2026-10-11T20:07:09.7314397Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 114.3 MiB
+2026-10-11T20:07:09.8212666Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 114.3 MiB
+2026-10-11T20:07:09.9213531Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 114.3 MiB
+2026-10-11T20:07:11.3502109Z Chrome Headless Shell 153.0.8010.12 (playwright chromium-headless-shell v1243) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1243
+2026-10-11T20:07:11.3669726Z ##[group]Run npx playwright test
+2026-10-11T20:07:11.3669996Z [36;1mnpx playwright test[0m
+2026-10-11T20:07:11.3725468Z shell: /usr/bin/bash -e {0}
+2026-10-11T20:07:11.3725689Z ##[endgroup]
+2026-10-11T20:07:13.6758847Z 
+2026-10-11T20:07:13.6759329Z Running 33 tests using 1 worker
+2026-10-11T20:07:13.6759533Z 
+2026-10-11T20:07:51.3052816Z EVIDENCE_FEAST_START_SECONDS 35.95
+2026-10-11T20:10:42.2957175Z EVIDENCE_DINNER_START_SECONDS 206.942
+2026-10-11T20:11:28.1959892Z   ✓   1 e2e/adventure.spec.ts:68:1 › visible activity entrance reaches all five chapters and saves a real creation (4.2m)
+2026-10-11T20:12:03.7422336Z EVIDENCE_FEAST_START_SECONDS 35.395
+2026-10-11T20:12:33.4466210Z EVIDENCE_DRINK_START_SECONDS 65.087
+2026-10-11T20:12:38.8594199Z   ✓   2 e2e/adventure.spec.ts:200:1 › desktop feast exposes replay skip and low motion without repeating settlement (1.2m)
+2026-10-11T20:13:57.7129045Z   ✓   3 e2e/adventure.spec.ts:259:1 › phone replay follows hedgehog path with real food and no packing task (1.3m)
+2026-10-11T20:14:33.7130075Z   ✓   4 e2e/adventure.spec.ts:310:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (36.0s)
+2026-10-11T20:14:50.8328356Z   ✓   5 e2e/adventure.spec.ts:405:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (17.1s)
+2026-10-11T20:15:18.8548370Z   ✓   6 e2e/adventure.spec.ts:459:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (28.0s)
+2026-10-11T20:15:43.0948192Z   ✓   7 e2e/adventure.spec.ts:511:1 › low motion receipts retain actual foods and reachable controls across compact layouts (24.2s)
+2026-10-11T20:15:49.4648054Z   ✓   8 e2e/demo-repair.spec.ts:7:1 › scene pause and restart isolate background, trap focus and restore the trigger (6.3s)
+2026-10-11T20:16:06.0161692Z   ✓   9 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (16.5s)
+2026-10-11T20:16:14.2165846Z   ✓  10 e2e/demo-repair.spec.ts:133:1 › optional visual contrasts preserve assistance and leave the choice to the player (8.2s)
+2026-10-11T20:16:20.9146223Z   ✓  11 e2e/demo-repair.spec.ts:179:1 › home main invitation and autonomous entrances are physically reachable in compact layouts (6.7s)
+2026-10-11T20:16:25.7377628Z   ✓  12 e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (4.8s)
+2026-10-11T20:16:29.5983794Z   ✓  13 e2e/experience.spec.ts:38:1 › less support keeps the order answer private until failed speech provides recorded picture help (3.8s)
+2026-10-11T20:16:34.6741237Z   ✓  14 e2e/experience.spec.ts:68:1 › muting through visible settings retains picture goals and safe replay (5.1s)
+2026-10-11T20:17:54.1770474Z   ✓  15 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (1.3m)
+2026-10-11T20:18:03.7613615Z   ✓  16 e2e/immersion.spec.ts:113:1 › phone: held tray and two guests replay without delivery; cancellation, pause, failure and short landscape (9.6s)
+2026-10-11T20:18:35.2298866Z   ✓  17 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (31.4s)
+2026-10-11T20:18:41.7966924Z   ✓  18 e2e/m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (6.5s)
+2026-10-11T20:19:03.8028449Z   ✓  19 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (22.0s)
+2026-10-11T20:19:24.3177738Z   ✓  20 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (20.5s)
+2026-10-11T20:19:33.5633955Z   ✓  21 e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (9.2s)
+2026-10-11T20:19:43.2255130Z   ✓  22 e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (9.6s)
+2026-10-11T20:19:51.6080371Z   ✓  23 e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (8.4s)
+2026-10-11T20:20:12.1790700Z   ✓  24 e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (20.6s)
+2026-10-11T20:20:22.0217018Z   ✓  25 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (9.8s)
+2026-10-11T20:20:35.1785769Z   ✓  26 e2e/minigames-vocab.spec.ts:260:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (13.1s)
+2026-10-11T20:20:39.5847429Z   ✓  27 e2e/minigames-vocab.spec.ts:337:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (4.4s)
+2026-10-11T20:20:58.8175408Z   ✓  28 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (19.2s)
+2026-10-11T20:21:12.2628121Z   ✓  29 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (13.4s)
+2026-10-11T20:21:36.1451523Z   ✓  30 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (23.9s)
+2026-10-11T20:21:41.1789243Z   ✓  31 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (5.0s)
+2026-10-11T20:22:02.6952694Z   ✓  32 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (21.5s)
+2026-10-11T20:22:19.7248659Z   ✓  33 e2e/wp-dual-mini-course.spec.ts:7:1 › theme lobby reaches a four-task listening level and restores its progress (17.0s)
+2026-10-11T20:22:19.7804462Z 
+2026-10-11T20:22:19.7809157Z   Slow test file: e2e/adventure.spec.ts (8.5m)
+2026-10-11T20:22:19.7809989Z   Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+2026-10-11T20:22:19.7811030Z   33 passed (15.1m)
+2026-10-11T20:22:19.9213012Z Post job cleanup.
+2026-10-11T20:22:20.0202626Z (node:5688) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-11T20:22:20.0203690Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-11T20:22:20.0206003Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-a1f178a045965ed76fd0c8d4815b9e22b19ce6b2acad1ac6437563f3eed5679e, not saving cache.
+2026-10-11T20:22:20.0330079Z Post job cleanup.
+2026-10-11T20:22:20.1015468Z [command]/usr/bin/git version
+2026-10-11T20:22:20.1053112Z git version 2.55.0
+2026-10-11T20:22:20.1086830Z Temporarily overriding HOME='/home/runner/work/_temp/601b8d3b-60f4-4fdb-9e1e-f1fc7ec55502' before making global git config changes
+2026-10-11T20:22:20.1088011Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-11T20:22:20.1091626Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tabby-english-food-truck/tabby-english-food-truck
+2026-10-11T20:22:20.1130444Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-11T20:22:20.1160302Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-11T20:22:20.1441761Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-11T20:22:20.1458077Z http.https://github.com/.extraheader
+2026-10-11T20:22:20.1480772Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-11T20:22:20.1519860Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-11T20:22:20.1780464Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-11T20:22:20.1819484Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-11T20:22:20.2238514Z Cleaning up orphan processes
+2026-10-11T20:22:20.2546023Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

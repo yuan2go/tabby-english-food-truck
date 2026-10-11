@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-11T20:28:53.611032+00:00",
+  "source": "/Users/dafangzi/.codex/worktrees/contest-release-2026-10-12/tabby-english-food-truck/docs/submission/design-description.pdf",
+  "destination": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf",
+  "actualPath": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf",
+  "isFile": true,
+  "bytes": 1916527,
+  "sourceSha256": "ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10",
+  "verifiedSha256": "ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10",
+  "byteIdentical": true,
+  "pages": 1,
+  "method": "普通 cp 复制，直接读取桌面文件并逐字节/SHA-256核对",
+  "copyExitCode": 0,
+  "verificationExitCode": 0,
+  "macOSPrivacy": "normal filesystem operation succeeded; no settings changes or privacy bypass"
+}

@@ -1,0 +1,63 @@
+{
+  "githubBaseline": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+  "testedHead": "53c072bda4a5c3668f4bd973232f46e5f25cde0d",
+  "githubCodeMain": "7339c5119007e913327609fa6e24d89a5a86cb21",
+  "source": {
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "checkout_path": "/Users/dafangzi/.codex/artifacts/tabby-contest-release-2026-10-12/site-runtime-source",
+    "commit_sha": "1ab58709b1d557099180f28174cb0526cdfc7160",
+    "archive": "/Users/dafangzi/.codex/artifacts/tabby-contest-release-2026-10-12/site-release.tar.gz"
+  },
+  "version": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_c315d17ab284819181f3887729a4eeb5",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "version_number": 3,
+    "source": {
+      "commit_sha": "1ab58709b1d557099180f28174cb0526cdfc7160"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000070cc8230af0692f799971dea",
+      "content_hash": "sha256:2d3c55f5504de1ac709f442462b8a0400975fc5d503429ab79abd9928ae975f2",
+      "size_bytes": 53872640,
+      "file_count": 725
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6acbf0bdd1b08191b4e863c6d50c7fe2",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "title": "狸花猫的英语餐车",
+    "version_id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_c315d17ab284819181f3887729a4eeb5",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ab141055ab8819186112dee423d0d04",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-11T20:25:42.373540+00:00"
+  },
+  "access": {
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "access_mode": "public",
+    "current_user_role": "owner",
+    "current_live_url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "latest_version_number": 3
+  },
+  "sourceWorkflow": {
+    "node": "22.12.0",
+    "npm": "10.9.0",
+    "command": "native Sites site-workflow.mjs: open same project; filtered source sync; commit BEFORE build; build-site.mjs; normal push; package",
+    "exitCode": 0,
+    "buildExitCode": 0,
+    "ciInstallExitCode": 0,
+    "credentials": "only session memory and hidden stdin; never files or shell arguments"
+  },
+  "archiveHashNote": "Local gzip/tar binary hashes and the server-returned archive_storage.content_hash are recorded independently; server storage hash is not claimed identical to a local tar byte hash.",
+  "anonymousVerification": "live/live-verification.json",
+  "localArchiveSha256": "2cf63da2e85bb7c04cbff52086fb51c8d8675ca8a8aec5cf7fb2eaf02daca908",
+  "localUncompressedTarSha256": "9dad89e0b563586441814357bfa5f08d2457707c7d6f6a8f0c004de1d6f2947d"
+}

@@ -1,42 +1,22 @@
-# 参赛文档核验记录
+# 参赛说明核验记录
 
-2026-10-12（北京时间）。本记录是材料检查，不是新一轮游戏验收。正文为[design-description.md](design-description.md)，[PDF](design-description.pdf)是其同稿打印派生，修改时以Markdown为准。
+2026-10-12。源稿[design-description.md](design-description.md)，[一页PDF](design-description.pdf)为同稿打印派生。正文基于公开站点version 3与上述实际代码身份，已删去碎片点餐、本地启动入口、无同版Demo及已修复裁切/焦点的过时描述；历史资料仍可追溯。
 
-## 范围与环境
+## 方法与结果
 
-main baseline `f359b4053cf73e0103bf13b46d26496f19868508`；本轮收尾fetch仍为该SHA。治理提交 `ba4685144bfff0fe834acb37db1b2a87ec7da221` 已先完成，之后才写正文/附录、配图清单及临时导出/核验程序。分支 `codex/contest-design-description-2026-10-12`；材料final完整SHA以Git交付回复为准。
-
-使用Codex已配置的Python3.12.14、ReportLab、pypdf、pypdfium2与系统Arial Unicode字体；无新增依赖、锁文件、运行时模型或部署工具链。PDF嵌入字体子集；排版由当前Markdown文字及三张原图生成。临时渲染图用于检查，不作为游戏证据或新增正文。
-
-## 本轮实际检查
-
-| 命令/方法 | 结果 / 退出码 |
+| 检查 | 实际结果 |
 | --- | --- |
-| `git fetch origin main`、`git rev-parse`、`git status --short --branch` | 默认main和本地/交付分支完整SHA已读回 / 0；原工作区仍64f03fc，仍仅未跟踪docs/playtests，未写入 |
-| `git diff 43d7c76… f359b40… -- src public art package.json package-lock.json` | 空差异 / 0；支持沿用报告受测版本，不称本轮重测 |
-| Python检查12份归档与`git show f359b40:<原路径>`逐字节比较 | 12/12一致 / 0；历史失败及资源原件不改 |
-| Python扫描现行索引、01–05、STATUS/AI/资源说明、E2E入口、治理索引及submission Markdown链接 | 166个本地目标逐项存在 / 0；不以归档纯文本中的历史链接冒充当前导航 |
-| Python SHA-256与Pillow检查配图 | 3/3与正常UI原图字节一致、1280×720、无附加PNG元数据 / 0 |
-| Python检查对外正文、附录及材料清单 | 无本机路径、密钥格式、内部聊天原文或含糊占位词 / 0；PENDING/NOT_RUN有具体对象 |
-| ReportLab从正文导出，pypdf逐段检查，pypdfium2渲染 | 3页、全部26个文字块存在、3张图片嵌入 / 0 |
-| 逐页视觉检查 | 实际查看3页完整渲染，文字/图注可读、图片等比、未裁切，无重叠/乱码或空白页；这是代理视觉检查，不称负责人确认 |
-| `git diff --check` | 无空白/补丁问题 / 0 |
-| 历史站点浏览器打开与DOM读取 | 首页可访问，cc36166f…/dirty=false/m2.2；[本轮读回](assets/historical-site-check.json)，无玩法重测 |
+| 四项要求及网址/VPN | 玩法、主题、用了哪些AI、核心亮点全部存在；实际网址与“访问需要开启 VPN”明示 |
+| ReportLab导出 | 1页、16正文文字块、1张实际线上原图；退出0 |
+| pypdf完整文字比较 | 去Markdown标题/列表标记后，逐字核对完整正文；只统一空白及NFC，不忽略标点、大小写或全角差别；退出0 |
+| pypdfium2渲染与逐页视觉 | 全部1页实际查看，文字/链接/图注可读、图片等比且无裁切、重叠/乱码或空白页；代理检查，不称负责人审核 |
+| 图片来源/hash | 1280×720，04与最新线上原图字节相同，原3张历史图片不改 |
+| Desktop正常系统复制及核验 | [实际回执](../evidence/contest-release-2026-10-12/desktop-copy.json)，普通 cp 复制，直接读取桌面文件并逐字节/SHA-256核对；内容hash相同 |
 
-正文含约1,550个汉字（含标题/图注/必要限制），六项内容齐备。按负责人提供的比赛通知核对三条硬性要求、三项交卷标准及四个评审维度，未虚构权重、原始提示词、工时或学习成效。图2保留原受测版本控件裁切，正文没有宣布修复。
+使用Codex配置Python3.12.14、ReportLab/pypdf/pypdfium2与系统Arial Unicode嵌入字体子集，未改工程依赖。可复现[导出程序](render-description.py)，[提取文字/完整性](pdf-qa/exported-text.txt)、[核验JSON](pdf-qa/pdf-validation.json)和[全页渲染](pdf-qa/page-1.png)。实际线上行为和完整工程门禁另见[本轮主报告](../evidence/contest-release-2026-10-12/README.md)，不把文档导出当游戏验收。
 
-## 派生一致性
+- Markdown SHA256：`8dfe4381031e7bca64d5927c20ebac13ac978c29c83324c1171d17769e415921`
+- PDF SHA256：`ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10`
+- 当前图1 SHA256：`d16376dcbe54c8fabe75ed9092b77b5d71f895d2edf74421984622d4b358d1ce`
 
-- Markdown SHA-256：`bc3d937ff60c37e8706b314eddb614ce96a07dac6b2a398de9b95d4415e0fb62`
-- PDF SHA-256：`a25d5211c91baab0173bffb590a2a863ec1b29a01b00bcc5a3573220b6642b66`
-- 三张配图独立hash/原件路径：[screenshots.json](assets/screenshots.json)。
-
-PDF文字按去Markdown标记和空白后的完整文字块核对；无需把图片烘焙的游戏文字再次列作正文。PDF是正式打印稿，证据附录另按仓库相对链接复核；不将PDF导出视为产品运行验收。
-
-## 未执行与影响提交的事项
-
-本轮完整游戏test/lint/typecheck/build/resources/E2E、补拍、实体设备、人工听审、儿童观察、部署、推送、PR/合并、权限或工作流变更均 **NOT_RUN**。已引用的游戏结果均为43d7c76受测版本历史结果，工程门禁与交互失败维持原结论。
-
-上述NOT_RUN对应材料制作阶段。负责人随后授权推送、创建PR并合并main；后续Git交付另见[云端记录](cloud-delivery.md)，不因此改记游戏测试、部署或外部验收通过。
-
-材料已齐备；完整参赛交卷仍缺可供评委访问的同版Demo或现场预览安排、提交时效确认。实体手机/Pad复核、教研/儿童观察、人工听审与素材/声音分发权仍分别待验，不能把文档完成视为公开发布审核通过。
+源稿约566个汉字加必要英文，明确四项。材料中的AI贡献以真实登记为准，普通TTS不称实时AI。实体设备、儿童、听审/教研、权利和报名时效不在代理材料核验中冒记为通过。仅文档/报告/PDF的最后提交与已验代码无运行输入差异，因此不重复完整33条游戏检查；没有修改CI/仓库权限或绕过失败门禁。

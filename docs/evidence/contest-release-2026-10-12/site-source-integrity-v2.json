@@ -1,0 +1,21 @@
+{
+  "githubMainSha": "2a7b774a33d6586aa586bb6a3ed59c9ac2b83405",
+  "providerHead": "d39514cd139fa06814df59b991a144d029753644",
+  "comparedPaths": 1102,
+  "changedOrMissing": [],
+  "addedPaths": [
+    "public/site-release.json"
+  ],
+  "excludedPrefixes": [
+    "docs/evidence/",
+    "docs/playtests/"
+  ],
+  "excludedRawEvidencePaths": 2190,
+  "rawEvidenceLocation": "complete merged GitHub repository; not needed by static site build",
+  "comparison": "Git mode/type/blob identity for every retained source path",
+  "abortedFullEvidenceUpload": {
+    "localCommit": "3b24b0890bad1399fb951d8ce248705b1bc4d584",
+    "exitCode": 1,
+    "reason": "User-authorized publication continues with code/assets; avoid duplicate 1.8 GB proof transfer. SIGINT before push ref changed; fresh native helper read remote ac613401d5c873b2e6c7f5340146841b36db58ac."
+  }
+}
