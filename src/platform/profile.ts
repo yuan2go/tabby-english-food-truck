@@ -1,7 +1,7 @@
-import type { AdventureState } from '../content/adventure';
+import { type AdventureState, EDIBLE } from '../content/adventure';
 import { REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Language } from '../content/chapters';
-import type { Family } from '../content/recipes';
+import type { Family, Product } from '../content/recipes';
 import { levelsForChapter, storyLevel } from '../content/story-levels';
 import { validAdventure } from '../rules/adventure';
 import type { StoragePort } from './save';
@@ -25,6 +25,7 @@ export interface LessonProgress {
   support: string[];
 }
 export interface Profile {
+  receivedProducts: Product[];
   activityMemories: { runId: string; state: AdventureState }[];
   version: 3;
   language: Language;
@@ -45,6 +46,7 @@ export interface Profile {
   support: 'demonstration' | 'pictures' | 'less';
 }
 export const emptyProfile = (): Profile => ({
+  receivedProducts: [],
   version: 3,
   activityMemories: [],
   language: 'flavor',
@@ -145,6 +147,16 @@ export class ProfileStore {
       // The earlier five chapter receipts remain historical progress. New
       // service IDs start unfinished; no old receipt is treated as a new task.
       this.value.activityMemories ??= [];
+      // Only actual world receipts establish a previous food encounter. The
+      // finite catalog survives rotation of the detailed observation log.
+      this.value.receivedProducts ??= [
+        ...new Set([
+          ...this.value.activityMemories.flatMap((m) => m.state.foods.map((f) => f.product)),
+          ...this.value.observations
+            .filter((o) => o.id.startsWith('world:') && o.result.startsWith('received:'))
+            .map((o) => o.result.slice('received:'.length) as Product),
+        ]),
+      ].filter((product) => EDIBLE.includes(product));
       this.value.completedLevels ??= [];
       this.value.storyChoices ??= {};
       this.value.resolvedStoryChoices ??= {};
@@ -260,6 +272,11 @@ export function validProfile(v: unknown): v is Profile {
   const p = v as Partial<Profile>;
   return (
     p.version === 3 &&
+    (p.receivedProducts === undefined ||
+      (Array.isArray(p.receivedProducts) &&
+        p.receivedProducts.length <= EDIBLE.length &&
+        new Set(p.receivedProducts).size === p.receivedProducts.length &&
+        p.receivedProducts.every((product) => EDIBLE.includes(product)))) &&
     (p.activityMemories === undefined ||
       (Array.isArray(p.activityMemories) &&
         p.activityMemories.length <= 16 &&

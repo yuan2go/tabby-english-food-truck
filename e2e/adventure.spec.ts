@@ -27,7 +27,8 @@ async function send(page: Page, index: number, product: Parameters<typeof make>[
     await page.getByRole('button', { name: /^(放盘|食材直接放盘)$/ }).click();
     await tap(page, `supply-${product}`);
   } else await make(page, product);
-  await tap(page, `guest-${index}`);
+  if (!orderId) throw Error('missing visible order');
+  await tap(page, orderId);
   const label = index === 0 ? '送给左边客人 ↗' : '送给右边客人 ↗';
   const exact = page.getByRole('button', { name: label, exact: true });
   if (await exact.count()) await exact.click();
@@ -278,4 +279,48 @@ test('desktop mouse and keyboard preserve a wrong delivery and paused cooking on
     .toBe(true);
   await page.screenshot({ path: 'docs/evidence/playable-adventure/kitchen-desktop-mouse.png' });
   await context.close();
+});
+
+test('opening a new seat uses the new menu while an accepted guest keeps the old request', async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  await page.goto('/');
+  await page.getByRole('button', { name: '自由开店', exact: true }).click();
+  await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+  await lesson(page);
+  await send(page, 0, 'apple');
+  await page
+    .getByRole('dialog', { name: '今日新菜单' })
+    .getByRole('button', { name: '加入今日菜单' })
+    .click();
+  await table(page);
+  await page.getByRole('button', { name: '停止接客，做作品' }).click();
+  await kitchen(page);
+  const request = (await state(page)).orders[0]?.request;
+  if (request !== 'apple' && request !== 'banana') throw Error('unexpected first revisit');
+  await send(page, 0, request);
+  await table(page);
+  await page.getByRole('button', { name: '收摊回小院' }).click();
+  await page.getByRole('button', { name: '自由开店', exact: true }).click();
+  await page.getByRole('checkbox', { name: /apple/i }).uncheck();
+  await page.getByRole('checkbox', { name: /banana/i }).check();
+  await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+  await lesson(page);
+  const pendingMenu = page.getByRole('dialog', { name: '今日新菜单' });
+  if (await pendingMenu.count())
+    await pendingMenu.getByRole('button', { name: '这次先不加 ↗' }).click();
+  const old = (await state(page)).orders[0];
+  expect(old?.request).toBe('banana');
+  await table(page);
+  await page.getByRole('button', { name: '收摊回小院' }).click();
+  await page.getByRole('button', { name: '自由开店', exact: true }).click();
+  await page.getByRole('checkbox', { name: /banana/i }).uncheck();
+  await page.getByRole('checkbox', { name: /apple/i }).check();
+  await page.getByRole('button', { name: '两位一起招呼' }).click();
+  await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+  const next = await state(page);
+  expect(next.orders[0]).toEqual(old);
+  expect(next.orders[1]?.request).toBe('apple');
+  expect(next.session.menu).toEqual(['apple']);
 });

@@ -108,6 +108,12 @@ it('replay retains note assistance and a selected opening menu applies to the fi
   expect(c.state.orders.map((o) => o.request)).toEqual(['banana', 'banana']);
   expect(c.state.session.menu).toEqual(['banana']);
   expect(decodeSnapshot(JSON.stringify(c.state)).ok).toBe(true);
+  c.enter('endless', 0, 'pictures', true, 1, undefined, { menu: ['banana'], theme: 'fruit' });
+  const originalGuest = structuredClone(c.state.orders[0]);
+  c.enter('training', 0);
+  c.enter('endless', 0, 'pictures', false, 2, undefined, { menu: ['apple'], theme: 'fruit' });
+  expect(c.state.orders[0]).toEqual(originalGuest);
+  expect(c.state.orders[1]?.request).toBe('apple');
   vi.unstubAllGlobals();
 });
 it('bounded replay memories keep the latest receipt of every completed chapter', () => {
@@ -166,4 +172,44 @@ it('selected menu and theme affect only new orders and stop accepting has a natu
   });
   expect(invalid.kind).toBe('blocked');
   expect(invalid.state.orders.map((o) => o.request)).toEqual(['banana']);
+});
+
+it('first activity food is observed as first exposure and replay as a revisit', () => {
+  const values = new Map<string, string>();
+  const storage = {
+    getItem: (k: string) => values.get(k) ?? null,
+    setItem: (k: string, v: string) => {
+      values.set(k, v);
+    },
+    removeItem: (k: string) => {
+      values.delete(k);
+    },
+  };
+  vi.stubGlobal('localStorage', storage);
+  let run = 0;
+  const c = new GameController(new SaveStore(() => storage), () => `exposure-${++run}`);
+  for (const replay of [false, true]) {
+    if (replay) {
+      for (let n = 0; n < 161; n++)
+        c.profile.observe({
+          id: `ordinary-note-${n}`,
+          dimension: 'structure',
+          target: 'fruit-request',
+          result: 'incomplete',
+          support: [],
+          visit: 'first',
+          audioQualified: false,
+        });
+    }
+    c.enter('story', 0, 'pictures', replay);
+    c.pauses.clear();
+    c.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
+    c.command({ type: 'deliver', tray: 0, order: c.state.orders[0]?.id ?? '' });
+    for (let tick = 0; tick < 180; tick++) c.tick(100);
+    expect(
+      c.profile.value.observations.filter((o) => o.id.startsWith('world:')).at(-1)?.visit,
+    ).toBe(replay ? 'revisit' : 'first');
+  }
+  expect(new ProfileStore(() => storage).value.receivedProducts).toEqual(['apple']);
+  vi.unstubAllGlobals();
 });

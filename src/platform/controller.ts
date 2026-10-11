@@ -113,18 +113,21 @@ export class GameController {
     const a = this.state.adventure;
     if (!a) return;
     this.profile.rememberActivity(this.state.runId, a);
-    for (const food of a.foods)
+    for (const food of a.foods) {
+      const id = `world:${this.state.runId}:${food.id}`;
+      if (this.profile.value.observedIds.includes(id)) continue;
+      const revisit = this.profile.value.receivedProducts.includes(food.product);
+      if (!revisit) this.profile.value.receivedProducts.push(food.product);
       this.profile.observe({
-        id: `world:${this.state.runId}:${food.id}`,
+        id,
         dimension: 'operation',
         target: food.source,
         result: `received:${food.product}`,
         support: [],
-        visit: this.profile.value.activityMemories.some((m) => m.state.chapter === a.chapter)
-          ? 'revisit'
-          : 'first',
+        visit: revisit ? 'revisit' : 'first',
         audioQualified: false,
       });
+    }
   }
   private enterAdventure(chapter: number, support: Support, replay: boolean): void {
     if (!ADVENTURES[chapter]) return;
@@ -286,7 +289,10 @@ export class GameController {
     this.state.session.unlocked = [...this.profile.value.introduced];
     if (!this.state.session.shop)
       this.state.session.menu = shop ? [...shop.menu] : this.profile.menu();
-    if (shop && !previous) {
+    if (shop) {
+      // Opening preferences apply before filling newly available seats. The
+      // restored orders themselves remain unchanged, even outside this menu.
+      this.state.session.menu = [...shop.menu];
       this.state.session.knownMenu = this.profile.menu();
       this.state.session.shop = { accepting: true, theme: shop.theme };
     }

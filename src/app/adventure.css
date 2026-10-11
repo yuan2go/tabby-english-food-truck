@@ -457,14 +457,12 @@
   clip-path: inset(50%);
 }
 .m2-shell .activity-kitchen-link {
-  position: absolute;
-  pointer-events: auto;
-  z-index: 10;
-  left: calc(50% - 66px);
-  top: 4px;
-  max-width: 132px;
+  position: relative;
+  flex: 0 0 100px;
+  width: 100px;
+  border-radius: 16px;
   font-size: 14px;
-  height: 44px;
+  min-height: 48px;
   background: #f5d393;
 }
 .activity-kitchen .service-count {
@@ -626,8 +624,8 @@
     text-align: center;
   }
   .m2-shell .activity-kitchen-link {
-    left: calc(50% - 50px);
-    max-width: 100px;
+    flex-basis: 90px;
+    width: 90px;
     font-size: 12px;
   }
   .activity-kitchen .service-count {

@@ -502,12 +502,6 @@ export function App() {
           home={home}
           start={(menu, theme) => {
             enter('endless', 0, false, undefined, { menu, theme });
-            controller.command({
-              type: 'menu',
-              requests: controller.profile.menu(),
-              families: controller.profile.value.introduced,
-            });
-            controller.command({ type: 'shop-policy', menu, theme, accepting: true });
           }}
         />
       ) : screen === 'setup' ? (
@@ -581,19 +575,6 @@ export function App() {
         </section>
       ) : (
         <div className={`service-surface ${s.adventure ? 'activity-kitchen' : ''}`}>
-          {s.adventure && !modal && !teaching && !note ? (
-            <button
-              type="button"
-              className="activity-kitchen-link"
-              onClick={() => {
-                scene.current?.cancel();
-                audio.stop();
-                setActivityTable(true);
-              }}
-            >
-              到活动桌
-            </button>
-          ) : null}
           <header className="game-toolbar">
             <button type="button" aria-label="暂停" onClick={() => setModal('pause')}>
               Ⅱ
@@ -617,6 +598,19 @@ export function App() {
                 </small>
               ) : null}
             </span>
+            {s.adventure && !modal && !teaching && !note ? (
+              <button
+                type="button"
+                className="activity-kitchen-link"
+                onClick={() => {
+                  scene.current?.cancel();
+                  audio.stop();
+                  setActivityTable(true);
+                }}
+              >
+                到活动桌
+              </button>
+            ) : null}
             {ui.assetFailure || controller.save.issue || controller.profile.issue ? (
               <button type="button" aria-label="保存与画面状态" onClick={() => setModal('issues')}>
                 !
