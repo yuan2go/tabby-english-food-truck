@@ -1,0 +1,80 @@
+scripts/immersion-audio.mjs:72:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    70 │     else manifest.assets[index] = entry;
+    71 │   }
+  > 72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    74 │   await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+     70  70 │       else manifest.assets[index] = entry;
+     71  71 │     }
+     72     │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+         72 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+     73  73 │     await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+     74  74 │     await writeFile(
+  
+
+scripts/immersion-audio.mjs:73:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    71 │   }
+    72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+       │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    74 │   await writeFile(
+    75 │     'art/immersion-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+     71  71 │     }
+     72  72 │     await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+     73     │ - ··await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+         73 │ + ··await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+     74  74 │     await writeFile(
+     75  75 │       'art/immersion-audio.json',
+  
+
+scripts/immersion-audio.mjs:76:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    74 │   await writeFile(
+    75 │     'art/immersion-audio.json',
+  > 76 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 77 │       {
+        ...
+  > 84 │       2,
+  > 85 │     ) + '\n',
+       │     ^^^^^^^^
+    86 │   );
+    87 │   execFileSync(
+  
+  i Unsafe fix: Use a template literal.
+  
+     74  74 │     await writeFile(
+     75  75 │       'art/immersion-audio.json',
+     76     │ - ····JSON.stringify(
+         76 │ + ····`${JSON.stringify(
+     77  77 │         {
+     78  78 │           source: 'macOS say / Samantha 140 wpm, offline PCM 22050 Hz',
+    ······· │ 
+     83  83 │         null,
+     84  84 │         2,
+     85     │ - ····)·+·'\n',
+         85 │ + ····)}\n`,
+     86  86 │     );
+     87  87 │     execFileSync(
+  
+
+Skipped 3 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 2 files in 28ms. Fixed 1 file.
+Found 3 infos.

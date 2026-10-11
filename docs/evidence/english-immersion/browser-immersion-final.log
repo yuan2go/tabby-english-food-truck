@@ -1,0 +1,56 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep normal entrance|phone: held
+
+[WebServer] (node:23717) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:23795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:23849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory (39.6s)
+(node:24011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/immersion.spec.ts:91:1 › phone: held tray and two guests replay without delivery; cancellation, pause, failure and short landscape (5.8s)
+
+
+  1) e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "leaving"
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      46 |   await make(page, 'vanilla-cone');
+      47 |   await handOver(page, 0);
+    > 48 |   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+         |                                                                        ^
+      49 |   await make(page, 'banana-cream');
+      50 |   await page.getByRole('button', { name: '送去树荫分享', exact: true }).click();
+      51 |   await expect.poll(async () => (await state(page)).adventure?.steps.includes('cool')).toBe(true);
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/immersion.spec.ts:48:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/immersion-normal-entrance--76821-ors-and-real-sharing-memory/error-context.md
+
+  1 failed
+    e2e/immersion.spec.ts:8:1 › normal entrance: complete requests, actual receipt, yard actions, open flavors and real sharing memory 
+  1 passed (54.3s)

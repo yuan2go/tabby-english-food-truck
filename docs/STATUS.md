@@ -1,10 +1,14 @@
 # 项目状态
 
-## 2026-10-12 · WP-ENGLISH-IMMERSION-01 · IN_PROGRESS
+## 2026-10-12 · WP-ENGLISH-IMMERSION-01 · ENGINEERING_PASS / OWNER_ACCEPTANCE_PENDING
 
 baseline `64f03fc716de70e20f64f9bbc3802de7601a460f`，origin/main；隔离worktree `/Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck`，分支 `codex/wp-english-immersion-01`。原工作区`docs/playtests/`未跟踪内容保留，不复制/覆盖。先文档治理独立提交，再编码。上一合同已归档到[索引](archive/pre-english-immersion-01/index.md)，原失败/权利/待办保留。
 
-本包工程验证待执行；人工听审/教研/真机/儿童试玩NOT_RUN；声音权利PENDING；历史真机NEEDS_REVISION、60fps NOT_MET保持。不推送/PR/合并/部署。
+实现提交 `c51c4f6bdc08cc581f948b4f797c6443634534d5`；文档治理先行提交 `081e57e8aa8f0e251995c301e8f017c66e6716c8`。明确订单从真实产品/数量统一生成完整请求，开放语义允许合法多方案；128段离线整句音频与文本/来源/hash登记一致。英语贯穿制作、真实接收、品尝、小院行动、主动赠送、作品与实际历史回访。默认完整英文可见、48px整句重听、双客一触恢复请求与最近6句回看；重复重播取消、持盘不交付，失败/静音保留图示入口。沿用规则核及唯一前景通道，不增依赖/运行时TTS/AI/录音/后台，不改奖励、制作或章分支；字幕理解、听取、帮助及操作分记。修复图鉴播放误记听取、首次音频机会提前消耗、未领奖真实食品回访缺失及短横屏便签后续点击穿透。
+
+单元259/259（20文件）、typecheck、lint（0错误/54warnings/10infos）、resources（475文件/324speech/50食品/128新增整句）、build全部退出0。完整浏览器首轮13/15退出1，随后修复两处问题，仅复跑受影响6/6退出0；五章、双野餐分支、自由制作、菜单与小游戏通过证据保留，不冒报最终文档HEAD重跑15条。macOS26.6.2 arm64 / Node24.15.0 / npm11.12.1 / Chromium153.0.8010.12、默认画质；正式首页、真实按钮/指针操作，状态只读。正常验收路径及命令/日志/原失败/画面/受测源码指纹见[本包证据](evidence/english-immersion/README.md)。最终干净HEAD构建身份与本地预览 `http://127.0.0.1:4186/` 以交付回复/页面metadata读回为准。
+
+文档清理废止碎片点餐、默认隐藏英文、字幕混记纯听力、小院仅中文的冲突；01–05/README/STATUS继续唯一权威，六份上一合同逐字节归档，原失败/资源来源/权利/有效待办保留。独立只读代码审查及增量复核未发现剩余实质问题；此不等于人工听审。人工听审/教研/实体iPhone15 Pro＋Chrome/儿童试玩NOT_RUN，负责人运行与手感PENDING、声音分发权PENDING；全部新音频DEVELOPMENT_TTS_UNREVIEWED。历史真机NEEDS_REVISION、60fps NOT_MET保持。模拟视口及DOM失焦不是实机后台；托管CI/部署NOT_RUN，公开发布BLOCKED。不推送/PR/合并/部署。
 
 
 ## 2026-10-11 · WP-PLAYABLE-ADVENTURE-01 · ENGINEERING_PASS / OWNER_ACCEPTANCE_PENDING

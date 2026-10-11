@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts tests/m21-audio.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+   Start at  02:19:19
+   Duration  309ms (transform 263ms, setup 0ms, import 358ms, tests 16ms, environment 0ms)
+

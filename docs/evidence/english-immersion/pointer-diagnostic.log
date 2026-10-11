@@ -1,0 +1,59 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep phone wrong delivery
+
+[WebServer] (node:27526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:27594) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:27640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+NOTE_DIAGNOSTIC 300 {"point":{"x":377.59375,"y":144},"overlap":["note"],"canvas":{"x":0,"y":0,"width":852,"height":300,"top":0,"right":852,"bottom":300,"left":0},"audio":"{\"active\":null,\"failure\":null,\"loops\":[\"music\",\"ambience\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.09000000357627869,\"machineGain\":0.02500000037252903,\"effects\":0}"}
+POINTER_DIAGNOSTIC_down {"client":[377.59375,144],"at":{"x":377.59375,"y":144},"hit":"note","primary":true,"paused":[],"blocked":false}
+POINTER_DIAGNOSTIC_up {"client":[377.59375,144],"at":{"x":377.59375,"y":144},"hit":"note","primary":true,"paused":[],"blocked":false,"press":"note"}
+  ✘  1 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (29.1s)
+
+
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: '大咪陪你一起做' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: '大咪陪你一起做' }) with timeout 6000ms
+      - waiting for getByRole('heading', { name: '大咪陪你一起做' })
+
+
+      159 |     console.log('NOTE_DIAGNOSTIC',height,JSON.stringify(diagnostic));
+      160 |     await tap(page, 'note');
+    > 161 |     await expect(page.getByRole('heading', { name: '大咪陪你一起做' })).toBeVisible();
+          |                                                                  ^
+      162 |     await page.getByRole('button', { name: '继续营业', exact: true }).tap();
+      163 |     await tap(page, 'tray-1', 25);
+      164 |     await tap(page, 'supply-apple');
+        at /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:161:66
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 

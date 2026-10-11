@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-director.test.ts (10 tests | 1 failed) 15ms
+   × a real receipt remains available to a later visitor even before chapter completion 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > a real receipt remains available to a later visitor even before chapter completion
+AssertionError: expected undefined to be 'apple' // Object.is equality
+
+- Expected:
+"apple"
+
++ Received:
+undefined
+
+ ❯ tests/immersion-director.test.ts:195:85
+    193|   for(let i=0;i<100;i++) controller.tick(250);
+    194|   expect(controller.state.adventure?.rewards).toEqual([]);
+    195|   expect(controller.profile.value.activityMemories.at(-1)?.state.foods…
+       |                                                                                     ^
+    196|   controller.enter('endless',0,'less',true);
+    197|   director.setSurface('yard');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  02:19:42
+   Duration  302ms (transform 171ms, setup 0ms, import 207ms, tests 15ms, environment 0ms)
+

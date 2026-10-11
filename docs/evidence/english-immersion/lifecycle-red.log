@@ -1,0 +1,57 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/immersion-director.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/english-immersion/tabby-english-food-truck
+
+ ❯ tests/immersion-director.test.ts (5 tests | 2 failed) 14ms
+   × a new chapter on the same yard surface immediately presents its own action sentence 4ms
+   × explicit history replay of an already received request retains exact text while never crediting another guest 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > a new chapter on the same yard surface immediately presents its own action sentence
+AssertionError: expected undefined to be 'imm-open-cool' // Object.is equality
+
+- Expected:
+"imm-open-cool"
+
++ Received:
+undefined
+
+ ❯ tests/immersion-director.test.ts:110:40
+    108|   director.setSurface('yard');
+    109|   controller.enter('story', 1, 'less', true);
+    110|   expect(director.current?.line.audio).toBe('imm-open-cool');
+       |                                        ^
+    111| });
+    112| it('explicit history replay of an already received request retains exa…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/immersion-director.test.ts > explicit history replay of an already received request retains exact text while never crediting another guest
+AssertionError: expected undefined to be 'Can I have some apple juice, please?' // Object.is equality
+
+- Expected:
+"Can I have some apple juice, please?"
+
++ Received:
+undefined
+
+ ❯ tests/immersion-director.test.ts:121:39
+    119|   controller.notify();
+    120|   director.replay(past);
+    121|   expect(director.current?.line.text).toBe(past.line.text);
+       |                                       ^
+    122|   await Promise.resolve();
+    123|   Player.all.at(-1)?.onended?.();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  02:13:32
+   Duration  348ms (transform 203ms, setup 0ms, import 245ms, tests 14ms, environment 0ms)
+

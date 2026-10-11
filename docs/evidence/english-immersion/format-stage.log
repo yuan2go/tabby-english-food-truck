@@ -1,0 +1,216 @@
+scripts/immersion-audio.mjs:72:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    70 │     else manifest.assets[index] = entry;
+    71 │   }
+  > 72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    74 │   await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    70 70 │       else manifest.assets[index] = entry;
+    71 71 │     }
+    72    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       72 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    73 73 │     await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    74 74 │     await writeFile(
+  
+
+scripts/immersion-audio.mjs:73:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    71 │   }
+    72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+       │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    74 │   await writeFile(
+    75 │     'art/immersion-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    71 71 │     }
+    72 72 │     await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    73    │ - ··await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+       73 │ + ··await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    74 74 │     await writeFile(
+    75 75 │       'art/immersion-audio.json',
+  
+
+scripts/immersion-audio.mjs:76:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    74 │   await writeFile(
+    75 │     'art/immersion-audio.json',
+  > 76 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 77 │       {
+        ...
+  > 84 │       2,
+  > 85 │     ) + '\n',
+       │     ^^^^^^^^
+    86 │   );
+    87 │   console.log(
+  
+  i Unsafe fix: Use a template literal.
+  
+    74 74 │     await writeFile(
+    75 75 │       'art/immersion-audio.json',
+    76    │ - ····JSON.stringify(
+       76 │ + ····`${JSON.stringify(
+    77 77 │         {
+    78 78 │           source: 'macOS say / Samantha 140 wpm, offline PCM 22050 Hz',
+    ····· │ 
+    83 83 │         null,
+    84 84 │         2,
+    85    │ - ····)·+·'\n',
+       85 │ + ····)}\n`,
+    86 86 │     );
+    87 87 │     console.log(
+  
+
+src/rules/adventure.ts:260:9 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    258 │   if (c.action === 'pickup') {
+    259 │     const food = a.foods.find((f) => f.id === c.item);
+  > 260 │     if (!food || !food.place.startsWith('table:')) return result('blocked', '先选桌上的一份食品。');
+        │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    261 │     food.place = 'work';
+    262 │     return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    258 258 │     if (c.action === 'pickup') {
+    259 259 │       const food = a.foods.find((f) => f.id === c.item);
+    260     │ - ····if·(!food·||·!food.place.startsWith('table:'))·return·result('blocked',·'先选桌上的一份食品。');
+        260 │ + ····if·(!food?.place.startsWith('table:'))·return·result('blocked',·'先选桌上的一份食品。');
+    261 261 │       food.place = 'work';
+    262 262 │       return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  
+
+src/rules/snapshot.ts:488:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    486 │         (job.worldTarget
+    487 │           ? !s.adventure || job.order !== undefined
+  > 488 │           : !order ||
+        │             ^^^^^^^^^
+  > 489 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    490 │             Math.abs(order.remaining - completion) > 0.05) ||
+    491 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    486 486 │           (job.worldTarget
+    487 487 │             ? !s.adventure || job.order !== undefined
+    488     │ - ··········:·!order·||
+    489     │ - ············order.status·!==·'leaving'·||
+        488 │ + ··········:·order?.status·!==·'leaving'·||
+    490 489 │               Math.abs(order.remaining - completion) > 0.05) ||
+    491 490 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+src/app/App.tsx:277:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies more dependencies than necessary: audio.
+  
+    275 │       controller.command({ type: 'support', order: selected.id, reason: 'caption-visible' });
+    276 │   }, [screen, activityTable, selected, controller]);
+  > 277 │   useEffect(() => {
+        │   ^^^^^^^^^
+    278 │     if (
+    279 │       screen !== 'game' ||
+  
+  i This dependency can be removed from the list.
+  
+    318 │     s.lessons,
+    319 │     controller,
+  > 320 │     audio,
+        │     ^^^^^
+    321 │     dialogue,
+    322 │   ]);
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Specifying more dependencies than required can lead to unnecessary re-rendering
+    and degraded performance.
+  
+  i Unsafe fix: Remove the extra dependencies from the list.
+  
+     306  306 │       if (order) dialogue.request(order, true);
+     307  307 │     }, [
+     308      │ - ····screen,
+     309      │ - ····modal,
+     310      │ - ····teaching,
+     311      │ - ····growth,
+     312      │ - ····opening,
+     313      │ - ····activityTable,
+     314      │ - ····activeId,
+     315      │ - ····activeRequest,
+     316      │ - ····actorBusy,
+     317      │ - ····s.runId,
+     318      │ - ····s.lessons,
+     319      │ - ····controller,
+     320      │ - ····audio,
+     321      │ - ····dialogue,
+          308 │ + ····screen,·
+          309 │ + ····modal,·
+          310 │ + ····teaching,·
+          311 │ + ····growth,·
+          312 │ + ····opening,·
+          313 │ + ····activityTable,·
+          314 │ + ····activeId,·
+          315 │ + ····activeRequest,·
+          316 │ + ····actorBusy,·
+          317 │ + ····s.runId,·
+          318 │ + ····s.lessons,·
+          319 │ + ····controller,·
+          320 │ + ····dialogue
+     322  321 │     ]);
+     323  322 │     useEffect(() => {
+  
+
+src/app/Dialogue.tsx:21:25 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    19 │     .map((part, i) =>
+    20 │       line.emphasis.some((t) => t.toLowerCase() === part.toLowerCase()) ? (
+  > 21 │         <strong key={`${i}:${part}`}>{part}</strong>
+       │                         ^
+    22 │       ) : (
+    23 │         part
+  
+  i This is the source of the key value.
+  
+    17 │   return line.text
+    18 │     .split(new RegExp(`(${pattern})`, 'gi'))
+  > 19 │     .map((part, i) =>
+       │                 ^
+    20 │       line.emphasis.some((t) => t.toLowerCase() === part.toLowerCase()) ? (
+    21 │         <strong key={`${i}:${part}`}>{part}</strong>
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Skipped 10 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 29 files in 128ms. Fixed 19 files.
+Found 2 errors.
+Found 2 warnings.
+Found 3 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+
