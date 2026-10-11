@@ -6,7 +6,11 @@ import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { activityHint, adventureReady, openCommission } from '../rules/adventure';
-import { type ActivityCommand, activityObstacle } from '../rules/adventure-guidance';
+import {
+  type ActivityCommand,
+  activityGuidance,
+  activityObstacle,
+} from '../rules/adventure-guidance';
 import type { Command } from '../rules/types';
 import { AdventureGuide } from './AdventureGuide';
 import { PicnicBasket, ToolShelf } from './AdventureObjects';
@@ -131,7 +135,7 @@ export function Adventure({
       aria-label="小院活动桌"
       style={{ backgroundImage: `url(${assetUrl('courtyard')})` }}
     >
-      <div className="adventure-content" inert={clear}>
+      <div className="adventure-content">
         <header className="activity-header">
           <button type="button" onClick={home} aria-label="返回小院">
             ← 小院
@@ -501,7 +505,12 @@ export function Adventure({
             </fieldset>
           ) : null}
           <p role="status" className="world-feedback">
-            {controller.message}
+            {
+              (blocked
+                ? activityObstacle(controller.state, blocked)
+                : activityGuidance(controller.state)
+              ).label
+            }
           </p>
           {completed || a.kind === 'shop' ? (
             <div className="free-decor-workshop">

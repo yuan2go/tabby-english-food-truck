@@ -1,0 +1,19 @@
+{
+  "samples": 9,
+  "background": {
+    "visibility": "visible",
+    "foregroundTime": 349.9,
+    "hiddenFirstTime": 349.9,
+    "hiddenLastTime": 4016.4000000000005,
+    "resumedTime": 4016.4000000000005,
+    "itemIdsPreserved": true,
+    "actualBackgroundState": "NOT_CONFIRMED",
+    "sound": "{\"active\":null,\"failure\":null,\"loops\":[\"music\",\"ambience\",\"machine\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.02500000037252903,\"machineGain\":0.02500000037252903,\"effects\":0}"
+  },
+  "audioUnlock": {
+    "requestHeard": true,
+    "diagnostics": "{\"active\":\"request-apple\",\"failure\":null,\"loops\":[\"music\",\"ambience\",\"machine\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.09000000357627869,\"machineGain\":0.09000000357627869,\"effects\":0}",
+    "humanListening": "NOT_RUN"
+  },
+  "failures": []
+}

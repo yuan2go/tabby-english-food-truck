@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { choosePrep, lesson, make, state } from './helpers';
+import { choosePrep, evidencePath, lesson, make, state } from './helpers';
 
 test.use({ hasTouch: true });
 test('single guest goal has a complete picture path before reading or hearing', async ({
@@ -30,7 +30,9 @@ test('single guest goal has a complete picture path before reading or hearing', 
   );
   expect(after.items).toEqual(before.items);
   expect(after.adventure).toEqual(before.adventure);
-  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/single-dual-phone.png' });
+  await page.screenshot({
+    path: evidencePath('docs/evidence/adventure-experience-02/single-dual-phone.png'),
+  });
 });
 
 test('less support keeps the order answer private until failed speech provides recorded picture help', async ({
@@ -59,7 +61,7 @@ test('less support keeps the order answer private until failed speech provides r
   await expect(page.locator('.guide-demonstration')).toBeVisible();
   await expect(page.getByRole('button', { name: '去厨房备餐', exact: true })).toBeInViewport();
   await page.screenshot({
-    path: 'docs/evidence/adventure-experience-02/failed-speech-pictures-phone.png',
+    path: evidencePath('docs/evidence/adventure-experience-02/failed-speech-pictures-phone.png'),
   });
 });
 

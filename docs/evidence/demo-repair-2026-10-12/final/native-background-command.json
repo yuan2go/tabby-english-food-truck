@@ -1,0 +1,13 @@
+{
+  "command": "PATH=/tmp/node-v22.12.0-darwin-arm64/bin:$PATH node node_modules/.cache/demo-native-background.mjs",
+  "firstSyntaxExit": 1,
+  "firstVisibilityExit": 0,
+  "nativeTabExit": 0,
+  "acceptanceStatus": "NOT_CONFIRMED",
+  "actualUIActions": [
+    "CUA selected com.google.chrome.for.testing at 127.0.0.1:4295/build/",
+    "First native minimize did not yield observed hidden state",
+    "Second native super+t selected chrome://newtab/ and deselected the game tab; actual page hidden predicate timed out"
+  ],
+  "limitations": "No visibility events or clocks injected; no pass claimed. Default rAF first attempt replaced with interval polling for the second. Browser closed at timeout; return/resume NOT_RUN."
+}

@@ -412,3 +412,16 @@
   max-height: 60%;
   border-radius: 24px;
 }
+
+.food-recovery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  line-height: 20px;
+}
+.food-recovery small {
+  font-size: 12px;
+  line-height: 14px;
+}

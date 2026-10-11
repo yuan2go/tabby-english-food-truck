@@ -1,0 +1,15 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/demo-repair.spec.ts
+
+[WebServer] (node:9654) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+  ✓  1 e2e/demo-repair.spec.ts:7:1 › scene pause and restart isolate background, trap focus and restore the trigger (2.4s)
+  ✓  2 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (7.6s)
+  ✓  3 e2e/demo-repair.spec.ts:106:1 › optional visual contrasts preserve assistance and leave the choice to the player (2.9s)
+  ✓  4 e2e/demo-repair.spec.ts:140:1 › home main invitation and autonomous entrances are physically reachable in compact layouts (1.9s)
+
+  4 passed (17.3s)

@@ -28,7 +28,7 @@ export function Story({
   resumeExisting: () => void;
 }) {
   const p = controller.profile.value;
-  const [prologue, setPrologue] = useState(!p.prologue),
+  const [prologue, setPrologue] = useState(!p.prologue && p.activityMemories.length === 0),
     [beat, setBeat] = useState(0);
 
   const [voiceResult, setVoiceResult] = useState<PlaybackResult | null>(null);

@@ -1,0 +1,163 @@
+src/app/service.css:95:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    93 │   pointer-events: none;
+    94 │ }
+  > 95 │ .delivery-actions button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    96 │   min-height: 48px;
+    97 │   min-width: 140px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:108:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 2)
+  
+    106 │   width: 100%;
+    107 │ }
+  > 108 │ .delivery-actions fieldset button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    109 │   min-width: 0;
+    110 │   padding: 8px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:118:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    116 │   z-index: 6;
+    117 │ }
+  > 118 │ .recipe-switch > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    119 │   min-width: 92px;
+    120 │   padding: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:166:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    164 │   }
+    165 │ }
+  > 166 │ .recipe-options button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    167 │   display: flex;
+    168 │   align-items: center;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:210:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    208 │   font-size: 18px;
+    209 │ }
+  > 210 │ .request-caption button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    211 │   position: absolute;
+    212 │   right: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:272:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    270 │   margin: 0;
+    271 │ }
+  > 272 │ .voice-recovery button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    273 │   min-height: 44px;
+    274 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:327:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    325 │   gap: 8px;
+    326 │ }
+  > 327 │ .platform-status button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    328 │   min-width: 48px;
+    329 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+Checked 4 files in 36ms. Fixed 3 files.
+Found 7 warnings.

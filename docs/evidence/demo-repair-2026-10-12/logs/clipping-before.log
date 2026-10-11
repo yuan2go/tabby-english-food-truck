@@ -1,0 +1,52 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep desktop feast exposes
+
+[WebServer] (node:5241) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+EVIDENCE_FEAST_START_SECONDS 13.193
+(node:5294) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:189:1 › desktop feast exposes replay skip and low motion without repeating settlement (29.0s)
+
+
+  1) e2e/adventure.spec.ts:189:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator:  getByRole('button', { name: '低动态表现', exact: true })
+    Expected: in viewport
+    Received: viewport ratio 0.2647058963775635
+    Timeout:  6000ms
+
+    Call log:
+      - Expect "toBeInViewport" getByRole('button', { name: '低动态表现', exact: true }) with timeout 6000ms
+      - waiting for getByRole('button', { name: '低动态表现', exact: true })
+        15 × locator resolved to <button type="button" aria-label="低动态表现" aria-pressed="false">◒</button>
+           - unexpected value "viewport ratio 0.2647058963775635"
+
+
+      219 |   for (const name of ['重看朋友使用', '跳过朋友演出', '低动态表现']) {
+      220 |     const button = page.getByRole('button', { name, exact: true });
+    > 221 |     await expect(button).toBeInViewport({ ratio: 1 });
+          |                          ^
+      222 |     await button.click();
+      223 |   }
+      224 |   expect((await state(page)).adventure).toEqual(before.adventure);
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/adventure.spec.ts:221:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/clipping-before/test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/clipping-before/test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/clipping-before/test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:189:1 › desktop feast exposes replay skip and low motion without repeating settlement 

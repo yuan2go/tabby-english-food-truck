@@ -12,6 +12,7 @@ import {
   sceneCommand,
   sceneTask,
 } from '../rules/scene-games';
+import { useDialogFocus } from './dialog-focus';
 import { DesignerBoard, HuntBoard, MemoryBoard, SortBoard, TheatreBoard } from './SceneBoards';
 import { SceneGuide } from './SceneGuide';
 import { VocabularyVisual, VoiceIcon } from './VocabularyVisual';
@@ -40,6 +41,7 @@ export function SceneGames({
     [soundIssue, setSoundIssue] = useState(false),
     [restart, setRestart] = useState(false),
     [showGuide, setShowGuide] = useState(false);
+  useDialogFocus(restart ? 'scene-restart' : state?.paused ? 'scene-pause' : null);
   const latest = useRef(state),
     voice = useRef(0);
   latest.current = state;
@@ -265,7 +267,7 @@ export function SceneGames({
           暂停
         </button>
       </header>
-      <div inert={state.paused || restart} className="scene-content">
+      <div className="scene-content">
         {state.phase === 'intro' ? (
           <div className="scene-intro">
             <img src={assetUrl('cat-greet')} alt="大咪邀请你玩" />
@@ -325,13 +327,13 @@ export function SceneGames({
               </button>
             </div>
             {supported && showGuide ? (
-              <div className="scene-help" role="dialog" aria-label="物件与动作示范">
+              <section className="scene-help" aria-label="物件与动作示范">
                 <button type="button" onClick={() => setShowGuide(false)}>
                   收起图示，自己试试
                 </button>
                 <SceneGuide state={state} />
                 <small>按图示动手，帮助会保留。</small>
-              </div>
+              </section>
             ) : null}
             <div
               className={`scene-stage actor-${state.actor.action}`}
@@ -424,7 +426,13 @@ export function SceneGames({
           </div>
         ) : null}
         <div className="scene-bottom">
-          <button type="button" onClick={() => setRestart(true)}>
+          <button
+            type="button"
+            onClick={() => {
+              stop();
+              setRestart(true);
+            }}
+          >
             重玩这一组
           </button>
           <small>{issue || '开发语音未听审 · 没有计时与能力评分'}</small>
@@ -447,7 +455,7 @@ export function SceneGames({
         </div>
       </div>
       {state.paused ? (
-        <div className="scene-overlay" role="dialog" aria-label="小游戏已暂停">
+        <div className="scene-overlay" role="dialog" aria-modal="true" aria-label="小游戏已暂停">
           <h3>休息一会儿</h3>
           <button
             type="button"
@@ -462,7 +470,7 @@ export function SceneGames({
         </div>
       ) : null}
       {restart ? (
-        <div className="scene-overlay" role="dialog" aria-label="重玩场景小游戏">
+        <div className="scene-overlay" role="dialog" aria-modal="true" aria-label="重玩场景小游戏">
           <p>物件重新摆好，已经看过的帮助仍保留。</p>
           <button
             type="button"
@@ -474,7 +482,7 @@ export function SceneGames({
           >
             确认重玩
           </button>
-          <button type="button" onClick={() => setRestart(false)}>
+          <button type="button" data-dialog-initial onClick={() => setRestart(false)}>
             继续这一轮
           </button>
         </div>

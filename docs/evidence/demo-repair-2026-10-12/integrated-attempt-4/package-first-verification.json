@@ -1,0 +1,4 @@
+{
+  "exitCode": 1,
+  "reason": "macOS tar added AppleDouble metadata; strict runtime set check found 1182 versus expected 590 files. No missing runtime files. Repacked with COPYFILE_DISABLE=1; keep this failure separately."
+}

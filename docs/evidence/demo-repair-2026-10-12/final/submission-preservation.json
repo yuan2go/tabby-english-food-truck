@@ -1,0 +1,72 @@
+[
+  {
+    "path": "docs/submission/assets/01-making-icecream.png",
+    "sha256": "632c6dff60eb7674bee1ad911b145fed0c852ca4ee4a431dcf23863309faf20e",
+    "bytes": 1124757,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/assets/02-picnic-sharing.png",
+    "sha256": "553b39dee2f4dc5a8eb6fb8f29a8b806ce0eee8704580131147c2443388ed78b",
+    "bytes": 1002734,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/assets/03-saved-work.png",
+    "sha256": "b1d0c9eeacc7406ce0a101a10e4c19b8d5f8d991b146c4e5db02743783872bb7",
+    "bytes": 858666,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/assets/historical-site-check.json",
+    "sha256": "1f55bdead3ed80ee8aec5605ea640bfd32ce6656acaaf69e8d576c3368ce44e2",
+    "bytes": 720,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/assets/screenshots.json",
+    "sha256": "6fdaf7db4394eea00ce078c81405ca1433359fc55f0070a14c9141c8725209f2",
+    "bytes": 1150,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/cloud-delivery.md",
+    "sha256": "c9279d96b27aedda1f093264ca938cc550ddc19e7d6166be3b4c78a49d1eebc1",
+    "bytes": 2824,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/design-description.md",
+    "sha256": "bc3d937ff60c37e8706b314eddb614ce96a07dac6b2a398de9b95d4415e0fb62",
+    "bytes": 5642,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/design-description.pdf",
+    "sha256": "a25d5211c91baab0173bffb590a2a863ec1b29a01b00bcc5a3573220b6642b66",
+    "bytes": 5224168,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/evidence.md",
+    "sha256": "625f1bd84cb1153950a5a6016c786e64a544b44d7cac34599a9abce307e355bc",
+    "bytes": 10342,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  },
+  {
+    "path": "docs/submission/validation.md",
+    "sha256": "2e59b18d53d70149291a5cbf1c62cd319db7fe56d8e5ead4f9211132c3061b32",
+    "bytes": 4173,
+    "source": "0b249b04697b1df43d74bbe1a4f532175b2d04f1",
+    "unchanged": true
+  }
+]

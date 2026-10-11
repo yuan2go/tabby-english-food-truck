@@ -1,0 +1,16 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep scene pause|individual food|optional visual|home main|low motion receipts
+
+[WebServer] (node:10224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+  ✓  1 e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts (11.2s)
+  ✓  2 e2e/demo-repair.spec.ts:7:1 › scene pause and restart isolate background, trap focus and restore the trigger (2.5s)
+  ✓  3 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (8.5s)
+  ✓  4 e2e/demo-repair.spec.ts:133:1 › optional visual contrasts preserve assistance and leave the choice to the player (3.4s)
+  ✓  5 e2e/demo-repair.spec.ts:179:1 › home main invitation and autonomous entrances are physically reachable in compact layouts (2.7s)
+
+  5 passed (31.7s)

@@ -88,3 +88,11 @@ Home/Story 直接使用 courtyard/elder；TruckScene 的 CORE_ASSETS 和当前�
 38件新增纸艺道具为本包原创矢量源稿`art/vocab-source`，320×320透明WebP经sharp导出；生成脚本`vocab-resources.mjs`、运行`VocabularyVisual/ObjectArt`。动作/颜色/数量/空间采用可观察物件、冻结大咪与既有客人投影，背景不烘焙关键文字，无emoji占位。现有50食品图与冻结角色原文件不改。
 
 新增222个落盘WAV含70词的名称/情境、46导航/短指令及精确任务指令（包含修订前声音保留）；当前33条场景短指令独立计数，任务全句和speech文本一致。来源macOS say / Samantha、135wpm、PCM16bit/22050Hz；`vocab-production.json`和`vocab-scene-audio.json`记录文本/来源/状态，manifest记录实际bytes/hash；无运行时临时发音。开发语音DEVELOPMENT_TTS_UNREVIEWED，人工听审NOT_RUN、分发权PENDING；原创道具与新图示负责人视觉/手感/教研接受PENDING。不能因可用资源或工程验证宣称发布审核通过。
+
+## 2026-10-12 · 参赛Demo首次体验
+
+FoodCompare、home-entry与盘把复用登记的食品/角色/数量语音；无新增声音、位图生成或第三方来源。原生矢量水壶/浇水壶由Codex修改已有原创源（scripts/vocab-resources.mjs），分别突出盖/短嘴及长嘴/喷头；仅art/vocab-source/{kettle,watering-can}.svg和public/assets/vocab-{kettle,watering-can}.webp重新导出。320×320、透明、未镜像，sharp0.35.5，命令--images-only --objects=kettle,watering-can；manifest四条记录更新实际bytes/hash/Alpha。修前版本及来源在baseline Git与历史证据保留。所有其他资产、全部声音和权利事实不变；负责人视觉/教研/权利PENDING，人工听审BLOCKED（本轮暂无听审者）。
+
+458条speech引用全部列入本轮听审队列，核心请求、图音对比、活动语音优先；PCM参数/峰值检查不能代替发音、断句、听感音量、图音与适龄审查。详细范围和待验路径见本轮主报告。
+
+全部声音范围还包括audio-synthesis.json登记的4条合成层与9个短反馈；本轮逐项触发路径和源码hash列入待审，insert仅登记未发现实际调用，也保守列入。语音播放事件/混音状态不证明人听审。原生窗口后台专项未确认hidden，不冒称后台声音已验收；同构建听审页与明确待验路径见[主报告](../docs/evidence/demo-repair-2026-10-12/README.md)。

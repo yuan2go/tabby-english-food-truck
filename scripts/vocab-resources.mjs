@@ -147,10 +147,11 @@ const shapes = {
     p('M40 118Q50 77 110 76Q168 77 181 118Z', '#b3c1ae') +
     r(91, 60, 38, 19, '#9a7652'),
   kettle:
-    p('M54 78Q26 30 102 25Q168 29 166 85', 'none') +
-    p('M53 80Q38 151 79 164H141Q184 142 157 79Z', '#94a99a') +
-    p('M155 108L193 61L200 76L168 141Z', '#b3c5ad') +
-    e(105, 78, 55, 12, '#d1c5a7'),
+    p('M64 88Q48 31 109 27Q170 27 162 88', 'none') +
+    p('M67 85Q36 116 65 164Q112 186 160 164Q182 118 154 85Z', '#b4a47d') +
+    p('M156 107L184 84L194 94L168 140Z', '#d1bc8c') +
+    e(109, 84, 44, 11, '#dfcfaa') +
+    r(99, 62, 21, 13, '#80664d'),
   bottle:
     r(84, 29, 52, 28, '#ae8d64') +
     p('M86 57L63 90V173Q110 198 157 173V90L134 57Z', '#91b4b0') +
@@ -262,10 +263,14 @@ const shapes = {
     line(121, 92, 100, 58),
   seed: e(110, 113, 48, 70, '#a6875b') + p('M110 59Q83 113 110 167', 'none'),
   'watering-can':
+    p('M62 112Q12 122 21 68Q30 38 70 54', 'none') +
     r(55, 83, 106, 84, '#7e9d86') +
-    p('M159 112L192 71L207 83L170 155Z', '#a5ba97') +
-    p('M56 98Q17 49 63 35Q102 25 114 83', 'none') +
-    e(112, 83, 51, 12, '#b5c7a7'),
+    p('M159 116L195 63L208 71L169 153Z', '#a5ba97') +
+    e(112, 83, 51, 12, '#b5c7a7') +
+    e(202, 64, 18, 11, '#b5c7a7') +
+    e(194, 64, 1.5, 1.5, '#6f654f') +
+    e(202, 61, 1.5, 1.5, '#6f654f') +
+    e(210, 64, 1.5, 1.5, '#6f654f'),
   ball:
     e(110, 110, 77, 77, '#d5ba7e') +
     p('M57 51Q142 87 164 168', 'none') +
@@ -281,7 +286,16 @@ const shapes = {
 await mkdir('art/vocab-source', { recursive: true });
 const manifest = JSON.parse(await readFile('art/manifest.json', 'utf8'));
 const newAssets = [];
+const objectsArg = process.argv.find((a) => a.startsWith('--objects='));
+const imageOnly = process.argv.includes('--images-only');
+const selectedObjects = objectsArg ? new Set(objectsArg.slice(10).split(',')) : null;
+if (
+  selectedObjects &&
+  (!imageOnly || [...selectedObjects].some((id) => !nouns.some(([n]) => n === id)))
+)
+  throw new Error('A selected object export requires --images-only and registered noun IDs.');
 for (const [id] of nouns) {
+  if (selectedObjects && !selectedObjects.has(id)) continue;
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><title>${id.replaceAll('-', ' ')}</title><defs><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" seed="19" result="noise"/><feColorMatrix in="noise" type="saturate" values="0" result="n"/><feComposite in="n" in2="SourceGraphic" operator="in" result="t"/><feBlend in="SourceGraphic" in2="t" mode="soft-light"/></filter></defs><g filter="url(#paper)" stroke="#6f654f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">${shapes[id]}</g></svg>`;
   const source = `art/vocab-source/${id}.svg`,
     output = `public/assets/vocab-${id}.webp`;
@@ -330,6 +344,13 @@ for (const [id] of nouns) {
     };
     newAssets.push(a);
   }
+}
+if (imageOnly) {
+  // Update only the selected vector/image records in place; audio and text remain untouched.
+  manifest.assets = manifest.assets.map((a) => newAssets.find((n) => n.assetId === a.assetId) ?? a);
+  await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+  console.log(`Exported ${newAssets.length / 2} registered objects; speech untouched.`);
+  process.exit(0);
 }
 const extra = [
   ...nouns.map(([id, chinese, plural], i) => ({

@@ -40,7 +40,7 @@ export function Settings({
     URL.revokeObjectURL(url);
   };
   return (
-    <section className="adult-settings" role="dialog" aria-label="详细设置">
+    <section className="adult-settings" role="dialog" aria-modal="true" aria-label="详细设置">
       <button type="button" className="corner-back" onClick={close}>
         ← 返回
       </button>

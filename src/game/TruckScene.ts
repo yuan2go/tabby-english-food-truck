@@ -20,7 +20,14 @@ import { preparationCue } from './flow';
 import { activate, type Hotspot, type Selection, sourceFor, type ViewState } from './input';
 import { chapterJourney } from './journey';
 import { KitchenView, stationSlotPoint } from './KitchenView';
-import { kitchenActions, type Layout, layoutFor, type Point, supplyPoint } from './layout';
+import {
+  kitchenActions,
+  type Layout,
+  layoutFor,
+  type Point,
+  supplyPoint,
+  traySurface,
+} from './layout';
 import { renderScale } from './rendering';
 
 type Sprite = Phaser.GameObjects.Image;
@@ -338,8 +345,8 @@ export class TruckScene extends Phaser.Scene {
       p = item.location;
     if (p.startsWith('tray:')) {
       const [, tray, slot] = p.split(':');
-      const center = l.trays[Number(tray) as TrayId];
-      return { x: center.x + this.slotOffset(Number(slot)), y: center.y - 7 };
+      const center = traySurface(l, Number(tray) as TrayId).food;
+      return { x: center.x + this.slotOffset(Number(slot)), y: center.y };
     }
     if (p === 'machine:apple')
       return { x: l.machine.x - 10 * l.scale, y: l.machine.y - 42 * l.scale };
@@ -596,8 +603,17 @@ export class TruckScene extends Phaser.Scene {
     this.hot('note', '请大咪帮忙', 'note', l.helper.x, l.helper.y - 20, 64, 88);
     for (const tray of MODES[s.mode].trays) {
       const p = l.trays[tray],
+        surface = traySurface(l, tray),
         returning = s.trays[tray].remaining > 0;
-      this.image(`tray-${tray}`, 'tray', p.x, p.y, l.trayWidth, l.trayWidth * 0.64, 4).setVisible(
+      this.image(
+        `tray-${tray}`,
+        'tray',
+        p.x,
+        surface.plate.y,
+        l.trayWidth,
+        l.trayWidth * 0.64,
+        4,
+      ).setVisible(
         !returning ||
           [...(s.actor.current ? [s.actor.current] : []), ...s.actor.queue].some(
             (j) =>
@@ -612,24 +628,43 @@ export class TruckScene extends Phaser.Scene {
       );
       this.badge(
         `tray-label-${tray}`,
-        returning ? '回盘中' : `${tray + 1}号备餐盘`,
-        p.x,
-        p.y + 32,
-        Math.min(l.trayWidth - 10, 148),
-        36,
+        returning ? '回盘' : `端${tray + 1}盘`,
+        surface.handle.x,
+        surface.handle.y,
+        surface.handle.width,
+        48,
+      );
+      this.badge(
+        `tray-destination-${tray}`,
+        `选${tray + 1}盘`,
+        surface.destination.x,
+        surface.destination.y,
+        surface.destination.width,
+        48,
       );
       this.hot(
         `tray-${tray}`,
         `${tray + 1}号托盘：放入食品或选择整盘`,
         'tray',
-        p.x,
-        p.y + 14,
-        l.trayWidth,
-        Math.max(78, l.trayWidth * 0.5),
+        surface.destination.x,
+        surface.destination.y,
+        surface.destination.width,
+        48,
+      );
+      this.hot(
+        `lift-tray-${tray}`,
+        `拿起或放下${tray + 1}号整盘`,
+        'tray',
+        surface.handle.x,
+        surface.handle.y,
+        surface.handle.width,
+        48,
       );
       if (s.helper?.tray === tray)
         for (const slot of s.helper.slots)
-          this.decor.lineStyle(2, 0xd19638).strokeCircle(p.x + this.slotOffset(slot), p.y - 7, 20);
+          this.decor
+            .lineStyle(2, 0xd19638)
+            .strokeCircle(p.x + this.slotOffset(slot), surface.food.y, 20);
     }
     for (const product of suppliesFor(s.session)) {
       const p = this.supplyPoint(product);
@@ -881,15 +916,9 @@ export class TruckScene extends Phaser.Scene {
     for (const tray of MODES[s.mode].trays) {
       this.texts
         .get(`tray-label-${tray}`)
-        ?.setText(
-          held === tray
-            ? '点朋友递出 ↗'
-            : s.trays[tray].remaining
-              ? '回盘中'
-              : `${tray + 1}号备餐盘`,
-        );
+        ?.setText(held === tray ? '放下' : s.trays[tray].remaining ? '回盘' : `端${tray + 1}盘`);
       const lift = held === tray && !s.trays[tray].remaining && !this.press?.moved ? 9 : 0;
-      this.images.get(`tray-${tray}`)?.setY(l.trays[tray].y - lift);
+      this.images.get(`tray-${tray}`)?.setY(traySurface(l, tray).plate.y - lift);
       for (const item of trayItems(s, tray)) {
         const key = `item-${item.id}`;
         if (!this.motions.has(key)) this.images.get(key)?.setY(this.itemPoint(item).y - lift);
@@ -998,7 +1027,7 @@ export class TruckScene extends Phaser.Scene {
     // It is presentation, not a replacement for that stationary control.
     const start = this.ui.hotspots.find(
       (h) =>
-        h.kind === 'start' &&
+        (h.kind === 'start' || h.id.startsWith('lift-tray-')) &&
         x >= h.x - h.width / 2 &&
         x <= h.x + h.width / 2 &&
         y >= h.y - h.height / 2 &&
@@ -1040,19 +1069,22 @@ export class TruckScene extends Phaser.Scene {
     const p = this.point(e),
       target = this.hit(p.x, p.y),
       id = target?.id ?? '',
-      image = this.images.get(id);
+      image = this.images.get(id),
+      source = sourceFor(id, this.controller.state);
     this.press = {
       pointerId: e.pointerId,
       x: p.x,
       y: p.y,
       id,
-      source: sourceFor(id, this.controller.state),
+      source,
       anchor:
-        target?.kind === 'item'
-          ? { x: target.x, y: target.y }
-          : image
-            ? { x: image.x, y: image.y }
-            : p,
+        source && 'tray' in source
+          ? traySurface(this.layout, source.tray).plate
+          : target?.kind === 'item'
+            ? { x: target.x, y: target.y }
+            : image
+              ? { x: image.x, y: image.y }
+              : p,
       moved: false,
     };
     this.game.canvas.setPointerCapture(e.pointerId);

@@ -1,0 +1,210 @@
+HIT <canvas width="393" height="665" style="width: 393px; height: 665px;" data-render-scale="1.000" data-world-width="393" data-world-height="665" data-cat-x="0.73" data-cat-y="0.43" data-cat-pose="idle" 
+BEFORE tray-0 { x: 10.5, y: 412, width: 183.5, height: 48 } []
+EVENT {"type":"pointerdown","id":"lift-tray-0","target":"BUTTON","x":102.25,"y":436}
+EVENT {"type":"pointerup","id":"lift-tray-0","target":"BUTTON","x":102.25,"y":436}
+EVENT {"type":"click","id":"lift-tray-0","target":"BUTTON","x":102,"y":444}
+AFTER tray-0 [] []
+HIT <canvas width="393" height="665" style="width: 393px; height: 665px;" data-render-scale="1.000" data-world-width="393" data-world-height="665" data-cat-x="0.73" data-cat-y="0.43" data-cat-pose="idle" 
+BEFORE supply-apple { x: 40.828125, y: 561.390625, width: 60, height: 61.1875 } []
+EVENT {"type":"pointerdown","target":"CANVAS","x":70.828125,"y":591.984375}
+EVENT {"type":"pointerup","target":"CANVAS","x":70.828125,"y":591.984375}
+EVENT {"type":"click","target":"CANVAS","x":71,"y":592}
+AFTER supply-apple [ { id: 'food-1', product: 'apple', location: 'tray:0:0' } ] []
+HIT <canvas width="393" height="665" style="width: 393px; height: 665px;" data-render-scale="1.000" data-world-width="393" data-world-height="665" data-cat-x="0.73" data-cat-y="0.43" data-cat-pose="idle" 
+BEFORE supply-banana { x: 166.5, y: 561.390625, width: 60, height: 61.1875 } []
+EVENT {"type":"pointerdown","target":"CANVAS","x":196.5,"y":591.984375}
+EVENT {"type":"pointerup","target":"CANVAS","x":196.5,"y":591.984375}
+EVENT {"type":"click","target":"CANVAS","x":197,"y":592}
+AFTER supply-banana [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] []
+HIT <canvas width="393" height="665" style="width: 393px; height: 665px;" data-render-scale="1.000" data-world-width="393" data-world-height="665" data-cat-x="0.73" data-cat-y="0.43" data-cat-pose="idle" 
+BEFORE item-food-2 { x: 80.25, y: 383, width: 44, height: 44 } []
+EVENT {"type":"pointerdown","target":"CANVAS","x":102.25,"y":405}
+EVENT {"type":"pointerup","target":"CANVAS","x":102.25,"y":405}
+EVENT {"type":"click","target":"CANVAS","x":102,"y":405}
+AFTER item-food-2 [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] [ 'item-food-2' ]
+EVENT {"type":"pointerdown","id":"lift-tray-0","target":"BUTTON","x":102.25,"y":466}
+EVENT {"type":"pointerup","id":"lift-tray-0","target":"BUTTON","x":102.25,"y":466}
+EVENT {"type":"click","id":"lift-tray-0","target":"BUTTON","x":102,"y":466}
+EVENT {"type":"pointerdown","target":"BUTTON","x":75.8499984741211,"y":84}
+EVENT {"type":"pointerup","target":"BUTTON","x":75.8499984741211,"y":84}
+EVENT {"type":"click","target":"BUTTON","x":76,"y":84}
+EVENT {"type":"pointerdown","id":"lift-tray-0","target":"BUTTON","x":102.25,"y":466}
+EVENT {"type":"pointerup","id":"lift-tray-0","target":"BUTTON","x":102.25,"y":466}
+EVENT {"type":"click","id":"lift-tray-0","target":"BUTTON","x":102,"y":466}
+HIT <canvas width="393" height="665" style="width: 393px; height: 665px;" data-render-scale="1.000" data-world-width="393" data-world-height="665" data-cat-x="0.73" data-cat-y="0.43" data-cat-pose="idle" 
+BEFORE item-food-2 { x: 80.25, y: 383, width: 44, height: 44 } []
+EVENT {"type":"pointerdown","target":"CANVAS","x":102.25,"y":405}
+EVENT {"type":"pointerup","target":"CANVAS","x":102.25,"y":405}
+EVENT {"type":"click","target":"CANVAS","x":102,"y":405}
+AFTER item-food-2 [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] [ 'item-food-2' ]
+HIT <canvas width="393" height="665" style="width: 393px; height: 665px;" data-render-scale="1.000" data-world-width="393" data-world-height="665" data-cat-x="0.73" data-cat-y="0.43" data-cat-pose="idle" 
+BEFORE tray-1 { x: 199, y: 412, width: 183.5, height: 48 } [ 'item-food-2' ]
+EVENT {"type":"pointerdown","id":"lift-tray-1","target":"BUTTON","x":290.75,"y":436}
+EVENT {"type":"pointerup","id":"lift-tray-1","target":"BUTTON","x":290.75,"y":436}
+EVENT {"type":"click","id":"lift-tray-1","target":"BUTTON","x":290,"y":444}
+AFTER tray-1 [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] []
+FINAL {
+  schemaVersion: 7,
+  adventure: {
+    chapter: 0,
+    kind: 'chapter',
+    branch: null,
+    explored: [],
+    steps: [],
+    rewards: [],
+    foods: [],
+    works: [],
+    decor: { flower: 0, bunting: 'warm', cloth: 'leaf', light: 'warm' },
+    invitations: [],
+    experience: {
+      version: 2,
+      tools: [],
+      used: [],
+      helpers: [],
+      needs: [],
+      known: [],
+      picnic: null,
+      moments: []
+    }
+  },
+  routing: { machine: null, ice: null, board: null, grill: null },
+  session: {
+    activity: 'story',
+    chapter: 0,
+    support: 'pictures',
+    concurrency: 1,
+    menu: [
+      'food-orange',    'food-pear',
+      'food-peach',     'food-strawberry',
+      'food-grape',     'food-watermelon',
+      'food-mango',     'food-pineapple',
+      'food-milk',      'food-yogurt',
+      'food-smoothie',  'food-milkshake',
+      'food-pizza',     'food-salad',
+      'food-cake',      'food-cookie',
+      'apple',          'banana',
+      'two',            'juice',
+      'fruit',          'banana-juice',
+      'cup-vanilla',    'cone-vanilla',
+      'vanilla-cup',    'vanilla-cone',
+      'strawberry-cup', 'double-cream',
+      'banana-cream',   'sandwich',
+      'salad-sandwich', 'burger',
+      'cheese-burger'
+    ],
+    supplyPage: 0,
+    language: 'flavor',
+    family: 'juice',
+    unlocked: [ 'juice' ],
+    seed: 1,
+    cursor: 0,
+    served: 0,
+    lastRequest: ''
+  },
+  stations: {
+    ice: { status: 'empty', recipe: null, remaining: 0 },
+    board: { status: 'empty', recipe: null, remaining: 0 },
+    grill: { status: 'empty', recipe: null, remaining: 0 }
+  },
+  actor: { point: { x: 0.73, y: 0.43 }, current: null, queue: [] },
+  recycle: null,
+  contentVersion: 'adventure-experience-2',
+  mode: 'service',
+  history: { apple: [ 'picture-request', 'meaning-picture', 'seen-before' ] },
+  runId: '6ce196f4-2414-4c88-8a45-4ac281088cf2',
+  revision: 11,
+  nextId: 3,
+  variant: 0,
+  gameTime: 2016.5,
+  items: [
+    { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+    { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+  ],
+  orders: [
+    {
+      id: 'guest-0',
+      request: 'apple',
+      visitor: 'rabbit',
+      seat: 0,
+      status: 'waiting',
+      remaining: 0,
+      heard: false,
+      revisit: false,
+      support: [Array]
+    },
+    {
+      id: 'guest-1',
+      request: 'banana',
+      visitor: 'hedgehog',
+      seat: 1,
+      status: 'queued',
+      remaining: 0,
+      heard: false,
+      revisit: false,
+      support: [Array]
+    }
+  ],
+  machine: { status: 'empty', remaining: 0, jobId: null },
+  helper: null,
+  trays: [ { remaining: 0 }, { remaining: 0 } ],
+  receipts: [
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572659-1',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572727-2',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572727-3',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572750-4',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572825-5',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572839-6',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572850-7',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739572959-8',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739573007-9',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739573193-10',
+    '6ce196f4-2414-4c88-8a45-4ac281088cf2-cmd-1791739573210-11'
+  ],
+  attempts: [],
+  audio: [
+    {
+      id: 'apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'started',
+      gameTime: 400
+    },
+    {
+      id: 'apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'interrupted',
+      gameTime: 400
+    },
+    {
+      id: 'request-apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'started',
+      gameTime: 416.5999999999999
+    },
+    {
+      id: 'request-apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'interrupted',
+      gameTime: 766.5999999999999
+    },
+    {
+      id: 'request-apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'started',
+      gameTime: 783.3
+    }
+  ],
+  lessons: [ 'offered:guest-0' ],
+  noteSupport: []
+}

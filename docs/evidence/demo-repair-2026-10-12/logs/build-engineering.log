@@ -1,0 +1,11 @@
+
+> tabby-english-food-truck@0.1.0 build
+> npm run typecheck && vite build
+
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+e2e/m22-boundaries.spec.ts(4,3): error TS6133: 'evidencePath' is declared but its value is never read.
+e2e/m22-growth.spec.ts(2,10): error TS6133: 'evidencePath' is declared but its value is never read.
+e2e/minigames.spec.ts(4,1): error TS6133: 'evidencePath' is declared but its value is never read.

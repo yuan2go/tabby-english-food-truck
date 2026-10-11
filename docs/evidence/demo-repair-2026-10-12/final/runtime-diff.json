@@ -1,0 +1,18 @@
+{
+  "testedSha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+  "paths": [
+    "src",
+    "public",
+    "scripts",
+    "art/manifest.json",
+    "art/vocab-source",
+    "package.json",
+    "package-lock.json",
+    "vite.config.ts",
+    "index.html",
+    "tsconfig.json"
+  ],
+  "uncommittedRuntimeDiff": "",
+  "status": "PASS",
+  "note": "Only current documentation and preserved evidence remain uncommitted."
+}

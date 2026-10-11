@@ -1,0 +1,15 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "test:browser"
+  ],
+  "env": {
+    "CI": "1",
+    "TEST_PORT": "4293",
+    "CHROMIUM_CHANNEL": "chromium",
+    "EVIDENCE_DIR": "/tmp/tabby-demo-final-5-2026-10-12/browser"
+  },
+  "exitCode": 0,
+  "startUTC": "2026-10-11T18:07:36.713698+00:00"
+}

@@ -1,0 +1,372 @@
+e2e/m22-growth.spec.ts:2:10 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Several of these imports are unused.
+  
+    1 │ import { expect, test } from '@playwright/test';
+  > 2 │ import { evidencePath, handOver, lesson, state, tap } from './helpers';
+      │          ^^^^^^^^^^^^
+    3 │ 
+    4 │ test.use({
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+    2 │ import·{·evidencePath,·handOver,·lesson,·state,·tap·}·from·'./helpers';
+      │          --------------                                                
+
+src/app/scene-games.css:246:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    244 │ }
+    245 │ .meaning-table .vocab-art {
+  > 246 │   width: 100px !important;
+        │                ^^^^^^^^^^
+    247 │   height: 90px !important;
+    248 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    246 │ ··width:·100px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:247:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    245 │ .meaning-table .vocab-art {
+    246 │   width: 100px !important;
+  > 247 │   height: 90px !important;
+        │                ^^^^^^^^^^
+    248 │ }
+    249 │ .meaning-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    247 │ ··height:·90px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:255:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    253 │ }
+    254 │ .meaning-object .vocab-art {
+  > 255 │   width: 60px !important;
+        │               ^^^^^^^^^^
+    256 │   height: 60px !important;
+    257 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    255 │ ··width:·60px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:256:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    254 │ .meaning-object .vocab-art {
+    255 │   width: 60px !important;
+  > 256 │   height: 60px !important;
+        │                ^^^^^^^^^^
+    257 │ }
+    258 │ .meaning-cat {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    256 │ ··height:·60px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:302:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    300 │ }
+    301 │ .meaning-tool .vocab-art {
+  > 302 │   width: 54px !important;
+        │               ^^^^^^^^^^
+    303 │   height: 54px !important;
+    304 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    302 │ ··width:·54px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:303:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    301 │ .meaning-tool .vocab-art {
+    302 │   width: 54px !important;
+  > 303 │   height: 54px !important;
+        │                ^^^^^^^^^^
+    304 │ }
+    305 │ .meaning-stir .meaning-tool {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    303 │ ··height:·54px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:352:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    350 │ }
+    351 │ .meaning-number .vocab-art {
+  > 352 │   width: 51px !important;
+        │               ^^^^^^^^^^
+    353 │   height: 51px !important;
+    354 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    352 │ ··width:·51px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:353:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    351 │ .meaning-number .vocab-art {
+    352 │   width: 51px !important;
+  > 353 │   height: 51px !important;
+        │                ^^^^^^^^^^
+    354 │ }
+    355 │ .meaning-attribute {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    353 │ ··height:·51px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:366:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    364 │ }
+    365 │ .meaning-comparison .vocab-art {
+  > 366 │   width: 65px !important;
+        │               ^^^^^^^^^^
+    367 │   height: 65px !important;
+    368 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    366 │ ··width:·65px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:367:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    365 │ .meaning-comparison .vocab-art {
+    366 │   width: 65px !important;
+  > 367 │   height: 65px !important;
+        │                ^^^^^^^^^^
+    368 │ }
+    369 │ @keyframes take-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    367 │ ··height:·65px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:511:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    509 │ .scene-prop {
+    510 │   position: relative;
+  > 511 │   padding: 2px !important;
+        │                ^^^^^^^^^^
+    512 │   border: none !important;
+    513 │   background: transparent !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    511 │ ··padding:·2px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:512:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    510 │   position: relative;
+    511 │   padding: 2px !important;
+  > 512 │   border: none !important;
+        │                ^^^^^^^^^^
+    513 │   background: transparent !important;
+    514 │   box-shadow: none !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    512 │ ··border:·none·!important;
+        │               ----------- 
+
+src/app/scene-games.css:513:27 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    511 │   padding: 2px !important;
+    512 │   border: none !important;
+  > 513 │   background: transparent !important;
+        │                           ^^^^^^^^^^
+    514 │   box-shadow: none !important;
+    515 │   width: 94px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    513 │ ··background:·transparent·!important;
+        │                          ----------- 
+
+src/app/scene-games.css:514:20 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    512 │   border: none !important;
+    513 │   background: transparent !important;
+  > 514 │   box-shadow: none !important;
+        │                    ^^^^^^^^^^
+    515 │   width: 94px;
+    516 │   height: 94px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    514 │ ··box-shadow:·none·!important;
+        │                   ----------- 
+
+src/app/scene-games.css:517:23 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    515 │   width: 94px;
+    516 │   height: 94px;
+  > 517 │   border-radius: 12px !important;
+        │                       ^^^^^^^^^^
+    518 │ }
+    519 │ .scene-prop:focus-visible,
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    517 │ ··border-radius:·12px·!important;
+        │                      ----------- 
+
+src/app/scene-games.css:521:25 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    519 │ .scene-prop:focus-visible,
+    520 │ .scene-prop:hover {
+  > 521 │   background: #fff4ca88 !important;
+        │                         ^^^^^^^^^^
+    522 │ }
+    523 │ .scene-prop .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    521 │ ··background:·#fff4ca88·!important;
+        │                        ----------- 
+
+src/app/scene-games.css:656:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    654 │   justify-content: center;
+    655 │   width: 100%;
+  > 656 │   padding: 3px !important;
+        │                ^^^^^^^^^^
+    657 │   min-height: 100px !important;
+    658 │   background: #f4e3c099 !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    656 │ ··padding:·3px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:657:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    655 │   width: 100%;
+    656 │   padding: 3px !important;
+  > 657 │   min-height: 100px !important;
+        │                     ^^^^^^^^^^
+    658 │   background: #f4e3c099 !important;
+    659 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    657 │ ··min-height:·100px·!important;
+        │                    ----------- 
+
+src/app/scene-games.css:658:25 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    656 │   padding: 3px !important;
+    657 │   min-height: 100px !important;
+  > 658 │   background: #f4e3c099 !important;
+        │                         ^^^^^^^^^^
+    659 │ }
+    660 │ .place-target .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    658 │ ··background:·#f4e3c099·!important;
+        │                        ----------- 
+
+Skipped 41 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 55.
+Checked 32 files in 87ms. Fixed 15 files.
+Found 1 error.
+Found 74 warnings.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

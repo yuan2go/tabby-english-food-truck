@@ -1,0 +1,48 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:20077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 31 tests using 1 worker
+
+EVIDENCE_FEAST_START_SECONDS 13.367
+(node:20123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EVIDENCE_DINNER_START_SECONDS 92.4
+  ✓   1 e2e/adventure.spec.ts:68:1 › visible activity entrance reaches all five chapters and saves a real creation (2.0m)
+EVIDENCE_FEAST_START_SECONDS 13.851
+EVIDENCE_DRINK_START_SECONDS 35.035
+  ✓   2 e2e/adventure.spec.ts:200:1 › desktop feast exposes replay skip and low motion without repeating settlement (38.4s)
+  ✓   3 e2e/adventure.spec.ts:259:1 › phone replay follows hedgehog path with real food and no packing task (48.3s)
+  ✓   4 e2e/adventure.spec.ts:310:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (23.4s)
+  ✓   5 e2e/adventure.spec.ts:405:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (8.7s)
+  ✓   6 e2e/adventure.spec.ts:459:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (16.4s)
+  ✓   7 e2e/adventure.spec.ts:511:1 › low motion receipts retain actual foods and reachable controls across compact layouts (9.0s)
+  ✓   8 e2e/demo-repair.spec.ts:7:1 › scene pause and restart isolate background, trap focus and restore the trigger (1.8s)
+  ✓   9 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (7.7s)
+  ✓  10 e2e/demo-repair.spec.ts:133:1 › optional visual contrasts preserve assistance and leave the choice to the player (4.0s)
+  ✓  11 e2e/demo-repair.spec.ts:179:1 › home main invitation and autonomous entrances are physically reachable in compact layouts (3.5s)
+  ✓  12 e2e/experience.spec.ts:5:1 › single guest goal has a complete picture path before reading or hearing (5.3s)
+  ✓  13 e2e/experience.spec.ts:38:1 › less support keeps the order answer private until failed speech provides recorded picture help (3.9s)
+  ✓  14 e2e/experience.spec.ts:68:1 › muting through visible settings retains picture goals and safe replay (5.0s)
+  ✓  15 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (14.1s)
+  ✓  16 e2e/m22-boundaries.spec.ts:166:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (2.7s)
+  ✓  17 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (13.4s)
+  ✓  18 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (3.2s)
+  ✓  19 e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (2.8s)
+  ✓  20 e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (2.6s)
+  ✓  21 e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (2.2s)
+  ✓  22 e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (2.3s)
+  ✓  23 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (2.3s)
+  ✓  24 e2e/minigames-vocab.spec.ts:260:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (2.8s)
+  ✓  25 e2e/minigames-vocab.spec.ts:337:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (1.6s)
+  ✓  26 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (3.6s)
+  ✓  27 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (3.1s)
+  ✓  28 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (5.6s)
+  ✓  29 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (2.1s)
+  ✓  30 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (12.9s)
+  ✓  31 e2e/wp-dual-mini-course.spec.ts:7:1 › theme lobby reaches a four-task listening level and restores its progress (6.3s)
+
+  31 passed (6.3m)

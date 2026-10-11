@@ -1,0 +1,52 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck
+
+ ❯ tests/adventure-input.test.ts (14 tests | 2 failed) 23ms
+   × explicit tray handle takes the whole tray from a single-food selection without moving it 3ms
+   × activity guidance ends receiving at the real food transfer, before the empty tray returns 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-input.test.ts > explicit tray handle takes the whole tray from a single-food selection without moving it
+AssertionError: expected null to deeply equal { tray: +0 }
+
+- Expected:
+{
+  "tray": 0,
+}
+
++ Received:
+null
+
+ ❯ tests/adventure-input.test.ts:191:23
+    189|   expect(ui.selected).toEqual({ item: before[0]?.id });
+    190|   tap('lift-tray-0');
+    191|   expect(ui.selected).toEqual({ tray: 0 });
+       |                       ^
+    192|   expect(controller.state.items).toEqual(before);
+    193|   expect(controller.state.attempts).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/adventure-input.test.ts > activity guidance ends receiving at the real food transfer, before the empty tray returns
+AssertionError: expected 'wait' to be 'drawer' // Object.is equality
+
+Expected: "drawer"
+Received: "wait"
+
+ ❯ tests/adventure-input.test.ts:212:34
+    210|   expect(s.adventure?.foods).toHaveLength(1);
+    211|   expect(s.orders[0]?.status).toBe('leaving');
+    212|   expect(activityGuidance(s).id).toBe('drawer');
+       |                                  ^
+    213| });
+    214|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 12 passed (14)
+   Start at  01:13:49
+   Duration  364ms (transform 196ms, setup 0ms, import 234ms, tests 23ms, environment 0ms)
+

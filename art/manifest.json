@@ -24,12 +24,7 @@
         "height": 1254,
         "visible": 1572516
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "source-cat-blocked",
@@ -54,12 +49,7 @@
         "height": 1230,
         "visible": 586064
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-carry",
@@ -84,12 +74,7 @@
         "height": 1220,
         "visible": 573852
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-celebrate",
@@ -114,12 +99,7 @@
         "height": 1175,
         "visible": 607563
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-greet",
@@ -144,12 +124,7 @@
         "height": 1227,
         "visible": 586744
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-idle",
@@ -174,12 +149,7 @@
         "height": 1231,
         "visible": 570201
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-place",
@@ -204,12 +174,7 @@
         "height": 1093,
         "visible": 682252
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-reach",
@@ -234,12 +199,7 @@
         "height": 1054,
         "visible": 726854
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-cat-read",
@@ -264,12 +224,7 @@
         "height": 1231,
         "visible": 599820
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-cat-walk",
@@ -294,12 +249,7 @@
         "height": 1230,
         "visible": 550402
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-courtyard",
@@ -324,12 +274,7 @@
         "height": 1024,
         "visible": 1572864
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "source-elder",
@@ -354,12 +299,7 @@
         "height": 1514,
         "visible": 777061
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-beef",
@@ -384,12 +324,7 @@
         "height": 1015,
         "visible": 796404
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-broccoli",
@@ -414,12 +349,7 @@
         "height": 1218,
         "visible": 800343
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-butter",
@@ -444,12 +374,7 @@
         "height": 1077,
         "visible": 836303
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cake",
@@ -474,12 +399,7 @@
         "height": 1071,
         "visible": 864701
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-carrot",
@@ -504,12 +424,7 @@
         "height": 1152,
         "visible": 430682
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-chicken",
@@ -534,12 +449,7 @@
         "height": 996,
         "visible": 512232
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-chocolate",
@@ -564,12 +474,7 @@
         "height": 1025,
         "visible": 664499
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-coconut",
@@ -594,12 +499,7 @@
         "height": 1146,
         "visible": 867404
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cookie",
@@ -624,12 +524,7 @@
         "height": 1088,
         "visible": 912576
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-corn",
@@ -654,12 +549,7 @@
         "height": 1213,
         "visible": 669395
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cream",
@@ -684,12 +574,7 @@
         "height": 978,
         "visible": 823874
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-cucumber",
@@ -714,12 +599,7 @@
         "height": 887,
         "visible": 649342
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-egg",
@@ -744,12 +624,7 @@
         "height": 1046,
         "visible": 800214
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-fish",
@@ -774,12 +649,7 @@
         "height": 902,
         "visible": 642100
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-grape",
@@ -804,12 +674,7 @@
         "height": 1115,
         "visible": 688192
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-honey",
@@ -834,12 +699,7 @@
         "height": 1196,
         "visible": 770020
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-jam",
@@ -864,12 +724,7 @@
         "height": 1145,
         "visible": 861293
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-mango",
@@ -894,12 +749,7 @@
         "height": 1096,
         "visible": 933831
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-milk",
@@ -924,12 +774,7 @@
         "height": 1052,
         "visible": 720141
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-milkshake",
@@ -954,12 +799,7 @@
         "height": 1205,
         "visible": 527050
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-mushroom",
@@ -984,12 +824,7 @@
         "height": 1107,
         "visible": 859726
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-noodles",
@@ -1014,12 +849,7 @@
         "height": 978,
         "visible": 813383
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-orange",
@@ -1044,12 +874,7 @@
         "height": 1130,
         "visible": 978454
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-pea",
@@ -1074,12 +899,7 @@
         "height": 938,
         "visible": 483740
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-peach",
@@ -1104,12 +924,7 @@
         "height": 1140,
         "visible": 960005
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-pear",
@@ -1134,12 +949,7 @@
         "height": 1197,
         "visible": 656842
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-pineapple",
@@ -1164,12 +974,7 @@
         "height": 1211,
         "visible": 586645
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-pizza",
@@ -1194,12 +999,7 @@
         "height": 1174,
         "visible": 660778
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-potato",
@@ -1224,12 +1024,7 @@
         "height": 902,
         "visible": 769874
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-pumpkin",
@@ -1254,12 +1049,7 @@
         "height": 1057,
         "visible": 807742
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-raisin",
@@ -1284,12 +1074,7 @@
         "height": 979,
         "visible": 761496
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-rice",
@@ -1314,12 +1099,7 @@
         "height": 981,
         "visible": 801498
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-salad",
@@ -1344,12 +1124,7 @@
         "height": 1091,
         "visible": 933577
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-smoothie",
@@ -1374,12 +1149,7 @@
         "height": 1114,
         "visible": 810905
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-strawberry",
@@ -1404,12 +1174,7 @@
         "height": 1186,
         "visible": 775331
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "source-food-tofu",
@@ -1434,12 +1199,7 @@
         "height": 1091,
         "visible": 812309
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-vanilla",
@@ -1464,12 +1224,7 @@
         "height": 1204,
         "visible": 581243
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-variants",
@@ -1494,12 +1249,7 @@
         "height": 576,
         "visible": 505837
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-watermelon",
@@ -1524,12 +1274,7 @@
         "height": 1110,
         "visible": 755097
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-food-yogurt",
@@ -1554,12 +1299,7 @@
         "height": 1157,
         "visible": 998169
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-guests",
@@ -1584,12 +1324,7 @@
         "height": 988,
         "visible": 494528
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-ice-products",
@@ -1614,12 +1349,7 @@
         "height": 1196,
         "visible": 683330
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-m2-foods",
@@ -1644,12 +1374,7 @@
         "height": 982,
         "visible": 852012
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-m2-stations",
@@ -1674,12 +1399,7 @@
         "height": 599,
         "visible": 614468
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-market",
@@ -1704,12 +1424,7 @@
         "height": 1024,
         "visible": 1572864
       },
-      "edgeAlpha": [
-        239,
-        238,
-        237,
-        241
-      ]
+      "edgeAlpha": [239, 238, 237, 241]
     },
     {
       "assetId": "source-props",
@@ -1734,12 +1449,7 @@
         "height": 975,
         "visible": 685609
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-recipe-outputs",
@@ -1764,12 +1474,7 @@
         "height": 635,
         "visible": 653302
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-tray-hd",
@@ -1794,12 +1499,7 @@
         "height": 833,
         "visible": 913270
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "source-vanilla-cup",
@@ -1824,12 +1524,7 @@
         "height": 1288,
         "visible": 1161107
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "apple",
@@ -1854,12 +1549,7 @@
         "height": 280,
         "visible": 50760
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "banana-cream",
@@ -1884,12 +1574,7 @@
         "height": 480,
         "visible": 144086
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "banana-juice",
@@ -1914,12 +1599,7 @@
         "height": 480,
         "visible": 114698
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "banana",
@@ -1944,12 +1624,7 @@
         "height": 248,
         "visible": 28045
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "board-station",
@@ -1974,12 +1649,7 @@
         "height": 592,
         "visible": 223469
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "bread",
@@ -2004,12 +1674,7 @@
         "height": 306,
         "visible": 84149
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "bun",
@@ -2034,12 +1699,7 @@
         "height": 286,
         "visible": 76159
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "burger",
@@ -2064,12 +1724,7 @@
         "height": 404,
         "visible": 150682
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-blocked",
@@ -2094,12 +1749,7 @@
         "height": 635,
         "visible": 156424
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-carry",
@@ -2124,12 +1774,7 @@
         "height": 634,
         "visible": 155755
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-celebrate",
@@ -2154,12 +1799,7 @@
         "height": 634,
         "visible": 177514
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-greet",
@@ -2184,12 +1824,7 @@
         "height": 636,
         "visible": 157437
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-idle",
@@ -2214,12 +1849,7 @@
         "height": 635,
         "visible": 152190
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-place",
@@ -2244,12 +1874,7 @@
         "height": 611,
         "visible": 213232
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-reach",
@@ -2274,12 +1899,7 @@
         "height": 560,
         "visible": 206238
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-read",
@@ -2304,12 +1924,7 @@
         "height": 634,
         "visible": 159902
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-0",
@@ -2334,12 +1949,7 @@
         "height": 600,
         "visible": 140806
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-1",
@@ -2364,12 +1974,7 @@
         "height": 579,
         "visible": 130068
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-2",
@@ -2394,12 +1999,7 @@
         "height": 596,
         "visible": 137069
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cat-step-3",
@@ -2424,12 +2024,7 @@
         "height": 600,
         "visible": 137315
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cheese-burger",
@@ -2454,12 +2049,7 @@
         "height": 455,
         "visible": 169153
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cheese",
@@ -2484,12 +2074,7 @@
         "height": 252,
         "visible": 65864
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cone",
@@ -2514,12 +2099,7 @@
         "height": 296,
         "visible": 39804
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "cooked-patty",
@@ -2544,12 +2124,7 @@
         "height": 263,
         "visible": 65363
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "courtyard",
@@ -2574,12 +2149,7 @@
         "height": 1024,
         "visible": 1572864
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "cup",
@@ -2604,12 +2174,7 @@
         "height": 305,
         "visible": 62769
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "double-cream",
@@ -2634,12 +2199,7 @@
         "height": 475,
         "visible": 174949
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "elder",
@@ -2664,12 +2224,7 @@
         "height": 720,
         "visible": 176525
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-beef",
@@ -2694,12 +2249,7 @@
         "height": 397,
         "visible": 122259
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-broccoli",
@@ -2724,12 +2274,7 @@
         "height": 464,
         "visible": 116504
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-butter",
@@ -2754,12 +2299,7 @@
         "height": 461,
         "visible": 153344
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cake",
@@ -2784,12 +2324,7 @@
         "height": 443,
         "visible": 147960
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-carrot",
@@ -2814,12 +2349,7 @@
         "height": 464,
         "visible": 70366
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-chicken",
@@ -2844,12 +2374,7 @@
         "height": 417,
         "visible": 89951
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-chocolate",
@@ -2874,12 +2399,7 @@
         "height": 414,
         "visible": 108587
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-coconut",
@@ -2904,12 +2424,7 @@
         "height": 433,
         "visible": 124931
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cookie",
@@ -2934,12 +2449,7 @@
         "height": 457,
         "visible": 161813
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-corn",
@@ -2964,12 +2474,7 @@
         "height": 464,
         "visible": 98350
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cream",
@@ -2994,12 +2499,7 @@
         "height": 405,
         "visible": 141431
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-cucumber",
@@ -3024,12 +2524,7 @@
         "height": 344,
         "visible": 97735
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-egg",
@@ -3054,12 +2549,7 @@
         "height": 426,
         "visible": 133134
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-fish",
@@ -3084,12 +2574,7 @@
         "height": 355,
         "visible": 99862
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-grape",
@@ -3114,12 +2599,7 @@
         "height": 464,
         "visible": 119646
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-honey",
@@ -3144,12 +2624,7 @@
         "height": 464,
         "visible": 116317
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-jam",
@@ -3174,12 +2649,7 @@
         "height": 464,
         "visible": 141766
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-mango",
@@ -3204,12 +2674,7 @@
         "height": 440,
         "visible": 151114
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-milk",
@@ -3234,12 +2699,7 @@
         "height": 464,
         "visible": 140785
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-milkshake",
@@ -3264,12 +2724,7 @@
         "height": 464,
         "visible": 78461
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-mushroom",
@@ -3294,12 +2749,7 @@
         "height": 453,
         "visible": 144226
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-noodles",
@@ -3324,12 +2774,7 @@
         "height": 411,
         "visible": 143728
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-orange",
@@ -3354,12 +2799,7 @@
         "height": 464,
         "visible": 165641
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pea",
@@ -3384,12 +2824,7 @@
         "height": 362,
         "visible": 72509
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-peach",
@@ -3414,12 +2849,7 @@
         "height": 464,
         "visible": 159431
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pear",
@@ -3444,12 +2874,7 @@
         "height": 464,
         "visible": 99274
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pineapple",
@@ -3474,12 +2899,7 @@
         "height": 464,
         "visible": 86663
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pizza",
@@ -3504,12 +2924,7 @@
         "height": 464,
         "visible": 103547
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-potato",
@@ -3534,12 +2949,7 @@
         "height": 365,
         "visible": 126058
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-pumpkin",
@@ -3564,12 +2974,7 @@
         "height": 455,
         "visible": 149724
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-raisin",
@@ -3594,12 +2999,7 @@
         "height": 377,
         "visible": 113425
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-rice",
@@ -3624,12 +3024,7 @@
         "height": 418,
         "visible": 145812
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-salad",
@@ -3654,12 +3049,7 @@
         "height": 435,
         "visible": 148701
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-smoothie",
@@ -3684,12 +3074,7 @@
         "height": 464,
         "visible": 141033
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-strawberry",
@@ -3714,12 +3099,7 @@
         "height": 464,
         "visible": 119255
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-tofu",
@@ -3744,12 +3124,7 @@
         "height": 448,
         "visible": 137197
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-vanilla",
@@ -3774,12 +3149,7 @@
         "height": 464,
         "visible": 86976
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-watermelon",
@@ -3804,12 +3174,7 @@
         "height": 447,
         "visible": 122765
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "food-yogurt",
@@ -3834,12 +3199,7 @@
         "height": 464,
         "visible": 160912
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "grill-station",
@@ -3864,12 +3224,7 @@
         "height": 395,
         "visible": 169842
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-0-0",
@@ -3894,12 +3249,7 @@
         "height": 474,
         "visible": 62073
       },
-      "edgeAlpha": [
-        0,
-        0,
-        1,
-        0
-      ]
+      "edgeAlpha": [0, 0, 1, 0]
     },
     {
       "assetId": "guest-0-1",
@@ -3924,12 +3274,7 @@
         "height": 479,
         "visible": 61599
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-0-2",
@@ -3954,12 +3299,7 @@
         "height": 477,
         "visible": 61394
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-1-0",
@@ -3984,12 +3324,7 @@
         "height": 460,
         "visible": 93389
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-1-1",
@@ -4014,12 +3349,7 @@
         "height": 461,
         "visible": 94338
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "guest-1-2",
@@ -4044,12 +3374,7 @@
         "height": 454,
         "visible": 95330
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "ice-station",
@@ -4074,12 +3399,7 @@
         "height": 519,
         "visible": 221156
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "juice",
@@ -4104,12 +3424,7 @@
         "height": 280,
         "visible": 52279
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "lettuce",
@@ -4134,12 +3449,7 @@
         "height": 316,
         "visible": 72840
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "machine",
@@ -4164,12 +3474,7 @@
         "height": 512,
         "visible": 125419
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "market",
@@ -4194,12 +3499,7 @@
         "height": 960,
         "visible": 1382400
       },
-      "edgeAlpha": [
-        255,
-        255,
-        255,
-        255
-      ]
+      "edgeAlpha": [255, 255, 255, 255]
     },
     {
       "assetId": "patty",
@@ -4224,12 +3524,7 @@
         "height": 272,
         "visible": 69163
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "salad-sandwich",
@@ -4254,12 +3549,7 @@
         "height": 423,
         "visible": 140345
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "sandwich",
@@ -4284,12 +3574,7 @@
         "height": 414,
         "visible": 137200
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "strawberry-cup",
@@ -4314,12 +3599,7 @@
         "height": 480,
         "visible": 161730
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "strawberry",
@@ -4344,12 +3624,7 @@
         "height": 299,
         "visible": 72695
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "tomato",
@@ -4374,12 +3649,7 @@
         "height": 280,
         "visible": 64253
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "tray",
@@ -4404,12 +3674,7 @@
         "height": 520,
         "visible": 357133
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vanilla-cone",
@@ -4434,12 +3699,7 @@
         "height": 480,
         "visible": 76924
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vanilla-cup",
@@ -4464,12 +3724,7 @@
         "height": 473,
         "visible": 156391
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vanilla",
@@ -4494,12 +3749,7 @@
         "height": 300,
         "visible": 72810
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "audio-apple",
@@ -7093,12 +6343,7 @@
       "effectivePixels": {
         "visible": 14006
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-plate",
@@ -7131,12 +6376,7 @@
       "effectivePixels": {
         "visible": 34006
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bowl",
@@ -7169,12 +6409,7 @@
       "effectivePixels": {
         "visible": 26595
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-spoon",
@@ -7207,12 +6442,7 @@
       "effectivePixels": {
         "visible": 10959
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-fork",
@@ -7245,12 +6475,7 @@
       "effectivePixels": {
         "visible": 10870
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-knife",
@@ -7283,12 +6508,7 @@
       "effectivePixels": {
         "visible": 10707
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-tray",
@@ -7321,12 +6541,7 @@
       "effectivePixels": {
         "visible": 37877
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-napkin",
@@ -7359,12 +6574,7 @@
       "effectivePixels": {
         "visible": 36233
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-pot",
@@ -7397,12 +6607,7 @@
       "effectivePixels": {
         "visible": 27167
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-pan",
@@ -7435,12 +6640,7 @@
       "effectivePixels": {
         "visible": 23184
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-lid",
@@ -7473,18 +6673,13 @@
       "effectivePixels": {
         "visible": 21399
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-kettle",
       "path": "art/vocab-source/kettle.svg",
-      "bytes": 786,
-      "sha256": "ba242570b727fcd7bf475457313096b9bbcf9848aa82f5a5d55bd331fe7a07c8",
+      "bytes": 864,
+      "sha256": "d07333987e3f0d443aa07a952f60deef538832a253254a51aafb5691aac9f0cf",
       "runtime": false,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -7495,8 +6690,8 @@
     {
       "assetId": "vocab-kettle",
       "path": "public/assets/vocab-kettle.webp",
-      "bytes": 13128,
-      "sha256": "312c182f82e704d00f9cd60b6faf81eb800520affd63330dc74b76af918bebe9",
+      "bytes": 11620,
+      "sha256": "5f1418c7e2dfe841ce217bda79fb4144a5abb20cc9f23913d775403722db16c5",
       "runtime": true,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -7509,14 +6704,9 @@
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "visible": 28241
+        "visible": 27077
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bottle",
@@ -7549,12 +6739,7 @@
       "effectivePixels": {
         "visible": 28024
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-glass",
@@ -7587,12 +6772,7 @@
       "effectivePixels": {
         "visible": 26058
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-jug",
@@ -7625,12 +6805,7 @@
       "effectivePixels": {
         "visible": 25887
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-spatula",
@@ -7663,12 +6838,7 @@
       "effectivePixels": {
         "visible": 16852
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-ladle",
@@ -7701,12 +6871,7 @@
       "effectivePixels": {
         "visible": 13869
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-whisk",
@@ -7739,12 +6904,7 @@
       "effectivePixels": {
         "visible": 10118
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-cutting-board",
@@ -7777,12 +6937,7 @@
       "effectivePixels": {
         "visible": 43804
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-apron",
@@ -7815,12 +6970,7 @@
       "effectivePixels": {
         "visible": 32172
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-basket",
@@ -7853,12 +7003,7 @@
       "effectivePixels": {
         "visible": 32406
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-box",
@@ -7891,12 +7036,7 @@
       "effectivePixels": {
         "visible": 40151
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bag",
@@ -7929,12 +7069,7 @@
       "effectivePixels": {
         "visible": 34557
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-table",
@@ -7967,12 +7102,7 @@
       "effectivePixels": {
         "visible": 16225
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-chair",
@@ -8005,12 +7135,7 @@
       "effectivePixels": {
         "visible": 24386
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-bench",
@@ -8043,12 +7168,7 @@
       "effectivePixels": {
         "visible": 29161
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-door",
@@ -8081,12 +7201,7 @@
       "effectivePixels": {
         "visible": 53449
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-window",
@@ -8119,12 +7234,7 @@
       "effectivePixels": {
         "visible": 55754
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-shelf",
@@ -8157,12 +7267,7 @@
       "effectivePixels": {
         "visible": 32208
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-drawer",
@@ -8195,12 +7300,7 @@
       "effectivePixels": {
         "visible": 44261
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-lamp",
@@ -8233,12 +7333,7 @@
       "effectivePixels": {
         "visible": 26396
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-flower",
@@ -8271,12 +7366,7 @@
       "effectivePixels": {
         "visible": 26335
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-tree",
@@ -8309,12 +7399,7 @@
       "effectivePixels": {
         "visible": 36578
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-leaf",
@@ -8347,12 +7432,7 @@
       "effectivePixels": {
         "visible": 27686
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-seed",
@@ -8385,18 +7465,13 @@
       "effectivePixels": {
         "visible": 24025
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-watering-can",
       "path": "art/vocab-source/watering-can.svg",
-      "bytes": 791,
-      "sha256": "3805a923eff6a26a6ffddcea7d8d575990d2058aebf4eaeb8bc1fc69682cc7bb",
+      "bytes": 1029,
+      "sha256": "1f0005203f851d24e0a4636772343cc7bdbc7e6f36798adb76c48c4ece4f2b3b",
       "runtime": false,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -8407,8 +7482,8 @@
     {
       "assetId": "vocab-watering-can",
       "path": "public/assets/vocab-watering-can.webp",
-      "bytes": 12894,
-      "sha256": "bb59cb7eb232a7e987262387004fe45d65d804e1fdc1bf28aa7d5bdf50079aea",
+      "bytes": 11980,
+      "sha256": "b205001aaf4bf82b502cc854df9cd63dfa39372d859bbf056d063928e3796664",
       "runtime": true,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -8421,14 +7496,9 @@
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "visible": 28028
+        "visible": 29003
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-ball",
@@ -8461,12 +7531,7 @@
       "effectivePixels": {
         "visible": 41690
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "vocab-source-book",
@@ -8499,12 +7564,7 @@
       "effectivePixels": {
         "visible": 49281
       },
-      "edgeAlpha": [
-        0,
-        0,
-        0,
-        0
-      ]
+      "edgeAlpha": [0, 0, 0, 0]
     },
     {
       "assetId": "audio-vocab-name-cup",

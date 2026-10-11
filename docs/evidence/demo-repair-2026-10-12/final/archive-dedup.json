@@ -1,0 +1,52 @@
+[
+  {
+    "remoteArchive": "AGENTS.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/AGENTS.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "README.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/README.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "STATUS.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/STATUS.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "01-product.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/01-product.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "02-game-design.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/02-game-design.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "03-experience-design.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/03-experience-design.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "04-technical-design.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/04-technical-design.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "05-delivery.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/05-delivery.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "e2e-README.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/e2e/README.md",
+    "bytesEqual": true
+  },
+  {
+    "remoteArchive": "2026-10-11-minigames-vocab.md.txt",
+    "keptExistingSnapshot": "docs/archive/pre-demo-repair-2026-10-12/docs/plans/2026-10-11-minigames-vocab.md",
+    "bytesEqual": true
+  }
+]

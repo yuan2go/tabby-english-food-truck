@@ -197,3 +197,20 @@ it('quantity and sentence cues use the full request despite overlapping dictiona
   if (!l) throw Error('level');
   expect(courseAudio(l, createCourse(l, 'drink'))).toBe(REQUESTS.juice.audio);
 });
+it('word-only requests stay valid and feedback describes words rather than sentence mastery', async () => {
+  const { miniLevel } = await import('../src/content/mini-levels');
+  const { playCourse, submitCourse, toggleTile, tileBank } = await import(
+    '../src/rules/mini-course'
+  );
+  const level = miniLevel('sentence-first-request');
+  if (!level) throw Error('level missing');
+  let s = playCourse(startCourse(createCourse(level, 'word-request')));
+  const tile = tileBank(level, s).find((t) => t.text === 'apple');
+  if (!tile) throw Error('tile missing');
+  s = toggleTile(level, s, tile.id);
+  s = submitCourse(level, s);
+  expect(s.phase).toBe('feedback');
+  expect(s.attempts.at(-1)?.task).toBe(true);
+  expect(s.feedback).toContain('词语');
+  expect(s.feedback).not.toContain('掌握');
+});

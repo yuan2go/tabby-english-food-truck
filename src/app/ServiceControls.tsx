@@ -3,7 +3,7 @@ import { isFinished, SUPPLY_PAGES } from '../content/recipes';
 import { teachingFigures } from '../content/teaching';
 import { activate, type ViewState } from '../game/input';
 import { stationPoint } from '../game/KitchenView';
-import { kitchenActions } from '../game/layout';
+import { kitchenActions, recoveryControl } from '../game/layout';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import { openCommission } from '../rules/adventure';
@@ -76,7 +76,7 @@ export function ServiceControls({
           ↔ 换一篮 {s.session.supplyPage + 1}/{SUPPLY_PAGES.length}
         </button>
       ) : null}
-      {selectedItem
+      {selectedItem && !selectedItem.location.startsWith('tray:')
         ? (() => {
             const h = ui.hotspots.find((h) => h.id === `item-${selectedItem.id}`);
             const inWork =
@@ -124,14 +124,43 @@ export function ServiceControls({
             ) : null;
           })()
         : null}
-      {s.recycle ? (
+      {selectedItem?.location.startsWith('tray:') || s.recycle ? (
         <button
           type="button"
-          className="restore-food"
-          style={{ left: l.regions.action.x, top: l.regions.action.y - 48 }}
-          onClick={() => activate('restore', controller, audio, ui)}
+          className="food-recovery"
+          aria-label={
+            selectedItem?.location.startsWith('tray:')
+              ? isFinished(selectedItem.product)
+                ? '收起成品'
+                : '↩ 放回这份'
+              : '↶ 恢复成品'
+          }
+          style={{
+            position: 'absolute',
+            left: recoveryControl(l).x,
+            top: recoveryControl(l).y,
+            width: 48,
+            height: 48,
+            padding: 2,
+            zIndex: 8,
+          }}
+          onClick={() =>
+            activate(
+              selectedItem?.location.startsWith('tray:') ? 'clear' : 'restore',
+              controller,
+              audio,
+              ui,
+            )
+          }
         >
-          ↶ 恢复成品
+          <span aria-hidden="true">{selectedItem?.location.startsWith('tray:') ? '↩' : '↶'}</span>
+          <small>
+            {selectedItem?.location.startsWith('tray:')
+              ? isFinished(selectedItem.product)
+                ? '收起'
+                : '放回'
+              : '恢复'}
+          </small>
         </button>
       ) : null}
       {selected ? (

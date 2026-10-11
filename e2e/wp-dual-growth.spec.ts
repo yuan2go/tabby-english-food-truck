@@ -11,7 +11,7 @@ test('deferred menu introduction returns after another completed order', async (
   if (await firstLesson.count())
     await firstLesson.getByRole('button', { name: '我来试试', exact: true }).click();
   for (let served = 1; served <= 2; served++) {
-    const tray = await hot(page, 'tray-0', 26);
+    const tray = await hot(page, 'lift-tray-0');
     await page.mouse.click(tray.x, tray.y);
     const point = await hot(page, 'supply-apple');
     await page.mouse.click(point.x, point.y);
