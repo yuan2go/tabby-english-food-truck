@@ -1,7 +1,7 @@
 import { type SceneObject, type ScenePlace, sceneLevel } from '../content/scene-levels';
 import { vocabularyWord } from '../content/vocabulary';
 import type { SceneCommand, SceneState } from '../rules/scene-games';
-import { ObjectArt } from './VocabularyVisual';
+import { ObjectArt, VocabularyVisual } from './VocabularyVisual';
 export type BoardProps = { state: SceneState; send: (command: SceneCommand) => void };
 function Prop({ object, send }: { object: SceneObject; send: BoardProps['send'] }) {
   return (
@@ -317,7 +317,9 @@ export function TheatreBoard(p: BoardProps) {
             aria-label={`${actionLabels[action ?? '']}${vocabularyWord(object ?? '')?.chinese ?? ''}`}
             onClick={() => p.send({ type: 'operate', action: action ?? '', object: object ?? '' })}
           >
-            <ObjectArt word={object ?? ''} />
+            <span className="action-preview" aria-hidden="true">
+              <VocabularyVisual id={action ?? 'take'} />
+            </span>
             <span>{actionLabels[action ?? '']}</span>
           </button>
         ))}

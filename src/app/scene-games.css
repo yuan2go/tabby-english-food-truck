@@ -1427,3 +1427,21 @@
     height: 190px;
   }
 }
+
+.action-preview {
+  display: block;
+  width: 76px;
+  height: 62px;
+  position: relative;
+  overflow: hidden;
+}
+.action-preview .meaning-scene {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(0.44);
+  transform-origin: top left;
+}
+.theatre-controls button {
+  min-width: 85px;
+}
