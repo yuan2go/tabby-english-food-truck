@@ -1,0 +1,28 @@
+{
+  "scope": "All speech.json entries conservatively queued, including every reachable catalog, not only core. Orphan/historical audio listed separately. Technical PCM readings are not pronunciation, listening, volume comfort, or child acceptance.",
+  "speech_count": 458,
+  "core_priority_count": 66,
+  "technical_zero_signal": [],
+  "any_saturated_samples": [],
+  "formats": [
+    [
+      22050,
+      16,
+      1
+    ]
+  ],
+  "range_duration_s": [
+    0.3207,
+    7.3013
+  ],
+  "registered_audio_count": 459,
+  "unreferenced_registered_audio": [
+    "public/audio/note.wav"
+  ],
+  "acceptance": {
+    "human_listening": "BLOCKED_USER_NO_REVIEWER",
+    "distribution_rights": "PENDING",
+    "teaching_age": "PENDING",
+    "child_observation": "NOT_RUN_NO_OBSERVER_OR_GUARDIAN_CONSENT"
+  }
+}

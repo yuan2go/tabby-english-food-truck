@@ -1,10 +1,14 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 /** One modal keyboard and pointer boundary, including controls outside content wrappers. */
 export function useDialogFocus(key: string | null) {
+  const returnFocus = useRef<Element | null>(null);
+  const currentKey = useRef(key);
+  currentKey.current = key;
   useLayoutEffect(() => {
     if (!key) return;
-    const previous = document.activeElement;
+    // Preserve the original trigger across help → comparison and other modal replacements.
+    if (!returnFocus.current) returnFocus.current = document.activeElement;
     const dialog = document.querySelector<HTMLElement>('[role="dialog"]');
     if (!dialog) return;
     const controls = () =>
@@ -68,8 +72,10 @@ export function useDialogFocus(key: string | null) {
       for (const { node, inert } of isolated) node.inert = inert;
       if (previousTabIndex === null) dialog.removeAttribute('tabindex');
       else dialog.setAttribute('tabindex', previousTabIndex);
+      const previous = returnFocus.current;
       if (previous instanceof HTMLElement && previous.isConnected && !previous.closest('[inert]'))
         previous.focus({ preventScroll: true });
+      if (!currentKey.current) returnFocus.current = null;
     };
   }, [key]);
 }

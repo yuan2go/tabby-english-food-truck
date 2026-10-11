@@ -2,6 +2,7 @@ import { ADVENTURES } from '../content/adventure';
 import { Adventure } from './Adventure';
 import { AdventureGuide } from './AdventureGuide';
 import { FoodBaskets } from './FoodBaskets';
+import { FoodCompare } from './FoodCompare';
 import { FreeShop } from './FreeShop';
 import { SceneIcon } from './SceneIcon';
 import './foods.css';
@@ -37,7 +38,7 @@ import './m2.css';
 import './service.css';
 
 type Screen = 'foods' | 'home' | 'story' | 'game' | 'mini' | 'setup' | 'settings';
-type Modal = 'issues' | 'help' | 'audio' | 'pause' | 'clear' | 'restart' | null;
+type Modal = 'issues' | 'help' | 'audio' | 'pause' | 'clear' | 'restart' | 'contrast' | null;
 export function App() {
   const [controller] = useState(() => new GameController()),
     [audio] = useState(() => new ForegroundAudio(controller));
@@ -142,6 +143,7 @@ export function App() {
   }, [controller, growth]);
   useDialogFocus(
     modal ??
+      (screen === 'settings' ? 'settings' : null) ??
       (teaching
         ? 'teaching'
         : growth
@@ -670,15 +672,33 @@ export function App() {
                 type="button"
                 key={h.id}
                 data-hotspot={h.id}
-                className={h.kind === 'start' || h.kind === 'tool' ? 'physical-control' : undefined}
+                className={
+                  h.kind === 'start' || h.kind === 'tool' || h.id.startsWith('lift-tray-')
+                    ? 'physical-control'
+                    : undefined
+                }
                 aria-pressed={
                   h.kind === 'item'
                     ? Boolean(
                         ui.selected && 'item' in ui.selected && h.id === `item-${ui.selected.item}`,
                       )
-                    : undefined
+                    : h.id.startsWith('lift-tray-')
+                      ? Boolean(
+                          ui.selected &&
+                            'tray' in ui.selected &&
+                            ui.selected.tray === Number(h.id.slice(10)),
+                        )
+                      : undefined
                 }
                 aria-label={h.label}
+                data-selection={
+                  h.id.startsWith('lift-tray-') &&
+                  ui.selected &&
+                  'tray' in ui.selected &&
+                  ui.selected.tray === Number(h.id.slice(10))
+                    ? 'whole-tray'
+                    : undefined
+                }
                 ref={(el) => {
                   if (el) ui.elements.set(h.id, el);
                   else ui.elements.delete(h.id);
@@ -1024,8 +1044,37 @@ export function App() {
                     撤回便签
                   </button>
                 ) : null}
+                <button
+                  type="button"
+                  onClick={() => {
+                    for (const order of s.orders.filter((o) => o.status === 'waiting'))
+                      controller.command({
+                        type: 'support',
+                        order: order.id,
+                        reason: 'visual-contrast',
+                      });
+                    setModal('contrast');
+                  }}
+                >
+                  看食物和份数对比
+                </button>
                 <button type="button" className="primary" onClick={() => setModal(null)}>
                   继续营业
+                </button>
+              </>
+            ) : modal === 'contrast' ? (
+              <>
+                <h2>听一听，看看哪里不同</h2>
+                <FoodCompare audio={audio} />
+                <button
+                  type="button"
+                  className="primary"
+                  onClick={() => {
+                    audio.stop();
+                    setModal(null);
+                  }}
+                >
+                  回去自己做
                 </button>
               </>
             ) : modal === 'audio' ? (

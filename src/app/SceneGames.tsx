@@ -426,7 +426,13 @@ export function SceneGames({
           </div>
         ) : null}
         <div className="scene-bottom">
-          <button type="button" onClick={() => setRestart(true)}>
+          <button
+            type="button"
+            onClick={() => {
+              stop();
+              setRestart(true);
+            }}
+          >
             重玩这一组
           </button>
           <small>{issue || '开发语音未听审 · 没有计时与能力评分'}</small>

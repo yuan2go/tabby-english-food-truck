@@ -1,0 +1,169 @@
+/* Physical signs: one main invitation, other play remains a reachable choice. */
+.courtyard .yard-story {
+  left: 26%;
+  top: 35%;
+  width: 45%;
+  max-width: 520px;
+}
+.yard-story .entry-main {
+  min-height: 126px;
+  padding: 12px 48px 12px 12px;
+}
+.first-journey {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 7px 0 1px;
+}
+.first-journey > span {
+  display: flex;
+  align-items: center;
+}
+.first-journey .scene-icon {
+  width: 32px;
+  height: 32px;
+}
+.first-journey b {
+  font-size: 16px;
+  color: #eed08a;
+}
+.courtyard .yard-other-activities {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 8%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  z-index: 2;
+}
+.yard-other-activities .yard-entry,
+.yard-other-activities .yard-activity-badge {
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  min-width: 0;
+  max-width: none;
+  width: 100%;
+  min-height: 80px;
+  transform: none;
+}
+.yard-other-activities .entry-main {
+  height: 100%;
+  min-height: 80px;
+  padding: 10px 40px 10px 10px;
+}
+.yard-other-activities .entry-main > span {
+  font-size: clamp(16px, 1.7vw, 23px);
+}
+.yard-other-activities .yard-activity-badge {
+  margin: 0;
+  max-width: none;
+  padding: 6px;
+  font-size: 16px;
+}
+.yard-other-activities .entry-sound {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .courtyard .yard-cat {
+    top: 22%;
+    height: 22%;
+  }
+  .courtyard .yard-story {
+    top: 43%;
+    left: 5%;
+    width: 90%;
+    max-width: none;
+  }
+  .yard-story .entry-main > span {
+    font-size: 23px;
+  }
+  .yard-story .entry-main small {
+    font-size: 13px;
+  }
+  .first-journey .scene-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .courtyard .yard-other-activities {
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+  .yard-other-activities .entry-main {
+    min-height: 64px;
+  }
+  .yard-other-activities .yard-entry,
+  .yard-other-activities .yard-activity-badge {
+    min-height: 64px;
+  }
+  .yard-other-activities .entry-main small {
+    display: none;
+  }
+  .yard-other-activities .entry-main > span {
+    font-size: 17px;
+  }
+  .yard-other-activities .yard-activity-badge {
+    font-size: 13px;
+  }
+}
+@media (max-height: 500px) and (min-width: 600px) {
+  .courtyard .yard-story {
+    top: 27%;
+    left: 29%;
+    width: 53%;
+  }
+  .yard-story .entry-main {
+    min-height: 104px;
+  }
+  .yard-story .entry-main > span {
+    font-size: 24px;
+  }
+  .first-journey .scene-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .courtyard .yard-other-activities {
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    gap: 8px;
+  }
+  .yard-other-activities .entry-main {
+    min-height: 55px;
+  }
+  .yard-other-activities .yard-entry,
+  .yard-other-activities .yard-activity-badge {
+    min-height: 55px;
+  }
+  .yard-other-activities .entry-main small {
+    display: none;
+  }
+  .yard-other-activities .yard-activity-badge {
+    font-size: 13px;
+  }
+}
+
+.courtyard .entry-main {
+  width: calc(100% - 48px);
+  padding-right: 8px;
+}
+.courtyard .entry-sound {
+  right: 0;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  padding: 0;
+}
+.first-journey .scene-icon {
+  stroke: #fff1ba;
+}

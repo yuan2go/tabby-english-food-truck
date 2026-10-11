@@ -3,6 +3,8 @@ import { CONTENT_VERSION } from '../src/content/catalog';
 import { activate, type ViewState } from '../src/game/input';
 import type { ForegroundAudio } from '../src/platform/audio';
 import { GameController } from '../src/platform/controller';
+import { activityGuidance } from '../src/rules/adventure-guidance';
+import { advance } from '../src/rules/game';
 import { decodeSnapshot } from '../src/rules/snapshot';
 
 // Only the browser audio output is replaced; commands, inventory, attempts and saves are real.
@@ -177,4 +179,35 @@ it('an already running choice keeps its bound branch and preparation until an ex
   expect(controller.state.session.storyChoice).toBe(0);
   controller.enter('story', 0, 'pictures', true, 1, 'c1-two-friends');
   expect(controller.state.session.storyChoice).toBe(1);
+});
+it('explicit tray handle takes the whole tray from a single-food selection without moving it', () => {
+  const { controller, ui, tap } = setup();
+  tap('supply-apple');
+  tap('supply-banana');
+  const before = structuredClone(controller.state.items);
+  tap(`item-${before[0]?.id}`);
+  expect(ui.selected).toEqual({ item: before[0]?.id });
+  tap('lift-tray-0');
+  expect(ui.selected).toEqual({ tray: 0 });
+  expect(controller.state.items).toEqual(before);
+  expect(controller.state.attempts).toHaveLength(0);
+  tap('listen-guest-0');
+  expect(ui.selected).toEqual({ tray: 0 });
+  expect(controller.state.attempts).toHaveLength(0);
+  tap('lift-tray-0');
+  expect(ui.selected).toBeNull();
+  expect(controller.state.items).toEqual(before);
+});
+it('activity guidance ends receiving at the real food transfer, before the empty tray returns', () => {
+  const { controller } = setup();
+  controller.enter('story', 0, 'pictures', true, 1);
+  controller.command({ type: 'adventure', action: 'welcome', visitor: 'rabbit' });
+  controller.command({ type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } });
+  controller.command({ type: 'deliver', tray: 0, order: 'guest-0' });
+  let s = controller.state;
+  expect(activityGuidance(s).id).toBe('wait');
+  for (let n = 0; n < 250 && !s.adventure?.foods.length; n++) s = advance(s, 100);
+  expect(s.adventure?.foods).toHaveLength(1);
+  expect(s.orders[0]?.status).toBe('leaving');
+  expect(activityGuidance(s).id).toBe('drawer');
 });

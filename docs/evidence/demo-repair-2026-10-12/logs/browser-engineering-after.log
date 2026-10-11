@@ -1,0 +1,14 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep scene pause|desktop feast exposes|low motion receipts
+
+[WebServer] (node:5526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+  ✘  1 e2e/adventure.spec.ts:192:1 › desktop feast exposes replay skip and low motion without repeating settlement (3.9s)
+
+  1 interrupted
+    e2e/adventure.spec.ts:192:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+  2 did not run

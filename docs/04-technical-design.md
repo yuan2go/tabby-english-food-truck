@@ -52,3 +52,7 @@ content/vocabulary与独立JSON包含120学习概念，foods/recipes供应映射
 vocabulary JSON使用原生导入属性，资源清单只格式化，不改变内容/hash事实。FriendTheatre只投影收据，SceneBoards剧场动作有独立CSS命名。dialog-focus统一处理模态焦点及背景隔离，覆盖小游戏暂停/重玩及同类确认；取消、卸载和后台沿用现有所有者。
 
 厨房端盘目标与食品目标分开，实际命令仍走game/input→controller→rules。持续指引为状态只读派生，不能由动画推进。默认演出过程与低动态事实/幂等分别测试，不以CI省电默认值替代产品合同。存档schema/内容和奖励规则保持，本轮不重构规则或引入新平台。
+
+实现结果：模态连续替换保留原触发器，独占inert生命周期；help仅作为非模态时不拦场景输入，真正对比/确认采用圈定。Scene重玩先取消前景音频。source选择不消耗食品，明确lift-tray切换不会先移动单件；单件移动/错单恢复仍用现有命令。activityGuidance等待只看仍携食品的delivery任务，接收后立即回到当前目标。
+
+依赖只定向patch开发构建的sharp 0.35.5和source-map-js 1.2.2；无运行时框架升级。矢量脚本增加--images-only --objects=<登记ID>，校验选中范围，仅导出对应SVG/WebP、更新对应清单，禁止顺带重制声音/内容。

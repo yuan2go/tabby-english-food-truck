@@ -1,0 +1,177 @@
+BEFORE tray-0 { x: 10.5, y: 412, width: 183.5, height: 48 } []
+AFTER tray-0 [] []
+BEFORE supply-apple { x: 40.828125, y: 561.390625, width: 60, height: 61.1875 } []
+AFTER supply-apple [ { id: 'food-1', product: 'apple', location: 'tray:0:0' } ] []
+BEFORE supply-banana { x: 166.5, y: 561.390625, width: 60, height: 61.1875 } []
+AFTER supply-banana [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] []
+BEFORE item-food-2 { x: 80.25, y: 383, width: 44, height: 44 } []
+AFTER item-food-2 [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] [ 'item-food-2' ]
+BEFORE item-food-2 { x: 80.25, y: 383, width: 44, height: 44 } []
+AFTER item-food-2 [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] [ 'item-food-2' ]
+BEFORE tray-1 { x: 199, y: 412, width: 183.5, height: 48 } [ 'item-food-2' ]
+AFTER tray-1 [
+  { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+  { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+] []
+FINAL {
+  schemaVersion: 7,
+  adventure: {
+    chapter: 0,
+    kind: 'chapter',
+    branch: null,
+    explored: [],
+    steps: [],
+    rewards: [],
+    foods: [],
+    works: [],
+    decor: { flower: 0, bunting: 'warm', cloth: 'leaf', light: 'warm' },
+    invitations: [],
+    experience: {
+      version: 2,
+      tools: [],
+      used: [],
+      helpers: [],
+      needs: [],
+      known: [],
+      picnic: null,
+      moments: []
+    }
+  },
+  routing: { machine: null, ice: null, board: null, grill: null },
+  session: {
+    activity: 'story',
+    chapter: 0,
+    support: 'pictures',
+    concurrency: 1,
+    menu: [
+      'food-orange',    'food-pear',
+      'food-peach',     'food-strawberry',
+      'food-grape',     'food-watermelon',
+      'food-mango',     'food-pineapple',
+      'food-milk',      'food-yogurt',
+      'food-smoothie',  'food-milkshake',
+      'food-pizza',     'food-salad',
+      'food-cake',      'food-cookie',
+      'apple',          'banana',
+      'two',            'juice',
+      'fruit',          'banana-juice',
+      'cup-vanilla',    'cone-vanilla',
+      'vanilla-cup',    'vanilla-cone',
+      'strawberry-cup', 'double-cream',
+      'banana-cream',   'sandwich',
+      'salad-sandwich', 'burger',
+      'cheese-burger'
+    ],
+    supplyPage: 0,
+    language: 'flavor',
+    family: 'juice',
+    unlocked: [ 'juice' ],
+    seed: 1,
+    cursor: 0,
+    served: 0,
+    lastRequest: ''
+  },
+  stations: {
+    ice: { status: 'empty', recipe: null, remaining: 0 },
+    board: { status: 'empty', recipe: null, remaining: 0 },
+    grill: { status: 'empty', recipe: null, remaining: 0 }
+  },
+  actor: { point: { x: 0.73, y: 0.43 }, current: null, queue: [] },
+  recycle: null,
+  contentVersion: 'adventure-experience-2',
+  mode: 'service',
+  history: { apple: [ 'picture-request', 'meaning-picture', 'seen-before' ] },
+  runId: '017c6299-f3c6-4ab2-86d4-cb555de8fad6',
+  revision: 11,
+  nextId: 3,
+  variant: 0,
+  gameTime: 2000.0000000000002,
+  items: [
+    { id: 'food-1', product: 'apple', location: 'tray:0:0' },
+    { id: 'food-2', product: 'banana', location: 'tray:0:1' }
+  ],
+  orders: [
+    {
+      id: 'guest-0',
+      request: 'apple',
+      visitor: 'rabbit',
+      seat: 0,
+      status: 'waiting',
+      remaining: 0,
+      heard: false,
+      revisit: false,
+      support: [Array]
+    },
+    {
+      id: 'guest-1',
+      request: 'banana',
+      visitor: 'hedgehog',
+      seat: 1,
+      status: 'queued',
+      remaining: 0,
+      heard: false,
+      revisit: false,
+      support: [Array]
+    }
+  ],
+  machine: { status: 'empty', remaining: 0, jobId: null },
+  helper: null,
+  trays: [ { remaining: 0 }, { remaining: 0 } ],
+  receipts: [
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531690-1',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531775-2',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531776-3',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531799-4',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531889-5',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531903-6',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739531916-7',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739532023-8',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739532088-9',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739532323-10',
+    '017c6299-f3c6-4ab2-86d4-cb555de8fad6-cmd-1791739532341-11'
+  ],
+  attempts: [],
+  audio: [
+    {
+      id: 'apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'started',
+      gameTime: 450.0000000000001
+    },
+    {
+      id: 'apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'interrupted',
+      gameTime: 450.0000000000001
+    },
+    {
+      id: 'request-apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'started',
+      gameTime: 466.70000000000016
+    },
+    {
+      id: 'request-apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'interrupted',
+      gameTime: 883.4000000000002
+    },
+    {
+      id: 'request-apple',
+      version: 'samantha-tingting-dev-experience-02',
+      status: 'started',
+      gameTime: 900.1
+    }
+  ],
+  lessons: [ 'offered:guest-0' ],
+  noteSupport: []
+}

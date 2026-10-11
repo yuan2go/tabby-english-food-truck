@@ -1,0 +1,42 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --grep scene pause|low motion receipts
+
+[WebServer] (node:6275) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+  ✘  1 e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts (8.8s)
+  ✓  2 e2e/demo-repair.spec.ts:4:1 › scene pause and restart isolate background, trap focus and restore the trigger (1.6s)
+
+
+  1) e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      539 |           );
+      540 |         }),
+    > 541 |       ).toBe(true);
+          |         ^
+      542 |     }
+      543 |     await page.screenshot({
+      544 |       path: evidencePath(
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/adventure.spec.ts:541:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/modal-cleanup/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/modal-cleanup/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/modal-cleanup/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:501:1 › low motion receipts retain actual foods and reachable controls across compact layouts 
+  1 passed (12.8s)

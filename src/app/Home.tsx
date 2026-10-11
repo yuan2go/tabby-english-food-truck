@@ -1,3 +1,4 @@
+import './home-entry.css';
 import { ADVENTURES } from '../content/adventure';
 import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
@@ -20,6 +21,7 @@ export function Home({
     profile.activityMemories.some(
       (m) => m.state.kind === 'chapter' && m.state.chapter === chapter && m.state.rewards.length,
     );
+  const firstVisit = !profile.activityMemories.length;
   const next = ADVENTURES.find((c) => !completed(c.id))?.id ?? 4;
   const entry = (id: 'story' | 'endless' | 'mini' | 'training', name: string, sound: string) => (
     <div className={`yard-entry yard-${id}`}>
@@ -34,9 +36,25 @@ export function Home({
         }}
       >
         <span>{name}</span>
+        {id === 'story' ? (
+          <span
+            role="img"
+            className="first-journey"
+            aria-label="听需要、亲手做、拿整盘、交给朋友、改变小院"
+          >
+            {['ear', 'kitchen', 'carry', 'friend', 'flower'].map((kind, index) => (
+              <span key={kind}>
+                <SceneIcon kind={kind} />
+                {index < 4 ? <b aria-hidden="true">➜</b> : null}
+              </span>
+            ))}
+          </span>
+        ) : null}
         <small>
           {id === 'story'
-            ? ADVENTURES[next]?.goal
+            ? firstVisit
+              ? '和大咪做第一份早餐'
+              : ADVENTURES[next]?.goal
             : id === 'endless'
               ? '今天也有新朋友'
               : id === 'mini'
@@ -75,13 +93,15 @@ export function Home({
       </button>
       <img className="yard-cat" src={assetUrl('cat-greet')} alt="小主厨大咪" />
       {entry('story', `正在准备 · ${ADVENTURES[next]?.title}`, 'menu-story')}
-      {entry('endless', '自由开店', 'menu-endless')}
-      <button type="button" className="yard-activity-badge" onClick={() => onChoose('story')}>
-        <SceneIcon kind="recipe" />
-        旧食谱 · 回访活动与作品
-      </button>
-      {entry('training', '教学练习', 'menu-training')}
-      {entry('mini', '迷你游戏', 'menu-mini')}
+      <nav className="yard-other-activities" aria-label="自己选其他玩法">
+        {entry('endless', '自由开店', 'menu-endless')}
+        <button type="button" className="yard-activity-badge" onClick={() => onChoose('story')}>
+          <SceneIcon kind="recipe" />
+          旧食谱 · 回访活动与作品
+        </button>
+        {entry('training', '教学练习', 'menu-training')}
+        {entry('mini', '迷你游戏', 'menu-mini')}
+      </nav>
       {completed(0) ? (
         <button
           type="button"

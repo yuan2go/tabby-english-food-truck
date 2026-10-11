@@ -1,0 +1,7 @@
+{
+  "equal": true,
+  "entries": 685,
+  "baseline": "f359b4053cf73e0103bf13b46d26496f19868508",
+  "engineering": "005e2c06e9e5f43aecfeffb534f848527f1cb066",
+  "note": "Original entries=0 was a diagnostic count field typo (looked at files instead of assets); equality was valid. Later intentional four vessel record changes belong to experience package, all source/review/license fields preserved."
+}

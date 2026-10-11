@@ -98,8 +98,8 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
     regions = {
       top,
       guests: row(92 + extra * 0.35 - deficit * 0.3),
-      work: row(148 + extra * 0.45 - deficit * 0.5),
-      trays: row(92 + extra * 0.2 - deficit * 0.2),
+      work: row(108 + extra * 0.45 - deficit * 0.5),
+      trays: row(132 + extra * 0.2 - deficit * 0.2),
       action: row(48),
       supplies: row(72),
       feedback: row(28),
@@ -148,19 +148,19 @@ export function layoutFor(width: number, height: number, mode: Mode = 'service')
             y:
               form === 'desktop' || form === 'tablet'
                 ? t.y + t.height * 0.58
-                : regions.action.y - 54,
+                : regions.action.y - 96,
           },
           {
             x: t.x + t.width * 0.75,
             y:
               form === 'desktop' || form === 'tablet'
                 ? t.y + t.height * 0.58
-                : regions.action.y - 54,
+                : regions.action.y - 96,
           },
         ]
       : [
-          { x: single ? width / 2 : t.x + t.width * 0.25, y: t.y + t.height / 2 },
-          { x: t.x + t.width * 0.75, y: t.y + t.height / 2 },
+          { x: single ? width / 2 : t.x + t.width * 0.25, y: t.y + t.height / 2 - 30 },
+          { x: t.x + t.width * 0.75, y: t.y + t.height / 2 - 30 },
         ];
   const machine = {
     x: w.x + w.width * (landscape || form === 'tablet' ? 0.5 : 0.29),

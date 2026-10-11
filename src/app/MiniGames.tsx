@@ -286,7 +286,7 @@ export function MiniGames({
           {collection ? '这一篮的食物朋友，听一听，再找一找。' : '随时回来，字母和这一题都会等你。'}
         </p>
         <button type="button" className="course-entry" onClick={() => setShowCourse(true)}>
-          🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词组句
+          🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词表达
           <small>原30个主题关与120词小组；按语言基础选择，故事不设拼写门槛</small>
         </button>
         {baskets ? (

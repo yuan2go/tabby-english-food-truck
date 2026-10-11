@@ -6678,8 +6678,8 @@
     {
       "assetId": "vocab-source-kettle",
       "path": "art/vocab-source/kettle.svg",
-      "bytes": 786,
-      "sha256": "ba242570b727fcd7bf475457313096b9bbcf9848aa82f5a5d55bd331fe7a07c8",
+      "bytes": 864,
+      "sha256": "d07333987e3f0d443aa07a952f60deef538832a253254a51aafb5691aac9f0cf",
       "runtime": false,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -6690,8 +6690,8 @@
     {
       "assetId": "vocab-kettle",
       "path": "public/assets/vocab-kettle.webp",
-      "bytes": 13128,
-      "sha256": "312c182f82e704d00f9cd60b6faf81eb800520affd63330dc74b76af918bebe9",
+      "bytes": 11620,
+      "sha256": "5f1418c7e2dfe841ce217bda79fb4144a5abb20cc9f23913d775403722db16c5",
       "runtime": true,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -6704,7 +6704,7 @@
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "visible": 28241
+        "visible": 27077
       },
       "edgeAlpha": [0, 0, 0, 0]
     },
@@ -7470,8 +7470,8 @@
     {
       "assetId": "vocab-source-watering-can",
       "path": "art/vocab-source/watering-can.svg",
-      "bytes": 791,
-      "sha256": "3805a923eff6a26a6ffddcea7d8d575990d2058aebf4eaeb8bc1fc69682cc7bb",
+      "bytes": 1029,
+      "sha256": "1f0005203f851d24e0a4636772343cc7bdbc7e6f36798adb76c48c4ece4f2b3b",
       "runtime": false,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -7482,8 +7482,8 @@
     {
       "assetId": "vocab-watering-can",
       "path": "public/assets/vocab-watering-can.webp",
-      "bytes": 12894,
-      "sha256": "bb59cb7eb232a7e987262387004fe45d65d804e1fdc1bf28aa7d5bdf50079aea",
+      "bytes": 11980,
+      "sha256": "b205001aaf4bf82b502cc854df9cd63dfa39372d859bbf056d063928e3796664",
       "runtime": true,
       "source": "Codex original paper-cut vector artwork; scripts/vocab-resources.mjs",
       "review": "PENDING_OWNER_AND_RIGHTS_REVIEW",
@@ -7496,7 +7496,7 @@
       "alphaMin": 0,
       "alphaMax": 255,
       "effectivePixels": {
-        "visible": 28028
+        "visible": 29003
       },
       "edgeAlpha": [0, 0, 0, 0]
     },

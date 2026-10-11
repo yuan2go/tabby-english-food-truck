@@ -296,7 +296,7 @@ test('original five mechanics retain normal entry and optional literacy, with ha
       .getByRole('button', { name: letter })
       .first()
       .click();
-  await page.getByRole('button', { name: '完成这句' }).click();
+  await page.getByRole('button', { name: '表达这个需要' }).click();
   await expect(page.getByRole('button', { name: '下一份' })).toBeVisible();
   await page.getByRole('button', { name: '← 返回主题' }).click();
 
@@ -314,12 +314,12 @@ test('original five mechanics retain normal entry and optional literacy, with ha
   await expect(page.getByRole('button', { name: '下一份' })).toBeVisible();
   await page.getByRole('button', { name: '← 返回主题' }).click();
 
-  await page.getByRole('button', { name: '选词组句' }).click();
+  await page.getByRole('button', { name: '选词表达' }).click();
   await page.getByRole('button', { name: '愿意组句' }).click();
   await expect(page.locator('.course-level-grid article')).toHaveCount(6);
   await page
     .locator('.course-level-grid article')
-    .filter({ hasText: '请给我一个' })
+    .filter({ hasText: '用词表达需要' })
     .getByRole('button', { name: '开始' })
     .click();
   await page.getByRole('button', { name: '看看今天的内容' }).click();
@@ -330,7 +330,7 @@ test('original five mechanics retain normal entry and optional literacy, with ha
       .getByRole('button', { name: word })
       .first()
       .click();
-  await page.getByRole('button', { name: '完成这句' }).click();
+  await page.getByRole('button', { name: '表达这个需要' }).click();
   await expect(page.getByRole('button', { name: '下一份' })).toBeVisible();
 });
 

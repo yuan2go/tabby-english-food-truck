@@ -1,0 +1,47 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/demo-repair.spec.ts
+
+[WebServer] (node:8674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+  ✓  1 e2e/demo-repair.spec.ts:7:1 › scene pause and restart isolate background, trap focus and restore the trigger (2.0s)
+  ✘  2 e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery (8.1s)
+  ✓  3 e2e/demo-repair.spec.ts:103:1 › optional visual contrasts preserve assistance and leave the choice to the player (3.5s)
+  ✓  4 e2e/demo-repair.spec.ts:134:1 › home main invitation and autonomous entrances are physically reachable in compact layouts (2.1s)
+
+
+  1) e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery 
+
+    Error: expect(received).toMatch(expected)
+
+    Expected pattern: /^tray:1:/
+    Received string:  "tray:0:1"
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      79 |   await expect
+      80 |     .poll(async () => (await state(page)).items.find((i) => i.id === banana.id)?.location)
+    > 81 |     .toMatch(/^tray:1:/);
+         |      ^
+      82 |   await handle.tap();
+      83 |   const order = (await state(page)).orders.find((o) => o.status === 'waiting');
+      84 |   if (!order) throw Error('guest missing');
+        at /Users/dafangzi/.codex/worktrees/demo-repair-2026-10-12/tabby-english-food-truck/e2e/demo-repair.spec.ts:81:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/ui-space/test-results/demo-repair-individual-foo-c6290-ouch-rehearing-and-delivery/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/demo-repair-2026-10-12/ui-space/test-results/demo-repair-individual-foo-c6290-ouch-rehearing-and-delivery/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/demo-repair-2026-10-12/ui-space/test-results/demo-repair-individual-foo-c6290-ouch-rehearing-and-delivery/error-context.md
+
+  1 failed
+    e2e/demo-repair.spec.ts:49:1 › individual food and the whole tray remain distinct through touch, rehearing and delivery 
+  3 passed (18.4s)

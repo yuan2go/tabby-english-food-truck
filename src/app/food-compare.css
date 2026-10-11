@@ -1,0 +1,70 @@
+.food-compare {
+  width: 100%;
+}
+.contrast-tabs {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+.contrast-tabs button {
+  min-height: 48px;
+  padding: 5px 9px;
+}
+.contrast-tabs button[aria-pressed="true"] {
+  background: #dce6c7;
+  border-color: #52785a;
+}
+.contrast-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 12px 0;
+}
+.contrast-pair > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 155px;
+  padding: 8px;
+}
+.contrast-foods {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  width: 100%;
+}
+.contrast-foods .food-art,
+.contrast-foods .vocab-art {
+  width: 85px;
+  max-width: 100%;
+  height: 85px;
+  object-fit: contain;
+}
+.food-compare p {
+  font-size: 13px;
+  text-align: center;
+}
+@media (max-height: 500px) {
+  .contrast-pair {
+    margin: 4px 0;
+  }
+  .contrast-pair > button {
+    min-height: 95px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .contrast-foods {
+    height: 54px;
+  }
+  .contrast-foods .food-art,
+  .contrast-foods .vocab-art {
+    height: 50px;
+  }
+}

@@ -39,7 +39,7 @@ const names: Record<CourseKind, string> = {
   pair: '多组配对',
   spell: 'WordSpell',
   quantity: '数量与组合',
-  sentence: '选词组句',
+  sentence: '选词表达',
   review: '混合复习',
 };
 const foundations: Record<CourseFoundation, number> = { new: 0, letters: 1, phrases: 2 };
@@ -211,7 +211,9 @@ export function MiniCourse({
           mechanic === 'spell'
             ? 'spelling'
             : mechanic === 'sentence'
-              ? 'structure'
+              ? state.selected.length === 1
+                ? 'meaning'
+                : 'structure'
               : mechanic === 'listen'
                 ? 'listening'
                 : 'meaning',
@@ -539,7 +541,7 @@ export function MiniCourse({
                 </fieldset>
                 {state.phase === 'play' ? (
                   <button type="button" className="primary" onClick={() => submit()}>
-                    完成这句
+                    表达这个需要
                   </button>
                 ) : null}
               </>

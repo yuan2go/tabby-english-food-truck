@@ -612,20 +612,29 @@ export class TruckScene extends Phaser.Scene {
       );
       this.badge(
         `tray-label-${tray}`,
-        returning ? '回盘中' : `${tray + 1}号备餐盘`,
+        returning ? '回盘中' : `端${tray + 1}号整盘 ↗`,
         p.x,
-        p.y + 32,
+        p.y + 72,
         Math.min(l.trayWidth - 10, 148),
-        36,
+        48,
       );
       this.hot(
         `tray-${tray}`,
         `${tray + 1}号托盘：放入食品或选择整盘`,
         'tray',
         p.x,
-        p.y + 14,
+        p.y + 24,
         l.trayWidth,
-        Math.max(78, l.trayWidth * 0.5),
+        48,
+      );
+      this.hot(
+        `lift-tray-${tray}`,
+        `拿起或放下${tray + 1}号整盘`,
+        'tray',
+        p.x,
+        p.y + 72,
+        Math.min(l.trayWidth - 10, 148),
+        48,
       );
       if (s.helper?.tray === tray)
         for (const slot of s.helper.slots)
@@ -883,10 +892,10 @@ export class TruckScene extends Phaser.Scene {
         .get(`tray-label-${tray}`)
         ?.setText(
           held === tray
-            ? '点朋友递出 ↗'
+            ? '放下整盘 ↙'
             : s.trays[tray].remaining
               ? '回盘中'
-              : `${tray + 1}号备餐盘`,
+              : `端${tray + 1}号整盘 ↗`,
         );
       const lift = held === tray && !s.trays[tray].remaining && !this.press?.moved ? 9 : 0;
       this.images.get(`tray-${tray}`)?.setY(l.trays[tray].y - lift);
@@ -998,7 +1007,7 @@ export class TruckScene extends Phaser.Scene {
     // It is presentation, not a replacement for that stationary control.
     const start = this.ui.hotspots.find(
       (h) =>
-        h.kind === 'start' &&
+        (h.kind === 'start' || h.id.startsWith('lift-tray-')) &&
         x >= h.x - h.width / 2 &&
         x <= h.x + h.width / 2 &&
         y >= h.y - h.height / 2 &&
