@@ -25,7 +25,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
     )
     .toBe(2);
   await tap(page, 'tray-0');
-  await page.getByRole('button', { name: '放盘', exact: true }).tap();
+  await page.getByRole('button', { name: /^(放盘|食材直接放盘)$/ }).tap();
   await tap(page, 'supply-banana');
   await expect
     .poll(async () => (await state(page)).items.find((item) => item.product === 'banana')?.location)
@@ -69,7 +69,7 @@ test('phone wrong delivery, full reserved plate, cancel/multitouch and short lan
   const frozen = await state(page);
   await page.reload();
   await page.locator('.yard-endless .entry-main').tap();
-  await page.getByRole('button', { name: '开始 / 继续' }).tap();
+  await page.getByRole('button', { name: '开门 / 继续营业' }).tap();
   await lesson(page);
   const restored = await state(page);
   const consumed = frozen.items.find((i) => i.location === 'machine:apple');

@@ -1,6 +1,7 @@
 import { ADVENTURES, emptyAdventure, FAMILIES } from '../content/adventure';
 import type { Mode, RequestId } from '../content/catalog';
 import { type Activity, CHAPTERS, type Support } from '../content/chapters';
+import { type ShopTheme, themeAllows } from '../content/free-shop';
 import { storyLevel } from '../content/story-levels';
 import { startAdventure } from '../rules/adventure';
 import { advance, createGame, dispatch } from '../rules/game';
@@ -137,11 +138,22 @@ export class GameController {
       startAdventure(this.state, chapter);
     }
     this.state.session.support = support;
-    if (stored)
+    if (stored) {
+      this.state.noteSupport = [
+        ...new Set([...this.state.noteSupport, ...stored.noteSupport]),
+      ].slice(-24);
+      if (
+        replay &&
+        (stored.noteSupport.length || stored.attempts.some((a) => a.activity === 'note'))
+      )
+        this.state.noteSupport = [
+          ...new Set([...this.state.noteSupport, 'seen-in-prior-run']),
+        ].slice(-24);
       for (const order of this.state.orders) {
         const prior = stored.orders.find((o) => o.id === order.id && o.status !== 'done');
         if (prior) order.support = [...new Set([...order.support, ...prior.support])].slice(-24);
       }
+    }
     for (const family of FAMILIES.slice(0, Math.min(chapter + 1, 4)))
       this.profile.introduce(family);
     this.profile.value.support = support;
@@ -214,9 +226,21 @@ export class GameController {
     replay = false,
     concurrency: 1 | 2 = this.profile.value.concurrency,
     levelId?: string,
+    shop?: { menu: RequestId[]; theme: ShopTheme },
   ): void {
     if (activity === 'story' && !levelId) {
       this.enterAdventure(chapter, support, replay);
+      return;
+    }
+    if (
+      shop &&
+      (!shop.menu.length ||
+        new Set(shop.menu).size !== shop.menu.length ||
+        shop.menu.some((r) => !this.profile.menu().includes(r)) ||
+        !shop.menu.some((r) => themeAllows(shop.theme, r)))
+    ) {
+      this.message = '先选熟悉的食品和可供应的主题。';
+      this.notify();
       return;
     }
     this.save.save(this.state);
@@ -241,7 +265,7 @@ export class GameController {
         this.profile.value.introduced,
         Math.floor(Math.random() * 4294967296),
         concurrency,
-        this.profile.menu(),
+        shop ? shop.menu.filter((r) => themeAllows(shop.theme, r)) : this.profile.menu(),
         this.profile.value.language,
         level?.id,
         choice,
@@ -260,7 +284,12 @@ export class GameController {
     const family = CHAPTERS[chapter]?.family ?? 'juice';
     if (activity === 'story') this.profile.introduce(family);
     this.state.session.unlocked = [...this.profile.value.introduced];
-    if (!this.state.session.shop) this.state.session.menu = this.profile.menu();
+    if (!this.state.session.shop)
+      this.state.session.menu = shop ? [...shop.menu] : this.profile.menu();
+    if (shop && !previous) {
+      this.state.session.knownMenu = this.profile.menu();
+      this.state.session.shop = { accepting: true, theme: shop.theme };
+    }
     this.state.session.language = this.profile.value.language;
     if (activity === 'endless' && !this.state.adventure)
       this.state.adventure = emptyAdventure(4, 'shop');

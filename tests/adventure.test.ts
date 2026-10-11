@@ -55,6 +55,30 @@ function deliver(s: GameState, index: number, product: Product): GameState {
   return wait(r.state);
 }
 describe('adventure causal rules', () => {
+  it('breakfast delivery opens the flower drawer, not the initial click', () => {
+    let s = start(0);
+    expect(act(s, 'explore', { object: 'drawer' }).kind).toBe('blocked');
+    expect(act(s, 'plant', { seat: 0 }).kind).toBe('blocked');
+    s = deliver(s, 0, 'apple');
+    s = act(s, 'explore', { object: 'drawer' }).state;
+    expect(act(s, 'plant', { seat: 0 }).kind).toBe('ok');
+  });
+  it('a full table can pick up and rearrange a portion without returning it to the kitchen', () => {
+    let s = start(4);
+    for (const p of ['apple', 'banana', 'apple'] as const) s = make(s, p);
+    s = wait(act(s, 'create', { tray: 0 }).state);
+    const ids = s.adventure?.foods.map((f) => f.id) ?? [];
+    ids.forEach((item, seat) => {
+      s = act(s, 'place', { item, seat }).state;
+    });
+    expect(act(s, 'pickup', { item: ids[1] }).kind).toBe('ok');
+    s = act(s, 'pickup', { item: ids[1] }).state;
+    s = act(s, 'place', { item: ids[0], seat: 1 }).state;
+    s = act(s, 'place', { item: ids[1], seat: 0 }).state;
+    expect(s.adventure?.foods.map((f) => f.place)).toEqual(['table:1', 'table:0', 'table:2']);
+    expect(s.items).toHaveLength(0);
+    expect(validateState(s)).toBe(true);
+  });
   it('does not branch on a mismatch or before the real receive phase', () => {
     let s = start();
     s = make(s, 'salad-sandwich');
@@ -166,6 +190,18 @@ describe('adventure causal rules', () => {
     expect(wait(again.state).adventure?.foods).toEqual(s.adventure?.foods);
     expect(validateState(s)).toBe(true);
   });
+  it('strict delivery receipts stay recoverable through each receive and return phase', () => {
+    let s = make(start(), 'sandwich');
+    s = cmd(s, { type: 'deliver', tray: 0, order: 'guest-0' }).state;
+    while (s.actor.current) {
+      const saved = decodeSnapshot(JSON.stringify(s));
+      expect(saved.ok, `elapsed ${s.actor.current.elapsed}`).toBe(true);
+      if (!saved.ok) throw Error(saved.reason);
+      s = advance(saved.state, 100);
+    }
+    expect(s.adventure?.foods).toHaveLength(1);
+    expect(s.adventure?.branch).toBe('rabbit');
+  });
   it('can recover every phase of an open commission, including the received food', () => {
     let s = make(start(1), 'strawberry-cup');
     s = act(s, 'cool', { tray: 0 }).state;
@@ -201,6 +237,19 @@ describe('adventure causal rules', () => {
     expect(validateState(duplicate)).toBe(false);
     const forged = structuredClone(s);
     if (forged.adventure) forged.adventure.rewards = ['picnic-page'];
+    expect(validateState(forged)).toBe(false);
+  });
+  it('rejects missing visitor identity and receipts from unreceived orders', () => {
+    const s = start(0);
+    const missing = structuredClone(s);
+    if (missing.orders[0]) delete missing.orders[0].visitor;
+    expect(validateState(missing)).toBe(false);
+    const forged = structuredClone(s);
+    if (forged.adventure) {
+      forged.adventure.steps = ['served:rabbit', 'served:hedgehog', 'plant'];
+      forged.adventure.explored = ['drawer'];
+      forged.adventure.rewards = ['flower-page'];
+    }
     expect(validateState(forged)).toBe(false);
   });
 });

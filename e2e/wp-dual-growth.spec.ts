@@ -6,7 +6,7 @@ test('deferred menu introduction returns after another completed order', async (
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
   await page.locator('.yard-endless .entry-main').click();
-  await page.getByRole('button', { name: '开始 / 继续' }).click();
+  await page.getByRole('button', { name: '开门 / 继续营业' }).click();
   const firstLesson = page.getByRole('dialog', { name: '场景小教学' });
   if (await firstLesson.count())
     await firstLesson.getByRole('button', { name: '我来试试', exact: true }).click();

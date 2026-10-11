@@ -47,8 +47,9 @@ export function Adventure({
     const r = controller.command({ type: 'adventure', ...command });
     if (command.action === 'invite' && r.kind === 'ok') {
       const picnic = memory(2);
-      controller.message =
-        command.visitor === 'rabbit'
+      controller.message = !picnic
+        ? `${VISITOR_NAMES[command.visitor as Visitor]}第一次来到你的分享桌，想尝尝你做的食品。`
+        : command.visitor === 'rabbit'
           ? picnic?.branch === 'rabbit'
             ? '兔兔记得你补齐的野餐篮，今天也想一起打包分享。'
             : '兔兔记得你摆好的野餐桌，今天来帮忙选餐位。'
@@ -71,6 +72,15 @@ export function Adventure({
   const gardenLight = has('light') || !!memory(3);
   const flowerPosition = has('plant') ? a.decor.flower : (memory(0)?.decor.flower ?? 0);
   const flagColor = has('bunting') ? a.decor.bunting : (memory(1)?.decor.bunting ?? 'warm');
+  const pastWorks = controller.profile.value.activityMemories
+    .filter(
+      (m) =>
+        m.runId !== controller.state.runId &&
+        m.state.chapter === a.chapter &&
+        m.state.kind === a.kind,
+    )
+    .flatMap((m) => m.state.works)
+    .slice(-8);
   const object = (id: string, label: string, shape: string) => (
     <button
       type="button"
@@ -94,7 +104,7 @@ export function Adventure({
     >
       <div className="adventure-content" inert={clear}>
         <header className="activity-header">
-          <button type="button" onClick={home} aria-label="收摊回小院">
+          <button type="button" onClick={home} aria-label="返回小院">
             ← 小院
           </button>
           <div>
@@ -252,6 +262,15 @@ export function Adventure({
                 >
                   {f.tasted ? '✓' : '尝一口'}
                 </button>
+                {f.place.startsWith('table:') ? (
+                  <button
+                    type="button"
+                    aria-label={`拿回${PRODUCT_NAMES[f.product]}到桌边`}
+                    onClick={() => act({ action: 'pickup', item: f.id })}
+                  >
+                    拿起
+                  </button>
+                ) : null}
               </div>
             ))}
             {!a.foods.length ? (
@@ -275,6 +294,19 @@ export function Adventure({
               ) : (
                 <p>换一种口味或夹层，准备好后带到桌边。自己的拼盘可以保存。</p>
               )}
+              {pastWorks.length ? (
+                <section aria-label="上次留下的作品">
+                  <h3>上次留下的作品</h3>
+                  {pastWorks.map((w) => (
+                    <div key={w.id}>
+                      {w.foods.map((f) => (
+                        <Food key={f.id} product={f.product} />
+                      ))}
+                    </div>
+                  ))}
+                  <p>这些是食谱记忆。新作品用今天的食品重新制作。</p>
+                </section>
+              ) : null}
             </section>
           ) : null}
         </div>

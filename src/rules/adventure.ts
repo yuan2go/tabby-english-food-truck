@@ -9,6 +9,7 @@ import {
   type WorldFood,
   workSignature,
 } from '../content/adventure';
+import { PRODUCT_NAMES } from '../content/catalog';
 import { queueActor, trayAnchor } from './actions';
 import type { Command, GameState, Item, Result } from './types';
 
@@ -77,7 +78,8 @@ export function adventureReady(a: AdventureState): boolean {
         a.invitations.includes('hedgehog') &&
         has('create') &&
         has('taste') &&
-        has('save-work')
+        has('save-work') &&
+        ['place:0', 'place:1', 'place:2'].some(has)
       );
     default:
       return false;
@@ -139,6 +141,14 @@ export function adventureCommand(
     const object = c.object;
     if (!object || !['basket', 'drawer', 'recipe'].includes(object))
       return result('blocked', '这个物件暂时没有线索。');
+    if (
+      object === 'drawer' &&
+      (chapter === 0 || chapter === 3) &&
+      !complete &&
+      !has('served:rabbit') &&
+      !has('served:hedgehog')
+    )
+      return result('blocked', '先给一位朋友送好食品，再一起打开抽屉。');
     if (
       chapter === 2 &&
       ((object === 'basket' && a.branch !== 'rabbit') ||
@@ -245,6 +255,12 @@ export function adventureCommand(
     step(a, `place:${c.seat}`);
     return result('ok', `食物摆在${c.seat + 1}号餐位。`);
   }
+  if (c.action === 'pickup') {
+    const food = a.foods.find((f) => f.id === c.item);
+    if (!food || !food.place.startsWith('table:')) return result('blocked', '先选桌上的一份食品。');
+    food.place = 'work';
+    return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  }
   if (c.action === 'taste') {
     const food = a.foods.find((f) => f.id === c.item);
     if (!food || food.place === 'basket') return result('blocked', '先把一份食物带到桌边。');
@@ -253,13 +269,7 @@ export function adventureCommand(
     step(a, 'taste');
     return result(
       'ok',
-      food.product.includes('juice')
-        ? '这杯果汁让大家一起举杯。'
-        : food.product.includes('cream') || food.product.includes('vanilla')
-          ? '这份冰淇淋的口味留在今天的食谱里。'
-          : food.product.includes('sandwich')
-            ? '朋友尝到了你夹好的面包。'
-            : '大家尝到了你准备的这一份。',
+      `朋友尝到了你选的${PRODUCT_NAMES[food.product]}，这个味道留在今天的食谱里。`,
     );
   }
   if (c.action === 'save-work') {
@@ -303,6 +313,7 @@ export function adventureCommand(
   if (c.action === 'bunting') {
     if (
       (chapter !== 1 && !complete) ||
+      (!complete && (!has('cool') || !has('taste'))) ||
       (!a.explored.includes('recipe') && !complete) ||
       !['warm', 'cool'].includes(c.value ?? '')
     )

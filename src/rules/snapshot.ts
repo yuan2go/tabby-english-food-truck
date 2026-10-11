@@ -279,6 +279,13 @@ export function validateState(v: unknown): v is GameState {
       s.orders.some((o, i) => o.request !== expected[i] || o.id !== `guest-${i}`)
     )
       return false;
+    if (
+      s.adventure?.kind === 'chapter' &&
+      s.orders.some(
+        (o, i) => o.visitor !== ADVENTURES[s.adventure?.chapter ?? 0]?.orders[i]?.visitor,
+      )
+    )
+      return false;
   } else if (s.session.activity === 'endless') {
     // A support change constrains future generation, not the validity of
     // already accepted orders. Their recipes must still be introduced.
@@ -400,6 +407,39 @@ export function validateState(v: unknown): v is GameState {
       return false;
   } else if (held.length) return false;
   const jobs = [...(s.actor.current ? [s.actor.current] : []), ...s.actor.queue];
+  if (s.adventure?.kind === 'chapter') {
+    const a = s.adventure;
+    for (const order of s.orders) {
+      const job = jobs.find((j) => j.kind === 'delivery' && j.order === order.id);
+      const at = job?.plan.phases.findIndex((p) => p.event === 'receive') ?? -1;
+      const received =
+        order.status === 'done' ||
+        Boolean(
+          job &&
+            at >= 0 &&
+            job.elapsed >= job.plan.phases.slice(0, at + 1).reduce((n, p) => n + p.duration, 0),
+        );
+      if (a.steps.includes(`served:${order.visitor}`) !== received) return false;
+      const foods = a.foods.filter((f) => f.source === order.id);
+      if ((!received && foods.length) || (received && !a.rewards.length && !foods.length))
+        return false;
+      if (
+        foods.length &&
+        foods
+          .map((f) => f.product)
+          .sort()
+          .join('|') !== [...REQUESTS[order.request].products].sort().join('|')
+      )
+        return false;
+    }
+    if (
+      a.chapter === 2 &&
+      (a.branch === null
+        ? a.steps.some((x) => x.startsWith('served:'))
+        : !a.steps.includes(`served:${a.branch}`))
+    )
+      return false;
+  }
   if (
     !unique(jobs.map((j) => j.plan.id)) ||
     jobs.some((j) => j.itemIds.some((id) => !s.items.some((i) => i.id === id)))

@@ -7,6 +7,7 @@ import Phaser from 'phaser';
 import { useEffect, useReducer, useRef, useState } from 'react';
 import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Support } from '../content/chapters';
+import type { ShopTheme } from '../content/free-shop';
 import type { Family } from '../content/recipes';
 import { STORY_LEVELS, storyLevel } from '../content/story-levels';
 import { assetUrl } from '../game/assets';
@@ -317,6 +318,7 @@ export function App() {
     chapter = 0,
     replay = false,
     levelId?: string,
+    shop?: { menu: RequestId[]; theme: ShopTheme },
   ) => {
     audio.stop();
     controller.enter(
@@ -326,6 +328,7 @@ export function App() {
       replay,
       activity === 'endless' ? concurrency : activity === 'story' && chapter >= 2 ? storyGuests : 1,
       levelId,
+      shop,
     );
     if (controller.save.blocked) {
       setModal('restart');
@@ -498,7 +501,7 @@ export function App() {
           ready={ui.ready}
           home={home}
           start={(menu, theme) => {
-            enter('endless');
+            enter('endless', 0, false, undefined, { menu, theme });
             controller.command({
               type: 'menu',
               requests: controller.profile.menu(),

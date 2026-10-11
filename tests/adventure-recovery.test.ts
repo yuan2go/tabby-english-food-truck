@@ -86,6 +86,30 @@ it('old profile chapters remain historical and grant no new activity reward', ()
   expect(store.value.completed).toEqual([0, 1, 2, 3, 4]);
   expect(store.value.activityMemories).toEqual([]);
 });
+it('replay retains note assistance and a selected opening menu applies to the first guests', () => {
+  const values = new Map<string, string>();
+  const storage = {
+    getItem: (k: string) => values.get(k) ?? null,
+    setItem: (k: string, v: string) => {
+      values.set(k, v);
+    },
+    removeItem: (k: string) => {
+      values.delete(k);
+    },
+  };
+  vi.stubGlobal('localStorage', storage);
+  const c = new GameController(new SaveStore(() => storage));
+  c.enter('story', 4);
+  c.command({ type: 'note-support', reason: 'grammar-explanation' });
+  c.enter('story', 4, 'less', true);
+  expect(c.state.noteSupport).toContain('grammar-explanation');
+  c.profile.present('menu:banana');
+  c.enter('endless', 0, 'pictures', false, 2, undefined, { menu: ['banana'], theme: 'fruit' });
+  expect(c.state.orders.map((o) => o.request)).toEqual(['banana', 'banana']);
+  expect(c.state.session.menu).toEqual(['banana']);
+  expect(decodeSnapshot(JSON.stringify(c.state)).ok).toBe(true);
+  vi.unstubAllGlobals();
+});
 it('bounded replay memories keep the latest receipt of every completed chapter', () => {
   const store = new ProfileStore(() => ({
     getItem: () => null,

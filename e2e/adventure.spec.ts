@@ -134,6 +134,15 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.reload();
   await page.getByRole('button', { name: '正在准备 · 社区小食会', exact: true }).click();
   expect((await state(page)).adventure?.works).toEqual(before.adventure?.works);
+  await page.getByRole('button', { name: '再准备一次' }).click();
+  await page.getByRole('button', { name: '翻开旧食谱' }).click();
+  await expect(
+    page
+      .getByRole('region', { name: '上次留下的作品' })
+      .getByRole('img', { name: '香蕉', exact: true }),
+  ).toBeVisible();
+  expect((await state(page)).adventure?.foods).toEqual([]);
+  expect((await state(page)).adventure?.rewards).toEqual([]);
 });
 
 test('phone replay follows hedgehog path with real food and no packing task', async ({ page }) => {
@@ -187,6 +196,8 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
   await lesson(page);
   await table(page);
+  await page.getByRole('button', { name: '邀请兔兔' }).click();
+  await expect(page.getByRole('status')).toContainText('第一次来到');
   await page.getByRole('button', { name: '停止接客，做作品' }).click();
   await kitchen(page);
   await send(page, 0, 'apple');
@@ -197,6 +208,8 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await table(page);
   await page.getByRole('button', { name: '选择苹果汁', exact: true }).click();
   await page.getByRole('button', { name: '摆到3号餐位' }).click();
+  await page.getByRole('button', { name: '拿回苹果汁到桌边' }).click();
+  await page.getByRole('button', { name: '摆到2号餐位' }).click();
   await page.getByRole('button', { name: '品尝苹果汁', exact: true }).click();
   await page.getByRole('button', { name: '保存到食谱' }).click();
   const before = await state(page);
