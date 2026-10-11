@@ -1,0 +1,123 @@
+{
+  "method": "public domain commands; external expected contract examples; no completion injection",
+  "results": [
+    {
+      "probe": "strict-order",
+      "foods": [
+        "apple"
+      ],
+      "expected": "incomplete",
+      "result": "PASS"
+    },
+    {
+      "probe": "strict-order",
+      "foods": [
+        "banana",
+        "banana"
+      ],
+      "expected": "mismatch",
+      "result": "PASS"
+    },
+    {
+      "probe": "strict-order",
+      "foods": [
+        "apple",
+        "banana",
+        "apple"
+      ],
+      "expected": "mismatch",
+      "result": "PASS"
+    },
+    {
+      "probe": "strict-order",
+      "foods": [
+        "banana",
+        "apple"
+      ],
+      "expected": "ok",
+      "result": "PASS"
+    },
+    {
+      "probe": "strict-order",
+      "foods": [
+        "apple",
+        "banana"
+      ],
+      "expected": "ok",
+      "result": "PASS"
+    },
+    {
+      "probe": "open-cool",
+      "food": "vanilla-cup",
+      "result": "PASS"
+    },
+    {
+      "probe": "open-cool",
+      "food": "strawberry-cup",
+      "result": "PASS"
+    },
+    {
+      "probe": "open-cool",
+      "food": "double-cream",
+      "result": "PASS"
+    },
+    {
+      "probe": "open-cool",
+      "food": "banana-cream",
+      "result": "PASS"
+    },
+    {
+      "probe": "open-extra-food",
+      "result": "PASS"
+    },
+    {
+      "probe": "free-creation-save-idempotent",
+      "actualFoods": [
+        "food-1",
+        "food-2",
+        "food-3"
+      ],
+      "result": "PASS"
+    },
+    {
+      "probe": "all-declared-sort-solutions",
+      "solutions": 16,
+      "result": "PASS"
+    },
+    {
+      "probe": "migration",
+      "schema": 3,
+      "foodIdentity": "food-1",
+      "destination": "machine:cup",
+      "result": "PASS"
+    },
+    {
+      "probe": "migration",
+      "schema": 4,
+      "foodIdentity": "food-1",
+      "destination": "machine:cup",
+      "result": "PASS"
+    },
+    {
+      "probe": "migration",
+      "schema": 5,
+      "foodIdentity": "food-1",
+      "destination": "tray:1:0",
+      "result": "PASS"
+    },
+    {
+      "probe": "migration",
+      "schema": 6,
+      "foodIdentity": "food-1",
+      "destination": "tray:1:0",
+      "result": "PASS"
+    },
+    {
+      "probe": "migration",
+      "schema": 7,
+      "foodIdentity": "food-1",
+      "destination": "tray:1:0",
+      "result": "PASS"
+    }
+  ]
+}

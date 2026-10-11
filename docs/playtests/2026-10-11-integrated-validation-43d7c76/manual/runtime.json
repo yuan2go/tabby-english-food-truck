@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:4277/",
+  "browser": "153.0.8010.12",
+  "identity": {
+    "buildSha": "43d7c76c80df54361790c47ba1715fe7290f9039",
+    "buildDirty": "false",
+    "contentVersion": "adventure-experience-2",
+    "assetVersion": "6cad25c4c1537b5b4456e7e0569ab073e9268339a0cca5065eaccbabd97de7ef",
+    "audioState": "{\"active\":\"world-free\",\"failure\":null,\"loops\":[\"music\",\"ambience\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.02500000037252903,\"machineGain\":0.09000000357627869,\"effects\":0}"
+  },
+  "errors": []
+}

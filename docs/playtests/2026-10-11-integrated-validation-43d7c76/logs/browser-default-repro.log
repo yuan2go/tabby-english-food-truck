@@ -1,0 +1,31 @@
+(node:98297) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --config /Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/browser-default-repro.config.ts adventure.spec.ts --grep visible activity|desktop feast
+
+(node:98318) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+Error: ENOENT: no such file or directory, chdir '/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck' -> '/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/engineering/browser-default-repro'
+    at wrappedChdir (node:internal/bootstrap/switches/does_own_process_state:128:14)
+    at process.chdir (node:internal/worker:110:5)
+    at process.chdir (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright-core/lib/utilsBundle.js:31735:15)
+    at process.chdir (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/matchers/expect.js:6268:15)
+    at file:///Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/browser-default-repro.config.ts:3:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at requireOrImport (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/common/index.js:1081:12)
+    at loadUserConfig (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/common/index.js:1268:46)
+    at loadConfig (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/common/index.js:1275:22)
+    at Object.loadConfigFromFile (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/common/index.js:1490:10)
+    at runTests (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/cli/testActions.js:46:18)
+    at _Command.<anonymous> (/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/node_modules/playwright/lib/program.js:55:7) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'chdir',
+  path: '/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck',
+  dest: '/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/engineering/browser-default-repro'
+}
+EXIT_CODE=1

@@ -1,0 +1,26 @@
+[
+  {
+    "path": "manual/video/page@71d4f0bb9fc8912f637f770ed0aaf997.webm",
+    "exitCode": 234,
+    "streamLines": [
+      "  Stream #0:0(eng): Video: vp8 (libvpx), yuv420p(tv, progressive), 960x540, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 1k tbn (default)"
+    ],
+    "audioStreamMentioned": false
+  },
+  {
+    "path": "manual/mobile-video/page@9cea73b27cadcb314b5db2aa7915b92b.webm",
+    "exitCode": 234,
+    "streamLines": [
+      "  Stream #0:0(eng): Video: vp8 (libvpx), yuv420p(tv, progressive), 392x664, SAR 1:1 DAR 49:83, 25 fps, 25 tbr, 1k tbn (default)"
+    ],
+    "audioStreamMentioned": false
+  },
+  {
+    "path": "manual/fault-video/page@2935673136bec63a826870b6287999a2.webm",
+    "exitCode": 234,
+    "streamLines": [
+      "  Stream #0:0(eng): Video: vp8 (libvpx), yuv420p(tv, progressive), 392x664, SAR 1:1 DAR 49:83, 25 fps, 25 tbr, 1k tbn (default)"
+    ],
+    "audioStreamMentioned": false
+  }
+]

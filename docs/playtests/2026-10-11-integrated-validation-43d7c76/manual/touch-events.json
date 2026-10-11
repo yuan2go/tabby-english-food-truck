@@ -1,0 +1,520 @@
+[
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 104.12999725341797,
+    "y": 585.75
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 104.12999725341797,
+    "y": 585.75
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 61,
+    "y": 34
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 61,
+    "y": 34
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 312.1300048828125,
+    "y": 416.17999267578125
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 312.1300048828125,
+    "y": 416.17999267578125
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 203.05999755859375,
+    "y": 637
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 203.05999755859375,
+    "y": 637
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 238.80999755859375,
+    "y": 163
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 238.80999755859375,
+    "y": 163
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 258.5400085449219,
+    "y": 32.5
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 258.5400085449219,
+    "y": 32.5
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 350,
+    "y": 32.5
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 350,
+    "y": 32.5
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9453125,
+    "y": 147
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9453125,
+    "y": 147
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 166.47500610351562,
+    "y": 490.11248779296875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 166.47500610351562,
+    "y": 490.11248779296875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9453125,
+    "y": 147
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9453125,
+    "y": 147
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4296875,
+    "y": 242.9921875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4296875,
+    "y": 242.9921875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 243.6171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 243.6171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 337.8671875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 337.8671875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4375,
+    "y": 338.421875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4375,
+    "y": 338.421875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 166.47500610351562,
+    "y": 490.11248779296875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 166.47500610351562,
+    "y": 490.11248779296875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9499969482422,
+    "y": 84
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9499969482422,
+    "y": 84
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9453125,
+    "y": 147
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 188.9453125,
+    "y": 147
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 116,
+    "y": 30
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 116,
+    "y": 30
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 212.5399932861328,
+    "y": 32.5
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 212.5399932861328,
+    "y": 32.5
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 113,
+    "y": 92
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 113,
+    "y": 92
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 99.5,
+    "y": 163
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 99.5,
+    "y": 163
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 99.5,
+    "y": 361
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 99.5,
+    "y": 361
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 350,
+    "y": 32.5
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 350,
+    "y": 32.5
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4296875,
+    "y": 242.9921875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4296875,
+    "y": 242.9921875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 55.1171875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 149.3671875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 149.3671875,
+    "y": 591.984375
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4375,
+    "y": 338.421875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 279.4375,
+    "y": 338.421875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 166.47500610351562,
+    "y": 490.11248779296875
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 166.47500610351562,
+    "y": 490.11248779296875
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 75.8515625,
+    "y": 147
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 75.8515625,
+    "y": 147
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 116,
+    "y": 30
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 116,
+    "y": 30
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 149.07000732421875,
+    "y": 555
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 149.07000732421875,
+    "y": 555
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 40.5,
+    "y": 361
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 40.5,
+    "y": 361
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 223,
+    "y": 572
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 223,
+    "y": 572
+  },
+  {
+    "type": "pointerdown",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 143,
+    "y": 637
+  },
+  {
+    "type": "pointerup",
+    "pointerType": "touch",
+    "isTrusted": true,
+    "x": 143,
+    "y": 637
+  }
+]

@@ -1,0 +1,15 @@
+(node:96234) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --config /Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/browser-isolated.config.ts --list
+
+(node:96257) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+TypeError: Module "file:///Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/src/content/vocabulary-extra.json" needs an import attribute of "type: json"
+Listing tests:
+Total: 0 tests in 0 files
+EXIT_CODE=1

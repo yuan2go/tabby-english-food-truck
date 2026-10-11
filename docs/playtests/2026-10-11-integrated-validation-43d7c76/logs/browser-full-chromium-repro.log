@@ -1,0 +1,76 @@
+(node:99000) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --config /Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/browser-full-chromium-repro.config.ts --grep visible activity|desktop feast|phone wrong delivery
+
+(node:99015) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99024) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[WebServer] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (node:99047) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[WebServer] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:99047) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+Running 3 tests using 1 worker
+
+(node:99093) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99093) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+EVIDENCE_FEAST_START_SECONDS 39.066
+EVIDENCE_DINNER_START_SECONDS 154.923
+  ✓  1 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:52:1 › visible activity entrance reaches all five chapters and saves a real creation (3.6m)
+EVIDENCE_FEAST_START_SECONDS 22.415
+  ✘  2 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement (40.7s)
+(node:99804) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-integrated-validation-43d7c76/scripts/json-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+  ✓  3 ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (28.7s)
+
+
+  1) ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator:  getByRole('button', { name: '低动态表现', exact: true })
+    Expected: in viewport
+    Received: viewport ratio 0.2647058963775635
+    Timeout:  6000ms
+
+    Call log:
+      - Expect "toBeInViewport" getByRole('button', { name: '低动态表现', exact: true }) with timeout 6000ms
+      - waiting for getByRole('button', { name: '低动态表现', exact: true })
+        15 × locator resolved to <button type="button" aria-label="低动态表现" aria-pressed="false">◒</button>
+           - unexpected value "viewport ratio 0.2647058963775635"
+
+
+      210 |   for (const name of ['重看朋友使用', '跳过朋友演出', '低动态表现']) {
+      211 |     const button = page.getByRole('button', { name, exact: true });
+    > 212 |     await expect(button).toBeInViewport({ ratio: 1 });
+          |                          ^
+      213 |     await button.click();
+      214 |   }
+      215 |   expect((await state(page)).adventure).toEqual(before.adventure);
+        at /Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:212:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-desktop-feast-ex-fd0ba-ithout-repeating-settlement/error-context.md
+
+  1 failed
+    ../../../../../../../.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/e2e/adventure.spec.ts:180:1 › desktop feast exposes replay skip and low motion without repeating settlement 
+  2 passed (4.9m)
+EXIT_CODE=1

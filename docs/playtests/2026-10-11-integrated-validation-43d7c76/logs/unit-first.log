@@ -1,0 +1,34 @@
+command: npm test
+UTC start: 2026-10-11T15:14:53.433117+00:00
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck
+
+ ❯ tests/adventure-recovery.test.ts (9 tests | 1 failed) 169ms
+   × migrates real PR10 archived session snapshots without changing food, actor or support 55ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-recovery.test.ts > migrates real PR10 archived session snapshots without changing food, actor or support
+Error: ENOENT: no such file or directory, open '/Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/docs/evidence/adventure-direct-input/execution-artifacts/checkpoints/tabby-before-parallel.storage.json'
+ ❯ tests/adventure-recovery.test.ts:224:7
+    222|   for (const file of ['tabby-before-parallel.storage.json', 'tabby-bef…
+    223|     const archive = JSON.parse(
+    224|       readFileSync(
+       |       ^
+    225|         new URL(
+    226|           `../docs/evidence/adventure-direct-input/execution-artifacts…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  1 failed | 280 passed (281)
+   Start at  23:14:57
+   Duration  5.68s (transform 5.94s, setup 0ms, import 10.61s, tests 6.32s, environment 12ms)
+
+
+EXIT_CODE=1

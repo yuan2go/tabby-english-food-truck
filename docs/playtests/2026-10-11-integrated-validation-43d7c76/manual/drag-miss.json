@@ -1,0 +1,17 @@
+{
+  "before": [
+    {
+      "id": "food-12",
+      "product": "juice",
+      "location": "tray:0:0"
+    }
+  ],
+  "after": [
+    {
+      "id": "food-12",
+      "product": "juice",
+      "location": "tray:0:0"
+    }
+  ],
+  "unchanged": true
+}

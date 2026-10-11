@@ -1,0 +1,3284 @@
+[
+  {
+    "time": "2026-10-11T15:18:03.981Z",
+    "action": "click",
+    "name": "正在准备 · 晨光开门"
+  },
+  {
+    "time": "2026-10-11T15:18:04.014Z",
+    "name": "02-ch1-entry",
+    "note": "fresh default quality player UI",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n晨光开门\n\n送早餐，找到花苗，一起种迎客花\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n点一位朋友，自己决定先帮谁。\n♫\n▶\n\n送早餐，找到花苗，一起种迎客花\n\n👋\n👋\n\n送早餐，找到花苗，一起种迎客花\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:18:30.352Z",
+    "action": "click",
+    "name": "先帮兔兔"
+  },
+  {
+    "time": "2026-10-11T15:18:30.555Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:18:30.566Z",
+    "name": "03-ch1-kitchen",
+    "note": "rabbit welcomed using visible character; tutorial appeared",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n晨光开门\n客人A·兔兔：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n大咪的食谱 · 一次学一点\n先到餐车试试 ↗\napple\n♫\n\n点食物，听它的名字。\n\n来试一下 →\n\n点食材直接装盘；要制作时先点设备"
+  },
+  {
+    "time": "2026-10-11T15:18:40.623Z",
+    "action": "click",
+    "name": "来试一下 →"
+  },
+  {
+    "time": "2026-10-11T15:18:51.581Z",
+    "action": "click",
+    "name": "备餐盘"
+  },
+  {
+    "time": "2026-10-11T15:18:51.742Z",
+    "action": "click",
+    "name": "苹果"
+  },
+  {
+    "time": "2026-10-11T15:19:15.095Z",
+    "name": "04-ch1-request",
+    "note": "Canvas mouse target matching DOM hotspot",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n晨光开门\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n苹果，1号盘\n♫\n\n备好这一盘 → 点托盘拿起，再点朋友递出"
+  },
+  {
+    "time": "2026-10-11T15:19:26.432Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:19:26.568Z",
+    "action": "click",
+    "name": "点请求气泡重听"
+  },
+  {
+    "time": "2026-10-11T15:19:26.779Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:19:27.080Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:19:27.085Z",
+    "name": "05-ch1-breakfast",
+    "note": "held plate request replay then explicit friend delivery; returned to activity",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n晨光开门\n\n送早餐，找到花苗，一起种迎客花\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n朋友正在接餐，盘里和篮里的食品都会保留。\n♫\n▶\n\n送早餐，找到花苗，一起种迎客花\n\n👋\n\n大咪正把这份心意送过去。\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:19:33.665Z",
+    "action": "click",
+    "name": "先帮刺刺"
+  },
+  {
+    "time": "2026-10-11T15:19:33.971Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:19:42.555Z",
+    "action": "click",
+    "name": "来试一下 →"
+  },
+  {
+    "time": "2026-10-11T15:19:42.709Z",
+    "action": "click",
+    "name": "备餐盘"
+  },
+  {
+    "time": "2026-10-11T15:19:42.965Z",
+    "action": "click",
+    "name": "香蕉"
+  },
+  {
+    "time": "2026-10-11T15:19:43.064Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:19:43.166Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:19:43.401Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:19:43.627Z",
+    "action": "click",
+    "name": "打开储物抽屉"
+  },
+  {
+    "time": "2026-10-11T15:19:43.655Z",
+    "name": "06-drawer",
+    "note": "second food delivered via visible tutorial, drawer exploration",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n晨光开门\n\n送早餐，找到花苗，一起种迎客花\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n花苗\n浇水壶\n➜\n●\n朋友正在接餐，盘里和篮里的食品都会保留。\n♫\n▶\n\n送早餐，找到花苗，一起种迎客花\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n●\n➜\n◀\n●\n▶\n\n找到花苗了。选一个位置种下吧。\n\n一起开席\n收摊回小院\n当前拿着苹果，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:19:50.622Z",
+    "action": "click",
+    "name": "取出花苗"
+  },
+  {
+    "time": "2026-10-11T15:19:50.835Z",
+    "action": "click",
+    "name": "取出浇水壶"
+  },
+  {
+    "time": "2026-10-11T15:19:51.015Z",
+    "action": "click",
+    "name": "把花种在左边"
+  },
+  {
+    "time": "2026-10-11T15:19:58.188Z",
+    "action": "click",
+    "name": "给迎客花浇水"
+  },
+  {
+    "time": "2026-10-11T15:19:58.315Z",
+    "action": "click",
+    "name": "摆到1号餐位"
+  },
+  {
+    "time": "2026-10-11T15:19:58.428Z",
+    "action": "click",
+    "name": "选择香蕉"
+  },
+  {
+    "time": "2026-10-11T15:19:58.531Z",
+    "action": "click",
+    "name": "摆到2号餐位"
+  },
+  {
+    "time": "2026-10-11T15:19:58.753Z",
+    "action": "click",
+    "name": "品尝香蕉"
+  },
+  {
+    "time": "2026-10-11T15:19:58.753Z",
+    "name": "07-ch1-flower-breakfast",
+    "note": "watered left flower, real foods placed, banana tasted",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n晨光开门\n\n送早餐，找到花苗，一起种迎客花\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n已取出\n已取出\n➜\n●\n准备好了，点餐桌一起开席。\n♫\n▶\n\n送早餐，找到花苗，一起种迎客花\n\n接餐\n携带\n摆放\n品尝\n回应\n✦ ♡\n· · ·\n朋友咬下一口水果，慢慢咀嚼\n↻ ♫\n↗\n◒\n🦋\n♡\n●\n♡\n➜\n◀\n●\n▶\n\n朋友尝到了你选的香蕉，这个味道留在今天的食谱里。\n\n一起开席\n收摊回小院\n当前拿着香蕉，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:20:00.737Z",
+    "action": "click",
+    "name": "一起开席"
+  },
+  {
+    "time": "2026-10-11T15:20:04.626Z",
+    "name": "08-ch1-complete",
+    "note": "first chapter complete through visible controls",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n晨光开门\n\n这页已经留下记忆\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n已取出\n已取出\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n接餐\n携带\n摆放\n品尝\n回应\n✦ ♡\n· · ·\n朋友咬下一口水果，慢慢咀嚼\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n兔兔\n刺刺\n长辈\n◀\n●\n▶\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n➜下一院活动\n再准备一次\n收摊回小院\n当前拿着香蕉，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:20:06.533Z",
+    "action": "click",
+    "name": "下一院活动"
+  },
+  {
+    "time": "2026-10-11T15:20:06.839Z",
+    "action": "click",
+    "name": "先帮兔兔"
+  },
+  {
+    "time": "2026-10-11T15:20:07.243Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:20:17.318Z",
+    "action": "click",
+    "name": "看看怎么做"
+  },
+  {
+    "time": "2026-10-11T15:20:17.784Z",
+    "action": "click",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:20:26.864Z",
+    "action": "mouse-hotspot",
+    "name": "拿蛋筒"
+  },
+  {
+    "time": "2026-10-11T15:20:26.952Z",
+    "action": "mouse-hotspot",
+    "name": "拿香草球"
+  },
+  {
+    "time": "2026-10-11T15:20:27.087Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 接好冰淇淋"
+  },
+  {
+    "time": "2026-10-11T15:20:27.147Z",
+    "name": "09-icecream-processing",
+    "note": "cone + vanilla physically placed, switched device on",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n树荫甜点\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择冰淇淋台备餐\n▶ 接好冰淇淋\n切换果汁机\n切换冰淇淋台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿蛋筒\n拿空杯\n拿香草球\n拿草莓球\n拿香蕉\n蛋筒，冰淇淋台\n香草球，冰淇淋台\n送去树荫分享\n♫\n\n设备制作中 → 成品会到托盘；可以继续准备"
+  },
+  {
+    "time": "2026-10-11T15:20:34.476Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:20:34.510Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:20:34.573Z",
+    "action": "mouse-hotspot",
+    "name": "2号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:20:34.617Z",
+    "action": "mouse-hotspot",
+    "name": "选择冰淇淋台备餐"
+  },
+  {
+    "time": "2026-10-11T15:20:34.721Z",
+    "action": "mouse-hotspot",
+    "name": "拿空杯"
+  },
+  {
+    "time": "2026-10-11T15:20:34.838Z",
+    "action": "mouse-hotspot",
+    "name": "拿草莓球"
+  },
+  {
+    "time": "2026-10-11T15:20:34.940Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 接好冰淇淋"
+  },
+  {
+    "time": "2026-10-11T15:20:34.940Z",
+    "name": "10-dessert-second",
+    "note": "strict cone delivered; independently chose different strawberry cup for open sharing",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n树荫甜点\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择冰淇淋台备餐\n▶ 接好冰淇淋\n切换果汁机\n切换冰淇淋台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿蛋筒\n拿空杯\n拿香草球\n拿草莓球\n拿香蕉\n空杯，冰淇淋台\n草莓球，冰淇淋台\n送去树荫分享\n\n大咪正在递餐 → 等朋友接好；还能准备另一盘"
+  },
+  {
+    "time": "2026-10-11T15:20:42.304Z",
+    "action": "click",
+    "name": "送去树荫分享"
+  },
+  {
+    "time": "2026-10-11T15:20:42.506Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:20:42.641Z",
+    "action": "click",
+    "name": "翻开旧食谱"
+  },
+  {
+    "time": "2026-10-11T15:20:42.674Z",
+    "name": "11-ch2-sharing",
+    "note": "second dessert sent to open share; old recipe explored",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n树荫甜点\n\n尝不同口味，把分享彩旗挂起来\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n✓\n小勺\n➜\n●\n●\n●\n●\n●\n再做一杯不同的甜点，带到树荫下。\n♫\n▶\n\n尝不同口味，把分享彩旗挂起来\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n×\n今天留下的味道\n➜\n\n图里保留原来的摆法和谁尝过。重新制作时可以换搭配，重新摆放并保存新的一页。\n\n旧食谱记着：可以换口味、品尝，也能把自己的拼盘保存到末页。\n\n一起开席\n收摊回小院\n当前拿着香草蛋筒，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:20:49.622Z",
+    "action": "click",
+    "name": "收起食谱"
+  },
+  {
+    "time": "2026-10-11T15:20:50.049Z",
+    "action": "click",
+    "name": "取出小勺"
+  },
+  {
+    "time": "2026-10-11T15:20:56.337Z",
+    "action": "click",
+    "name": "摆到1号餐位"
+  },
+  {
+    "time": "2026-10-11T15:20:56.507Z",
+    "action": "click",
+    "name": "选择草莓冰淇淋杯"
+  },
+  {
+    "time": "2026-10-11T15:20:56.617Z",
+    "action": "click",
+    "name": "摆到2号餐位"
+  },
+  {
+    "time": "2026-10-11T15:20:56.881Z",
+    "action": "click",
+    "name": "比较两种甜点"
+  },
+  {
+    "time": "2026-10-11T15:20:57.288Z",
+    "action": "click",
+    "name": "品尝草莓冰淇淋杯"
+  },
+  {
+    "time": "2026-10-11T15:20:57.511Z",
+    "action": "click",
+    "name": "挂上清凉彩旗"
+  },
+  {
+    "time": "2026-10-11T15:20:57.517Z",
+    "name": "12-ch2-compare-flags",
+    "note": "different real cone/cup and flavors compared; strawberry tasted; cool flags",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n树荫甜点\n\n尝不同口味，把分享彩旗挂起来\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n✓\n已取出\n➜\n●\n准备好了，点餐桌一起开席。\n♫\n▶\n\n尝不同口味，把分享彩旗挂起来\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n●\n♡\n➜\n\n彩旗挂好了，朋友可以在这里分享甜点。\n\n一起开席\n收摊回小院\n当前拿着草莓冰淇淋杯，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:21:04.433Z",
+    "action": "click",
+    "name": "一起开席"
+  },
+  {
+    "time": "2026-10-11T15:21:04.433Z",
+    "name": "13-ch2-complete",
+    "note": "two desserts complete, entered next chapter naturally",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n树荫甜点\n\n这页已经留下记忆\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n✓\n已取出\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n接餐\n携带\n摆放\n品尝\n回应\n冰凉的小口让朋友眯起眼\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n兔兔\n刺刺\n长辈\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n➜下一院活动\n再准备一次\n收摊回小院\n当前拿着草莓冰淇淋杯，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:21:06.316Z",
+    "action": "click",
+    "name": "下一院活动"
+  },
+  {
+    "time": "2026-10-11T15:21:06.555Z",
+    "action": "click",
+    "name": "先帮兔兔"
+  },
+  {
+    "time": "2026-10-11T15:21:06.898Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:21:07.019Z",
+    "name": "14-ch3-entry",
+    "note": "rabbit first selected, no food received yet; no internal state read",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n野餐准备\n客人A·兔兔：拿盘交付，空手重听请求\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿面包\n拿芝士\n拿生菜\n拿番茄\n大咪的食谱 · 一次学一点\n先到餐车试试 ↗\n看看怎么做\nbread\n♫\n\n点食物，听它的名字。\n\n来试一下 →\n\n点食材放到亮着的制作台；备齐后按开关"
+  },
+  {
+    "time": "2026-10-11T15:21:12.673Z",
+    "action": "click",
+    "name": "看看怎么做"
+  },
+  {
+    "time": "2026-10-11T15:21:12.897Z",
+    "action": "click",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:21:23.630Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:21:23.678Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:21:23.753Z",
+    "action": "mouse-hotspot",
+    "name": "拿芝士"
+  },
+  {
+    "time": "2026-10-11T15:21:23.865Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:21:23.865Z",
+    "name": "15-ch3-sandwich",
+    "note": "two breads plus cheese, cover normal UI",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n野餐准备\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿面包\n拿芝士\n拿生菜\n拿番茄\n面包，组合板\n面包，组合板\n芝士，组合板\n♫\n\n设备制作中 → 成品会到托盘；可以继续准备"
+  },
+  {
+    "time": "2026-10-11T15:21:29.898Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:21:30.068Z",
+    "action": "click",
+    "name": "点请求气泡重听"
+  },
+  {
+    "time": "2026-10-11T15:21:30.261Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:21:30.537Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:21:30.537Z",
+    "name": "16-ch3-receiving",
+    "note": "submitted but still visibly receiving",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n帮朋友备餐，一起把野餐桌摆好\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n朋友正在接餐，盘里和篮里的食品都会保留。\n♫\n▶\n\n两位朋友都在等。先成功送给谁，就一起做谁的准备。\n\n👋\n🦋\n\n大咪正把这份心意送过去。\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:21:50.002Z",
+    "name": "17-ch3-rabbit-branch",
+    "note": "branch visible after receive; drawer replaced by inspect basket",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n帮朋友备餐，一起把野餐桌摆好\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n检查野餐篮\n翻开旧食谱\n➜\n●\n点一位朋友，自己决定先帮谁。\n♫\n▶\n\n兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。\n\n👋\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n\n大咪正把这份心意送过去。\n\n一起开席\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:21:58.500Z",
+    "action": "click",
+    "name": "检查野餐篮"
+  },
+  {
+    "time": "2026-10-11T15:21:58.986Z",
+    "action": "click",
+    "name": "先帮刺刺"
+  },
+  {
+    "time": "2026-10-11T15:21:59.295Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:22:08.634Z",
+    "action": "click",
+    "name": "看看怎么做"
+  },
+  {
+    "time": "2026-10-11T15:22:08.994Z",
+    "action": "click",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:22:09.050Z",
+    "action": "mouse-hotspot",
+    "name": "选择组合板备餐"
+  },
+  {
+    "time": "2026-10-11T15:22:09.191Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:22:09.248Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:22:09.279Z",
+    "action": "mouse-hotspot",
+    "name": "拿生菜"
+  },
+  {
+    "time": "2026-10-11T15:22:09.380Z",
+    "action": "mouse-hotspot",
+    "name": "拿番茄"
+  },
+  {
+    "time": "2026-10-11T15:22:09.644Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:22:09.763Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:22:09.888Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:22:10.148Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:22:10.148Z",
+    "name": "18-ch3-late-friend",
+    "note": "vegetable sandwich late friend request completed unchanged",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n帮朋友备餐，一起把野餐桌摆好\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n检查野餐篮\n✓\n翻开旧食谱\n＋\n＋\n➜\n●\n●\n●\n●\n●\n一份三明治和一份水果，装入同一盘带来。\n♫\n▶\n\n兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n\n听朋友说一说。装好餐盘后，拿起来递给朋友。\n\n一起开席\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:22:17.386Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:22:26.937Z",
+    "name": "19-ch3-rapid-input-not-delivered",
+    "note": "rapid make+tray+guest sequence left vegetable food on plate; needs another actual selection",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n野餐准备\n到活动桌\n●\n●\n●\n●\n♫\n客人A·刺刺：拿盘交付，空手重听请求\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿面包\n拿芝士\n拿生菜\n拿番茄\n蔬菜三明治，1号盘\n装进野餐篮\n♫\n\n这一盘备好了 → 装进野餐篮，或拿盘点朋友"
+  },
+  {
+    "time": "2026-10-11T15:22:30.280Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:22:37.526Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:22:37.950Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:22:37.950Z",
+    "name": "20-ch3-late-receiving",
+    "note": "second deliberate plate pickup delivers, no food lost",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n帮朋友备餐，一起把野餐桌摆好\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n检查野餐篮\n✓\n翻开旧食谱\n＋\n＋\n➜\n●\n朋友正在接餐，盘里和篮里的食品都会保留。\n♫\n▶\n\n兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n\n大咪正把这份心意送过去。\n\n一起开席\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:22:47.863Z",
+    "action": "click",
+    "name": "正在准备 · 野餐准备"
+  },
+  {
+    "time": "2026-10-11T15:22:48.037Z",
+    "action": "click",
+    "name": "一起接待两位"
+  },
+  {
+    "time": "2026-10-11T15:22:48.184Z",
+    "action": "click",
+    "name": "一次接待一位"
+  },
+  {
+    "time": "2026-10-11T15:22:48.473Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:22:48.651Z",
+    "action": "mouse-hotspot",
+    "name": "选择组合板备餐"
+  },
+  {
+    "time": "2026-10-11T15:22:49.019Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:22:49.088Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:22:49.147Z",
+    "action": "mouse-hotspot",
+    "name": "拿芝士"
+  },
+  {
+    "time": "2026-10-11T15:22:49.304Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:22:49.381Z",
+    "action": "mouse-hotspot",
+    "name": "切换果汁机"
+  },
+  {
+    "time": "2026-10-11T15:22:49.456Z",
+    "name": "21-ch3-branch-refresh",
+    "note": "same rabbit path restored after mid-receive reload and strategy switches; pack different cheese + fruit recipe",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n野餐准备\n到活动桌\n♫\n客人A·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n空杯，杯座\n装进野餐篮\n\n点水果放进机器；杯子已经备好"
+  },
+  {
+    "time": "2026-10-11T15:23:05.513Z",
+    "action": "mouse-hotspot",
+    "name": "切换组合板"
+  },
+  {
+    "time": "2026-10-11T15:23:05.581Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:23:12.314Z",
+    "action": "mouse-hotspot",
+    "name": "切换果汁机"
+  },
+  {
+    "time": "2026-10-11T15:23:12.420Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:23:18.364Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:23:18.452Z",
+    "action": "mouse-hotspot",
+    "name": "拿苹果"
+  },
+  {
+    "time": "2026-10-11T15:23:18.572Z",
+    "action": "click",
+    "name": "装进野餐篮"
+  },
+  {
+    "time": "2026-10-11T15:23:18.784Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:23:18.819Z",
+    "name": "22-picnic-pack",
+    "note": "cheese sandwich + apple valid open combination, transferred to basket",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n帮朋友备餐，一起把野餐桌摆好\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n检查野餐篮\n✓\n翻开旧食谱\n＋\n＋\n➜\n●\n●\n●\n●\n●\n一份三明治和一份水果，装入同一盘带来。\n♫\n▶\n\n兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。\n\n接餐\n携带\n摆放\n品尝\n回应\n刺刺接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n●\n➜\n\n大咪正把整盘装进野餐篮。\n\n一起开席\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:23:31.748Z",
+    "action": "click",
+    "name": "把篮子摆上桌"
+  },
+  {
+    "time": "2026-10-11T15:23:31.832Z",
+    "name": "23-basket-on-table",
+    "note": "actual basket contents opened on table",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n帮朋友备餐，一起把野餐桌摆好\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n检查野餐篮\n✓\n翻开旧食谱\n➜\n●\n选一张桌布，大家围坐分享。\n♫\n▶\n\n兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n●\n●\n↻ ♫\n↗\n◒\n🦋\n●\n●\n●\n➜\n◀\n1/2\n▶\n\n篮子打开了，实际打包的两份食品摆到桌边。\n\n一起开席\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:23:38.512Z",
+    "action": "click",
+    "name": "铺上叶子桌布"
+  },
+  {
+    "time": "2026-10-11T15:23:38.608Z",
+    "action": "click",
+    "name": "一起开席"
+  },
+  {
+    "time": "2026-10-11T15:23:38.609Z",
+    "name": "24-ch3-rabbit-complete",
+    "note": "rabbit path complete, leaves tablecloth",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n这页已经留下记忆\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n检查野餐篮\n✓\n翻开旧食谱\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n接餐\n携带\n摆放\n品尝\n回应\n朋友咬下一口，拍拍小肚子\n●\n●\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n♡\n➜\n◀\n1/2\n▶\n兔兔\n刺刺\n长辈\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n➜下一院活动\n再准备一次\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:23:40.034Z",
+    "action": "click",
+    "name": "下一院活动"
+  },
+  {
+    "time": "2026-10-11T15:23:40.264Z",
+    "action": "click",
+    "name": "一起接待两位"
+  },
+  {
+    "time": "2026-10-11T15:23:40.454Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:23:45.485Z",
+    "action": "click",
+    "name": "看看怎么做"
+  },
+  {
+    "time": "2026-10-11T15:23:45.809Z",
+    "action": "click",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:23:59.079Z",
+    "action": "mouse-hotspot",
+    "name": "拿生饼"
+  },
+  {
+    "time": "2026-10-11T15:23:59.198Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 煎熟肉饼"
+  },
+  {
+    "time": "2026-10-11T15:23:59.370Z",
+    "action": "mouse-hotspot",
+    "name": "切换果汁机"
+  },
+  {
+    "time": "2026-10-11T15:23:59.370Z",
+    "name": "25-ch4-parallel-start",
+    "note": "patty frying, switch to juice while task running",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n空杯，杯座\n♫\n\n点水果放进机器；杯子已经备好"
+  },
+  {
+    "time": "2026-10-11T15:24:07.257Z",
+    "action": "mouse-hotspot",
+    "name": "客人B·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:24:08.915Z",
+    "action": "mouse-hotspot",
+    "name": "2号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:24:09.018Z",
+    "action": "mouse-hotspot",
+    "name": "果汁机苹果入口"
+  },
+  {
+    "time": "2026-10-11T15:24:09.076Z",
+    "action": "mouse-hotspot",
+    "name": "拿苹果"
+  },
+  {
+    "time": "2026-10-11T15:24:09.247Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 榨成果汁"
+  },
+  {
+    "time": "2026-10-11T15:24:09.247Z",
+    "name": "26-ch4-juice",
+    "note": "visible request juice; output intended tray2; simultaneous device tasks",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n空杯，杯座\n苹果，机器入口\n♫\n\n设备制作中 → 成品会到托盘；可以继续准备"
+  },
+  {
+    "time": "2026-10-11T15:24:19.288Z",
+    "action": "mouse-hotspot",
+    "name": "切换汉堡台"
+  },
+  {
+    "time": "2026-10-11T15:24:19.430Z",
+    "action": "mouse-hotspot",
+    "name": "选择组合板备餐"
+  },
+  {
+    "time": "2026-10-11T15:24:19.525Z",
+    "action": "mouse-hotspot",
+    "name": "拿圆面包"
+  },
+  {
+    "time": "2026-10-11T15:24:19.645Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:24:19.653Z",
+    "name": "27-ch4-burger",
+    "note": "cooked patty from fry stage used at board with bun while juice runs",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n苹果汁，2号盘\n熟饼，组合板\n圆面包，组合板\n♫\n\n汉堡还没准备齐：熟饼须先从煎台来到组合板，再检查面包和配料。"
+  },
+  {
+    "time": "2026-10-11T15:24:29.296Z",
+    "action": "click",
+    "name": "暂停"
+  },
+  {
+    "time": "2026-10-11T15:24:29.324Z",
+    "name": "28-ch4-recipe-confusion",
+    "note": "bun+cooked patty insufficient; UI asks check bun and additions; consulting visible recipe",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n苹果汁，2号盘\n熟饼，组合板\n圆面包，组合板\n\n汉堡还没准备齐：熟饼须先从煎台来到组合板，再检查面包和配料。\n\n歇一歇，食物会等你。\n继续营业\n设置\n保存并回到首页"
+  },
+  {
+    "time": "2026-10-11T15:24:42.056Z",
+    "action": "click",
+    "name": "继续营业"
+  },
+  {
+    "time": "2026-10-11T15:24:42.150Z",
+    "action": "mouse-hotspot",
+    "name": "拿生菜"
+  },
+  {
+    "time": "2026-10-11T15:24:42.195Z",
+    "action": "mouse-hotspot",
+    "name": "拿番茄"
+  },
+  {
+    "time": "2026-10-11T15:24:42.409Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:24:57.665Z",
+    "name": "29-ch4-mixed-plate",
+    "note": "initial no explicit new output selection; observe food recovery",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n苹果汁，2号盘\n汉堡，2号盘\n♫\n\n备好这一盘 → 点托盘拿起，再点朋友递出"
+  },
+  {
+    "time": "2026-10-11T15:25:07.712Z",
+    "action": "mouse-hotspot",
+    "name": "汉堡，2号盘"
+  },
+  {
+    "time": "2026-10-11T15:25:07.782Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:25:08.081Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:25:08.179Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:25:08.179Z",
+    "name": "30-ch4-recovery",
+    "note": "moved burger out of mixed plate, explicit target customer delivery",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n苹果汁，2号盘\n汉堡，1号盘\n♫\n\n圆面包夹熟饼和芝士。 食物留在盘里，可以调整。"
+  },
+  {
+    "time": "2026-10-11T15:25:15.316Z",
+    "action": "mouse-hotspot",
+    "name": "2号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:25:15.374Z",
+    "action": "mouse-hotspot",
+    "name": "客人B·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:25:15.613Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:25:15.831Z",
+    "action": "click",
+    "name": "打开储物抽屉"
+  },
+  {
+    "time": "2026-10-11T15:25:15.833Z",
+    "name": "31-ch4-drawer",
+    "note": "both products prepared and delivered; lamp exploration",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n黄昏协作\n\n安排煎制与饮品，把灯带到餐桌\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n●\n听请求，做食物，再交给这位朋友。\n♫\n▶\n\n安排煎制与饮品，把灯带到餐桌\n\n🦋\n\n先给一位朋友送好食品，再一起打开抽屉。\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:25:25.783Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:25:25.783Z",
+    "name": "32-ch4-delivery-attempt",
+    "note": "rapid transfer+pickup+guest did not deliver; foods still recoverable",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，1号盘\n♫\n\n点食材直接装盘；要制作时先点设备"
+  },
+  {
+    "time": "2026-10-11T15:25:27.583Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:25:38.204Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:25:38.430Z",
+    "action": "click",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:25:38.701Z",
+    "action": "click",
+    "name": "打开储物抽屉"
+  },
+  {
+    "time": "2026-10-11T15:25:43.384Z",
+    "action": "click",
+    "name": "取出灯串"
+  },
+  {
+    "time": "2026-10-11T15:25:49.002Z",
+    "action": "click",
+    "name": "请兔兔带灯"
+  },
+  {
+    "time": "2026-10-11T15:25:49.155Z",
+    "action": "click",
+    "name": "请刺刺带杯"
+  },
+  {
+    "time": "2026-10-11T15:25:49.236Z",
+    "action": "click",
+    "name": "摆到2号餐位"
+  },
+  {
+    "time": "2026-10-11T15:25:49.243Z",
+    "name": "33-ch4-cooperation",
+    "note": "rabbit lamp + hedgehog cup collaboration, juice placed seat2",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n黄昏协作\n\n安排煎制与饮品，把灯带到餐桌\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n已取出\n➜\n●\n●\n听请求，做食物，再交给这位朋友。\n♫\n▶\n\n安排煎制与饮品，把灯带到餐桌\n\n接餐\n携带\n摆放\n品尝\n回应\n刺刺接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n\n食物摆在2号餐位。\n\n一起开席\n收摊回小院\n当前拿着苹果汁，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:26:03.820Z",
+    "action": "click",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:26:03.923Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:26:03.923Z",
+    "name": "34-held-burger",
+    "note": "explicitly held plate now, before guest click",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，1号盘\n♫\n\n备好这一盘 → 点托盘拿起，再点朋友递出"
+  },
+  {
+    "time": "2026-10-11T15:26:14.319Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:26:14.349Z",
+    "action": "mouse-hotspot",
+    "name": "汉堡，1号盘"
+  },
+  {
+    "time": "2026-10-11T15:26:14.417Z",
+    "name": "35-wrong-burger-feedback",
+    "note": "actual strict mismatch: expected cheese burger; wrong burger retained, not pointer bug",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，1号盘\n收起成品\n♫\n\n点托盘或制作台移动这份；原料可拖回篮子"
+  },
+  {
+    "time": "2026-10-11T15:26:23.611Z",
+    "action": "click",
+    "name": "收起成品"
+  },
+  {
+    "time": "2026-10-11T15:26:32.294Z",
+    "action": "click",
+    "name": "确认收起"
+  },
+  {
+    "time": "2026-10-11T15:26:32.409Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:26:32.510Z",
+    "action": "mouse-hotspot",
+    "name": "选择煎台备餐"
+  },
+  {
+    "time": "2026-10-11T15:26:32.633Z",
+    "action": "mouse-hotspot",
+    "name": "拿生饼"
+  },
+  {
+    "time": "2026-10-11T15:26:32.756Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 煎熟肉饼"
+  },
+  {
+    "time": "2026-10-11T15:26:33.011Z",
+    "action": "mouse-hotspot",
+    "name": "选择组合板备餐"
+  },
+  {
+    "time": "2026-10-11T15:26:33.064Z",
+    "action": "mouse-hotspot",
+    "name": "拿圆面包"
+  },
+  {
+    "time": "2026-10-11T15:26:33.166Z",
+    "action": "mouse-hotspot",
+    "name": "拿芝士"
+  },
+  {
+    "time": "2026-10-11T15:26:33.166Z",
+    "name": "36-cheeseburger-reprepare",
+    "note": "wrong product shelved with confirmation, preparing cheese burger from feedback",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，1号盘\n生饼，煎台\n圆面包，组合板\n芝士，组合板\n♫\n\n肉饼正在煎 → 可以先在组合板放面包和配料"
+  },
+  {
+    "time": "2026-10-11T15:26:45.266Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:26:45.266Z",
+    "name": "37-cheeseburger-cook",
+    "note": "valid burger combo after cooked patty arrives",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，1号盘\n圆面包，组合板\n芝士，组合板\n熟饼，组合板\n♫\n\n备好这一盘 → 点托盘拿起，再点朋友递出"
+  },
+  {
+    "time": "2026-10-11T15:27:04.763Z",
+    "name": "38-shelf-confirm-no-effect",
+    "note": "confirmed shelf still left ordinary burger on tray; candidate defect requires direct reproduction",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，1号盘\n芝士汉堡，1号盘\n♫\n\n备好这一盘 → 点托盘拿起，再点朋友递出"
+  },
+  {
+    "time": "2026-10-11T15:27:06.180Z",
+    "action": "mouse-hotspot",
+    "name": "汉堡，1号盘"
+  },
+  {
+    "time": "2026-10-11T15:27:06.319Z",
+    "action": "mouse-hotspot",
+    "name": "2号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:27:06.352Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:27:12.939Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:27:26.896Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘",
+    "location": "lower-right plate area"
+  },
+  {
+    "time": "2026-10-11T15:27:26.940Z",
+    "name": "39-plate-edge-pickup",
+    "note": "center click hit food selection; lower right plate label area successfully picks entire plate",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n黄昏协作\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择煎台备餐\n▶ 煎熟肉饼\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿圆面包\n拿生饼\n拿芝士\n拿生菜\n拿番茄\n汉堡，2号盘\n芝士汉堡，1号盘\n♫\n\n备好这一盘 → 点托盘拿起，再点朋友递出"
+  },
+  {
+    "time": "2026-10-11T15:27:33.471Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘",
+    "location": "lower-right plate area"
+  },
+  {
+    "time": "2026-10-11T15:27:33.515Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:33.891Z",
+    "action": "click",
+    "name": "到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:46.496Z",
+    "action": "click",
+    "name": "选择芝士汉堡",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:46.653Z",
+    "action": "click",
+    "name": "摆到1号餐位",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:46.763Z",
+    "action": "click",
+    "name": "点亮月光灯",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:46.763Z",
+    "name": "40-ch4-lights",
+    "note": "real two foods placed, collaborators selected, moonlight lighting",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n黄昏协作\n\n安排煎制与饮品，把灯带到餐桌\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n已取出\n➜\n●\n准备好了，点餐桌一起开席。\n♫\n▶\n\n安排煎制与饮品，把灯带到餐桌\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n●\n➜\n\n灯亮了，晚餐桌等着朋友围坐。\n\n一起开席\n收摊回小院\n当前拿着芝士汉堡，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:27:48.196Z",
+    "action": "click",
+    "name": "一起开席",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:48.196Z",
+    "name": "41-ch4-complete",
+    "note": "evening complete after recovery",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n黄昏协作\n\n这页已经留下记忆\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n已取出\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n接餐\n携带\n摆放\n品尝\n回应\n朋友举杯，喝到清凉的饮品\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n兔兔\n刺刺\n长辈\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n➜下一院活动\n再准备一次\n收摊回小院\n当前拿着芝士汉堡，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:27:49.413Z",
+    "action": "click",
+    "name": "下一院活动",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:55.072Z",
+    "action": "click",
+    "name": "邀请兔兔",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:55.202Z",
+    "action": "click",
+    "name": "邀请刺刺",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:27:55.217Z",
+    "name": "42-ch5-invitations",
+    "note": "rabbit + hedgehog invitation sharing needs from history, UI read only",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n社区小食会\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n自己搭配，做好拼盘带到桌边。\n♫\n▶\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n🦋\n长辈\n♫\n记得一起打包 · 带一份三明治或汉堡\n♫\n记得树荫甜点 · 带一份清凉甜点\n收拾桌面\n\n朋友带着之前的小院记忆来赴约，也有新的分享需要。\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:27:56.351Z",
+    "action": "click",
+    "name": "去厨房备餐",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:03.672Z",
+    "action": "mouse-hotspot",
+    "name": "切换组合板",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:03.843Z",
+    "action": "mouse-hotspot",
+    "name": "选择组合板备餐",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:03.954Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:03.988Z",
+    "action": "mouse-hotspot",
+    "name": "拿面包",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.025Z",
+    "action": "mouse-hotspot",
+    "name": "拿芝士",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.174Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 盖合食物",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.252Z",
+    "action": "mouse-hotspot",
+    "name": "切换冰淇淋台",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.706Z",
+    "action": "mouse-hotspot",
+    "name": "选择冰淇淋台备餐",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.750Z",
+    "action": "mouse-hotspot",
+    "name": "拿蛋筒",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.775Z",
+    "action": "mouse-hotspot",
+    "name": "拿香草球",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.855Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 接好冰淇淋",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:04.855Z",
+    "name": "43-ch5-free-creation",
+    "note": "prepared chosen savory + cool dessert, no strict kitchen order",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n社区小食会\n到活动桌\n♫\n选择冰淇淋台备餐\n▶ 接好冰淇淋\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿蛋筒\n拿空杯\n拿香草球\n拿草莓球\n拿香蕉\n蛋筒，冰淇淋台\n香草球，冰淇淋台\n带作品到活动桌\n\n设备制作中 → 成品会到托盘；可以继续准备"
+  },
+  {
+    "time": "2026-10-11T15:28:11.499Z",
+    "action": "click",
+    "name": "带作品到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:11.762Z",
+    "action": "click",
+    "name": "到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:11.762Z",
+    "name": "44-ch5-work-receiving",
+    "note": "actual two foods moved as work, no score UI",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n社区小食会\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n自己搭配，做好拼盘带到桌边。\n♫\n▶\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n🦋\n长辈\n♫\n记得一起打包 · 带一份三明治或汉堡\n♫\n记得树荫甜点 · 带一份清凉甜点\n收拾桌面\n\n大咪正把你的作品带到活动桌。\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:28:26.131Z",
+    "action": "click",
+    "name": "分享给兔兔",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:26.300Z",
+    "action": "click",
+    "name": "品尝芝士三明治",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:26.518Z",
+    "action": "click",
+    "name": "选择香草蛋筒",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:26.734Z",
+    "action": "click",
+    "name": "分享给刺刺",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:27.182Z",
+    "action": "click",
+    "name": "品尝香草蛋筒",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:27.366Z",
+    "action": "click",
+    "name": "保存到食谱",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:27.371Z",
+    "name": "45-ch5-save",
+    "note": "actual savory and cool sharing + real tasting + work saved",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n社区小食会\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n准备好了，点餐桌一起开席。\n♫\n▶\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n接餐\n携带\n摆放\n品尝\n回应\n❄ ♡\n· · ·\n冰凉的小口让朋友眯起眼\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n长辈\n♫\n记得一起打包 · 带一份三明治或汉堡\n♫\n记得树荫甜点 · 带一份清凉甜点\n收拾桌面\n\n食谱保存了实际食物、位置和品尝记忆。\n\n一起开席\n收摊回小院\n当前拿着香草蛋筒，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:28:28.815Z",
+    "action": "click",
+    "name": "一起开席",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:28.816Z",
+    "name": "46-five-chapters-complete",
+    "note": "five chapters reached using normal UI, pictures/tutorial/feedback support; no test answers or state access",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n社区小食会\n\n这页已经留下记忆\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n接餐\n携带\n摆放\n品尝\n回应\n朋友咬下一口，拍拍小肚子\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n长辈\n♫\n记得一起打包 · 带一份三明治或汉堡\n♫\n记得树荫甜点 · 带一份清凉甜点\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n再准备一次\n收摊回小院\n当前拿着香草蛋筒，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:28:41.057Z",
+    "action": "click",
+    "name": "收摊回小院",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:41.397Z",
+    "action": "click",
+    "name": "自由开店",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:41.403Z",
+    "name": "47-free-shop-setup",
+    "note": "after five chapters, chooses introduced menu and theme",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n今天的小院由你安排\n\n选熟悉的食物和主题。旧客人照原来的请求，新朋友再看新菜单。\n\n熟客小院\n晨间水果\n树荫甜点\n分享小食\n今天供应哪些？\n这次需要怎样的帮助？\n▶ 先看大咪做\n▧ 图片陪我做\n♫ 少些帮助，听一听\n一位一位来\n两位一起招呼\n开门 / 继续营业\n\n可随时停止接客，做自己的作品，主动收摊结束今天。"
+  },
+  {
+    "time": "2026-10-11T15:28:49.517Z",
+    "action": "click",
+    "name": "晨间水果",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:59.620Z",
+    "action": "click",
+    "name": "开门 / 继续营业",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:59.888Z",
+    "action": "mouse-hotspot",
+    "name": "拿苹果",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:59.910Z",
+    "action": "mouse-hotspot",
+    "name": "1号托盘：放入食品或选择整盘",
+    "location": "lower-right plate area"
+  },
+  {
+    "time": "2026-10-11T15:28:59.951Z",
+    "action": "mouse-hotspot",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:28:59.951Z",
+    "name": "48-free-served",
+    "note": "apple-only familiar menu, first service",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n无尽营业\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n带作品到活动桌\n\n大咪正在递餐 → 等朋友接好；还能准备另一盘"
+  },
+  {
+    "time": "2026-10-11T15:29:06.432Z",
+    "action": "click",
+    "name": "到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.001Z",
+    "action": "click",
+    "name": "去厨房备餐",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.091Z",
+    "action": "mouse-hotspot",
+    "name": "果汁机苹果入口",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.181Z",
+    "action": "mouse-hotspot",
+    "name": "拿苹果",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.276Z",
+    "action": "mouse-hotspot",
+    "name": "▶ 榨成果汁",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.578Z",
+    "action": "click",
+    "name": "到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.678Z",
+    "action": "click",
+    "name": "停止接客，做作品",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:14.693Z",
+    "name": "49-free-stop-processing",
+    "note": "stopped arrivals while accepted next order and juice task preserved",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n自由开店\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n选择喜欢的菜单，服务朋友，也可以自由做作品。\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n兔兔\n刺刺\n长辈\n收拾桌面\n\n招呼完已接的朋友，就可以自由做作品或收摊。\n\n布置\n重新开门接客\n收摊回小院\n当前拿着苹果，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:29:16.568Z",
+    "action": "click",
+    "name": "去厨房备餐",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:25.200Z",
+    "action": "click",
+    "name": "带作品到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:25.399Z",
+    "action": "click",
+    "name": "到活动桌",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:25.399Z",
+    "name": "50-free-work-handoff",
+    "note": "juice sent as free work despite apple order retained",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n自由开店\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n选择喜欢的菜单，服务朋友，也可以自由做作品。\n\n接餐\n携带\n摆放\n品尝\n回应\n兔兔接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n兔兔\n刺刺\n长辈\n收拾桌面\n\n大咪正把你的作品带到活动桌。\n\n布置\n重新开门接客\n收摊回小院\n当前拿着苹果，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:29:31.151Z",
+    "action": "click",
+    "name": "邀请兔兔",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:39.699Z",
+    "action": "click",
+    "name": "选择苹果汁",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:39.810Z",
+    "action": "click",
+    "name": "分享给兔兔",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:39.810Z",
+    "name": "51-free-wrong-share",
+    "note": "specific open savory need rejects juice, food retained; this is not free-creation grading",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n自由开店\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n●\n●\n●\n食品留在原处。听朋友需要，再选这一类的食品。\n♫\n▶\n\n选择喜欢的菜单，服务朋友，也可以自由做作品。\n\n接餐\n携带\n摆放\n品尝\n回应\n大咪接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n●\n➜\n刺刺\n长辈\n♫\n记得一起打包 · 带一份三明治或汉堡\n收拾桌面\n\n朋友想要另一类食品。食品留着，重听或看图再选。\n\n布置\n重新开门接客\n收摊回小院\n当前拿着苹果汁，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:29:41.135Z",
+    "action": "click",
+    "name": "摆到3号餐位",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:41.344Z",
+    "action": "click",
+    "name": "品尝苹果汁",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:41.680Z",
+    "action": "click",
+    "name": "拿回苹果汁到桌边",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:41.765Z",
+    "action": "click",
+    "name": "摆到1号餐位",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:41.831Z",
+    "action": "click",
+    "name": "保存到食谱",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:41.961Z",
+    "action": "click",
+    "name": "翻开旧食谱",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:41.964Z",
+    "name": "52-free-gallery",
+    "note": "free juice tasted, taken back, moved seat3 to seat1, saved and viewed; accepted apple order preserved",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n自由开店\n\n邀请老朋友，创作拼盘，留下食谱末页\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n✓\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n选择喜欢的菜单，服务朋友，也可以自由做作品。\n\n接餐\n携带\n摆放\n品尝\n回应\n长辈接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n♡\n●\n♡\n➜\n刺刺\n长辈\n♫\n记得一起打包 · 带一份三明治或汉堡\n×\n今天留下的味道\n↻\n\n图里保留原来的摆法和谁尝过。重新制作时可以换搭配，重新摆放并保存新的一页。\n\n收拾桌面\n\n旧食谱记着：可以换口味、品尝，也能把自己的拼盘保存到末页。\n\n布置\n重新开门接客\n收摊回小院\n当前拿着苹果汁，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:29:54.397Z",
+    "action": "click",
+    "name": "收起食谱",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:54.693Z",
+    "action": "click",
+    "name": "收摊回小院",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:54.693Z",
+    "name": "53-free-natural-ending",
+    "note": "active accepted order, work and food persist after owner-chosen closing",
+    "url": "http://127.0.0.1:4277/",
+    "text": "DAMI'S LITTLE KITCHEN\n大咪的英语餐车\n\n一辆小餐车，一院好朋友。\n\n⚙\n正在准备 · 社区小食会\n邀请老朋友，创作拼盘，留下食谱末页\n♫\n自由开店\n今天也有新朋友\n♫\n旧食谱 · 回访活动与作品\n教学练习\n看大咪做，再亲手试试\n♫\n迷你游戏\n听一听 · 找一找 · 拼一拼\n♫\nThank you!\n开发素材与语音待审核"
+  },
+  {
+    "time": "2026-10-11T15:29:56.480Z",
+    "action": "click",
+    "name": "自由开店",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:56.916Z",
+    "action": "click",
+    "name": "两位一起招呼",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:57.031Z",
+    "action": "click",
+    "name": "开门 / 继续营业",
+    "location": "center"
+  },
+  {
+    "time": "2026-10-11T15:29:57.233Z",
+    "name": "54-free-reopen-new-menu",
+    "note": "reopened banana menu with two guests, old apple order preserved and new banana introduced",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n无尽营业\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n带作品到活动桌\n♫\n\n点食材直接装盘；要制作时先点设备"
+  },
+  {
+    "time": "2026-10-11T15:30:51.759Z",
+    "action": "touch-tap",
+    "name": "旧食谱 · 回访活动与作品"
+  },
+  {
+    "time": "2026-10-11T15:31:10.711Z",
+    "action": "touch-tap",
+    "name": "跳过序章"
+  },
+  {
+    "time": "2026-10-11T15:31:10.750Z",
+    "name": "55-phone-story-list",
+    "note": "home old recipe unexpectedly showed first-time prologue despite completed chapters; skip available",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n长辈的旧食谱\n\n每一页都是大家一起做的活动。选择一页，去小院动手。\n\n这次需要怎样的帮助？\n▶ 先看大咪做\n▧ 图片陪我做\n♫ 少些帮助，听一听\n一次接待几位？\n👤一次一位，自己选朋友\n👥一起接待两位\n晨光开门\n树荫甜点\n野餐准备\n黄昏协作\n社区小食会\n重看钥匙交接"
+  },
+  {
+    "time": "2026-10-11T15:31:18.494Z",
+    "action": "touch-tap",
+    "name": "野餐准备"
+  },
+  {
+    "time": "2026-10-11T15:31:18.750Z",
+    "action": "touch-tap",
+    "name": "再准备一次"
+  },
+  {
+    "time": "2026-10-11T15:31:18.919Z",
+    "action": "touch-tap",
+    "name": "先帮兔兔"
+  },
+  {
+    "time": "2026-10-11T15:31:19.021Z",
+    "action": "touch-tap",
+    "name": "一起接待两位"
+  },
+  {
+    "time": "2026-10-11T15:31:19.135Z",
+    "action": "touch-tap",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:31:19.141Z",
+    "name": "56-phone-picnic-before-food",
+    "note": "replay is normal button, welcomed rabbit first but will actually serve hedgehog first",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿面包\n拿芝士\n拿生菜\n拿番茄\n♫\n\n点食材放到亮着的制作台；备齐后按开关"
+  },
+  {
+    "time": "2026-10-11T15:31:26.116Z",
+    "action": "touch-tap",
+    "name": "客人B·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:31:26.183Z",
+    "action": "touch-tap",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:31:26.291Z",
+    "action": "touch-tap",
+    "name": "客人B·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:31:26.400Z",
+    "action": "touch-tap",
+    "name": "选择组合板备餐"
+  },
+  {
+    "time": "2026-10-11T15:31:26.503Z",
+    "action": "touch-tap",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:31:26.589Z",
+    "action": "touch-tap",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:31:26.667Z",
+    "action": "touch-tap",
+    "name": "拿生菜"
+  },
+  {
+    "time": "2026-10-11T15:31:26.838Z",
+    "action": "touch-tap",
+    "name": "拿番茄"
+  },
+  {
+    "time": "2026-10-11T15:31:26.920Z",
+    "action": "touch-tap",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:31:33.919Z",
+    "action": "touch-tap",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:31:34.019Z",
+    "action": "touch-tap",
+    "name": "点请求气泡重听"
+  },
+  {
+    "time": "2026-10-11T15:31:34.074Z",
+    "action": "touch-tap",
+    "name": "客人B·刺刺：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:31:34.217Z",
+    "action": "touch-tap",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:31:34.217Z",
+    "name": "57-phone-picnic-receiving",
+    "note": "touch held replay then actual hedgehog delivery, before receive branch",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n➜\n●\n♫\n▶\n\n两位朋友都在等。先成功送给谁，就一起做谁的准备。\n\n🦋\n\n大咪正把这份心意送过去。\n\n一起开席\n收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:31:40.173Z",
+    "action": "touch-tap",
+    "name": "一次接待一位"
+  },
+  {
+    "time": "2026-10-11T15:31:40.259Z",
+    "action": "touch-tap",
+    "name": "打开储物抽屉"
+  },
+  {
+    "time": "2026-10-11T15:31:40.259Z",
+    "name": "58-phone-hedgehog-path",
+    "note": "rabbit welcomed first, hedgehog received first -> drawer/mat path",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n餐垫\n➜\n♫\n▶\n\n刺刺先收到啦：打开抽屉，给两位朋友各摆一份。\n\n刺刺接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n●\n➜\n\n抽屉里找到两个餐位。给两位朋友各摆一份。\n\n一起开席\n收摊回小院\n当前拿着蔬菜三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:31:50.793Z",
+    "action": "touch-tap",
+    "name": "取出餐垫"
+  },
+  {
+    "time": "2026-10-11T15:31:50.930Z",
+    "action": "touch-tap",
+    "name": "摆到2号餐位"
+  },
+  {
+    "time": "2026-10-11T15:31:51.081Z",
+    "action": "touch-tap",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:31:51.152Z",
+    "action": "touch-tap",
+    "name": "选择组合板备餐"
+  },
+  {
+    "time": "2026-10-11T15:31:51.247Z",
+    "action": "touch-tap",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:31:51.306Z",
+    "action": "touch-tap",
+    "name": "拿面包"
+  },
+  {
+    "time": "2026-10-11T15:31:51.376Z",
+    "action": "touch-tap",
+    "name": "拿芝士"
+  },
+  {
+    "time": "2026-10-11T15:31:51.439Z",
+    "action": "touch-tap",
+    "name": "▶ 盖合食物"
+  },
+  {
+    "time": "2026-10-11T15:31:51.439Z",
+    "name": "59-phone-late-rabbit",
+    "note": "drawer mat obtained; hedgehog placed, unchanged late rabbit cheese request",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n到活动桌\n●\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n选择组合板备餐\n▶ 盖合食物\n切换果汁机\n切换冰淇淋台\n切换组合板\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿面包\n拿芝士\n拿生菜\n拿番茄\n面包，组合板\n面包，组合板\n芝士，组合板\n♫\n\n设备制作中 → 成品会到托盘；可以继续准备"
+  },
+  {
+    "time": "2026-10-11T15:32:05.901Z",
+    "action": "touch-tap",
+    "name": "1号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:32:06.023Z",
+    "action": "touch-tap",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:32:06.127Z",
+    "action": "touch-tap",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:32:12.869Z",
+    "action": "touch-tap",
+    "name": "选择芝士三明治"
+  },
+  {
+    "time": "2026-10-11T15:32:12.987Z",
+    "action": "touch-tap",
+    "name": "摆到1号餐位"
+  },
+  {
+    "time": "2026-10-11T15:32:13.102Z",
+    "action": "touch-tap",
+    "name": "铺上阳光桌布"
+  },
+  {
+    "time": "2026-10-11T15:32:13.230Z",
+    "action": "touch-tap",
+    "name": "一起开席"
+  },
+  {
+    "time": "2026-10-11T15:32:13.230Z",
+    "name": "60-phone-hedgehog-complete",
+    "note": "distinct mat and two received foods, sunlight cloth; no packing",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n已取出\n➜\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n朋友咬下一口，拍拍小肚子\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n兔兔\n刺刺\n长辈\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n➜下一院活动\n再准备一次\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:32:13.617Z",
+    "name": "61-short-landscape",
+    "note": "phone touch context rotated short landscape, same completed activity",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n野餐准备\n\n这页已经留下记忆\n\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n✓\n翻开旧食谱\n➜\n●\n继续搭配、分享或修改，喜欢的作品留在食谱。\n♫\n▶\n\n活动已经开席。继续制作、布置，或收摊回小院。\n\n●\n●\n↻ ♫\n↗\n◒\n🦋\n♡\n♡\n♡\n♡\n➜\n兔兔\n刺刺\n长辈\n收拾桌面\n\n大家一起开席！可以继续做作品、布置，或自然收摊。\n\n布置\n➜下一院活动\n再准备一次\n收摊回小院\n当前拿着芝士三明治，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:32:32.427Z",
+    "action": "touch-tap",
+    "name": "收摊回小院"
+  },
+  {
+    "time": "2026-10-11T15:32:32.524Z",
+    "action": "touch-tap",
+    "name": "自由开店"
+  },
+  {
+    "time": "2026-10-11T15:32:32.609Z",
+    "action": "touch-tap",
+    "name": "开门 / 继续营业"
+  },
+  {
+    "time": "2026-10-11T15:32:32.668Z",
+    "action": "touch-tap",
+    "name": "果汁机苹果入口"
+  },
+  {
+    "time": "2026-10-11T15:32:32.736Z",
+    "action": "touch-tap",
+    "name": "拿苹果"
+  },
+  {
+    "time": "2026-10-11T15:32:32.802Z",
+    "action": "touch-tap",
+    "name": "▶ 榨成果汁"
+  },
+  {
+    "time": "2026-10-11T15:32:32.991Z",
+    "action": "touch-tap",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:32:33.136Z",
+    "action": "touch-tap",
+    "name": "去小院游乐角"
+  },
+  {
+    "time": "2026-10-11T15:32:33.184Z",
+    "name": "62-mini-bypass-lobby",
+    "note": "active free kitchen orders/materials/processing paused by optional minigame entry",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n食物朋友的小摊\n小院场景小游戏 · 寻物、记忆、整理、布置、动作剧场\n先认识 · 换一种玩法 · 再相见；随时回到故事\n\n随时回来，字母和这一题都会等你。\n\n🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词组句\n原30个主题关与120词小组；按语言基础选择，故事不设拼写门槛\n打开五篮食物朋友\n食物找朋友\n听一题，选一张图\nA B C\nWordSpell 拼食物\n听发音，摆字母\n换帮助或玩法\n前两种从图片开始。中英文字配对供已识字玩家选择。继续活动保留原来的帮助与题目。"
+  },
+  {
+    "time": "2026-10-11T15:32:41.225Z",
+    "action": "touch-tap",
+    "name": "🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词组句\n原30个主题关与120词小组；按语言基础选择，故事不设拼写门槛"
+  },
+  {
+    "time": "2026-10-11T15:32:41.237Z",
+    "name": "63-theme-mini-lobby",
+    "note": "ten mechanics visible, literacy optional",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 回游戏小摊\n主题关卡\n认识小院120词 · 每次一小组\n\n先看图、听声音，再完成短任务。拼写与组句只是可选练习，不挡故事。\n\n今天玩什么？\n听音找物\n多组配对\nWordSpell\n数量与组合\n选词组句\n混合复习\n我的语言基础\n先听图\n认识字母\n愿意组句\n水果篮 · 4个任务\n早晨认识水果\n\n听到名字，找到水果\n\n开始\n水果篮 · 5个任务\n野餐篮里有什么\n\n听词找不同的水果\n\n开始\n菜园篮 · 5个任务\n菜园来客\n\n分辨菜园食物的声音\n\n开始\n厨房篮 · 5个任务\n厨房材料\n\n听到材料再指一指\n\n开始\n香甜篮 · 5个任务\n甜甜的味道\n\n听音找香甜配料\n\n开始\n点心篮 · 6个任务\n小食会点心\n\n听词找到可供应的点心\n\n开始\n混合复习 · 听、配、拼、辨、说"
+  },
+  {
+    "time": "2026-10-11T15:32:51.187Z",
+    "action": "touch-tap",
+    "name": "看看今天的内容"
+  },
+  {
+    "time": "2026-10-11T15:32:51.190Z",
+    "name": "64-listen-meaning",
+    "note": "meaning first with image, before challenge",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n早晨认识水果\n\n大咪在开店前整理水果篮。\n\n听音找物 · 1/4 · 听到名字，找到水果\n重玩本关\n\n先看一看：苹果\n\n♫ 听一遍\n 听一句怎么用\n\nAn apple, please.\n\n我来试试\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:32:56.886Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:32:56.985Z",
+    "action": "touch-tap",
+    "name": "选择香蕉"
+  },
+  {
+    "time": "2026-10-11T15:33:05.868Z",
+    "action": "touch-tap",
+    "name": "看图和例句"
+  },
+  {
+    "time": "2026-10-11T15:33:05.987Z",
+    "action": "touch-tap",
+    "name": "选择苹果"
+  },
+  {
+    "time": "2026-10-11T15:33:05.987Z",
+    "name": "65-listen-feedback",
+    "note": "wrong banana then picture help apple, distinct supported response",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n早晨认识水果\n\n大咪在开店前整理水果篮。\n\n听音找物 · 1/4 · 听到名字，找到水果\n重玩本关\n♫ 重听请求\napple\n\n这份找对了。\n\n下一份\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:33:19.890Z",
+    "action": "touch-tap",
+    "name": "下一份"
+  },
+  {
+    "time": "2026-10-11T15:33:20.086Z",
+    "action": "touch-tap",
+    "name": "暂停小游戏"
+  },
+  {
+    "time": "2026-10-11T15:33:21.625Z",
+    "action": "touch-tap",
+    "name": "迷你游戏"
+  },
+  {
+    "time": "2026-10-11T15:33:32.073Z",
+    "action": "touch-tap",
+    "name": "🧺 主题关卡 · 听音、成组配对、拼写、数量组合、选词组句\n原30个主题关与120词小组；按语言基础选择，故事不设拼写门槛"
+  },
+  {
+    "time": "2026-10-11T15:33:39.551Z",
+    "action": "touch-tap",
+    "name": "继续玩"
+  },
+  {
+    "time": "2026-10-11T15:33:39.658Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:33:39.801Z",
+    "action": "touch-tap",
+    "name": "选择香蕉"
+  },
+  {
+    "time": "2026-10-11T15:33:39.927Z",
+    "action": "touch-tap",
+    "name": "下一份"
+  },
+  {
+    "time": "2026-10-11T15:33:39.974Z",
+    "name": "66-listen-resumed",
+    "note": "same second task resumed, support kept; continuing multiple rounds",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n早晨认识水果\n\n大咪在开店前整理水果篮。\n\n听音找物 · 3/4 · 听到名字，找到水果\n重玩本关\n\n先看一看：橙子\n\n♫ 听一遍\n 听一句怎么用\n\nAn orange, please.\n\n我来试试\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:33:45.690Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:33:45.839Z",
+    "action": "touch-tap",
+    "name": "选择橙子"
+  },
+  {
+    "time": "2026-10-11T15:33:45.918Z",
+    "action": "touch-tap",
+    "name": "下一份"
+  },
+  {
+    "time": "2026-10-11T15:33:51.587Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:33:51.668Z",
+    "action": "touch-tap",
+    "name": "选择梨"
+  },
+  {
+    "time": "2026-10-11T15:33:51.767Z",
+    "action": "touch-tap",
+    "name": "下一份"
+  },
+  {
+    "time": "2026-10-11T15:33:51.767Z",
+    "name": "67-listen-complete",
+    "note": "four successive normal UI tasks complete, first with wrong/help; no independent listening claim",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n早晨认识水果\n\n大咪在开店前整理水果篮。\n\n听音找物 · 4/4 · 听到名字，找到水果\n重玩本关\n四种水果都找到了\n\n这组活动完成了，故事和营业仍可继续。\n\n回主题关卡\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:33:52.027Z",
+    "action": "touch-tap",
+    "name": "← 返回主题"
+  },
+  {
+    "time": "2026-10-11T15:33:52.155Z",
+    "action": "touch-tap",
+    "name": "多组配对"
+  },
+  {
+    "time": "2026-10-11T15:33:52.353Z",
+    "action": "touch-tap",
+    "name": "看看今天的内容"
+  },
+  {
+    "time": "2026-10-11T15:33:52.456Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:34:05.172Z",
+    "name": "68-pair-play",
+    "note": "paired mechanics UI before selecting real image",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n水果标签成组配\n\n兔兔帮忙贴水果篮标签。\n\n多组配对 · 1/4 · 把四张声音标签配到图片\n重玩本关\n♫ 重听请求\n苹果\n梨\n桃子\n香蕉\n\n看图和例句\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:34:05.486Z",
+    "action": "touch-tap",
+    "name": "选择苹果"
+  },
+  {
+    "time": "2026-10-11T15:34:05.486Z",
+    "name": "69-pair-feedback",
+    "note": "first real pair complete",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n水果标签成组配\n\n兔兔帮忙贴水果篮标签。\n\n多组配对 · 1/4 · 把四张声音标签配到图片\n重玩本关\n♫ 重听请求\n梨\n桃子\n香蕉\n\n这份找对了。\n\n下一份\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:34:05.701Z",
+    "action": "touch-tap",
+    "name": "← 返回主题"
+  },
+  {
+    "time": "2026-10-11T15:34:05.801Z",
+    "action": "touch-tap",
+    "name": "认识字母"
+  },
+  {
+    "time": "2026-10-11T15:34:05.883Z",
+    "action": "touch-tap",
+    "name": "WordSpell"
+  },
+  {
+    "time": "2026-10-11T15:34:06.019Z",
+    "action": "touch-tap",
+    "name": "看看今天的内容"
+  },
+  {
+    "time": "2026-10-11T15:34:06.143Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:34:18.168Z",
+    "action": "touch-tap",
+    "name": "P ×"
+  },
+  {
+    "time": "2026-10-11T15:34:18.306Z",
+    "action": "touch-tap",
+    "name": "A"
+  },
+  {
+    "time": "2026-10-11T15:34:18.618Z",
+    "action": "touch-tap",
+    "name": "L"
+  },
+  {
+    "time": "2026-10-11T15:34:18.700Z",
+    "action": "touch-tap",
+    "name": "E"
+  },
+  {
+    "time": "2026-10-11T15:34:18.783Z",
+    "action": "touch-tap",
+    "name": "完成这句"
+  },
+  {
+    "time": "2026-10-11T15:34:18.783Z",
+    "name": "70-spelling-feedback",
+    "note": "P withdrawn then independent letter instances APPLE composed and submitted",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n短短的水果词\n\n给水果箱写简单标签。\n\nWordSpell · 1/4 · 用独立字母拼出食物名\n重玩本关\n♫ 重听请求\nA ×\nP ×\nP ×\nL ×\nE ×\n\n这份找对了。\n\n下一份\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:34:18.984Z",
+    "action": "touch-tap",
+    "name": "← 返回主题"
+  },
+  {
+    "time": "2026-10-11T15:34:19.086Z",
+    "action": "touch-tap",
+    "name": "数量与组合"
+  },
+  {
+    "time": "2026-10-11T15:34:19.266Z",
+    "action": "touch-tap",
+    "name": "看看今天的内容"
+  },
+  {
+    "time": "2026-10-11T15:34:19.356Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:34:25.050Z",
+    "action": "touch-tap",
+    "name": "动手摆一盘"
+  },
+  {
+    "time": "2026-10-11T15:34:28.749Z",
+    "action": "touch-tap",
+    "name": "摆入香蕉"
+  },
+  {
+    "time": "2026-10-11T15:34:34.765Z",
+    "action": "touch-tap",
+    "name": "取回第1份"
+  },
+  {
+    "time": "2026-10-11T15:34:34.832Z",
+    "action": "touch-tap",
+    "name": "摆入苹果"
+  },
+  {
+    "time": "2026-10-11T15:34:34.922Z",
+    "action": "touch-tap",
+    "name": "交付这一盘"
+  },
+  {
+    "time": "2026-10-11T15:34:34.922Z",
+    "name": "71-quantity-feedback",
+    "note": "one actual apple, banana withdrawn before submission",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n一个还是两个\n\n兔兔和刺刺要的苹果数不同。\n\n数量与组合 · 1/4 · 听请求辨别份数\n重玩本关\n♫ 重听请求\n回到选餐盘\n交付这一盘\n\n这份找对了。\n\n下一份\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:34:35.157Z",
+    "action": "touch-tap",
+    "name": "← 返回主题"
+  },
+  {
+    "time": "2026-10-11T15:34:35.231Z",
+    "action": "touch-tap",
+    "name": "愿意组句"
+  },
+  {
+    "time": "2026-10-11T15:34:35.319Z",
+    "action": "touch-tap",
+    "name": "选词组句"
+  },
+  {
+    "time": "2026-10-11T15:34:35.533Z",
+    "action": "touch-tap",
+    "name": "看看今天的内容"
+  },
+  {
+    "time": "2026-10-11T15:34:35.654Z",
+    "action": "touch-tap",
+    "name": "我来试试"
+  },
+  {
+    "time": "2026-10-11T15:34:42.256Z",
+    "action": "touch-tap",
+    "name": "apple"
+  },
+  {
+    "time": "2026-10-11T15:34:42.333Z",
+    "action": "touch-tap",
+    "name": "完成这句"
+  },
+  {
+    "time": "2026-10-11T15:34:42.336Z",
+    "name": "72-sentence-noun-only",
+    "note": "single noun attempted for full request, observe grammar vs semantics",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回主题\n暂停小游戏\n请给我一个\n\n大咪帮兔兔整理请求便签。\n\n选词组句 · 1/4 · 用词块表达单份水果\n重玩本关\n♫ 重听请求\napple ×\nAn\nplease\nplease\nand\n\n这份找对了。\n\n下一份\n开发语音尚未人工听审；听过不等于会了。"
+  },
+  {
+    "time": "2026-10-11T15:34:53.007Z",
+    "action": "touch-tap",
+    "name": "← 返回主题"
+  },
+  {
+    "time": "2026-10-11T15:34:53.103Z",
+    "action": "touch-tap",
+    "name": "← 回游戏小摊"
+  },
+  {
+    "time": "2026-10-11T15:34:53.207Z",
+    "action": "touch-tap",
+    "name": "小院场景小游戏 · 寻物、记忆、整理、布置、动作剧场\n先认识 · 换一种玩法 · 再相见；随时回到故事"
+  },
+  {
+    "time": "2026-10-11T15:34:53.222Z",
+    "name": "73-new-scenes-lobby",
+    "note": "five new mechanics visible and optional",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游戏小摊\n大咪的小院游乐角\n小院寻物\n餐桌少了什么\n小仓库整理\n餐桌设计师\n大咪动作小剧场\n先认识\n小院寻物 · 帮大咪拿东西\n开始这一组\n换一种玩法\n小院寻物 · 换个地方找\n开始这一组\n再相见\n小院寻物 · 朋友的两份心意\n开始这一组\n\n点物件，再点要去的地方。随时重听、看图、撤回或回小院。\n\n开发语音未听审；完成活动不代表英语掌握率。"
+  },
+  {
+    "time": "2026-10-11T15:35:01.151Z",
+    "action": "touch-tap",
+    "name": "再相见\n小院寻物 · 朋友的两份心意\n开始这一组"
+  },
+  {
+    "time": "2026-10-11T15:35:13.938Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:35:30.389Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:35:30.455Z",
+    "name": "74-hunt-two-demand",
+    "note": "cup + spoon actual two-object request",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n小院寻物\n再相见 · 1/3\n暂停\n\nBring me a cup and a spoon, please.\n\n看图示范\n先点物件\n→\n放回\n交给篮子\n撤回一步\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:35:41.241Z",
+    "action": "touch-tap",
+    "name": "拿起碗"
+  },
+  {
+    "time": "2026-10-11T15:35:41.368Z",
+    "action": "touch-tap",
+    "name": "交付找到的物件"
+  },
+  {
+    "time": "2026-10-11T15:35:41.368Z",
+    "name": "75-hunt-wrong",
+    "note": "wrong bowl rejected, not fake success",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n小院寻物\n再相见 · 1/3\n暂停\n\nBring me a cup and a spoon, please.\n\n看图示范\n→\n放回\n交给篮子\n撤回一步\n\n这件和请求不同，可以放回。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:35:41.652Z",
+    "action": "touch-tap",
+    "name": "放回物件"
+  },
+  {
+    "time": "2026-10-11T15:35:41.765Z",
+    "action": "touch-tap",
+    "name": "拿起杯子"
+  },
+  {
+    "time": "2026-10-11T15:35:41.865Z",
+    "action": "touch-tap",
+    "name": "交付找到的物件"
+  },
+  {
+    "time": "2026-10-11T15:35:41.865Z",
+    "name": "76-hunt-one-of-two",
+    "note": "one of two actually delivered, task still active",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n小院寻物\n再相见 · 1/3\n暂停\n\nBring me a cup and a spoon, please.\n\n看图示范\n先点物件\n→\n放回\n交给篮子\n撤回一步\n\n继续找下一件。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:35:42.066Z",
+    "action": "touch-tap",
+    "name": "拿起勺子"
+  },
+  {
+    "time": "2026-10-11T15:35:43.006Z",
+    "action": "touch-tap",
+    "name": "迷你游戏"
+  },
+  {
+    "time": "2026-10-11T15:35:43.105Z",
+    "action": "touch-tap",
+    "name": "小院场景小游戏 · 寻物、记忆、整理、布置、动作剧场\n先认识 · 换一种玩法 · 再相见；随时回到故事"
+  },
+  {
+    "time": "2026-10-11T15:35:52.488Z",
+    "action": "touch-tap",
+    "name": "再相见\n小院寻物 · 朋友的两份心意\n继续这一组"
+  },
+  {
+    "time": "2026-10-11T15:36:05.815Z",
+    "action": "touch-tap",
+    "name": "继续玩"
+  },
+  {
+    "time": "2026-10-11T15:36:05.930Z",
+    "action": "touch-tap",
+    "name": "交付找到的物件"
+  },
+  {
+    "time": "2026-10-11T15:36:05.930Z",
+    "name": "77-hunt-complete-task",
+    "note": "refresh resumes paused, held spoon survives; both actually delivered",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n小院寻物\n再相见 · 1/3\n暂停\n\nBring me a cup and a spoon, please.\n\n看图示范\n先点物件\n→\n放回\n交给篮子\n下一段活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:36:06.117Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:42:00.850Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:42:07.039Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:42:13.342Z",
+    "action": "touch-tap",
+    "name": "看好了，盖上再找"
+  },
+  {
+    "time": "2026-10-11T15:42:21.493Z",
+    "name": "78-memory-covered",
+    "note": "玩家主动遮挡；准备从实际桌面补物",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌少了什么\n先认识 · 1/3\n暂停\n\nLook carefully. What is missing?\n\n看图示范\n揭开餐桌看看\n撤回一步\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:42:33.889Z",
+    "action": "touch-tap",
+    "name": "揭开餐桌看看"
+  },
+  {
+    "time": "2026-10-11T15:42:43.196Z",
+    "action": "touch-tap",
+    "name": "拿起勺子"
+  },
+  {
+    "time": "2026-10-11T15:42:43.332Z",
+    "action": "touch-tap",
+    "name": "补回餐桌"
+  },
+  {
+    "time": "2026-10-11T15:42:43.432Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:42:43.432Z",
+    "name": "79-memory-wrong",
+    "note": "勺子补错反馈；区分记忆与英语",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌少了什么\n先认识 · 1/3\n暂停\n\nLook carefully. What is missing?\n\n看图示范\n先点物件\n→\n放回\n补回桌上再看一眼\n撤回一步\n给大咪看看\n\n可以再看一看，撤回或请大咪演示。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:42:51.411Z",
+    "action": "touch-tap",
+    "name": "撤回一步"
+  },
+  {
+    "time": "2026-10-11T15:42:51.536Z",
+    "action": "touch-tap",
+    "name": "再看一眼"
+  },
+  {
+    "time": "2026-10-11T15:43:00.689Z",
+    "action": "touch-tap",
+    "name": "看好了，盖上再找"
+  },
+  {
+    "time": "2026-10-11T15:43:00.959Z",
+    "action": "touch-tap",
+    "name": "揭开餐桌看看"
+  },
+  {
+    "time": "2026-10-11T15:43:01.155Z",
+    "action": "touch-tap",
+    "name": "拿起杯子"
+  },
+  {
+    "time": "2026-10-11T15:43:01.329Z",
+    "action": "touch-tap",
+    "name": "补回餐桌"
+  },
+  {
+    "time": "2026-10-11T15:43:01.466Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:43:01.466Z",
+    "name": "80-memory-recovered",
+    "note": "主动重看后杯子补回，记忆恢复成功",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌少了什么\n先认识 · 1/3\n暂停\n\nLook carefully. What is missing?\n\n看图示范\n先点物件\n→\n放回\n补回桌上再看一眼\n下一段活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:43:01.957Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:43:02.265Z",
+    "action": "touch-tap",
+    "name": "小仓库整理"
+  },
+  {
+    "time": "2026-10-11T15:43:12.132Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:43:12.657Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:43:26.398Z",
+    "action": "touch-tap",
+    "name": "拿起篮子"
+  },
+  {
+    "time": "2026-10-11T15:43:26.609Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:43:26.609Z",
+    "name": "81-sort-incomplete",
+    "note": "未完成移动先检查，不产生错误成绩",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n小仓库整理\n换一种玩法 · 1/3\n暂停\n\nPut things in the kitchen or garden. Some things can go in either place. Put books on the shelf.\n\n看图示范\n→\n放回\n木架\n花园\n厨房\n撤回一步\n给大咪看看\n\n还有物件没归位，可以继续摆。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:43:26.886Z",
+    "action": "touch-tap",
+    "name": "放到花园"
+  },
+  {
+    "time": "2026-10-11T15:43:26.988Z",
+    "action": "touch-tap",
+    "name": "拿起倒水壶"
+  },
+  {
+    "time": "2026-10-11T15:43:27.139Z",
+    "action": "touch-tap",
+    "name": "放到厨房"
+  },
+  {
+    "time": "2026-10-11T15:43:27.231Z",
+    "action": "touch-tap",
+    "name": "拿起浇水壶"
+  },
+  {
+    "time": "2026-10-11T15:43:27.327Z",
+    "action": "touch-tap",
+    "name": "放到花园"
+  },
+  {
+    "time": "2026-10-11T15:43:27.494Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:43:27.494Z",
+    "name": "82-sort-alternative",
+    "note": "篮子放花园，倒水壶放厨房，合法多用途方案完成",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n小仓库整理\n换一种玩法 · 1/3\n暂停\n\nPut things in the kitchen or garden. Some things can go in either place. Put books on the shelf.\n\n看图示范\n先点物件\n→\n放回\n木架\n花园\n厨房\n下一段活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:43:27.866Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:43:28.044Z",
+    "action": "touch-tap",
+    "name": "餐桌设计师"
+  },
+  {
+    "time": "2026-10-11T15:43:47.196Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:43:47.444Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:43:57.181Z",
+    "action": "touch-tap",
+    "name": "拿起杯子 蓝色"
+  },
+  {
+    "time": "2026-10-11T15:43:57.441Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:43:57.594Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:43:57.594Z",
+    "name": "83-design-wrong-color",
+    "note": "蓝杯桌上拒绝，属性确实判定",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌设计师\n再相见 · 1/4\n暂停\n\nPut the red cup on the table.\n\n看图示范\n先点物件\n→\n放回\n桌上\n桌下\n篮内\n桌边\n撤回一步\n给大咪看看\n\n可以再看一看，撤回或请大咪演示。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:43:58.107Z",
+    "action": "touch-tap",
+    "name": "撤回一步"
+  },
+  {
+    "time": "2026-10-11T15:43:58.398Z",
+    "action": "touch-tap",
+    "name": "拿起杯子 红色"
+  },
+  {
+    "time": "2026-10-11T15:43:58.521Z",
+    "action": "touch-tap",
+    "name": "放到桌下"
+  },
+  {
+    "time": "2026-10-11T15:43:58.764Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:43:58.764Z",
+    "name": "84-design-wrong-position",
+    "note": "红杯桌下拒绝，空间确实判定",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌设计师\n再相见 · 1/4\n暂停\n\nPut the red cup on the table.\n\n看图示范\n先点物件\n→\n放回\n桌上\n桌下\n篮内\n桌边\n撤回一步\n给大咪看看\n\n可以再看一看，撤回或请大咪演示。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:43:59.071Z",
+    "action": "touch-tap",
+    "name": "撤回一步"
+  },
+  {
+    "time": "2026-10-11T15:43:59.179Z",
+    "action": "touch-tap",
+    "name": "拿起杯子 红色"
+  },
+  {
+    "time": "2026-10-11T15:43:59.296Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:43:59.429Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:43:59.429Z",
+    "name": "85-design-correct",
+    "note": "红杯桌上完成",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌设计师\n再相见 · 1/4\n暂停\n\nPut the red cup on the table.\n\n看图示范\n先点物件\n→\n放回\n桌上\n桌下\n篮内\n桌边\n下一段活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:43:59.698Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:44:08.704Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:44:23.565Z",
+    "action": "touch-tap",
+    "name": "拿起碗 大的"
+  },
+  {
+    "time": "2026-10-11T15:44:23.821Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:44:24.053Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:44:24.312Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:44:24.515Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:44:33.178Z",
+    "action": "touch-tap",
+    "name": "拿起盘子"
+  },
+  {
+    "time": "2026-10-11T15:44:33.419Z",
+    "action": "touch-tap",
+    "name": "放到桌下"
+  },
+  {
+    "time": "2026-10-11T15:44:33.758Z",
+    "action": "touch-tap",
+    "name": "拿起杯子 白色"
+  },
+  {
+    "time": "2026-10-11T15:44:33.909Z",
+    "action": "touch-tap",
+    "name": "放到盘子旁边"
+  },
+  {
+    "time": "2026-10-11T15:44:34.160Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:44:34.160Z",
+    "name": "86-design-reference-missing",
+    "note": "盘子拿离桌上，白杯旁边不能成功",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌设计师\n再相见 · 3/4\n暂停\n\nPut the white cup beside the plate.\n\n看图示范\n先点物件\n→\n放回\n桌上\n桌下\n篮内\n盘子旁边\n撤回一步\n给大咪看看\n\n可以再看一看，撤回或请大咪演示。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:44:34.996Z",
+    "action": "touch-tap",
+    "name": "拿起盘子"
+  },
+  {
+    "time": "2026-10-11T15:44:35.915Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:44:36.766Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:44:36.766Z",
+    "name": "87-design-reference-restored",
+    "note": "参照物恢复桌上后成功",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌设计师\n再相见 · 3/4\n暂停\n\nPut the white cup beside the plate.\n\n看图示范\n先点物件\n→\n放回\n桌上\n桌下\n篮内\n盘子旁边\n下一段活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:44:40.084Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:44:40.715Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:44:53.872Z",
+    "action": "touch-tap",
+    "name": "拿起餐巾"
+  },
+  {
+    "time": "2026-10-11T15:44:54.228Z",
+    "action": "touch-tap",
+    "name": "放到盘子旁边"
+  },
+  {
+    "time": "2026-10-11T15:44:54.682Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:44:54.956Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:44:55.192Z",
+    "action": "touch-tap",
+    "name": "继续自由布置"
+  },
+  {
+    "time": "2026-10-11T15:44:55.515Z",
+    "action": "touch-tap",
+    "name": "拿起书"
+  },
+  {
+    "time": "2026-10-11T15:44:55.822Z",
+    "action": "touch-tap",
+    "name": "放到篮内"
+  },
+  {
+    "time": "2026-10-11T15:44:56.226Z",
+    "action": "touch-tap",
+    "name": "留下我的布置"
+  },
+  {
+    "time": "2026-10-11T15:44:56.226Z",
+    "name": "88-design-free",
+    "note": "同一布置关转自由，书放篮内保存，不判标准答案",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n餐桌设计师\n自由布置\n暂停\n\n自由布置 · 没有标准答案\n\n看图示范\n先点物件\n→\n放回\n桌上\n桌下\n篮内\n盘子旁边\n撤回一步\n留下我的布置\n\n你的餐桌留下来了，还可以接着摆。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:44:57.182Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:44:57.979Z",
+    "action": "touch-tap",
+    "name": "大咪动作小剧场"
+  },
+  {
+    "time": "2026-10-11T15:45:15.736Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:45:16.324Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:45:33.856Z",
+    "action": "touch-tap",
+    "name": "拿起球"
+  },
+  {
+    "time": "2026-10-11T15:45:33.857Z",
+    "name": "89-theatre-closed",
+    "note": "闭盒中球无法拿出，无语言失败",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n大咪动作小剧场\n先认识 · 1/4\n暂停\n\nOpen the box.\n\n看图示范\n在盒子里\n先点物件\n→\n放回\n桌上\n篮内\n打开\n关上\n撤回一步\n给大咪看看\n\n盒子还关着，先打开盒子。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:45:36.389Z",
+    "action": "touch-tap",
+    "name": "打开盒子"
+  },
+  {
+    "time": "2026-10-11T15:45:37.429Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:45:38.245Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:19.814Z",
+    "action": "touch-tap",
+    "name": "拿起球"
+  },
+  {
+    "time": "2026-10-11T15:46:20.226Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:20.614Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:20.813Z",
+    "action": "touch-tap",
+    "name": "放到篮内"
+  },
+  {
+    "time": "2026-10-11T15:46:21.025Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:21.189Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:21.364Z",
+    "action": "touch-tap",
+    "name": "关上盒子"
+  },
+  {
+    "time": "2026-10-11T15:46:21.642Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:21.798Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:21.798Z",
+    "name": "90-theatre-container-complete",
+    "note": "开盒取球、搬入篮子与关盒连续四任务，真实状态保留",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n大咪动作小剧场\n先认识 · 4/4\n暂停\n这次小院活动完成了\n\n你动过的物件和帮助已经保留。可以再玩、换玩法或回到厨房。\n\n再玩这一组换个活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:46:22.538Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:46:23.123Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:46:23.428Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:46:41.514Z",
+    "action": "touch-tap",
+    "name": "倒水杯子"
+  },
+  {
+    "time": "2026-10-11T15:46:41.674Z",
+    "action": "touch-tap",
+    "name": "搅拌杯子"
+  },
+  {
+    "time": "2026-10-11T15:46:41.796Z",
+    "action": "touch-tap",
+    "name": "清洗碗"
+  },
+  {
+    "time": "2026-10-11T15:46:41.796Z",
+    "name": "91-theatre-preconditions",
+    "note": "未拿壶、未放杯、无水、未进水槽时操作受阻且可恢复",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n大咪动作小剧场\n换一种玩法 · 1/4\n暂停\n\nPut the cup on the table.\n\n看图示范\n里面有水\n先点物件\n→\n放回\n桌上\n水槽\n倒水\n搅拌\n清洗\n撤回一步\n给大咪看看\n\n物件还没准备好。看看它的位置、手里的工具或是否打开。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:46:42.155Z",
+    "action": "touch-tap",
+    "name": "拿起杯子"
+  },
+  {
+    "time": "2026-10-11T15:46:42.294Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:46:42.430Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:42.579Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:42.745Z",
+    "action": "touch-tap",
+    "name": "拿起倒水壶"
+  },
+  {
+    "time": "2026-10-11T15:46:42.893Z",
+    "action": "touch-tap",
+    "name": "倒水杯子"
+  },
+  {
+    "time": "2026-10-11T15:46:43.055Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:43.198Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:43.424Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:46:43.595Z",
+    "action": "touch-tap",
+    "name": "拿起勺子"
+  },
+  {
+    "time": "2026-10-11T15:46:44.009Z",
+    "action": "touch-tap",
+    "name": "搅拌杯子"
+  },
+  {
+    "time": "2026-10-11T15:46:44.163Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:44.314Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:44.515Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:46:44.678Z",
+    "action": "touch-tap",
+    "name": "拿起碗"
+  },
+  {
+    "time": "2026-10-11T15:46:44.789Z",
+    "action": "touch-tap",
+    "name": "放到水槽"
+  },
+  {
+    "time": "2026-10-11T15:46:44.965Z",
+    "action": "touch-tap",
+    "name": "清洗碗"
+  },
+  {
+    "time": "2026-10-11T15:46:45.079Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:45.277Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:45.277Z",
+    "name": "92-theatre-tea-complete",
+    "note": "放杯、拿壶倒水、拿勺搅拌、碗进水槽清洗，四任务完成",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n大咪动作小剧场\n换一种玩法 · 4/4\n暂停\n这次小院活动完成了\n\n你动过的物件和帮助已经保留。可以再玩、换玩法或回到厨房。\n\n再玩这一组换个活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:46:45.678Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:46:46.407Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:46:46.826Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:46:56.128Z",
+    "action": "touch-tap",
+    "name": "切分苹果"
+  },
+  {
+    "time": "2026-10-11T15:46:56.530Z",
+    "action": "touch-tap",
+    "name": "分享给朋友苹果"
+  },
+  {
+    "time": "2026-10-11T15:46:56.530Z",
+    "name": "93-theatre-cut-blocked",
+    "note": "苹果未进砧板/无刀，不能切；没有带到院里不能分享",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n大咪动作小剧场\n再相见 · 1/3\n暂停\n\nCut the apple.\n\n看图示范\n先点物件\n→\n放回\n桌上\n砧板\n切分\n搬到院里\n分享给朋友\n撤回一步\n给大咪看看\n\n物件还没准备好。看看它的位置、手里的工具或是否打开。\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:46:57.623Z",
+    "action": "touch-tap",
+    "name": "拿起苹果"
+  },
+  {
+    "time": "2026-10-11T15:46:57.831Z",
+    "action": "touch-tap",
+    "name": "放到砧板"
+  },
+  {
+    "time": "2026-10-11T15:46:58.030Z",
+    "action": "touch-tap",
+    "name": "拿起餐刀"
+  },
+  {
+    "time": "2026-10-11T15:46:58.445Z",
+    "action": "touch-tap",
+    "name": "切分苹果"
+  },
+  {
+    "time": "2026-10-11T15:46:58.698Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:46:58.993Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:46:59.544Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:47:00.126Z",
+    "action": "touch-tap",
+    "name": "拿起苹果"
+  },
+  {
+    "time": "2026-10-11T15:47:11.992Z",
+    "action": "touch-tap",
+    "name": "放到桌上"
+  },
+  {
+    "time": "2026-10-11T15:47:12.323Z",
+    "action": "touch-tap",
+    "name": "拿起篮子"
+  },
+  {
+    "time": "2026-10-11T15:47:12.707Z",
+    "action": "touch-tap",
+    "name": "搬到院里篮子"
+  },
+  {
+    "time": "2026-10-11T15:47:12.843Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:47:13.042Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:47:13.374Z",
+    "action": "touch-tap",
+    "name": "分享给朋友苹果"
+  },
+  {
+    "time": "2026-10-11T15:47:13.654Z",
+    "action": "touch-tap",
+    "name": "给大咪看看"
+  },
+  {
+    "time": "2026-10-11T15:47:14.313Z",
+    "action": "touch-tap",
+    "name": "下一段活动"
+  },
+  {
+    "time": "2026-10-11T15:47:14.313Z",
+    "name": "94-theatre-share-complete",
+    "note": "苹果切分后篮子搬院里，实际分享完成",
+    "url": "http://127.0.0.1:4277/",
+    "text": "返回游乐角\n大咪动作小剧场\n再相见 · 3/3\n暂停\n这次小院活动完成了\n\n你动过的物件和帮助已经保留。可以再玩、换玩法或回到厨房。\n\n再玩这一组换个活动\n\n物件到位了！\n\n重玩这一组\n开发语音未听审 · 没有计时与能力评分"
+  },
+  {
+    "time": "2026-10-11T15:47:15.831Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:47:16.271Z",
+    "action": "touch-tap",
+    "name": "返回游戏小摊"
+  },
+  {
+    "time": "2026-10-11T15:47:24.722Z",
+    "action": "touch-tap",
+    "name": "← 小院"
+  },
+  {
+    "time": "2026-10-11T15:47:46.961Z",
+    "action": "touch-tap",
+    "name": "自由开店"
+  },
+  {
+    "time": "2026-10-11T15:47:58.911Z",
+    "action": "touch-tap",
+    "name": "开门 / 继续营业"
+  },
+  {
+    "time": "2026-10-11T15:47:58.919Z",
+    "name": "95-kitchen-after-ten-games",
+    "note": "十类小游戏后原订单与加工回到厨房",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n空杯，杯座\n苹果，机器入口\n带作品到活动桌\n♫\n\n设备制作中 → 成品会到托盘；可以继续准备"
+  },
+  {
+    "time": "2026-10-11T15:47:59.523Z",
+    "action": "touch-tap",
+    "name": "到活动桌"
+  },
+  {
+    "time": "2026-10-11T15:47:59.710Z",
+    "action": "touch-tap",
+    "name": "去小院游乐角"
+  },
+  {
+    "time": "2026-10-11T15:47:59.875Z",
+    "action": "touch-tap",
+    "name": "小院场景小游戏"
+  },
+  {
+    "time": "2026-10-11T15:48:00.124Z",
+    "action": "touch-tap",
+    "name": "先认识今天的物件"
+  },
+  {
+    "time": "2026-10-11T15:48:00.246Z",
+    "action": "touch-tap",
+    "name": "我来动手"
+  },
+  {
+    "time": "2026-10-11T15:48:00.367Z",
+    "action": "touch-tap",
+    "name": "拿起杯子"
+  },
+  {
+    "time": "2026-10-11T15:48:00.462Z",
+    "action": "touch-tap",
+    "name": "交付找到的物件"
+  },
+  {
+    "time": "2026-10-11T15:48:00.592Z",
+    "action": "touch-tap",
+    "name": "返回游乐角"
+  },
+  {
+    "time": "2026-10-11T15:48:00.695Z",
+    "action": "touch-tap",
+    "name": "返回游戏小摊"
+  },
+  {
+    "time": "2026-10-11T15:48:00.860Z",
+    "action": "touch-tap",
+    "name": "← 小院"
+  },
+  {
+    "time": "2026-10-11T15:48:00.860Z",
+    "name": "96-mini-return-source",
+    "note": "无刷新旁路正常返回原活动桌，订单加工不丢失",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 小院\n自由开店\n👤\n👥\n去厨房备餐\n去游乐角 · 随时回来\n打开储物抽屉\n翻开旧食谱\n✓\n花苗\n浇水壶\n餐垫\n灯串\n小勺\n➜\n♫\n▶\n\n选择喜欢的菜单，服务朋友，也可以自由做作品。\n\n长辈接好食品，带到所选位置，等你安排分享\n↻ ♫\n↗\n◒\n🦋\n♡\n●\n♡\n➜\n刺刺\n长辈\n♫\n收拾桌面\n\n选好备餐位置，点食材就能放进去。\n\n布置\n停止接客，做作品\n收摊回小院\n当前拿着苹果，可点一个餐位摆放。"
+  },
+  {
+    "time": "2026-10-11T15:48:23.795Z",
+    "action": "touch-tap",
+    "name": "去厨房备餐"
+  },
+  {
+    "time": "2026-10-11T15:48:37.127Z",
+    "action": "touch-tap",
+    "name": "苹果汁，1号盘"
+  },
+  {
+    "time": "2026-10-11T15:48:37.229Z",
+    "action": "touch-tap",
+    "name": "收起成品"
+  },
+  {
+    "time": "2026-10-11T15:48:37.229Z",
+    "name": "97-shelf-modal",
+    "note": "成品收起确认弹窗，背景不能操作",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n苹果汁，1号盘\n\n点托盘或制作台移动这份；原料可拖回篮子\n\n收起这份成品？\n\n不会变回原料。腾出位置后可以恢复。\n\n确认收起\n留在这里"
+  },
+  {
+    "time": "2026-10-11T15:48:37.629Z",
+    "action": "touch-tap",
+    "name": "确认收起"
+  },
+  {
+    "time": "2026-10-11T15:48:37.661Z",
+    "name": "98-shelf-after",
+    "note": "重复核查确认收起效果",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n带作品到活动桌\n↶ 恢复成品\n♫\n\n点食材直接装盘；要制作时先点设备"
+  },
+  {
+    "time": "2026-10-11T15:48:52.643Z",
+    "action": "touch-tap",
+    "name": "↶ 恢复成品"
+  },
+  {
+    "time": "2026-10-11T15:48:53.054Z",
+    "name": "99-touch-cancel",
+    "note": "真实CDP touchStart/multi-touch/touchCancel，未产生新食品",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n苹果汁，1号盘\n带作品到活动桌\n♫\n\n这一盘备好了 → 带作品到活动桌，或拿盘点朋友"
+  },
+  {
+    "time": "2026-10-11T15:48:53.711Z",
+    "action": "touch-tap",
+    "name": "请大咪帮忙"
+  },
+  {
+    "time": "2026-10-11T15:48:53.711Z",
+    "name": "100-short-landscape-help",
+    "note": "852×300帮助弹窗，核对继续操作",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n无尽营业\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n苹果汁，1号盘\n\n这一盘备好了 → 带作品到活动桌，或拿盘点朋友\n\n大咪陪你一起做\n看看客人想要什么\n看食谱与示范\n请大咪帮我拿\n认识新食物，添菜单\n继续营业"
+  },
+  {
+    "time": "2026-10-11T15:49:10.144Z",
+    "action": "touch-tap",
+    "name": "继续营业"
+  },
+  {
+    "time": "2026-10-11T15:49:10.144Z",
+    "name": "101-short-landscape-resumed",
+    "note": "正常触控继续营业，帮助遮挡解除",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n无尽营业\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n苹果汁，1号盘\n带作品到活动桌\n♫\n\n这一盘备好了 → 带作品到活动桌，或拿盘点朋友"
+  },
+  {
+    "time": "2026-10-11T15:49:10.623Z",
+    "action": "touch-tap",
+    "name": "请大咪帮忙"
+  },
+  {
+    "time": "2026-10-11T15:49:11.975Z",
+    "action": "touch-tap",
+    "name": "继续营业"
+  },
+  {
+    "time": "2026-10-11T15:49:52.048Z",
+    "name": "102-learning-observation",
+    "note": "学习记录将记忆/词义/拼写/基础表达/操作和帮助分开，非掌握率",
+    "url": "http://127.0.0.1:4277/",
+    "text": "← 返回\n餐车的小设置\n这次需要怎样的帮助？\n▶ 先看大咪做\n▧ 图片陪我做\n♫ 少些帮助，听一听\n营业忙碌程度\n一位一位来\n两位一起招呼\n新订单表达（和帮助、忙碌分开）\n先练口味\n再练容器\n数量与配料组合\n\n先练口味：一球装杯。再练容器：固定一球香草，听杯子或蛋筒。组合阶段再加数量与配料；已接订单保留。\n\n全部声音\n语音（英语与情境提示）\n音乐\n小院环境\n取放与设备\n省电画面\n导出全部本地进度\n给大人的学习观察\n\n这些是活动记录，不是掌握率。开发语音和内容尚未完成教研及听审。\n\n遇见过：apple、guest-0、banana、guest-1、vanilla-cone、strawberry-cup、cool、sandwich、salad-sandwich、pack、patty、juice、burger、cheese-burger、create:world-6、orange、pear\n\nsandwich · 听请求 · 使用帮助：picture-request · 完成 · 回访\nguest-0 · 操作 · 较少辅助条件 · 调整 · 回访\njuice · 操作 · 较少辅助条件 · 启动制作（操作） · 回访\napple · 听请求 · 使用帮助：meaning-picture、audio-not-observed · 调整 · 回访\napple · 听请求 · 使用帮助：meaning-picture、difference-feedback、answer-help · 完成 · 回访\nbanana · 听请求 · 使用帮助：meaning-picture、audio-not-observed、difference-feedback、answer-help · 完成 · 回访\norange · 听请求 · 使用帮助：meaning-picture、audio-not-observed、difference-feedback、answer-help · 完成 · 初次\npear · 听请求 · 使用帮助：meaning-picture、audio-not-observed、difference-feedback、answer-help · 完成 · 初次\napple · 词义 · 使用帮助：meaning-picture · 完成 · 回访\napple · 拼写 · 使用帮助：meaning-picture · 完成 · 回访\napple · 词义 · 使用帮助：meaning-picture · 完成 · 回访\napple · 基础表达 · 使用帮助：meaning-picture · 完成 · 回访\n版本与素材"
+  },
+  {
+    "time": "2026-10-11T15:50:17.529Z",
+    "action": "touch-tap",
+    "name": "← 返回"
+  },
+  {
+    "time": "2026-10-11T15:50:18.146Z",
+    "action": "touch-tap",
+    "name": "自由开店"
+  },
+  {
+    "time": "2026-10-11T15:50:18.393Z",
+    "action": "touch-tap",
+    "name": "开门 / 继续营业"
+  },
+  {
+    "time": "2026-10-11T15:50:19.011Z",
+    "action": "touch-tap",
+    "name": "2号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:50:19.211Z",
+    "action": "touch-tap",
+    "name": "拿苹果"
+  },
+  {
+    "time": "2026-10-11T15:50:19.350Z",
+    "action": "touch-tap",
+    "name": "2号托盘：放入食品或选择整盘"
+  },
+  {
+    "time": "2026-10-11T15:50:19.522Z",
+    "action": "touch-tap",
+    "name": "客人A·兔兔：拿盘交付，空手重听请求"
+  },
+  {
+    "time": "2026-10-11T15:50:19.522Z",
+    "name": "103-muted-real-delivery",
+    "note": "全部声音关闭，按图示制作苹果并实际交付旧任务",
+    "url": "http://127.0.0.1:4277/",
+    "text": "Ⅱ\n到活动桌\n♫\n客人A·兔兔：拿盘交付，空手重听请求\n客人B·刺刺：拿盘交付，空手重听请求\n果汁机苹果入口\n果汁机杯座\n▶ 榨成果汁\n切换果汁机\n切换冰淇淋台\n切换组合板\n切换汉堡台\n请大咪帮忙\n1号托盘：放入食品或选择整盘\n2号托盘：放入食品或选择整盘\n拿苹果\n拿香蕉\n拿空杯\n苹果汁，1号盘\n带作品到活动桌\n♫\n\n大咪正在递餐 → 等朋友接好；还能准备另一盘"
+  }
+]

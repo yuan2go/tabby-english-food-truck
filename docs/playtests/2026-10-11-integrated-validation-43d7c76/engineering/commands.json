@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "npm",
+      "ci"
+    ],
+    "utc": "2026-10-11T15:14:36.902346+00:00",
+    "exit": 0,
+    "log": "logs/npm-ci-first.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "utc": "2026-10-11T15:14:48.704607+00:00",
+    "exit": 1,
+    "log": "logs/lint-first.log"
+  },
+  {
+    "command": [
+      "npm",
+      "test"
+    ],
+    "utc": "2026-10-11T15:14:53.433117+00:00",
+    "exit": 1,
+    "log": "logs/unit-first.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "resources"
+    ],
+    "utc": "2026-10-11T15:15:03.210872+00:00",
+    "exit": 0,
+    "log": "logs/resources-first.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "utc": "2026-10-11T15:15:28.936890+00:00",
+    "exit": 0,
+    "log": "logs/build-first.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:browser",
+      "--",
+      "--list"
+    ],
+    "utc": "2026-10-11T15:16:03.747838+00:00",
+    "exit": 1,
+    "log": "logs/browser-list-first.log"
+  }
+]

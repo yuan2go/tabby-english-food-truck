@@ -1,0 +1,36 @@
+{
+  "focusLog": [
+    {
+      "text": "看看客人想要什么",
+      "inside": true
+    },
+    {
+      "text": "看食谱与示范",
+      "inside": true
+    },
+    {
+      "text": "请大咪帮我拿",
+      "inside": true
+    },
+    {
+      "text": "认识新食物，添菜单",
+      "inside": true
+    },
+    {
+      "text": "继续营业",
+      "inside": true
+    },
+    {
+      "text": "看看客人想要什么",
+      "inside": true
+    },
+    {
+      "text": "看食谱与示范",
+      "inside": true
+    }
+  ],
+  "restoredFocus": {
+    "text": "请大咪帮忙",
+    "tag": "BUTTON"
+  }
+}

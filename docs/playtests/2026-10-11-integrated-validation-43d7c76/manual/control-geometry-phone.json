@@ -1,0 +1,245 @@
+[
+  {
+    "name": "重看朋友使用",
+    "rect": {
+      "x": 161,
+      "y": 355.5,
+      "w": 85,
+      "h": 64
+    },
+    "visible": {
+      "w": 45,
+      "h": 48
+    },
+    "clips": [
+      {
+        "class": "friend-theatre theatre-place stage-0  sip",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 201,
+          "y": 258.5,
+          "w": 185,
+          "h": 145
+        }
+      },
+      {
+        "class": "adventure-scene chapter-4 cloth-leaf light-day",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "game-shell m2-shell screen-game",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      }
+    ]
+  },
+  {
+    "name": "跳过朋友演出",
+    "rect": {
+      "x": 251,
+      "y": 355.5,
+      "w": 85,
+      "h": 64
+    },
+    "visible": {
+      "w": 85,
+      "h": 48
+    },
+    "clips": [
+      {
+        "class": "friend-theatre theatre-place stage-0  sip",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 201,
+          "y": 258.5,
+          "w": 185,
+          "h": 145
+        }
+      },
+      {
+        "class": "adventure-scene chapter-4 cloth-leaf light-day",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "game-shell m2-shell screen-game",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      }
+    ]
+  },
+  {
+    "name": "低动态表现",
+    "rect": {
+      "x": 341,
+      "y": 355.5,
+      "w": 85,
+      "h": 64
+    },
+    "visible": {
+      "w": 45,
+      "h": 48
+    },
+    "clips": [
+      {
+        "class": "friend-theatre theatre-place stage-0  sip",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 201,
+          "y": 258.5,
+          "w": 185,
+          "h": 145
+        }
+      },
+      {
+        "class": "adventure-scene chapter-4 cloth-leaf light-day",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "game-shell m2-shell screen-game",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      },
+      {
+        "class": "",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 393,
+          "h": 665
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,307 @@
+{
+  "before": {
+    "chapter": 4,
+    "kind": "shop",
+    "branch": null,
+    "explored": [
+      "recipe"
+    ],
+    "steps": [
+      "served:rabbit",
+      "create",
+      "place:2",
+      "taste",
+      "place:0",
+      "save-work"
+    ],
+    "rewards": [],
+    "foods": [
+      {
+        "id": "food-1",
+        "product": "apple",
+        "source": "guest-0",
+        "place": "guest-rabbit",
+        "tasted": false
+      },
+      {
+        "id": "food-3",
+        "product": "juice",
+        "source": "create:world-6",
+        "place": "table:0",
+        "tasted": true,
+        "recipient": "rabbit",
+        "tastedBy": "elder"
+      }
+    ],
+    "works": [
+      {
+        "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:work:11",
+        "foods": [
+          {
+            "id": "food-3",
+            "product": "juice",
+            "source": "create:world-6",
+            "place": "table:0",
+            "tasted": true,
+            "recipient": "rabbit",
+            "tastedBy": "elder"
+          }
+        ],
+        "signature": "food-3:juice:table:0:true"
+      }
+    ],
+    "decor": {
+      "flower": 0,
+      "bunting": "warm",
+      "cloth": "leaf",
+      "light": "warm"
+    },
+    "invitations": [
+      "rabbit"
+    ],
+    "experience": {
+      "version": 2,
+      "tools": [],
+      "used": [],
+      "helpers": [],
+      "needs": [
+        {
+          "visitor": "rabbit",
+          "kind": "savory",
+          "basis": "packing",
+          "fulfilled": []
+        }
+      ],
+      "known": [
+        "apple",
+        "banana",
+        "vanilla-cone",
+        "strawberry-cup",
+        "sandwich",
+        "salad-sandwich",
+        "juice",
+        "cheese-burger"
+      ],
+      "picnic": "hedgehog",
+      "moments": [
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "apple"
+            }
+          ],
+          "destination": "table",
+          "visitor": "rabbit",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:2",
+          "at": 4533.199999999953
+        },
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "destination": "work",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:7",
+          "at": 30032.099999999977
+        },
+        {
+          "kind": "place",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "seat": 2,
+          "visitor": "elder",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:8",
+          "at": 41648.399999999965
+        },
+        {
+          "kind": "taste",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "visitor": "elder",
+          "seat": 2,
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:9",
+          "at": 41748.29999999999
+        },
+        {
+          "kind": "place",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "seat": 0,
+          "visitor": "elder",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:10",
+          "at": 42265
+        }
+      ]
+    }
+  },
+  "after": {
+    "chapter": 4,
+    "kind": "shop",
+    "branch": null,
+    "explored": [
+      "recipe"
+    ],
+    "steps": [
+      "served:rabbit",
+      "create",
+      "place:2",
+      "taste",
+      "place:0",
+      "save-work"
+    ],
+    "rewards": [],
+    "foods": [
+      {
+        "id": "food-1",
+        "product": "apple",
+        "source": "guest-0",
+        "place": "guest-rabbit",
+        "tasted": false
+      },
+      {
+        "id": "food-3",
+        "product": "juice",
+        "source": "create:world-6",
+        "place": "table:0",
+        "tasted": true,
+        "recipient": "rabbit",
+        "tastedBy": "elder"
+      }
+    ],
+    "works": [
+      {
+        "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:work:11",
+        "foods": [
+          {
+            "id": "food-3",
+            "product": "juice",
+            "source": "create:world-6",
+            "place": "table:0",
+            "tasted": true,
+            "recipient": "rabbit",
+            "tastedBy": "elder"
+          }
+        ],
+        "signature": "food-3:juice:table:0:true"
+      }
+    ],
+    "decor": {
+      "flower": 0,
+      "bunting": "warm",
+      "cloth": "leaf",
+      "light": "warm"
+    },
+    "invitations": [
+      "rabbit"
+    ],
+    "experience": {
+      "version": 2,
+      "tools": [],
+      "used": [],
+      "helpers": [],
+      "needs": [
+        {
+          "visitor": "rabbit",
+          "kind": "savory",
+          "basis": "packing",
+          "fulfilled": []
+        }
+      ],
+      "known": [
+        "apple",
+        "banana",
+        "vanilla-cone",
+        "strawberry-cup",
+        "sandwich",
+        "salad-sandwich",
+        "juice",
+        "cheese-burger"
+      ],
+      "picnic": "hedgehog",
+      "moments": [
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "apple"
+            }
+          ],
+          "destination": "table",
+          "visitor": "rabbit",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:2",
+          "at": 4533.199999999953
+        },
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "destination": "work",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:7",
+          "at": 30032.099999999977
+        },
+        {
+          "kind": "place",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "seat": 2,
+          "visitor": "elder",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:8",
+          "at": 41648.399999999965
+        },
+        {
+          "kind": "taste",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "visitor": "elder",
+          "seat": 2,
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:9",
+          "at": 41748.29999999999
+        },
+        {
+          "kind": "place",
+          "foods": [
+            {
+              "id": "food-3",
+              "product": "juice"
+            }
+          ],
+          "seat": 0,
+          "visitor": "elder",
+          "id": "49b2ef8c-b08d-432a-a64a-d620a51e7558:moment:10",
+          "at": 42265
+        }
+      ]
+    }
+  },
+  "unchanged": true
+}

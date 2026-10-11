@@ -1,5 +1,13 @@
 # 项目状态
 
+## 2026-10-12 最新整合验证与产物交付 · ENGINEERING_FAILED / DELIVERY_PREPARED
+
+[新验证报告](playtests/2026-10-11-integrated-validation.md)已于2026-10-12收尾；[120张截图、录像、脚本与原始日志索引](playtests/2026-10-11-integrated-validation-43d7c76/README.md)保留逐轮失败与来源。受测baseline/final均 `43d7c76c80df54361790c47ba1715fe7290f9039`、dirty=false。五章、双野餐、自由厨房及十类小游戏代表性辅助UI路径完成，但工程验收失败：原生Node22 JSON导入收集、manifest的lint格式错误、桌面演出按钮裁切仍存在；场景暂停焦点越界另已复现。首次单元与适配浏览器的失败、定向结果分开记录，没有把重试写成首次全绿。
+
+原验证任务未改业务代码；本次负责人授权提交全部新报告、文档及执行产物，明确不要测试。本次 **NOT_RUN**：测试、build、lint、资源脚本、浏览器、试玩。分支 `codex/oct12-validation-delivery` 基于上述SHA，收录新报告/独立脚本/证据与原验证工作树现存构建和最后浏览器产物；来源/hash及交付边界见[交付索引](evidence/validation-delivery-2026-10-12/README.md)。这与之前已放弃的旧试玩报告是不同任务，旧文件不收录、不删除。当前仅归档与Git交付，不自动修复产品问题或部署。
+
+上次统一交付[PR #14](https://github.com/yuan2go/tabby-english-food-truck/pull/14)已合并，原PR #12/#13亦为MERGED；main最终为43d7c76c80df54361790c47ba1715fe7290f9039，较64f03fc716de70e20f64f9bbc3802de7601a460f新增28个提交。下面“DELIVERY_PREPARED”等原文为当时历史阶段；当前验证结论以本节及新报告为准。外部接受、真机、儿童/教研/听审与权利仍待验，不能把源码归档合并记为这些验收通过。
+
 ## 2026-10-11 统一交付 · DELIVERY_PREPARED / CHECKS_NOT_RUN
 
 负责人授权全部交付并合并main，明确不测试。整合基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/oct11-combined-delivery`。输入为小游戏与120词包 `d567e562808dbeb18f571e704a0ffacb0a611428`（PR #12，8个提交），五章体验深化包 `2be658b2267131f1d1bf28490890b44fad0dc00c`（PR #13，17个提交）；负责人最新要求放弃试玩报告，本次不收录试玩聊天文件。两个包原提交历史完整保留，共25个唯一提交；统一整合与执行产物归档另行提交，本次PR分支实际27个提交（25历史＋1整合＋1归档）；merge后main预期新增28个，最终数以Git读回为准。

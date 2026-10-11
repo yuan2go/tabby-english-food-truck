@@ -1,0 +1,287 @@
+{
+  "tabby.foodtruck.save.m2.session.training-0": {
+    "byteIdentical": true
+  },
+  "tabby.foodtruck.save.m2.session.story-0-adventure": {
+    "byteIdentical": true
+  },
+  "tabby.foodtruck.save.m2.session.story-4-adventure": {
+    "byteIdentical": true
+  },
+  "tabby.foodtruck.save.m2.session.endless-0": {
+    "byteIdentical": false,
+    "changedFields": [
+      "revision",
+      "gameTime",
+      "machine",
+      "receipts",
+      "audio"
+    ]
+  },
+  "tabby.foodtruck.save.m2.previous": {
+    "byteIdentical": false,
+    "changedFields": [
+      "routing",
+      "revision",
+      "nextId",
+      "gameTime",
+      "machine",
+      "receipts",
+      "audio"
+    ]
+  },
+  "tabby.foodtruck.save.m2.practice": {
+    "byteIdentical": true
+  },
+  "tabby.foodtruck.save.m2.session.story-1-adventure": {
+    "byteIdentical": true
+  },
+  "tabby.foodtruck.save.m2.service": {
+    "byteIdentical": false,
+    "changedFields": [
+      "revision",
+      "gameTime",
+      "machine",
+      "receipts",
+      "audio"
+    ]
+  },
+  "tabby.foodtruck.save.m2.session.story-2-adventure": {
+    "byteIdentical": true
+  },
+  "tabby.foodtruck.save.m2": {
+    "byteIdentical": false,
+    "changedFields": [
+      "revision",
+      "gameTime",
+      "machine",
+      "receipts",
+      "audio"
+    ]
+  },
+  "tabby.foodtruck.save.m2.session.story-3-adventure": {
+    "byteIdentical": true
+  },
+  "phone-picnic-prebranch": {
+    "adventure": {
+      "chapter": 2,
+      "kind": "chapter",
+      "branch": null,
+      "explored": [],
+      "steps": [],
+      "rewards": [],
+      "foods": [],
+      "works": [],
+      "decor": {
+        "flower": 0,
+        "bunting": "warm",
+        "cloth": "leaf",
+        "light": "warm"
+      },
+      "invitations": [],
+      "experience": {
+        "version": 2,
+        "tools": [],
+        "used": [],
+        "helpers": [],
+        "needs": [],
+        "known": [
+          "apple",
+          "banana",
+          "vanilla-cone",
+          "strawberry-cup",
+          "sandwich",
+          "salad-sandwich",
+          "juice",
+          "cheese-burger"
+        ],
+        "picnic": "rabbit",
+        "moments": []
+      }
+    },
+    "orders": [
+      {
+        "id": "guest-0",
+        "request": "sandwich",
+        "visitor": "rabbit",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": true,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      },
+      {
+        "id": "guest-1",
+        "request": "salad-sandwich",
+        "visitor": "hedgehog",
+        "seat": 1,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": false,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      }
+    ]
+  },
+  "phone-picnic-submitted": {
+    "adventure": {
+      "chapter": 2,
+      "kind": "chapter",
+      "branch": null,
+      "explored": [],
+      "steps": [],
+      "rewards": [],
+      "foods": [],
+      "works": [],
+      "decor": {
+        "flower": 0,
+        "bunting": "warm",
+        "cloth": "leaf",
+        "light": "warm"
+      },
+      "invitations": [],
+      "experience": {
+        "version": 2,
+        "tools": [],
+        "used": [],
+        "helpers": [],
+        "needs": [],
+        "known": [
+          "apple",
+          "banana",
+          "vanilla-cone",
+          "strawberry-cup",
+          "sandwich",
+          "salad-sandwich",
+          "juice",
+          "cheese-burger"
+        ],
+        "picnic": "rabbit",
+        "moments": []
+      }
+    },
+    "orders": [
+      {
+        "id": "guest-0",
+        "request": "sandwich",
+        "visitor": "rabbit",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": true,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      },
+      {
+        "id": "guest-1",
+        "request": "salad-sandwich",
+        "visitor": "hedgehog",
+        "seat": 1,
+        "status": "leaving",
+        "remaining": 7019.032204347589,
+        "heard": true,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      }
+    ]
+  },
+  "phone-picnic-received": {
+    "adventure": {
+      "chapter": 2,
+      "kind": "chapter",
+      "branch": "hedgehog",
+      "explored": [],
+      "steps": [
+        "served:hedgehog"
+      ],
+      "rewards": [],
+      "foods": [
+        {
+          "id": "food-1",
+          "product": "salad-sandwich",
+          "source": "guest-1",
+          "place": "guest-hedgehog",
+          "tasted": false
+        }
+      ],
+      "works": [],
+      "decor": {
+        "flower": 0,
+        "bunting": "warm",
+        "cloth": "leaf",
+        "light": "warm"
+      },
+      "invitations": [],
+      "experience": {
+        "version": 2,
+        "tools": [],
+        "used": [],
+        "helpers": [],
+        "needs": [],
+        "known": [
+          "apple",
+          "banana",
+          "vanilla-cone",
+          "strawberry-cup",
+          "sandwich",
+          "salad-sandwich",
+          "juice",
+          "cheese-burger"
+        ],
+        "picnic": "rabbit",
+        "moments": [
+          {
+            "kind": "receive",
+            "foods": [
+              {
+                "id": "food-1",
+                "product": "salad-sandwich"
+              }
+            ],
+            "destination": "table",
+            "visitor": "hedgehog",
+            "id": "1209ced4-38aa-4b06-907c-849236ab130a:moment:5",
+            "at": 19949.3
+          }
+        ]
+      }
+    },
+    "orders": [
+      {
+        "id": "guest-0",
+        "request": "sandwich",
+        "visitor": "rabbit",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": true,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      },
+      {
+        "id": "guest-1",
+        "request": "salad-sandwich",
+        "visitor": "hedgehog",
+        "seat": 1,
+        "status": "leaving",
+        "remaining": 2152.532204347589,
+        "heard": true,
+        "revisit": true,
+        "support": [
+          "picture-request"
+        ]
+      }
+    ]
+  }
+}

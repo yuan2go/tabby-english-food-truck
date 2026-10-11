@@ -1,0 +1,12 @@
+command: npm run test:browser -- --list
+UTC start: 2026-10-11T15:16:03.747838+00:00
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test --list
+
+
+TypeError: Module "file:///Users/dafangzi/.codex/worktrees/integrated-validation-20261011/tabby-english-food-truck/src/content/vocabulary-extra.json" needs an import attribute of "type: json"
+Listing tests:
+Total: 0 tests in 0 files
+
+EXIT_CODE=1

@@ -1,0 +1,19 @@
+command: npm ci
+UTC start: 2026-10-11T15:14:36.902346+00:00
+
+added 67 packages, and audited 68 packages in 10s
+
+18 packages are looking for funding
+  run `npm fund` for details
+
+2 high severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+EXIT_CODE=0
