@@ -1,6 +1,6 @@
 # 技术 · 单一世界与可恢复活动
 
-## WP-PLAYABLE-ADVENTURE-01
+## WP-ADVENTURE-EXPERIENCE-02
 
 保留锁定TypeScript严格类型、Phaser3.90、React19.1.1、Vite7.3.6，不升级依赖、不加后端/模型/ECS/全局事件总线。规则核是唯一事实源；输入→命令→边界校验→原子状态→Phaser/DOM投影→音画，不由动画/音频回调改进度。
 
@@ -26,3 +26,9 @@ schema7/content playable-adventure-1 增加可选活动状态与自由营业接�
 目标60fps、输入p95<100ms等是预算，本包不无依据宣称达标；默认画质/省电、模拟/实机分别报告。构建保留Phaser分块警告。仅必要回归；共享库存与迁移改动应运行完整现有单元套件，浏览器不扩大无关矩阵。
 
 吐司、旧方案与历史技术证据见[归档](archive/pre-playable-adventure-01/index.md)；真实结果见STATUS。
+
+## 本包必要职责划分
+
+保留schema7并以可选、边界校验的experience字段扩展；内容版本更新并对playable-adventure-1原档显式迁移，不改原任务、食品、帮助与完成事实。profile活动记忆使用同一校验/迁移入口。
+
+content活动编排与情境音频定义；rules活动命令/接待/工具/回访/食品使用与有界收据；只读规则引导派生当前目标、缺项与阻碍；Adventure仅组合场景、独立图示引导/工具/食品/朋友演出组件。App只传入口和策略，不集中新规则。ForegroundAudio保留单一声音所有者。演出收据只描述已结算事实，重播不派发玩法命令；快速重复命令、重复品尝与奖励保持幂等。
