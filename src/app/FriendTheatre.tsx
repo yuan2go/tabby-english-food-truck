@@ -81,20 +81,24 @@ export function FriendTheatre({
       : Math.min(eating ? 4 : 2, Math.floor(phase / 960));
   const sip = food && FOOD_GROUPS.drink.includes(food.product);
   const cool = food && FOOD_GROUPS.cool.includes(food.product);
-  const feedback = food
-    ? sip
-      ? '朋友举杯，喝到清凉的饮品'
-      : cool
-        ? '冰凉的小口让朋友眯起眼'
-        : FOOD_GROUPS.fruit.includes(food.product)
-          ? '朋友咬下一口水果，慢慢咀嚼'
-          : '朋友咬下一口，拍拍小肚子'
-    : moment.kind === 'water'
-      ? '花朵展开，蝴蝶飞来'
-      : moment.kind === 'cooperate'
-        ? '朋友把物件带到餐桌旁'
-        : '朋友和你一起准备';
-  const voice = food ? (sip ? 'world-sip' : cool ? 'world-cold' : 'world-bite') : 'world-use';
+  const feedback =
+    food && eating
+      ? sip
+        ? '朋友举杯，喝到清凉的饮品'
+        : cool
+          ? '冰凉的小口让朋友眯起眼'
+          : FOOD_GROUPS.fruit.includes(food.product)
+            ? '朋友咬下一口水果，慢慢咀嚼'
+            : '朋友咬下一口，拍拍小肚子'
+      : food
+        ? `${name}接好食品，带到所选位置，等你安排分享`
+        : moment.kind === 'water'
+          ? '花朵展开，蝴蝶飞来'
+          : moment.kind === 'cooperate'
+            ? '朋友把物件带到餐桌旁'
+            : '朋友和你一起准备';
+  const voice =
+    eating && food ? (sip ? 'world-sip' : cool ? 'world-cold' : 'world-bite') : 'world-use';
   return (
     <section
       className={`friend-theatre theatre-${moment.kind} stage-${index} ${low ? 'low-motion' : ''} ${sip ? 'sip' : cool ? 'lick' : 'bite'}`}

@@ -162,7 +162,7 @@
   background: #6e483d;
   animation: chew-mouth 0.5s alternate infinite;
 }
-.sip .theatre-held {
+.sip.stage-3 .theatre-held {
   rotate: -20deg;
 }
 .sip .theatre-mouth {

@@ -123,6 +123,11 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.getByRole('button', { name: '摆到2号餐位', exact: true }).click();
   await page.getByRole('button', { name: '点亮暖灯', exact: true }).click();
   await page.getByRole('button', { name: '一起开席', exact: true }).click();
+  console.log('EVIDENCE_DINNER_START_SECONDS', (Date.now() - walkStarted) / 1000);
+  await expect(page.getByRole('img', { name: '第2份，共2份', exact: true })).toBeVisible();
+  await expect(feast).toHaveClass(/sip/);
+  await expect(feast).toHaveClass(/stage-4/);
+  await page.screenshot({ path: 'docs/evidence/adventure-experience-02/dinner-drink-desktop.png' });
   await page.getByRole('button', { name: '下一院活动', exact: true }).click();
   await page.getByRole('button', { name: '邀请兔兔', exact: true }).click();
   await page.getByRole('button', { name: '邀请刺刺', exact: true }).click();
