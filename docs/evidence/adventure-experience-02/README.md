@@ -1,6 +1,6 @@
 # WP-ADVENTURE-EXPERIENCE-02 实际证据
 
-状态：生产浏览器验证进行中；本页随实际结果更新，不代表儿童或负责人验收。
+状态：CODE_IMPLEMENTED / ENGINEERING_VERIFIED / EXTERNAL_ACCEPTANCE_PENDING。本包相关检查与正常入口路径已取得实际通过结果；下表按构建来源分列，不代表儿童或负责人验收。
 
 基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；分支 `codex/wp-adventure-experience-02`。原工作区 `codex/player-review-2026-10-11` 的未跟踪 `docs/playtests/` 保留，原HEAD未改。文档治理独立提交 `260b1f82ef918a260ba11d4bfa7747690385fd2a`，随后进入产品实现；历史正文与索引见 [归档](../../archive/pre-adventure-experience-02/index.md)。收尾还修复更早两批归档的98处失效相对链接，没有删改原证据或历史验收结论。
 
@@ -8,17 +8,19 @@
 
 ## 实际运行身份与检查
 
-已核验最新干净生产构建 `7cafefb66561a846111a85735ca16abb13379a95`，content `adventure-experience-2`，资源清单SHA-256 `a7f1f7f13f1921ca797c5e691d78de3cf45a7e1ef8bb8a1fe9bd70099aafb501`；页面实际读回 dirty=false、无pageerror，见 [build-probe-7cafefb.json](build-probe-7cafefb.json)。浏览器实际路径 `http://127.0.0.1:4191/`，默认画质与声音开启，未使用CI预置的省电状态。最新两条复查使用完整 Chromium 153.0.8010.12 headless（CHROMIUM_CHANNEL=chromium）；此前同版headless shell的实际结果保留。
+已核验最终干净生产构建 `ab7978f16f1d27f3baf155c834666f225576cad4`，content `adventure-experience-2`，资源清单SHA-256 `a7f1f7f13f1921ca797c5e691d78de3cf45a7e1ef8bb8a1fe9bd70099aafb501`；页面实际读回 dirty=false、无pageerror，见 [build-probe-ab7978f.json](build-probe-ab7978f.json)。浏览器实际路径 `http://127.0.0.1:4191/`，默认画质与声音开启，未使用CI预置的省电状态。最新复查使用完整 Chromium 153.0.8010.12 headless（CHROMIUM_CHANNEL=chromium）；此前同版headless shell的实际结果保留。此后的交付提交仅文档和证据，最终Git full SHA以PR实际head与交付回读为准；没有为文档变动重复构建或冒称新构建。
 
 | 命令 | 实际结果 | 日志 |
 | --- | --- | --- |
 | `npm test` | a8d945a：exit 0；18文件、258测试通过；之后规则/内容/存档/音频平台未变，已核对diff | [unit](unit.log) |
-| `npm run build`（内含typecheck） | 7cafefb：exit 0；104模块，22.65s；入口549.56kB/Phaser1208.05kB，保留分块提示 | [build](build-7cafefb.log) |
-| `npm run lint` | cb44b1d：exit 0；66 warnings / 7 infos；之后只有文档变化，未冒称清零 | [lint](lint-cb44b1d.log) |
+| `npm run build`（内含typecheck） | ab7978f：exit 0；104模块，15.71s；入口549.56kB/Phaser1208.05kB，保留分块提示 | [build](build-ab7978f.log) |
+| `npm run lint` | ab7978f：exit 0；66 warnings / 7 infos，未冒称清零 | [lint](lint-ab7978f.log) |
 | `npm run resources` | exit 0；387真实文件hash/尺寸/Alpha，236语音引用、50食品映射；此后资源及登记未变 | [resources](resources.log) |
-| `git diff --check` | exit 0 | 本地实际运行 |
+| `git diff --check`、本地Markdown相对链接核对 | exit 0；链接数量见日志 | [文档和身份核对](delivery-checks.log) |
 | `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts e2e/experience.spec.ts` | a8d945a：exit 1，6/8通过；完整原始成功/失败保留 | [浏览器原始日志](browser-a8d945a.log) |
 | `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts --grep 'free shop stops'` | db5ef12：exit 0，1/1完整自由路径通过，2.0m | [自由路径](free-db5ef12.log) |
+| `CHROMIUM_CHANNEL=chromium TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts --grep 'visible activity entrance\|opening a new seat'` | 7cafefb：exit 1，1/2；五章完整通过4.8m，菜单暴露真实覆盖缺陷 | [五章及修正前结果](browser-7cafefb.log) |
+| `CHROMIUM_CHANNEL=chromium TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts --grep 'desktop feast exposes\|opening a new seat'` | ab7978f：exit 0，2/2，1.3m；朋友操作51.6s、完整旧请求23.3s | [最终定向复核](browser-ab7978f.log) |
 
 | 相关正常入口路径 | 实际构建 / 结果 |
 | --- | --- |
@@ -26,16 +28,28 @@
 | 手机先接刺刺的野餐另一分支，真实两份分餐、等价奖励 | a8d945a PASS |
 | 手机三位朋友/第三位分页/工具取用/旋转/占位恢复/真实品尝/作品回看/清桌/自然收摊 | db5ef12 PASS |
 | 桌面鼠标与键盘、错单留食品、暂停加工/刷新 | a8d945a PASS |
-| 新菜单和双客补位，完整旧请求保持 | 7cafefb FAILED：请求重听被紧凑引导覆盖；定向修复中 |
+| 新菜单和双客补位，完整旧请求保持；手机请求重听可达 | ab7978f PASS，23.3s；修正前失败保留 |
+| 桌面朋友连续使用两份食品、真实制作苹果汁并饮用；重播/跳过/低动态可达且不重复结算 | ab7978f PASS，51.6s；修正前真实失败回归保留 |
 | 单客主动选刺刺、切双客再切单客不丢食品/已接请求 | a8d945a PASS |
 | 较少帮助无严格答案，拒播后图示补救且记录辅助 | a8d945a PASS |
 | 可见设置静音，图示目标与安全重听 | a8d945a PASS |
 
-上述8条路径按实际来源分批记录。db5ef12到最新构建的产品变化仅为品尝反馈、放杯朝向和演出忙帧时钟；相关五章演出复查使用最新构建。默认另8条未改的浏览器门禁本机 NOT_RUN，托管CI单独读回。
+上述9条相关路径按实际来源分批通过，没有把它们写成最终构建一次9/9的全套。db5ef12之后规则/内容/存档/资源未变，表现修正为品尝反馈、放杯朝向、演出忙帧时钟；7cafefb五章完整复核通过。7cafefb到ab7978f仅厨房引导移至顶栏、桌面演出布局及对应风险回归；最终在手机请求和桌面朋友操作上复核。默认另8条未改的浏览器门禁本机 NOT_RUN，托管CI单独读回。当前用例清单为[17条/7文件](browser-list.log)。
 
-7cafefb定向复查exit 1，1/2：五章完整通过，菜单用例揭示厨房紧凑引导覆盖请求气泡，保留[失败上下文](failures/covered-request-context.md)与[画面](failures/covered-request.png)。最终截图还揭示桌面演出控制被容器裁掉，[画面](failures/clipped-desktop-controls.png)。保留完整阶段与订单断言，针对实际按钮可达性和不重复结算补定向回归；不以完整五章通过掩盖局部输入缺陷。
+7cafefb定向复查exit 1，1/2：五章完整通过，菜单用例揭示厨房紧凑引导覆盖请求气泡，保留[失败上下文](failures/covered-request-context.md)与[画面](failures/covered-request.png)。截图还揭示桌面演出控制被容器裁掉，[画面](failures/clipped-desktop-controls.png)；新增回归修正前exit1，实际按钮可视比例仅0.136，见[日志](failures/desktop-controls-red.log)。保留完整阶段、食品守恒与旧请求相等断言，修为顶栏引导和独立桌面控制行；ab7978f两条实际通过，不以完整五章通过掩盖局部输入缺陷。
 
 从可见首页进入，点击/触控/键盘执行正常命令；只读保存状态用于食品、请求、奖励与恢复核对，没有注入通关、任务、食品或奖励。音频故障通过中止WAV网络请求模拟。桌面1280×720、手机393×665为模拟视口；另有鼠标和键盘实际入口路径。
+
+## 少量关键画面与连续录像
+
+最终ab7978f：两份水果分别进入朋友接餐、携带、摆放、品尝、回应；随后从厨房真实制作苹果汁、摆放并品尝。以下短录像取自同一次正常入口操作，保持原速，仅去除录屏下方灰色填充并缩至960×540；没有音轨，不能证明人工听审。原片位置、字节/hash、裁段区间和所有证据hash见[manifest](manifest.json)。
+
+- [两位朋友连续使用两份食品，12.8秒](friends-two-foods.webm)
+- [兔兔实际喝苹果汁，8秒](friend-sips-juice.webm)
+- [最终桌面操作完整可见](desktop-friend-controls.png)、[最终饮用与回应](drink-use-desktop.png)
+- [手机三位朋友与取出的工具](three-friends-tools-phone.png)、[手机占位后的实际恢复](occupied-recovery-phone.png)、[另一野餐路线](picnic-hedgehog-phone.png)
+
+手机图来自db5ef12/野餐图来自a8d945a，来源逐项列在manifest。其他旧截图和失败画面完整保留；旧饮用杯朝向及裁切画面不作为最终表现证明。
 
 ## 行为与责任
 

@@ -2,7 +2,7 @@
 
 和大咪一起做早餐、分享甜点、准备野餐、点亮餐桌和邀请朋友。单人、触控优先、面向3–6岁，以轻冒险、玩具厨房与轻量调度组成完整游戏。
 
-当前工作包 **WP-ADVENTURE-EXPERIENCE-02** 正在深化现有五章、野餐真实双路径和自由厨房：接通单/双客支持策略、完整无识字引导、朋友连续使用食品、工具探索与有差异的五章和回访创作。实现与验证状态只见[STATUS](docs/STATUS.md)，验收与实施顺序见[05](docs/05-delivery.md)。此前包已合并，证据保留[历史索引](docs/archive/pre-adventure-experience-02/index.md)，不把此前结果当本包通过。
+当前工作包 **WP-ADVENTURE-EXPERIENCE-02** 已实现五章、野餐真实双路径和自由厨房的体验深化：单/双客支持策略、图示与可重听引导、朋友连续使用食品、工具探索和回访创作。相关工程与正常入口路径已有实际通过结果；负责人、真机、儿童观察与听审仍待验。实现与验证状态见[STATUS](docs/STATUS.md)，验收见[05](docs/05-delivery.md)，构建身份、分批结果和影像见[本包证据](docs/evidence/adventure-experience-02/README.md)。此前包已合并，证据保留[历史索引](docs/archive/pre-adventure-experience-02/index.md)。
 
 ## 启动
 

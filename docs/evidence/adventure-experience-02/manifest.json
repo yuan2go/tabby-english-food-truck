@@ -1,0 +1,466 @@
+{
+  "workPackage": "WP-ADVENTURE-EXPERIENCE-02",
+  "recordedAtUTC": "2026-10-11T14:05:42.041140+00:00",
+  "baselineSha": "64f03fc716de70e20f64f9bbc3802de7601a460f",
+  "branch": "codex/wp-adventure-experience-02",
+  "buildSha": "ab7978f16f1d27f3baf155c834666f225576cad4",
+  "buildDirty": false,
+  "contentVersion": "adventure-experience-2",
+  "assetManifestSha256": "a7f1f7f13f1921ca797c5e691d78de3cf45a7e1ef8bb8a1fe9bd70099aafb501",
+  "environment": {
+    "os": "macOS 26.6.2 (25G83) arm64",
+    "node": "24.15.0",
+    "npm": "11.12.1",
+    "browser": "Playwright 1.63.0 Chromium 153.0.8010.12 headless",
+    "latestChannel": "chromium",
+    "url": "http://127.0.0.1:4191/",
+    "desktop": [
+      1280,
+      720
+    ],
+    "phone": [
+      393,
+      665
+    ]
+  },
+  "capture": {
+    "actions": "normal visible home entrance, clicks/touch/keyboard; no game state injection",
+    "audio": "screen recordings have no audio track; playback not human hearing review",
+    "rawCurrentVideo": {
+      "path": "/tmp/tabby-experience-02-friend-controls-ab7978f.webm",
+      "availability": "LOCAL_ONLY; committed clips are the delivered video evidence",
+      "buildSha": "ab7978f16f1d27f3baf155c834666f225576cad4",
+      "bytes": 4468652,
+      "sha256": "f8827ee91b11eb6a9d91b691769a99f6d19039277c1080f771fb6777e12cf87b"
+    },
+    "clips": [
+      {
+        "path": "friends-two-foods.webm",
+        "startSeconds": 19.8,
+        "durationSeconds": 12.8
+      },
+      {
+        "path": "friend-sips-juice.webm",
+        "startSeconds": 42.5,
+        "durationSeconds": 8.0
+      }
+    ],
+    "processing": "original speed; crop 1024x576 top scene from 1024x1024 recorder padding, scale 960x540, VP8; no game content removed or altered"
+  },
+  "files": [
+    {
+      "path": "breakfast-friends-desktop.png",
+      "bytes": 1031214,
+      "sha256": "3ccd045ff27473503c37a4c8a570c1103b29611d24103ac7c4719c22b243556a",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "browser-7cafefb.log",
+      "bytes": 4553,
+      "sha256": "528c87542c01d975e1f90d5dfdceb0f66af80b148071267a19e6bf0f2cdd2c7c",
+      "sourceSha": "7cafefb66561a846111a85735ca16abb13379a95"
+    },
+    {
+      "path": "browser-a8d945a.log",
+      "bytes": 6498,
+      "sha256": "4942ebe89716198e819337ff657b090c00d6986ecea003da76c73d8b5154e06b",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "browser-ab7978f.log",
+      "bytes": 547,
+      "sha256": "8752e7aa61ff4dabcc48838a76d638e63f4e18c86c2f7324d506b39e8de3dfbb",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "browser-list.log",
+      "bytes": 1913,
+      "sha256": "fc7600b01bffa5c4c5c191fbd2f6bd4247f4d19d8c52df5bef7554469c2575f4",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "build-7cafefb.log",
+      "bytes": 889,
+      "sha256": "39743606d3e168ed65cd7abc44c5ede4097ba06d4d46d89f0bd6445e75258d5c",
+      "sourceSha": "7cafefb66561a846111a85735ca16abb13379a95"
+    },
+    {
+      "path": "build-ab7978f.log",
+      "bytes": 889,
+      "sha256": "107df4c126aece020ad75edcc43912e6a2d006833f80d46da436dac4e8c48b0b",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "build-probe-7cafefb.json",
+      "bytes": 612,
+      "sha256": "b70ea12a73040c30edf0f18f79a3c54ecf21ccd8e9b18279930826f3b383838c",
+      "sourceSha": "7cafefb66561a846111a85735ca16abb13379a95"
+    },
+    {
+      "path": "build-probe-ab7978f.json",
+      "bytes": 612,
+      "sha256": "82c016503944bc04bfe9309419e417e420b9322bb24d35d186fc872a98f8912a",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "build-probe-db5ef12.json",
+      "bytes": 1570,
+      "sha256": "43828670fd66904c7ef4e71afc7cb6b1a9c7594b35fa6efb4554bab244d4407e",
+      "sourceSha": "db5ef124995b949e011b393fc33059b475c58102"
+    },
+    {
+      "path": "build-probe.json",
+      "bytes": 717,
+      "sha256": "0a483ca7552c70adbdc2297a973bb91e57be9494597aa7d9c03fea386aaffb59",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "build.log",
+      "bytes": 889,
+      "sha256": "cd1908c740b6cff56e6aa2ebc1f1799ca9512688a2f4f59ac6efbb3e198362d8",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "delivery-checks.log",
+      "bytes": 431,
+      "sha256": "770c79ce1cdd09da4e354bef386f538bae85482c454a6fa839b4801c03ce7ccc",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "desktop-friend-controls.png",
+      "bytes": 1031794,
+      "sha256": "313df8750e47ce49a0e85153d8bb1d7106cf4b08101640eae5f87ee4d3755ea3",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "dinner-drink-desktop.png",
+      "bytes": 1050018,
+      "sha256": "86349fd9a1e0c8c11ed11513e3a9852a2c3068d36c5115638962f36ea251293b",
+      "sourceSha": "7cafefb66561a846111a85735ca16abb13379a95"
+    },
+    {
+      "path": "drink-use-desktop.png",
+      "bytes": 1037789,
+      "sha256": "ec5421857a9b23687d90bad63b66d2fd47f2934329599d43ff6a29b9c33dcaec",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "failed-speech-pictures-phone.png",
+      "bytes": 312524,
+      "sha256": "ff69eaa2826fa84240707324b7c44c08e932264a66361ba238fb4f2e6ec20741",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "failures/browser-0243361.log",
+      "bytes": 5970,
+      "sha256": "f758d88af89140798d5f1e95b845dabb4bc8ceda08472242d4cc16b1f9464334",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/browser-055219d.log",
+      "bytes": 7689,
+      "sha256": "577650d0ee2ba1c13929d06b33f332d06a87a3a60a7340b7e1e5c3663bf0815f",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/browser-f531590-interrupted.log",
+      "bytes": 3331,
+      "sha256": "4760f6de5e818cb5b06e698a2f9a6ec41de01116b9cd4aea1b70fabcb2465936",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/build-probe-dirty-cb44b1d.json",
+      "bytes": 611,
+      "sha256": "486ab79a43f8340eaa12a8e0beb2add87eb600a04781835135144250542447ba",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/busy-home-context.md",
+      "bytes": 11220,
+      "sha256": "11360d69c5e012d50b27ab41abd3dfecadb634d5712bf024d244008ab6b86313",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/busy-home.png",
+      "bytes": 512927,
+      "sha256": "c4991741d446c0fe06f886f93f35c570949d5a5c80ac847df38d96fa0cf22f8e",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/capacity-red.log",
+      "bytes": 1174,
+      "sha256": "1089bc02a60c18be951a19bb0df219b83c8541cf5e8ea459e963235a2639c808",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/clipped-desktop-controls.png",
+      "bytes": 1050018,
+      "sha256": "86349fd9a1e0c8c11ed11513e3a9852a2c3068d36c5115638962f36ea251293b",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/completed-clear-red.log",
+      "bytes": 1305,
+      "sha256": "9a724b2bdda95e846fe4393272f0c9723d846ec0dba5a163f0006b8b749fbcbe",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/content-red.log",
+      "bytes": 2829,
+      "sha256": "60c218cd10bd4f8fb264a5ceccc48b04b5fc8b40a413446f0be63519acfbb05b",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/covered-home-book-context.md",
+      "bytes": 8463,
+      "sha256": "8a9af3c3b21b1bdaf62635c5bc308d9cfbc4d02f9bec2d39a41f07e5bca9c3d3",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/covered-home-book.png",
+      "bytes": 417103,
+      "sha256": "7b087f352ad943ffd41ef8a3fb840dfeade5b210db9c353c1f9cbc8d148282be",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/covered-request-context.md",
+      "bytes": 12374,
+      "sha256": "d9d676c6636de80fa353b13040f3ee81bc532897a44bbd1c301d6bf731b2325b",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/covered-request.png",
+      "bytes": 409121,
+      "sha256": "ede823e53ec04939537a5ecac8a8aff9e22dac1d6c9a2c93bbb48e0a22fc7a57",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/desktop-controls-red-context.md",
+      "bytes": 14337,
+      "sha256": "966f1cf662f0d5b3b198b256cc9e1971c3817b41d7edfc1bf4aaee58f9df13e3",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/desktop-controls-red.log",
+      "bytes": 3054,
+      "sha256": "94109542877493caa8a2176f9c2d4e89aca0c66432d683f4cbc98a767d5bc049",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/five-chapter-time-limit.png",
+      "bytes": 1115195,
+      "sha256": "decf060dd58ce7845b5056ec1844b748b4e4c6e372b876e85f02049c6fd82f5a",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/free-run-time-limit-context.md",
+      "bytes": 16143,
+      "sha256": "2654033adc4de5aeb3015627de31f073a12ea4ffc043488937ad13b493598250",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/free-run-time-limit.png",
+      "bytes": 194788,
+      "sha256": "68d6024c37e21f9e38e855938dc6d48d77b6dcff5c736c31a77f82a061cca2b0",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/identity-red.log",
+      "bytes": 1118,
+      "sha256": "a7c669a1830526014fe7a3a95a3d8299468330e21aa84139d1c5affd8dc70621",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/order-audio-completion-context.md",
+      "bytes": 9213,
+      "sha256": "e39bcb99c01162e5533178261dce31a0fa980d8bdf3b3305f20204ea944a07a6",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/order-audio-completion.png",
+      "bytes": 415085,
+      "sha256": "4c12f02ba2f47d374f69e3d07448d31887a3f027d6cb0a66ebad2cbaa112f32c",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/phone-scene-overflow.png",
+      "bytes": 292619,
+      "sha256": "0b8c00e735e888ef5472a1e454e81a35c67c86dc452a39625188225bcca4e78c",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/queued-help-red.log",
+      "bytes": 1303,
+      "sha256": "4c87d4eb2e649983ddd41f94346265b4292982838262eb3a208a7ff1eccaea3a",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/receipt-red.log",
+      "bytes": 961,
+      "sha256": "2cc7696564217e4ca3ab42124cfd15e97f88533ce84fb69c77c088690092a3c6",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/red.log",
+      "bytes": 1963,
+      "sha256": "05ae56486ea11c87529d207ca91e0e71c9269a364c4a90d0eb357a93a9610c72",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/resources-candidate.log",
+      "bytes": 666,
+      "sha256": "ca07dd0a5dadee70daa090d47b5cbeb1ac5c83290f2782a9e65eb32ebccb2b6f",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/return-red.log",
+      "bytes": 2256,
+      "sha256": "b1013f854e99707cd348c56899285962d24795c12fa43d38b017248757750eed",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/shade-red.log",
+      "bytes": 1408,
+      "sha256": "b2ae16e0b31cd99a11dabc294e25f04b83992a09321c69a5b10c6ade73134061",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/sharing-used-red.log",
+      "bytes": 1267,
+      "sha256": "3974e9c40ac29d4901aceedbd0e4dff5ab7b95f058c8af6bbb4576db8ec545dc",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/slow-visual-clock-context.md",
+      "bytes": 11693,
+      "sha256": "082e4819a592f5626e3eaf45c53ef328e7ce390387ba8b019eab9008da661ec0",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/slow-visual-clock.png",
+      "bytes": 1064809,
+      "sha256": "bbbcf5f708ef431f495e7dcc7c278f954d1889ba360156278beecf7a0cef794e",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/typecheck-review.log",
+      "bytes": 1941,
+      "sha256": "835580af5759ed2acd88bdce21c3ea8845c824ebda366932c6f3ae83d48ac6a4",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "failures/ui-red.log",
+      "bytes": 3667,
+      "sha256": "335acc133fabf67f46c3bd6191938e0551e908161ad423f318e8be64df08e5d7",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "feast-desktop.png",
+      "bytes": 1011942,
+      "sha256": "5761566b707de16d49d4595b525c6c7901de7360f7b20976096be18302742506",
+      "sourceSha": "7cafefb66561a846111a85735ca16abb13379a95"
+    },
+    {
+      "path": "free-db5ef12.log",
+      "bytes": 350,
+      "sha256": "d303b2376a526882c356b339ffd2a38693e65989ea0d277e3b3485261557c955",
+      "sourceSha": "db5ef124995b949e011b393fc33059b475c58102"
+    },
+    {
+      "path": "free-shop-phone.png",
+      "bytes": 294417,
+      "sha256": "6d43122a64549bc11b4d78f1e4b616558b50a25abdddd466e808c7723f6b8e9a",
+      "sourceSha": "db5ef124995b949e011b393fc33059b475c58102"
+    },
+    {
+      "path": "friend-drinking-phone.png",
+      "bytes": 296248,
+      "sha256": "40d1f2d3eb41e72fa8c398fa997a4d3e6dd4bf48b08e2f2d01eed595924b5e8d",
+      "sourceSha": "db5ef124995b949e011b393fc33059b475c58102"
+    },
+    {
+      "path": "friend-sips-juice.webm",
+      "bytes": 476967,
+      "sha256": "d919a8758f67f6dc5ae46e4172ef72c75f2f43994b145e41260dafa1b769ca60",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "friends-two-foods.webm",
+      "bytes": 629938,
+      "sha256": "e4b5c557e59d0b6f6d39631e0cdd84e74941d83152eae3e32bb8e6616db7d8f9",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "home-phone.png",
+      "bytes": 411781,
+      "sha256": "1f13d0c945a629b47e6854870e2fb530917bc3d32db2a64e9b8129df5af71a5a",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "kitchen-desktop-mouse.png",
+      "bytes": 1111280,
+      "sha256": "35f5130c503f4822e6a632b0d1b2f88bf03c1dbed47acb4d5aebe7896087010f",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "lint-ab7978f.log",
+      "bytes": 18741,
+      "sha256": "b2b8f445ef26b10a50224b94b14d7f957cb1b06994ff6a709a2fda88e02e0135",
+      "sourceSha": "ab7978f16f1d27f3baf155c834666f225576cad4"
+    },
+    {
+      "path": "lint-cb44b1d.log",
+      "bytes": 18483,
+      "sha256": "1ff1e621a3ca2a5d05241c4620f7a43be8a0c87c6f3ed084184b9c8abad4b67a",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "lint.log",
+      "bytes": 18462,
+      "sha256": "f52272018346b6d232ea0768f3bd0143c01bed53dd8ce6e7ff71e100c1438981",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "occupied-recovery-phone.png",
+      "bytes": 292134,
+      "sha256": "8d662156ab971dcbcf99f9fad99cc9241ede86021fc55ae4cbd2b3b51625dd40",
+      "sourceSha": "db5ef124995b949e011b393fc33059b475c58102"
+    },
+    {
+      "path": "picnic-hedgehog-phone.png",
+      "bytes": 310208,
+      "sha256": "05025c93e2d2114afb13d00f66a82de256e9b16f1353d48d44bb7978a5126c68",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "picnic-rabbit-desktop.png",
+      "bytes": 1038701,
+      "sha256": "adfade734f4633abba9f9372487602fd932ffebe0fb680b4a9c0f6810c13933c",
+      "sourceSha": "7cafefb66561a846111a85735ca16abb13379a95"
+    },
+    {
+      "path": "resources.log",
+      "bytes": 392,
+      "sha256": "1fbd9d5f5a0899b81ebe941789d22a8290a3f64ec9420400b69209d534e7a09c",
+      "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
+    },
+    {
+      "path": "single-dual-phone.png",
+      "bytes": 333024,
+      "sha256": "78779b6d07f52cabd9faf2959ff29078893b5bdc3391abf458600b0899247322",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    },
+    {
+      "path": "three-friends-tools-phone.png",
+      "bytes": 282960,
+      "sha256": "7c9ad7e694cdaf39d4d57b6269e657f547cde2f0929a31be13853826dbcbf45e",
+      "sourceSha": "db5ef124995b949e011b393fc33059b475c58102"
+    },
+    {
+      "path": "unit.log",
+      "bytes": 325,
+      "sha256": "a682dc57e3aa2c618cd0a00e7e7a594c69a68edb4097fcc92f311ef0baf5cfa4",
+      "sourceSha": "a8d945ab6786a9aee6eaed114dbea8d20a7da792"
+    }
+  ]
+}

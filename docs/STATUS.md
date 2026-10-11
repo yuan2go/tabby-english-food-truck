@@ -1,13 +1,19 @@
 # 项目状态
 
-## 2026-10-11 · WP-ADVENTURE-EXPERIENCE-02 · CODE_IMPLEMENTED / VERIFICATION_IN_PROGRESS
+## 2026-10-11 · WP-ADVENTURE-EXPERIENCE-02 · CODE_IMPLEMENTED / ENGINEERING_VERIFIED / EXTERNAL_ACCEPTANCE_PENDING
 
-最新默认分支origin/main基线 `64f03fc716de70e20f64f9bbc3802de7601a460f`；已通过fetch与远端HEAD核对。原工作区codex/player-review-2026-10-11含未跟踪docs/playtests，保留未改。独立worktree `/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck`，分支codex/wp-adventure-experience-02，一包一个实现负责人。
+基线为最新核对的origin/main `64f03fc716de70e20f64f9bbc3802de7601a460f`。原工作区 `codex/player-review-2026-10-11` 及未跟踪 `docs/playtests/` 保留未改。独立worktree `/Users/dafangzi/.codex/worktrees/adventure-experience-02/tabby-english-food-truck`，分支 `codex/wp-adventure-experience-02`，一个实现负责人。推送/草稿PR交付进行中；本包不合并、不部署、不强推、不修改权限或工作流。
 
-已阅读AGENTS、README、01–05、STATUS、活动规则/界面/控制器/音频/存档及资源规范。确认现有五章与自由厨房存在；故事入口传入客流参数但enterAdventure/startAdventure未使用且写死2，Story参数未显示选择；品尝主要是tasted状态与变淡，活动引导主要靠中文。此前真实输入修复保留，不盲改。
+先核查AGENTS、README、01–05、STATUS、计划/资源、最新main与现有规则/界面/控制器/音频/存档。文档治理独立提交 `260b1f82ef918a260ba11d4bfa7747690385fd2a` 先于产品代码，历史正文、有效未实现需求、失败证据与来源/权利记录保留，旧引用修复。本包规则与验收写入现有01–05，没有另建并行最终蓝图。
 
-已归档原权威正文、将本包范围/规则/体验/技术/验收合并到01–05、纠正上一包PR11已合并事实并将其另行授权限定在历史包。文档整理独立提交260b1f8已完成。随后6fd9885实现客流与活动规则；当前体验组件、真实动作图层、作品回看和40条开发语音已写入代码，工程及正常入口验证进行中，不提前记体验通过。
+已实现：故事默认单客主动迎入、双客可选与已接请求保持；静音/拒播仍有完整图示恢复路径，较少帮助隐藏严格答案；真实接餐、携带、摆放、品尝、回应及可跳过/重播/低动态；花苗浇水、不同甜点比较与彩旗分享、篮子装入/取出或餐垫分餐、搬灯/杯协作、基于实际历史的回访需要；自由制作/改位/品尝/作品回看/重新制作和自然收摊。新工具与分享记录可靠恢复，旧存档不推断新增完成。40条情境开发语音接入现有音频生命周期并登记为未审核。
 
-当前共享规则258/258通过；第二候选a8d945a生产构建6/8通过，五章与两路已走通；另两条自由/菜单场景复查中，最终画面修正尚待验证。独立复查四项Important已修复关闭。负责人手感PENDING、iPhone15 Pro＋Chrome新构建NOT_RUN/历史NEEDS_REVISION、儿童/教研/人工听审NOT_RUN、权利PENDING、历史60fps NOT_MET未重测。本包不合并、不部署。
+最终运行源码及干净生产构建 `ab7978f16f1d27f3baf155c834666f225576cad4`；content `adventure-experience-2`，实际读回dirty=false、无pageerror。后续提交仅交付文档与证据。共享规则258/258通过，最终build（含typecheck）、lint、资源检查均exit0；lint保留66 warnings / 7 infos和构建分块提示。9条相关正常入口路径按实际构建分批取得PASS：完整五章7cafefb、手机另一野餐路线及策略/输入/无音图示a8d945a、完整自由路径db5ef12、最终请求重听与朋友控制/饮用ab7978f。没有冒称最终构建一次9/9全套；规则/存档/资源之后未变，表现修正针对复核。其他8条未改浏览器门禁本机NOT_RUN，托管CI单独读回。全部命令、环境、构建来源、失败历史、关键截图/短录像和hash见[本包证据](evidence/adventure-experience-02/README.md)。
 
-[上一包完整结果与失败证据](archive/pre-adventure-experience-02/STATUS.md)、[历史索引](archive/pre-adventure-experience-02/index.md)、[实际云端合并记录](evidence/playable-adventure/cloud-delivery.md)。
+只读独立复查四项Important均修复关闭；最终实际走查另修复手机入口遮挡、场景撑宽、厨房请求重听覆盖和桌面演出控制裁切，保留失败，不以代码审查或单项通关代替体验证明。
+
+负责人手感PENDING；实体iPhone 15 Pro＋Chrome新构建NOT_RUN/历史NEEDS_REVISION；儿童观察、教研、人工听审NOT_RUN；素材与开发声音分发权PENDING；性能新构建NOT_RUN/历史60fps NOT_MET。开发语音仍为DEVELOPMENT_TTS_UNREVIEWED，工程完成不表示这些外部验收已通过或可公开发布。
+
+启动：在上述worktree运行 `npm ci`、`npm run dev`，打开终端本地HTTP地址；当前已构建生产预览 `http://127.0.0.1:4191/`。源码链接不是可玩网址。
+
+[上一包完整结果与失败证据](archive/pre-adventure-experience-02/STATUS.md)、[历史索引](archive/pre-adventure-experience-02/index.md)、[上一包云端合并记录](evidence/playable-adventure/cloud-delivery.md)。

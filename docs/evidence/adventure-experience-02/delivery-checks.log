@@ -1,0 +1,12 @@
+Markdown files: 81; local relative links: 435; missing: 0
+git diff --check exit=0
+Changes since shared-rule suite a8d945a (presentation only):
+src/app/Adventure.tsx
+src/app/App.tsx
+src/app/FriendTheatre.tsx
+src/app/SharingPegs.tsx
+src/app/adventure.css
+src/app/friend-theatre.css
+
+Runtime/config/tests/resources change after final clean build: NONE
+Shared-rule/content/save/audio/resources/dependency diff after 258-test run: NONE
