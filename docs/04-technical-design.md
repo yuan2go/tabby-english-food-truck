@@ -26,3 +26,9 @@ schema7/content playable-adventure-1 增加可选活动状态与自由营业接�
 目标60fps、输入p95<100ms等是预算，本包不无依据宣称达标；默认画质/省电、模拟/实机分别报告。构建保留Phaser分块警告。仅必要回归；共享库存与迁移改动应运行完整现有单元套件，浏览器不扩大无关矩阵。
 
 吐司、旧方案与历史技术证据见[归档](archive/pre-playable-adventure-01/index.md)；真实结果见STATUS。
+
+## 词库与场景小游戏职责
+
+content/vocabulary与独立JSON包含120学习概念，foods/recipes供应映射不改。content/scene-levels配置具象场景、有效解与短请求；rules/scene-games负责实例归属、状态前置、空间/数量/多解、明确提交与有界尝试；app/SceneGames组合独立场景表现，app/VocabularyVisual负责静态道具与动作空间投影。既有mini-course使用新的学习查询，原31关与旧小游戏保存保持。
+
+新场景快照独立键/version1，MiniStore统一拥有内存和持久化，损坏/未来档保留原文、拒存可玩可导出可重试；不推断旧完成变新完成。保存seed、题号、实际物件、支持、提交收据和自由作品；命令绑定轮次并去重，重复输入/切换/恢复不重复完成。重玩支持累积，不洗白。旧存档键与schema7厨房不变。资源清单记录矢量源文件、WAV文本/实际hash/来源，不改旧素材审核状态。
