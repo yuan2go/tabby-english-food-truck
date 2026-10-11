@@ -9,7 +9,9 @@ let serial = 0;
 const cmd = (s: GameState, command: Command) =>
   dispatch(s, { id: `t-${++serial}`, runId: s.runId, command });
 const start = (chapter = 2) => {
-  const r = cmd(createGame('adventure', 0, {}, 'practice'), {
+  const initial = createGame('adventure', 0, {}, 'practice');
+  initial.session.concurrency = 2;
+  const r = cmd(initial, {
     type: 'adventure-start',
     chapter,
   } as Command);
@@ -61,6 +63,7 @@ describe('adventure causal rules', () => {
     expect(act(s, 'plant', { seat: 0 }).kind).toBe('blocked');
     s = deliver(s, 0, 'apple');
     s = act(s, 'explore', { object: 'drawer' }).state;
+    s = act(s, 'take-tool', { object: 'seed' }).state;
     expect(act(s, 'plant', { seat: 0 }).kind).toBe('ok');
   });
   it('a full table can pick up and rearrange a portion without returning it to the kitchen', () => {
@@ -129,6 +132,7 @@ describe('adventure causal rules', () => {
   it('hedgehog path needs two distinct seats and cannot recycle delivered food', () => {
     let s = deliver(start(), 1, 'salad-sandwich');
     s = act(s, 'explore', { object: 'drawer' }).state;
+    s = act(s, 'take-tool', { object: 'mat' }).state;
     const first = s.adventure?.foods[0];
     if (!first) throw Error('food');
     s = act(s, 'place', { item: first.id, seat: 0 }).state;
@@ -261,6 +265,7 @@ it('moving one food through two seats does not satisfy a two-friend table', () =
   let s = deliver(start(), 1, 'salad-sandwich');
   s = deliver(s, 0, 'sandwich');
   s = act(s, 'explore', { object: 'drawer' }).state;
+  s = act(s, 'take-tool', { object: 'mat' }).state;
   const id = s.adventure?.foods[0]?.id;
   if (!id) throw Error('food');
   s = act(s, 'place', { item: id, seat: 0 }).state;
@@ -280,4 +285,98 @@ it('a second creation saves its own three portions rather than merging every pas
     ['banana'],
     ['apple'],
   ]);
+});
+
+it('new breakfast uses actual drawer tools and watering without duplicating food', () => {
+  let s = deliver(start(0), 0, 'apple');
+  s = deliver(s, 1, 'banana');
+  s = act(s, 'explore', { object: 'drawer' }).state;
+  expect(act(s, 'plant', { seat: 1 }).kind).toBe('blocked');
+  s = act(s, 'take-tool', { object: 'seed' }).state;
+  s = act(s, 'plant', { seat: 1 }).state;
+  expect(act(s, 'finish').kind).toBe('blocked');
+  expect(act(s, 'water').kind).toBe('blocked');
+  s = act(s, 'take-tool', { object: 'watering-can' }).state;
+  const ids = s.adventure?.foods.map((f) => f.id);
+  s = act(s, 'water').state;
+  expect(act(s, 'water').kind).toBe('duplicate');
+  expect(act(s, 'finish').kind).toBe('ok');
+  expect(s.adventure?.foods.map((f) => f.id)).toEqual(ids);
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+});
+it('friend sharing validates an open need and keeps wrong food and repeated tasting stable', () => {
+  let s = start(4);
+  s = act(s, 'invite', { visitor: 'rabbit' }).state;
+  s = make(s, 'banana');
+  s = make(s, 'juice');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  const banana = s.adventure?.foods.find((f) => f.product === 'banana');
+  const juice = s.adventure?.foods.find((f) => f.product === 'juice');
+  if (!banana || !juice) throw Error('real food');
+  const before = structuredClone(s.adventure?.foods);
+  expect(act(s, 'share', { item: juice.id, visitor: 'rabbit' }).kind).toBe('blocked');
+  expect(s.adventure?.foods).toEqual(before);
+  s = act(s, 'share', { item: banana.id, visitor: 'rabbit' }).state;
+  expect(s.adventure?.foods.find((f) => f.id === banana.id)?.place).toBe('table:0');
+  expect(act(s, 'share', { item: banana.id, visitor: 'rabbit' }).kind).toBe('duplicate');
+  s = act(s, 'taste', { item: banana.id, visitor: 'rabbit' }).state;
+  const tasted = structuredClone(s.adventure);
+  expect(act(s, 'taste', { item: banana.id, visitor: 'rabbit' }).kind).toBe('duplicate');
+  expect(s.adventure).toEqual(tasted);
+  expect(s.attempts).toHaveLength(0);
+  expect(s.items).toHaveLength(0);
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+});
+it('an earlier incomplete adventure gains no new tool or use fact on migration', () => {
+  const s = deliver(start(0), 0, 'apple');
+  const old = JSON.parse(JSON.stringify(s));
+  old.contentVersion = 'playable-adventure-1';
+  delete old.adventure.experience;
+  const recovered = decodeSnapshot(JSON.stringify(old));
+  expect(recovered.ok).toBe(true);
+  if (!recovered.ok) return;
+  expect(recovered.state.adventure?.experience?.tools).toEqual([]);
+  expect(recovered.state.adventure?.experience?.used).toEqual([]);
+  expect(recovered.state.adventure?.rewards).toEqual([]);
+  expect(recovered.state.adventure?.foods).toEqual(old.adventure.foods);
+});
+it('sweet comparisons require two genuinely different creations and survive interruption', () => {
+  let s = start(1);
+  expect(act(s, 'compare').kind).toBe('blocked');
+  s = deliver(s, 0, 'vanilla-cone');
+  expect(act(s, 'compare').kind).toBe('blocked');
+  s = make(s, 'vanilla-cup');
+  s = wait(act(s, 'cool', { tray: 0 }).state);
+  s = act(s, 'compare').state;
+  expect(s.adventure?.experience?.used).toContain('compare');
+  expect(act(s, 'compare').kind).toBe('duplicate');
+  const restored = decodeSnapshot(JSON.stringify(s));
+  expect(restored.ok).toBe(true);
+  if (!restored.ok) return;
+  expect(restored.state.adventure?.foods).toEqual(s.adventure?.foods);
+});
+it('cooperation carries a real found tool without changing cooking, orders or food', () => {
+  let s = deliver(start(3), 0, 'cheese-burger');
+  expect(act(s, 'cooperate', { visitor: 'rabbit', object: 'lantern' }).kind).toBe('blocked');
+  s = act(s, 'explore', { object: 'drawer' }).state;
+  s = act(s, 'take-tool', { object: 'lantern' }).state;
+  const before = structuredClone(s);
+  s = act(s, 'cooperate', { visitor: 'rabbit', object: 'lantern' }).state;
+  expect(s.adventure?.experience?.helpers).toEqual([{ visitor: 'rabbit', role: 'lantern' }]);
+  expect(s.items).toEqual(before.items);
+  expect(s.orders).toEqual(before.orders);
+  expect(s.adventure?.foods).toEqual(before.adventure?.foods);
+  expect(act(s, 'cooperate', { visitor: 'rabbit', object: 'cups' }).kind).toBe('duplicate');
+});
+it('invalid tasting identity cannot corrupt a recoverable portion', () => {
+  let s = start(4);
+  s = make(s, 'banana');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  const id = s.adventure?.foods[0]?.id;
+  if (!id) throw Error('food');
+  const before = structuredClone(s.adventure);
+  const result = act(s, 'taste', { item: id, visitor: 'unknown' });
+  expect(result.kind).toBe('blocked');
+  expect(result.state.adventure).toEqual(before);
+  expect(decodeSnapshot(JSON.stringify(result.state)).ok).toBe(true);
 });

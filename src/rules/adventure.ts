@@ -11,6 +11,16 @@ import {
 } from '../content/adventure';
 import { PRODUCT_NAMES } from '../content/catalog';
 import { queueActor, trayAnchor } from './actions';
+import {
+  addInvitationNeed,
+  experienceCommand,
+  experienceReady,
+  foodVisitor,
+  hydrateExperience,
+  validExperience,
+  worldMoment,
+} from './adventure-experience';
+import { admitAdventure } from './sessions';
 import type { Command, GameState, Item, Result } from './types';
 
 export function startAdventure(
@@ -21,6 +31,7 @@ export function startAdventure(
   const config = ADVENTURES[chapter];
   if (!config || s.adventure || s.items.length || s.actor.current || s.helper) return false;
   s.adventure = emptyAdventure(chapter, kind);
+  hydrateExperience(s.adventure);
   if (kind === 'shop') return true;
   s.session.activity = 'story';
   s.session.chapter = chapter;
@@ -28,14 +39,13 @@ export function startAdventure(
   delete s.session.storyChoice;
   s.session.family = config.family;
   s.session.unlocked = [...FAMILIES.slice(0, Math.min(chapter + 1, 4))];
-  s.session.concurrency = 2;
   s.mode = 'service';
   s.orders = config.orders.map((o, index) => ({
     id: `guest-${index}`,
     request: o.request,
     visitor: o.visitor,
     seat: index as 0 | 1,
-    status: 'waiting',
+    status: s.session.concurrency === 2 ? 'waiting' : 'queued',
     remaining: 0,
     heard: false,
     revisit: Boolean(s.history[o.request]?.length),
@@ -45,7 +55,7 @@ export function startAdventure(
 }
 export function adventureReady(a: AdventureState): boolean {
   const has = (step: string) => a.steps.includes(step);
-  if (a.kind === 'shop') return false;
+  if (a.kind === 'shop' || !experienceReady(a)) return false;
   const twoSeats =
     !!a.rewards.length ||
     ([0, 1] as const).every((seat) => a.foods.some((f) => f.place === `table:${seat}`));
@@ -114,6 +124,11 @@ export function receiveAdventure(
               : `guest-${visitor ?? 'hedgehog'}`,
         tasted: false,
       });
+  worldMoment(s, {
+    kind: 'receive',
+    foods: items.map(({ id, product }) => ({ id, product })),
+    ...(visitor ? { visitor } : {}),
+  });
   if (visitor) {
     step(a, `served:${visitor}`);
     if (a.chapter === 2 && a.branch === null && (visitor === 'rabbit' || visitor === 'hedgehog'))
@@ -137,6 +152,13 @@ export function adventureCommand(
   const has = (id: string) => a.steps.includes(id);
   const chapter = a.chapter;
   const complete = a.rewards.length > 0 || a.kind === 'shop';
+  const experienceResult = experienceCommand(s, c);
+  if (experienceResult) return experienceResult;
+  if (c.action === 'welcome') {
+    return admitAdventure(s, c.visitor)
+      ? result('ok', '朋友来到柜台，请听听需要。')
+      : result('blocked', '先服务已接的朋友，或选择双客接待。');
+  }
   if (c.action === 'explore') {
     const object = c.object;
     if (!object || !['basket', 'drawer', 'recipe'].includes(object))
@@ -251,7 +273,21 @@ export function adventureCommand(
     if (!food || food.place === 'basket') return result('blocked', '先把食物真正送到活动桌。');
     if (a.foods.some((f) => f.id !== food.id && f.place === `table:${c.seat}`))
       return result('blocked', '这个餐位有食物了，换一个位置。');
+    if (
+      a.chapter === 2 &&
+      a.branch === 'hedgehog' &&
+      !complete &&
+      !a.experience?.tools.includes('mat')
+    )
+      return result('blocked', '先从抽屉取出餐垫，找到摆餐的位置。');
     food.place = `table:${c.seat}`;
+    food.recipient = c.seat === 0 ? 'rabbit' : c.seat === 1 ? 'hedgehog' : 'elder';
+    worldMoment(s, {
+      kind: 'place',
+      foods: [{ id: food.id, product: food.product }],
+      seat: c.seat,
+      visitor: foodVisitor(food),
+    });
     step(a, `place:${c.seat}`);
     return result('ok', `食物摆在${c.seat + 1}号餐位。`);
   }
@@ -262,10 +298,21 @@ export function adventureCommand(
     return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
   }
   if (c.action === 'taste') {
+    if (c.visitor !== undefined && !['rabbit', 'hedgehog', 'elder'].includes(c.visitor))
+      return result('blocked', '请选择场景里的朋友。');
     const food = a.foods.find((f) => f.id === c.item);
     if (!food || food.place === 'basket') return result('blocked', '先把一份食物带到桌边。');
     if (food.tasted) return result('duplicate', '这份已经尝过。');
     food.tasted = true;
+    food.tastedBy = food.recipient ?? c.visitor ?? foodVisitor(food);
+    worldMoment(s, {
+      kind: 'taste',
+      foods: [{ id: food.id, product: food.product }],
+      visitor: food.tastedBy,
+      ...(food.place.startsWith('table:')
+        ? { seat: Number(food.place.slice(-1)) as 0 | 1 | 2 }
+        : {}),
+    });
     step(a, 'taste');
     return result(
       'ok',
@@ -297,7 +344,8 @@ export function adventureCommand(
       return result('blocked', '选一位熟悉的朋友。');
     if (chapter !== 4 && !complete) return result('blocked', '先完成活动再邀请回访。');
     if (!a.invitations.includes(c.visitor as Visitor)) a.invitations.push(c.visitor as Visitor);
-    return result('ok', '朋友带着之前的小院记忆来赴约。');
+    addInvitationNeed(a, c.visitor as Visitor);
+    return result('ok', '朋友带着之前的小院记忆来赴约，也有新的分享需要。');
   }
   if (c.action === 'plant') {
     if (
@@ -306,6 +354,8 @@ export function adventureCommand(
       ![0, 1, 2].includes(Number(c.seat))
     )
       return result('blocked', '先在抽屉找花苗，再选花的位置。');
+    if (!complete && !a.experience?.tools.includes('seed'))
+      return result('blocked', '先把花苗从抽屉取出来。');
     a.decor.flower = c.seat as 0 | 1 | 2;
     step(a, 'plant');
     return result('ok', '迎客花种好了，它让早餐桌有了新的位置。');
@@ -349,6 +399,8 @@ export function adventureCommand(
       !['warm', 'moon'].includes(c.value ?? '')
     )
       return result('blocked', '先找到灯串，再选择灯光。');
+    if (!complete && !a.experience?.tools.includes('lantern'))
+      return result('blocked', '先取出灯，让朋友帮忙带到桌边。');
     a.decor.light = c.value as 'warm' | 'moon';
     step(a, 'light');
     return result('ok', '灯亮了，晚餐桌等着朋友围坐。');
@@ -359,6 +411,18 @@ export function adventureCommand(
     if (!reward) return result('blocked', '今天是自由开店。');
     if (a.rewards.includes(reward)) return result('duplicate', '这页活动已经记下了。');
     a.rewards.push(reward);
+    for (const food of a.foods) {
+      if (!food.tasted && food.place !== 'basket') {
+        food.tasted = true;
+        food.tastedBy = food.recipient ?? foodVisitor(food);
+      }
+    }
+    worldMoment(s, {
+      kind: 'finish',
+      foods: a.foods
+        .filter((f) => f.place !== 'basket')
+        .map(({ id, product }) => ({ id, product })),
+    });
     return result('ok', '大家一起开席！可以继续做作品、布置，或自然收摊。');
   }
   return result('blocked', '这个动作还没开放。');
@@ -389,8 +453,12 @@ export function validAdventure(v: unknown): v is AdventureState {
       'table:1',
       'table:2',
     ].includes(f.place) &&
-    typeof f.tasted === 'boolean';
+    typeof f.tasted === 'boolean' &&
+    (f.tastedBy === undefined ||
+      (f.tasted && ['rabbit', 'hedgehog', 'elder'].includes(f.tastedBy))) &&
+    (f.recipient === undefined || ['rabbit', 'hedgehog', 'elder'].includes(f.recipient));
   return (
+    (a.experience === undefined || validExperience(a.experience)) &&
     Number.isInteger(a.chapter) &&
     a.chapter >= 0 &&
     a.chapter < 5 &&
