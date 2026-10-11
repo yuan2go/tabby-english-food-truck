@@ -40,10 +40,10 @@ bread→toast、4秒烤面包机，以及额外自选速度模式仍是有效未
 
 [归档索引](archive/pre-playable-adventure-01/index.md)保留旧范围、设计理由和证据；当前结果只见[STATUS](STATUS.md)。
 
-## WP-MINIGAMES-VOCAB-EXPANSION-01（2026-10-11，实施中）
+## WP-MINIGAMES-VOCAB-EXPANSION-01（2026-10-11，工程已验证/外部接受待验）
 
 本包明确替代旧“不扩题量”：保留听音找物、多组配对、拼写、数量组合、组句，新增寻物、遮挡记忆、归类、实际布置和状态驱动动作剧场。混合复习不计第十一种。十类玩法独立可选；小院活动提供旁路，退出恢复原厨房，不锁故事。拼写与组句自选。每类新增场景至少入门、变化、复访；学习目录120概念与供应目录50食品解耦，不新增食谱、库存或主线门槛。
 
-新增70：餐厨20（cup, plate, bowl, spoon, fork, knife, tray, napkin, pot, pan, lid, kettle, bottle, glass, jug, spatula, ladle, whisk, cutting board, apron）；小院18（basket, box, bag, table, chair, bench, door, window, shelf, drawer, lamp, flower, tree, leaf, seed, watering can, ball, book）；属性13（red, yellow, blue, green, purple, pink, brown, black, white, big, small, round, soft）；数量5（one–five）；动作10（take, put, open, close, pour, stir, wash, cut, carry, share）；方位4（in, on, under, beside）。orange颜色不另计已有食品orange；固定词组按一概念，原加工变体不增加词数。现有50食品逐项保留，最终可达/资源校验前不得标120已完成。
+新增70：餐厨20（cup, plate, bowl, spoon, fork, knife, tray, napkin, pot, pan, lid, kettle, bottle, glass, jug, spatula, ladle, whisk, cutting board, apron）；小院18（basket, box, bag, table, chair, bench, door, window, shelf, drawer, lamp, flower, tree, leaf, seed, watering can, ball, book）；属性13（red, yellow, blue, green, purple, pink, brown, black, white, big, small, round, soft）；数量5（one–five）；动作10（take, put, open, close, pour, stir, wash, cut, carry, share）；方位4（in, on, under, beside）。orange颜色不另计已有食品orange；固定词组按一概念，原加工变体不增加词数。现有50食品逐项保留；120概念的资源与至少两种可达玩法已通过校验，完整覆盖见[evidence](evidence/minigames-vocab/vocabulary-coverage.md)。工程完成不代表人工听审、教研、儿童观察或分发权接受。
 
 不增加地图、经济、账号、运行时AI。保留五章与自由厨房、原语音与权利记录。旧范围原文见[扩展前快照](archive/pre-minigames-vocab-01/index.md)。

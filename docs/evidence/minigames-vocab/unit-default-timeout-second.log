@@ -1,0 +1,31 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/m2-world.test.ts (9 tests | 1 failed) 7410ms
+     × 100 endless orders stay reachable, deterministic across refresh and bounded 5907ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > 100 endless orders stay reachable, deterministic across refresh and bounded
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/m2-world.test.ts:148:3
+    146|     }
+    147|   });
+    148|   it('100 endless orders stay reachable, deterministic across refresh …
+       |   ^
+    149|     for (const support of ['pictures', 'less'] as Support[]) {
+    150|       let s = configureSession(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 19 passed (20)
+      Tests  1 failed | 261 passed (262)
+   Start at  21:27:09
+   Duration  11.00s (transform 11.58s, setup 0ms, import 18.43s, tests 13.47s, environment 23ms)
+

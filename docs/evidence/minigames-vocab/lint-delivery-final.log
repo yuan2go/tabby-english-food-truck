@@ -413,6 +413,29 @@ src/app/Lesson.tsx:115:5 lint/complexity/useOptionalChain  FIXABLE  ━━━━
     118 117 │       if (!unit) return;
   
 
+src/app/adventure.css:330:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    328 │   gap: 3px;
+    329 │ }
+  > 330 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    331 │   width: 34px;
+    332 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
 src/app/foods.css:67:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ! Descending specificity selector found. This selector specificity is (0, 1, 1)
@@ -482,31 +505,8 @@ src/app/foods.css:105:1 lint/style/noDescendingSpecificity ━━━━━━━
   i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
   
 
-src/app/service.css:95:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
-  
-    93 │   pointer-events: none;
-    94 │ }
-  > 95 │ .delivery-actions button {
-       │ ^^^^^^^^^^^^^^^^^^^^^^^^
-    96 │   min-height: 48px;
-    97 │   min-width: 140px;
-  
-  i This selector specificity is (0, 2, 1)
-  
-    74 │   z-index: 4;
-    75 │ }
-  > 76 │ .service-surface .semantic-layer button {
-       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    77 │   position: absolute;
-    78 │   opacity: 0;
-  
-  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
-  
-
 The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
 Diagnostics not shown: 106.
-Checked 199 files in 955ms. No fixes applied.
+Checked 199 files in 944ms. No fixes applied.
 Found 110 warnings.
 Found 16 infos.

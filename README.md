@@ -37,4 +37,4 @@ npm run dev
 
 [既有站点](https://tabby-english-food-truck.yuan576264675.chatgpt.site/)为历史部署；本包未经授权不部署。工程验证、负责人视觉/手感、真机、教研/听审/权利与儿童观察分别报告，开发语音明确未审核。
 
-当前 **WP-MINIGAMES-VOCAB-EXPANSION-01** 实施中：十类可选小游戏、120学习概念与至少20短指令；完成与验证以STATUS为准。[本包实施计划](docs/plans/2026-10-11-minigames-vocab.md)。
+当前 **WP-MINIGAMES-VOCAB-EXPANSION-01** 工程实现已验证：十类可选小游戏、120学习概念、33短指令、15新场景关/51任务；外部接受仍待验。[完整报告与启动](docs/evidence/minigames-vocab/README.md)、[120词覆盖表](docs/evidence/minigames-vocab/vocabulary-coverage.csv)，实际结果以STATUS为准。[本包实施计划](docs/plans/2026-10-11-minigames-vocab.md)。

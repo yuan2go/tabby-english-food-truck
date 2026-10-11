@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:87918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/minigames-vocab.spec.ts:357:1 › phone five-cup layout and theatre controls remain visible and individually usable (1.0m)
+
+  1 passed (1.2m)
