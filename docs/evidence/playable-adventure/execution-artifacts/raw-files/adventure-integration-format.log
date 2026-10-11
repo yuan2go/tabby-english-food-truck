@@ -1,0 +1,29 @@
+src/rules/snapshot.ts:487:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    485 │         (job.worldTarget
+    486 │           ? !s.adventure || job.order !== undefined
+  > 487 │           : !order ||
+        │             ^^^^^^^^^
+  > 488 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    489 │             Math.abs(order.remaining - completion) > 0.05) ||
+    490 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    485 485 │           (job.worldTarget
+    486 486 │             ? !s.adventure || job.order !== undefined
+    487     │ - ··········:·!order·||
+    488     │ - ············order.status·!==·'leaving'·||
+        487 │ + ··········:·order?.status·!==·'leaving'·||
+    489 488 │               Math.abs(order.remaining - completion) > 0.05) ||
+    490 489 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+Skipped 1 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 14 files in 92ms. Fixed 6 files.
+Found 1 warning.

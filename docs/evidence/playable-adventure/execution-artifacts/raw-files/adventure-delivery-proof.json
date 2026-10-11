@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:4187/",
+  "browser": "153.0.8010.12",
+  "identity": {
+    "data-build-sha": "7014b4fcb3e34967ecbd87b4d1725007ed3406f8",
+    "data-build-dirty": "false",
+    "data-content-version": "playable-adventure-1",
+    "data-asset-version": "9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead"
+  },
+  "smoke": "normal current activity -> kitchen -> keyboard takes real apple",
+  "result": "PASS",
+  "at": "2026-10-11T09:07:05.420Z"
+}

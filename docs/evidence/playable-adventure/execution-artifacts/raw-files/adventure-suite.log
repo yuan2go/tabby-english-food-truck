@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck
+
+ ❯ tests/wp-dual-layout.test.ts (7 tests | 1 failed) 41ms
+     × migrates m2.2 world content without inventing level progress 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/wp-dual-layout.test.ts > authored content and migrations > migrates m2.2 world content without inventing level progress
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/wp-dual-layout.test.ts:86:24
+     84|     old.contentVersion = 'm2.2';
+     85|     const decoded = decodeSnapshot(JSON.stringify(old));
+     86|     expect(decoded.ok).toBe(true);
+       |                        ^
+     87|     if (decoded.ok) expect(decoded.state.session.levelId).toBeUndefine…
+     88|     const level = STORY_LEVELS.find((part) => part.choice);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 13 passed (14)
+      Tests  1 failed | 207 passed (208)
+   Start at  16:04:24
+   Duration  757ms (transform 858ms, setup 0ms, import 1.41s, tests 714ms, environment 1ms)
+

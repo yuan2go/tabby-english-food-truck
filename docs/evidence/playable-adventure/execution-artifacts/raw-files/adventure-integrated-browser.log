@@ -1,0 +1,97 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test
+
+[WebServer] (node:59387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:59467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 13 tests using 1 worker
+
+(node:59513) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:38:1 › visible activity entrance reaches all five chapters and saves a real creation (2.7m)
+  ✘   2 e2e/adventure.spec.ts:135:1 › phone replay follows hedgehog path with real food and no packing task (28.4s)
+(node:60010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 e2e/adventure.spec.ts:176:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (22.9s)
+  ✓   4 e2e/adventure.spec.ts:221:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (11.5s)
+  ✓   5 e2e/adventure.spec.ts:272:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (15.6s)
+  ✓   6 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (38.6s)
+  ✓   7 e2e/m22-boundaries.spec.ts:147:1 › audio loading failure exposes correct retry, never blocks supplies or creates a language error (7.3s)
+  ✓   8 e2e/m22-growth.spec.ts:10:1 › teaching fruit is the real ingredient; fresh endless explicitly introduces banana then juice (23.3s)
+  ✓   9 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (19.3s)
+  ✓  10 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (36.1s)
+  ✓  11 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (6.8s)
+  ✘  12 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order (3.8s)
+(node:60211) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 e2e/wp-dual-mini-course.spec.ts:6:1 › theme lobby reaches a four-task listening level and restores its progress (4.7s)
+
+
+  1) e2e/adventure.spec.ts:135:1 › phone replay follows hedgehog path with real food and no packing task 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "waiting"
+
+    Call Log:
+    - Timeout 20000ms exceeded while waiting on the predicate
+
+      28 |       timeout: 20000,
+      29 |     })
+    > 30 |     .toBe('done');
+         |      ^
+      31 |   await lesson(page);
+      32 | }
+      33 | async function begin(page: Page) {
+        at send (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:30:6)
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/adventure.spec.ts:140:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/error-context.md
+
+  2) e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order 
+
+    Error: touchscreen.tap: hasTouch must be enabled on the browser context before using the touchscreen.
+
+       at helpers.ts:14
+
+      12 | export async function tap(p: Page, id: string, dy = 0) {
+      13 |   const q = await hot(p, id, dy);
+    > 14 |   await p.touchscreen.tap(q.x, q.y);
+         |                       ^
+      15 | }
+      16 | async function dismissOpening(p: Page) {
+      17 |   const dialog = p.getByRole('dialog', { name: '章节开场' });
+        at tap (/Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/helpers.ts:14:23)
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/wp-dual-growth.spec.ts:14:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wp-dual-growth-deferred-me-b264d-ter-another-completed-order/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/wp-dual-growth-deferred-me-b264d-ter-another-completed-order/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wp-dual-growth-deferred-me-b264d-ter-another-completed-order/error-context.md
+
+  2 failed
+    e2e/adventure.spec.ts:135:1 › phone replay follows hedgehog path with real food and no packing task 
+    e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another completed order 
+  11 passed (6.5m)

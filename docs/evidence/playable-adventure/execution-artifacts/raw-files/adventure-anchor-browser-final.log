@@ -1,0 +1,35 @@
+
+Running 1 test using 1 worker
+
+(node:61432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (1.0m)
+
+
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.setViewportSize: Target page, context or browser has been closed
+
+      136 |   }
+      137 |   for (const height of [300, 342, 393]) {
+    > 138 |     await page.setViewportSize({ width: 852, height });
+          |                ^
+      139 |     const helper = layoutFor(852, height, 'service').helper;
+      140 |     await expect
+      141 |       .poll(async () => {
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:138:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/adventure-anchor-results-final/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/adventure-anchor-results-final/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/adventure-anchor-results-final/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 

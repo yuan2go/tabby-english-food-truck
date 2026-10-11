@@ -1,0 +1,39 @@
+
+Running 2 tests using 1 worker
+
+(node:61051) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/adventure.spec.ts:221:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (15.5s)
+  ✘  2 e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory (26.1s)
+
+
+  1) e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 2
+    Received array:  [{"activity": "delivery", "audioQualified": false, "condition": "assisted", "gameTime": 5266.4, "id": "c590e827-c456-4980-a9b9-6a578c200f01:attempt:9", "input": "guest-0:banana", "result": "request-mismatch", "retry": 0, "runId": "c590e827-c456-4980-a9b9-6a578c200f01", "support": ["picture-request", "meaning-picture", "audio-not-observed"], "visit": "first"}, {"activity": "delivery", "audioQualified": false, "condition": "assisted", "gameTime": 17365.899999999998, "id": "c590e827-c456-4980-a9b9-6a578c200f01:attempt:18", "input": "guest-0:juice,banana,apple", "result": "request-mismatch", "retry": 1, "runId": "c590e827-c456-4980-a9b9-6a578c200f01", "support": ["picture-request", "meaning-picture", "audio-not-observed", "mismatch-explanation"], "visit": "first"}]
+
+      64 |   const attempts = (await state(page)).attempts.length;
+      65 |   await handOver(page, 0);
+    > 66 |   expect((await state(page)).attempts).toHaveLength(attempts);
+         |                                        ^
+      67 |   await page.getByRole('button', { name: '暂停', exact: true }).tap();
+      68 |   const frozen = await state(page);
+      69 |   await page.reload();
+        at /Users/dafangzi/.codex/worktrees/playable-adventure/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:66:40
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/adventure-anchor-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/adventure-anchor-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/adventure-anchor-results/m22-boundaries-phone-wrong-a3848-ndscape-keep-real-inventory/error-context.md
+
+  1 failed
+    e2e/m22-boundaries.spec.ts:11:1 › phone wrong delivery, full reserved plate, cancel/multitouch and short landscape keep real inventory 
+  1 passed (42.5s)

@@ -37,3 +37,6 @@
 一包一个实现负责人；独立codex/分支/worktree、阶段提交、push/PR，不自动合并、强推、改权限、启用工作流、部署或覆盖无关修改。报告baseline/final full SHA、分支/PR、行为与取舍、实际命令/退出码/环境、浏览器路径、限制与启动方式。GitHub源码不是可玩网址；本地npm run dev或build后preview。历史记录与测试证据见[归档索引](archive/pre-playable-adventure-01/index.md)。
 
 工程与Git交付已完成：[草稿PR #11](https://github.com/yuan2go/tabby-english-food-truck/pull/11)，实际验证/失败/构建身份见[本包证据](evidence/playable-adventure/README.md)。负责人及外部验收仍按STATUS分别待审。
+
+
+2026-10-11负责人另行明确授权“不测试，将代码、报告、文档与刚刚执行产物全部提交推送、输出数量、PR并合并main”，替代上述本包不合并限制。统一交付仅复制打包现存产物并读取Git/GitHub，不运行测试或构建、不部署；既有PR #11继续承载，提交及合并采用`[skip ci]`。具体范围、提交数量与结果见[云端交付记录](evidence/playable-adventure/cloud-delivery.md)。

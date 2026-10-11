@@ -1,0 +1,312 @@
+src/app/adventure.css:63:20 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    61 │ .world-object {
+    62 │   position: relative;
+  > 63 │   background: none !important;
+       │                    ^^^^^^^^^^
+    64 │   border: 0 !important;
+    65 │   box-shadow: none !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    63 │ ··background:·none·!important;
+       │                   ----------- 
+
+src/app/adventure.css:64:13 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    62 │   position: relative;
+    63 │   background: none !important;
+  > 64 │   border: 0 !important;
+       │             ^^^^^^^^^^
+    65 │   box-shadow: none !important;
+    66 │   display: flex;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    64 │ ··border:·0·!important;
+       │            ----------- 
+
+src/app/adventure.css:65:20 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    63 │   background: none !important;
+    64 │   border: 0 !important;
+  > 65 │   box-shadow: none !important;
+       │                    ^^^^^^^^^^
+    66 │   display: flex;
+    67 │   flex-direction: column;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    65 │ ··box-shadow:·none·!important;
+       │                   ----------- 
+
+src/app/adventure.css:457:19 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    455 │   top: 4px;
+    456 │   max-width: 132px;
+  > 457 │   font-size: 14px !important;
+        │                   ^^^^^^^^^^
+    458 │   height: 44px;
+    459 │   background: #f5d393;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    457 │ ··font-size:·14px·!important;
+        │                  ----------- 
+
+src/app/adventure.css:622:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    620 │     left: calc(50% - 50px);
+    621 │     max-width: 100px;
+  > 622 │     font-size: 12px !important;
+        │                     ^^^^^^^^^^
+    623 │   }
+    624 │   .activity-kitchen .service-count {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    622 │ ····font-size:·12px·!important;
+        │                    ----------- 
+
+src/app/adventure.css:321:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    319 │   gap: 3px;
+    320 │ }
+  > 321 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    322 │   width: 34px;
+    323 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    269 │   background: #fff0c4;
+    270 │ }
+  > 271 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    272 │   opacity: 0.7;
+    273 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:336:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    334 │   background: #fff1c6;
+    335 │ }
+  > 336 │ .invitation-pegs img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    337 │   width: 38px;
+    338 │   height: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    269 │   background: #fff0c4;
+    270 │ }
+  > 271 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    272 │   opacity: 0.7;
+    273 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:498:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    496 │   min-height: 44px;
+    497 │ }
+  > 498 │ .free-shop-menu img {
+        │ ^^^^^^^^^^^^^^^^^^^
+    499 │   width: 40px;
+    500 │   height: 40px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    269 │   background: #fff0c4;
+    270 │ }
+  > 271 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    272 │   opacity: 0.7;
+    273 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/Adventure.tsx:104:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    102 │             </div>
+    103 │           ) : (
+  > 104 │             <div
+        │             ^^^^
+  > 105 │               className="scene-seed"
+  > 106 │               aria-label={a.explored.includes('drawer') ? '已经找到活动物件' : '抽屉里有新的线索'}
+  > 107 │             >
+        │             ^
+    108 │               {a.explored.includes('drawer')
+    109 │                 ? a.chapter === 0
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Adventure.tsx:149:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    147 │         >
+    148 │           {has('bunting') ? (
+  > 149 │             <div className="activity-bunting" aria-label="已挂起的分享彩旗">
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    150 │               <i />
+    151 │               <i />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Adventure.tsx:158:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    156 │           ) : null}
+    157 │           {has('plant') ? (
+  > 158 │             <div
+        │             ^^^^
+  > 159 │               className={`activity-flower flower-position-${a.decor.flower}`}
+  > 160 │               aria-label="已经种下的迎客花"
+  > 161 │             >
+        │             ^
+    162 │               <i />
+    163 │               <i />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Adventure.tsx:168:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    166 │           ) : null}
+    167 │           {has('light') ? (
+  > 168 │             <div className="activity-lights" aria-label="已点亮灯串">
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    169 │               <i />
+    170 │               <i />
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Adventure.tsx:193:9 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    191 │           ))}
+    192 │         </div>
+  > 193 │         <div className="received-foods" aria-label="真实送到活动桌的食物">
+        │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    194 │           {a.foods.map((f) => (
+    195 │             <div
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/Adventure.tsx:293:11 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    291 │         </div>
+    292 │         {commission && commission.action !== 'create' ? (
+  > 293 │           <div className="commission-clue" aria-label="开放委托的有效方案">
+        │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    294 │             {commission.action === 'pack' ? '篮子还需一份三明治＋一份水果' : '分享可选任意一杯：'}
+    295 │             {commission.choices.map((p) => (
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+src/app/FreeShop.tsx:68:34 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    66 │             />
+    67 │             {REQUESTS[r].products.map((p, i) => (
+  > 68 │               <Food key={`${p}-${i}`} product={p} />
+       │                                  ^
+    69 │             ))}
+    70 │           </label>
+  
+  i This is the source of the key value.
+  
+    65 │               }
+    66 │             />
+  > 67 │             {REQUESTS[r].products.map((p, i) => (
+       │                                           ^
+    68 │               <Food key={`${p}-${i}`} product={p} />
+    69 │             ))}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src/app/Story.tsx:124:20 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    122 │             <button
+    123 │               type="button"
+  > 124 │               key={i}
+        │                    ^
+    125 │               disabled={!unlocked}
+    126 │               onClick={() => enter(i)}
+  
+  i This is the source of the key value.
+  
+    112 │       <SupportChoice value={support} change={setSupport} />
+    113 │       <div className="chapter-pages">
+  > 114 │         {ADVENTURES.map((c, i) => {
+        │                             ^
+    115 │           const done = p.activityMemories.some(
+    116 │             (m) => m.state.chapter === i && m.state.kind === 'chapter' && m.state.rewards.length,
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Skipped 5 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 27 files in 80ms. Fixed 12 files.
+Found 8 errors.
+Found 8 warnings.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

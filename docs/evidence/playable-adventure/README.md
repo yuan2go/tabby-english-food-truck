@@ -26,3 +26,8 @@
 ## 尚未验证
 
 负责人运行/视觉/手感PENDING，iPhone15 Pro＋Chrome新构建NOT_RUN（历史NEEDS_REVISION保留），儿童观察/教研/人工听审NOT_RUN，分发权PENDING，历史60fps NOT_MET未重测。截图与自动化不是这些验收。未部署、未合入main、未强推或改权限；原工作区外部更新完整保留。最终交付构建/PR见STATUS及PR当前head；代码未变化的最终文档提交只重建与入口复核，不反复跑全套。
+
+
+## 统一交付归档（不测试）
+
+负责人后续明确授权本包提交推送全部现存执行产物、PR并合并main。现存原日志/中间产物、最终生产包、测试录像与HTML报告按[manifest](execution-artifacts/manifest.json)归档；只读取/复制/打包，没有重新构建或运行检查。原来“未合入main/草稿PR”描述的是实现阶段；统一交付的最终Git状态见[云端记录](cloud-delivery.md)及PR #11实际状态。以前被覆盖而当前不存在的文件不可补回；已有失败与外部验收边界继续保留。
