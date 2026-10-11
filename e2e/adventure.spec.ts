@@ -529,6 +529,36 @@ test('low motion receipts retain actual foods and reachable controls across comp
     { width: 768, height: 1024 },
   ]) {
     await page.setViewportSize(size);
+    await expect(page.locator('canvas')).toHaveAttribute('data-world-width', String(size.width));
+    await expect(page.locator('canvas')).toHaveAttribute('data-world-height', String(size.height));
+    expect(
+      await page.locator('.activity-world > .goal-guide').evaluate((guide) => {
+        const pictures = guide.querySelector('.goal-pictures');
+        if (!pictures) return false;
+        const box = pictures.getBoundingClientRect();
+        const containsPictures = [...pictures.children].every((child) => {
+          if (getComputedStyle(child).display === 'none') return true;
+          const b = child.getBoundingClientRect();
+          return b.left >= box.left - 1 && b.right <= box.right + 1;
+        });
+        const children = [...guide.children].filter(
+          (child) => getComputedStyle(child).display !== 'none',
+        );
+        const bounds = guide.getBoundingClientRect();
+        return (
+          containsPictures &&
+          children.every((child, index) => {
+            const b = child.getBoundingClientRect();
+            const next = children[index + 1]?.getBoundingClientRect();
+            return (
+              b.left >= bounds.left - 1 &&
+              b.right <= bounds.right + 1 &&
+              (!next || b.right <= next.left + 1 || b.bottom <= next.top + 1)
+            );
+          })
+        );
+      }),
+    ).toBe(true);
     for (const name of ['重看朋友使用', '跳过朋友演出', '低动态表现']) {
       const button = page.getByRole('button', { name, exact: true });
       await expect(button).toBeInViewport({ ratio: 1 });
