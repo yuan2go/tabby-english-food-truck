@@ -339,17 +339,17 @@ export function App() {
     ui.selectedGuest = '';
     ui.feedback = '';
     ui.prep =
-      activity === 'story' && chapter === 0
-        ? 'tray'
-        : controller.state.session.family === 'juice'
+      controller.state.session.family === 'juice'
+        ? controller.state.machine.status === 'loaded'
           ? 'machine'
-          : controller.state.session.family === 'ice'
-            ? 'ice'
-            : controller.state.session.family === 'burger'
-              ? 'grill'
-              : controller.state.session.family === 'sandwich'
-                ? 'board'
-                : 'tray';
+          : 'tray'
+        : controller.state.session.family === 'ice'
+          ? 'ice'
+          : controller.state.session.family === 'burger'
+            ? 'grill'
+            : controller.state.session.family === 'sandwich'
+              ? 'board'
+              : 'tray';
     ui.doubleTap?.cancel();
     setCaption(null);
     const chapterKey = `chapter-${chapter}`;

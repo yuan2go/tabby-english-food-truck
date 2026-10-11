@@ -17,6 +17,7 @@ test('teaching fruit is the real ingredient; fresh endless explicitly introduces
   await page.getByRole('button', { name: '来试一下 →', exact: true }).tap();
   await page.getByRole('button', { name: '苹果', exact: true }).tap();
   await expect.poll(async () => (await state(page)).items.map((i) => i.product)).toEqual(['apple']);
+  expect((await state(page)).items[0]?.location).toMatch(/^tray:0:/);
   await expect(page.getByRole('dialog', { name: '场景小教学' })).toHaveCount(0);
   await handOver(page);
   const growth = page.getByRole('dialog', { name: '今日新菜单' });
