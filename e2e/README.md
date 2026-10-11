@@ -7,3 +7,5 @@
 旧25关/旧标题/每关结算的adventure-flow、game、visible-walk、playability-visible、wp-dual-story-throughline、wp-dual-layout等仅作历史追溯，不属于当前默认门禁；库存/帮助/错误/迁移断言仍在当前规则与boundary用例。工程workflow权限和触发条件保持。本地执行不等于云端CI通过。
 
 本轮范围及证据见[05](../docs/05-delivery.md)、[STATUS](../docs/STATUS.md)；原失败见[整合报告](../docs/playtests/2026-10-11-integrated-validation.md)。历史脚本不得覆盖旧工作包画面；本轮输出放独立证据目录。
+
+整合第三次失败保留：意义教学提前后，旧委托的收据已产生但空盘尚在回程；正常玩法拒绝以忙盘开始新的成品加工。choosePrep仅在准备目的盘时等待真实回程时钟归零，不推进时钟、不注入状态、不改变判定或删除成品断言；故意操作忙盘的boundary测试仍直接tap。

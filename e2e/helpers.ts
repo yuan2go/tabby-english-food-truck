@@ -60,6 +60,15 @@ export async function startEndless(p: Page, less = true) {
   await lesson(p);
 }
 export async function choosePrep(p: Page, name: string) {
+  // A receipt may arrive before its empty tray returns. Let the real game clock
+  // finish that journey before selecting it as a production destination; the
+  // boundary tests deliberately tap busy trays without this helper.
+  if (name.includes('盘')) {
+    const tray = name.includes('2') ? 1 : 0;
+    await expect
+      .poll(async () => (await state(p)).trays[tray].remaining, { timeout: 18000 })
+      .toBe(0);
+  }
   await tap(
     p,
     name.includes('盘')

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "test:browser"
+  ],
+  "env": {
+    "CI": "1",
+    "TEST_PORT": "4293",
+    "CHROMIUM_CHANNEL": "chromium"
+  },
+  "exitCode": 130,
+  "status": "Stopped after a distinct five-chapter failure. Remaining cases interrupted/not run; no retries.",
+  "sha": "f99e00d7f51f5db2a35db6144a689accc7f55a80"
+}

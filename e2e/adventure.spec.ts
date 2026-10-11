@@ -2,6 +2,14 @@ import { expect, type Page, test } from '@playwright/test';
 import { choosePrep, evidencePath, handOver, hot, lesson, make, state, tap } from './helpers';
 
 test.use({ hasTouch: true });
+test.afterEach(async ({ page }, info) => {
+  if (info.status !== info.expectedStatus) {
+    await info.attach('actual-failure-state', {
+      body: JSON.stringify(await state(page), null, 2),
+      contentType: 'application/json',
+    });
+  }
+});
 // These cases inspect the full visual process; CI's low-graphics preference is
 // valid, but has a separate receipt/idempotence case below.
 test.beforeEach(async ({ page }, info) => {
