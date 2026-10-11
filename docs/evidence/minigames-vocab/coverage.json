@@ -1,0 +1,3238 @@
+{
+  "concepts": 120,
+  "foodConcepts": 50,
+  "newConcepts": 70,
+  "mechanics": 10,
+  "sceneLevels": 15,
+  "sceneTasksWithReachableSolution": 51,
+  "shortInstructions": 33,
+  "coverage": [
+    {
+      "id": "apple",
+      "text": "apple",
+      "chinese": "苹果",
+      "group": "food",
+      "image": "apple",
+      "audio": "food-name-apple",
+      "contextAudio": "food-context-apple",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell",
+        "quantity",
+        "sentence",
+        "memory",
+        "sort",
+        "theatre"
+      ],
+      "levels": [
+        "listen-fruit-hello",
+        "pair-fruit",
+        "spell-short-fruit",
+        "quantity-one-two",
+        "quantity-fruit-mix",
+        "quantity-drinks",
+        "sentence-first-request",
+        "sentence-two",
+        "sentence-and",
+        "mixed-review",
+        "vocabulary-listen-fruit-0",
+        "vocabulary-pair-fruit-0"
+      ],
+      "scenes": [
+        "memory-0",
+        "memory-1",
+        "memory-2",
+        "sort-0",
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "banana",
+      "text": "banana",
+      "chinese": "香蕉",
+      "group": "food",
+      "image": "banana",
+      "audio": "food-name-banana",
+      "contextAudio": "food-context-banana",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "quantity",
+        "sentence",
+        "memory"
+      ],
+      "levels": [
+        "listen-fruit-hello",
+        "pair-fruit",
+        "pair-flavor",
+        "quantity-one-two",
+        "quantity-fruit-mix",
+        "quantity-drinks",
+        "sentence-first-request",
+        "sentence-two",
+        "sentence-and",
+        "vocabulary-listen-fruit-0",
+        "vocabulary-pair-fruit-0"
+      ],
+      "scenes": [
+        "memory-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "orange",
+      "text": "orange",
+      "chinese": "橙子",
+      "group": "food",
+      "image": "food-orange",
+      "audio": "food-name-orange",
+      "contextAudio": "food-context-orange",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-fruit-hello",
+        "vocabulary-listen-fruit-0",
+        "vocabulary-pair-fruit-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pear",
+      "text": "pear",
+      "chinese": "梨",
+      "group": "food",
+      "image": "food-pear",
+      "audio": "food-name-pear",
+      "contextAudio": "food-context-pear",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-fruit-hello",
+        "pair-fruit",
+        "spell-short-fruit",
+        "mixed-review",
+        "vocabulary-listen-fruit-0",
+        "vocabulary-pair-fruit-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "peach",
+      "text": "peach",
+      "chinese": "桃子",
+      "group": "food",
+      "image": "food-peach",
+      "audio": "food-name-peach",
+      "contextAudio": "food-context-peach",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-fruit-picnic",
+        "pair-fruit",
+        "spell-short-fruit",
+        "vocabulary-listen-fruit-0",
+        "vocabulary-pair-fruit-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "strawberry",
+      "text": "strawberry",
+      "chinese": "草莓",
+      "group": "food",
+      "image": "food-strawberry",
+      "audio": "food-name-strawberry",
+      "contextAudio": "food-context-strawberry",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "pair",
+        "listen"
+      ],
+      "levels": [
+        "pair-flavor",
+        "vocabulary-listen-fruit-1",
+        "vocabulary-pair-fruit-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "grape",
+      "text": "grape",
+      "chinese": "葡萄",
+      "group": "food",
+      "image": "food-grape",
+      "audio": "food-name-grape",
+      "contextAudio": "food-context-grape",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "spell",
+        "pair"
+      ],
+      "levels": [
+        "listen-fruit-picnic",
+        "spell-short-fruit",
+        "vocabulary-listen-fruit-1",
+        "vocabulary-pair-fruit-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "watermelon",
+      "text": "watermelon",
+      "chinese": "西瓜",
+      "group": "food",
+      "image": "food-watermelon",
+      "audio": "food-name-watermelon",
+      "contextAudio": "food-context-watermelon",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-fruit-picnic",
+        "vocabulary-listen-fruit-1",
+        "vocabulary-pair-fruit-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "mango",
+      "text": "mango",
+      "chinese": "芒果",
+      "group": "food",
+      "image": "food-mango",
+      "audio": "food-name-mango",
+      "contextAudio": "food-context-mango",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-fruit-picnic",
+        "vocabulary-listen-fruit-1",
+        "vocabulary-pair-fruit-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pineapple",
+      "text": "pineapple",
+      "chinese": "菠萝",
+      "group": "food",
+      "image": "food-pineapple",
+      "audio": "food-name-pineapple",
+      "contextAudio": "food-context-pineapple",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-fruit-picnic",
+        "vocabulary-listen-fruit-1",
+        "vocabulary-pair-fruit-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "tomato",
+      "text": "tomato",
+      "chinese": "番茄",
+      "group": "food",
+      "image": "tomato",
+      "audio": "food-name-tomato",
+      "contextAudio": "food-context-tomato",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "spell",
+        "listen"
+      ],
+      "levels": [
+        "pair-garden",
+        "spell-garden",
+        "vocabulary-listen-vegetable-0",
+        "vocabulary-pair-vegetable-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cucumber",
+      "text": "cucumber",
+      "chinese": "黄瓜",
+      "group": "food",
+      "image": "food-cucumber",
+      "audio": "food-name-cucumber",
+      "contextAudio": "food-context-cucumber",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-garden",
+        "pair-garden",
+        "vocabulary-listen-vegetable-0",
+        "vocabulary-pair-vegetable-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "carrot",
+      "text": "carrot",
+      "chinese": "胡萝卜",
+      "group": "food",
+      "image": "food-carrot",
+      "audio": "food-name-carrot",
+      "contextAudio": "food-context-carrot",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-garden",
+        "pair-garden",
+        "spell-garden",
+        "vocabulary-listen-vegetable-0",
+        "vocabulary-pair-vegetable-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "potato",
+      "text": "potato",
+      "chinese": "土豆",
+      "group": "food",
+      "image": "food-potato",
+      "audio": "food-name-potato",
+      "contextAudio": "food-context-potato",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vegetable-0",
+        "vocabulary-pair-vegetable-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "lettuce",
+      "text": "lettuce",
+      "chinese": "生菜",
+      "group": "food",
+      "image": "lettuce",
+      "audio": "food-name-lettuce",
+      "contextAudio": "food-context-lettuce",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "listen"
+      ],
+      "levels": [
+        "pair-garden",
+        "vocabulary-listen-vegetable-0",
+        "vocabulary-pair-vegetable-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "corn",
+      "text": "corn",
+      "chinese": "玉米",
+      "group": "food",
+      "image": "food-corn",
+      "audio": "food-name-corn",
+      "contextAudio": "food-context-corn",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-garden",
+        "pair-garden",
+        "spell-garden",
+        "vocabulary-listen-vegetable-1",
+        "vocabulary-pair-vegetable-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "broccoli",
+      "text": "broccoli",
+      "chinese": "西兰花",
+      "group": "food",
+      "image": "food-broccoli",
+      "audio": "food-name-broccoli",
+      "contextAudio": "food-context-broccoli",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-garden",
+        "vocabulary-listen-vegetable-1",
+        "vocabulary-pair-vegetable-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "mushroom",
+      "text": "mushroom",
+      "chinese": "蘑菇",
+      "group": "food",
+      "image": "food-mushroom",
+      "audio": "food-name-mushroom",
+      "contextAudio": "food-context-mushroom",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-garden",
+        "vocabulary-listen-vegetable-1",
+        "vocabulary-pair-vegetable-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pumpkin",
+      "text": "pumpkin",
+      "chinese": "南瓜",
+      "group": "food",
+      "image": "food-pumpkin",
+      "audio": "food-name-pumpkin",
+      "contextAudio": "food-context-pumpkin",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vegetable-1",
+        "vocabulary-pair-vegetable-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pea",
+      "text": "pea",
+      "chinese": "豌豆",
+      "group": "food",
+      "image": "food-pea",
+      "audio": "food-name-pea",
+      "contextAudio": "food-context-pea",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "spell",
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "spell-garden",
+        "vocabulary-listen-vegetable-1",
+        "vocabulary-pair-vegetable-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "bread",
+      "text": "bread",
+      "chinese": "面包",
+      "group": "food",
+      "image": "bread",
+      "audio": "food-name-bread",
+      "contextAudio": "food-context-bread",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-kitchen",
+        "pair-meal",
+        "spell-kitchen",
+        "vocabulary-listen-staple-0",
+        "vocabulary-pair-staple-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "bun",
+      "text": "bun",
+      "chinese": "圆面包",
+      "group": "food",
+      "image": "bun",
+      "audio": "food-name-bun",
+      "contextAudio": "food-context-bun",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "listen"
+      ],
+      "levels": [
+        "pair-meal",
+        "vocabulary-listen-staple-0",
+        "vocabulary-pair-staple-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "rice",
+      "text": "rice",
+      "chinese": "米饭",
+      "group": "food",
+      "image": "food-rice",
+      "audio": "food-name-rice",
+      "contextAudio": "food-context-rice",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-kitchen",
+        "pair-meal",
+        "spell-kitchen",
+        "vocabulary-listen-staple-0",
+        "vocabulary-pair-staple-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "noodles",
+      "text": "noodles",
+      "chinese": "面条",
+      "group": "food",
+      "image": "food-noodles",
+      "audio": "food-name-noodles",
+      "contextAudio": "food-context-noodles",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-kitchen",
+        "vocabulary-listen-staple-0",
+        "vocabulary-pair-staple-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "egg",
+      "text": "egg",
+      "chinese": "鸡蛋",
+      "group": "food",
+      "image": "food-egg",
+      "audio": "food-name-egg",
+      "contextAudio": "food-context-egg",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "spell",
+        "pair"
+      ],
+      "levels": [
+        "listen-kitchen",
+        "spell-kitchen",
+        "vocabulary-listen-staple-0",
+        "vocabulary-pair-staple-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "chicken",
+      "text": "chicken",
+      "chinese": "鸡肉",
+      "group": "food",
+      "image": "food-chicken",
+      "audio": "food-name-chicken",
+      "contextAudio": "food-context-chicken",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-staple-1",
+        "vocabulary-pair-staple-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "beef",
+      "text": "beef",
+      "chinese": "牛肉",
+      "group": "food",
+      "image": "food-beef",
+      "audio": "food-name-beef",
+      "contextAudio": "food-context-beef",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-staple-1",
+        "vocabulary-pair-staple-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "fish",
+      "text": "fish",
+      "chinese": "鱼肉",
+      "group": "food",
+      "image": "food-fish",
+      "audio": "food-name-fish",
+      "contextAudio": "food-context-fish",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-staple-1",
+        "vocabulary-pair-staple-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cheese",
+      "text": "cheese",
+      "chinese": "奶酪",
+      "group": "food",
+      "image": "cheese",
+      "audio": "food-name-cheese",
+      "contextAudio": "food-context-cheese",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-kitchen",
+        "pair-meal",
+        "spell-kitchen",
+        "mixed-review",
+        "vocabulary-listen-staple-1",
+        "vocabulary-pair-staple-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "tofu",
+      "text": "tofu",
+      "chinese": "豆腐",
+      "group": "food",
+      "image": "food-tofu",
+      "audio": "food-name-tofu",
+      "contextAudio": "food-context-tofu",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-staple-1",
+        "vocabulary-pair-staple-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "milk",
+      "text": "milk",
+      "chinese": "牛奶",
+      "group": "food",
+      "image": "food-milk",
+      "audio": "food-name-milk",
+      "contextAudio": "food-context-milk",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-ready",
+        "pair-drinks",
+        "spell-drink",
+        "vocabulary-listen-flavor-0",
+        "vocabulary-pair-flavor-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "yogurt",
+      "text": "yogurt",
+      "chinese": "酸奶",
+      "group": "food",
+      "image": "food-yogurt",
+      "audio": "food-name-yogurt",
+      "contextAudio": "food-context-yogurt",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-ready",
+        "pair-drinks",
+        "spell-drink",
+        "vocabulary-listen-flavor-0",
+        "vocabulary-pair-flavor-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "butter",
+      "text": "butter",
+      "chinese": "黄油",
+      "group": "food",
+      "image": "food-butter",
+      "audio": "food-name-butter",
+      "contextAudio": "food-context-butter",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-flavor-0",
+        "vocabulary-pair-flavor-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cream",
+      "text": "cream",
+      "chinese": "奶油",
+      "group": "food",
+      "image": "food-cream",
+      "audio": "food-name-cream",
+      "contextAudio": "food-context-cream",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "spell",
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "spell-sweet",
+        "vocabulary-listen-flavor-0",
+        "vocabulary-pair-flavor-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "vanilla",
+      "text": "vanilla",
+      "chinese": "香草",
+      "group": "food",
+      "image": "food-vanilla",
+      "audio": "food-name-vanilla",
+      "contextAudio": "food-context-vanilla",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "listen"
+      ],
+      "levels": [
+        "pair-flavor",
+        "vocabulary-listen-flavor-0",
+        "vocabulary-pair-flavor-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "chocolate",
+      "text": "chocolate",
+      "chinese": "巧克力",
+      "group": "food",
+      "image": "food-chocolate",
+      "audio": "food-name-chocolate",
+      "contextAudio": "food-context-chocolate",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-sweet",
+        "pair-flavor",
+        "spell-sweet",
+        "vocabulary-listen-flavor-1",
+        "vocabulary-pair-flavor-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "honey",
+      "text": "honey",
+      "chinese": "蜂蜜",
+      "group": "food",
+      "image": "food-honey",
+      "audio": "food-name-honey",
+      "contextAudio": "food-context-honey",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-sweet",
+        "pair-flavor",
+        "spell-sweet",
+        "vocabulary-listen-flavor-1",
+        "vocabulary-pair-flavor-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "jam",
+      "text": "jam",
+      "chinese": "果酱",
+      "group": "food",
+      "image": "food-jam",
+      "audio": "food-name-jam",
+      "contextAudio": "food-context-jam",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "spell",
+        "pair"
+      ],
+      "levels": [
+        "listen-sweet",
+        "spell-sweet",
+        "vocabulary-listen-flavor-1",
+        "vocabulary-pair-flavor-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "coconut",
+      "text": "coconut",
+      "chinese": "椰子",
+      "group": "food",
+      "image": "food-coconut",
+      "audio": "food-name-coconut",
+      "contextAudio": "food-context-coconut",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-sweet",
+        "vocabulary-listen-flavor-1",
+        "vocabulary-pair-flavor-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "raisin",
+      "text": "raisin",
+      "chinese": "葡萄干",
+      "group": "food",
+      "image": "food-raisin",
+      "audio": "food-name-raisin",
+      "contextAudio": "food-context-raisin",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "listen-sweet",
+        "vocabulary-listen-flavor-1",
+        "vocabulary-pair-flavor-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "juice",
+      "text": "juice",
+      "chinese": "果汁",
+      "group": "food",
+      "image": "juice",
+      "audio": "food-name-juice",
+      "contextAudio": "food-context-juice",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "spell",
+        "quantity",
+        "sentence",
+        "listen"
+      ],
+      "levels": [
+        "pair-drinks",
+        "spell-drink",
+        "quantity-drinks",
+        "quantity-layers",
+        "sentence-drink",
+        "vocabulary-listen-ready-0",
+        "vocabulary-pair-ready-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "smoothie",
+      "text": "smoothie",
+      "chinese": "水果冰沙",
+      "group": "food",
+      "image": "food-smoothie",
+      "audio": "food-name-smoothie",
+      "contextAudio": "food-context-smoothie",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "spell",
+        "listen"
+      ],
+      "levels": [
+        "pair-drinks",
+        "spell-drink",
+        "vocabulary-listen-ready-0",
+        "vocabulary-pair-ready-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "milkshake",
+      "text": "milkshake",
+      "chinese": "奶昔",
+      "group": "food",
+      "image": "food-milkshake",
+      "audio": "food-name-milkshake",
+      "contextAudio": "food-context-milkshake",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-ready-0",
+        "vocabulary-pair-ready-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "ice-cream",
+      "text": "ice cream",
+      "chinese": "冰淇淋",
+      "group": "food",
+      "image": "vanilla-cone",
+      "audio": "food-name-ice-cream",
+      "contextAudio": "food-context-ice-cream",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-ready-0",
+        "vocabulary-pair-ready-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "sandwich",
+      "text": "sandwich",
+      "chinese": "三明治",
+      "group": "food",
+      "image": "sandwich",
+      "audio": "food-name-sandwich",
+      "contextAudio": "food-context-sandwich",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "quantity",
+        "sentence",
+        "listen"
+      ],
+      "levels": [
+        "pair-community",
+        "quantity-layers",
+        "quantity-burger",
+        "sentence-meals",
+        "vocabulary-listen-ready-0",
+        "vocabulary-pair-ready-0"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "burger",
+      "text": "burger",
+      "chinese": "汉堡",
+      "group": "food",
+      "image": "burger",
+      "audio": "food-name-burger",
+      "contextAudio": "food-context-burger",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "pair",
+        "quantity",
+        "sentence",
+        "listen"
+      ],
+      "levels": [
+        "pair-community",
+        "quantity-burger",
+        "sentence-meals",
+        "vocabulary-listen-ready-1",
+        "vocabulary-pair-ready-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pizza",
+      "text": "pizza",
+      "chinese": "比萨饼",
+      "group": "food",
+      "image": "food-pizza",
+      "audio": "food-name-pizza",
+      "contextAudio": "food-context-pizza",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "spell",
+        "pair"
+      ],
+      "levels": [
+        "listen-ready",
+        "spell-snack",
+        "vocabulary-listen-ready-1",
+        "vocabulary-pair-ready-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "salad",
+      "text": "salad",
+      "chinese": "沙拉",
+      "group": "food",
+      "image": "food-salad",
+      "audio": "food-name-salad",
+      "contextAudio": "food-context-salad",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-ready",
+        "pair-community",
+        "spell-snack",
+        "vocabulary-listen-ready-1",
+        "vocabulary-pair-ready-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cake",
+      "text": "cake",
+      "chinese": "蛋糕",
+      "group": "food",
+      "image": "food-cake",
+      "audio": "food-name-cake",
+      "contextAudio": "food-context-cake",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-ready",
+        "pair-community",
+        "spell-snack",
+        "vocabulary-listen-ready-1",
+        "vocabulary-pair-ready-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cookie",
+      "text": "cookie",
+      "chinese": "曲奇饼干",
+      "group": "food",
+      "image": "food-cookie",
+      "audio": "food-name-cookie",
+      "contextAudio": "food-context-cookie",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "picture-choice"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "spell"
+      ],
+      "levels": [
+        "listen-ready",
+        "pair-community",
+        "spell-snack",
+        "vocabulary-listen-ready-1",
+        "vocabulary-pair-ready-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cup",
+      "text": "cup",
+      "chinese": "杯子",
+      "group": "utensil",
+      "image": "vocab-cup",
+      "audio": "vocab-name-cup",
+      "contextAudio": "vocab-context-cup",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "hunt",
+        "memory",
+        "sort",
+        "design",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-0",
+        "vocabulary-pair-vocab-0"
+      ],
+      "scenes": [
+        "hunt-0",
+        "hunt-1",
+        "hunt-2",
+        "memory-0",
+        "memory-1",
+        "sort-0",
+        "sort-2",
+        "design-0",
+        "design-1",
+        "design-2",
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "plate",
+      "text": "plate",
+      "chinese": "盘子",
+      "group": "utensil",
+      "image": "vocab-plate",
+      "audio": "vocab-name-plate",
+      "contextAudio": "vocab-context-plate",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-0",
+        "vocabulary-pair-vocab-0"
+      ],
+      "scenes": [
+        "hunt-1",
+        "memory-0",
+        "memory-1",
+        "memory-2",
+        "sort-0",
+        "sort-2",
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "bowl",
+      "text": "bowl",
+      "chinese": "碗",
+      "group": "utensil",
+      "image": "vocab-bowl",
+      "audio": "vocab-name-bowl",
+      "contextAudio": "vocab-context-bowl",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort",
+        "design",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-0",
+        "vocabulary-pair-vocab-0"
+      ],
+      "scenes": [
+        "hunt-2",
+        "memory-0",
+        "memory-2",
+        "sort-0",
+        "sort-2",
+        "design-2",
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "spoon",
+      "text": "spoon",
+      "chinese": "勺子",
+      "group": "utensil",
+      "image": "vocab-spoon",
+      "audio": "vocab-name-spoon",
+      "contextAudio": "vocab-context-spoon",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "hunt",
+        "memory",
+        "sort",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-0",
+        "vocabulary-pair-vocab-0"
+      ],
+      "scenes": [
+        "hunt-0",
+        "hunt-2",
+        "memory-0",
+        "memory-1",
+        "memory-2",
+        "sort-0",
+        "sort-2",
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "fork",
+      "text": "fork",
+      "chinese": "叉子",
+      "group": "utensil",
+      "image": "vocab-fork",
+      "audio": "vocab-name-fork",
+      "contextAudio": "vocab-context-fork",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-1",
+        "vocabulary-pair-vocab-1"
+      ],
+      "scenes": [
+        "memory-2",
+        "sort-0",
+        "sort-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "knife",
+      "text": "knife",
+      "chinese": "餐刀",
+      "group": "utensil",
+      "image": "vocab-knife",
+      "audio": "vocab-name-knife",
+      "contextAudio": "vocab-context-knife",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-1",
+        "vocabulary-pair-vocab-1"
+      ],
+      "scenes": [
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "tray",
+      "text": "tray",
+      "chinese": "托盘",
+      "group": "utensil",
+      "image": "vocab-tray",
+      "audio": "vocab-name-tray",
+      "contextAudio": "vocab-context-tray",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-1",
+        "vocabulary-pair-vocab-1"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "napkin",
+      "text": "napkin",
+      "chinese": "餐巾",
+      "group": "utensil",
+      "image": "vocab-napkin",
+      "audio": "vocab-name-napkin",
+      "contextAudio": "vocab-context-napkin",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-1",
+        "vocabulary-pair-vocab-1"
+      ],
+      "scenes": [
+        "memory-1",
+        "memory-2",
+        "sort-1",
+        "design-2",
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pot",
+      "text": "pot",
+      "chinese": "锅",
+      "group": "utensil",
+      "image": "vocab-pot",
+      "audio": "vocab-name-pot",
+      "contextAudio": "vocab-context-pot",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-2",
+        "vocabulary-pair-vocab-2"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pan",
+      "text": "pan",
+      "chinese": "平底锅",
+      "group": "utensil",
+      "image": "vocab-pan",
+      "audio": "vocab-name-pan",
+      "contextAudio": "vocab-context-pan",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-2",
+        "vocabulary-pair-vocab-2"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "lid",
+      "text": "lid",
+      "chinese": "锅盖",
+      "group": "utensil",
+      "image": "vocab-lid",
+      "audio": "vocab-name-lid",
+      "contextAudio": "vocab-context-lid",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-2",
+        "vocabulary-pair-vocab-2"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "kettle",
+      "text": "kettle",
+      "chinese": "水壶",
+      "group": "utensil",
+      "image": "vocab-kettle",
+      "audio": "vocab-name-kettle",
+      "contextAudio": "vocab-context-kettle",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-2",
+        "vocabulary-pair-vocab-2"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "bottle",
+      "text": "bottle",
+      "chinese": "瓶子",
+      "group": "utensil",
+      "image": "vocab-bottle",
+      "audio": "vocab-name-bottle",
+      "contextAudio": "vocab-context-bottle",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-3",
+        "vocabulary-pair-vocab-3"
+      ],
+      "scenes": [
+        "memory-2",
+        "sort-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "glass",
+      "text": "glass",
+      "chinese": "玻璃杯",
+      "group": "utensil",
+      "image": "vocab-glass",
+      "audio": "vocab-name-glass",
+      "contextAudio": "vocab-context-glass",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-3",
+        "vocabulary-pair-vocab-3"
+      ],
+      "scenes": [
+        "memory-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "jug",
+      "text": "jug",
+      "chinese": "倒水壶",
+      "group": "utensil",
+      "image": "vocab-jug",
+      "audio": "vocab-name-jug",
+      "contextAudio": "vocab-context-jug",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "sort",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-3",
+        "vocabulary-pair-vocab-3"
+      ],
+      "scenes": [
+        "sort-1",
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "spatula",
+      "text": "spatula",
+      "chinese": "锅铲",
+      "group": "utensil",
+      "image": "vocab-spatula",
+      "audio": "vocab-name-spatula",
+      "contextAudio": "vocab-context-spatula",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-3",
+        "vocabulary-pair-vocab-3"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "ladle",
+      "text": "ladle",
+      "chinese": "汤勺",
+      "group": "utensil",
+      "image": "vocab-ladle",
+      "audio": "vocab-name-ladle",
+      "contextAudio": "vocab-context-ladle",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-4",
+        "vocabulary-pair-vocab-4"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "whisk",
+      "text": "whisk",
+      "chinese": "打蛋器",
+      "group": "utensil",
+      "image": "vocab-whisk",
+      "audio": "vocab-name-whisk",
+      "contextAudio": "vocab-context-whisk",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-4",
+        "vocabulary-pair-vocab-4"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cutting-board",
+      "text": "cutting board",
+      "chinese": "砧板",
+      "group": "utensil",
+      "image": "vocab-cutting-board",
+      "audio": "vocab-name-cutting-board",
+      "contextAudio": "vocab-context-cutting-board",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-4",
+        "vocabulary-pair-vocab-4"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "apron",
+      "text": "apron",
+      "chinese": "围裙",
+      "group": "utensil",
+      "image": "vocab-apron",
+      "audio": "vocab-name-apron",
+      "contextAudio": "vocab-context-apron",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-4",
+        "vocabulary-pair-vocab-4"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "basket",
+      "text": "basket",
+      "chinese": "篮子",
+      "group": "yard",
+      "image": "vocab-basket",
+      "audio": "vocab-name-basket",
+      "contextAudio": "vocab-context-basket",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort",
+        "design",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-5",
+        "vocabulary-pair-vocab-5"
+      ],
+      "scenes": [
+        "memory-2",
+        "sort-1",
+        "design-0",
+        "theatre-0",
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "box",
+      "text": "box",
+      "chinese": "盒子",
+      "group": "yard",
+      "image": "vocab-box",
+      "audio": "vocab-name-box",
+      "contextAudio": "vocab-context-box",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "sort",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-5",
+        "vocabulary-pair-vocab-5"
+      ],
+      "scenes": [
+        "hunt-1",
+        "sort-1",
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "bag",
+      "text": "bag",
+      "chinese": "袋子",
+      "group": "yard",
+      "image": "vocab-bag",
+      "audio": "vocab-name-bag",
+      "contextAudio": "vocab-context-bag",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-5",
+        "vocabulary-pair-vocab-5"
+      ],
+      "scenes": [
+        "hunt-1",
+        "sort-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "table",
+      "text": "table",
+      "chinese": "桌子",
+      "group": "yard",
+      "image": "vocab-table",
+      "audio": "vocab-name-table",
+      "contextAudio": "vocab-context-table",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-5",
+        "vocabulary-pair-vocab-5"
+      ],
+      "scenes": [
+        "design-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "chair",
+      "text": "chair",
+      "chinese": "椅子",
+      "group": "yard",
+      "image": "vocab-chair",
+      "audio": "vocab-name-chair",
+      "contextAudio": "vocab-context-chair",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-6",
+        "vocabulary-pair-vocab-6"
+      ],
+      "scenes": [
+        "design-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "bench",
+      "text": "bench",
+      "chinese": "长椅",
+      "group": "yard",
+      "image": "vocab-bench",
+      "audio": "vocab-name-bench",
+      "contextAudio": "vocab-context-bench",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-6",
+        "vocabulary-pair-vocab-6"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "door",
+      "text": "door",
+      "chinese": "门",
+      "group": "yard",
+      "image": "vocab-door",
+      "audio": "vocab-name-door",
+      "contextAudio": "vocab-context-door",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-6",
+        "vocabulary-pair-vocab-6"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "window",
+      "text": "window",
+      "chinese": "窗户",
+      "group": "yard",
+      "image": "vocab-window",
+      "audio": "vocab-name-window",
+      "contextAudio": "vocab-context-window",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-6",
+        "vocabulary-pair-vocab-6"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "shelf",
+      "text": "shelf",
+      "chinese": "架子",
+      "group": "yard",
+      "image": "vocab-shelf",
+      "audio": "vocab-name-shelf",
+      "contextAudio": "vocab-context-shelf",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-7",
+        "vocabulary-pair-vocab-7"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "drawer",
+      "text": "drawer",
+      "chinese": "抽屉",
+      "group": "yard",
+      "image": "vocab-drawer",
+      "audio": "vocab-name-drawer",
+      "contextAudio": "vocab-context-drawer",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-7",
+        "vocabulary-pair-vocab-7"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "lamp",
+      "text": "lamp",
+      "chinese": "灯",
+      "group": "yard",
+      "image": "vocab-lamp",
+      "audio": "vocab-name-lamp",
+      "contextAudio": "vocab-context-lamp",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-7",
+        "vocabulary-pair-vocab-7"
+      ],
+      "scenes": [
+        "design-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "flower",
+      "text": "flower",
+      "chinese": "花",
+      "group": "yard",
+      "image": "vocab-flower",
+      "audio": "vocab-name-flower",
+      "contextAudio": "vocab-context-flower",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "hunt",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-7",
+        "vocabulary-pair-vocab-7"
+      ],
+      "scenes": [
+        "hunt-0",
+        "hunt-1",
+        "hunt-2",
+        "memory-0",
+        "memory-1",
+        "memory-2",
+        "sort-0",
+        "sort-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "tree",
+      "text": "tree",
+      "chinese": "树",
+      "group": "yard",
+      "image": "vocab-tree",
+      "audio": "vocab-name-tree",
+      "contextAudio": "vocab-context-tree",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-8",
+        "vocabulary-pair-vocab-8"
+      ],
+      "scenes": [
+        "hunt-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "leaf",
+      "text": "leaf",
+      "chinese": "叶子",
+      "group": "yard",
+      "image": "vocab-leaf",
+      "audio": "vocab-name-leaf",
+      "contextAudio": "vocab-context-leaf",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-8",
+        "vocabulary-pair-vocab-8"
+      ],
+      "scenes": [
+        "hunt-0",
+        "hunt-1",
+        "hunt-2",
+        "memory-2",
+        "sort-0",
+        "sort-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "seed",
+      "text": "seed",
+      "chinese": "种子",
+      "group": "yard",
+      "image": "vocab-seed",
+      "audio": "vocab-name-seed",
+      "contextAudio": "vocab-context-seed",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-8",
+        "vocabulary-pair-vocab-8"
+      ],
+      "scenes": [
+        "memory-2",
+        "sort-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "watering-can",
+      "text": "watering can",
+      "chinese": "浇水壶",
+      "group": "yard",
+      "image": "vocab-watering-can",
+      "audio": "vocab-name-watering-can",
+      "contextAudio": "vocab-context-watering-can",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-8",
+        "vocabulary-pair-vocab-8"
+      ],
+      "scenes": [
+        "memory-2",
+        "sort-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "ball",
+      "text": "ball",
+      "chinese": "球",
+      "group": "yard",
+      "image": "vocab-ball",
+      "audio": "vocab-name-ball",
+      "contextAudio": "vocab-context-ball",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "memory",
+        "sort",
+        "design",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-9",
+        "vocabulary-pair-vocab-9"
+      ],
+      "scenes": [
+        "hunt-0",
+        "hunt-2",
+        "memory-1",
+        "sort-2",
+        "design-0",
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "book",
+      "text": "book",
+      "chinese": "书",
+      "group": "yard",
+      "image": "vocab-book",
+      "audio": "vocab-name-book",
+      "contextAudio": "vocab-context-book",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "hunt",
+        "memory",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-9",
+        "vocabulary-pair-vocab-9"
+      ],
+      "scenes": [
+        "hunt-0",
+        "hunt-1",
+        "hunt-2",
+        "memory-0",
+        "memory-1",
+        "memory-2",
+        "sort-1",
+        "sort-2",
+        "design-2",
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "red",
+      "text": "red",
+      "chinese": "红色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-red",
+      "contextAudio": "vocab-context-red",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "hunt",
+        "sort",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-9",
+        "vocabulary-pair-vocab-9"
+      ],
+      "scenes": [
+        "hunt-1",
+        "sort-2",
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "yellow",
+      "text": "yellow",
+      "chinese": "黄色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-yellow",
+      "contextAudio": "vocab-context-yellow",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-9",
+        "vocabulary-pair-vocab-9"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "blue",
+      "text": "blue",
+      "chinese": "蓝色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-blue",
+      "contextAudio": "vocab-context-blue",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "sort"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-10",
+        "vocabulary-pair-vocab-10"
+      ],
+      "scenes": [
+        "sort-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "green",
+      "text": "green",
+      "chinese": "绿色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-green",
+      "contextAudio": "vocab-context-green",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-10",
+        "vocabulary-pair-vocab-10"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "purple",
+      "text": "purple",
+      "chinese": "紫色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-purple",
+      "contextAudio": "vocab-context-purple",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-10",
+        "vocabulary-pair-vocab-10"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pink",
+      "text": "pink",
+      "chinese": "粉色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-pink",
+      "contextAudio": "vocab-context-pink",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-10",
+        "vocabulary-pair-vocab-10"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "brown",
+      "text": "brown",
+      "chinese": "棕色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-brown",
+      "contextAudio": "vocab-context-brown",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-11",
+        "vocabulary-pair-vocab-11"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "black",
+      "text": "black",
+      "chinese": "黑色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-black",
+      "contextAudio": "vocab-context-black",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-11",
+        "vocabulary-pair-vocab-11"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "white",
+      "text": "white",
+      "chinese": "白色",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-white",
+      "contextAudio": "vocab-context-white",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-11",
+        "vocabulary-pair-vocab-11"
+      ],
+      "scenes": [
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "big",
+      "text": "big",
+      "chinese": "大的",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-big",
+      "contextAudio": "vocab-context-big",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-11",
+        "vocabulary-pair-vocab-11"
+      ],
+      "scenes": [
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "small",
+      "text": "small",
+      "chinese": "小的",
+      "group": "attribute",
+      "image": "vocab-cup",
+      "audio": "vocab-name-small",
+      "contextAudio": "vocab-context-small",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-12",
+        "vocabulary-pair-vocab-12"
+      ],
+      "scenes": [
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "round",
+      "text": "round",
+      "chinese": "圆的",
+      "group": "attribute",
+      "image": "vocab-plate",
+      "audio": "vocab-name-round",
+      "contextAudio": "vocab-context-round",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-12",
+        "vocabulary-pair-vocab-12"
+      ],
+      "scenes": [],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "soft",
+      "text": "soft",
+      "chinese": "柔软的",
+      "group": "attribute",
+      "image": "vocab-napkin",
+      "audio": "vocab-name-soft",
+      "contextAudio": "vocab-context-soft",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-12",
+        "vocabulary-pair-vocab-12"
+      ],
+      "scenes": [
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "one",
+      "text": "one",
+      "chinese": "一",
+      "group": "number",
+      "image": "vocab-cup",
+      "audio": "vocab-name-one",
+      "contextAudio": "vocab-context-one",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-12",
+        "vocabulary-pair-vocab-12"
+      ],
+      "scenes": [
+        "design-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "two",
+      "text": "two",
+      "chinese": "二",
+      "group": "number",
+      "image": "vocab-cup",
+      "audio": "vocab-name-two",
+      "contextAudio": "vocab-context-two",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "quantity",
+        "sentence",
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "quantity-one-two",
+        "quantity-fruit-mix",
+        "sentence-two",
+        "mixed-review",
+        "vocabulary-listen-vocab-13",
+        "vocabulary-pair-vocab-13"
+      ],
+      "scenes": [
+        "design-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "three",
+      "text": "three",
+      "chinese": "三",
+      "group": "number",
+      "image": "vocab-cup",
+      "audio": "vocab-name-three",
+      "contextAudio": "vocab-context-three",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-13",
+        "vocabulary-pair-vocab-13"
+      ],
+      "scenes": [
+        "design-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "four",
+      "text": "four",
+      "chinese": "四",
+      "group": "number",
+      "image": "vocab-cup",
+      "audio": "vocab-name-four",
+      "contextAudio": "vocab-context-four",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-13",
+        "vocabulary-pair-vocab-13"
+      ],
+      "scenes": [
+        "design-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "five",
+      "text": "five",
+      "chinese": "五",
+      "group": "number",
+      "image": "vocab-cup",
+      "audio": "vocab-name-five",
+      "contextAudio": "vocab-context-five",
+      "difficulty": 1,
+      "prerequisites": [
+        "meaning-first"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-13",
+        "vocabulary-pair-vocab-13"
+      ],
+      "scenes": [
+        "design-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "take",
+      "text": "take",
+      "chinese": "拿起",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-take",
+      "contextAudio": "vocab-context-take",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-14",
+        "vocabulary-pair-vocab-14"
+      ],
+      "scenes": [
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "put",
+      "text": "put",
+      "chinese": "放下",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-put",
+      "contextAudio": "vocab-context-put",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-14",
+        "vocabulary-pair-vocab-14"
+      ],
+      "scenes": [
+        "theatre-0",
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "open",
+      "text": "open",
+      "chinese": "打开",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-open",
+      "contextAudio": "vocab-context-open",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-14",
+        "vocabulary-pair-vocab-14"
+      ],
+      "scenes": [
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "close",
+      "text": "close",
+      "chinese": "关上",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-close",
+      "contextAudio": "vocab-context-close",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-14",
+        "vocabulary-pair-vocab-14"
+      ],
+      "scenes": [
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "pour",
+      "text": "pour",
+      "chinese": "倒水",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-pour",
+      "contextAudio": "vocab-context-pour",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-15",
+        "vocabulary-pair-vocab-15"
+      ],
+      "scenes": [
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "stir",
+      "text": "stir",
+      "chinese": "搅拌",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-stir",
+      "contextAudio": "vocab-context-stir",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-15",
+        "vocabulary-pair-vocab-15"
+      ],
+      "scenes": [
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "wash",
+      "text": "wash",
+      "chinese": "清洗",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-wash",
+      "contextAudio": "vocab-context-wash",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-15",
+        "vocabulary-pair-vocab-15"
+      ],
+      "scenes": [
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "cut",
+      "text": "cut",
+      "chinese": "切分",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-cut",
+      "contextAudio": "vocab-context-cut",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-15",
+        "vocabulary-pair-vocab-15"
+      ],
+      "scenes": [
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "carry",
+      "text": "carry",
+      "chinese": "搬运",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-carry",
+      "contextAudio": "vocab-context-carry",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-16",
+        "vocabulary-pair-vocab-16"
+      ],
+      "scenes": [
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "share",
+      "text": "share",
+      "chinese": "分享",
+      "group": "action",
+      "image": "vocab-box",
+      "audio": "vocab-name-share",
+      "contextAudio": "vocab-context-share",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-16",
+        "vocabulary-pair-vocab-16"
+      ],
+      "scenes": [
+        "theatre-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "in",
+      "text": "in",
+      "chinese": "在里面",
+      "group": "position",
+      "image": "vocab-table",
+      "audio": "vocab-name-in",
+      "contextAudio": "vocab-context-in",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-16",
+        "vocabulary-pair-vocab-16"
+      ],
+      "scenes": [
+        "design-0",
+        "theatre-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "on",
+      "text": "on",
+      "chinese": "在上面",
+      "group": "position",
+      "image": "vocab-table",
+      "audio": "vocab-name-on",
+      "contextAudio": "vocab-context-on",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design",
+        "theatre"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-16",
+        "vocabulary-pair-vocab-16"
+      ],
+      "scenes": [
+        "design-0",
+        "design-1",
+        "design-2",
+        "theatre-1"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "under",
+      "text": "under",
+      "chinese": "在下面",
+      "group": "position",
+      "image": "vocab-table",
+      "audio": "vocab-name-under",
+      "contextAudio": "vocab-context-under",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-17",
+        "vocabulary-pair-vocab-17"
+      ],
+      "scenes": [
+        "design-0"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    },
+    {
+      "id": "beside",
+      "text": "beside",
+      "chinese": "在旁边",
+      "group": "position",
+      "image": "vocab-table",
+      "audio": "vocab-name-beside",
+      "contextAudio": "vocab-context-beside",
+      "difficulty": 2,
+      "prerequisites": [
+        "meaning-first",
+        "object-interaction"
+      ],
+      "mechanics": [
+        "listen",
+        "pair",
+        "design"
+      ],
+      "levels": [
+        "vocabulary-listen-vocab-17",
+        "vocabulary-pair-vocab-17"
+      ],
+      "scenes": [
+        "design-0",
+        "design-2"
+      ],
+      "review": "PENDING_TEACHING_AND_LISTENING_REVIEW"
+    }
+  ]
+}

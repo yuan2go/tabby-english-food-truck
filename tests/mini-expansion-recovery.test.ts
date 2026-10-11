@@ -162,3 +162,17 @@ it('all vocabulary courses with repeated attempts can be saved and restored', as
   expect(restored.courseBlocked).toBe(false);
   expect(Object.keys(restored.courses)).toHaveLength(VOCAB_COURSES.length);
 });
+it('paused courses reject queued phase changes as well as submissions', async () => {
+  const { playCourse, nextCourse, submitCourse } = await import('../src/rules/mini-course');
+  const l = MINI_LEVELS[0];
+  if (!l) throw Error('level');
+  const intro = { ...createCourse(l, 'paused'), paused: true };
+  expect(startCourse(intro)).toEqual(intro);
+  const meaning = { ...startCourse({ ...intro, paused: false }), paused: true };
+  expect(playCourse(meaning)).toEqual(meaning);
+  const success = {
+    ...submitCourse(l, playCourse({ ...meaning, paused: false }), l.targets[0]),
+    paused: true,
+  };
+  expect(nextCourse(l, success)).toEqual(success);
+});

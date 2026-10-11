@@ -1,0 +1,106 @@
+
+Running 9 tests using 1 worker
+
+(node:82858) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/minigames-vocab.spec.ts:48:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (1.7m)
+(node:83057) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/minigames-vocab.spec.ts:79:1 › phone memory supports relook and classifies a wrong replacement separately (41.1s)
+  ✓  3 e2e/minigames-vocab.spec.ts:113:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (40.7s)
+  ✓  4 e2e/minigames-vocab.spec.ts:156:1 › phone designer spatial targets and saved free mode use actual objects (38.5s)
+  ✓  5 e2e/minigames-vocab.spec.ts:187:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (1.7m)
+  ✓  6 e2e/minigames-vocab.spec.ts:215:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (32.8s)
+  ✓  7 e2e/minigames-vocab.spec.ts:245:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (50.9s)
+  ✘  8 e2e/minigames-vocab.spec.ts:322:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (19.4s)
+(node:83548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  9 e2e/minigames-vocab.spec.ts:336:1 › phone five-cup layout and theatre controls remain visible and individually usable (2.1m)
+
+
+  1) e2e/minigames-vocab.spec.ts:48:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '交付找到的物件' })
+        - locator resolved to <button type="button" aria-label="交付找到的物件" class="delivery-basket">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" class="primary">继续玩</button> from <div role="dialog" aria-label="小游戏已暂停" class="scene-overlay">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" class="primary">继续玩</button> from <div role="dialog" aria-label="小游戏已暂停" class="scene-overlay">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <button type="button" class="primary">继续玩</button> from <div role="dialog" aria-label="小游戏已暂停" class="scene-overlay">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      67 |   await page.getByRole('button', { name: /朋友的两份心意/ }).click();
+      68 |   await expect(page.getByRole('group', { name: '大咪手里的物件' })).toContainText('放回');
+    > 69 |   await page.getByRole('button', { name: '交付找到的物件' }).click();
+         |                                                       ^
+      70 |   await page.getByRole('button', { name: '下一段活动' }).click();
+      71 |   await meaning(page);
+      72 |   await take(page, '花');
+        at /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:69:55
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/minigames-vocab-desktop-hu-4306b-overy-and-no-broken-artwork/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/minigames-vocab-desktop-hu-4306b-overy-and-no-broken-artwork/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/minigames-vocab-desktop-hu-4306b-overy-and-no-broken-artwork/error-context.md
+
+  2) e2e/minigames-vocab.spec.ts:322:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: '← 小院', exact: true })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: '← 小院', exact: true }) with timeout 6000ms
+      - waiting for getByRole('button', { name: '← 小院', exact: true })
+
+
+      332 |   await page.getByRole('button', { name: '返回小院', exact: true }).click();
+      333 |   await page.getByRole('button', { name: '自由开店', exact: true }).click();
+    > 334 |   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
+          |                                                                         ^
+      335 |   await expect(page.locator('canvas')).toBeVisible();
+      336 |   await expect(page.getByRole('button', { name: '← 小院', exact: true })).toBeVisible();
+      337 | });
+        at /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck/e2e/minigames-vocab.spec.ts:334:73
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/minigames-vocab-yard-minig-c900e-ture-and-free-kitchen-entry/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/minigames-vocab-yard-minig-c900e-ture-and-free-kitchen-entry/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/minigames-vocab-yard-minig-c900e-ture-and-free-kitchen-entry/error-context.md
+
+  2 failed
+    e2e/minigames-vocab.spec.ts:48:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork 
+    e2e/minigames-vocab.spec.ts:322:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry 
+  7 passed (9.3m)

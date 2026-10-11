@@ -1,0 +1,34 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/scene-games.test.ts tests/vocabulary-expansion.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/scene-games.test.ts (7 tests | 1 failed) 62ms
+     × sorting accepts declared multiple uses and keeps unplaced objects recoverable 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/scene-games.test.ts > five scene mechanics preserve actual objects and learning boundaries > sorting accepts declared multiple uses and keeps unplaced objects recoverable
+AssertionError: expected 'hand' to be 'bank' // Object.is equality
+
+Expected: "bank"
+Received: "hand"
+
+ ❯ tests/scene-games.test.ts:47:57
+     45|   expect(s.feedback).toContain('还');
+     46|   s = act(s, { type: 'undo' });
+     47|   expect(s.objects.find(o => o.id === 'basket')?.place).toBe('bank');
+       |                                                         ^
+     48|  });
+     49|  it('designer evaluates actual relative position and distinguishes fre…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 7 passed (8)
+   Start at  20:44:33
+   Duration  752ms (transform 816ms, setup 0ms, import 899ms, tests 66ms, environment 0ms)
+

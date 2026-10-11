@@ -1,5 +1,6 @@
 import { expect, type Page, test } from '@playwright/test';
 import { wordById } from '../src/content/learning';
+import { state as worldState } from './helpers';
 
 test.setTimeout(180000);
 const enter = async (page: Page) => {
@@ -333,7 +334,13 @@ test('yard minigames return to the activity and preserve adventure and free-kitc
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
   await expect(page.locator('canvas')).toBeVisible();
-  await expect(page.getByRole('button', { name: '← 小院', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: '我来试试', exact: true }).click();
+  await expect(page.getByRole('group', { name: '餐车操作' })).toBeVisible();
+  await page.getByRole('button', { name: '拿苹果', exact: true }).click();
+  await page.getByRole('button', { name: '1号托盘：放入食品或选择整盘', exact: true }).click();
+  await expect
+    .poll(async () => (await worldState(page)).items.some((i) => i.product === 'apple'))
+    .toBe(true);
 });
 test('phone five-cup layout and theatre controls remain visible and individually usable', async ({
   page,

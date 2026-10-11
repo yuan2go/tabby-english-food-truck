@@ -65,7 +65,14 @@ try {
       contextAudio: w.contextAudio,
       difficulty: w.difficulty,
       prerequisites: w.prerequisites,
-      mechanics: kinds.filter((k) => k !== 'review'),
+      mechanics: [
+        ...new Set([
+          ...kinds.filter((k) => k !== 'review'),
+          ...SCENE_LEVELS.filter((l) => l.tasks.some((t) => t.words.includes(w.id))).map(
+            (l) => l.kind,
+          ),
+        ]),
+      ],
       levels: levels.map((l) => l.id),
       scenes: SCENE_LEVELS.filter((l) =>
         l.tasks.some((t) => t.words.includes(w.id) || t.objects.some((o) => o.word === w.id)),
@@ -203,6 +210,17 @@ try {
         )
         .join('\n') +
       '\n',
+  );
+  const prompts = [
+    ...new Map(
+      SCENE_LEVELS.flatMap((l) =>
+        l.tasks.map((t) => [t.audio, { text: t.instruction, audio: t.audio }]),
+      ),
+    ).values(),
+  ];
+  await writeFile(
+    'docs/evidence/minigames-vocab/instructions.md',
+    `# ${prompts.length}条场景短请求与指令\n\n与120词条分开计数；全句声音为落盘开发WAV，人工听审NOT_RUN。\n\n| 自然表达 | 稳定语音ID |\n|---|---|\n${prompts.map((p) => `| ${p.text} | ${p.audio} |`).join('\n')}\n`,
   );
   console.log(
     `PASS 120 distinct effective words, every word in >=2 reachable mechanics; 50 supply concepts unchanged; ${solved} real scene solutions; ${instructions.length} separate instructions.`,

@@ -54,7 +54,7 @@ export const createCourse = (level: MiniLevel, id: string): CourseState => ({
   nextAttempt: 0,
 });
 export function startCourse(state: CourseState): CourseState {
-  if (state.phase !== 'intro') return state;
+  if (state.paused || state.phase !== 'intro') return state;
   return {
     ...state,
     phase: 'meaning',
@@ -65,7 +65,7 @@ export function startCourse(state: CourseState): CourseState {
   };
 }
 export function playCourse(state: CourseState): CourseState {
-  if (state.phase !== 'meaning') return state;
+  if (state.paused || state.phase !== 'meaning') return state;
   return { ...state, phase: 'play', support: [...new Set([...state.support, 'meaning-picture'])] };
 }
 export interface Tile {
@@ -252,7 +252,7 @@ export function submitCourse(level: MiniLevel, state: CourseState, answer?: stri
   };
 }
 export function nextCourse(level: MiniLevel, state: CourseState): CourseState {
-  if (state.phase !== 'feedback') return state;
+  if (state.paused || state.phase !== 'feedback') return state;
   const next = state.round + 1;
   return next === level.targets.length
     ? { ...state, phase: 'done' }

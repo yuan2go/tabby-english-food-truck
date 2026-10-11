@@ -1,0 +1,37 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/scene-games.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/scene-games.test.ts (8 tests | 1 failed) 39ms
+   × records each actual hunt handoff while a two-object goal remains incomplete 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/scene-games.test.ts > records each actual hunt handoff while a two-object goal remains incomplete
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/scene-games.test.ts:121:50
+    119| it('records each actual hunt handoff while a two-object goal remains i…
+    120|  let s=play('hunt-2');s=act(s,{type:'take',object:'cup'});s=act(s,{typ…
+    121|  expect(s.phase).toBe('play');expect(s.attempts).toHaveLength(1);expec…
+       |                                                  ^
+    122|  s=act(s,{type:'take',object:'bowl'});s=act(s,{type:'deliver'});expect…
+    123| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  20:55:41
+   Duration  818ms (transform 194ms, setup 0ms, import 246ms, tests 39ms, environment 0ms)
+

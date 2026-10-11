@@ -1,0 +1,26 @@
+src/app/SceneBoards.tsx:48:10 lint/a11y/useSemanticElements ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The elements with this role can be changed to the following elements:
+    <fieldset>
+  
+    46 │   const held = state.objects.find((o) => o.place === 'hand');
+    47 │   return (
+  > 48 │     <div role="group" className={`scene-hand ${held ? 'holding' : ''}`} aria-label="大咪手里的物件">
+       │          ^^^^^^^^^^^^
+    49 │       {held ? (
+    50 │         <ObjectArt word={held.word} color={held.color} size={held.size} state={held.state} />
+  
+  i For examples and more information, see WAI-ARIA Roles
+  
+  i Replace with one of these elements:
+  
+  - <fieldset>
+  
+
+Checked 7 files in 104ms. Fixed 5 files.
+Found 1 error.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

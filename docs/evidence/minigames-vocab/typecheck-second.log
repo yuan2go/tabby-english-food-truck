@@ -1,0 +1,12 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/app/SceneBoards.tsx(178,10): error TS2375: Type '{ state: SceneState; send: (command: SceneCommand) => void; place: "garden"; art: string; color: string | undefined; label: string; }' is not assignable to type '{ place: ScenePlace; label: string; art: string; color?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/SceneBoards.tsx(186,12): error TS2375: Type '{ state: SceneState; send: (command: SceneCommand) => void; place: "kitchen"; art: string; color: string | undefined; label: string; }' is not assignable to type '{ place: ScenePlace; label: string; art: string; color?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.

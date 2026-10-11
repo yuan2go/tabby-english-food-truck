@@ -1,0 +1,12 @@
+file:///Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck/src/content/scene-levels.ts:19
+const design=(instruction       ,_audio       ,words         ,objects              ,arrangement                                      )=>t(instruction,audio,words,objects,{arrangement});
+                                                                                                                                                      ^
+
+ReferenceError: audio is not defined
+    at design (file:///Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck/src/content/scene-levels.ts:19:151)
+    at file:///Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck/src/content/scene-levels.ts:34:110
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async node:internal/modules/esm/loader:639:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.15.0

@@ -1,0 +1,39 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/mini-expansion-recovery.test.ts (9 tests | 1 failed) 355ms
+   × paused courses reject queued phase changes as well as submissions 26ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > paused courses reject queued phase changes as well as submissions
+AssertionError: expected { version: 1, id: 'paused', …(11) } to deeply equal { version: 1, id: 'paused', …(11) }
+
+- Expected
++ Received
+
+@@ -4,11 +4,11 @@
+    "heard": false,
+    "id": "paused",
+    "levelId": "listen-fruit-hello",
+    "nextAttempt": 0,
+    "paused": true,
+-   "phase": "intro",
++   "phase": "meaning",
+    "round": 0,
+    "selected": [],
+    "support": [],
+    "used": [],
+    "version": 1,
+
+ ❯ tests/mini-expansion-recovery.test.ts:166:217
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  21:14:42
+   Duration  2.69s (transform 1.30s, setup 0ms, import 1.46s, tests 355ms, environment 0ms)
+

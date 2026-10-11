@@ -282,7 +282,7 @@ await mkdir('art/vocab-source', { recursive: true });
 const manifest = JSON.parse(await readFile('art/manifest.json', 'utf8'));
 const newAssets = [];
 for (const [id] of nouns) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><title>${id.replaceAll('-', ' ')}</title><defs><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" seed="19" result="n"/><feComposite in="n" in2="SourceGraphic" operator="in" result="t"/><feBlend in="SourceGraphic" in2="t" mode="soft-light"/></filter></defs><g filter="url(#paper)" stroke="#6f654f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">${shapes[id]}</g></svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><title>${id.replaceAll('-', ' ')}</title><defs><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" seed="19" result="noise"/><feColorMatrix in="noise" type="saturate" values="0" result="n"/><feComposite in="n" in2="SourceGraphic" operator="in" result="t"/><feBlend in="SourceGraphic" in2="t" mode="soft-light"/></filter></defs><g filter="url(#paper)" stroke="#6f654f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">${shapes[id]}</g></svg>`;
   const source = `art/vocab-source/${id}.svg`,
     output = `public/assets/vocab-${id}.webp`;
   await writeFile(source, svg);

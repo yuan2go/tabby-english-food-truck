@@ -1410,3 +1410,20 @@
 .meaning-share .meaning-object {
   z-index: 2;
 }
+
+.design-table > .object-artwork {
+  left: 0;
+  width: 100%;
+  top: 35px;
+}
+.design-table > .object-artwork > .vocab-art {
+  height: 210px;
+}
+@media (max-width: 600px) {
+  .design-table > .object-artwork {
+    top: 38px;
+  }
+  .design-table > .object-artwork > .vocab-art {
+    height: 190px;
+  }
+}

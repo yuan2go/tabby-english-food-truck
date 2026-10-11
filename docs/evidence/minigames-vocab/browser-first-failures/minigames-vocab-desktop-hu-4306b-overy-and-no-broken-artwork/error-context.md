@@ -1,0 +1,138 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: minigames-vocab.spec.ts >> desktop hunt, actual two-item delivery, recovery and no broken artwork
+- Location: e2e/minigames-vocab.spec.ts:10:1
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+
+Call Log:
+- Timeout 6000ms exceeded while waiting on the predicate
+```
+
+# Page snapshot
+
+```yaml
+- main [ref=e3]:
+  - img "英语餐车游戏画面" [ref=e4]
+  - region "小院寻物 · 朋友的两份心意" [ref=e6]:
+    - generic [ref=e7]:
+      - button "返回游乐角" [ref=e8] [cursor=pointer]
+      - heading "小院寻物 再相见 · 1/3" [level=2] [ref=e9]:
+        - text: 小院寻物
+        - generic [ref=e10]: 再相见 · 1/3
+      - button "暂停小游戏" [ref=e11] [cursor=pointer]: 暂停
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - button "重听场景请求" [ref=e14] [cursor=pointer]
+        - paragraph [ref=e18]: Bring me a cup and a spoon, please.
+        - button "看图示范" [ref=e19] [cursor=pointer]
+      - generic [ref=e20]:
+        - img "大咪响应你做的动作"
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]:
+                - img "树"
+              - button "拿起勺子" [ref=e26] [cursor=pointer]:
+                - generic [ref=e27]:
+                  - img "勺子"
+            - generic [ref=e28]:
+              - generic [ref=e29]:
+                - img "架子"
+              - generic [ref=e30]:
+                - button "拿起杯子" [ref=e31] [cursor=pointer]:
+                  - generic [ref=e32]:
+                    - img "杯子"
+                - button "拿起碗" [ref=e33] [cursor=pointer]:
+                  - generic [ref=e34]:
+                    - img "碗"
+          - group "大咪手里的物件" [ref=e35]:
+            - generic [ref=e36]: 先点物件
+            - generic [aria-hidden] [ref=e37]: →
+            - button "放回物件" [disabled] [ref=e38]: 放回
+          - button "交付找到的物件" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]:
+              - img "篮子"
+            - generic [ref=e41]: 交给篮子
+      - button "撤回一步" [disabled] [ref=e43]
+      - status [ref=e44]
+      - generic [ref=e45]:
+        - button "重玩这一组" [ref=e46] [cursor=pointer]
+        - generic [ref=e47]: 开发语音未听审 · 没有计时与能力评分
+```
+
+# Test source
+
+```ts
+  1  | import { expect, test, type Page } from '@playwright/test';
+  2  | const enter = async(page:Page)=>{await page.goto('/');await page.getByRole('button',{name:'迷你游戏',exact:true}).click();await page.getByRole('button',{name:/小院场景小游戏 ·/}).click();};
+  3  | const choose=async(page:Page,kind:string,title:string)=>{await page.getByRole('button',{name:new RegExp(kind)}).first().click();await page.getByRole('button',{name:new RegExp(title)}).click();await page.getByRole('button',{name:'先认识今天的物件'}).click();await page.getByRole('button',{name:'我来动手'}).click();};
+  4  | const meaning=async(page:Page)=>{if(await page.getByRole('button',{name:'我来动手'}).isVisible())await page.getByRole('button',{name:'我来动手'}).click();};
+  5  | const take=async(page:Page,name:string)=>{await page.getByRole('button',{name:`拿起${name}`,exact:true}).click();};
+  6  | const place=async(page:Page,name:string)=>{await page.getByRole('button',{name:`放到${name}`,exact:true}).click();};
+  7  | const check=async(page:Page)=>{await page.getByRole('button',{name:'给大咪看看'}).click();await expect(page.getByRole('button',{name:'下一段活动'})).toBeVisible();await page.getByRole('button',{name:'下一段活动'}).click();};
+> 8  | const images=async(page:Page)=>{await expect.poll(()=>page.locator('.scene-game img, .scene-lobby img').evaluateAll((imgs)=>imgs.every(i=>(i as HTMLImageElement).complete&&(i as HTMLImageElement).naturalWidth>0))).toBe(true);};
+     |                                                                                                                                                                                                                       ^ Error: expect(received).toBe(expected) // Object.is equality
+  9  | 
+  10 | test('desktop hunt, actual two-item delivery, recovery and no broken artwork',async({page})=>{
+  11 |  await page.setViewportSize({width:1440,height:900});await enter(page);await choose(page,'小院寻物','朋友的两份心意');await images(page);
+  12 |  await take(page,'杯子');await page.getByRole('button',{name:'交付找到的物件'}).click();await expect(page.getByRole('button',{name:'下一段活动'})).toHaveCount(0);
+  13 |  await take(page,'勺子');await page.getByRole('button',{name:'交付找到的物件'}).click();await page.getByRole('button',{name:'下一段活动'}).click();await meaning(page);
+  14 |  await take(page,'书');await page.getByRole('button',{name:'暂停小游戏'}).click();await expect(page.getByRole('dialog',{name:'小游戏已暂停'})).toBeVisible();await page.getByRole('button',{name:'继续玩'}).click();
+  15 |  await page.reload();await page.getByRole('button',{name:'迷你游戏',exact:true}).click();await page.getByRole('button',{name:/小院场景小游戏 ·/}).click();await page.getByRole('button',{name:/朋友的两份心意/}).click();await expect(page.getByRole('group',{name:'大咪手里的物件'})).toContainText('放回');
+  16 |  await page.getByRole('button',{name:'交付找到的物件'}).click();await page.getByRole('button',{name:'下一段活动'}).click();await meaning(page);await take(page,'花');await page.getByRole('button',{name:'交付找到的物件'}).click();await page.screenshot({path:'docs/evidence/minigames-vocab/hunt-desktop.png'});await page.getByRole('button',{name:'下一段活动'}).click();await expect(page.getByText('这次小院活动完成了')).toBeVisible();
+  17 | });
+  18 | 
+  19 | test('phone memory supports relook and classifies a wrong replacement separately',async({page})=>{
+  20 |  await page.setViewportSize({width:393,height:665});await enter(page);await choose(page,'餐桌少了什么','看看两件');await images(page);
+  21 |  await page.getByRole('button',{name:'看好了，盖上再找'}).click();await take(page,'勺子');await page.getByRole('button',{name:'补回餐桌'}).click();await page.getByRole('button',{name:'给大咪看看'}).click();await expect(page.locator('.scene-feedback')).toContainText('再看');
+  22 |  await page.getByRole('button',{name:'再看一眼'}).click();await page.getByRole('button',{name:'看好了，盖上再找'}).click();
+  23 |  for(const word of ['杯子','碗','花']){await take(page,word);await page.getByRole('button',{name:'补回餐桌'}).click();await check(page);if(word!=='花'){await meaning(page);await page.getByRole('button',{name:'看好了，盖上再找'}).click();}}
+  24 |  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tabby.foodtruck.scene-mini.v1')??'{}'));expect(saved.scenes['memory-0'].attempts[0].dimension).toBe('memory');expect(saved.scenes['memory-0'].support).toContain('memory-relook');await page.screenshot({path:'docs/evidence/minigames-vocab/memory-phone.png'});
+  25 | });
+  26 | 
+  27 | test('phone sorting accepts both-use containers without English penalties for incomplete moves',async({page})=>{
+  28 |  await page.setViewportSize({width:393,height:665});await enter(page);await choose(page,'小仓库整理','一物多用');
+  29 |  await take(page,'篮子');await place(page,'花园');await page.getByRole('button',{name:'给大咪看看'}).click();await expect(page.locator('.scene-feedback')).toContainText('还有');
+  30 |  for(const [word,target]of [['倒水壶','花园'],['浇水壶','花园']]){await take(page,word);await place(page,target);}await check(page);await meaning(page);
+  31 |  for(const [word,target]of [['袋子','厨房'],['餐巾','厨房'],['叶子','花园']]){await take(page,word);await place(page,target);}await check(page);await meaning(page);
+  32 |  for(const [word,target]of [['盒子','花园'],['瓶子','厨房'],['书','木架']]){await take(page,word);await place(page,target);}await page.screenshot({path:'docs/evidence/minigames-vocab/sort-phone.png'});await images(page);await check(page);await expect(page.getByText('这次小院活动完成了')).toBeVisible();
+  33 | });
+  34 | 
+  35 | test('phone designer spatial targets and saved free mode use actual objects',async({page})=>{
+  36 |  await page.setViewportSize({width:393,height:665});await enter(page);await choose(page,'餐桌设计师','上下里面旁边');
+  37 |  for(const [word,target]of [['杯子','桌上'],['球','篮内'],['球','桌下'],['椅子','桌边']]){await take(page,word);await place(page,target);await check(page);if(word!=='椅子')await meaning(page);}
+  38 |  await page.getByRole('button',{name:'继续自由布置'}).click();await take(page,'灯');await place(page,'桌下');await page.getByRole('button',{name:'留下我的布置'}).click();await expect(page.locator('.scene-feedback')).toContainText('接着摆');await images(page);await page.screenshot({path:'docs/evidence/minigames-vocab/design-phone.png'});
+  39 |  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tabby.foodtruck.scene-mini.v1')??'{}'));expect(saved.scenes['design-0'].mode).toBe('free');expect(saved.scenes['design-0'].objects.find((o:{id:string})=>o.id==='lamp').place).toBe('under');
+  40 | });
+  41 | 
+  42 | test('desktop theatre follows actual tool and liquid prerequisites with keyboard operation',async({page})=>{
+  43 |  await page.setViewportSize({width:1440,height:900});await enter(page);await choose(page,'大咪动作小剧场','朋友的水杯');
+  44 |  await page.getByRole('button',{name:'倒水杯子',exact:true}).click();await expect(page.locator('.scene-feedback')).toContainText('准备');
+  45 |  await take(page,'杯子');await page.getByRole('button',{name:'放到桌上'}).press('Enter');await check(page);
+  46 |  await take(page,'倒水壶');await page.getByRole('button',{name:'倒水杯子'}).click();await place(page,'桌上');await check(page);
+  47 |  await take(page,'勺子');await page.getByRole('button',{name:'搅拌杯子'}).click();await place(page,'桌上');await check(page);
+  48 |  await take(page,'碗');await place(page,'水槽');await page.getByRole('button',{name:'清洗碗'}).click();await page.screenshot({path:'docs/evidence/minigames-vocab/theatre-desktop.png'});await images(page);await check(page);await expect(page.getByText('这次小院活动完成了')).toBeVisible();
+  49 | });
+  50 | 
+  51 | test('new vocabulary is reachable in small batches and audio failure keeps support through replay',async({page})=>{
+  52 |  await page.route('**/audio/vocab-*.wav*',route=>route.abort());await page.goto('/');await page.getByRole('button',{name:'迷你游戏',exact:true}).click();await page.getByRole('button',{name:/小院场景小游戏 ·/}).click();await choose(page,'小院寻物','帮大咪拿东西');
+  53 |  await expect(page.getByRole('button',{name:'重试声音'})).toBeVisible();await page.getByRole('button',{name:'看图继续'}).click();await take(page,'杯子');await page.getByRole('button',{name:'交付找到的物件'}).click();
+  54 |  await page.getByRole('button',{name:'重玩这一组',exact:true}).click();await page.getByRole('button',{name:'确认重玩'}).click();await page.getByRole('button',{name:'先认识今天的物件'}).click();await page.getByRole('button',{name:'我来动手'}).click();
+  55 |  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tabby.foodtruck.scene-mini.v1')??'{}'));expect(saved.scenes['hunt-0'].support).toContain('answer-help');expect(saved.scenes['hunt-0'].heard).toBe(false);
+  56 |  await page.getByRole('button',{name:'返回游乐角'}).click();await page.getByRole('button',{name:'返回游戏小摊'}).click();await page.getByRole('button',{name:/主题关卡 ·/}).click();await page.getByRole('button',{name:/认识小院120词/}).click();await expect(page.locator('.course-level-grid article')).toHaveCount(1);await page.getByRole('button',{name:'认识下一小组'}).click();await expect(page.locator('.library-navigation')).toContainText('第2小组');
+  57 | });
+  58 | 
+```

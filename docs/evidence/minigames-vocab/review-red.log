@@ -1,0 +1,67 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+ ❯ tests/scene-games.test.ts (11 tests | 2 failed) 49ms
+   × early theatre actions remain reachable at subsequent confirmations 14ms
+   × beside plate needs the plate to remain on the table 5ms
+ ❯ tests/mini-expansion-recovery.test.ts (8 tests | 3 failed) 35ms
+   × quantity composition judges actual content and count regardless of placement order 7ms
+   × support survives bounded attempt history and later rounds 17ms
+   × all vocabulary courses with repeated attempts can be saved and restored 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > quantity composition judges actual content and count regardless of placement order
+TypeError: quantityProducts is not a function
+ ❯ tests/mini-expansion-recovery.test.ts:102:70
+    100|  const {miniLevel}=await import('../src/content/mini-levels');const {c…
+    101|  const l=miniLevel('quantity-fruit-mix');if(!l)throw Error('quantity');
+    102|  let s=playCourse(startCourse(createCourse(l,'composition')));expect(q…
+       |                                                                      ^
+    103|  s=composeCourse(l,s,'banana');s=composeCourse(l,s,'apple');s=submitCo…
+    104|  expect(composeCourse(l,s,'apple')).toEqual(s);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > support survives bounded attempt history and later rounds
+AssertionError: expected [ 'meaning-picture', …(2) ] to include 'answer-help'
+ ❯ tests/mini-expansion-recovery.test.ts:108:471
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > all vocabulary courses with repeated attempts can be saved and restored
+TypeError: VOCABULARY_COURSES is not iterable
+ ❯ tests/mini-expansion-recovery.test.ts:112:17
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/scene-games.test.ts > early theatre actions remain reachable at subsequent confirmations
+AssertionError: expected 'play' to be 'feedback' // Object.is equality
+
+Expected: "feedback"
+Received: "play"
+
+ ❯ tests/scene-games.test.ts:131:399
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/scene-games.test.ts > beside plate needs the plate to remain on the table
+AssertionError: expected 'feedback' to be 'play' // Object.is equality
+
+Expected: "play"
+Received: "feedback"
+
+ ❯ tests/scene-games.test.ts:135:199
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed | 14 passed (19)
+   Start at  21:01:22
+   Duration  1.17s (transform 645ms, setup 0ms, import 877ms, tests 84ms, environment 0ms)
+

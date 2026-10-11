@@ -1,0 +1,3106 @@
+scripts/check-vocabulary.mjs:194:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    192 │   await writeFile(
+    193 │     'docs/evidence/minigames-vocab/coverage.json',
+  > 194 │     JSON.stringify(summary, null, 2) + '\n',
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    195 │   );
+    196 │   await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    192 192 │     await writeFile(
+    193 193 │       'docs/evidence/minigames-vocab/coverage.json',
+    194     │ - ····JSON.stringify(summary,·null,·2)·+·'\n',
+        194 │ + ····`${JSON.stringify(summary,·null,·2)}\n`,
+    195 195 │     );
+    196 196 │     await writeFile(
+  
+
+scripts/export-m22.mjs:46:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    44 │ await writeFile(
+    45 │   'art/m22-production.json',
+  > 46 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 47 │     {
+        ...
+  > 56 │     2,
+  > 57 │   ) + '\n',
+       │   ^^^^^^^^
+    58 │ );
+    59 │ console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    44 44 │   await writeFile(
+    45 45 │     'art/m22-production.json',
+    46    │ - ··JSON.stringify(
+       46 │ + ··`${JSON.stringify(
+    47 47 │       {
+    48 48 │         tool: 'OpenAI built-in imagegen',
+    ····· │ 
+    55 55 │       null,
+    56 56 │       2,
+    57    │ - ··)·+·'\n',
+       57 │ + ··)}\n`,
+    58 58 │   );
+    59 59 │   console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+  
+
+scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │   await writeFile(
+    59 │     'art/m21-audio.json',
+  > 60 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 61 │       {
+        ...
+  > 68 │       2,
+  > 69 │     ) + '\n',
+       │     ^^^^^^^^
+    70 │   );
+    71 │   console.log(`Generated ${ids.length} registered development clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    58 58 │     await writeFile(
+    59 59 │       'art/m21-audio.json',
+    60    │ - ····JSON.stringify(
+       60 │ + ····`${JSON.stringify(
+    61 61 │         {
+    62 62 │           humanListeningReview: 'NOT_RUN',
+    ····· │ 
+    67 67 │         null,
+    68 68 │         2,
+    69    │ - ····)·+·'\n',
+       69 │ + ····)}\n`,
+    70 70 │     );
+    71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+  
+
+scripts/m22-audio.mjs:44:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    42 │     ]);
+    43 │   }
+  > 44 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    42 42 │       ]);
+    43 43 │     }
+    44    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       44 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+  
+
+scripts/m22-audio.mjs:47:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    45 │   await writeFile(
+    46 │     'art/m22-audio.json',
+  > 47 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 48 │       {
+        ...
+  > 55 │       2,
+  > 56 │     ) + '\n',
+       │     ^^^^^^^^
+    57 │   );
+    58 │   console.log(`Generated ${records.length} individual registered clips`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    45 45 │     await writeFile(
+    46 46 │       'art/m22-audio.json',
+    47    │ - ····JSON.stringify(
+       47 │ + ····`${JSON.stringify(
+    48 48 │         {
+    49 49 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    54 54 │         null,
+    55 55 │         2,
+    56    │ - ····)·+·'\n',
+       56 │ + ····)}\n`,
+    57 57 │     );
+    58 58 │     console.log(`Generated ${records.length} individual registered clips`);
+  
+
+scripts/m22-growth-audio.mjs:39:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    37 │     speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+    38 │   }
+  > 39 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    40 │   await writeFile(
+    41 │     'art/m22-growth-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    37 37 │       speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+    38 38 │     }
+    39    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       39 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    40 40 │     await writeFile(
+    41 41 │       'art/m22-growth-audio.json',
+  
+
+scripts/m22-growth-audio.mjs:42:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    40 │   await writeFile(
+    41 │     'art/m22-growth-audio.json',
+  > 42 │     JSON.stringify(
+       │     ^^^^^^^^^^^^^^^
+  > 43 │       {
+        ...
+  > 50 │       2,
+  > 51 │     ) + '\n',
+       │     ^^^^^^^^
+    52 │   );
+    53 │ } finally {
+  
+  i Unsafe fix: Use a template literal.
+  
+    40 40 │     await writeFile(
+    41 41 │       'art/m22-growth-audio.json',
+    42    │ - ····JSON.stringify(
+       42 │ + ····`${JSON.stringify(
+    43 43 │         {
+    44 44 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+    ····· │ 
+    49 49 │         null,
+    50 50 │         2,
+    51    │ - ····)·+·'\n',
+       51 │ + ····)}\n`,
+    52 52 │     );
+    53 53 │   } finally {
+  
+
+scripts/vocab-resources.mjs:405:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    403 │   review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 │ }));
+  > 405 │ await writeFile('src/content/vocabulary-extra.json', JSON.stringify(extra, null, 2) + '\n');
+        │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    406 │ const instructions = [
+    407 │   ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+  i Unsafe fix: Use a template literal.
+  
+    403 403 │     review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+    404 404 │   }));
+    405     │ - await·writeFile('src/content/vocabulary-extra.json',·JSON.stringify(extra,·null,·2)·+·'\n');
+        405 │ + await·writeFile('src/content/vocabulary-extra.json',·`${JSON.stringify(extra,·null,·2)}\n`);
+    406 406 │   const instructions = [
+    407 407 │     ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+  
+
+scripts/vocab-resources.mjs:454:55 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    452 │   ['lamp-on', 'Put the lamp on the table.'],
+    453 │ ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+  > 454 │ await writeFile('src/content/mini-instructions.json', JSON.stringify(instructions, null, 2) + '\n');
+        │                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    455 │ const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 │ const records = [
+  
+  i Unsafe fix: Use a template literal.
+  
+    452 452 │     ['lamp-on', 'Put the lamp on the table.'],
+    453 453 │   ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+    454     │ - await·writeFile('src/content/mini-instructions.json',·JSON.stringify(instructions,·null,·2)·+·'\n');
+        454 │ + await·writeFile('src/content/mini-instructions.json',·`${JSON.stringify(instructions,·null,·2)}\n`);
+    455 455 │   const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+    456 456 │   const records = [
+  
+
+scripts/vocab-resources.mjs:492:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    490 │   .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 │   .concat(newAssets);
+  > 492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+        │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    490 490 │     .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+    491 491 │     .concat(newAssets);
+    492     │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+        492 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    493 493 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    494 494 │   await writeFile(
+  
+
+scripts/vocab-resources.mjs:493:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    491 │   .concat(newAssets);
+    492 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 493 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+        │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    491 491 │     .concat(newAssets);
+    492 492 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    493     │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+        493 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+  
+
+scripts/vocab-resources.mjs:496:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    494 │ await writeFile(
+    495 │   'art/vocab-production.json',
+  > 496 │   JSON.stringify(
+        │   ^^^^^^^^^^^^^^^
+  > 497 │     {
+         ...
+  > 505 │     2,
+  > 506 │   ) + '\n',
+        │   ^^^^^^^^
+    507 │ );
+    508 │ console.log(
+  
+  i Unsafe fix: Use a template literal.
+  
+    494 494 │   await writeFile(
+    495 495 │     'art/vocab-production.json',
+    496     │ - ··JSON.stringify(
+        496 │ + ··`${JSON.stringify(
+    497 497 │       {
+    498 498 │         source: 'Original vector art and offline macOS Samantha development synthesis',
+    ······· │ 
+    504 504 │       null,
+    505 505 │       2,
+    506     │ - ··)·+·'\n',
+        506 │ + ··)}\n`,
+    507 507 │   );
+    508 508 │   console.log(
+  
+
+scripts/vocab-scene-audio.mjs:58:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    56 │   });
+    57 │ }
+  > 58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+       │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    60 │ await writeFile(
+  
+  i Unsafe fix: Use a template literal.
+  
+    56 56 │     });
+    57 57 │   }
+    58    │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+       58 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+    59 59 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+    60 60 │   await writeFile(
+  
+
+scripts/vocab-scene-audio.mjs:59:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    57 │ }
+    58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+  > 59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+       │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    60 │ await writeFile(
+    61 │   'art/vocab-scene-audio.json',
+  
+  i Unsafe fix: Use a template literal.
+  
+    57 57 │   }
+    58 58 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+    59    │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+       59 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+    60 60 │   await writeFile(
+    61 61 │     'art/vocab-scene-audio.json',
+  
+
+scripts/vocab-scene-audio.mjs:62:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    60 │ await writeFile(
+    61 │   'art/vocab-scene-audio.json',
+  > 62 │   JSON.stringify(
+       │   ^^^^^^^^^^^^^^^
+  > 63 │     {
+        ...
+  > 70 │     2,
+  > 71 │   ) + '\n',
+       │   ^^^^^^^^
+    72 │ );
+    73 │ console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+  i Unsafe fix: Use a template literal.
+  
+    60 60 │   await writeFile(
+    61 61 │     'art/vocab-scene-audio.json',
+    62    │ - ··JSON.stringify(
+       62 │ + ··`${JSON.stringify(
+    63 63 │       {
+    64 64 │         source: 'macOS Samantha static development speech',
+    ····· │ 
+    69 69 │       null,
+    70 70 │       2,
+    71    │ - ··)·+·'\n',
+       71 │ + ··)}\n`,
+    72 72 │   );
+    73 73 │   console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+  
+
+src/content/teaching.ts:116:7 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    114 │   ...(Object.fromEntries(
+    115 │     FOODS.filter((f) => ['direct', 'prepared'].includes(f.role)).map((f) => [
+  > 116 │       'food-' + f.id,
+        │       ^^^^^^^^^^^^^^
+    117 │       [f.id],
+    118 │     ]),
+  
+  i Unsafe fix: Use a template literal.
+  
+    114 114 │     ...(Object.fromEntries(
+    115 115 │       FOODS.filter((f) => ['direct', 'prepared'].includes(f.role)).map((f) => [
+    116     │ - ······'food-'·+·f.id,
+        116 │ + ······`food-${f.id}`,
+    117 117 │         [f.id],
+    118 118 │       ]),
+  
+
+src/app/Lesson.tsx:115:5 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    113 │   };
+    114 │   const physical =
+  > 115 │     unit &&
+        │     ^^^^^^^
+  > 116 │     unit.choices.every((c) => c.products.length === 1 && c.products.every((p) => RAW.includes(p)));
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    117 │   const choose = (choice: string) => {
+    118 │     if (!unit) return;
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    113 113 │     };
+    114 114 │     const physical =
+    115     │ - ····unit·&&
+    116     │ - ····unit.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+        115 │ + ····unit?.choices.every((c)·=>·c.products.length·===·1·&&·c.products.every((p)·=>·RAW.includes(p)));
+    117 116 │     const choose = (choice: string) => {
+    118 117 │       if (!unit) return;
+  
+
+src/app/adventure.css:330:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    328 │   gap: 3px;
+    329 │ }
+  > 330 │ .commission-clue img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    331 │   width: 34px;
+    332 │   height: 30px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:345:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    343 │   background: #fff1c6;
+    344 │ }
+  > 345 │ .invitation-pegs img {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    346 │   width: 38px;
+    347 │   height: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/adventure.css:505:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    503 │   min-height: 44px;
+    504 │ }
+  > 505 │ .free-shop-menu img {
+        │ ^^^^^^^^^^^^^^^^^^^
+    506 │   width: 40px;
+    507 │   height: 40px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    278 │   background: #fff0c4;
+    279 │ }
+  > 280 │ .world-food.tasted img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    281 │   opacity: 0.7;
+    282 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:67:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    65 │   margin: 10px auto;
+    66 │ }
+  > 67 │ .basket-foods button {
+       │ ^^^^^^^^^^^^^^^^^^^^
+    68 │   padding: 6px;
+    69 │   aspect-ratio: 1.15;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    42 │   max-width: 680px;
+    43 │ }
+  > 44 │ .food-baskets nav button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    45 │   flex: 1;
+    46 │   min-width: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:71:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    69 │   aspect-ratio: 1.15;
+    70 │ }
+  > 71 │ .basket-foods .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^
+    72 │   width: 100%;
+    73 │   height: 100%;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    48 │   font-size: 14px;
+    49 │ }
+  > 50 │ .food-baskets nav .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    51 │   width: 44px;
+    52 │   height: 44px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/foods.css:105:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    103 │   font-size: 13px;
+    104 │ }
+  > 105 │ .food-basket-entry .food-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    106 │   width: 68px;
+    107 │   height: 68px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    48 │   font-size: 14px;
+    49 │ }
+  > 50 │ .food-baskets nav .food-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    51 │   width: 44px;
+    52 │   height: 44px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1459:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1457 │   padding: 3px 0;
+    1458 │ }
+  > 1459 │ .story-choice legend {
+         │ ^^^^^^^^^^^^^^^^^^^^
+    1460 │   font-weight: bold;
+    1461 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1060 │   min-height: 38px;
+    1061 │ }
+  > 1062 │ .recipe-book .support-options legend {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1063 │   font-size: 12px;
+    1064 │   padding: 2px 6px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:471:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    469 │   margin: 25px 0;
+    470 │ }
+  > 471 │ .mini-choices > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    472 │   width: 260px;
+    473 │   max-width: 45%;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:524:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    522 │   height: 180px;
+    523 │ }
+  > 524 │ .mini-intro p {
+        │ ^^^^^^^^^^^^^
+    525 │   max-width: 460px;
+    526 │   line-height: 1.7;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    417 │   font-size: 25px;
+    418 │ }
+  > 419 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    420 │   font-size: 16px;
+    421 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:528:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    526 │   line-height: 1.7;
+    527 │ }
+  > 528 │ .mini-ending img {
+        │ ^^^^^^^^^^^^^^^^
+    529 │   height: 200px;
+    530 │ }
+  
+  i This selector specificity is (0, 3, 1)
+  
+    389 │   gap: 4px;
+    390 │ }
+  > 391 │ .m2-shell .ending .story-photo img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    392 │   width: 24%;
+    393 │   max-width: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:531:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    529 │   height: 200px;
+    530 │ }
+  > 531 │ .mini-ending h2 {
+        │ ^^^^^^^^^^^^^^^
+    532 │   font-size: 26px;
+    533 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    414 │   margin: 0;
+    415 │ }
+  > 416 │ .m2-shell .ending h2 {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    417 │   font-size: 25px;
+    418 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:534:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    532 │   font-size: 26px;
+    533 │ }
+  > 534 │ .mini-ending p {
+        │ ^^^^^^^^^^^^^^
+    535 │   font-size: 15px;
+    536 │   max-width: 500px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    417 │   font-size: 25px;
+    418 │ }
+  > 419 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    420 │   font-size: 16px;
+    421 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:567:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    565 │   margin: 20px auto;
+    566 │ }
+  > 567 │ .matching-pictures button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^
+    568 │   height: 135px;
+    569 │   background: #fff6df;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:593:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    591 │   max-width: 660px;
+    592 │ }
+  > 593 │ .letter-draft button,
+        │ ^^^^^^^^^^^^^^^^^^^^
+    594 │ .letter-bank button {
+    595 │   padding: 0;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:594:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    592 │ }
+    593 │ .letter-draft button,
+  > 594 │ .letter-bank button {
+        │ ^^^^^^^^^^^^^^^^^^^
+    595 │   padding: 0;
+    596 │   min-width: 44px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:614:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    612 │   min-height: 80px;
+    613 │ }
+  > 614 │ .letter-draft button {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    615 │   background: #f7d674;
+    616 │ }
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:965:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    963 │   background: #ffffff12;
+    964 │ }
+  > 965 │ .entry-main > span {
+        │ ^^^^^^^^^^^^^^^^^^
+    966 │   font-size: clamp(20px, 2.6vw, 30px);
+    967 │   font-weight: 900;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    300 │   height: 100px;
+    301 │ }
+  > 302 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    303 │   font-weight: bold;
+    304 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:969:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    967 │   font-weight: 900;
+    968 │ }
+  > 969 │ .entry-main small {
+        │ ^^^^^^^^^^^^^^^^^
+    970 │   font-size: 12px;
+    971 │   margin-top: 6px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    304 │   font-size: 21px;
+    305 │ }
+  > 306 │ .chapter-pages button small {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    307 │   font-size: 12px;
+    308 │   line-height: 1.5;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1008:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1006 │   font-size: 13px;
+    1007 │ }
+  > 1008 │ .lesson-stepper button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^
+    1009 │   padding: 6px 10px;
+    1010 │   min-height: 36px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1057:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 1)
+  
+    1055 │   max-width: 620px;
+    1056 │ }
+  > 1057 │ .recipe-book .support-options button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1058 │   padding: 5px 8px;
+    1059 │   font-size: 12px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1072:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1070 │   border: 0;
+    1071 │ }
+  > 1072 │ .training-recipes button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    1073 │   display: flex;
+    1074 │   flex-direction: column;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1187:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1185 │   pointer-events: none;
+    1186 │ }
+  > 1187 │ .yard-photo img {
+         │ ^^^^^^^^^^^^^^^
+    1188 │   width: 38px;
+    1189 │   height: 70px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    389 │   gap: 4px;
+    390 │ }
+  > 391 │ .m2-shell .ending .story-photo img {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    392 │   width: 24%;
+    393 │   max-width: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:442:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    440 │   max-width: 900px;
+    441 │ }
+  > 442 │ .adult-settings p,
+        │ ^^^^^^^^^^^^^^^^^
+    443 │ .adult-settings output {
+    444 │   overflow-wrap: anywhere;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    417 │   font-size: 25px;
+    418 │ }
+  > 419 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    420 │   font-size: 16px;
+    421 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1241:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1239 │   font-size: 13px;
+    1240 │ }
+  > 1241 │ .lesson-heading button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^
+    1242 │   font-size: 13px;
+    1243 │   padding: 7px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1250:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1248 │   gap: 7px;
+    1249 │ }
+  > 1250 │ .lesson-beads span {
+         │ ^^^^^^^^^^^^^^^^^^
+    1251 │   width: 8px;
+    1252 │   height: 8px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    300 │   height: 100px;
+    301 │ }
+  > 302 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    303 │   font-weight: bold;
+    304 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1285:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1283 │   gap: 16px;
+    1284 │ }
+  > 1285 │ .meaning-choices button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^
+    1286 │   min-height: 100px;
+    1287 │   min-width: 100px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1339:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 1)
+  
+    1337 │   padding: 5px;
+    1338 │ }
+  > 1339 │ .mini-lobby .choice-row button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1340 │   min-height: 44px;
+    1341 │   padding: 8px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1369:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1367 │     grid-template-columns: repeat(4, 44px);
+    1368 │   }
+  > 1369 │   .letter-word button {
+         │   ^^^^^^^^^^^^^^^^^^^
+    1370 │     width: 44px;
+    1371 │     min-width: 44px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1342 │ }
+    1343 │ @media (max-width: 600px) {
+  > 1344 │   .mini-lobby .mini-choices > button {
+         │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1345 │     padding: 8px;
+    1346 │   }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1412:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 1)
+  
+    1411 │ /* The book selects a chapter and then a stable service, without a second game screen. */
+  > 1412 │ .recipe-book .chapter-pages button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1413 │   width: min(170px, 30%);
+    1414 │   transform: none;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1440:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1438 │   font-size: 19px;
+    1439 │ }
+  > 1440 │ .story-level p {
+         │ ^^^^^^^^^^^^^^
+    1441 │   margin: 4px 0;
+    1442 │   line-height: 1.4;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    417 │   font-size: 25px;
+    418 │ }
+  > 419 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    420 │   font-size: 16px;
+    421 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1444:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1442 │   line-height: 1.4;
+    1443 │ }
+  > 1444 │ .story-level > button {
+         │ ^^^^^^^^^^^^^^^^^^^^^
+    1445 │   margin-top: 8px;
+    1446 │   background: #315c40;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:397:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    395 │   object-fit: contain;
+    396 │ }
+  > 397 │ .story-photo span {
+        │ ^^^^^^^^^^^^^^^^^
+    398 │   display: block;
+    399 │   margin-top: 4px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    300 │   height: 100px;
+    301 │ }
+  > 302 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    303 │   font-weight: bold;
+    304 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1462:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1460 │   font-weight: bold;
+    1461 │ }
+  > 1462 │ .story-choice button {
+         │ ^^^^^^^^^^^^^^^^^^^^
+    1463 │   min-height: 44px;
+    1464 │   font-size: 14px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1507:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1505 │   background: #f5c869;
+    1506 │ }
+  > 1507 │ .course-entry small {
+         │ ^^^^^^^^^^^^^^^^^^^
+    1508 │   display: block;
+    1509 │   font-size: 13px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    304 │   font-size: 21px;
+    305 │ }
+  > 306 │ .chapter-pages button small {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    307 │   font-size: 12px;
+    308 │   line-height: 1.5;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1520:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1518 │   text-align: center;
+    1519 │ }
+  > 1520 │ .mini-course h2 {
+         │ ^^^^^^^^^^^^^^^
+    1521 │   font-size: clamp(25px, 4vw, 38px);
+    1522 │   margin: 6px 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    414 │   margin: 0;
+    415 │ }
+  > 416 │ .m2-shell .ending h2 {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    417 │   font-size: 25px;
+    418 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1532:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1530 │   border: 0;
+    1531 │ }
+  > 1532 │ .course-tabs legend {
+         │ ^^^^^^^^^^^^^^^^^^^
+    1533 │   font-weight: 700;
+    1534 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    1060 │   min-height: 38px;
+    1061 │ }
+  > 1062 │ .recipe-book .support-options legend {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1063 │   font-size: 12px;
+    1064 │   padding: 2px 6px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1551:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1549 │   margin: 5px 0;
+    1550 │ }
+  > 1551 │ .course-level-grid p {
+         │ ^^^^^^^^^^^^^^^^^^^^
+    1552 │   margin: 5px 0 10px;
+    1553 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    417 │   font-size: 25px;
+    418 │ }
+  > 419 │ .m2-shell .ending p {
+        │ ^^^^^^^^^^^^^^^^^^^
+    420 │   font-size: 16px;
+    421 │   max-width: 400px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1554:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1552 │   margin: 5px 0 10px;
+    1553 │ }
+  > 1554 │ .course-level-grid button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^
+    1555 │   background: #315c40;
+    1556 │   color: #fff5da;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1579:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1577 │   flex-wrap: wrap;
+    1578 │ }
+  > 1579 │ .course-pictures .food-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1580 │   width: 80px;
+    1581 │   height: 80px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    1415 │   padding: 8px;
+    1416 │ }
+  > 1417 │ .recipe-book .chapter-pages .food-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1418 │   width: 52px;
+    1419 │   height: 52px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1590:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1588 │   width: min(620px, 100%);
+    1589 │ }
+  > 1590 │ .course-choice-grid button {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1591 │   display: grid;
+    1592 │   place-items: center;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1598:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1596 │   display: block;
+    1597 │ }
+  > 1598 │ .course-choice-grid .food-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1599 │   width: 70px;
+    1600 │   height: 70px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    1415 │   padding: 8px;
+    1416 │ }
+  > 1417 │ .recipe-book .chapter-pages .food-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1418 │   width: 52px;
+    1419 │   height: 52px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1622:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1620 │   border-bottom: 2px solid #906a3f;
+    1621 │ }
+  > 1622 │ .course-draft button,
+         │ ^^^^^^^^^^^^^^^^^^^^
+    1623 │ .course-tiles button {
+    1624 │   min-width: 48px;
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1623:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1621 │ }
+    1622 │ .course-draft button,
+  > 1623 │ .course-tiles button {
+         │ ^^^^^^^^^^^^^^^^^^^^
+    1624 │   min-width: 48px;
+    1625 │ }
+  
+  i This selector specificity is (0, 3, 1)
+  
+    409 │   overflow-y: auto;
+    410 │ }
+  > 411 │ .m2-shell .ending .story-guests button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    412 │   width: auto;
+    413 │   min-width: 110px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/m2.css:1192:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1190 │   object-fit: contain;
+    1191 │ }
+  > 1192 │ .yard-photo span {
+         │ ^^^^^^^^^^^^^^^^
+    1193 │   position: absolute;
+    1194 │   bottom: -20px;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    300 │   height: 100px;
+    301 │ }
+  > 302 │ .chapter-pages button span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    303 │   font-weight: bold;
+    304 │   font-size: 21px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:978:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    976 │     margin: 6px auto;
+    977 │   }
+  > 978 │   .scene-hand .vocab-art {
+        │   ^^^^^^^^^^^^^^^^^^^^^^
+    979 │     width: 43px;
+    980 │     height: 43px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    949 │     height: 66px;
+    950 │   }
+  > 951 │   .scene-prop .size-big .vocab-art {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    952 │     width: 80px;
+    953 │     height: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1305:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1303 │   left: 40px;
+    1304 │ }
+  > 1305 │ .guide-placement .vocab-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1306 │   width: 45px;
+    1307 │   height: 45px;
+  
+  i This selector specificity is (0, 4, 0)
+  
+    1227 │ }
+    1228 │ 
+  > 1229 │ .meaning-attribute .object-artwork.size-small .vocab-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1230 │   width: 48px !important;
+    1231 │   height: 48px !important;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:246:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    244 │ }
+    245 │ .meaning-table .vocab-art {
+  > 246 │   width: 100px !important;
+        │                ^^^^^^^^^^
+    247 │   height: 90px !important;
+    248 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    246 │ ··width:·100px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:247:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    245 │ .meaning-table .vocab-art {
+    246 │   width: 100px !important;
+  > 247 │   height: 90px !important;
+        │                ^^^^^^^^^^
+    248 │ }
+    249 │ .meaning-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    247 │ ··height:·90px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:255:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    253 │ }
+    254 │ .meaning-object .vocab-art {
+  > 255 │   width: 60px !important;
+        │               ^^^^^^^^^^
+    256 │   height: 60px !important;
+    257 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    255 │ ··width:·60px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:256:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    254 │ .meaning-object .vocab-art {
+    255 │   width: 60px !important;
+  > 256 │   height: 60px !important;
+        │                ^^^^^^^^^^
+    257 │ }
+    258 │ .meaning-cat {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    256 │ ··height:·60px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:302:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    300 │ }
+    301 │ .meaning-tool .vocab-art {
+  > 302 │   width: 54px !important;
+        │               ^^^^^^^^^^
+    303 │   height: 54px !important;
+    304 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    302 │ ··width:·54px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:303:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    301 │ .meaning-tool .vocab-art {
+    302 │   width: 54px !important;
+  > 303 │   height: 54px !important;
+        │                ^^^^^^^^^^
+    304 │ }
+    305 │ .meaning-stir .meaning-tool {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    303 │ ··height:·54px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:352:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    350 │ }
+    351 │ .meaning-number .vocab-art {
+  > 352 │   width: 51px !important;
+        │               ^^^^^^^^^^
+    353 │   height: 51px !important;
+    354 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    352 │ ··width:·51px·!important;
+        │              ----------- 
+
+src/app/scene-games.css:353:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    351 │ .meaning-number .vocab-art {
+    352 │   width: 51px !important;
+  > 353 │   height: 51px !important;
+        │                ^^^^^^^^^^
+    354 │ }
+    355 │ .meaning-attribute {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    353 │ ··height:·51px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:367:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    365 │ .meaning-comparison .vocab-art {
+    366 │   width: 65px !important;
+  > 367 │   height: 65px !important;
+        │                ^^^^^^^^^^
+    368 │ }
+    369 │ @keyframes take-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    367 │ ··height:·65px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:511:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    509 │ .scene-prop {
+    510 │   position: relative;
+  > 511 │   padding: 2px !important;
+        │                ^^^^^^^^^^
+    512 │   border: none !important;
+    513 │   background: transparent !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    511 │ ··padding:·2px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:512:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    510 │   position: relative;
+    511 │   padding: 2px !important;
+  > 512 │   border: none !important;
+        │                ^^^^^^^^^^
+    513 │   background: transparent !important;
+    514 │   box-shadow: none !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    512 │ ··border:·none·!important;
+        │               ----------- 
+
+src/app/scene-games.css:513:27 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    511 │   padding: 2px !important;
+    512 │   border: none !important;
+  > 513 │   background: transparent !important;
+        │                           ^^^^^^^^^^
+    514 │   box-shadow: none !important;
+    515 │   width: 94px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    513 │ ··background:·transparent·!important;
+        │                          ----------- 
+
+src/app/scene-games.css:514:20 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    512 │   border: none !important;
+    513 │   background: transparent !important;
+  > 514 │   box-shadow: none !important;
+        │                    ^^^^^^^^^^
+    515 │   width: 94px;
+    516 │   height: 94px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    514 │ ··box-shadow:·none·!important;
+        │                   ----------- 
+
+src/app/scene-games.css:517:23 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    515 │   width: 94px;
+    516 │   height: 94px;
+  > 517 │   border-radius: 12px !important;
+        │                       ^^^^^^^^^^
+    518 │ }
+    519 │ .scene-prop:focus-visible,
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    517 │ ··border-radius:·12px·!important;
+        │                      ----------- 
+
+src/app/scene-games.css:521:25 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    519 │ .scene-prop:focus-visible,
+    520 │ .scene-prop:hover {
+  > 521 │   background: #fff4ca88 !important;
+        │                         ^^^^^^^^^^
+    522 │ }
+    523 │ .scene-prop .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    521 │ ··background:·#fff4ca88·!important;
+        │                        ----------- 
+
+src/app/scene-games.css:656:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    654 │   justify-content: center;
+    655 │   width: 100%;
+  > 656 │   padding: 3px !important;
+        │                ^^^^^^^^^^
+    657 │   min-height: 100px !important;
+    658 │   background: #f4e3c099 !important;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    656 │ ··padding:·3px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:657:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    655 │   width: 100%;
+    656 │   padding: 3px !important;
+  > 657 │   min-height: 100px !important;
+        │                     ^^^^^^^^^^
+    658 │   background: #f4e3c099 !important;
+    659 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    657 │ ··min-height:·100px·!important;
+        │                    ----------- 
+
+src/app/scene-games.css:658:25 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    656 │   padding: 3px !important;
+    657 │   min-height: 100px !important;
+  > 658 │   background: #f4e3c099 !important;
+        │                         ^^^^^^^^^^
+    659 │ }
+    660 │ .place-target .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    658 │ ··background:·#f4e3c099·!important;
+        │                        ----------- 
+
+src/app/scene-games.css:721:25 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    719 │ }
+    720 │ .design-table .place-target {
+  > 721 │   background: #f5e6c977 !important;
+        │                         ^^^^^^^^^^
+    722 │   border: 2px dashed #8e7955;
+    723 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    721 │ ··background:·#f5e6c977·!important;
+        │                        ----------- 
+
+src/app/scene-games.css:771:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    769 │   align-items: center;
+    770 │   gap: 3px;
+  > 771 │   padding: 5px !important;
+        │                ^^^^^^^^^^
+    772 │ }
+    773 │ .theatre-controls .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    771 │ ··padding:·5px·!important;
+        │               ----------- 
+
+src/app/scene-games.css:945:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    943 │     width: 69px;
+    944 │     height: 69px;
+  > 945 │     min-width: 48px !important;
+        │                     ^^^^^^^^^^
+    946 │   }
+    947 │   .scene-prop .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    945 │ ····min-width:·48px·!important;
+        │                    ----------- 
+
+src/app/scene-games.css:988:18 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    986 │   .delivery-basket {
+    987 │     min-width: 210px;
+  > 988 │     padding: 4px !important;
+        │                  ^^^^^^^^^^
+    989 │   }
+    990 │   .delivery-basket > .object-artwork .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    988 │ ····padding:·4px·!important;
+        │                 ----------- 
+
+src/app/scene-games.css:1004:22 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1002 │   }
+    1003 │   .place-target {
+  > 1004 │     min-height: 82px !important;
+         │                      ^^^^^^^^^^
+    1005 │   }
+    1006 │   .place-target .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1004 │ ····min-height:·82px·!important;
+         │                     ----------- 
+
+src/app/scene-games.css:1038:22 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1036 │   }
+    1037 │   .design-table .place-target {
+  > 1038 │     min-height: 81px !important;
+         │                      ^^^^^^^^^^
+    1039 │   }
+    1040 │   .design-table > .object-artwork > .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1038 │ ····min-height:·81px·!important;
+         │                     ----------- 
+
+src/app/scene-games.css:1168:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1166 │   .attribute-soft,
+    1167 │   .scene-dami {
+  > 1168 │     animation: none !important;
+         │                     ^^^^^^^^^^
+    1169 │   }
+    1170 │   .meaning-take .meaning-object {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1168 │ ····animation:·none·!important;
+         │                    ----------- 
+
+src/app/scene-games.css:1230:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1229 │ .meaning-attribute .object-artwork.size-small .vocab-art {
+  > 1230 │   width: 48px !important;
+         │               ^^^^^^^^^^
+    1231 │   height: 48px !important;
+    1232 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1230 │ ··width:·48px·!important;
+         │              ----------- 
+
+src/app/scene-games.css:1231:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1229 │ .meaning-attribute .object-artwork.size-small .vocab-art {
+    1230 │   width: 48px !important;
+  > 1231 │   height: 48px !important;
+         │                ^^^^^^^^^^
+    1232 │ }
+    1233 │ .meaning-attribute .object-artwork.size-big .vocab-art {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1231 │ ··height:·48px·!important;
+         │               ----------- 
+
+src/app/scene-games.css:1234:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1232 │ }
+    1233 │ .meaning-attribute .object-artwork.size-big .vocab-art {
+  > 1234 │   width: 100px !important;
+         │                ^^^^^^^^^^
+    1235 │   height: 100px !important;
+    1236 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1234 │ ··width:·100px·!important;
+         │               ----------- 
+
+src/app/scene-games.css:1235:17 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    1233 │ .meaning-attribute .object-artwork.size-big .vocab-art {
+    1234 │   width: 100px !important;
+  > 1235 │   height: 100px !important;
+         │                 ^^^^^^^^^^
+    1236 │ }
+    1237 │ 
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    1235 │ ··height:·100px·!important;
+         │                ----------- 
+
+src/app/scene-games.css:112:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    110 │   align-self: start;
+    111 │ }
+  > 112 │ .scene-level-path small {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    113 │   font-size: 13px;
+    114 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    28 │   font-size: 24px;
+    29 │ }
+  > 30 │ .scene-top h2 small {
+       │ ^^^^^^^^^^^^^^^^^^^
+    31 │   display: block;
+    32 │   font-size: 13px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:116:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    114 │ }
+    115 │ .scene-lobby > p,
+  > 116 │ .scene-lobby > small {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    117 │   display: block;
+    118 │   text-align: center;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    28 │   font-size: 24px;
+    29 │ }
+  > 30 │ .scene-top h2 small {
+       │ ^^^^^^^^^^^^^^^^^^^
+    31 │   display: block;
+    32 │   font-size: 13px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:125:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 0)
+  
+    123 │   border-radius: 12px;
+    124 │ }
+  > 125 │ .vocab-art {
+        │ ^^^^^^^^^^
+    126 │   width: 92px;
+    127 │   height: 92px;
+  
+  i This selector specificity is (0, 2, 0)
+  
+    83 │   background: #d4ddbd;
+    84 │ }
+  > 85 │ .scene-kind-path .vocab-art {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    86 │   width: 85px;
+    87 │   height: 85px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:545:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    543 │   height: 55px;
+    544 │ }
+  > 545 │ .scene-hand > span {
+        │ ^^^^^^^^^^^^^^^^^^
+    546 │   font-size: 16px;
+    547 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    104 │   background: #f9efda;
+    105 │ }
+  > 106 │ .scene-level-path button > span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    107 │   background: #e5bd77;
+    108 │   border-radius: 20px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:597:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    595 │   display: flex;
+    596 │ }
+  > 597 │ .delivered-items .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    598 │   width: 48px;
+    599 │   height: 48px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    567 │   min-height: 155px;
+    568 │ }
+  > 569 │ .hunt-zone > .object-artwork > .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    570 │   width: 155px;
+    571 │   height: 155px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:629:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    627 │   margin: 6px;
+    628 │ }
+  > 629 │ .memory-return .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^
+    630 │   width: 50px;
+    631 │   height: 50px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    567 │   min-height: 155px;
+    568 │ }
+  > 569 │ .hunt-zone > .object-artwork > .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    570 │   width: 155px;
+    571 │   height: 155px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:660:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    658 │   background: #f4e3c099 !important;
+    659 │ }
+  > 660 │ .place-target .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    661 │   width: 77px;
+    662 │   height: 77px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    567 │   min-height: 155px;
+    568 │ }
+  > 569 │ .hunt-zone > .object-artwork > .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    570 │   width: 155px;
+    571 │   height: 155px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:664:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    662 │   height: 77px;
+    663 │ }
+  > 664 │ .place-target > span {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    665 │   font-size: 14px;
+    666 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    104 │   background: #f9efda;
+    105 │ }
+  > 106 │ .scene-level-path button > span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    107 │   background: #e5bd77;
+    108 │   border-radius: 20px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:678:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    676 │   height: 58px;
+    677 │ }
+  > 678 │ .place-objects .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^
+    679 │   width: 55px;
+    680 │   height: 55px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    567 │   min-height: 155px;
+    568 │ }
+  > 569 │ .hunt-zone > .object-artwork > .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    570 │   width: 155px;
+    571 │   height: 155px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:731:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    729 │   min-height: 145px;
+    730 │ }
+  > 731 │ .theatre-object small {
+        │ ^^^^^^^^^^^^^^^^^^^^^
+    732 │   display: block;
+    733 │   text-align: center;
+  
+  i This selector specificity is (0, 1, 2)
+  
+    28 │   font-size: 24px;
+    29 │ }
+  > 30 │ .scene-top h2 small {
+       │ ^^^^^^^^^^^^^^^^^^^
+    31 │   display: block;
+    32 │   font-size: 13px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:773:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    771 │   padding: 5px !important;
+    772 │ }
+  > 773 │ .theatre-controls .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    774 │   width: 46px;
+    775 │   height: 46px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    567 │   min-height: 155px;
+    568 │ }
+  > 569 │ .hunt-zone > .object-artwork > .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    570 │   width: 155px;
+    571 │   height: 155px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:805:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    803 │   margin: 10px auto;
+    804 │ }
+  > 805 │ .scene-bottom > small {
+        │ ^^^^^^^^^^^^^^^^^^^^^
+    806 │   font-size: 12px;
+    807 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    28 │   font-size: 24px;
+    29 │ }
+  > 30 │ .scene-top h2 small {
+       │ ^^^^^^^^^^^^^^^^^^^
+    31 │   display: block;
+    32 │   font-size: 13px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1006:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1004 │     min-height: 82px !important;
+    1005 │   }
+  > 1006 │   .place-target .vocab-art {
+         │   ^^^^^^^^^^^^^^^^^^^^^^^^
+    1007 │     width: 54px;
+    1008 │     height: 54px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    949 │     height: 66px;
+    950 │   }
+  > 951 │   .scene-prop .size-big .vocab-art {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    952 │     width: 80px;
+    953 │     height: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1010:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1008 │     height: 54px;
+    1009 │   }
+  > 1010 │   .place-target > span {
+         │   ^^^^^^^^^^^^^^^^^^^^
+    1011 │     font-size: 12px;
+    1012 │   }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    871 │     text-align: left;
+    872 │   }
+  > 873 │   .scene-level-path button > span {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    874 │     font-size: 12px;
+    875 │     padding: 3px 10px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1017:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1015 │     height: 48px;
+    1016 │   }
+  > 1017 │   .place-objects .vocab-art {
+         │   ^^^^^^^^^^^^^^^^^^^^^^^^^
+    1018 │     width: 45px;
+    1019 │     height: 45px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    949 │     height: 66px;
+    950 │   }
+  > 951 │   .scene-prop .size-big .vocab-art {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    952 │     width: 80px;
+    953 │     height: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1059:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1057 │     min-width: 65px;
+    1058 │   }
+  > 1059 │   .theatre-controls .vocab-art {
+         │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1060 │     width: 40px;
+    1061 │     height: 40px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    949 │     height: 66px;
+    950 │   }
+  > 951 │   .scene-prop .size-big .vocab-art {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    952 │     width: 80px;
+    953 │     height: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1089:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1087 │     gap: 2px;
+    1088 │   }
+  > 1089 │   .scene-help .vocab-art {
+         │   ^^^^^^^^^^^^^^^^^^^^^^
+    1090 │     width: 45px;
+    1091 │     height: 45px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    949 │     height: 66px;
+    950 │   }
+  > 951 │   .scene-prop .size-big .vocab-art {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    952 │     width: 80px;
+    953 │     height: 80px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1104:3 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 0)
+  
+    1102 │     font-size: 12px;
+    1103 │   }
+  > 1104 │   .meaning-scene {
+         │   ^^^^^^^^^^^^^^
+    1105 │     width: 148px;
+    1106 │     height: 135px;
+  
+  i This selector specificity is (0, 2, 0)
+  
+    855 │     height: 58px;
+    856 │   }
+  > 857 │   .scene-kind-path .meaning-scene {
+        │   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    858 │     width: 90px;
+    859 │     height: 78px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1197:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    1195 │   visibility: hidden;
+    1196 │ }
+  > 1197 │ .state-open > .vocab-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    1198 │   opacity: 0.7;
+    1199 │ }
+  
+  i This selector specificity is (0, 3, 0)
+  
+    567 │   min-height: 155px;
+    568 │ }
+  > 569 │ .hunt-zone > .object-artwork > .vocab-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    570 │   width: 155px;
+    571 │   height: 155px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1225:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    1223 │   margin: 12px auto;
+    1224 │ }
+  > 1225 │ .library-navigation > span {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1226 │   font-size: 14px;
+    1227 │ }
+  
+  i This selector specificity is (0, 1, 2)
+  
+    104 │   background: #f9efda;
+    105 │ }
+  > 106 │ .scene-level-path button > span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    107 │   background: #e5bd77;
+    108 │   border-radius: 20px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:1273:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 3, 0)
+  
+    1271 │   padding: 5px;
+    1272 │ }
+  > 1273 │ .scene-guide .guide-step .vocab-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1274 │   width: 45px;
+    1275 │   height: 45px;
+  
+  i This selector specificity is (0, 4, 0)
+  
+    1227 │ }
+    1228 │ 
+  > 1229 │ .meaning-attribute .object-artwork.size-small .vocab-art {
+         │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    1230 │   width: 48px !important;
+    1231 │   height: 48px !important;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/scene-games.css:366:15 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    364 │ }
+    365 │ .meaning-comparison .vocab-art {
+  > 366 │   width: 65px !important;
+        │               ^^^^^^^^^^
+    367 │   height: 65px !important;
+    368 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    366 │ ··width:·65px·!important;
+        │              ----------- 
+
+src/app/service.css:166:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    164 │   }
+    165 │ }
+  > 166 │ .recipe-options button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    167 │   display: flex;
+    168 │   align-items: center;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:95:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    93 │   pointer-events: none;
+    94 │ }
+  > 95 │ .delivery-actions button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^
+    96 │   min-height: 48px;
+    97 │   min-width: 140px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:108:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 2)
+  
+    106 │   width: 100%;
+    107 │ }
+  > 108 │ .delivery-actions fieldset button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    109 │   min-width: 0;
+    110 │   padding: 8px;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:118:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    116 │   z-index: 6;
+    117 │ }
+  > 118 │ .recipe-switch > button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    119 │   min-width: 92px;
+    120 │   padding: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:210:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    208 │   font-size: 18px;
+    209 │ }
+  > 210 │ .request-caption button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    211 │   position: absolute;
+    212 │   right: 0;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:272:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    270 │   margin: 0;
+    271 │ }
+  > 272 │ .voice-recovery button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^
+    273 │   min-height: 44px;
+    274 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/service.css:327:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    325 │   gap: 8px;
+    326 │ }
+  > 327 │ .platform-status button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    328 │   min-width: 48px;
+    329 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    74 │   z-index: 4;
+    75 │ }
+  > 76 │ .service-surface .semantic-layer button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    77 │   position: absolute;
+    78 │   opacity: 0;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/rules/adventure.ts:260:9 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    258 │   if (c.action === 'pickup') {
+    259 │     const food = a.foods.find((f) => f.id === c.item);
+  > 260 │     if (!food || !food.place.startsWith('table:')) return result('blocked', '先选桌上的一份食品。');
+        │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    261 │     food.place = 'work';
+    262 │     return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    258 258 │     if (c.action === 'pickup') {
+    259 259 │       const food = a.foods.find((f) => f.id === c.item);
+    260     │ - ····if·(!food·||·!food.place.startsWith('table:'))·return·result('blocked',·'先选桌上的一份食品。');
+        260 │ + ····if·(!food?.place.startsWith('table:'))·return·result('blocked',·'先选桌上的一份食品。');
+    261 261 │       food.place = 'work';
+    262 262 │       return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  
+
+src/rules/snapshot.ts:487:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    485 │         (job.worldTarget
+    486 │           ? !s.adventure || job.order !== undefined
+  > 487 │           : !order ||
+        │             ^^^^^^^^^
+  > 488 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    489 │             Math.abs(order.remaining - completion) > 0.05) ||
+    490 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    485 485 │           (job.worldTarget
+    486 486 │             ? !s.adventure || job.order !== undefined
+    487     │ - ··········:·!order·||
+    488     │ - ············order.status·!==·'leaving'·||
+        487 │ + ··········:·order?.status·!==·'leaving'·||
+    489 488 │               Math.abs(order.remaining - completion) > 0.05) ||
+    490 489 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+art/vocab-source/apron.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/bag.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/ball.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/basket.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/bench.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/book.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/bottle.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/bowl.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/box.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/chair.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/cup.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/cutting-board.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/door.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/drawer.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/flower.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/fork.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/glass.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/jug.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/kettle.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/knife.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/ladle.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/lamp.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/leaf.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/lid.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/napkin.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/pan.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/plate.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/pot.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/seed.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/shelf.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/spatula.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/spoon.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/table.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/tray.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/tree.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/watering-can.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/whisk.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+art/vocab-source/window.svg:1:1 lint/a11y/noSvgWithoutTitle ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Alternative text title element cannot be empty
+  
+  > 1 │ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="320" height="320"><defs><filter...
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+  i For accessibility purposes, SVGs should have an alternative text, provided via title element. If the svg element has role="img", you should add the aria-label or aria-labelledby attribute.
+  
+
+Checked 199 files in 1036ms. No fixes applied.
+Found 38 errors.
+Found 107 warnings.
+Found 16 infos.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

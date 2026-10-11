@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run tests/scene-games.test.ts tests/vocabulary-expansion.test.ts tests/mini-expansion-recovery.test.ts tests/wp-dual-layout.test.ts
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/minigames-vocab-01/tabby-english-food-truck
+
+
+ Test Files  4 passed (4)
+      Tests  20 passed (20)
+   Start at  20:51:07
+   Duration  2.07s (transform 3.32s, setup 0ms, import 4.08s, tests 115ms, environment 5ms)
+
