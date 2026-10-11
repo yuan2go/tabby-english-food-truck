@@ -1,6 +1,6 @@
 {
   "workPackage": "WP-ADVENTURE-EXPERIENCE-02",
-  "recordedAtUTC": "2026-10-11T14:07:11.919633+00:00",
+  "recordedAtUTC": "2026-10-11T14:08:43.942712+00:00",
   "baselineSha": "64f03fc716de70e20f64f9bbc3802de7601a460f",
   "branch": "codex/wp-adventure-experience-02",
   "buildSha": "ab7978f16f1d27f3baf155c834666f225576cad4",
@@ -122,8 +122,8 @@
     },
     {
       "path": "delivery-checks.log",
-      "bytes": 431,
-      "sha256": "c4e3bdb0addcd30a4f1caec6b07955db6ed9f8e8a17f6183187dcfcbdd2c06a7",
+      "bytes": 2957,
+      "sha256": "ed22f0436b8f0ec6016d1a33568e34fcf95202072025449aa3c269c2f47bc6e7",
       "sourceNote": "historical failure/check artifact; use original context/log, no inferred build identity"
     },
     {

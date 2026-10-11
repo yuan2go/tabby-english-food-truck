@@ -16,7 +16,7 @@
 | `npm run build`（内含typecheck） | ab7978f：exit 0；104模块，15.71s；入口549.56kB/Phaser1208.05kB，保留分块提示 | [build](build-ab7978f.log) |
 | `npm run lint` | ab7978f：exit 0；66 warnings / 7 infos，未冒称清零 | [lint](lint-ab7978f.log) |
 | `npm run resources` | exit 0；387真实文件hash/尺寸/Alpha，236语音引用、50食品映射；此后资源及登记未变 | [resources](resources.log) |
-| `git diff --check`、本地Markdown相对链接核对 | exit 0；链接数量见日志 | [文档和身份核对](delivery-checks.log) |
+| 编写的产品/文档/证据元数据diff检查、本地Markdown相对链接核对 | exit 0；完整PR原始日志空格检查exit2（28份工具原文保留），链接数量见日志 | [文档和身份核对](delivery-checks.log) |
 | `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts e2e/experience.spec.ts` | a8d945a：exit 1，6/8通过；完整原始成功/失败保留 | [浏览器原始日志](browser-a8d945a.log) |
 | `TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts --grep 'free shop stops'` | db5ef12：exit 0，1/1完整自由路径通过，2.0m | [自由路径](free-db5ef12.log) |
 | `CHROMIUM_CHANNEL=chromium TEST_PORT=4191 npx playwright test e2e/adventure.spec.ts --grep 'visible activity entrance\|opening a new seat'` | 7cafefb：exit 1，1/2；五章完整通过4.8m，菜单暴露真实覆盖缺陷 | [五章及修正前结果](browser-7cafefb.log) |
