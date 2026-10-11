@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { lesson, startEndless, state, tap } from './helpers';
+import { lesson, serve, startEndless, startStory, state, tap } from './helpers';
 
 test.use({ hasTouch: true });
 for (const viewport of [
@@ -83,4 +83,41 @@ test('less support keeps an audio bubble while holding a tray', async ({ page })
   expect((await state(page)).attempts).toHaveLength(before);
   await tap(page, 'guest-0', 20);
   expect((await state(page)).attempts).toHaveLength(before + 1);
+});
+
+test('replaying the preceding page offers an explicit new branch instead of a completed snapshot', async ({
+  page,
+}) => {
+  test.setTimeout(180000);
+  await startStory(page);
+  for (let n = 0; n < 3; n++) {
+    await serve(page);
+    await expect(page.locator('.scene-result')).toBeVisible({ timeout: 18000 });
+    if (n < 2) await page.getByRole('button', { name: '继续下一小关' }).tap();
+  }
+  await page.getByRole('button', { name: '先帮兔兔准备水果' }).tap();
+  await serve(page);
+  await serve(page);
+  await expect(page.locator('.scene-result')).toBeVisible({ timeout: 18000 });
+  const completedRun = (await state(page)).runId;
+  await page.getByRole('button', { name: '回到首页' }).tap();
+  await page.getByRole('button', { name: '翻旧食谱' }).tap();
+  await page
+    .locator('.story-level')
+    .filter({ has: page.getByRole('heading', { name: /换一种水果/ }) })
+    .getByRole('button', { name: '重玩这一关' })
+    .tap();
+  await serve(page);
+  await expect(page.locator('.scene-result')).toBeVisible({ timeout: 18000 });
+  await page.getByRole('button', { name: '重玩：先帮刺刺榨香蕉汁' }).tap();
+  await lesson(page);
+  const replay = await state(page);
+  expect(replay.runId).not.toBe(completedRun);
+  expect(replay.session.storyChoice).toBe(1);
+  expect(replay.orders.every((order) => order.status !== 'done')).toBe(true);
+  await serve(page);
+  await serve(page);
+  await expect(page.locator('.scene-result')).toBeVisible({ timeout: 18000 });
+  await page.getByRole('button', { name: '继续下一小关' }).tap();
+  expect((await state(page)).orders.map((order) => order.request)).toEqual(['two', 'banana-juice']);
 });

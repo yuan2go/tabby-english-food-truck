@@ -1,7 +1,7 @@
 import { FoodBaskets } from './FoodBaskets';
 import './foods.css';
 import Phaser from 'phaser';
-import { useEffect, useReducer, useRef, useState } from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { CONTENT_VERSION, REQUESTS, type RequestId } from '../content/catalog';
 import { CHAPTERS, type Support } from '../content/chapters';
 import { STORY_LEVELS, type StoryLevel, storyLevel, storySituation } from '../content/story-levels';
@@ -149,6 +149,15 @@ export function App() {
   const nextLevel = currentLevel
     ? STORY_LEVELS[STORY_LEVELS.findIndex((level) => level.id === currentLevel.id) + 1]
     : undefined;
+  const nextSaved = useMemo(
+    () =>
+      done && nextLevel
+        ? controller.save.loadSession(`story-${nextLevel.chapter}-${nextLevel.id}`)
+        : null,
+    [controller, done, nextLevel],
+  );
+  const nextUnfinished = nextSaved?.orders.some((order) => order.status !== 'done') ?? false;
+  const nextReplay = Boolean(nextSaved && !nextUnfinished);
   ui.change = refresh;
   ui.teaching = teaching;
   ui.inputBlocked =
@@ -403,9 +412,12 @@ export function App() {
                 controller.state,
                 controller.profile.value.completedLevels,
               );
-              const continuing =
-                controller.state.session.levelId === next.id &&
-                controller.state.orders.some((order) => order.status !== 'done');
+              const saved = controller.save.loadSession(`story-${next.chapter}-${next.id}`);
+              if (controller.save.blocked) {
+                setModal('restart');
+                return;
+              }
+              const continuing = saved?.orders.some((order) => order.status !== 'done') ?? false;
               if (
                 !continuing &&
                 next.choice &&
@@ -801,9 +813,12 @@ export function App() {
               ) : null}
               {s.session.activity === 'story' &&
               (nextLevel || (!currentLevel && s.session.chapter < 4)) ? (
-                nextLevel?.choice ? (
+                nextLevel?.choice && !nextUnfinished ? (
                   <fieldset className="story-choice">
-                    <legend>{nextLevel.choice.prompt}</legend>
+                    <legend>
+                      {nextReplay ? '再玩一次：' : ''}
+                      {nextLevel.choice.prompt}
+                    </legend>
                     {nextLevel.choice.labels.map((label, option) => (
                       <button
                         type="button"
@@ -811,9 +826,10 @@ export function App() {
                         className="primary"
                         onClick={() => {
                           controller.profile.chooseStory(nextLevel.id, option as 0 | 1);
-                          enter('story', nextLevel.chapter, false, nextLevel.id);
+                          enter('story', nextLevel.chapter, nextReplay, nextLevel.id);
                         }}
                       >
+                        {nextReplay ? '重玩：' : ''}
                         {label}
                       </button>
                     ))}
@@ -826,12 +842,16 @@ export function App() {
                       enter(
                         'story',
                         nextLevel?.chapter ?? s.session.chapter + 1,
-                        false,
+                        nextReplay,
                         nextLevel?.id,
                       )
                     }
                   >
-                    {nextLevel?.chapter === s.session.chapter ? '继续下一小关' : '翻开下一页'}
+                    {nextReplay
+                      ? '重玩下一小关'
+                      : nextLevel?.chapter === s.session.chapter
+                        ? '继续下一小关'
+                        : '翻开下一页'}
                   </button>
                 )
               ) : (
