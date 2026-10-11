@@ -1,0 +1,34 @@
+{
+  "productSha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+  "records": [
+    {
+      "command": "npx playwright test --list",
+      "exitCode": 0,
+      "log": "vocabulary.log",
+      "environment": {
+        "PATH": "/tmp/node-v22.12.0-darwin-arm64/bin:$PATH"
+      }
+    },
+    {
+      "command": "python3 /tmp/demo-package-final5.py",
+      "exitCode": 0,
+      "log": "package-metadata.log"
+    },
+    {
+      "command": "COPYFILE_DISABLE=1 tar -czf <game-build-e0542ff.tar.gz> -C <artifact> build build-identity.json audio-review.html audio-review-queue.csv audio-review-synthesis.csv audio-synthesis.json",
+      "exitCode": 0,
+      "log": "package.log"
+    },
+    {
+      "command": "python3 exact tar runtime file-set/bytes/SHA256 check",
+      "exitCode": 0,
+      "result": "package-verification.json"
+    },
+    {
+      "command": "PATH=/tmp/node-v22.12.0-darwin-arm64/bin:$PATH node scripts/check-vocabulary.mjs",
+      "exitCode": 0,
+      "log": "content.log",
+      "scope": "120 data concepts, >=2 mechanics, 51 scene solutions, 33 instructions; not 120 UI tests"
+    }
+  ]
+}

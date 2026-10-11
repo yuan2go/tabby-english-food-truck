@@ -1,0 +1,256 @@
+{
+  "method": "Headful desktop Chromium phone layout with touch; normal native minimize/hide, default Playwright background-disabling flags removed. No synthetic visibility events or clock advancement.",
+  "build": {
+    "buildSha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+    "buildDirty": "false",
+    "contentVersion": "adventure-experience-2",
+    "assetVersion": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02",
+    "audioState": "{\"active\":\"request-apple\",\"failure\":null,\"loops\":[\"music\",\"ambience\",\"machine\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.026599369943141937,\"machineGain\":0.02521398477256298,\"effects\":3}"
+  },
+  "initial": {
+    "schemaVersion": 7,
+    "adventure": {
+      "chapter": 0,
+      "kind": "chapter",
+      "branch": null,
+      "explored": [],
+      "steps": [],
+      "rewards": [],
+      "foods": [],
+      "works": [],
+      "decor": {
+        "flower": 0,
+        "bunting": "warm",
+        "cloth": "leaf",
+        "light": "warm"
+      },
+      "invitations": [],
+      "experience": {
+        "version": 2,
+        "tools": [],
+        "used": [],
+        "helpers": [],
+        "needs": [],
+        "known": [],
+        "picnic": null,
+        "moments": []
+      }
+    },
+    "routing": {
+      "machine": {
+        "tray": 0,
+        "slot": 0
+      },
+      "ice": null,
+      "board": null,
+      "grill": null
+    },
+    "session": {
+      "activity": "story",
+      "chapter": 0,
+      "support": "pictures",
+      "concurrency": 1,
+      "menu": [
+        "food-orange",
+        "food-pear",
+        "food-peach",
+        "food-strawberry",
+        "food-grape",
+        "food-watermelon",
+        "food-mango",
+        "food-pineapple",
+        "food-milk",
+        "food-yogurt",
+        "food-smoothie",
+        "food-milkshake",
+        "food-pizza",
+        "food-salad",
+        "food-cake",
+        "food-cookie",
+        "apple",
+        "banana",
+        "two",
+        "juice",
+        "fruit",
+        "banana-juice",
+        "cup-vanilla",
+        "cone-vanilla",
+        "vanilla-cup",
+        "vanilla-cone",
+        "strawberry-cup",
+        "double-cream",
+        "banana-cream",
+        "sandwich",
+        "salad-sandwich",
+        "burger",
+        "cheese-burger"
+      ],
+      "supplyPage": 0,
+      "language": "flavor",
+      "family": "juice",
+      "unlocked": [
+        "juice"
+      ],
+      "seed": 1,
+      "cursor": 0,
+      "served": 0,
+      "lastRequest": ""
+    },
+    "stations": {
+      "ice": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "board": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "grill": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      }
+    },
+    "actor": {
+      "point": {
+        "x": 0.73,
+        "y": 0.43
+      },
+      "current": {
+        "plan": {
+          "id": "lesson-return-5",
+          "phases": [
+            {
+              "from": {
+                "x": 0.73,
+                "y": 0.43
+              },
+              "to": {
+                "x": 0.73,
+                "y": 0.43
+              },
+              "pose": "idle",
+              "duration": 160
+            }
+          ],
+          "duration": 160
+        },
+        "elapsed": 132.5999999999999,
+        "kind": "return",
+        "itemIds": []
+      },
+      "queue": []
+    },
+    "recycle": null,
+    "contentVersion": "adventure-experience-2",
+    "mode": "service",
+    "history": {
+      "apple": [
+        "picture-request",
+        "meaning-picture",
+        "seen-before"
+      ]
+    },
+    "runId": "559644c4-64f5-4b71-bf3d-9e6de45dcc78",
+    "revision": 10,
+    "nextId": 4,
+    "variant": 0,
+    "gameTime": 581.9999999999997,
+    "items": [
+      {
+        "id": "food-1",
+        "product": "cup",
+        "location": "machine:cup"
+      },
+      {
+        "id": "food-2",
+        "product": "apple",
+        "location": "machine:apple"
+      }
+    ],
+    "orders": [
+      {
+        "id": "guest-0",
+        "request": "apple",
+        "visitor": "rabbit",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": [
+          "picture-request",
+          "meaning-picture"
+        ]
+      },
+      {
+        "id": "guest-1",
+        "request": "banana",
+        "visitor": "hedgehog",
+        "seat": 1,
+        "status": "queued",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": [
+          "picture-request"
+        ]
+      }
+    ],
+    "machine": {
+      "status": "processing",
+      "remaining": 5000,
+      "jobId": "juice-3"
+    },
+    "helper": null,
+    "trays": [
+      {
+        "remaining": 0
+      },
+      {
+        "remaining": 0
+      }
+    ],
+    "receipts": [
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559320-1",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559389-2",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559391-3",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559424-4",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559489-5",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559501-6",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559511-7",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559554-8",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559587-9",
+      "559644c4-64f5-4b71-bf3d-9e6de45dcc78-cmd-1791742559637-10"
+    ],
+    "attempts": [],
+    "audio": [
+      {
+        "id": "apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 432.79999999999984
+      },
+      {
+        "id": "apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "interrupted",
+        "gameTime": 432.79999999999984
+      },
+      {
+        "id": "request-apple",
+        "version": "samantha-tingting-dev-experience-02",
+        "status": "started",
+        "gameTime": 449.39999999999975
+      }
+    ],
+    "lessons": [
+      "offered:guest-0"
+    ],
+    "noteSupport": []
+  },
+  "status": "NOT_CONFIRMED",
+  "error": "TimeoutError: page.waitForFunction: Timeout 60000ms exceeded."
+}

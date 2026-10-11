@@ -1,0 +1,30 @@
+{
+  "testedSha": "43d7c76c80df54361790c47ba1715fe7290f9039",
+  "contentVersion": "adventure-experience-2",
+  "screenshots": [
+    {
+      "file": "01-making-icecream.png",
+      "original": "../../playtests/2026-10-11-integrated-validation-43d7c76/manual/09-icecream-processing.png",
+      "sha256": "632c6dff60eb7674bee1ad911b145fed0c852ca4ee4a431dcf23863309faf20e",
+      "width": 1280,
+      "height": 720,
+      "treatment": "byte-identical copy, no editing"
+    },
+    {
+      "file": "02-picnic-sharing.png",
+      "original": "../../playtests/2026-10-11-integrated-validation-43d7c76/manual/24-ch3-rabbit-complete.png",
+      "sha256": "553b39dee2f4dc5a8eb6fb8f29a8b806ce0eee8704580131147c2443388ed78b",
+      "width": 1280,
+      "height": 720,
+      "treatment": "byte-identical copy, no editing"
+    },
+    {
+      "file": "03-saved-work.png",
+      "original": "../../playtests/2026-10-11-integrated-validation-43d7c76/manual/52-free-gallery.png",
+      "sha256": "b1d0c9eeacc7406ce0a101a10e4c19b8d5f8d991b146c4e5db02743783872bb7",
+      "width": 1280,
+      "height": 720,
+      "treatment": "byte-identical copy, no editing"
+    }
+  ]
+}

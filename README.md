@@ -20,6 +20,8 @@ Node >=22.12.0，依赖锁于package-lock.json。`npm ci`、`npm run dev`，访�
 | [04 技术](docs/04-technical-design.md) | 状态源、模块职责、迁移及生命周期 |
 | [05 验收](docs/05-delivery.md) | 本轮顺序、验证与交付合同 |
 | [STATUS](docs/STATUS.md) | 实际实现与验证状态 |
+| [本轮主报告](docs/evidence/demo-repair-2026-10-12/README.md) | 同构建289单元/31整合、模拟体验、失败与外部待验 |
+| [现行索引](docs/index.md) / [既有参赛材料](docs/submission/index.md) | 当前合同与原正式稿/PDF的版本关系 |
 | [AGENTS](AGENTS.md) | 协作边界 |
 | [资源登记](art/README.md) | 来源、hash、制作、审核与权利 |
 | [本轮前历史索引](docs/archive/pre-demo-repair-2026-10-12/index.md) | 被替代合同、授权和实施记录 |

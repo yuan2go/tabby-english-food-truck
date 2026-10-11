@@ -1,0 +1,2960 @@
+{
+  "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+  "dirty": false,
+  "manifestSha256": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02",
+  "content": "adventure-experience-2",
+  "entryFileMtimeUTC": "2026-10-11T18:07:21.108326+00:00",
+  "timestampMethod": "Actual generated entry mtime. Vite tree-shakes unused builtAt; no claim this is a runtime exposed timestamp.",
+  "runtimeFiles": [
+    {
+      "path": "assets/apple.webp",
+      "bytes": 32732,
+      "sha256": "b8cbb5582b5f95ef41c3ef1e100bd0ea14681aab28ba7b5aa0fe18efa1210171"
+    },
+    {
+      "path": "assets/banana-cream.webp",
+      "bytes": 69446,
+      "sha256": "a4a17629ba23cda9d391bdea0fd587a892c6dff551145ec2c348ade393bac6b4"
+    },
+    {
+      "path": "assets/banana-juice.webp",
+      "bytes": 60024,
+      "sha256": "aef0c43a7ba63a85d136738a306d8514df1c9cf614eb5fa4fd62679b6f651326"
+    },
+    {
+      "path": "assets/banana.webp",
+      "bytes": 22190,
+      "sha256": "16c75a3c1bd9afd5d153b3a6b74d69cabf9e78a8500b60bbf68f93afe0b883c3"
+    },
+    {
+      "path": "assets/board-station.webp",
+      "bytes": 85072,
+      "sha256": "d717385d8a753c5f3a23e33c44882581ad3599e2a1a60ea92d563edee28c303b"
+    },
+    {
+      "path": "assets/bread.webp",
+      "bytes": 37626,
+      "sha256": "ec5cc58a0044a4cfd59ea2fb069338d57e8e5b6371700decb407a38ff86ebd31"
+    },
+    {
+      "path": "assets/bun.webp",
+      "bytes": 35948,
+      "sha256": "8d75f0edb6e73a476487990a45ce39f0f83537b42a9c75170997123d5bdd1492"
+    },
+    {
+      "path": "assets/burger.webp",
+      "bytes": 92092,
+      "sha256": "862ae83b1881594b532d0443445144d0e5fc15dba4c76b46e87a2e9f76936039"
+    },
+    {
+      "path": "assets/cat-blocked.webp",
+      "bytes": 114604,
+      "sha256": "9b6542a20e76eb7b306deca881a009f197ab5f2ce85c0d3bf6828fc237f10d8a"
+    },
+    {
+      "path": "assets/cat-carry.webp",
+      "bytes": 117812,
+      "sha256": "c55f5cac06ee21c63d1af8f82d8c080f9bab74a2c8b6d20b7fcdd39c3496b66e"
+    },
+    {
+      "path": "assets/cat-celebrate.webp",
+      "bytes": 130356,
+      "sha256": "35025413c55b721966304ab2dbb142a7a810fd19e0b8231e341a647eedd879ec"
+    },
+    {
+      "path": "assets/cat-greet.webp",
+      "bytes": 117720,
+      "sha256": "3a3f93d852b3440eb2ac3343772dcf869f5397de6668e823899f01d71eb94470"
+    },
+    {
+      "path": "assets/cat-idle.webp",
+      "bytes": 114458,
+      "sha256": "65bcdfc5ea5fa624c0ea66659efac7eaecd155214c89156482f51652b13e1b32"
+    },
+    {
+      "path": "assets/cat-place.webp",
+      "bytes": 162614,
+      "sha256": "7fcba576693e5e54fde2e5c0b87339cab2b9fcc4fbccf96f6232d5ded00d8b38"
+    },
+    {
+      "path": "assets/cat-reach.webp",
+      "bytes": 158090,
+      "sha256": "fe198ee1634c43ad0fe66c7f1cac157a67e2b168dd1397ffb89128afdf44316c"
+    },
+    {
+      "path": "assets/cat-read.webp",
+      "bytes": 120194,
+      "sha256": "60d11acfbb1f3e366dce580398f27470059f38c021b5b0d7f59e5b19db349763"
+    },
+    {
+      "path": "assets/cat-step-0.webp",
+      "bytes": 88820,
+      "sha256": "45132a4602543b6a013d22ce7871260d376e0c241f2ebd594cf19f1ff7945f99"
+    },
+    {
+      "path": "assets/cat-step-1.webp",
+      "bytes": 82684,
+      "sha256": "c4bd860504079cddc0d87e05af893fa30bab69cf1b4bfc14a3b88c3bde4d4bd2"
+    },
+    {
+      "path": "assets/cat-step-2.webp",
+      "bytes": 87650,
+      "sha256": "624bbd76286dd2ef00c74910a1cfc85f4bbfbb2f48973af7765f707743552142"
+    },
+    {
+      "path": "assets/cat-step-3.webp",
+      "bytes": 85924,
+      "sha256": "230621f2caa8b7fbdadaee9a22a1ca75e7a4d9075110017bc1136e8a5f764afa"
+    },
+    {
+      "path": "assets/cheese-burger.webp",
+      "bytes": 85920,
+      "sha256": "9ea6e6d161303693aa9bc042d5d8661870139a7b73e25236a854b6a840f640ef"
+    },
+    {
+      "path": "assets/cheese.webp",
+      "bytes": 24540,
+      "sha256": "09adabb425b9ccbbdba2c4ac832f3edac1ac3c27294039f6073149d460028a29"
+    },
+    {
+      "path": "assets/cone.webp",
+      "bytes": 20778,
+      "sha256": "679753a740ac9389690b0e96599e16c7033b8fad68d5b7fce4c8c9146e883568"
+    },
+    {
+      "path": "assets/cooked-patty.webp",
+      "bytes": 40500,
+      "sha256": "1a60064dab128fb93b6555f61ea60e5e12ab9018266f95b212df2f5a926f6fe8"
+    },
+    {
+      "path": "assets/courtyard.webp",
+      "bytes": 517038,
+      "sha256": "afb16cbcbc01d377abc0fbe35fbfadc453416a8cc6c39417d86bcc45e82ac024"
+    },
+    {
+      "path": "assets/cup.webp",
+      "bytes": 42906,
+      "sha256": "def511cb8b548e67308c8e98374a750c9adbb57df241713e97e209362d213e21"
+    },
+    {
+      "path": "assets/double-cream.webp",
+      "bytes": 91850,
+      "sha256": "1d526fddd8f9bcd1fe17b92fb41efe5568fb6e2431bc4ef9a04c40678a1345f7"
+    },
+    {
+      "path": "assets/elder.webp",
+      "bytes": 113300,
+      "sha256": "a837f05ca0551e38045be5235461c461fec9497cf3d62209ccbb58f28ba094ec"
+    },
+    {
+      "path": "assets/food-beef.webp",
+      "bytes": 87484,
+      "sha256": "aaa14ffd2c65a1c383a01d43002b22d1ec6507479ad9c93f43abad3844c0543a"
+    },
+    {
+      "path": "assets/food-broccoli.webp",
+      "bytes": 64408,
+      "sha256": "742ba980f26d2d272a4ac90cfb025cf5b6b6b064daa85a63a857275cc128e579"
+    },
+    {
+      "path": "assets/food-butter.webp",
+      "bytes": 50402,
+      "sha256": "ee581237c99aa56382109e2777928551eb0ad880cfa8c927d054512640c6c45a"
+    },
+    {
+      "path": "assets/food-cake.webp",
+      "bytes": 88678,
+      "sha256": "e1e12ca472a4c078ba9423750cd8a9e0ffcf40a014c50789d26356efef89281e"
+    },
+    {
+      "path": "assets/food-carrot.webp",
+      "bytes": 44148,
+      "sha256": "63cdf0271fafeb3e8a9a85c64e19fa9ee079a2df80ec98bd3434ea839b2cddf6"
+    },
+    {
+      "path": "assets/food-chicken.webp",
+      "bytes": 70038,
+      "sha256": "200665e9bfb700e14459f386e054fd68cb7c5126fbc40fcb90e11d032ac3f3ea"
+    },
+    {
+      "path": "assets/food-chocolate.webp",
+      "bytes": 56972,
+      "sha256": "e94e0a3a6b53281b6dbd14f4373a13154d86e5499b796cd0438a8163c7701c9f"
+    },
+    {
+      "path": "assets/food-coconut.webp",
+      "bytes": 71766,
+      "sha256": "85af355d3643909fd7f90135a7dcf2d276f8cff3bf365773d53882f4617c2564"
+    },
+    {
+      "path": "assets/food-cookie.webp",
+      "bytes": 93052,
+      "sha256": "aba146fff3258081b7f2418a1ecd1ef8475072c5d81d79a981efc829245f0334"
+    },
+    {
+      "path": "assets/food-corn.webp",
+      "bytes": 55250,
+      "sha256": "c24881f0541c0b3f9135c2e1a5c6f4984444ab54e25252437cc0b56d55a620b5"
+    },
+    {
+      "path": "assets/food-cream.webp",
+      "bytes": 37528,
+      "sha256": "3df1bed1e8261e5f1130b1ef6233483a96309d7fecf9cf042bfeb5b15bcac5d3"
+    },
+    {
+      "path": "assets/food-cucumber.webp",
+      "bytes": 53136,
+      "sha256": "10fb3fb52113dfeb9f4ac73af5c9aff5c911068c84e681e32a78664f0fd85fcc"
+    },
+    {
+      "path": "assets/food-egg.webp",
+      "bytes": 41436,
+      "sha256": "49149d5420516ac436d6e9c7a0901e8c2f538259fb866ed2ee5ec8d722318bcc"
+    },
+    {
+      "path": "assets/food-fish.webp",
+      "bytes": 72708,
+      "sha256": "59b16db7163d1e1efbecf516ef38f7aa84092cbc79b8c5fb0cc00ef06ef1c06e"
+    },
+    {
+      "path": "assets/food-grape.webp",
+      "bytes": 69548,
+      "sha256": "50836ba0bf410ac0d98b5c5d22e48eb31b4659b3aa2e9fee27f515512172e359"
+    },
+    {
+      "path": "assets/food-honey.webp",
+      "bytes": 64814,
+      "sha256": "1199f909063bd8df298372dbcfb28c441e67ea67e50bd7154dd3e56a5fe488b6"
+    },
+    {
+      "path": "assets/food-jam.webp",
+      "bytes": 85766,
+      "sha256": "1ce2777ea208e6f2f58435b5f34557bd3792c9549627485f1c01b4165b2293ff"
+    },
+    {
+      "path": "assets/food-mango.webp",
+      "bytes": 78698,
+      "sha256": "8f96f33bb196e8e57f68d473e0a7dc9069b45f04ab34829264e76a601bf9db23"
+    },
+    {
+      "path": "assets/food-milk.webp",
+      "bytes": 47382,
+      "sha256": "1883f12b34ad890680bbc783d69c830280f179e78d519a518d01b06b0ab8eef6"
+    },
+    {
+      "path": "assets/food-milkshake.webp",
+      "bytes": 36510,
+      "sha256": "a800f4e8d29fae32f6ccbfc64fc8a339f0776f23737f5b5930cef5833536ed0c"
+    },
+    {
+      "path": "assets/food-mushroom.webp",
+      "bytes": 64220,
+      "sha256": "06d780198356d49b7d383b71eb834a1392ad802c7512fac9ca02fd7a84d56fab"
+    },
+    {
+      "path": "assets/food-noodles.webp",
+      "bytes": 63110,
+      "sha256": "a728cb7e7cc6a936569379b14f476e0ec6f312710e50ad26d57a58d33913709c"
+    },
+    {
+      "path": "assets/food-orange.webp",
+      "bytes": 85866,
+      "sha256": "376cecf179d253aac890bd8fedb321381b868888be1b8c2c70641f9751dcff67"
+    },
+    {
+      "path": "assets/food-pea.webp",
+      "bytes": 44568,
+      "sha256": "471d872208da6437847016d1349088a0d69eaf01669ae5c52ba4e9c9466574a5"
+    },
+    {
+      "path": "assets/food-peach.webp",
+      "bytes": 72840,
+      "sha256": "3b2085db6594c782ae19ff54fe0e25d8446591bc1d1164cc4f52a7546117f27a"
+    },
+    {
+      "path": "assets/food-pear.webp",
+      "bytes": 53926,
+      "sha256": "0a3161662e163bf6b82fbbc950083f8855c2e71d84ace19711a6a53d1c8a42fd"
+    },
+    {
+      "path": "assets/food-pineapple.webp",
+      "bytes": 63578,
+      "sha256": "cccd5931fe7caeabb8267b644d236ff6f41aed2495f0614b0f1022d69518e115"
+    },
+    {
+      "path": "assets/food-pizza.webp",
+      "bytes": 68590,
+      "sha256": "0e7c70ca4775ddff35605ff69ddebffb4ff81d3108a5f2ed1fa490d361f4ae5b"
+    },
+    {
+      "path": "assets/food-potato.webp",
+      "bytes": 61454,
+      "sha256": "8bf1d694f785baf208cc5d96f6ae771a3668920b7a8847ec8c949554e63c88c1"
+    },
+    {
+      "path": "assets/food-pumpkin.webp",
+      "bytes": 77626,
+      "sha256": "a23e10e60296b13c03a9b0be84101cb449fc71ab5d2724de8486e305a8d3fb48"
+    },
+    {
+      "path": "assets/food-raisin.webp",
+      "bytes": 74736,
+      "sha256": "74cb58c52db00fa50a69726eed2b5ed777835c1cb334e621406d75336a5b65e9"
+    },
+    {
+      "path": "assets/food-rice.webp",
+      "bytes": 48066,
+      "sha256": "60f7b8d6089e369010e493a1903a1be728f9310ba429c05f91d434c6ac7540f7"
+    },
+    {
+      "path": "assets/food-salad.webp",
+      "bytes": 74028,
+      "sha256": "829581680af05a77f5a0bbe8cc33db3014489504074f5d5476382877bc42f4bc"
+    },
+    {
+      "path": "assets/food-smoothie.webp",
+      "bytes": 71894,
+      "sha256": "e8fd75ed81d6d0f1c7a7f6f2624a0209a6792e1dd836114be2b44cc866f65179"
+    },
+    {
+      "path": "assets/food-strawberry.webp",
+      "bytes": 67948,
+      "sha256": "338b2c16872ee683da2489fa25522ed8be85adf7671d397274d44ab01c852f65"
+    },
+    {
+      "path": "assets/food-tofu.webp",
+      "bytes": 64544,
+      "sha256": "b01ddc4ccc72faf535f5abb82d44e28a14998d4400001a634efdbf69946b79f6"
+    },
+    {
+      "path": "assets/food-vanilla.webp",
+      "bytes": 55500,
+      "sha256": "e2aca4607b31f4fa72c2062796f5280134941bad3ceb184645024df3c9144e7c"
+    },
+    {
+      "path": "assets/food-watermelon.webp",
+      "bytes": 74464,
+      "sha256": "933bc0c9a8b509873ee0a58e2a28bd75da3086e8e27be0fb09aec1a53e0d8e35"
+    },
+    {
+      "path": "assets/food-yogurt.webp",
+      "bytes": 64624,
+      "sha256": "aa01d1f66255202f4d6a67304d67173f82ea914ae73aa6ae328873bf5568d0d9"
+    },
+    {
+      "path": "assets/grill-station.webp",
+      "bytes": 63482,
+      "sha256": "63d958a7542118156259a54f8fd3a10071c9ef07c9e8831e6a20aded1ed7767f"
+    },
+    {
+      "path": "assets/guest-0-0.webp",
+      "bytes": 42746,
+      "sha256": "66bbafbe3c45839a0f68d0afe08221e8cd6836e6c4e0a52439fe12407af4f672"
+    },
+    {
+      "path": "assets/guest-0-1.webp",
+      "bytes": 43526,
+      "sha256": "1f56855f7fc81a40f27f92803e6753b077b861be7bd1cef9e631b68e2e8de342"
+    },
+    {
+      "path": "assets/guest-0-2.webp",
+      "bytes": 44200,
+      "sha256": "864026b7d095c98f8b6d8b4068281e2d1ead190d4d2b171ffb18ea03a2ff89bc"
+    },
+    {
+      "path": "assets/guest-1-0.webp",
+      "bytes": 47408,
+      "sha256": "0a856f75239fdc654a4d97999b85f9631c44ef22b7928dc558075ecdbc5a8167"
+    },
+    {
+      "path": "assets/guest-1-1.webp",
+      "bytes": 48672,
+      "sha256": "299970661a194818c37002460a64fa108a42fe008c3988be6a917aab22d8deaa"
+    },
+    {
+      "path": "assets/guest-1-2.webp",
+      "bytes": 49514,
+      "sha256": "8928ada1390a8e9196b5f4999330fd0e387e6da1555e06f37ae73e3e257eb549"
+    },
+    {
+      "path": "assets/ice-station.webp",
+      "bytes": 87990,
+      "sha256": "1b86b7f1ee6f76f1d2d6a7db7c03b907df7012b939492f54509208e44326f8b3"
+    },
+    {
+      "path": "assets/index-D8ZiOq-V.css",
+      "bytes": 84296,
+      "sha256": "397c550da52022c150dd6bd244dd5cac76f92574ff36f1f6a69d210a49c1db00"
+    },
+    {
+      "path": "assets/index-DZkvIg6_.js",
+      "bytes": 660386,
+      "sha256": "d2275f9f914121795b7f3781f2b38857965d9bc0e68639bf5302af582d502c54"
+    },
+    {
+      "path": "assets/juice.webp",
+      "bytes": 33632,
+      "sha256": "6e0cb8f4f78de0899a771f425151313247bd5fc48838b6fa8c8752e7cd7f58ae"
+    },
+    {
+      "path": "assets/lettuce.webp",
+      "bytes": 37786,
+      "sha256": "8210af86e896d94b4ef88ed987379e36923091e30b2e16f51f7859da021033db"
+    },
+    {
+      "path": "assets/machine.webp",
+      "bytes": 68302,
+      "sha256": "a6515aeba319ce000d3e0c42cd654fa6c5ef9da6ec34eef8b5d9946e24e187db"
+    },
+    {
+      "path": "assets/market.webp",
+      "bytes": 172060,
+      "sha256": "d4b2a27ad648333da08605f7ed51634890693f9c1a0f6715edd6dc37fa73a7ff"
+    },
+    {
+      "path": "assets/patty.webp",
+      "bytes": 37678,
+      "sha256": "cb11a3bda1a9c3883dc65a2f342d69f91a34bfb77be87cc0793273177a08864b"
+    },
+    {
+      "path": "assets/phaser-DXXWZowi.js",
+      "bytes": 1208050,
+      "sha256": "9031f79935ba598df03915ec937779c0480dc35b2e58e0cb9f95b910e56df425"
+    },
+    {
+      "path": "assets/salad-sandwich.webp",
+      "bytes": 80092,
+      "sha256": "957d94a862d9d6d4f03663fa882b2beeaadc5ed04fee979a07129e61474c0322"
+    },
+    {
+      "path": "assets/sandwich.webp",
+      "bytes": 74870,
+      "sha256": "a389ddb4962f3210d03220d16ee5d55b3f56d6db582746af1257c067a74b1b34"
+    },
+    {
+      "path": "assets/strawberry-cup.webp",
+      "bytes": 87360,
+      "sha256": "59fd40eeea95a4c44f2f28400c4ae4c3efc4af5bccd4c3a1da5bb754c8af1d6c"
+    },
+    {
+      "path": "assets/strawberry.webp",
+      "bytes": 38612,
+      "sha256": "fca69a7b7b2f8ba7e7fdab8f7ae63c73d05638f39bb422edac386ad13a5915e3"
+    },
+    {
+      "path": "assets/tomato.webp",
+      "bytes": 31382,
+      "sha256": "5caae0747f592f9872570259b8ebaa5c37af1cc3bf0fcba0d6dfa7b4ae9355c5"
+    },
+    {
+      "path": "assets/tray.webp",
+      "bytes": 107780,
+      "sha256": "5d97f403bbb3028af0ea0133ee4e1511444545afcc9844da84cdce3591404074"
+    },
+    {
+      "path": "assets/vanilla-cone.webp",
+      "bytes": 49194,
+      "sha256": "863e54797940cdaf7a1b9766475b6d05f233ef464db4e15913c000b73cee4ac0"
+    },
+    {
+      "path": "assets/vanilla-cup.webp",
+      "bytes": 71996,
+      "sha256": "11252fca08114343418b2bfadb1a3647abc964400b4c8623a79e51c39edfc7c3"
+    },
+    {
+      "path": "assets/vanilla.webp",
+      "bytes": 31590,
+      "sha256": "d014c2c71c1d76b19763bb0c5f0dd02889590212b999d3554dea8274cfae2d8b"
+    },
+    {
+      "path": "assets/vocab-apron.webp",
+      "bytes": 13850,
+      "sha256": "4116d3751cdf60f8ad5722e225892c293b2225b05c02ff18674af84e29562d6a"
+    },
+    {
+      "path": "assets/vocab-bag.webp",
+      "bytes": 13982,
+      "sha256": "358ba916d1cf27195bc046aa80f311fc03be617f904c74aa263513a10892a53b"
+    },
+    {
+      "path": "assets/vocab-ball.webp",
+      "bytes": 16814,
+      "sha256": "77c89184067bd835a716d4ab409506b5d354f720d71763342ea141f7f862a0a1"
+    },
+    {
+      "path": "assets/vocab-basket.webp",
+      "bytes": 15348,
+      "sha256": "069129d1ac5b62029954f777741e4336d5bbae37f47930c9393da333f6709c31"
+    },
+    {
+      "path": "assets/vocab-bench.webp",
+      "bytes": 13912,
+      "sha256": "9c8113d2feb2d832890bb8b4daa9e28acc2e0e4d10f1db3b10059bb2ecccf8f7"
+    },
+    {
+      "path": "assets/vocab-book.webp",
+      "bytes": 16736,
+      "sha256": "e33ac5967629af15198f7f054626528d09c660fcdfbb21c4502a9e58db35bf55"
+    },
+    {
+      "path": "assets/vocab-bottle.webp",
+      "bytes": 10864,
+      "sha256": "fb1f7f4af06f200babe8f39931913c5d1c8a8d46432f38a7a4c04ca7a1b38413"
+    },
+    {
+      "path": "assets/vocab-bowl.webp",
+      "bytes": 9874,
+      "sha256": "122f9f12819af5c736547ca16bf344cff8a1b3162e2c3380c970ad82b9de2c85"
+    },
+    {
+      "path": "assets/vocab-box.webp",
+      "bytes": 15778,
+      "sha256": "fc4fb73d9cf949e8ddd659fc43eaaee678b09eaa7562c91544c9043c6231e68b"
+    },
+    {
+      "path": "assets/vocab-chair.webp",
+      "bytes": 11306,
+      "sha256": "9af559b81c6ed888cfda33d936d44364939ff09bbfdac106b4902c21e794996f"
+    },
+    {
+      "path": "assets/vocab-cup.webp",
+      "bytes": 6786,
+      "sha256": "c86463d18bde62f94c96f66724664f565683a9ad5072d4a1c6d6a718b8d1ee43"
+    },
+    {
+      "path": "assets/vocab-cutting-board.webp",
+      "bytes": 16694,
+      "sha256": "f45c7815f5d760b0bf2aab9e2b57cc99e36ef5091e90df97b52cf36c7203838f"
+    },
+    {
+      "path": "assets/vocab-door.webp",
+      "bytes": 19116,
+      "sha256": "7ea43712b6d53465107ad5a5a55da5564516bf4c015cfd6ab7baca813129ad3b"
+    },
+    {
+      "path": "assets/vocab-drawer.webp",
+      "bytes": 16364,
+      "sha256": "49ed311e7ec489c9ada7254966abb2d0d404e3bcca686df42a561e7d16746b89"
+    },
+    {
+      "path": "assets/vocab-flower.webp",
+      "bytes": 12738,
+      "sha256": "9edfb6e3994f723bffa86513137233cf4b83a36d999cd06be3b862a3f018fe51"
+    },
+    {
+      "path": "assets/vocab-fork.webp",
+      "bytes": 5932,
+      "sha256": "b0f59217d50c917895c18d26f765aa3f0f019fa568b0c9c04ed25191db31699f"
+    },
+    {
+      "path": "assets/vocab-glass.webp",
+      "bytes": 9920,
+      "sha256": "ce16737996c4392479c5e5d53ba82140b9f3cec6add5c1e5fcb8cd835c58bccb"
+    },
+    {
+      "path": "assets/vocab-jug.webp",
+      "bytes": 11838,
+      "sha256": "20f63b3fdb6a8ef04ce9889111951da8fee2bdf0f4f7ed3febebc767ff6b50b7"
+    },
+    {
+      "path": "assets/vocab-kettle.webp",
+      "bytes": 11620,
+      "sha256": "5f1418c7e2dfe841ce217bda79fb4144a5abb20cc9f23913d775403722db16c5"
+    },
+    {
+      "path": "assets/vocab-knife.webp",
+      "bytes": 5242,
+      "sha256": "d41be5e81acbe97b06df25e8b9db9aa28c38f733975aec4bb5e56b1fc478b0dd"
+    },
+    {
+      "path": "assets/vocab-ladle.webp",
+      "bytes": 6506,
+      "sha256": "72de1a13909da802f2366a439cd0864790d11f1d573746046f3cc72226716870"
+    },
+    {
+      "path": "assets/vocab-lamp.webp",
+      "bytes": 11086,
+      "sha256": "252e30c5af2890c0df8713ec1b2b273aa27cd84f3e5bd433025af91ba35709f0"
+    },
+    {
+      "path": "assets/vocab-leaf.webp",
+      "bytes": 12144,
+      "sha256": "de7b46a3c1a0fef4c815d3fac094da7311f956e08438221daefcd557a134efb3"
+    },
+    {
+      "path": "assets/vocab-lid.webp",
+      "bytes": 8790,
+      "sha256": "72e6c908263dd047b270160db6dbdc90eba23ca75316ac4fd353c0ee6d69401e"
+    },
+    {
+      "path": "assets/vocab-napkin.webp",
+      "bytes": 13240,
+      "sha256": "b967c63198c63febff68db831536bc3246d6b402d9ad91b152e77ff2e32e989e"
+    },
+    {
+      "path": "assets/vocab-pan.webp",
+      "bytes": 10346,
+      "sha256": "bdf28a666cdc0de391bc7fe29d51a5f06c23f84fbcfb78748dead6ef082cdac4"
+    },
+    {
+      "path": "assets/vocab-plate.webp",
+      "bytes": 13378,
+      "sha256": "cfff33d71016a613194e5df9eeff32895799e7b85828db786e331cd8c01c9191"
+    },
+    {
+      "path": "assets/vocab-pot.webp",
+      "bytes": 10690,
+      "sha256": "adb795ff9cd3d916241e85a1e637d9269584de5ef2950c014f4314a2363cf347"
+    },
+    {
+      "path": "assets/vocab-seed.webp",
+      "bytes": 10748,
+      "sha256": "8e948753348a4296f53c96eb66dcdcf430384980529fc2c18ee6557736bf8f95"
+    },
+    {
+      "path": "assets/vocab-shelf.webp",
+      "bytes": 14602,
+      "sha256": "6aa704925bee0fb3496e55f022d9f7b4d8d943fdd15bcda8a55661b9008938f1"
+    },
+    {
+      "path": "assets/vocab-spatula.webp",
+      "bytes": 8010,
+      "sha256": "893a6aeb9720015628d761527e4fe7db533949282db274bc2bea03f655743290"
+    },
+    {
+      "path": "assets/vocab-spoon.webp",
+      "bytes": 5874,
+      "sha256": "010f288f3a5cdd267154b49b7b1093bd40d2e1c454922ee68dc69859d6060a85"
+    },
+    {
+      "path": "assets/vocab-table.webp",
+      "bytes": 9178,
+      "sha256": "b4fc29cd11613f1385cfc0e8011b7416adc6bef500af14dab4551e206d42dbe2"
+    },
+    {
+      "path": "assets/vocab-tray.webp",
+      "bytes": 14652,
+      "sha256": "704262210242ff70927fa4481dc5d197b5658b9ff292e6de67f0096182c4c7ed"
+    },
+    {
+      "path": "assets/vocab-tree.webp",
+      "bytes": 14928,
+      "sha256": "a2728c07baaf06b9020648bbb3a176dfef2d15354ce8065fdf4abbeaed735b43"
+    },
+    {
+      "path": "assets/vocab-watering-can.webp",
+      "bytes": 11980,
+      "sha256": "b205001aaf4bf82b502cc854df9cd63dfa39372d859bbf056d063928e3796664"
+    },
+    {
+      "path": "assets/vocab-whisk.webp",
+      "bytes": 11264,
+      "sha256": "d2bc2da341ef999c7dec39c75f7c9c42a49914e67e3426ea4706766f299b2071"
+    },
+    {
+      "path": "assets/vocab-window.webp",
+      "bytes": 18848,
+      "sha256": "fe2fc993bdf7823280617f5468eb0c880ac3c2c24f31f9d3db4ed888f365cea2"
+    },
+    {
+      "path": "audio/apple.wav",
+      "bytes": 25364,
+      "sha256": "9549ec38ff333cf84edc5765d91cbf5926f972d7a19240be54406ff86f33c4b3"
+    },
+    {
+      "path": "audio/banana.wav",
+      "bytes": 28212,
+      "sha256": "7381d4a2b099e383bdc22ca995475a0802ba937cf8cfec83eb301610199663a7"
+    },
+    {
+      "path": "audio/basket-flavor.wav",
+      "bytes": 50710,
+      "sha256": "e241acf6da08e6dd2e220fa6ce37a51a4537b2e938f867895d5b4db7225ca4f7"
+    },
+    {
+      "path": "audio/basket-fruit.wav",
+      "bytes": 47058,
+      "sha256": "edafbcf70a2b259671df28ab47dc75fa837d8b757a3a90bd0b3486b6282302c0"
+    },
+    {
+      "path": "audio/basket-next.wav",
+      "bytes": 49974,
+      "sha256": "c329e4d94377941311a39136fdfe40fe8f9386a067a9d483ee89354a583d87f0"
+    },
+    {
+      "path": "audio/basket-ready.wav",
+      "bytes": 49618,
+      "sha256": "01218ccaa17c607a43b5bbd21ce4306e386a536a3ba1992c3289c3389b694b24"
+    },
+    {
+      "path": "audio/basket-staple.wav",
+      "bytes": 50478,
+      "sha256": "1ae87cdf89d47ccbc9a98c8ce18007ea4bc2a2d473e8ca67c11e757045b103e6"
+    },
+    {
+      "path": "audio/basket-vegetable.wav",
+      "bytes": 58980,
+      "sha256": "be76c2dfb117a90b94ee8ee922c5abb38ad886864d3cd46774f18edd7e8a59e9"
+    },
+    {
+      "path": "audio/basket-welcome.wav",
+      "bytes": 137060,
+      "sha256": "25967cebf5e0bda903b48fd214be9c442ff7cafad7646341afd0930b494ac720"
+    },
+    {
+      "path": "audio/chapter-burger.wav",
+      "bytes": 117714,
+      "sha256": "79e3c4934b83424715d0be0f6e8438fc7ed78917713c8ed089c4f9468d68b3d6"
+    },
+    {
+      "path": "audio/chapter-ice.wav",
+      "bytes": 139592,
+      "sha256": "67a1d8be8af448e0b6844ae6124dcbb3789975d9815c01617ee10160aaadd7c0"
+    },
+    {
+      "path": "audio/chapter-juice.wav",
+      "bytes": 126508,
+      "sha256": "5cf846b04c4cff085e212bcefb9ffb9a91da1ac935a2846434e4d33f978c0c1a"
+    },
+    {
+      "path": "audio/chapter-picnic.wav",
+      "bytes": 133168,
+      "sha256": "b5cebecdd6d69451a6f04dd15dc1f9455b6f6eeb5d7dd05c0babeb8fdb3bb5f2"
+    },
+    {
+      "path": "audio/chapter-sandwich.wav",
+      "bytes": 128314,
+      "sha256": "52f0948b3a568699a7cc29aa439d89679213de9c3c24a7e0b72685531a6bce8f"
+    },
+    {
+      "path": "audio/food-context-apple.wav",
+      "bytes": 65846,
+      "sha256": "2b7e9e22b603e3c1cdd784349be1ddf729d7817e73947d64089e98cca767566d"
+    },
+    {
+      "path": "audio/food-context-banana.wav",
+      "bytes": 66328,
+      "sha256": "8e9de6aa7a53c3d7791bae98f8df96f9376c0a561f1fea45ae56a836487ee1d7"
+    },
+    {
+      "path": "audio/food-context-beef.wav",
+      "bytes": 56142,
+      "sha256": "50ff3951f17b5b7cad41078c4925c78caa7cfdc468b8af4ecbcfa6b66de1baf5"
+    },
+    {
+      "path": "audio/food-context-bread.wav",
+      "bytes": 54092,
+      "sha256": "2004394e2100ec89ff373494c7f61244e855ec1f7a166960d0e153f8366e8611"
+    },
+    {
+      "path": "audio/food-context-broccoli.wav",
+      "bytes": 62004,
+      "sha256": "8f365fc793e41d4014898fde7ca6de9d5cc52ec8c2a272784b562330c89ef894"
+    },
+    {
+      "path": "audio/food-context-bun.wav",
+      "bytes": 63256,
+      "sha256": "f7fb68c6cd378ef2e08986cb361e16fc5400acee5d1f73f6099849cbb04e7b08"
+    },
+    {
+      "path": "audio/food-context-burger.wav",
+      "bytes": 63256,
+      "sha256": "72c3929aab5dbd8f31d58126488e1d508fa5190b93f0d4fd4e07b02d22dcbee6"
+    },
+    {
+      "path": "audio/food-context-butter.wav",
+      "bytes": 66308,
+      "sha256": "314cf879a7a8c61cb5498dfd7926645396aca64727e35317c095671d90f5ec4b"
+    },
+    {
+      "path": "audio/food-context-cake.wav",
+      "bytes": 58880,
+      "sha256": "71ebc03220804713df8b4fbe9e7b87b3b2400a3b3cab484a860239cdb8462d4c"
+    },
+    {
+      "path": "audio/food-context-carrot.wav",
+      "bytes": 66328,
+      "sha256": "df80025fc996cc0c1a499c551c64d1c7e4d6bc4b5c144c00d60bb1f06725b46e"
+    },
+    {
+      "path": "audio/food-context-cheese.wav",
+      "bytes": 59518,
+      "sha256": "8c313c8b26505a783e7ac28aceb6887db38bbe331fcfa8eec6b65a1189ad3bb2"
+    },
+    {
+      "path": "audio/food-context-chicken.wav",
+      "bytes": 60206,
+      "sha256": "db7c1ed007fd7d48ba8637af3f41eb494ab52312c1602171a39f831f735839d4"
+    },
+    {
+      "path": "audio/food-context-chocolate.wav",
+      "bytes": 64302,
+      "sha256": "47f29e6b91fd721048da4704ab85b5851f7d67926c5b91787d999cbba99e6a65"
+    },
+    {
+      "path": "audio/food-context-coconut.wav",
+      "bytes": 69414,
+      "sha256": "5043f79dadbe6eaae2507f9c016ccfb29e10b08f617fdd682d80bc6b758711f1"
+    },
+    {
+      "path": "audio/food-context-cookie.wav",
+      "bytes": 64792,
+      "sha256": "81614b1ebaa911609ae359cbf5090ca2c8ca52ae22ab0df7fb00e6fbaf856b45"
+    },
+    {
+      "path": "audio/food-context-corn.wav",
+      "bytes": 59904,
+      "sha256": "0c143673a5d713e6d2357fba858476999282ec77ff662020d07ecc9dd21306db"
+    },
+    {
+      "path": "audio/food-context-cream.wav",
+      "bytes": 58368,
+      "sha256": "05dba179076c84265c9d98e5b58318b73f81a8ddf27a6ce5bd7f8c6e451a06b7"
+    },
+    {
+      "path": "audio/food-context-cucumber.wav",
+      "bytes": 74012,
+      "sha256": "42efab093f35dae7a26f9e6992a90b9754d4819e8b51b64034a9f7c073709a27"
+    },
+    {
+      "path": "audio/food-context-egg.wav",
+      "bytes": 56598,
+      "sha256": "c49dc40c1b5cb53e6905532d02208097de8badf461ae496687d747173b537cfa"
+    },
+    {
+      "path": "audio/food-context-fish.wav",
+      "bytes": 58834,
+      "sha256": "a9a6c52cebbb6ac3169a8e5f945f00c5528207b20b484a73a1d84677f94d2f07"
+    },
+    {
+      "path": "audio/food-context-grape.wav",
+      "bytes": 63178,
+      "sha256": "5e76110d18adb5154aa8c57848853777af89a14179e412c932d013951e1358a5"
+    },
+    {
+      "path": "audio/food-context-honey.wav",
+      "bytes": 56020,
+      "sha256": "df1f1915587df11b22a405b610e01831d413ad985ee90b2d54642803eb1f2af7"
+    },
+    {
+      "path": "audio/food-context-ice-cream.wav",
+      "bytes": 68874,
+      "sha256": "ec6767da9f4e3326d903fcec4ea9aad6b886791ea78944ddd7c0cb95809952c5"
+    },
+    {
+      "path": "audio/food-context-jam.wav",
+      "bytes": 57798,
+      "sha256": "9b8eec79c1e5e737bf29c50fdc2fd03dc01e854415f7ebe545255bea008c6099"
+    },
+    {
+      "path": "audio/food-context-juice.wav",
+      "bytes": 59846,
+      "sha256": "815b7064abc48e62a632b25087bbca5908d320798a03c84dcd41b033b6b4989b"
+    },
+    {
+      "path": "audio/food-context-lettuce.wav",
+      "bytes": 60958,
+      "sha256": "07fa84437b3a3aa87dafaacae1b165221c2a350b628a16704feba4ae159d358c"
+    },
+    {
+      "path": "audio/food-context-mango.wav",
+      "bytes": 68406,
+      "sha256": "cbd8b560fc557785f5c2c02a2ff689f5ef76abcdc38fca660abd42403e715594"
+    },
+    {
+      "path": "audio/food-context-milk.wav",
+      "bytes": 56430,
+      "sha256": "8d4fa7398d42c88c75a60cf0a655e33c79ddcd9fb82ae90989883f762313a8d0"
+    },
+    {
+      "path": "audio/food-context-milkshake.wav",
+      "bytes": 76086,
+      "sha256": "fe83c07f68c9c5af32b818f1911fe8651cb2a81cdd096e0d0e0f5139fb2c60f9"
+    },
+    {
+      "path": "audio/food-context-mushroom.wav",
+      "bytes": 72502,
+      "sha256": "10f8ef4f0f0ad78f4480bf2b8d2d9bf67a71da5892e1a66da2c3c66735951d96"
+    },
+    {
+      "path": "audio/food-context-noodles.wav",
+      "bytes": 62152,
+      "sha256": "2f03b75b07e651eacafdef73c35e31baefe567a8ddbf4fc78f474fc5f1bb0ea2"
+    },
+    {
+      "path": "audio/food-context-orange.wav",
+      "bytes": 67382,
+      "sha256": "4f57ad58ac1beac2d4e5aa02078d1ee5ebfbd7a0acc5e3b850229de7bd18e27f"
+    },
+    {
+      "path": "audio/food-context-pea.wav",
+      "bytes": 59706,
+      "sha256": "2c2eb52005541e335c9f9fa2c1b310145da1d8ba5fb80d2e242b19af00f3c498"
+    },
+    {
+      "path": "audio/food-context-peach.wav",
+      "bytes": 66874,
+      "sha256": "b020b3ccb0b022d04069233e8839eac626cf2908b871a84db6f86659af2b4346"
+    },
+    {
+      "path": "audio/food-context-pear.wav",
+      "bytes": 60218,
+      "sha256": "e1e9d2ed1b475b55b95326c094b298ab6bf78648087df5577b6f11cd20738b1c"
+    },
+    {
+      "path": "audio/food-context-pineapple.wav",
+      "bytes": 75032,
+      "sha256": "b565415cfbff8229b504087b9d58e8442347325321cc59f6a5da90c8dafe9b17"
+    },
+    {
+      "path": "audio/food-context-pizza.wav",
+      "bytes": 60718,
+      "sha256": "b4263754487dfa2a2355e5f1ec7ef939104b03d66c33ccab240cdbdab1f811f8"
+    },
+    {
+      "path": "audio/food-context-potato.wav",
+      "bytes": 72984,
+      "sha256": "41ed5b50598185a04568f072e0fba938414618069aa550f14e151a78e3fc3289"
+    },
+    {
+      "path": "audio/food-context-pumpkin.wav",
+      "bytes": 69912,
+      "sha256": "bab58c372ff5051d30034d7f445aae0f722502a94b8d08c166c8d6928f9768ea"
+    },
+    {
+      "path": "audio/food-context-raisin.wav",
+      "bytes": 65818,
+      "sha256": "5921f7e712496ca6b87689978b58c17961a678e4237747b0331b928241fd0c51"
+    },
+    {
+      "path": "audio/food-context-rice.wav",
+      "bytes": 60642,
+      "sha256": "8609bf2ef01b629d486c40c20b8f5830c64070c74248a49cfbc1996aa18fb0fc"
+    },
+    {
+      "path": "audio/food-context-salad.wav",
+      "bytes": 61456,
+      "sha256": "3aed16252bcc43d232b95fe3cc869452e1c060bf79f963d2703765ea63c90d68"
+    },
+    {
+      "path": "audio/food-context-sandwich.wav",
+      "bytes": 76568,
+      "sha256": "8237f6221c3bc256b7ef1a284a79088e7259d67c52f070b9e7b4b60878c5970c"
+    },
+    {
+      "path": "audio/food-context-smoothie.wav",
+      "bytes": 67864,
+      "sha256": "10d40d6fc34313d8e8bad4857572d36a3059b8a7864bd3b06cd8aa517be997bc"
+    },
+    {
+      "path": "audio/food-context-strawberry.wav",
+      "bytes": 74554,
+      "sha256": "e93c54f193c49efb2e5728b1f9795c40a4bd5dc4602493dd6957ff50ffad9f9b"
+    },
+    {
+      "path": "audio/food-context-tofu.wav",
+      "bytes": 64356,
+      "sha256": "48fd89b60be429f366081cbfcbb238b04672bb852b3083db837875c0510941a3"
+    },
+    {
+      "path": "audio/food-context-tomato.wav",
+      "bytes": 70428,
+      "sha256": "0c2465d873efcf19cbbe1fc473135ce508783ee6c87780b6df0d1c99a7eea0ea"
+    },
+    {
+      "path": "audio/food-context-vanilla.wav",
+      "bytes": 60498,
+      "sha256": "91beea775c6951108a0975aa4eed4a2445e58d7e1a1c59e191e353b3a5a7ccb7"
+    },
+    {
+      "path": "audio/food-context-watermelon.wav",
+      "bytes": 71166,
+      "sha256": "72d419a9163f3c6e2fd25b69381622a8dcbc96fd9ebdb38321d8323cb7d77691"
+    },
+    {
+      "path": "audio/food-context-yogurt.wav",
+      "bytes": 63058,
+      "sha256": "b7b4412ccd7e1384275d38ca0a74f07a7add014beb352249585fd062a4ea9312"
+    },
+    {
+      "path": "audio/food-name-apple.wav",
+      "bytes": 25364,
+      "sha256": "9549ec38ff333cf84edc5765d91cbf5926f972d7a19240be54406ff86f33c4b3"
+    },
+    {
+      "path": "audio/food-name-banana.wav",
+      "bytes": 28212,
+      "sha256": "7381d4a2b099e383bdc22ca995475a0802ba937cf8cfec83eb301610199663a7"
+    },
+    {
+      "path": "audio/food-name-beef.wav",
+      "bytes": 23886,
+      "sha256": "24a372b824b95e95db16709e862abcc1706d016fb8d2acb3181e4192a5e4c6d0"
+    },
+    {
+      "path": "audio/food-name-bread.wav",
+      "bytes": 21324,
+      "sha256": "23c306fdb185cb6af7c710f04fd2d1d8b1e151e9178123e6df10f33b3e1847b1"
+    },
+    {
+      "path": "audio/food-name-broccoli.wav",
+      "bytes": 29748,
+      "sha256": "ebacbe8f3614ffa7c60e46e50df94af9cd6f9aa497aa4d4710d005f9623b637e"
+    },
+    {
+      "path": "audio/food-name-bun.wav",
+      "bytes": 23884,
+      "sha256": "a8572b7bdb2efaf3b120d151e49f99cbe045c21f94a879888bffcb44fc0b37fe"
+    },
+    {
+      "path": "audio/food-name-burger.wav",
+      "bytes": 24116,
+      "sha256": "9929745b674cf53f725531cde2958d65f7d8b6a5ce1cd77cc99f1f9f6a5c7e73"
+    },
+    {
+      "path": "audio/food-name-butter.wav",
+      "bytes": 34054,
+      "sha256": "60105c824a42e5de1919f4049454daf2420342955d0df86707a7dd209370f1b4"
+    },
+    {
+      "path": "audio/food-name-cake.wav",
+      "bytes": 26112,
+      "sha256": "e24db541491754ac781e850734ed9f7b63683d95bf9a63b247dda136a0115ea0"
+    },
+    {
+      "path": "audio/food-name-carrot.wav",
+      "bytes": 27438,
+      "sha256": "baaa89c277fe49092dde5e98b3d5d8de42157ae285b817270584a617860af9fd"
+    },
+    {
+      "path": "audio/food-name-cheese.wav",
+      "bytes": 27774,
+      "sha256": "e591785e3489405e5ab788e46a5aca3f412c44533ff60f4e3d744fe236774d53"
+    },
+    {
+      "path": "audio/food-name-chicken.wav",
+      "bytes": 27950,
+      "sha256": "0d29bd5fbcfb2365beb468520df5fb63ee46210793e408fd2a4975200e7042d7"
+    },
+    {
+      "path": "audio/food-name-chocolate.wav",
+      "bytes": 32046,
+      "sha256": "0f901c5f08ac0841cd4eeb6b9bfdf96c3b9d147a9b57f1c5a675578503d7b36d"
+    },
+    {
+      "path": "audio/food-name-coconut.wav",
+      "bytes": 37158,
+      "sha256": "2e0862442dfa6e64cb0dfccf11ef2973a009af894d760caa3414aedc7497820f"
+    },
+    {
+      "path": "audio/food-name-cookie.wav",
+      "bytes": 25894,
+      "sha256": "ff4a44f41531e024eac172caa243b817161a0acea432f904e90920f9810dd581"
+    },
+    {
+      "path": "audio/food-name-corn.wav",
+      "bytes": 27648,
+      "sha256": "73fd860f89bbe93c25d8f5699cf6b576d097dec1ba679e8cf7fd7661af1f8bff"
+    },
+    {
+      "path": "audio/food-name-cream.wav",
+      "bytes": 26112,
+      "sha256": "009dd4823fc839e7687fbdd45484756d9ed284db098bbf269d18fcfbcacc051a"
+    },
+    {
+      "path": "audio/food-name-cucumber.wav",
+      "bytes": 35118,
+      "sha256": "320207c8e8be80dabd2c04aba77d70a80db9c4712b5df1a28d36cfe5331a1d41"
+    },
+    {
+      "path": "audio/food-name-egg.wav",
+      "bytes": 18240,
+      "sha256": "c8ee2b5db8881614cdba0d3e6753b7e47f4eb1abacb8b3dd40db621e5c59e5fc"
+    },
+    {
+      "path": "audio/food-name-fish.wav",
+      "bytes": 26084,
+      "sha256": "5418049c3a842f839247a2566b8949c3988f332fecf1daa483ae366df03bf658"
+    },
+    {
+      "path": "audio/food-name-grape.wav",
+      "bytes": 23754,
+      "sha256": "d74686350a5ce40013bb26c17cc6bc85f6b891f7a50942cfe7a243fb319d1483"
+    },
+    {
+      "path": "audio/food-name-honey.wav",
+      "bytes": 23790,
+      "sha256": "949e902a331ccff8878c8cdebbadfbb0dd59e11902b0ef40b023022e27db1cc7"
+    },
+    {
+      "path": "audio/food-name-ice-cream.wav",
+      "bytes": 36620,
+      "sha256": "6b659e8971e95fc7d6e457533178f8ceb0178428c177998b3de55bdddd482d1f"
+    },
+    {
+      "path": "audio/food-name-jam.wav",
+      "bytes": 25030,
+      "sha256": "76b491737e7307947a7cb642bba0a264d627eb7c68ae528a57b5eefd87d1cb8a"
+    },
+    {
+      "path": "audio/food-name-juice.wav",
+      "bytes": 27590,
+      "sha256": "febd03c639f0d6e2a2992d0e9f84a7ff894bcb858fe8dbe247c391d1cceadefa"
+    },
+    {
+      "path": "audio/food-name-lettuce.wav",
+      "bytes": 28758,
+      "sha256": "b400785199ab71c0d9926d2cb439de0dfcf2a4c1ca3d59dd8f3d5a925eee310e"
+    },
+    {
+      "path": "audio/food-name-mango.wav",
+      "bytes": 31838,
+      "sha256": "092ca056ad9f50f215397c4b5c21a1ae25657c092a872704805df36bd3870994"
+    },
+    {
+      "path": "audio/food-name-milk.wav",
+      "bytes": 24176,
+      "sha256": "e006e26b37690b6b2ff1a96074bfad7ccc2b24a4b8f86695e24e024d41aa03f6"
+    },
+    {
+      "path": "audio/food-name-milkshake.wav",
+      "bytes": 39006,
+      "sha256": "c250378d409fca6ddd35320f3991d6c978ff2eb7823bbfd34252040156b54069"
+    },
+    {
+      "path": "audio/food-name-mushroom.wav",
+      "bytes": 35930,
+      "sha256": "d583f53c0e03511f37f71f456d6885710b2ce93ad43db4aef4404bf17f62b887"
+    },
+    {
+      "path": "audio/food-name-noodles.wav",
+      "bytes": 29910,
+      "sha256": "64700391e59fadbc3652735f743cf5b9b2826b528e77637e508d796974e9ccfa"
+    },
+    {
+      "path": "audio/food-name-orange.wav",
+      "bytes": 28790,
+      "sha256": "87a8b945232b301117cf148ae67b8dbebcdc395b37326409b0637b7af439406e"
+    },
+    {
+      "path": "audio/food-name-pea.wav",
+      "bytes": 20782,
+      "sha256": "0a8b391010a06a89f64f10b1bb449a6adb730c89fcc64a54d624ee2c1aa78a8c"
+    },
+    {
+      "path": "audio/food-name-peach.wav",
+      "bytes": 27950,
+      "sha256": "bd1ef4ac971fa73712fea7e53a3c9efb501e003da410f2a1e6cf69889ee54d44"
+    },
+    {
+      "path": "audio/food-name-pear.wav",
+      "bytes": 21294,
+      "sha256": "534fbfc4ccbe4692adf2b2599107b66ecc691ff3b4ee3364af11301f7e208494"
+    },
+    {
+      "path": "audio/food-name-pineapple.wav",
+      "bytes": 36646,
+      "sha256": "d7508260ab0dc0b99cd7c3676c3bea2596c2d42296e32c9e47805a6ec8cf454e"
+    },
+    {
+      "path": "audio/food-name-pizza.wav",
+      "bytes": 28462,
+      "sha256": "963ded24d8e19faf3f3bbc6657226bee3c6e1cc67283b8c3ce2d1dfc4fc20d75"
+    },
+    {
+      "path": "audio/food-name-potato.wav",
+      "bytes": 36172,
+      "sha256": "f6d9fa0f372e1a94f5c3c08dcf5e28cf3d384854237d3bfbe194e33acc60381e"
+    },
+    {
+      "path": "audio/food-name-pumpkin.wav",
+      "bytes": 31564,
+      "sha256": "37213801d26bb9d532bddab8f3973c96905ce64f1c38206aacc25f45ecebb315"
+    },
+    {
+      "path": "audio/food-name-raisin.wav",
+      "bytes": 28896,
+      "sha256": "11d7c99d9fc5b28216d81d4656344bc48e1802384e1ee29f03753759483a8c84"
+    },
+    {
+      "path": "audio/food-name-rice.wav",
+      "bytes": 28390,
+      "sha256": "91f706e7512759e2826b0783631d12c59f80161ca96182ff14e44c15780049d3"
+    },
+    {
+      "path": "audio/food-name-salad.wav",
+      "bytes": 29206,
+      "sha256": "f2dfe63be5239813ddc35004b36dcb7746fdce2bc6b0ccc6b7342876758ceeb8"
+    },
+    {
+      "path": "audio/food-name-sandwich.wav",
+      "bytes": 41494,
+      "sha256": "707d0297ff2653215577ab775923eeb830a71890f0ab246b1b33f2ce124b5143"
+    },
+    {
+      "path": "audio/food-name-smoothie.wav",
+      "bytes": 32272,
+      "sha256": "7de7eadddd66ce7ad3c51d3df8d25fd8ff02265765a3db1438ec34ad254a9d96"
+    },
+    {
+      "path": "audio/food-name-strawberry.wav",
+      "bytes": 38928,
+      "sha256": "baf893874ab3827e777c790f56ce5052a0311aafa9605628c8038fb59b6acd2f"
+    },
+    {
+      "path": "audio/food-name-tofu.wav",
+      "bytes": 32100,
+      "sha256": "82d896d99b5161421722b9f23b70be1c69dc2df6467722cbb1030f7016c617c6"
+    },
+    {
+      "path": "audio/food-name-tomato.wav",
+      "bytes": 33124,
+      "sha256": "9b9060cfe895fc00ad1a773bd99fa328a0cf7af439bf2af2c526709a9a855401"
+    },
+    {
+      "path": "audio/food-name-vanilla.wav",
+      "bytes": 28246,
+      "sha256": "f69a50e6edcdcb7dfedbece9080c20b1d626cf32d2db60baa041b5e710d95de9"
+    },
+    {
+      "path": "audio/food-name-watermelon.wav",
+      "bytes": 38404,
+      "sha256": "19bc48d534441f12a2dfb4c443af0634298393797cab486e88329725b46dbcc1"
+    },
+    {
+      "path": "audio/food-name-yogurt.wav",
+      "bytes": 30814,
+      "sha256": "682d8a523c195c59f610ec7264464f321bc7b5ecd55c6c61ab0005790d297271"
+    },
+    {
+      "path": "audio/grow-banana-juice.wav",
+      "bytes": 146484,
+      "sha256": "251f126f3a71d22afe51dde796576b23e7f156e3335e474ab9e216a0cd621ee3"
+    },
+    {
+      "path": "audio/grow-banana.wav",
+      "bytes": 100404,
+      "sha256": "129c2d901a951e4d520796295a1af17cc7d61069d743d7dba675f61cfdc27fe1"
+    },
+    {
+      "path": "audio/grow-juice.wav",
+      "bytes": 215828,
+      "sha256": "23862cad9316d265db007964cc1f0157f4f401763c93208b344eee35e92d5349"
+    },
+    {
+      "path": "audio/juice.wav",
+      "bytes": 43796,
+      "sha256": "5cec6ce9778ae75b2c0c700c1cd38390a9dbe0b09bd8b975092235e52691cded"
+    },
+    {
+      "path": "audio/menu-cream.wav",
+      "bytes": 122714,
+      "sha256": "19eb3b2eb5e6480722293e41a5080dba5a15cda7580c743a68596ad4897f0eee"
+    },
+    {
+      "path": "audio/menu-cup.wav",
+      "bytes": 118602,
+      "sha256": "522782c97b39790a69ca34a472104efef04939913fd6e6e7e332919a961c0859"
+    },
+    {
+      "path": "audio/menu-endless.wav",
+      "bytes": 102394,
+      "sha256": "70b87f217febf00ca3d7a581586c8351a921511988f0697bc8af678c846318e3"
+    },
+    {
+      "path": "audio/menu-ice-container.wav",
+      "bytes": 135684,
+      "sha256": "7fde90c7dba5c63d739e1c19aa034ee634f7b575e1058e5f804a57b35ba4a56e"
+    },
+    {
+      "path": "audio/menu-ice-flavor.wav",
+      "bytes": 148486,
+      "sha256": "27f15aaed0e01a5620cb439baebe5365b69230512e0ec20db272596cee509104"
+    },
+    {
+      "path": "audio/menu-mini.wav",
+      "bytes": 117714,
+      "sha256": "f79a764d9c8c04d5fa92a08922f310f692dfa76220c07871e2f8536cf000788a"
+    },
+    {
+      "path": "audio/menu-story.wav",
+      "bytes": 144912,
+      "sha256": "f9f9a3cdbd541f6ca1aedf15580fa269e55007379123ebec07c217c6e0d0190f"
+    },
+    {
+      "path": "audio/menu-training.wav",
+      "bytes": 92164,
+      "sha256": "e2bebc08669eb5a51b3ea6b6d236c22e53be5fbc8bc71ce245a0a7b8ff970672"
+    },
+    {
+      "path": "audio/mini-match.wav",
+      "bytes": 160286,
+      "sha256": "5ab1198a0306e729e2aad83039029d873aeac5b7d664e4bf8a34801f7654985c"
+    },
+    {
+      "path": "audio/mini-spell.wav",
+      "bytes": 202344,
+      "sha256": "d83b7c426f9f72606fcc39e699fc0263b22796dc067afa2847909661981c786e"
+    },
+    {
+      "path": "audio/name-and.wav",
+      "bytes": 22810,
+      "sha256": "3829aad31b9dc686946522d850a3192b779076fb12b05e771a8a357a6e4b38d9"
+    },
+    {
+      "path": "audio/name-cheese-sandwich.wav",
+      "bytes": 52014,
+      "sha256": "886801226cb1bafed4897ed32b063496d3278fc589a6de10f5446326e9076d96"
+    },
+    {
+      "path": "audio/name-juice.wav",
+      "bytes": 27590,
+      "sha256": "febd03c639f0d6e2a2992d0e9f84a7ff894bcb858fe8dbe247c391d1cceadefa"
+    },
+    {
+      "path": "audio/name-one.wav",
+      "bytes": 24592,
+      "sha256": "b35a3864349ada89d31d6a92b816fe6bd2b21abacafc7874bded845cdabbcaf6"
+    },
+    {
+      "path": "audio/name-two.wav",
+      "bytes": 22016,
+      "sha256": "def39b92d74ebad5b77bdfabf9ce7cc9364cf9148a5fdbe69a044d22b1ef171b"
+    },
+    {
+      "path": "audio/note.wav",
+      "bytes": 94486,
+      "sha256": "7dad03990e0dd01bcf635db5111b9d673cb34d3a747d27b61f37ada96eee053c"
+    },
+    {
+      "path": "audio/prologue-0.wav",
+      "bytes": 102728,
+      "sha256": "bd1c9a7b39564b7d7b3b1cabcd18d9702e869e9bc658bcac6b3a7ff8e426a717"
+    },
+    {
+      "path": "audio/prologue-1.wav",
+      "bytes": 83656,
+      "sha256": "2e9425b19da17bb2f1b6ea472d3703ed61edde08241693c0a75eaeda5136d1c3"
+    },
+    {
+      "path": "audio/prologue-2.wav",
+      "bytes": 92762,
+      "sha256": "3b6e6aee66eac73eb4d768d27c455b5797669539fcb7843b0fb370fae38451f4"
+    },
+    {
+      "path": "audio/request-apple.wav",
+      "bytes": 65846,
+      "sha256": "2b7e9e22b603e3c1cdd784349be1ddf729d7817e73947d64089e98cca767566d"
+    },
+    {
+      "path": "audio/request-banana-cream.wav",
+      "bytes": 113230,
+      "sha256": "412bd250fbd8d2094dcf43df762ba412ac6115f97bb80c91ccb1117eb2d8332d"
+    },
+    {
+      "path": "audio/request-banana-juice.wav",
+      "bytes": 79924,
+      "sha256": "13120661a9fc9f5a89f3e1170e2edf11c1dc4966b539ea258a4d110a7bf34389"
+    },
+    {
+      "path": "audio/request-banana.wav",
+      "bytes": 66328,
+      "sha256": "8e9de6aa7a53c3d7791bae98f8df96f9376c0a561f1fea45ae56a836487ee1d7"
+    },
+    {
+      "path": "audio/request-burger.wav",
+      "bytes": 117562,
+      "sha256": "7cdd4bb919a63d65f837eea637c0a124a24f671da84230307d2fc7196d4a16af"
+    },
+    {
+      "path": "audio/request-cheese-burger.wav",
+      "bytes": 77084,
+      "sha256": "ee54326e6f37f1903c696c925cba9190deede7fe29d1e79948f011e184914cdd"
+    },
+    {
+      "path": "audio/request-cone-vanilla.wav",
+      "bytes": 69962,
+      "sha256": "80fff12001c2f3f9b1ccac56e0f40637c2a46c5332327ba11510f395da239193"
+    },
+    {
+      "path": "audio/request-cup-vanilla.wav",
+      "bytes": 68426,
+      "sha256": "5ee029f4e9b4992e82ee946f0376557212e267de7b84a818cccf69a549bf7427"
+    },
+    {
+      "path": "audio/request-double-cream.wav",
+      "bytes": 146778,
+      "sha256": "1d93f82e23abe7a8cd3a038254b4ee1e29af79c2c97b01d04e992212d8f3ce4d"
+    },
+    {
+      "path": "audio/request-fruit.wav",
+      "bytes": 94486,
+      "sha256": "7dad03990e0dd01bcf635db5111b9d673cb34d3a747d27b61f37ada96eee053c"
+    },
+    {
+      "path": "audio/request-juice.wav",
+      "bytes": 76052,
+      "sha256": "df584a36f988e930c365ce414b241ec58375fee447d7cfe177089760a02ad8a1"
+    },
+    {
+      "path": "audio/request-salad-sandwich.wav",
+      "bytes": 122682,
+      "sha256": "f978a82bcd5cea57f9a1e74a31ef76a30244c4ac390a162bac88971a57ce5c53"
+    },
+    {
+      "path": "audio/request-sandwich.wav",
+      "bytes": 90396,
+      "sha256": "8a2e8fc2142a1f606ad8b927a0e610d4112ea18833ab29c38d5560e452edaab4"
+    },
+    {
+      "path": "audio/request-strawberry-cup.wav",
+      "bytes": 99856,
+      "sha256": "f704c339299180f689a2943b4981b57cd302004dc69ea5af2d8551454bf36280"
+    },
+    {
+      "path": "audio/request-vanilla-cone.wav",
+      "bytes": 110670,
+      "sha256": "c9e34d4d3f8f405a1f5c1e0d63b8ee6765f5545034857f73a6781d8280e3b615"
+    },
+    {
+      "path": "audio/request-vanilla-cup.wav",
+      "bytes": 87630,
+      "sha256": "425c35cd3d20b16706f1515d36d327eec03b55a22de1a7783fdb781d623e9756"
+    },
+    {
+      "path": "audio/thanks.wav",
+      "bytes": 35300,
+      "sha256": "08fd51473a2c38810e2107902dbd9b97848de7b7ba304f369501ef671d75eb17"
+    },
+    {
+      "path": "audio/try-and.wav",
+      "bytes": 77266,
+      "sha256": "aa1fc17605e9a8fb3f683a1ab5711f1f9ac4b8ca16c3f1930037c5d33ac365aa"
+    },
+    {
+      "path": "audio/try-apple.wav",
+      "bytes": 51154,
+      "sha256": "c0753a04b1c421864b154a2847ad8e9cb6eb7dbb0e5e6463f908564b76a7f549"
+    },
+    {
+      "path": "audio/try-banana.wav",
+      "bytes": 51666,
+      "sha256": "9dda3621403886f60566fab509d05149d828b24ac5e7a1b6600f32089f319afb"
+    },
+    {
+      "path": "audio/try-bread.wav",
+      "bytes": 46034,
+      "sha256": "f7b1a9feb4689eda2e831344d53b3d68c2cea00be2ce47c02ef031d6083c6c88"
+    },
+    {
+      "path": "audio/try-bun.wav",
+      "bytes": 48594,
+      "sha256": "47cc24919936504a6ade797074e969d8f22d200443424007158ae7a5dd8a8178"
+    },
+    {
+      "path": "audio/try-burger.wav",
+      "bytes": 48594,
+      "sha256": "d004a119129440ef2c73e8d6bba0d5c5e1ba4d584fe4edf0d64c1361b0441489"
+    },
+    {
+      "path": "audio/try-cheese.wav",
+      "bytes": 50642,
+      "sha256": "2992058c4d9d7a951822fb063bbab9567af15bb5f7215e7902928d5c05924912"
+    },
+    {
+      "path": "audio/try-cone.wav",
+      "bytes": 49618,
+      "sha256": "5d6a69b717e47703d82bd044c8777d5f6daa71b61462ee6f28d50a9406bdddf7"
+    },
+    {
+      "path": "audio/try-cooked-patty.wav",
+      "bytes": 62930,
+      "sha256": "2562b6d90aa4f3c820e5ebd88047d4da6a3f1b670857ef6d8cba3263f3d501b8"
+    },
+    {
+      "path": "audio/try-cup.wav",
+      "bytes": 48082,
+      "sha256": "79e769ddde19703820dd3fd76627852f7d7a8920669f985483174e84ab9fef81"
+    },
+    {
+      "path": "audio/try-ice-cream.wav",
+      "bytes": 61906,
+      "sha256": "81d99333527a87f0e0b7d84304b0c427eda73463810e562d3d502bdf34f516f6"
+    },
+    {
+      "path": "audio/try-juice.wav",
+      "bytes": 50130,
+      "sha256": "06c599d012a8dc02c452b4820523e3f391faf7ffe6e3113555a9720b9679d7e2"
+    },
+    {
+      "path": "audio/try-lettuce.wav",
+      "bytes": 50130,
+      "sha256": "4284c980576d1ea31091b06ec361143c8a31a0584a166a730d556bcc80ac4595"
+    },
+    {
+      "path": "audio/try-one.wav",
+      "bytes": 56274,
+      "sha256": "9c3b8efcc9f8345f2ae1d144b5119236aa5ad554d79125ba80e72893967b733d"
+    },
+    {
+      "path": "audio/try-patty.wav",
+      "bytes": 49106,
+      "sha256": "1aff70756b68dd340144f2547760ad087d939d5d92d6cff5964abce6e5137512"
+    },
+    {
+      "path": "audio/try-sandwich.wav",
+      "bytes": 61906,
+      "sha256": "45122b18426ab1553747f7c636fc4044491f948b234ffe6064f5d5ffb3214e96"
+    },
+    {
+      "path": "audio/try-strawberry.wav",
+      "bytes": 55762,
+      "sha256": "b03f798dd4af7c99bd47bb34513c78d7935a5c69e9ee9c6c2fce337b8619cf42"
+    },
+    {
+      "path": "audio/try-tomato.wav",
+      "bytes": 55762,
+      "sha256": "98396de14e9d863742711b43e373178599863a9c6455ae9c30d67f1ef1c7aa7a"
+    },
+    {
+      "path": "audio/try-two.wav",
+      "bytes": 61906,
+      "sha256": "9c266760e8afb69ee989988de3d8b18bed4e69937ecb7be1a9d2c6c49eda4b45"
+    },
+    {
+      "path": "audio/try-vanilla.wav",
+      "bytes": 46034,
+      "sha256": "096e2cf8705f917a4be3a1782815cc62fd67bd58c2c1120dcefadb2ee969deeb"
+    },
+    {
+      "path": "audio/two.wav",
+      "bytes": 75098,
+      "sha256": "96976bbb75736aed664a3278e174cbf904969cdcf44d8071285c39442926cdf2"
+    },
+    {
+      "path": "audio/vocab-beside-chair.wav",
+      "bytes": 80174,
+      "sha256": "494c59f3c478c3bbbaa398f22266fb7c8f6d02587666a615ba1b1ff306167b7c"
+    },
+    {
+      "path": "audio/vocab-big-bowl.wav",
+      "bytes": 77614,
+      "sha256": "8935aa6a6465c31a9dd8073a8fe848755feb708abce9cc3419882ead81327f8f"
+    },
+    {
+      "path": "audio/vocab-bring-book.wav",
+      "bytes": 75316,
+      "sha256": "c6ab0c1daecbc35884d693e195a363a7f0a2bf69be556882ac4cf27da80c3b54"
+    },
+    {
+      "path": "audio/vocab-bring-cup.wav",
+      "bytes": 79412,
+      "sha256": "6fb88607f0657ad9fb909cc51beb2d4b85b2882dd5083acb99cb001defc8c103"
+    },
+    {
+      "path": "audio/vocab-bring-flower.wav",
+      "bytes": 80948,
+      "sha256": "1dd0a76e382c747a64ec36388c44bb2b363bcd4d30901219bea6d77ca69b7e44"
+    },
+    {
+      "path": "audio/vocab-bring-spoon.wav",
+      "bytes": 81972,
+      "sha256": "1a8e890963c749748a98df72ff6889c3378e4d26bbdcbbe34c140efb48b0e97a"
+    },
+    {
+      "path": "audio/vocab-carry-basket.wav",
+      "bytes": 54574,
+      "sha256": "565ba11624af5ea5b3906d0f506e9a2856613f5477c1a98a1a5e647f550f149a"
+    },
+    {
+      "path": "audio/vocab-close-box.wav",
+      "bytes": 52518,
+      "sha256": "cae594471257797f7d7d333108d002ca54975b3e92cb5a31a799e70ae078bf48"
+    },
+    {
+      "path": "audio/vocab-context-apron.wav",
+      "bytes": 85044,
+      "sha256": "5bfec99822043386b4cdf56c57fa443307ed3b38b7f6b35db2d12f639d8d9c6a"
+    },
+    {
+      "path": "audio/vocab-context-bag.wav",
+      "bytes": 76852,
+      "sha256": "b5cefcd0881b28ed7a84e815df47dbbbf5c8dfafd627dc9f41a2cd5cec8dee9c"
+    },
+    {
+      "path": "audio/vocab-context-ball.wav",
+      "bytes": 76340,
+      "sha256": "31bbd6603f49874d407311cdd82b78caaea57096e217e20e35eb54fc2208a3f6"
+    },
+    {
+      "path": "audio/vocab-context-basket.wav",
+      "bytes": 86068,
+      "sha256": "d3e8e82710ed7474fc0c88209726ed327b2fad7aab04440547348fe57b5b81e1"
+    },
+    {
+      "path": "audio/vocab-context-bench.wav",
+      "bytes": 83508,
+      "sha256": "bee78405cda361ad4ef2bd9ec365eaac1db724b729af11fdf69466b718afdc90"
+    },
+    {
+      "path": "audio/vocab-context-beside.wav",
+      "bytes": 80174,
+      "sha256": "494c59f3c478c3bbbaa398f22266fb7c8f6d02587666a615ba1b1ff306167b7c"
+    },
+    {
+      "path": "audio/vocab-context-big.wav",
+      "bytes": 56274,
+      "sha256": "de57c07d01e7b945d81589a468be43f1b1f91049a3ebea040690fbf3b0e089b8"
+    },
+    {
+      "path": "audio/vocab-context-black.wav",
+      "bytes": 61906,
+      "sha256": "7829586607015554dff212173f0b963e675cd6fa945d62b1f6af310490b4f75c"
+    },
+    {
+      "path": "audio/vocab-context-blue.wav",
+      "bytes": 59858,
+      "sha256": "829c3228c244a80dfba36049cee077f99c56e97bbba13c02f701b7eccee5ea9f"
+    },
+    {
+      "path": "audio/vocab-context-book.wav",
+      "bytes": 75316,
+      "sha256": "c6ab0c1daecbc35884d693e195a363a7f0a2bf69be556882ac4cf27da80c3b54"
+    },
+    {
+      "path": "audio/vocab-context-bottle.wav",
+      "bytes": 79412,
+      "sha256": "3bb9bfa96da870d6c0673c6655bad8277b7a2dab248e1d04537bac2b2dac5f99"
+    },
+    {
+      "path": "audio/vocab-context-bowl.wav",
+      "bytes": 75828,
+      "sha256": "bca521a9c2e7c9787b452dc75c27850b7f3e266bcf4ea1aa524d70e0bb3e8ae5"
+    },
+    {
+      "path": "audio/vocab-context-box.wav",
+      "bytes": 84020,
+      "sha256": "7a990247ddd0ddde0f7b6268994e71f779f7e650359e7eca6e0e8d583779dfb3"
+    },
+    {
+      "path": "audio/vocab-context-brown.wav",
+      "bytes": 63442,
+      "sha256": "26e336b50d62dd5f49754661d8ed8b6f5e099750a3cd921144e8c143c0706ab3"
+    },
+    {
+      "path": "audio/vocab-context-carry.wav",
+      "bytes": 54574,
+      "sha256": "565ba11624af5ea5b3906d0f506e9a2856613f5477c1a98a1a5e647f550f149a"
+    },
+    {
+      "path": "audio/vocab-context-chair.wav",
+      "bytes": 76852,
+      "sha256": "08247b736299c61035442215db9dc7f9a7f6f2d447f3402d7ea94b1752a7ce11"
+    },
+    {
+      "path": "audio/vocab-context-close.wav",
+      "bytes": 52518,
+      "sha256": "cae594471257797f7d7d333108d002ca54975b3e92cb5a31a799e70ae078bf48"
+    },
+    {
+      "path": "audio/vocab-context-cup.wav",
+      "bytes": 79412,
+      "sha256": "6fb88607f0657ad9fb909cc51beb2d4b85b2882dd5083acb99cb001defc8c103"
+    },
+    {
+      "path": "audio/vocab-context-cut.wav",
+      "bytes": 43342,
+      "sha256": "a34f622823c4f9a0dffd7111fb1b3da7b75212197174e13ae2a205b118bf40ee"
+    },
+    {
+      "path": "audio/vocab-context-cutting-board.wav",
+      "bytes": 93748,
+      "sha256": "172c88bf1a84c4a6c27fb4364031b3285c3c43fbe84cab86bfca1ed58e74837a"
+    },
+    {
+      "path": "audio/vocab-context-door.wav",
+      "bytes": 74292,
+      "sha256": "9b49e86fd0cda9974a0d29274f2d846b1612f0076cea410e28def66bc4c86ced"
+    },
+    {
+      "path": "audio/vocab-context-drawer.wav",
+      "bytes": 78900,
+      "sha256": "abab488dadaa792e051ee4bd987362f7d04072add8135f3ba00bcd2aa0b7d058"
+    },
+    {
+      "path": "audio/vocab-context-five.wav",
+      "bytes": 81198,
+      "sha256": "0e603acf9d19093d23eed927d61436f1d2902e95072de372a97446bb9d7261e2"
+    },
+    {
+      "path": "audio/vocab-context-flower.wav",
+      "bytes": 80948,
+      "sha256": "1dd0a76e382c747a64ec36388c44bb2b363bcd4d30901219bea6d77ca69b7e44"
+    },
+    {
+      "path": "audio/vocab-context-fork.wav",
+      "bytes": 81460,
+      "sha256": "4ad97ec30ed01e5689edc86198870b3f8042d664fde916038f262f5de3e16d3f"
+    },
+    {
+      "path": "audio/vocab-context-four.wav",
+      "bytes": 77102,
+      "sha256": "d2ded41133f3a6a7fa9fa2618252dc633180742c24e6dc00d9fb52865ff06506"
+    },
+    {
+      "path": "audio/vocab-context-glass.wav",
+      "bytes": 82996,
+      "sha256": "24d56b5ea415c851d7dad1b48330bdc359385785c1f77260566b20d837caf609"
+    },
+    {
+      "path": "audio/vocab-context-green.wav",
+      "bytes": 61906,
+      "sha256": "d138a0866a2aec242039ff117843920d5c1ee8312f855714031b20f096717227"
+    },
+    {
+      "path": "audio/vocab-context-in.wav",
+      "bytes": 70958,
+      "sha256": "89eecf29479d8a1d910c9a440106b068359b1556e7e514c4e434ed21844b4f41"
+    },
+    {
+      "path": "audio/vocab-context-jug.wav",
+      "bytes": 77364,
+      "sha256": "b0315345cec6d689783668c7f4a24fdc8e7c64de2ad5ecf312fab3340d5cf722"
+    },
+    {
+      "path": "audio/vocab-context-kettle.wav",
+      "bytes": 79412,
+      "sha256": "1afed1f634a26008070f23fd7240a97b2dfb96c3ab7f2ec4e95b1d2c8d19dabf"
+    },
+    {
+      "path": "audio/vocab-context-knife.wav",
+      "bytes": 79412,
+      "sha256": "0ac8c68ec3a33c572c3c9195c85f193001a1e22ed517c90248b88727f8452231"
+    },
+    {
+      "path": "audio/vocab-context-ladle.wav",
+      "bytes": 76852,
+      "sha256": "98858c41f35d5baca1132161ec9d68beead15fe2130919b0072ca44aa0beef3c"
+    },
+    {
+      "path": "audio/vocab-context-lamp.wav",
+      "bytes": 78388,
+      "sha256": "0fd32e0319b14825b7a1d3eac7e86e6716a99bdc99f7a9c54b7f6f6e7ca71285"
+    },
+    {
+      "path": "audio/vocab-context-leaf.wav",
+      "bytes": 78388,
+      "sha256": "aedb4741e7b4dbdd63ad99313d77f7e05ee048e1e0227917819b2ed71bb62820"
+    },
+    {
+      "path": "audio/vocab-context-lid.wav",
+      "bytes": 72756,
+      "sha256": "119796d0c2a9fcd4a208b11e9c84a89963c63d8ae3a0619cae9348f06ec155e2"
+    },
+    {
+      "path": "audio/vocab-context-napkin.wav",
+      "bytes": 85044,
+      "sha256": "a5c1642c60a3f99539cbf778accec09b8565a72be96824b73be40141381aafc1"
+    },
+    {
+      "path": "audio/vocab-context-on.wav",
+      "bytes": 67374,
+      "sha256": "9d06f2e3cf387698a2d4667f3b214e52fdd27dfecfc76fb74f8e9c6783ab15b1"
+    },
+    {
+      "path": "audio/vocab-context-one.wav",
+      "bytes": 73518,
+      "sha256": "39f6f37e786bd21e4ec925bbe219c484488999961a4251b030daa489205294d3"
+    },
+    {
+      "path": "audio/vocab-context-open.wav",
+      "bytes": 50816,
+      "sha256": "d96a3463005683649248b71c83ea457ea2710d7835b1b2797a10696fe425ed73"
+    },
+    {
+      "path": "audio/vocab-context-pan.wav",
+      "bytes": 80948,
+      "sha256": "5a1ba7f62133d279c144276b627b9d58cd08126c7c6d710e1b4fb7e3ba133905"
+    },
+    {
+      "path": "audio/vocab-context-pink.wav",
+      "bytes": 61394,
+      "sha256": "33a53e1c9772716845507419a057995647244dc7994ed83b7abf9f2ffb722e72"
+    },
+    {
+      "path": "audio/vocab-context-plate.wav",
+      "bytes": 79924,
+      "sha256": "91aa76e71796235abeaf641ffd4b60a0190a99f253b6de17db75a2ae5e8b548d"
+    },
+    {
+      "path": "audio/vocab-context-pot.wav",
+      "bytes": 79412,
+      "sha256": "532d3d60fd19b8c47c79ed31358a556ba5c88104f2845409ee14ef774710dd98"
+    },
+    {
+      "path": "audio/vocab-context-pour.wav",
+      "bytes": 68428,
+      "sha256": "18480dabb4d636cca670d25f9800f038d093b1d3dc36ede062ff64c809ba55b2"
+    },
+    {
+      "path": "audio/vocab-context-purple.wav",
+      "bytes": 66514,
+      "sha256": "570a63d80292a2bc68137bc7aed036c9932050cc1b9bd45d6bc0322aa8c90476"
+    },
+    {
+      "path": "audio/vocab-context-put.wav",
+      "bytes": 67374,
+      "sha256": "9d06f2e3cf387698a2d4667f3b214e52fdd27dfecfc76fb74f8e9c6783ab15b1"
+    },
+    {
+      "path": "audio/vocab-context-red.wav",
+      "bytes": 58834,
+      "sha256": "d8628ae85eaf87fcf5c4d9232fa61263121206f5ab162de80a552db6607a6e85"
+    },
+    {
+      "path": "audio/vocab-context-round.wav",
+      "bytes": 63954,
+      "sha256": "670084cd5c735dde939b906f92d61dfbdee6d7990a939e64b5d9a130621e293d"
+    },
+    {
+      "path": "audio/vocab-context-seed.wav",
+      "bytes": 79924,
+      "sha256": "b895d6c1a5a1835290d2e4325889d0483ff8bbdd1c267d7743d21a04324da106"
+    },
+    {
+      "path": "audio/vocab-context-share.wav",
+      "bytes": 48450,
+      "sha256": "78060116cf277526470e56a06a2b0d51ab0e608782c69e90f357045e362cb594"
+    },
+    {
+      "path": "audio/vocab-context-shelf.wav",
+      "bytes": 82996,
+      "sha256": "6581a6262c8481499769036b95891baa08a1b2b0210051632407a8df799f06bc"
+    },
+    {
+      "path": "audio/vocab-context-small.wav",
+      "bytes": 62418,
+      "sha256": "76ab078ea7c97f364ae8bbbfa0f6844d9696ff0be32cff4dfb3bef317ca84534"
+    },
+    {
+      "path": "audio/vocab-context-soft.wav",
+      "bytes": 70610,
+      "sha256": "b3d930894522fd2ae210ea023875e64686ea68f0ec6bca356f7be4541f47766e"
+    },
+    {
+      "path": "audio/vocab-context-spatula.wav",
+      "bytes": 91700,
+      "sha256": "562c78c48812365ecf13265f94ca2144da5a8d54c0bd800534d14be8705970b6"
+    },
+    {
+      "path": "audio/vocab-context-spoon.wav",
+      "bytes": 81972,
+      "sha256": "1a8e890963c749748a98df72ff6889c3378e4d26bbdcbbe34c140efb48b0e97a"
+    },
+    {
+      "path": "audio/vocab-context-stir.wav",
+      "bytes": 43536,
+      "sha256": "982989cf88d421f09179da2dd45f90cb8a6718a0a6a4c6f51e86ce04cd1f6cca"
+    },
+    {
+      "path": "audio/vocab-context-table.wav",
+      "bytes": 81972,
+      "sha256": "bbb05561f192648f57786d635e7f667d1d0089dae86c7425c9b3162f33e83635"
+    },
+    {
+      "path": "audio/vocab-context-take.wav",
+      "bytes": 40804,
+      "sha256": "c812a8f1edde5f8b68d8be0f78852d7e132cdd6e7be6b2c8fb47ac0b90c0af25"
+    },
+    {
+      "path": "audio/vocab-context-three.wav",
+      "bytes": 76078,
+      "sha256": "ceae4e738908ec46015bc6ff4a3db3e020ad2cd28140bb0fcd0747a066e8e9b0"
+    },
+    {
+      "path": "audio/vocab-context-tray.wav",
+      "bytes": 81972,
+      "sha256": "1d99ff9a87710c3e855b871851106977d54b1dff12ceb590b5c9f443d039c05a"
+    },
+    {
+      "path": "audio/vocab-context-tree.wav",
+      "bytes": 76852,
+      "sha256": "1333694efcf44adaa7ce76a45b3df4774bfe2fe3855ac280e69c1182a5418e69"
+    },
+    {
+      "path": "audio/vocab-context-two.wav",
+      "bytes": 74542,
+      "sha256": "8269053c267a8c623eb2900cb1543c08900544f3c8b229bfe51a4868ef3bbf18"
+    },
+    {
+      "path": "audio/vocab-context-under.wav",
+      "bytes": 74542,
+      "sha256": "f0ac88cdfcef7e8a738db2c5f60fbe789ee59f57cf886e3dec454c783156b12b"
+    },
+    {
+      "path": "audio/vocab-context-wash.wav",
+      "bytes": 41476,
+      "sha256": "3319eadd46367570f59b948c77c3482b19a73d4afd7610d916fe4504fde72e94"
+    },
+    {
+      "path": "audio/vocab-context-watering-can.wav",
+      "bytes": 102964,
+      "sha256": "5ba96cff8feb45d9bf793bf1e4cee172d011f069113f644871e76bcf49a056ee"
+    },
+    {
+      "path": "audio/vocab-context-whisk.wav",
+      "bytes": 78388,
+      "sha256": "79961c1ccaf4a5141d848786aae1a1e1c100b8a4110e605346f29554344500cf"
+    },
+    {
+      "path": "audio/vocab-context-white.wav",
+      "bytes": 61906,
+      "sha256": "624081360964c26e0a3de106b530f68e130de6ef1bbbca1a24f84e7ca453327f"
+    },
+    {
+      "path": "audio/vocab-context-window.wav",
+      "bytes": 81460,
+      "sha256": "3eeb4f66171c2080749053e34ca5e344910fd76a37471523c504e60414f65633"
+    },
+    {
+      "path": "audio/vocab-context-yellow.wav",
+      "bytes": 65490,
+      "sha256": "b6e42bd76ba7abfc72864f39b002b23815dd494bb92fecb16c3a577fcaa551b9"
+    },
+    {
+      "path": "audio/vocab-cut-apple.wav",
+      "bytes": 43342,
+      "sha256": "a34f622823c4f9a0dffd7111fb1b3da7b75212197174e13ae2a205b118bf40ee"
+    },
+    {
+      "path": "audio/vocab-five-cups.wav",
+      "bytes": 81198,
+      "sha256": "0e603acf9d19093d23eed927d61436f1d2902e95072de372a97446bb9d7261e2"
+    },
+    {
+      "path": "audio/vocab-four-cups.wav",
+      "bytes": 77102,
+      "sha256": "d2ded41133f3a6a7fa9fa2618252dc633180742c24e6dc00d9fb52865ff06506"
+    },
+    {
+      "path": "audio/vocab-in-ball.wav",
+      "bytes": 70958,
+      "sha256": "89eecf29479d8a1d910c9a440106b068359b1556e7e514c4e434ed21844b4f41"
+    },
+    {
+      "path": "audio/vocab-lamp-on.wav",
+      "bytes": 69934,
+      "sha256": "73044923d2fe96a1d695b32cd941a1f59e3343c8c91e89988691bbe1faa6d482"
+    },
+    {
+      "path": "audio/vocab-name-apron.wav",
+      "bytes": 28944,
+      "sha256": "7a1dcce34592ecb16e046238659242b33a147ae6f26225da371b38067299a8e7"
+    },
+    {
+      "path": "audio/vocab-name-bag.wav",
+      "bytes": 21324,
+      "sha256": "77a079cc3f4c769bc39c32e76c8fa1b26a67a5092225000d2dfe1eca5bcb9d0b"
+    },
+    {
+      "path": "audio/vocab-name-ball.wav",
+      "bytes": 20812,
+      "sha256": "2c81b16f3ff6277812c337a310a2627636e79dedf25b3051a221c568cdf2cc4d"
+    },
+    {
+      "path": "audio/vocab-name-basket.wav",
+      "bytes": 30772,
+      "sha256": "96c7cf1f154695964ef57f6ebca96f83d8488569a6e7771fc72cf437864ed60d"
+    },
+    {
+      "path": "audio/vocab-name-bench.wav",
+      "bytes": 27980,
+      "sha256": "9a00591f52b2f81341275710eabb1882b98bc7e340a69f92baaae42fa30e6854"
+    },
+    {
+      "path": "audio/vocab-name-beside.wav",
+      "bytes": 31796,
+      "sha256": "97aa29f725019fec371eba2a779c081b4210871109e36768c7e34d136bb89c75"
+    },
+    {
+      "path": "audio/vocab-name-big.wav",
+      "bytes": 20812,
+      "sha256": "d58801e02b14add46bf2a410a87628e9f5a922ed93ddf3f715ce1144979b9895"
+    },
+    {
+      "path": "audio/vocab-name-black.wav",
+      "bytes": 24908,
+      "sha256": "20536e7e9e9744391b42a98e04b7eb067f1dcc1da2b87bc3b9dbfc574372826f"
+    },
+    {
+      "path": "audio/vocab-name-blue.wav",
+      "bytes": 21324,
+      "sha256": "ffbf976250cfb1059e0924b22a32882dfcd8a890f439f54329f355094736be3f"
+    },
+    {
+      "path": "audio/vocab-name-book.wav",
+      "bytes": 19788,
+      "sha256": "055cedd744e52aba3def38b2a51f269066fbf59e9f23a03b89f5099228d5e0f9"
+    },
+    {
+      "path": "audio/vocab-name-bottle.wav",
+      "bytes": 23604,
+      "sha256": "a95c527db9a903455216e6924dc9e62aea8d39343c5538743acbfd5aa081e455"
+    },
+    {
+      "path": "audio/vocab-name-bowl.wav",
+      "bytes": 19788,
+      "sha256": "facd1c99730f412f8e24b238dfbc4edbc2e66e8a6c5ba805b7c69dd616be3695"
+    },
+    {
+      "path": "audio/vocab-name-box.wav",
+      "bytes": 28492,
+      "sha256": "4658caf8305d4b3f495aeb1d85f74f5e8f9a6a36b5d436a04238d6840b205141"
+    },
+    {
+      "path": "audio/vocab-name-brown.wav",
+      "bytes": 26444,
+      "sha256": "786968b33acdd48caeb93fad218ecac014dc170d0a5e6c92b06efb5c9844cedc"
+    },
+    {
+      "path": "audio/vocab-name-carry.wav",
+      "bytes": 24366,
+      "sha256": "fb25956e6db6d814b19ccbb5ac78659189bd858331f6418d2d52a382ec47bcb4"
+    },
+    {
+      "path": "audio/vocab-name-chair.wav",
+      "bytes": 22654,
+      "sha256": "819958e7eb72bbbc58f986e81e227d30d98c10aa3439c2458b9aa50ca6da514d"
+    },
+    {
+      "path": "audio/vocab-name-close.wav",
+      "bytes": 29696,
+      "sha256": "0cb58b48ac8077f04a6abf7e2cab838ab2c7fb8974d516f071ab726d19c887ca"
+    },
+    {
+      "path": "audio/vocab-name-cup.wav",
+      "bytes": 24576,
+      "sha256": "b77f1fed8fc3b207f6b0ccaacc5c4a0bbc103e07041d78401efda3c51e909e1c"
+    },
+    {
+      "path": "audio/vocab-name-cut.wav",
+      "bytes": 25088,
+      "sha256": "9ea0eb14bd3184743eda4663ea97bfc8ab968bc87ef408c65c98357f49af5d35"
+    },
+    {
+      "path": "audio/vocab-name-cutting-board.wav",
+      "bytes": 38734,
+      "sha256": "210b8a28219a3762104ea256d463fb199e7990f0911c873f7205c451fb4e50cf"
+    },
+    {
+      "path": "audio/vocab-name-door.wav",
+      "bytes": 19424,
+      "sha256": "ce358307bc1fd54992d3d1e476b12b2852b2b2fa4379759a753f6679a84799e3"
+    },
+    {
+      "path": "audio/vocab-name-drawer.wav",
+      "bytes": 24502,
+      "sha256": "b53ef384f4680d64f08a1680731df6915b7362127bbd18e9a1ccc36c44838801"
+    },
+    {
+      "path": "audio/vocab-name-five.wav",
+      "bytes": 26596,
+      "sha256": "40333d1f660e414777f0ddb835af1ae61a40501a2adf14747c1c02b379c008e2"
+    },
+    {
+      "path": "audio/vocab-name-flower.wav",
+      "bytes": 28114,
+      "sha256": "9c0df4a4b478b586dd839de67e17fe74c524e2f9e9b2063575fc6b120a775912"
+    },
+    {
+      "path": "audio/vocab-name-fork.wav",
+      "bytes": 28644,
+      "sha256": "edba98da4aad3c0dd7420e51aba7bea242383a72dc031b3ec89f7fae4343c33a"
+    },
+    {
+      "path": "audio/vocab-name-four.wav",
+      "bytes": 24036,
+      "sha256": "d811450213c2d46120e0e618d4582c15920eb0507e2c8a5b37e3dde5aaac04f9"
+    },
+    {
+      "path": "audio/vocab-name-glass.wav",
+      "bytes": 28362,
+      "sha256": "cbea6aeecec9ab95dd18305a553113940421a484e0257ac82a843f3fa6595ce9"
+    },
+    {
+      "path": "audio/vocab-name-green.wav",
+      "bytes": 24778,
+      "sha256": "a225c7c9a05c05185dc53e080e120b69fecb20e8de4a3c0538116ebe36dd0ca2"
+    },
+    {
+      "path": "audio/vocab-name-in.wav",
+      "bytes": 20306,
+      "sha256": "729eec61234bfa57ed85faa438febef834ca56806a3999da7c1e321f50ebfad8"
+    },
+    {
+      "path": "audio/vocab-name-jug.wav",
+      "bytes": 23494,
+      "sha256": "abb58fe90f74e1d213fe23bbe76c76df4b99ead23869590439290629d4f36b54"
+    },
+    {
+      "path": "audio/vocab-name-kettle.wav",
+      "bytes": 23854,
+      "sha256": "acbc51d7193cc77ddd43729ef65622a300c132d2832844c447d5a1c8ec4069ca"
+    },
+    {
+      "path": "audio/vocab-name-knife.wav",
+      "bytes": 27892,
+      "sha256": "a21042c78e20f5d5a2e74141e99c9f9f9a32e50da267b7d1594ae56dfa2fdfef"
+    },
+    {
+      "path": "audio/vocab-name-ladle.wav",
+      "bytes": 24150,
+      "sha256": "b5ac15a158447e168ee2bd4d7faaed299dc9c82e28aa40b5349b6e3420777028"
+    },
+    {
+      "path": "audio/vocab-name-lamp.wav",
+      "bytes": 25686,
+      "sha256": "345337449124e8882904e1082a29f0bd81f8cb200478379ac3ecacad50afba20"
+    },
+    {
+      "path": "audio/vocab-name-leaf.wav",
+      "bytes": 25174,
+      "sha256": "4da47bd57a65aa060c7b1a78017f10edfe406280738587a9f03f1da9eddd8a34"
+    },
+    {
+      "path": "audio/vocab-name-lid.wav",
+      "bytes": 20054,
+      "sha256": "7bb2d61530b7a8181f2ed2f0a67956277ab51c6a641be7d2d6e08dc5c907434e"
+    },
+    {
+      "path": "audio/vocab-name-napkin.wav",
+      "bytes": 32470,
+      "sha256": "312c51fdc0504aac6eb12380021b4bd659379a7748033aa66dc3f3d695154290"
+    },
+    {
+      "path": "audio/vocab-name-on.wav",
+      "bytes": 22682,
+      "sha256": "9b51bd24c72b7116a787fcb088f496004882540e574e1767bf8f7870824393c4"
+    },
+    {
+      "path": "audio/vocab-name-one.wav",
+      "bytes": 24592,
+      "sha256": "b35a3864349ada89d31d6a92b816fe6bd2b21abacafc7874bded845cdabbcaf6"
+    },
+    {
+      "path": "audio/vocab-name-open.wav",
+      "bytes": 26240,
+      "sha256": "cdc01096f5564fe3614e497c7d2e3d3cba579811f6999587fbbbff4428bbf877"
+    },
+    {
+      "path": "audio/vocab-name-pan.wav",
+      "bytes": 24870,
+      "sha256": "b1defc3ecce7940514249ae03dfbf9ed80063a72ba64bbb92ac96b7729dac9aa"
+    },
+    {
+      "path": "audio/vocab-name-pink.wav",
+      "bytes": 23334,
+      "sha256": "3b1b869af59129ac22433c48f18a9104c3d386f55228b44480f36dbc751c6eba"
+    },
+    {
+      "path": "audio/vocab-name-plate.wav",
+      "bytes": 23854,
+      "sha256": "a9f37781a260bad05a172086bb31501f7708be94cae3fe4f63cdb52e4009c3a3"
+    },
+    {
+      "path": "audio/vocab-name-pot.wav",
+      "bytes": 23846,
+      "sha256": "25a83d57ae41c38c1eef68f68999f96536e233668ad9272afdf67605127b8cc7"
+    },
+    {
+      "path": "audio/vocab-name-pour.wav",
+      "bytes": 19758,
+      "sha256": "71a6dcc29c67d4f874a08eea6da2d3b3f709afce04e437a8117d0e72f470192f"
+    },
+    {
+      "path": "audio/vocab-name-purple.wav",
+      "bytes": 26406,
+      "sha256": "c6879c4f0a772f9f1af0ffaf0e32990370ff1b7d6c871a4d153a11c83bc8d968"
+    },
+    {
+      "path": "audio/vocab-name-put.wav",
+      "bytes": 20782,
+      "sha256": "be95938b61c439450280d0f7024bb5d4705d0cc1b5d7cef953b055df7598112c"
+    },
+    {
+      "path": "audio/vocab-name-red.wav",
+      "bytes": 20198,
+      "sha256": "0cd8782543c2116d1e4fcf4107935fda63c72cd577a7f554503f0f63a9aca7b3"
+    },
+    {
+      "path": "audio/vocab-name-round.wav",
+      "bytes": 25830,
+      "sha256": "b5f27b515ff4f98166ab4dc95b7752e3050c37f23e2946c499f6a480f39b32d0"
+    },
+    {
+      "path": "audio/vocab-name-seed.wav",
+      "bytes": 26128,
+      "sha256": "dfeb2e2e271d2a1203a2ba6840a0e89d7b2b6ee14fc1b727d14fbff99cf7f5be"
+    },
+    {
+      "path": "audio/vocab-name-share.wav",
+      "bytes": 23962,
+      "sha256": "4d6fb05adcce6751ea78a37b44d418e2dab64f509a920c88f4d60c201daa38bf"
+    },
+    {
+      "path": "audio/vocab-name-shelf.wav",
+      "bytes": 30106,
+      "sha256": "2b6a9555ec895d9c6a7c8f94a652a60c6847146255b257141131dfe35b11c5e4"
+    },
+    {
+      "path": "audio/vocab-name-small.wav",
+      "bytes": 28176,
+      "sha256": "b61a6c885330c36405362a359247efc991d2741c14adfc9167263098b3634db2"
+    },
+    {
+      "path": "audio/vocab-name-soft.wav",
+      "bytes": 29712,
+      "sha256": "7a1d7d14533d213c7ec1a4bdbaab85d5d3acaa41cf8bda00696e065aa8b1bdbd"
+    },
+    {
+      "path": "audio/vocab-name-spatula.wav",
+      "bytes": 38928,
+      "sha256": "ae5cf53ffd2d6c9f469e6581eb52761dc891cdd1d3ce5b1ed7e4db7e1bad920f"
+    },
+    {
+      "path": "audio/vocab-name-spoon.wav",
+      "bytes": 30224,
+      "sha256": "864a8a8968dc3ada16133d356c91df4596c2bb46a04d3346888db90e194e439b"
+    },
+    {
+      "path": "audio/vocab-name-stir.wav",
+      "bytes": 26128,
+      "sha256": "7c09d28f1adfe87191e0bbfe93a4c357a9e62181662b992e21753d1cede26a08"
+    },
+    {
+      "path": "audio/vocab-name-table.wav",
+      "bytes": 26980,
+      "sha256": "32a3656b05fefdc066e641fbdf795f60ea99d68c8fcfb246436a861fed345216"
+    },
+    {
+      "path": "audio/vocab-name-take.wav",
+      "bytes": 26112,
+      "sha256": "ff24f6e9b4ccbf1b2a69730330d436b83cb0d598abbda72d85171a22cebb8967"
+    },
+    {
+      "path": "audio/vocab-name-three.wav",
+      "bytes": 25010,
+      "sha256": "12cfa141352a8d2e43176ece64702ed87662056d7277cd70b9c0284747c21ba0"
+    },
+    {
+      "path": "audio/vocab-name-tray.wav",
+      "bytes": 27136,
+      "sha256": "cc6a695376d08ef79522a833449b0d1c106756d8650fa9be9c1cbf965efccb97"
+    },
+    {
+      "path": "audio/vocab-name-tree.wav",
+      "bytes": 22016,
+      "sha256": "5759a2eb9f2d568d078cbaa01b5fc386929a54b17ad709912c6323510482fb9f"
+    },
+    {
+      "path": "audio/vocab-name-two.wav",
+      "bytes": 22016,
+      "sha256": "def39b92d74ebad5b77bdfabf9ce7cc9364cf9148a5fdbe69a044d22b1ef171b"
+    },
+    {
+      "path": "audio/vocab-name-under.wav",
+      "bytes": 24270,
+      "sha256": "3e2435ef363aff2240d5b8524889dc98264ec7c8d51e11b3d2f0f7869dd492cd"
+    },
+    {
+      "path": "audio/vocab-name-wash.wav",
+      "bytes": 28688,
+      "sha256": "ba9078369a714ce3c02476279d2be9c0395f2ad6203a90ce79ec067c21f07595"
+    },
+    {
+      "path": "audio/vocab-name-watering-can.wav",
+      "bytes": 48646,
+      "sha256": "440457f9a0af307ab838e0ea6155f66208b3646ca943214927f3db180a0db64d"
+    },
+    {
+      "path": "audio/vocab-name-whisk.wav",
+      "bytes": 25104,
+      "sha256": "0f3082290f3f02e9db78ed0708e6f893ccec6466f60a0346c683ec5a16c57056"
+    },
+    {
+      "path": "audio/vocab-name-white.wav",
+      "bytes": 24080,
+      "sha256": "009ad5d5a0d74efdffaea8385ce3371b7507b1d8edd5290f604e9a9085d33c7f"
+    },
+    {
+      "path": "audio/vocab-name-window.wav",
+      "bytes": 28164,
+      "sha256": "0aafbc7a7da1bb9b65fc1494319be2be15ac4d8fcd6198b239d144b28e0d8edd"
+    },
+    {
+      "path": "audio/vocab-name-yellow.wav",
+      "bytes": 27226,
+      "sha256": "9d626843a33b3b843b8a1be66819759cdfbe9f5c8eff1e2cd74266695c73afb5"
+    },
+    {
+      "path": "audio/vocab-on-cup.wav",
+      "bytes": 67374,
+      "sha256": "9d06f2e3cf387698a2d4667f3b214e52fdd27dfecfc76fb74f8e9c6783ab15b1"
+    },
+    {
+      "path": "audio/vocab-one-plate.wav",
+      "bytes": 74542,
+      "sha256": "029b3ffa1289996ca5e10862eb4a7ac332293d5fe957d5e38ec596334bd28f7c"
+    },
+    {
+      "path": "audio/vocab-open-box.wav",
+      "bytes": 50816,
+      "sha256": "d96a3463005683649248b71c83ea457ea2710d7835b1b2797a10696fe425ed73"
+    },
+    {
+      "path": "audio/vocab-pour-cup.wav",
+      "bytes": 68428,
+      "sha256": "18480dabb4d636cca670d25f9800f038d093b1d3dc36ede062ff64c809ba55b2"
+    },
+    {
+      "path": "audio/vocab-put-ball.wav",
+      "bytes": 70958,
+      "sha256": "89eecf29479d8a1d910c9a440106b068359b1556e7e514c4e434ed21844b4f41"
+    },
+    {
+      "path": "audio/vocab-red-cup.wav",
+      "bytes": 78126,
+      "sha256": "e5a2b08cceea6ae75ee0015097ef3689f67841ac11630ad774920c0edfd2817f"
+    },
+    {
+      "path": "audio/vocab-scene-check.wav",
+      "bytes": 68832,
+      "sha256": "e979f1910f461ac6224f9438bdf36dcbbfeb0f644ccbf4c161ed38dda9a439c0"
+    },
+    {
+      "path": "audio/vocab-scene-cover.wav",
+      "bytes": 78560,
+      "sha256": "e41d6467e5dccc967b01de213289f878a314ed020b963b16e2ab9f83d1ec7776"
+    },
+    {
+      "path": "audio/vocab-scene-design.wav",
+      "bytes": 176218,
+      "sha256": "5f3db9ae511e08f34f4d236b772b2c1b93b47d8040883570f22c0170231137c1"
+    },
+    {
+      "path": "audio/vocab-scene-help.wav",
+      "bytes": 123398,
+      "sha256": "110d630d06452cff0cc290439d5d09aba27237dfbb1dda5d17bf26cf13683699"
+    },
+    {
+      "path": "audio/vocab-scene-hunt.wav",
+      "bytes": 123858,
+      "sha256": "1afd64a996f4496336a0ae1e445b4d25d8d4eb462d6691b1bb24fc46d4001980"
+    },
+    {
+      "path": "audio/vocab-scene-memory.wav",
+      "bytes": 209000,
+      "sha256": "4600163ba72745c06963b2bcc3d975dde8523ea6bbf52cd1f13e9b7326668969"
+    },
+    {
+      "path": "audio/vocab-scene-next.wav",
+      "bytes": 70454,
+      "sha256": "14d8091f85465de24186e4001882597728f98a60616f463dd4ccc9f87c3a012d"
+    },
+    {
+      "path": "audio/vocab-scene-pause.wav",
+      "bytes": 101220,
+      "sha256": "0088e048f0c029744f56b850e48b53cc330798a50bdccf1dfe11817461332147"
+    },
+    {
+      "path": "audio/vocab-scene-relook.wav",
+      "bytes": 91752,
+      "sha256": "ee581ee3c3ecde61b5090c0262f6b9f29ea2df9e84958c7e5f51c8431469314e"
+    },
+    {
+      "path": "audio/vocab-scene-sort.wav",
+      "bytes": 186670,
+      "sha256": "1c567f5084ca7b16e8256c0aa2e00450f25002e8fe517f9c2b5c9ae710da21d1"
+    },
+    {
+      "path": "audio/vocab-scene-theatre.wav",
+      "bytes": 135918,
+      "sha256": "8813542d6a585f15549faff42e6114da976bcf82947f9a39a0c68bfa7267efaa"
+    },
+    {
+      "path": "audio/vocab-scene-welcome.wav",
+      "bytes": 168804,
+      "sha256": "ab7ebada59336454151ec062e4cc5e72731a299616001ce2ff69f91cc95bdf49"
+    },
+    {
+      "path": "audio/vocab-share-apple.wav",
+      "bytes": 48450,
+      "sha256": "78060116cf277526470e56a06a2b0d51ab0e608782c69e90f357045e362cb594"
+    },
+    {
+      "path": "audio/vocab-small-bowl.wav",
+      "bytes": 91950,
+      "sha256": "c2df195ce8496aab074e93eac38b45d46f597287b82702b51441e2c9ba546f26"
+    },
+    {
+      "path": "audio/vocab-soft-napkin.wav",
+      "bytes": 100142,
+      "sha256": "e2466d029971f9986f2cb55fa1c26387679c2cd46139ac3dc4d3885abeb64ca9"
+    },
+    {
+      "path": "audio/vocab-sort-color.wav",
+      "bytes": 70958,
+      "sha256": "b7ec1b05610486a5d5ccaecde09123ce2f8907ff563dc10fa558cdfdb91ccc5f"
+    },
+    {
+      "path": "audio/vocab-sort-food.wav",
+      "bytes": 68398,
+      "sha256": "ce276c5405d05c4ae497cf115bfb252a06b2b0e8f4dea91322185549757d2893"
+    },
+    {
+      "path": "audio/vocab-sort-garden.wav",
+      "bytes": 88878,
+      "sha256": "e744dc8bed3ee59212fc9c503329817fbde7201080273e8812b234ea21577fc1"
+    },
+    {
+      "path": "audio/vocab-sort-round.wav",
+      "bytes": 74030,
+      "sha256": "5de1a7f12740331010623f95d929cba9ed5dabdbcdf4af89ee1a4a4988d102b0"
+    },
+    {
+      "path": "audio/vocab-sort-tools.wav",
+      "bytes": 91438,
+      "sha256": "ce4995fe23e2f58bd329a229dee84938f030f2b5dd7c781e42392edcf69dc314"
+    },
+    {
+      "path": "audio/vocab-stir-cup.wav",
+      "bytes": 43536,
+      "sha256": "982989cf88d421f09179da2dd45f90cb8a6718a0a6a4c6f51e86ce04cd1f6cca"
+    },
+    {
+      "path": "audio/vocab-take-ball.wav",
+      "bytes": 40804,
+      "sha256": "c812a8f1edde5f8b68d8be0f78852d7e132cdd6e7be6b2c8fb47ac0b90c0af25"
+    },
+    {
+      "path": "audio/vocab-task-114c43c3.wav",
+      "bytes": 81972,
+      "sha256": "1a8e890963c749748a98df72ff6889c3378e4d26bbdcbbe34c140efb48b0e97a"
+    },
+    {
+      "path": "audio/vocab-task-1292d7b.wav",
+      "bytes": 41476,
+      "sha256": "3319eadd46367570f59b948c77c3482b19a73d4afd7610d916fe4504fde72e94"
+    },
+    {
+      "path": "audio/vocab-task-14267691.wav",
+      "bytes": 80174,
+      "sha256": "494c59f3c478c3bbbaa398f22266fb7c8f6d02587666a615ba1b1ff306167b7c"
+    },
+    {
+      "path": "audio/vocab-task-14b35de5.wav",
+      "bytes": 88878,
+      "sha256": "b2368b30bfb248537f9fdb3ec6bba14add24b2f0731f348af2e815782e695344"
+    },
+    {
+      "path": "audio/vocab-task-1a824f32.wav",
+      "bytes": 73518,
+      "sha256": "39f6f37e786bd21e4ec925bbe219c484488999961a4251b030daa489205294d3"
+    },
+    {
+      "path": "audio/vocab-task-32c5e526.wav",
+      "bytes": 154414,
+      "sha256": "435afd6088515b1d1d870d1604ef84b8fe6d09bbef16e7f11521ecceabe764d5"
+    },
+    {
+      "path": "audio/vocab-task-36295808.wav",
+      "bytes": 95336,
+      "sha256": "fe5dfb43cd4990358f4331bca4263001437707b4e72301a877a19fca74fe18ff"
+    },
+    {
+      "path": "audio/vocab-task-36a234c3.wav",
+      "bytes": 74542,
+      "sha256": "f0ac88cdfcef7e8a738db2c5f60fbe789ee59f57cf886e3dec454c783156b12b"
+    },
+    {
+      "path": "audio/vocab-task-3d8bb686.wav",
+      "bytes": 256814,
+      "sha256": "df6514ac95b72cd045b6eb7746c730d2668b5ec96dadd1c8a1c142e1cb32e2b9"
+    },
+    {
+      "path": "audio/vocab-task-43f04668.wav",
+      "bytes": 79412,
+      "sha256": "6fb88607f0657ad9fb909cc51beb2d4b85b2882dd5083acb99cb001defc8c103"
+    },
+    {
+      "path": "audio/vocab-task-506a2ee8.wav",
+      "bytes": 58834,
+      "sha256": "d8628ae85eaf87fcf5c4d9232fa61263121206f5ab162de80a552db6607a6e85"
+    },
+    {
+      "path": "audio/vocab-task-60aa2079.wav",
+      "bytes": 80948,
+      "sha256": "1dd0a76e382c747a64ec36388c44bb2b363bcd4d30901219bea6d77ca69b7e44"
+    },
+    {
+      "path": "audio/vocab-task-6a819af8.wav",
+      "bytes": 70958,
+      "sha256": "b7ec1b05610486a5d5ccaecde09123ce2f8907ff563dc10fa558cdfdb91ccc5f"
+    },
+    {
+      "path": "audio/vocab-task-6c35f182.wav",
+      "bytes": 166190,
+      "sha256": "d2a050c37054e8ab04b0358b601d86530de1e98fe74baa67428953c5b347b1ab"
+    },
+    {
+      "path": "audio/vocab-task-6ce96f9d.wav",
+      "bytes": 67374,
+      "sha256": "9d06f2e3cf387698a2d4667f3b214e52fdd27dfecfc76fb74f8e9c6783ab15b1"
+    },
+    {
+      "path": "audio/vocab-task-729ed51d.wav",
+      "bytes": 52518,
+      "sha256": "cae594471257797f7d7d333108d002ca54975b3e92cb5a31a799e70ae078bf48"
+    },
+    {
+      "path": "audio/vocab-task-90d1c235.wav",
+      "bytes": 68428,
+      "sha256": "18480dabb4d636cca670d25f9800f038d093b1d3dc36ede062ff64c809ba55b2"
+    },
+    {
+      "path": "audio/vocab-task-934c35d3.wav",
+      "bytes": 75316,
+      "sha256": "c6ab0c1daecbc35884d693e195a363a7f0a2bf69be556882ac4cf27da80c3b54"
+    },
+    {
+      "path": "audio/vocab-task-9c360d1b.wav",
+      "bytes": 50816,
+      "sha256": "d96a3463005683649248b71c83ea457ea2710d7835b1b2797a10696fe425ed73"
+    },
+    {
+      "path": "audio/vocab-task-a43b71c7.wav",
+      "bytes": 211238,
+      "sha256": "40b1318db47bf192674727775eb897276739d589f9c27092992c9099f342711e"
+    },
+    {
+      "path": "audio/vocab-task-a511189e.wav",
+      "bytes": 70958,
+      "sha256": "89eecf29479d8a1d910c9a440106b068359b1556e7e514c4e434ed21844b4f41"
+    },
+    {
+      "path": "audio/vocab-task-aaa68561.wav",
+      "bytes": 43536,
+      "sha256": "982989cf88d421f09179da2dd45f90cb8a6718a0a6a4c6f51e86ce04cd1f6cca"
+    },
+    {
+      "path": "audio/vocab-task-bdceace1.wav",
+      "bytes": 69934,
+      "sha256": "748ccc5fd12b8b14afea13e5dbb1fd794f9319abd2769140dbf85a79baa1ff67"
+    },
+    {
+      "path": "audio/vocab-task-bedd6f48.wav",
+      "bytes": 40804,
+      "sha256": "c812a8f1edde5f8b68d8be0f78852d7e132cdd6e7be6b2c8fb47ac0b90c0af25"
+    },
+    {
+      "path": "audio/vocab-task-c022d2d3.wav",
+      "bytes": 100142,
+      "sha256": "e2466d029971f9986f2cb55fa1c26387679c2cd46139ac3dc4d3885abeb64ca9"
+    },
+    {
+      "path": "audio/vocab-task-c0ee6443.wav",
+      "bytes": 54574,
+      "sha256": "565ba11624af5ea5b3906d0f506e9a2856613f5477c1a98a1a5e647f550f149a"
+    },
+    {
+      "path": "audio/vocab-task-c65b40ad.wav",
+      "bytes": 74542,
+      "sha256": "8269053c267a8c623eb2900cb1543c08900544f3c8b229bfe51a4868ef3bbf18"
+    },
+    {
+      "path": "audio/vocab-task-c997ae01.wav",
+      "bytes": 104500,
+      "sha256": "a24d950f7450407f56a1f0f2c500213e429e0d392426b7bf57328339c99ca002"
+    },
+    {
+      "path": "audio/vocab-task-d446cb16.wav",
+      "bytes": 91438,
+      "sha256": "ce4995fe23e2f58bd329a229dee84938f030f2b5dd7c781e42392edcf69dc314"
+    },
+    {
+      "path": "audio/vocab-task-d63799b9.wav",
+      "bytes": 77614,
+      "sha256": "8935aa6a6465c31a9dd8073a8fe848755feb708abce9cc3419882ead81327f8f"
+    },
+    {
+      "path": "audio/vocab-task-d81b097f.wav",
+      "bytes": 48450,
+      "sha256": "78060116cf277526470e56a06a2b0d51ab0e608782c69e90f357045e362cb594"
+    },
+    {
+      "path": "audio/vocab-task-d8edf6ea.wav",
+      "bytes": 78126,
+      "sha256": "e5a2b08cceea6ae75ee0015097ef3689f67841ac11630ad774920c0edfd2817f"
+    },
+    {
+      "path": "audio/vocab-task-d99d9912.wav",
+      "bytes": 43342,
+      "sha256": "a34f622823c4f9a0dffd7111fb1b3da7b75212197174e13ae2a205b118bf40ee"
+    },
+    {
+      "path": "audio/vocab-task-dd1dd3b.wav",
+      "bytes": 76078,
+      "sha256": "ceae4e738908ec46015bc6ff4a3db3e020ad2cd28140bb0fcd0747a066e8e9b0"
+    },
+    {
+      "path": "audio/vocab-task-f85402f3.wav",
+      "bytes": 81198,
+      "sha256": "0e603acf9d19093d23eed927d61436f1d2902e95072de372a97446bb9d7261e2"
+    },
+    {
+      "path": "audio/vocab-task-f9ad5c2b.wav",
+      "bytes": 77102,
+      "sha256": "d2ded41133f3a6a7fa9fa2618252dc633180742c24e6dc00d9fb52865ff06506"
+    },
+    {
+      "path": "audio/vocab-three-cups.wav",
+      "bytes": 76078,
+      "sha256": "ceae4e738908ec46015bc6ff4a3db3e020ad2cd28140bb0fcd0747a066e8e9b0"
+    },
+    {
+      "path": "audio/vocab-two-cups.wav",
+      "bytes": 74542,
+      "sha256": "8269053c267a8c623eb2900cb1543c08900544f3c8b229bfe51a4868ef3bbf18"
+    },
+    {
+      "path": "audio/vocab-under-ball.wav",
+      "bytes": 74542,
+      "sha256": "f0ac88cdfcef7e8a738db2c5f60fbe789ee59f57cf886e3dec454c783156b12b"
+    },
+    {
+      "path": "audio/vocab-wash-bowl.wav",
+      "bytes": 41476,
+      "sha256": "3319eadd46367570f59b948c77c3482b19a73d4afd7610d916fe4504fde72e94"
+    },
+    {
+      "path": "audio/vocab-white-cup.wav",
+      "bytes": 88878,
+      "sha256": "b2368b30bfb248537f9fdb3ec6bba14add24b2f0731f348af2e815782e695344"
+    },
+    {
+      "path": "audio/word-banana-cream.wav",
+      "bytes": 61196,
+      "sha256": "4771eea53a1bb8c1e7e1fbc4e3d547a48000b0d6cee7e32e74bb0bae425154ee"
+    },
+    {
+      "path": "audio/word-banana-juice.wav",
+      "bytes": 47156,
+      "sha256": "db2f3d545ad5f8899d54bab787cc6d57a89c43bf06bad0bfadfe17ff99546a34"
+    },
+    {
+      "path": "audio/word-bread.wav",
+      "bytes": 21324,
+      "sha256": "23c306fdb185cb6af7c710f04fd2d1d8b1e151e9178123e6df10f33b3e1847b1"
+    },
+    {
+      "path": "audio/word-bun.wav",
+      "bytes": 23884,
+      "sha256": "a8572b7bdb2efaf3b120d151e49f99cbe045c21f94a879888bffcb44fc0b37fe"
+    },
+    {
+      "path": "audio/word-burger.wav",
+      "bytes": 24116,
+      "sha256": "9929745b674cf53f725531cde2958d65f7d8b6a5ce1cd77cc99f1f9f6a5c7e73"
+    },
+    {
+      "path": "audio/word-cheese-burger.wav",
+      "bytes": 38702,
+      "sha256": "0be13e3f00854cc691a02eacf496d65da68b162dc7d770f11dd2041e28ed0fc7"
+    },
+    {
+      "path": "audio/word-cheese.wav",
+      "bytes": 27774,
+      "sha256": "e591785e3489405e5ab788e46a5aca3f412c44533ff60f4e3d744fe236774d53"
+    },
+    {
+      "path": "audio/word-cone.wav",
+      "bytes": 26112,
+      "sha256": "ccc963c96c65159330c4207e9defb26a501b77e191aca00ac9faf692d62c9690"
+    },
+    {
+      "path": "audio/word-cooked-patty.wav",
+      "bytes": 38694,
+      "sha256": "d6cfbd712679ae4bc664a14602d9f376558f60bef4bd02bba5d9fbe9c3059b56"
+    },
+    {
+      "path": "audio/word-cup.wav",
+      "bytes": 24576,
+      "sha256": "b77f1fed8fc3b207f6b0ccaacc5c4a0bbc103e07041d78401efda3c51e909e1c"
+    },
+    {
+      "path": "audio/word-double-cream.wav",
+      "bytes": 69978,
+      "sha256": "0aa2f1136d009d3df242baa2e25d9024115f3da34703f675009d7081285bac30"
+    },
+    {
+      "path": "audio/word-ice-cream.wav",
+      "bytes": 36620,
+      "sha256": "6b659e8971e95fc7d6e457533178f8ceb0178428c177998b3de55bdddd482d1f"
+    },
+    {
+      "path": "audio/word-lettuce.wav",
+      "bytes": 28758,
+      "sha256": "b400785199ab71c0d9926d2cb439de0dfcf2a4c1ca3d59dd8f3d5a925eee310e"
+    },
+    {
+      "path": "audio/word-patty.wav",
+      "bytes": 24908,
+      "sha256": "322b89611a519ed22f2b180806ef05c4caa73a366fa7df8c450614869777ceff"
+    },
+    {
+      "path": "audio/word-salad-sandwich.wav",
+      "bytes": 87144,
+      "sha256": "67222da105c0c00920d5d039a6be5d1239e418dc7033ad0d1a09f62cd965c778"
+    },
+    {
+      "path": "audio/word-sandwich.wav",
+      "bytes": 41494,
+      "sha256": "707d0297ff2653215577ab775923eeb830a71890f0ab246b1b33f2ce124b5143"
+    },
+    {
+      "path": "audio/word-strawberry-cup.wav",
+      "bytes": 67600,
+      "sha256": "a2a21c50674c4bcb8c3495b49c18a34b5fc48b5518ebe3527c2acb7184aba6ae"
+    },
+    {
+      "path": "audio/word-strawberry.wav",
+      "bytes": 38928,
+      "sha256": "baf893874ab3827e777c790f56ce5052a0311aafa9605628c8038fb59b6acd2f"
+    },
+    {
+      "path": "audio/word-tomato.wav",
+      "bytes": 33124,
+      "sha256": "9b9060cfe895fc00ad1a773bd99fa328a0cf7af439bf2af2c526709a9a855401"
+    },
+    {
+      "path": "audio/word-vanilla-cone.wav",
+      "bytes": 55378,
+      "sha256": "2d2db4403bd2a2682119997dc4b50231c9e4ec0db819c87ada8cdaa32716948e"
+    },
+    {
+      "path": "audio/word-vanilla-cup.wav",
+      "bytes": 55378,
+      "sha256": "2d2db4403bd2a2682119997dc4b50231c9e4ec0db819c87ada8cdaa32716948e"
+    },
+    {
+      "path": "audio/word-vanilla.wav",
+      "bytes": 28246,
+      "sha256": "f69a50e6edcdcb7dfedbece9080c20b1d626cf32d2db60baa041b5e710d95de9"
+    },
+    {
+      "path": "audio/world-basket.wav",
+      "bytes": 143036,
+      "sha256": "0e96211a24b2d9f85f424c06cd1c8d1b082649555d8e0dfc9a283ac4fe0e547f"
+    },
+    {
+      "path": "audio/world-bite.wav",
+      "bytes": 146708,
+      "sha256": "d3bd287252c81aaea0de7d7da457d8b38815d8734bfcf5a21333ddedb5a9cb98"
+    },
+    {
+      "path": "audio/world-bunting.wav",
+      "bytes": 145360,
+      "sha256": "844d01c72d65ded8378fad9a82f8db216fded63f3c81f813ec83adb2384b893c"
+    },
+    {
+      "path": "audio/world-clear.wav",
+      "bytes": 262774,
+      "sha256": "557f4ae11c90a1556428d180a45c9ccf45194da1dd8e0b9cbc5358d32274b496"
+    },
+    {
+      "path": "audio/world-cloth.wav",
+      "bytes": 147582,
+      "sha256": "347b58a68218c0f64b2179e7d3676845f76f4c23e605ad88e3b4ddb80e5d2680"
+    },
+    {
+      "path": "audio/world-cold.wav",
+      "bytes": 87334,
+      "sha256": "8127f9fc2c83dfc9efbe244c04f0efd0fbeae8c16c884cdde24f3d1c6baba75c"
+    },
+    {
+      "path": "audio/world-compare.wav",
+      "bytes": 276626,
+      "sha256": "f3519c144012e0482fa201fa84334a039aa92c780ef88930cb1eda5420303852"
+    },
+    {
+      "path": "audio/world-cool.wav",
+      "bytes": 154532,
+      "sha256": "e2b9a408886e5585c76ba0d0ec2849a195263fccb7f28bc34549b4a77f599c3a"
+    },
+    {
+      "path": "audio/world-cooperate.wav",
+      "bytes": 193662,
+      "sha256": "2f0cc9c00488caf5dcd8dfdc49e7b22a7692fd607d09cd7e4144d586cfe32239"
+    },
+    {
+      "path": "audio/world-create.wav",
+      "bytes": 167690,
+      "sha256": "2a960c767ce05417da552625da4830d6bb6b075864a4001b6bae9478e2e15713"
+    },
+    {
+      "path": "audio/world-drawer.wav",
+      "bytes": 145022,
+      "sha256": "baeef626b4aa18d3b4a2f825fcc44c694a9b9ffeb4441e1523061d39e555baf8"
+    },
+    {
+      "path": "audio/world-finish.wav",
+      "bytes": 285610,
+      "sha256": "c98b70058079a5f16c0ac8eb6ca897f8007dd880f22a50cf72f7beb341df413c"
+    },
+    {
+      "path": "audio/world-free.wav",
+      "bytes": 292580,
+      "sha256": "bca842d9122ca192c1a3ffed22c6efca6415c4715ad158467f4ea0fef56fe1e5"
+    },
+    {
+      "path": "audio/world-fresh.wav",
+      "bytes": 257476,
+      "sha256": "7715d90a42a9d8e1b16693ba2ebfb49d538badddac2799f6e373f96264924f42"
+    },
+    {
+      "path": "audio/world-invite.wav",
+      "bytes": 198886,
+      "sha256": "89ebfe5335acb87c43eaab7318b3c9699f572cf62fb7329044a52b3a3fa2746c"
+    },
+    {
+      "path": "audio/world-kitchen.wav",
+      "bytes": 245390,
+      "sha256": "86cf5edf31c94cbc987edb919b45ed08fa996c4a11bd4ecb2c456c0a0244c407"
+    },
+    {
+      "path": "audio/world-lantern.wav",
+      "bytes": 151492,
+      "sha256": "f57f89d526becde206428f28c383467e837a915ad744dbe045b42c66d2bc9839"
+    },
+    {
+      "path": "audio/world-light.wav",
+      "bytes": 159742,
+      "sha256": "9c086ed9751329f1e0bd67a4c1d7f6a1d204cff43213916de615d4ec457a3211"
+    },
+    {
+      "path": "audio/world-mat.wav",
+      "bytes": 171820,
+      "sha256": "468c0418dd14dc56dcf5cea241aa1b24be4fecac23ce286317b55087de9d31a6"
+    },
+    {
+      "path": "audio/world-need-any.wav",
+      "bytes": 120562,
+      "sha256": "7600190163d48ff38117982ed1809323381ff212ff5acf846abf3bb40337cdc6"
+    },
+    {
+      "path": "audio/world-need-cool.wav",
+      "bytes": 77840,
+      "sha256": "b8964e1aeb31dca4c74627a747da541fb8e15734db437b9fdd455d4b83d2cda6"
+    },
+    {
+      "path": "audio/world-need-drink.wav",
+      "bytes": 80698,
+      "sha256": "18da9a856e3af89263bbaa6566caa0884739067099d2769a9d07f893056006e9"
+    },
+    {
+      "path": "audio/world-need-fruit.wav",
+      "bytes": 88592,
+      "sha256": "37d1ff2fe7db492097a9f7333aa00f0e9e527fb946532ccbd2d31357443aa70a"
+    },
+    {
+      "path": "audio/world-need-savory.wav",
+      "bytes": 120122,
+      "sha256": "75f2fb7018a2571c3a4e242a4e8e0aaab4769c2b9df0365dd54ebbe7c6b46004"
+    },
+    {
+      "path": "audio/world-occupied.wav",
+      "bytes": 326084,
+      "sha256": "8c1b5568ce17acda669fba5e004f4240950be9de426d924df564c89591ad0e25"
+    },
+    {
+      "path": "audio/world-pack.wav",
+      "bytes": 237722,
+      "sha256": "ef89ace6274d7ef0a9fab19ac34c44b0d60641c788db7175bd76eb3223ca320f"
+    },
+    {
+      "path": "audio/world-place.wav",
+      "bytes": 224998,
+      "sha256": "5cf719f89c65d3a1030e7f591a6fa96022b7233619dc6a2a0c7814e41132e953"
+    },
+    {
+      "path": "audio/world-plant.wav",
+      "bytes": 107006,
+      "sha256": "fd8dc07ad0f24530a77125d77ce8cad64569d272902936260d16a3714e7d4b70"
+    },
+    {
+      "path": "audio/world-recipe.wav",
+      "bytes": 161420,
+      "sha256": "7aea476a10dea6354fdd59a2beec1744efbae334d363a9ad7d7a2369ccf97c80"
+    },
+    {
+      "path": "audio/world-save.wav",
+      "bytes": 247294,
+      "sha256": "fea8400c56d8b74d266caebf0c633778bc159848af9d1497f881332a4278e2e4"
+    },
+    {
+      "path": "audio/world-seed.wav",
+      "bytes": 137004,
+      "sha256": "e7949de5560b2b24125cd7380ac18ff8c7976d4b8733b16515205044099d978a"
+    },
+    {
+      "path": "audio/world-share.wav",
+      "bytes": 245902,
+      "sha256": "ead5346decdb3c088897cc55db126968e99376917bb4ba3f83131d7b9a617a4a"
+    },
+    {
+      "path": "audio/world-sip.wav",
+      "bytes": 128016,
+      "sha256": "31d52d978f6a500a96769231f8162f86724542cdbc5511209c631c30480679a7"
+    },
+    {
+      "path": "audio/world-taste.wav",
+      "bytes": 173798,
+      "sha256": "4f23eec08658b172b3f4cc0354186c095fcacfe9f73c430563a558e4b3abe375"
+    },
+    {
+      "path": "audio/world-unpack.wav",
+      "bytes": 182270,
+      "sha256": "a3f16afa69aa8e8bc4a6f34a77961c4a3364f18c13c64331e11287664f821da3"
+    },
+    {
+      "path": "audio/world-use.wav",
+      "bytes": 96894,
+      "sha256": "fa8655f87d1c476455bc9930b77f7bc51f1d7cfb87880bfac4479cc2daa11d30"
+    },
+    {
+      "path": "audio/world-wait.wav",
+      "bytes": 191102,
+      "sha256": "c86cac55434a6eb290436dcda104a880355918da38385db930f2d12ccc44fc95"
+    },
+    {
+      "path": "audio/world-water.wav",
+      "bytes": 159174,
+      "sha256": "8732614534c552afdfb7bbc65e1885d404ba80d916e4ed3f8c83bd24c333bca0"
+    },
+    {
+      "path": "audio/world-watering-can.wav",
+      "bytes": 98626,
+      "sha256": "a3cb5af4ac30b271119b67901319a5852e195c01717a2aae6784bc0a1e930e92"
+    },
+    {
+      "path": "audio/world-welcome.wav",
+      "bytes": 140006,
+      "sha256": "4c44bf4b8c2728a13d066bc80d281355621546a550d00a853c9ea98aa51f84e9"
+    },
+    {
+      "path": "index.html",
+      "bytes": 603,
+      "sha256": "1a36851d6f09b8755fee65f091088f7499a62161c14b83c7a02bcc7ae31db37c"
+    }
+  ]
+}

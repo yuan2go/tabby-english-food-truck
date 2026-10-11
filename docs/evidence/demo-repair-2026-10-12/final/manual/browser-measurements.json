@@ -1,0 +1,453 @@
+{
+  "method": "Headful Chromium on actual macOS desktop; phone/Pad are browser layout/touch simulations, DPR1, no CPU/network throttling. Three fresh contexts per layout. Trusted pointerdown to observed committed DOM plus two paint opportunities; no FPS inference. Playwright roundtrip not included in response interval. Startup includes real app, images and scripts; local host only.",
+  "samples": [
+    {
+      "layout": "desktop",
+      "run": 0,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 864.2999999970198,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 104
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 452
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 198.20000000298023,
+            "load": 504.79999999701977,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 503,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 23.299999997019768,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 28.30000001192093,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 29.799999997019768,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "desktop",
+      "run": 1,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 710.1999999880791,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 68
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 368
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 213.29999999701977,
+            "load": 384.79999999701977,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 186.29999999701977,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 22.399999991059303,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 27.69999998807907,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 23.30000001192093,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "desktop",
+      "run": 2,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 723.2999999970198,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 68
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 368
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 202.6000000089407,
+            "load": 379.40000000596046,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 169.80000001192093,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 27.899999991059303,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 31.5,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 30.600000008940697,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "phone-simulation",
+      "run": 0,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 737.2000000029802,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 136
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 372
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 212.20000000298023,
+            "load": 383.80000001192093,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 158,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 33.099999994039536,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 34,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 32.70000000298023,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "phone-simulation",
+      "run": 1,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 741.5,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 72
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 372
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 175.90000000596046,
+            "load": 389.40000000596046,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 171.8999999910593,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 33.29999999701977,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 33.19999998807907,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 33.80000001192093,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "phone-simulation",
+      "run": 2,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 487.6000000089407,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 108
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 260
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 144.6000000089407,
+            "load": 259.1000000089407,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 113.70000000298023,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 33,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 33.29999999701977,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 32.6000000089407,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "Pad-simulation",
+      "run": 0,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 503.30000001192093,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 52
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 288
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 130.6000000089407,
+            "load": 281,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 101.90000000596046,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 32.099999994039536,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 32.599999994039536,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 32.8999999910593,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "Pad-simulation",
+      "run": 1,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 513.6000000089407,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 108
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 276
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 157.20000000298023,
+            "load": 280.70000000298023,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 102.20000000298023,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 32.70000000298023,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 33.400000005960464,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 32.79999999701977,
+        "eventTrusted": true
+      }
+    },
+    {
+      "layout": "Pad-simulation",
+      "run": 2,
+      "quality": "default no-preference; fresh context",
+      "browser": "153.0.8010.12",
+      "build": {
+        "sha": "e0542ff0882eb77fcf8e189dad6b0b0a71f977bd",
+        "dirty": "false",
+        "content": "adventure-experience-2",
+        "assets": "325147c9c3a95a163aa05b55eb6aa6e3894d0e8896097f7b21708bbf36ed5b02"
+      },
+      "startup": {
+        "usableHomeMs": 496.79999999701977,
+        "paints": [
+          {
+            "name": "first-paint",
+            "startTime": 56
+          },
+          {
+            "name": "first-contentful-paint",
+            "startTime": 272
+          }
+        ],
+        "navigation": [
+          {
+            "domContentLoaded": 117.8999999910593,
+            "load": 272,
+            "transferSize": 903
+          }
+        ]
+      },
+      "entrance": {
+        "domAndPaintMs": 103.59999999403954,
+        "eventTrusted": true
+      },
+      "supply": {
+        "domAndPaintMs": 32.8999999910593,
+        "eventTrusted": true
+      },
+      "lift": {
+        "domAndPaintMs": 33.400000005960464,
+        "eventTrusted": true
+      },
+      "kitchenToTable": {
+        "domAndPaintMs": 32.5,
+        "eventTrusted": true
+      }
+    }
+  ],
+  "background": {
+    "visibility": "visible",
+    "foregroundTime": 349.9,
+    "hiddenFirstTime": 349.9,
+    "hiddenLastTime": 4016.4000000000005,
+    "resumedTime": 4016.4000000000005,
+    "itemIdsPreserved": true,
+    "actualBackgroundState": "NOT_CONFIRMED",
+    "sound": "{\"active\":null,\"failure\":null,\"loops\":[\"music\",\"ambience\",\"machine\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.02500000037252903,\"machineGain\":0.02500000037252903,\"effects\":0}"
+  },
+  "audioUnlock": {
+    "requestHeard": true,
+    "diagnostics": "{\"active\":\"request-apple\",\"failure\":null,\"loops\":[\"music\",\"ambience\",\"machine\"],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"running\",\"musicGain\":0.09000000357627869,\"machineGain\":0.09000000357627869,\"effects\":0}",
+    "humanListening": "NOT_RUN"
+  },
+  "failures": []
+}

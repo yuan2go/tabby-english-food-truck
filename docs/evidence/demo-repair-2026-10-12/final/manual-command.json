@@ -1,0 +1,6 @@
+{
+  "command": "PATH=/tmp/node-v22.12.0-darwin-arm64/bin:$PATH ACCEPTANCE_DIR=/tmp/tabby-demo-final-5-2026-10-12/manual ACCEPTANCE_URL=http://127.0.0.1:4295/build/ node node_modules/.cache/demo-acceptance.mjs",
+  "exitCode": 0,
+  "record": "manual/browser-measurements.json",
+  "backgroundStatus": "NOT_CONFIRMED"
+}
