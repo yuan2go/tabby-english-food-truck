@@ -38,4 +38,4 @@ bread→toast、4秒烤面包机，以及额外自选速度模式仍是有效未
 
 角色名大咪 / Dami；棕灰虎斑、金眼、浅口鼻、灰项圈、绿围巾与背包，白色定位器在画面颈部偏右且露出，不镜像。详见03与art/README。
 
-[归档索引](archive/pre-playable-adventure-01/index.md)保留旧范围、设计理由和证据；当前结果只见[STATUS](STATUS.md)。
+[归档索引](../pre-playable-adventure-01/index.md)保留旧范围、设计理由和证据；当前结果只见[STATUS](STATUS.md)。

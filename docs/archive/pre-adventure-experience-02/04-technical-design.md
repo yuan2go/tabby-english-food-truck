@@ -25,4 +25,4 @@ schema7/content playable-adventure-1 增加可选活动状态与自由营业接�
 
 目标60fps、输入p95<100ms等是预算，本包不无依据宣称达标；默认画质/省电、模拟/实机分别报告。构建保留Phaser分块警告。仅必要回归；共享库存与迁移改动应运行完整现有单元套件，浏览器不扩大无关矩阵。
 
-吐司、旧方案与历史技术证据见[归档](archive/pre-playable-adventure-01/index.md)；真实结果见STATUS。
+吐司、旧方案与历史技术证据见[归档](../pre-playable-adventure-01/index.md)；真实结果见STATUS。

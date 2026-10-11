@@ -40,4 +40,4 @@
 
 重听不惩罚；图片/字幕/示范/错误解释记录为支持，不能洗白。发音开发版未审核，播放事件只证明播放。小游戏/教学库存隔离，拼写与结构不锁活动。不能把纯操作错误写成英语错误。
 
-[历史设计与有效候选](archive/pre-playable-adventure-01/index.md)；验收05，实际状态STATUS。
+[历史设计与有效候选](../pre-playable-adventure-01/index.md)；验收05，实际状态STATUS。

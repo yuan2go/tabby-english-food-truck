@@ -380,3 +380,94 @@ it('invalid tasting identity cannot corrupt a recoverable portion', () => {
   expect(result.state.adventure).toEqual(before);
   expect(decodeSnapshot(JSON.stringify(result.state)).ok).toBe(true);
 });
+it('unfinished free creation can put away experiments without losing service food or recipes', () => {
+  let s = start(4);
+  s = act(s, 'invite', { visitor: 'rabbit' }).state;
+  for (let batch = 0; batch < 4; batch++) {
+    for (let n = 0; n < 3; n++) s = make(s, 'juice');
+    s = wait(act(s, 'create', { tray: 0 }).state);
+  }
+  expect(s.adventure?.foods).toHaveLength(12);
+  s = act(s, 'save-work').state;
+  const works = structuredClone(s.adventure?.works);
+  expect(act(s, 'clear-table').kind).toBe('confirm');
+  s = act(s, 'clear-table', { confirmed: true }).state;
+  expect(s.adventure?.foods).toHaveLength(0);
+  expect(s.adventure?.works).toEqual(works);
+  expect(act(s, 'finish').kind).toBe('blocked');
+  s = make(s, 'banana');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  expect(s.adventure?.foods).toHaveLength(1);
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+});
+it('a shared-meal receipt retains each actual eater and food location', () => {
+  let s = deliver(start(0), 0, 'apple');
+  s = deliver(s, 1, 'banana');
+  s = act(s, 'explore', { object: 'drawer' }).state;
+  s = act(s, 'take-tool', { object: 'seed' }).state;
+  s = act(s, 'plant', { seat: 0 }).state;
+  s = act(s, 'take-tool', { object: 'watering-can' }).state;
+  s = act(s, 'water').state;
+  s = act(s, 'finish').state;
+  expect(s.adventure?.experience?.moments.at(-1)?.foods.map((f) => [f.product, f.visitor])).toEqual(
+    [
+      ['apple', 'rabbit'],
+      ['banana', 'hedgehog'],
+    ],
+  );
+  expect(s.adventure?.foods.map((f) => f.tastedBy)).toEqual(['rabbit', 'hedgehog']);
+});
+
+it('hanging shade flags moves both actual desserts once and recolouring preserves their seats', () => {
+  let s = deliver(start(1), 0, 'vanilla-cone');
+  s = make(s, 'strawberry-cup');
+  s = wait(act(s, 'cool', { tray: 0 }).state);
+  s = act(s, 'explore', { object: 'recipe' }).state;
+  s = act(s, 'taste', { item: s.adventure?.foods[1]?.id }).state;
+  const ids = s.adventure?.foods.map((f) => f.id);
+  s = act(s, 'bunting', { value: 'cool' }).state;
+  expect(s.adventure?.foods.map((f) => f.place)).toEqual(['table:0', 'table:1']);
+  const moved = structuredClone(s.adventure?.foods);
+  s = act(s, 'bunting', { value: 'warm' }).state;
+  expect(s.adventure?.foods).toEqual(moved);
+  expect(s.adventure?.foods.map((f) => f.id)).toEqual(ids);
+  expect(s.items).toEqual([]);
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+});
+
+it('a completed feast survives clearing and old-version migration without inventing new activity facts', () => {
+  let s = start(4);
+  s = act(s, 'invite', { visitor: 'rabbit' }).state;
+  s = act(s, 'invite', { visitor: 'hedgehog' }).state;
+  s = make(s, 'banana');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  const id = s.adventure?.foods[0]?.id;
+  s = act(s, 'share', { visitor: 'rabbit', item: id }).state;
+  s = act(s, 'taste', { item: id }).state;
+  s = act(s, 'save-work').state;
+  s = act(s, 'finish').state;
+  expect(s.adventure?.rewards).toEqual(['feast-page']);
+  s = act(s, 'clear-table', { confirmed: true }).state;
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+  const old = JSON.parse(JSON.stringify(s));
+  old.contentVersion = 'playable-adventure-1';
+  delete old.adventure.experience;
+  const restored = decodeSnapshot(JSON.stringify(old));
+  expect(restored.ok).toBe(true);
+  if (!restored.ok) return;
+  expect(restored.state.adventure?.rewards).toEqual(['feast-page']);
+  expect(restored.state.adventure?.foods).toEqual([]);
+  expect(restored.state.adventure?.experience?.used).toEqual([]);
+});
+
+it('an already tasted portion cannot fulfil a fresh sharing need', () => {
+  let s = act(start(4), 'invite', { visitor: 'rabbit' }).state;
+  s = make(s, 'banana');
+  s = wait(act(s, 'create', { tray: 0 }).state);
+  const id = s.adventure?.foods[0]?.id;
+  s = act(s, 'taste', { item: id }).state;
+  const foods = structuredClone(s.adventure?.foods);
+  expect(act(s, 'share', { item: id, visitor: 'rabbit' }).kind).toBe('blocked');
+  expect(s.adventure?.foods).toEqual(foods);
+  expect(s.adventure?.experience?.needs[0]?.fulfilled).toEqual([]);
+});

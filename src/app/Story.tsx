@@ -14,6 +14,8 @@ export function Story({
   support,
   setSupport,
   resumeExisting,
+  guests,
+  setGuests,
 }: {
   controller: GameController;
   audio: ForegroundAudio;
@@ -110,6 +112,15 @@ export function Story({
       <h2>长辈的旧食谱</h2>
       <p>每一页都是大家一起做的活动。选择一页，去小院动手。</p>
       <SupportChoice value={support} change={setSupport} />
+      <fieldset className="story-guests" aria-label="故事客流">
+        <legend>一次接待几位？</legend>
+        {([1, 2] as const).map((n) => (
+          <button type="button" key={n} aria-pressed={guests === n} onClick={() => setGuests(n)}>
+            <span aria-hidden="true">{n === 1 ? '👤' : '👥'}</span>
+            {n === 1 ? '一次一位，自己选朋友' : '一起接待两位'}
+          </button>
+        ))}
+      </fieldset>
       <div className="chapter-pages">
         {ADVENTURES.map((c, i) => {
           const done = p.activityMemories.some(

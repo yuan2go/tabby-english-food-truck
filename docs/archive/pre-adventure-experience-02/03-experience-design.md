@@ -30,4 +30,4 @@
 
 拒绝占位图、固定庆祝冒充完整玩法、只有成品没有过程、手机滚动找核心操作或单点正确答案自动完成订单。截图/录像须来自正常入口真实操作。历史真机 NEEDS_REVISION 保留，需负责人同构建复核；模拟、成人代理、无音轨视频不证明儿童理解、听审、真机或60fps。见05与STATUS。
 
-[旧布局、量测与反馈原文](archive/pre-playable-adventure-01/index.md)。
+[旧布局、量测与反馈原文](../pre-playable-adventure-01/index.md)。

@@ -87,6 +87,7 @@ export function adventureReady(a: AdventureState): boolean {
         a.invitations.includes('rabbit') &&
         a.invitations.includes('hedgehog') &&
         has('create') &&
+        (!!a.rewards.length || a.foods.some((f) => f.source.startsWith('create:') && f.tasted)) &&
         has('taste') &&
         has('save-work') &&
         ['place:0', 'place:1', 'place:2'].some(has)
@@ -127,6 +128,8 @@ export function receiveAdventure(
   worldMoment(s, {
     kind: 'receive',
     foods: items.map(({ id, product }) => ({ id, product })),
+    destination:
+      source === 'pack' ? 'basket' : source === 'create' || source === 'cool' ? 'work' : 'table',
     ...(visitor ? { visitor } : {}),
   });
   if (visitor) {
@@ -334,10 +337,19 @@ export function adventureCommand(
     return result('ok', '食谱保存了实际食物、位置和品尝记忆。');
   }
   if (c.action === 'clear-table') {
-    if (!complete) return result('blocked', '先把今天的共同活动完成。');
+    if (!complete && a.chapter !== 4) return result('blocked', '先把今天的共同活动完成。');
     if (!c.confirmed) return result('confirm', '收拾后食品不会回到营业库存。先保存想留下的作品。');
-    a.foods = [];
-    return result('ok', '桌面收拾好了，可以继续创作。');
+    const removed = new Set(
+      a.foods.filter((f) => complete || f.source.startsWith('create:')).map((f) => f.id),
+    );
+    a.foods = a.foods.filter((f) => !removed.has(f.id));
+    if (a.experience && !complete) {
+      for (const need of a.experience.needs)
+        need.fulfilled = need.fulfilled.filter((id) => !removed.has(id));
+      if (!a.experience.needs.some((n) => n.fulfilled.length))
+        a.experience.used = a.experience.used.filter((x) => x !== 'share');
+    }
+    return result('ok', '桌面收拾好了，食谱作品保留，可以继续创作。');
   }
   if (c.action === 'invite') {
     if (!['rabbit', 'hedgehog', 'elder'].includes(c.visitor ?? ''))
@@ -368,6 +380,23 @@ export function adventureCommand(
       !['warm', 'cool'].includes(c.value ?? '')
     )
       return result('blocked', '先翻旧食谱，再选彩旗颜色。');
+    // The first flag installation opens the shaded sharing table. Recolouring is presentation.
+    if (chapter === 1 && !has('bunting')) {
+      const desserts = a.foods.filter((f) => f.source === 'cool' || f.source.startsWith('guest-'));
+      desserts.slice(0, 2).forEach((f, seat) => {
+        f.place = `table:${seat as 0 | 1}`;
+        f.recipient = seat === 0 ? 'rabbit' : 'hedgehog';
+      });
+      worldMoment(s, {
+        kind: 'place',
+        destination: 'table',
+        foods: desserts.map((f) => ({
+          id: f.id,
+          product: f.product,
+          visitor: f.recipient ?? foodVisitor(f),
+        })),
+      });
+    }
     a.decor.bunting = c.value as 'warm' | 'cool';
     step(a, 'bunting');
     return result('ok', '彩旗挂好了，朋友可以在这里分享甜点。');
@@ -379,6 +408,16 @@ export function adventureCommand(
     if (!foods.length) return result('duplicate', '篮子已经放到桌上了。');
     foods.forEach((f, i) => {
       f.place = `table:${i as 0 | 1}`;
+      f.recipient = i === 0 ? 'rabbit' : 'hedgehog';
+    });
+    worldMoment(s, {
+      kind: 'place',
+      destination: 'table',
+      foods: foods.map((f) => ({
+        id: f.id,
+        product: f.product,
+        visitor: f.recipient ?? foodVisitor(f),
+      })),
     });
     step(a, 'unpack');
     return result('ok', '篮子打开了，实际打包的两份食品摆到桌边。');
@@ -421,7 +460,12 @@ export function adventureCommand(
       kind: 'finish',
       foods: a.foods
         .filter((f) => f.place !== 'basket')
-        .map(({ id, product }) => ({ id, product })),
+        .map((food) => ({
+          id: food.id,
+          product: food.product,
+          visitor: food.tastedBy ?? foodVisitor(food),
+        })),
+      destination: 'table',
     });
     return result('ok', '大家一起开席！可以继续做作品、布置，或自然收摊。');
   }

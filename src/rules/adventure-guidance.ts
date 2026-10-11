@@ -37,6 +37,8 @@ export function activityGuidance(s: GameState): ActivityGuidance {
       'kitchen',
       s.session.support === 'less' ? [] : waiting ? REQUESTS[waiting.request].products : [],
     );
+  if (a.foods.length >= 12)
+    return guide('clear', 'recipe', 'clear', '保存作品，收拾桌面，再继续创作。', 'clear-table');
   if (a.rewards.length || a.kind === 'shop')
     return guide(
       'free',
@@ -146,7 +148,7 @@ export function activityGuidance(s: GameState): ActivityGuidance {
   if (a.chapter === 4) {
     if (!a.invitations.includes('rabbit') || !a.invitations.includes('hedgehog'))
       return guide('invite', 'friend', 'table', '点朋友的邀请牌，听听今天的新需要。', 'invite');
-    if (!has('create'))
+    if (!a.foods.some((f) => f.source.startsWith('create:')))
       return guide('create', 'kitchen', 'table', '自己搭配，做好拼盘带到桌边。', 'kitchen');
     if (!used('share'))
       return guide(
@@ -156,7 +158,7 @@ export function activityGuidance(s: GameState): ActivityGuidance {
         '听朋友的分享需要，选食品，再点朋友的分享牌。',
         'share',
       );
-    if (!has('taste'))
+    if (!a.foods.some((f) => f.source.startsWith('create:') && f.tasted))
       return guide('taste', 'spoon', 'friend', '让朋友尝你的选择，看看回应。', 'taste');
     if (!has('save-work'))
       return guide('save', 'table', 'recipe', '把实际作品放进食谱，下次能翻看。', 'save-work');

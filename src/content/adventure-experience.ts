@@ -14,10 +14,12 @@ export interface WorldMoment {
   id: string;
   kind: 'receive' | 'place' | 'taste' | 'tool' | 'water' | 'cooperate' | 'share' | 'finish';
   at: number;
-  foods: { id: string; product: Product }[];
+  foods: { id: string; product: Product; visitor?: Visitor }[];
+  destination?: 'basket' | 'work' | 'table';
   visitor?: Visitor;
   seat?: 0 | 1 | 2;
   tool?: Tool;
+  prop?: 'cup';
 }
 export interface AdventureExperience {
   version: 2;
@@ -54,7 +56,7 @@ export const FOOD_GROUPS: Record<NeedKind, readonly Product[]> = {
   ],
   drink: ['juice', 'banana-juice', 'milk', 'smoothie', 'milkshake'],
   cool: ['vanilla-cup', 'vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream', 'yogurt'],
-  savory: ['sandwich', 'salad-sandwich', 'burger', 'cheese-burger', 'pizza', 'salad'],
+  savory: ['sandwich', 'salad-sandwich', 'burger', 'cheese-burger'],
   any: [],
 };
 export const needAccepts = (need: SharingNeed, food: WorldFood): boolean =>

@@ -99,7 +99,7 @@ export function experienceCommand(
       kind: 'cooperate',
       foods: [],
       visitor,
-      ...(role === 'lantern' ? { tool: 'lantern' as const } : {}),
+      ...(role === 'lantern' ? { tool: 'lantern' as const } : { prop: 'cup' as const }),
     });
     return result(
       'ok',
@@ -115,6 +115,7 @@ export function experienceCommand(
       return result('blocked', '先邀请朋友，再选桌边真实的食品。');
     if (need.fulfilled.length || e.needs.some((n) => n.fulfilled.includes(food.id)))
       return result('duplicate', '这份分享已经留下了。');
+    if (food.tasted) return result('blocked', '这份已经品尝过了。留在作品里，再做一份新食品分享。');
     if (!needAccepts(need, food))
       return result('blocked', '朋友想要另一类食品。食品留着，重听或看图再选。');
     const seat = visitorSeat(need.visitor);
@@ -193,10 +194,18 @@ export function validExperience(value: unknown): boolean {
         m.at >= 0 &&
         Array.isArray(m.foods) &&
         m.foods.length <= 12 &&
-        m.foods.every((f) => f && /^food-\d+$/.test(f.id) && EDIBLE.includes(f.product)) &&
+        m.foods.every(
+          (f) =>
+            f &&
+            /^food-\d+$/.test(f.id) &&
+            EDIBLE.includes(f.product) &&
+            (f.visitor === undefined || visitors.includes(f.visitor)),
+        ) &&
+        (m.destination === undefined || ['basket', 'work', 'table'].includes(m.destination)) &&
         (m.visitor === undefined || visitors.includes(m.visitor)) &&
         (m.seat === undefined || [0, 1, 2].includes(m.seat)) &&
-        (m.tool === undefined || TOOLS.includes(m.tool)),
+        (m.tool === undefined || TOOLS.includes(m.tool)) &&
+        (m.prop === undefined || m.prop === 'cup'),
     )
   );
 }

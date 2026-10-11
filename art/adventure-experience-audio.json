@@ -1,0 +1,350 @@
+{
+  "package": "WP-ADVENTURE-EXPERIENCE-02",
+  "source": "macOS say, Tingting and Samantha, PCM16 22050Hz; exact generation script scripts/adventure-experience-audio.mjs",
+  "humanListeningReview": "NOT_RUN",
+  "rights": "PENDING",
+  "records": [
+    {
+      "id": "world-clear",
+      "text": "先把喜欢的作品放进食谱，再收拾桌面，就能继续创作。",
+      "kind": "scene",
+      "path": "audio/world-clear.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-welcome",
+      "text": "点一位朋友，自己决定先帮谁。",
+      "kind": "scene",
+      "path": "audio/world-welcome.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-kitchen",
+      "text": "听朋友要什么。做好食品，拿起盘，再点这位朋友。",
+      "kind": "scene",
+      "path": "audio/world-kitchen.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-free",
+      "text": "继续搭配、摆放、分享。喜欢的作品放进食谱，也可以收摊。",
+      "kind": "scene",
+      "path": "audio/world-free.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-wait",
+      "text": "朋友正在接餐。食品留在原处，慢慢来。",
+      "kind": "scene",
+      "path": "audio/world-wait.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-drawer",
+      "text": "朋友找到了抽屉。一起打开看看。",
+      "kind": "scene",
+      "path": "audio/world-drawer.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-seed",
+      "text": "取出花苗，选一个花盆的位置。",
+      "kind": "scene",
+      "path": "audio/world-seed.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-plant",
+      "text": "把花苗种在你喜欢的位置。",
+      "kind": "scene",
+      "path": "audio/world-plant.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-watering-can",
+      "text": "从抽屉拿出小水壶。",
+      "kind": "scene",
+      "path": "audio/world-watering-can.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-water",
+      "text": "给花喝水。花展开了，蝴蝶也来了。",
+      "kind": "scene",
+      "path": "audio/world-water.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-cool",
+      "text": "再做一杯不同的甜点，带到树荫下。",
+      "kind": "scene",
+      "path": "audio/world-cool.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-recipe",
+      "text": "翻开旧食谱，看看两份真实甜点。",
+      "kind": "scene",
+      "path": "audio/world-recipe.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-compare",
+      "text": "一份用杯，一份用筒。球数和配料也能不同。尝尝自己的做法。",
+      "kind": "scene",
+      "path": "audio/world-compare.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-taste",
+      "text": "选一份，让朋友尝一口，看看回应。",
+      "kind": "scene",
+      "path": "audio/world-taste.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-bunting",
+      "text": "挂起彩旗，找到阴凉的分享处。",
+      "kind": "scene",
+      "path": "audio/world-bunting.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-basket",
+      "text": "打开篮子，看看里面和空的位置。",
+      "kind": "scene",
+      "path": "audio/world-basket.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-pack",
+      "text": "一份三明治，一份水果。放在同一个盘里，带进篮子。",
+      "kind": "scene",
+      "path": "audio/world-pack.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-unpack",
+      "text": "把装好的篮子放到桌上，打开一起分享。",
+      "kind": "scene",
+      "path": "audio/world-unpack.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-mat",
+      "text": "取出两张餐垫，给朋友找到自己的位置。",
+      "kind": "scene",
+      "path": "audio/world-mat.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-place",
+      "text": "选一份食品，再点空餐位。每位朋友都能有一份。",
+      "kind": "scene",
+      "path": "audio/world-place.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-cloth",
+      "text": "铺上喜欢的桌布，朋友可以围坐了。",
+      "kind": "scene",
+      "path": "audio/world-cloth.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-lantern",
+      "text": "找出灯串。让朋友帮忙带到桌边。",
+      "kind": "scene",
+      "path": "audio/world-lantern.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-cooperate",
+      "text": "朋友可以带灯或带杯。你可以继续准备另一份。",
+      "kind": "scene",
+      "path": "audio/world-cooperate.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-light",
+      "text": "把灯点亮。两种灯光都能照亮朋友。",
+      "kind": "scene",
+      "path": "audio/world-light.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-invite",
+      "text": "点朋友的邀请牌，听听今天新的分享需要。",
+      "kind": "scene",
+      "path": "audio/world-invite.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-create",
+      "text": "自己搭配，做好拼盘，带到桌边。",
+      "kind": "scene",
+      "path": "audio/world-create.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-share",
+      "text": "听朋友的分享需要。选好食品，再点朋友的分享牌。",
+      "kind": "scene",
+      "path": "audio/world-share.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-save",
+      "text": "把实际作品放进食谱。下次能翻看，也可以继续修改。",
+      "kind": "scene",
+      "path": "audio/world-save.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-finish",
+      "text": "准备好了。大家一起开席。想玩还能继续做，想休息就收摊。",
+      "kind": "scene",
+      "path": "audio/world-finish.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-use",
+      "text": "朋友把物件带到桌边。",
+      "kind": "scene",
+      "path": "audio/world-use.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Tingting",
+      "rate": 180
+    },
+    {
+      "id": "world-need-fruit",
+      "text": "Some fruit to share, please.",
+      "kind": "open-request",
+      "path": "audio/world-need-fruit.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-need-drink",
+      "text": "A drink to share, please.",
+      "kind": "open-request",
+      "path": "audio/world-need-drink.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-need-cool",
+      "text": "Something cool, please.",
+      "kind": "open-request",
+      "path": "audio/world-need-cool.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-need-savory",
+      "text": "A sandwich or a burger to share, please.",
+      "kind": "open-request",
+      "path": "audio/world-need-savory.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-need-any",
+      "text": "I would like to try your creation, please.",
+      "kind": "open-request",
+      "path": "audio/world-need-any.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-sip",
+      "text": "Sip! A refreshing drink. Thank you!",
+      "kind": "scene",
+      "path": "audio/world-sip.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-cold",
+      "text": "Cool and creamy! Thank you!",
+      "kind": "scene",
+      "path": "audio/world-cold.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    },
+    {
+      "id": "world-bite",
+      "text": "Mmm! I can taste your food. Thank you!",
+      "kind": "scene",
+      "path": "audio/world-bite.wav",
+      "status": "DEVELOPMENT_TTS_UNREVIEWED",
+      "voice": "Samantha",
+      "rate": 140
+    }
+  ]
+}

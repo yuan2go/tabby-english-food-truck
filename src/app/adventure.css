@@ -1,3 +1,4 @@
+/* Activity scene: shared rule projections and touch targets; no scrolling core controls. */
 .adventure-scene {
   position: absolute;
   inset: 0;
@@ -10,11 +11,11 @@
   flex-direction: column;
   overflow: hidden;
 }
-.adventure-scene:before {
+.adventure-scene::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(#183d3066, #daca9aaa);
+  background: linear-gradient(#183d3055, #daca9aa0);
   z-index: -1;
 }
 .adventure-content {
@@ -33,41 +34,50 @@
   text-shadow: 0 2px 2px #173729;
 }
 .activity-header h2 {
-  font-size: clamp(20px, 3vw, 32px);
+  font-size: clamp(19px, 3vw, 30px);
   margin: 0;
 }
 .activity-header p {
-  font-size: 14px;
+  font-size: 13px;
   margin: 3px 0;
 }
 .activity-header button {
   flex-shrink: 0;
-  padding: 8px 12px;
+  padding: 6px 10px;
 }
-.activity-header button:not(.primary) {
-  color: #244435;
+.activity-guests {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.activity-guests button {
+  min-width: 44px;
+  padding: 3px;
 }
 .activity-world {
   position: relative;
   flex: 1;
   min-height: 0;
-  max-width: 1000px;
-  width: 100%;
+  width: min(100%, 1000px);
   margin: auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70px 65px minmax(110px, 1fr) 94px;
+  gap: 6px 20px;
+  padding: 0 16px;
   align-items: center;
 }
 .scene-objects {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  gap: 12px;
-  width: 90%;
-  height: 90px;
-  flex-shrink: 0;
+  align-items: center;
+  grid-area: 1 / 1;
+  gap: 8px;
+  height: 68px;
 }
-.adventure-scene .world-object {
+.world-object {
   position: relative;
   background: none;
   border: 0;
@@ -76,288 +86,280 @@
   flex-direction: column;
   align-items: center;
   color: #173c2c;
-  font-weight: bold;
-  min-width: 100px;
+  min-width: 84px;
   padding: 0;
-}
-.world-object b {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: #ffc96a;
-  border-radius: 50%;
-  padding: 4px;
 }
 .world-object > span:last-of-type {
   background: #fff0bf;
   border: 1px solid #94744e;
-  border-radius: 8px;
-  padding: 3px 8px;
-  font-size: 14px;
+  border-radius: 7px;
+  padding: 2px 6px;
+  font-size: 12px;
 }
 .object-art {
   display: block;
-  width: 90px;
-  height: 46px;
-  filter: drop-shadow(0 4px 2px #19332955);
-  margin: 5px;
+  width: 68px;
+  height: 44px;
+  filter: drop-shadow(0 3px 2px #19332955);
 }
-.drawer .object-art {
-  border: 4px solid #725030;
-  background: repeating-linear-gradient(0deg, #b78951 0 12px, #d9ad69 12px 25px);
-  border-radius: 5px;
-  position: relative;
+.object-art .scene-icon {
+  width: 100%;
+  height: 100%;
 }
-.drawer .object-art:after {
-  content: "";
+.world-object b {
   position: absolute;
-  left: 40%;
-  top: 30%;
-  width: 18px;
-  height: 7px;
-  border: 3px solid #6b512e;
-  border-radius: 5px;
+  right: 1px;
+  top: 1px;
+  background: #edc66a;
+  border-radius: 50%;
+  padding: 3px;
 }
-.basket .object-art {
-  border: 4px solid #92713b;
-  border-radius: 6px 6px 22px 22px;
-  background: repeating-linear-gradient(80deg, #d7b168 0 6px, #b68a4b 6px 9px);
-  position: relative;
-}
-.basket .object-art:before {
-  content: "";
-  position: absolute;
-  width: 46px;
-  height: 30px;
-  border: 5px solid #876735;
-  border-bottom: 0;
-  border-radius: 50px 50px 0 0;
-  top: -27px;
-  left: 16px;
-}
-.book .object-art {
-  border: 3px solid #6b5d3c;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #e9d4a3 47%, #80633c 49%, #ffebbb 52%);
-  transform: rotate(-6deg);
+.object-open .object-art {
+  transform: translateY(-3px) rotate(-4deg);
 }
 .scene-seed {
-  border-radius: 10px;
-  color: #244d36;
-  background: #e9cc8c;
-  border: 3px solid #896a3d;
-  padding: 8px 20px;
-  font-size: 32px;
+  display: none;
 }
-.activity-hint {
-  margin: 6px 12px;
-  padding: 7px 12px;
-  background: #fff1cfed;
-  border-radius: 12px;
-  max-width: 90%;
-  font-size: 15px;
-  text-align: center;
+.scene-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.tool-shelf {
+  grid-area: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #b98d56d9;
+  border: 3px solid #76522f;
+  border-radius: 7px 7px 18px 18px;
+  padding: 2px 8px;
+  height: 64px;
+}
+.tool-shelf button {
+  display: flex;
+  align-items: center;
+  padding: 1px 5px;
+  background: #f5dcab;
+}
+.tool-shelf small {
+  max-width: 60px;
+}
+.basket-contents {
+  grid-area: 2 / 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(80deg, #d7b168 0 6px, #b68a4b 6px 9px);
+  border: 4px solid #876735;
+  border-radius: 8px 8px 18px 18px;
+  padding: 2px;
+}
+.basket-slot {
+  position: relative;
+  width: 65px;
+  height: 48px;
+  background: #fff1bd;
+  border: 2px solid #b58e55;
+  border-radius: 8px;
+}
+.basket-slot .food-art {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.missing-slot {
+  border-style: dashed;
+}
+.missing-slot .food-art {
+  opacity: 0.32;
+}
+.missing-slot span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: #f6da8f;
+  font-size: 24px;
+}
+.goal-guide {
+  grid-area: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #fff1d5ee;
+  border: 2px solid #ab8856;
+  border-radius: 18px;
+  padding: 4px 8px;
+  min-height: 58px;
+}
+.goal-guide button {
+  min-width: 44px;
+  padding: 3px;
+  background: #f5dfab;
+}
+.goal-pictures {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+}
+.guide-arrow {
+  color: #527e60;
+  font-size: 24px;
+}
+.guide-foods {
+  display: flex;
+}
+.guide-foods .food-art {
+  width: 32px;
+  height: 38px;
+  object-fit: contain;
+}
+.guide-dots {
+  color: #78a27d;
+}
+.guide-caption {
+  max-width: 160px;
+  font-size: 13px;
+}
+.guide-caption small {
+  display: block;
+}
+.demo-active .goal-pictures > :first-child {
+  animation: guide-action 1.5s ease-in-out infinite;
+}
+.show-target {
+  outline: 4px solid #fff4a0;
+  box-shadow: 0 0 0 7px #648568;
+}
+@keyframes guide-action {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(20px) rotate(8deg);
+  }
 }
 .friends-at-table {
+  grid-area: 2 / 2;
   display: flex;
   justify-content: space-around;
-  width: 85%;
-  height: clamp(65px, 15vh, 140px);
-  flex-shrink: 1;
-  min-height: 60px;
+  align-items: center;
+  height: 70px;
+}
+.table-dami {
+  height: 100%;
+  max-width: 100px;
+  object-fit: contain;
+  order: 1;
 }
 .world-friend {
   position: relative;
   height: 100%;
-  opacity: 0.68;
 }
 .world-friend > img {
   height: 100%;
-  max-width: 140px;
+  max-width: 90px;
   object-fit: contain;
 }
-.friend-active {
-  opacity: 1;
+.world-friend:first-of-type {
+  order: 0;
+}
+.world-friend:last-of-type {
+  order: 2;
 }
 .friend-meal {
   position: absolute;
-  bottom: -6px;
-  left: 20%;
+  bottom: 0;
+  left: 18%;
   display: flex;
 }
 .friend-meal .food-art {
-  width: 45px;
-  height: 38px;
+  width: 25px;
+  height: 26px;
+  object-fit: contain;
+}
+.welcome-friend {
+  position: absolute;
+  inset: 0;
+  min-width: 64px;
+  background: #ffedbb33;
+  border: 3px dashed #ffc76a;
+  border-radius: 50%;
+  font-size: 28px;
 }
 .picnic-table {
+  grid-area: 3 / 1;
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 82%;
-  max-width: 640px;
-  min-height: 104px;
-  flex: 1;
-  max-height: 180px;
+  width: 100%;
+  height: min(100%, 170px);
+  min-height: 105px;
   background: repeating-linear-gradient(0deg, #be945f 0 20px, #cda76f 21px 41px);
-  border: 7px solid #785331;
-  border-radius: 45%;
+  border: 6px solid #785331;
+  border-radius: 36%;
   box-shadow:
-    0 12px 0 #553f29,
-    0 24px 20px #173e2955;
-  margin: 2px auto 18px;
+    0 9px 0 #553f29,
+    0 18px 16px #173e2944;
+  margin: 0 auto;
 }
 .cloth-spread {
-  background: repeating-conic-gradient(#ede5bd 0 25%, #709478 0 50%) 0 / 32px 32px;
+  background: repeating-conic-gradient(#ede5bd 0 25%, #709478 0 50%) 0 / 26px 26px;
 }
 .cloth-sun .cloth-spread {
-  background: repeating-conic-gradient(#f6e5a9 0 25%, #d7965c 0 50%) 0 / 32px 32px;
+  background: repeating-conic-gradient(#f6e5a9 0 25%, #d7965c 0 50%) 0 / 26px 26px;
 }
 .table-seat {
   position: relative;
   border-radius: 50%;
-  border: 3px solid #c2aa78;
+  border: 2px solid #c2aa78;
   background: #ffefcbdd;
-  width: 26%;
-  max-width: 130px;
-  height: 80px;
-  box-shadow: inset 0 0 0 5px #fff6d3;
-  padding: 4px;
+  width: 29%;
+  height: 84px;
+  box-shadow: inset 0 0 0 4px #fff6d3;
+  padding: 3px;
 }
 .table-seat .food-art {
   width: 90%;
   height: 60px;
+  object-fit: contain;
 }
-.table-seat > span {
+.seat-friend {
   position: absolute;
-  top: 4px;
-  left: 10px;
-  font-size: 12px;
+  top: -16px;
+  left: 30%;
+  width: 34px;
+  height: 28px;
+}
+.seat-friend img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .table-seat > b {
   position: absolute;
-  bottom: 0;
-  left: 20%;
-  font-size: 12px;
-  background: #f2d29c;
-}
-.received-foods {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  width: 94%;
-  min-height: 74px;
-  max-height: 160px;
-  overflow: auto;
-  flex-shrink: 0;
-}
-.world-food {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.world-food > button:first-child {
-  position: relative;
-  width: 64px;
-  height: 58px;
-  padding: 3px;
+  right: 4px;
+  bottom: 2px;
+  background: #e8c47b;
   border-radius: 50%;
-  background: #efdcab;
-  border: 2px solid #9a814d;
-}
-.world-food .food-art {
-  width: 100%;
-  height: 100%;
-}
-.world-food .taste-food {
-  min-height: 44px;
-  font-size: 12px;
-  padding: 1px 7px;
-  border-radius: 8px;
-  background: #fff0c4;
-}
-.world-food.tasted img {
-  opacity: 0.7;
-}
-.world-food.packed img {
-  transform: scale(0.8);
-}
-.world-food span {
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  background: #e6c486;
-  font-size: 12px;
-}
-.empty-table {
-  background: #fff0bf;
-  padding: 10px 15px;
-  border-radius: 14px;
-}
-.activity-footer {
-  padding: 5px 12px 12px;
-  flex-shrink: 0;
-  background: linear-gradient(transparent, #f5e0b8eb);
-  position: relative;
-  text-align: center;
-}
-.activity-decisions,
-.activity-exit {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.activity-decisions button,
-.activity-exit button {
-  font-size: 15px;
-  padding: 5px 12px;
-}
-.world-feedback {
-  font-size: 14px;
-  margin: 6px auto;
-  max-width: 850px;
-  min-height: 20px;
-}
-.commission-clue {
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-}
-.commission-clue img {
-  width: 34px;
-  height: 30px;
-}
-.invitation-pegs {
-  display: flex;
-  gap: 4px;
-}
-.invitation-pegs button {
-  position: relative;
-  min-width: 44px;
-  padding: 0 4px;
-  font-size: 12px;
-  background: #fff1c6;
-}
-.invitation-pegs img {
-  width: 38px;
-  height: 44px;
-  object-fit: contain;
-  display: block;
 }
 .activity-flower {
   position: absolute;
-  width: 35px;
-  height: 60px;
+  width: 32px;
+  height: 48px;
   bottom: 80%;
   left: 5%;
   pointer-events: none;
 }
 .flower-position-1 {
-  left: 48%;
+  left: 47%;
 }
 .flower-position-2 {
   left: 88%;
@@ -365,29 +367,30 @@
 .activity-flower b {
   position: absolute;
   bottom: 0;
-  width: 30px;
-  height: 24px;
+  width: 29px;
+  height: 20px;
   background: #ad673a;
   border-radius: 3px 3px 12px 12px;
 }
 .activity-flower i {
   display: block;
-  width: 8px;
-  height: 35px;
+  width: 6px;
+  height: 32px;
   margin: auto;
   background: #698158;
 }
-.activity-flower i:after {
+.activity-flower i::after {
   content: "✿";
   color: #e2a242;
-  font-size: 36px;
+  font-size: 32px;
   position: absolute;
-  top: -13px;
-  left: 1px;
+  top: -15px;
+  left: 0;
 }
-.activity-bunting {
+.activity-bunting,
+.activity-lights {
   position: absolute;
-  top: -16px;
+  top: -19px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -395,7 +398,7 @@
 }
 .activity-bunting i {
   width: 22px;
-  height: 28px;
+  height: 26px;
   background: #c57750;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
@@ -405,37 +408,240 @@
 .flags-warm i:nth-child(odd) {
   background: #dfa947;
 }
-.activity-lights {
-  position: absolute;
-  top: -18px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  border-top: 2px solid #3a4931;
-}
 .activity-lights i {
-  width: 20px;
-  height: 24px;
+  width: 18px;
+  height: 21px;
   background: #ffdb78;
   border-radius: 50%;
-  box-shadow: 0 0 25px 12px #fed98f77;
+  box-shadow: 0 0 24px 10px #fed98f77;
 }
 .light-moon .activity-lights i {
   background: #d5e7ff;
-  box-shadow: 0 0 25px 12px #d9e3ff77;
+  box-shadow: 0 0 24px 10px #d9e3ff77;
+}
+.food-workbench {
+  grid-area: 4 / 1 / 5 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  min-height: 76px;
+  background: #f2dcb4cf;
+  border-radius: 16px;
+}
+.received-foods {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 2px;
+  margin: 0;
+  overflow: visible;
+}
+.world-food {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #efdcab;
+  border: 2px solid #9a814d;
+}
+.world-food .food-art {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+}
+.world-food span {
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+  background: #e6c486;
+  border-radius: 50%;
+  font-size: 13px;
+}
+.held-portion {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.held-portion > .food-art {
+  width: 46px;
+  height: 50px;
+  object-fit: contain;
+}
+.held-portion button {
+  width: 48px;
+  min-height: 48px;
+  padding: 2px;
+  background: #fff0c4;
+}
+.food-paging {
+  position: absolute;
+  right: 4px;
+  bottom: -12px;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  font-size: 11px;
+  z-index: 2;
+}
+.food-paging button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+.invitation-pegs {
+  display: flex;
+  gap: 4px;
+}
+.invitation-pegs button {
+  min-width: 44px;
+  padding: 0 3px;
+  font-size: 11px;
+  background: #fff1c6;
+}
+.invitation-pegs img {
+  width: 30px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+.sharing-pegs {
+  position: absolute;
+  top: 76px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  background: #fae5bded;
+  border-radius: 14px;
+  z-index: 3;
+}
+.sharing-pegs:empty {
+  display: none;
+}
+.sharing-peg {
+  display: grid;
+  grid-template-columns: 48px 58px 48px;
+  align-items: center;
+  gap: 1px;
+  padding: 3px;
+}
+.sharing-peg > button {
+  position: relative;
+  padding: 0;
+  min-width: 44px;
+  height: 48px;
+}
+.sharing-peg > button img {
+  width: 38px;
+  height: 44px;
+  object-fit: contain;
+}
+.sharing-peg > button span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #f9e3b4;
+}
+.need-pictures {
+  display: flex;
+  align-items: center;
+}
+.need-pictures .food-art {
+  width: 29px;
+  height: 38px;
+  object-fit: contain;
+}
+.sharing-peg small {
+  grid-column: 1 / 4;
+  font-size: 10px;
+  text-align: center;
+}
+.need-met {
+  background: #cde3b6;
+  border-radius: 12px;
+}
+.activity-footer {
+  padding: 5px 12px 9px;
+  flex-shrink: 0;
+  background: linear-gradient(transparent, #f5e0b8ee);
+  position: relative;
+  text-align: center;
+}
+.activity-decisions,
+.activity-exit,
+.cooperation-choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.activity-decisions button,
+.activity-exit button {
+  font-size: 14px;
+  padding: 3px 9px;
+  min-height: 44px;
+}
+.activity-decisions .scene-icon {
+  width: 40px;
+  height: 40px;
+}
+.cooperation-choices img {
+  width: 34px;
+  height: 40px;
+  object-fit: contain;
+}
+.decor-choice.cool,
+.decor-choice.moon,
+.decor-choice.leaf {
+  background: #bad9c6;
+}
+.decor-choice.warm,
+.decor-choice.sun {
+  background: #f1d18b;
+}
+.free-decor-workshop {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 3px;
+}
+.free-decor-workshop button {
+  padding: 2px;
+}
+.free-decor-workshop .scene-icon {
+  width: 32px;
+  height: 38px;
+}
+.world-feedback {
+  font-size: 13px;
+  line-height: 1.25;
+  margin: 4px auto;
+  max-width: 850px;
+  min-height: 17px;
+}
+.activity-exit .scene-icon {
+  width: 30px;
+  height: 32px;
 }
 .world-recipe,
 .world-confirm {
   position: absolute;
   z-index: 30;
   background: #fff0c9;
-  border: 5px solid #775634;
+  border: 4px solid #775634;
   border-radius: 16px;
-  padding: 18px;
-  top: 18%;
-  left: 10%;
-  width: 80%;
-  max-height: 60%;
+  padding: 14px;
+  top: 16%;
+  left: 7%;
+  width: 86%;
+  max-height: 70%;
   overflow: auto;
   box-shadow: 0 8px 25px #17372988;
 }
@@ -443,8 +649,9 @@
   float: right;
 }
 .world-recipe .food-art {
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 .world-confirm {
   top: 35%;
@@ -455,6 +662,12 @@
   height: 1px;
   overflow: hidden;
   clip-path: inset(50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .adventure-scene * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 .m2-shell .activity-kitchen-link {
   position: relative;
@@ -527,174 +740,6 @@
   border-radius: 10px;
   padding: 8px;
 }
-@media (max-width: 600px) {
-  .activity-header {
-    margin: 5px 8px;
-  }
-  .activity-header p {
-    display: none;
-  }
-  .activity-header button {
-    font-size: 13px;
-    padding: 4px 8px;
-  }
-  .activity-header h2 {
-    font-size: 20px;
-  }
-  .scene-objects {
-    height: 75px;
-    gap: 4px;
-    width: 96%;
-  }
-  .adventure-scene .world-object {
-    min-width: 85px;
-  }
-  .object-art {
-    width: 70px;
-    height: 36px;
-  }
-  .world-object > span:last-of-type {
-    font-size: 12px;
-    padding: 3px;
-  }
-  .scene-seed {
-    padding: 5px 14px;
-  }
-  .activity-hint {
-    font-size: 13px;
-    margin: 3px 8px;
-    padding: 5px 8px;
-  }
-  .picnic-table {
-    min-height: 84px;
-    border-width: 5px;
-    margin-bottom: 12px;
-  }
-  .table-seat {
-    height: 64px;
-  }
-  .table-seat .food-art {
-    height: 49px;
-  }
-  .received-foods {
-    gap: 4px;
-    min-height: 94px;
-    max-height: 106px;
-  }
-  .world-food > button:first-child {
-    width: 51px;
-    height: 49px;
-  }
-  .activity-footer {
-    padding: 3px 8px 8px;
-  }
-  .activity-decisions button,
-  .activity-exit button {
-    font-size: 13px;
-    padding: 3px 8px;
-  }
-  .world-feedback {
-    font-size: 12px;
-    line-height: 1.3;
-    margin: 4px 0;
-  }
-  .friends-at-table {
-    height: 75px;
-    min-height: 50px;
-  }
-  .invitation-pegs img {
-    width: 30px;
-    height: 38px;
-  }
-  .commission-clue img {
-    width: 26px;
-    height: 26px;
-  }
-  .commission-clue {
-    font-size: 12px;
-  }
-  .activity-flower {
-    transform: scale(0.7);
-    transform-origin: bottom;
-  }
-  .activity-header button.primary {
-    max-width: 95px;
-  }
-  .activity-header > div {
-    text-align: center;
-  }
-  .m2-shell .activity-kitchen-link {
-    flex-basis: 90px;
-    width: 90px;
-    font-size: 12px;
-  }
-  .activity-kitchen .service-count {
-    max-width: 26%;
-    font-size: 12px;
-  }
-}
-@media (max-height: 500px) and (min-width: 600px) {
-  .activity-world {
-    padding-left: 30%;
-    align-items: flex-start;
-  }
-  .scene-objects {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 28%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .activity-hint {
-    margin: 2px;
-  }
-  .friends-at-table {
-    height: 58px;
-  }
-  .picnic-table {
-    width: 60%;
-    min-height: 70px;
-    margin: 0 10px 10px;
-  }
-  .received-foods {
-    position: absolute;
-    right: 0;
-    width: 26%;
-    top: 55px;
-    max-height: 130px;
-  }
-  .activity-footer {
-    padding: 2px 6px 5px;
-  }
-  .activity-header h2 {
-    font-size: 18px;
-  }
-  .activity-header p {
-    display: none;
-  }
-  .table-seat {
-    height: 54px;
-  }
-  .table-seat .food-art {
-    height: 44px;
-  }
-}
-
-.table-dami {
-  height: 100%;
-  max-width: 140px;
-  object-fit: contain;
-  order: 1;
-}
-.world-friend:first-of-type {
-  order: 0;
-}
-.world-friend:last-of-type {
-  order: 2;
-}
-
 .m2-shell .commission-handoff {
   position: absolute;
   z-index: 5;
@@ -704,4 +749,560 @@
   font-size: 13px;
   line-height: 1.2;
   border-radius: 16px;
+}
+
+/* The compact scene always keeps the target, food and next action visible. */
+@media (max-width: 600px) {
+  .activity-header {
+    margin: 4px 6px;
+    gap: 3px;
+    min-height: 51px;
+  }
+  .activity-header p {
+    display: none;
+  }
+  .activity-header h2 {
+    font-size: 17px;
+  }
+  .activity-header button {
+    font-size: 12px;
+    padding: 3px 5px;
+  }
+  .activity-header > button.primary {
+    max-width: 78px;
+  }
+  .activity-world {
+    padding: 0 7px;
+    gap: 4px 9px;
+    grid-template-rows: 54px 55px minmax(90px, 1fr) 72px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .scene-objects {
+    height: 54px;
+    width: 100%;
+    gap: 1px;
+    position: static;
+    grid-area: 1 / 1;
+  }
+  .adventure-scene .world-object {
+    min-width: 70px;
+  }
+  .object-art {
+    width: 43px;
+    height: 34px;
+    margin: 0;
+  }
+  .world-object > span:last-of-type {
+    font-size: 10px;
+    padding: 1px 3px;
+  }
+  .goal-guide {
+    grid-area: 1 / 2;
+    padding: 1px;
+    gap: 1px;
+    min-height: 52px;
+  }
+  .goal-guide .guide-caption,
+  .guide-dots {
+    display: none;
+  }
+  .goal-guide .scene-icon {
+    width: 29px;
+    height: 34px;
+  }
+  .goal-guide button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .goal-guide .goal-pictures {
+    min-width: 70px;
+    gap: 1px;
+  }
+  .guide-arrow {
+    font-size: 16px;
+  }
+  .guide-foods .food-art {
+    width: 22px;
+    height: 29px;
+  }
+  .tool-shelf {
+    height: 53px;
+    padding: 1px;
+    gap: 2px;
+  }
+  .tool-shelf button {
+    min-width: 60px;
+    padding: 1px;
+  }
+  .tool-shelf .scene-icon {
+    width: 34px;
+    height: 38px;
+  }
+  .tool-shelf small {
+    font-size: 10px;
+  }
+  .basket-contents {
+    height: 54px;
+    gap: 3px;
+    border-width: 3px;
+  }
+  .basket-slot {
+    width: 51px;
+    height: 42px;
+  }
+  .basket-contents > .scene-icon {
+    width: 31px;
+  }
+  .friends-at-table {
+    grid-area: 2 / 2;
+    height: 54px;
+    min-height: 0;
+    width: 100%;
+  }
+  .world-friend > img {
+    max-width: 56px;
+  }
+  .table-dami {
+    max-width: 59px;
+  }
+  .welcome-friend {
+    min-width: 48px;
+    font-size: 22px;
+  }
+  .picnic-table {
+    grid-area: 3 / 1;
+    width: 100%;
+    min-height: 82px;
+    height: 100px;
+    border-width: 4px;
+    margin: 0;
+    align-self: center;
+  }
+  .table-seat {
+    width: 30%;
+    height: 54px;
+    padding: 1px;
+  }
+  .table-seat .food-art {
+    height: 40px;
+  }
+  .seat-friend {
+    width: 23px;
+    height: 23px;
+    top: -14px;
+    left: 25%;
+  }
+  .friend-theatre {
+    grid-area: 3 / 2;
+    min-height: 90px;
+    padding: 1px;
+    align-self: center;
+    height: 145px;
+  }
+  .theatre-track .scene-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .theatre-track small {
+    display: none;
+  }
+  .theatre-action {
+    min-height: 66px;
+  }
+  .theatre-guest {
+    height: 76px;
+    width: 69px;
+  }
+  .theatre-held .food-art {
+    width: 30px;
+    height: 30px;
+  }
+  .theatre-caption {
+    font-size: 9px;
+  }
+  .theatre-controls {
+    gap: 1px;
+  }
+  .theatre-controls button {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 12px;
+    padding: 0 2px;
+  }
+  .flavor-response {
+    font-size: 15px;
+    right: 4%;
+  }
+  .food-workbench {
+    grid-area: 4 / 1 / 5 / 3;
+    min-height: 69px;
+    gap: 4px;
+  }
+  .received-foods {
+    min-height: 0;
+    max-height: none;
+    width: auto;
+    padding: 0;
+    gap: 3px;
+  }
+  .world-food {
+    width: 48px;
+    height: 48px;
+  }
+  .held-portion {
+    gap: 2px;
+  }
+  .held-portion > .food-art {
+    display: none;
+  }
+  .held-portion > .scene-icon {
+    width: 25px;
+    height: 32px;
+  }
+  .food-paging {
+    bottom: -8px;
+    right: 2px;
+  }
+  .food-paging button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .sharing-pegs {
+    top: 60px;
+    gap: 3px;
+    left: 5px;
+    right: 5px;
+  }
+  .sharing-peg {
+    grid-template-columns: 40px 45px 44px;
+    padding: 1px;
+  }
+  .sharing-peg small {
+    display: none;
+  }
+  .need-pictures .food-art {
+    width: 23px;
+    height: 32px;
+  }
+  .sharing-peg .scene-icon {
+    width: 34px;
+    height: 40px;
+  }
+  .chapter-4 .friends-at-table {
+    opacity: 0.25;
+  }
+  .invitation-pegs img {
+    width: 26px;
+    height: 34px;
+  }
+  .invitation-pegs button {
+    padding: 0 1px;
+    font-size: 9px;
+  }
+  .activity-footer {
+    padding: 3px 7px 6px;
+  }
+  .activity-decisions button,
+  .activity-exit button {
+    min-height: 44px;
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  .activity-decisions .scene-icon {
+    width: 34px;
+    height: 38px;
+  }
+  .activity-flower {
+    transform: scale(0.7);
+    transform-origin: bottom;
+  }
+  .world-feedback {
+    font-size: 10px;
+    line-height: 1.2;
+    margin: 2px auto;
+    max-width: 98%;
+  }
+  .activity-exit {
+    gap: 3px;
+  }
+}
+@media (max-height: 500px) and (min-width: 600px) {
+  .activity-world {
+    padding: 0 8px;
+    grid-template-rows: 48px minmax(65px, 1fr) 60px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px 12px;
+  }
+  .scene-objects {
+    grid-area: 1 / 1;
+    position: static;
+    flex-direction: row;
+    width: 100%;
+    height: 46px;
+  }
+  .goal-guide {
+    grid-area: 1 / 2 / 2 / 4;
+  }
+  .friends-at-table {
+    grid-area: 2 / 1;
+    height: 65px;
+  }
+  .tool-shelf,
+  .basket-contents {
+    grid-area: 3 / 1;
+  }
+  .picnic-table {
+    grid-area: 2 / 2;
+    min-height: 65px;
+    height: 75px;
+    width: 100%;
+    margin: 0;
+  }
+  .friend-theatre {
+    grid-area: 2 / 3;
+    height: 110px;
+    min-height: 0;
+  }
+  .theatre-track small,
+  .theatre-caption {
+    display: none;
+  }
+  .theatre-action {
+    min-height: 45px;
+  }
+  .theatre-guest {
+    height: 54px;
+  }
+  .food-workbench {
+    grid-area: 3 / 2 / 4 / 4;
+    min-height: 55px;
+  }
+  .world-food {
+    width: 44px;
+    height: 44px;
+  }
+  .activity-header {
+    min-height: 45px;
+    margin: 2px;
+  }
+  .activity-footer {
+    padding: 1px 5px;
+  }
+  .sharing-pegs {
+    top: 54px;
+  }
+}
+
+.guide-product {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.guide-product i {
+  font-size: 10px;
+  color: #375b46;
+  line-height: 8px;
+}
+.activity-kitchen .compact-guide {
+  position: absolute;
+  top: var(--toolbar-height, 60px);
+  left: 6px;
+  z-index: 5;
+  padding: 1px 4px;
+  min-height: 44px;
+  background: #fff0cfde;
+  max-width: 160px;
+}
+.compact-guide .guide-caption,
+.compact-guide .guide-dots,
+.compact-guide > button:last-child {
+  display: none;
+}
+.compact-guide .scene-icon {
+  width: 26px;
+  height: 30px;
+}
+.compact-guide .guide-foods .food-art {
+  width: 22px;
+  height: 27px;
+}
+.activity-kitchen-link .scene-icon {
+  width: 28px;
+  height: 32px;
+}
+.pending-stage {
+  visibility: hidden;
+}
+.chapter-1 .picnic-table.flags-cool,
+.chapter-1 .picnic-table.flags-warm {
+  box-shadow:
+    0 9px 0 #553f29,
+    0 -38px 0 10px #527b5844;
+}
+
+.blocked-pictures {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.blocked-pictures .scene-icon {
+  width: 24px;
+  height: 28px;
+}
+.activity-header > button.primary .scene-icon {
+  width: 32px;
+  height: 34px;
+}
+@media (max-width: 600px) {
+  .activity-world {
+    grid-template-rows: 54px 80px minmax(105px, 1fr) 72px;
+  }
+  .friends-at-table {
+    height: 78px;
+  }
+  .world-friend > img {
+    max-width: 76px;
+  }
+  .table-dami {
+    max-width: 66px;
+  }
+  .picnic-table {
+    height: 125px;
+  }
+  .activity-header > button.primary .scene-icon {
+    display: block;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+  }
+}
+/* The book is a view of saved food positions and tasting, not a supply source. */
+.work-memory {
+  padding: 8px;
+  margin-block: 8px;
+  border-bottom: 2px dashed #b59460;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px;
+}
+.remembered-table {
+  display: flex;
+  border-radius: 50%;
+  background: #dbb985;
+  padding: 8px;
+  gap: 8px;
+}
+.remembered-seat {
+  width: 33%;
+  min-height: 75px;
+  background: #f7e8bd;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.remembered-seat > img {
+  height: 27px;
+  width: 27px;
+  object-fit: contain;
+}
+.remembered-side {
+  grid-column: 1;
+}
+.remembered-tastes {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1;
+}
+.remembered-tastes span {
+  display: flex;
+  align-items: center;
+}
+.remembered-tastes .food-art,
+.remembered-tastes .scene-icon,
+.remembered-tastes img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.work-memory > button {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+.work-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.helper-prop {
+  position: absolute;
+  width: 25px;
+  height: 28px;
+  right: -7px;
+  bottom: 3px;
+}
+.garden-butterfly {
+  position: absolute;
+  top: -27px;
+  left: 0;
+  font-size: 22px;
+}
+.guide-demonstration {
+  position: absolute;
+  z-index: 8;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff1d5;
+  border: 2px solid #ab8856;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px;
+  pointer-events: none;
+}
+.goal-guide {
+  position: relative;
+}
+.guide-demonstration .scene-icon {
+  width: 36px;
+  height: 40px;
+}
+.demo-finger {
+  font-size: 28px;
+  animation: demo-tap 3s infinite;
+}
+.demo-carry {
+  animation: demo-carry 3s infinite;
+}
+@keyframes demo-tap {
+  0%,
+  100% {
+    transform: translateY(-6px);
+  }
+  20%,
+  35% {
+    transform: translateY(8px);
+  }
+}
+@keyframes demo-carry {
+  0%,
+  30% {
+    transform: translateX(-25px);
+  }
+  75%,
+  100% {
+    transform: translateX(18px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-demonstration * {
+    animation: none;
+  }
 }
