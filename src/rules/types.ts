@@ -126,6 +126,7 @@ export type Command =
       target:
         | Exclude<Destination, { hand: true } | { discard: true }>
         | { order: string }
+        | { preparation: true }
         | { world: 'pack' | 'cool' | 'create' };
     }
   | { type: 'return-hand'; confirmed?: boolean }

@@ -418,15 +418,19 @@ export function MiniGames({
         ghost.current.style.transform = `translate(${e.clientX - 25}px,${e.clientY - 30}px)`;
       }
     },
-    onPointerCancel: cancel,
-    onLostPointerCapture: () => {
-      if (gesture.current) cancel();
+    onPointerCancel: (e: React.PointerEvent<HTMLButtonElement>) => {
+      if (gesture.current?.pointer === e.pointerId && gesture.current.node === e.currentTarget)
+        cancel();
+    },
+    onLostPointerCapture: (e: React.PointerEvent<HTMLButtonElement>) => {
+      if (gesture.current?.pointer === e.pointerId && gesture.current.node === e.currentTarget)
+        cancel();
     },
     onPointerUp: (e: React.PointerEvent<HTMLButtonElement>) => {
       const g = gesture.current;
+      if (!g || g.pointer !== e.pointerId || g.node !== e.currentTarget) return;
       gesture.current = null;
       if (ghost.current) ghost.current.style.display = 'none';
-      if (!g || g.pointer !== e.pointerId) return;
       if (e.currentTarget.hasPointerCapture(e.pointerId))
         e.currentTarget.releasePointerCapture(e.pointerId);
       if (!g.moved) return;

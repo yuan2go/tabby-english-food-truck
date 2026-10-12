@@ -75,7 +75,7 @@ export function experienceCommand(
       tool,
       ...(c.seat === undefined ? {} : { seat: c.seat }),
     });
-    return result('ok', '工具放在你选的位置了。');
+    return result('ok', '工具放回了，需要时可以再取出。');
   }
   if (c.action === 'water') {
     if (!a.steps.includes('plant') || !e.tools.includes('watering-can'))

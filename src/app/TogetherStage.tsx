@@ -1,4 +1,11 @@
-import { type CSSProperties, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { ADVENTURES, VISITOR_NAMES, type Visitor } from '../content/adventure';
 import { drawerTools, type Tool } from '../content/adventure-experience';
 import { PRODUCT_NAMES, REQUESTS } from '../content/catalog';
@@ -17,13 +24,15 @@ import { type StageRect, togetherDamiRect, togetherLayout } from '../game/togeth
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
 import type { DialogueDirector } from '../platform/dialogue';
-import { adventureReady } from '../rules/adventure';
+import { adventureReady, openCommission } from '../rules/adventure';
 import { handItems } from '../rules/game';
 import type { Command } from '../rules/types';
 import { Sentence } from './Dialogue';
 import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { SceneIcon } from './SceneIcon';
+import { RequestPicture, StageDemonstration } from './TogetherHelp';
+import { WorkGallery } from './WorkGallery';
 import './together.css';
 
 const position = (r: StageRect): CSSProperties => ({
@@ -69,6 +78,8 @@ export function TogetherStage({
   next,
   replay,
   games,
+  demoOrder,
+  closeDemo,
 }: {
   controller: GameController;
   audio: ForegroundAudio;
@@ -78,14 +89,25 @@ export function TogetherStage({
   next: () => void;
   replay: () => void;
   games: () => void;
+  demoOrder: string | null;
+  closeDemo: () => void;
 }) {
   const s = controller.state,
     a = s.adventure;
   const [device, setDevice] = useState<Device>(s.session.family);
+  const showDemoDevice = useCallback(
+    (family: Family, station: string) =>
+      setDevice(station === 'board' && family === 'burger' ? 'burger-board' : family),
+    [],
+  );
   const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
   const [book, setBook] = useState(false),
     [confirm, setConfirm] = useState(false);
   const [feedback, setFeedback] = useState('点朋友听需要，拿起食品，再点目标。');
+  const say = (message: string) => {
+    controller.message = message;
+    setFeedback(message);
+  };
   const [ghost, setGhost] = useState<{ x: number; y: number; product: Product } | null>(null);
   const [momentAge, setMomentAge] = useState(0);
   const root = useRef<HTMLElement>(null),
@@ -104,7 +126,9 @@ export function TogetherStage({
     ))
       controller.command({ type: 'support', order: order.id, reason: 'caption-visible' });
   }, [s.orders, controller]);
-  useDialogFocus(book ? 'together-book' : confirm ? 'together-confirm' : null);
+  useDialogFocus(
+    book ? 'together-book' : confirm ? 'together-confirm' : demoOrder ? 'stage-demo' : null,
+  );
   useEffect(() => {
     controller.pause('together-dialog', confirm);
     if (book || confirm) audio.stop();
@@ -154,7 +178,7 @@ export function TogetherStage({
   }, []);
   const run = (command: Command) => {
     const r = controller.command(command);
-    setFeedback(r.message);
+    say(r.message);
     if (r.kind === 'confirm') setConfirm(true);
     if (r.kind === 'ok') audio.effect('place');
     else if (r.kind === 'mismatch') audio.effect('gentle');
@@ -164,6 +188,13 @@ export function TogetherStage({
     action: string,
     extra: Omit<Extract<Command, { type: 'adventure' }>, 'type' | 'action'> = {},
   ) => run({ type: 'adventure', action, ...extra });
+  const commission = a ? openCommission(a) : null;
+  const commissionLine = (visitor: Visitor): DialogueLine | null =>
+    commission &&
+    ((commission.action === 'cool' && visitor === 'hedgehog') ||
+      (commission.action === 'pack' && visitor === 'rabbit'))
+      ? { ...lineFor(commission.action === 'cool' ? 'open-cool' : 'open-pack'), role: visitor }
+      : null;
   const orderFor = (v: Visitor, seat: number) =>
     controller.state.orders.find(
       (o) => o.status !== 'done' && (o.visitor === v || (!o.visitor && o.seat === seat)),
@@ -184,6 +215,21 @@ export function TogetherStage({
       tool = a?.experience?.heldTool,
       decoration = a?.experience?.heldDecoration;
     if (target.kind === 'food') {
+      if (held.length) {
+        const food = a?.foods.find((f) => f.id === target.id),
+          v =
+            food?.place === 'guest-rabbit' || food?.place === 'table:0'
+              ? 'rabbit'
+              : food?.place === 'guest-hedgehog' || food?.place === 'table:1'
+                ? 'hedgehog'
+                : food?.place === 'guest-elder' || food?.place === 'table:2'
+                  ? 'elder'
+                  : null;
+        if (v) {
+          use({ kind: 'friend', visitor: v, seat: v === 'rabbit' ? 0 : v === 'hedgehog' ? 1 : 2 });
+        } else say('这是活动食品，制作中的食品仍在手里。');
+        return;
+      }
       if (tool === 'spoon') {
         const r = act('taste', { item: target.id });
         if (r.kind === 'ok') act('put-tool');
@@ -192,7 +238,11 @@ export function TogetherStage({
     }
     if (decoration) {
       if (target.kind === 'decor' || target.kind === 'preparation') act('put-decoration');
-      else setFeedback('装饰仍在手里，点桌面或挂绳。');
+      else say('装饰仍在手里，点桌面或挂绳。');
+      return;
+    }
+    if (target.kind === 'friend' && tool && tool !== 'lantern' && tool !== 'spoon') {
+      say('工具仍在手里，点对应的场景物件或放回。');
       return;
     }
     if (target.kind === 'friend') {
@@ -226,7 +276,7 @@ export function TogetherStage({
         if (order?.status === 'waiting') run({ type: 'put', target: { order: order.id } });
         else if (a?.chapter === 1 && target.visitor === 'hedgehog')
           run({ type: 'put', target: { world: 'cool' } });
-        else setFeedback('先与这位朋友打招呼，食品仍在手里。');
+        else say('先与这位朋友打招呼，食品仍在手里。');
         return;
       }
       if (order?.status === 'queued') {
@@ -238,9 +288,16 @@ export function TogetherStage({
           dialogue.request(welcomed);
         }
       } else if (order?.status === 'waiting') dialogue.request(order);
-      else if (a && (a.chapter === 4 || a.kind === 'shop' || a.rewards.length))
-        act('invite', { visitor: target.visitor });
-      else
+      else if (a && (a.chapter === 4 || a.kind === 'shop' || a.rewards.length)) {
+        const r = act('invite', { visitor: target.visitor });
+        if (r.kind === 'ok') dialogue.invite(target.visitor);
+      } else if (commissionLine(target.visitor)) {
+        const line = commissionLine(target.visitor);
+        if (line) dialogue.show({ key: `${s.runId}:commission:${target.visitor}`, line });
+      } else if (
+        a?.steps.includes(`served:${target.visitor}`) ||
+        a?.foods.some((f) => f.place === `guest-${target.visitor}`)
+      )
         dialogue.show(
           {
             key: `${s.runId}:thanks:${target.visitor}`,
@@ -251,23 +308,23 @@ export function TogetherStage({
       return;
     }
     if (target.kind === 'decor') {
-      setFeedback('先拿起桌布、彩旗或灯光，再点这里。');
+      say('先拿起桌布、彩旗或灯光，再点这里。');
       return;
     }
     if (target.kind === 'garden') {
       if (tool === 'seed') act('plant', { seat: target.seat });
       else if (tool === 'watering-can') act('water');
-      else setFeedback('可以从抽屉拿花苗或水壶，早餐后慢慢探索。');
+      else say('可以从抽屉拿花苗或水壶，早餐后慢慢探索。');
       return;
     }
     if (tool) {
       if (target.kind === 'world' || target.kind === 'preparation') act('put-tool', { seat: 0 });
-      else setFeedback('工具仍在手里，点它对应的场景物件。');
+      else say('工具仍在手里，点它对应的场景物件。');
       return;
     }
     if (worldHand) {
       if (target.kind === 'world') act('put-world');
-      else setFeedback('这份已接收的食品留在活动桌，可摆放、分享或品尝。');
+      else say('这份已接收的食品留在活动桌，可摆放、分享或品尝。');
       return;
     }
     if (target.kind === 'machine') {
@@ -279,11 +336,7 @@ export function TogetherStage({
       return;
     }
     if (target.kind === 'preparation') {
-      const tray = ([0, 1] as const).find(
-        (t) => !s.trays[t].remaining && (s.mode === 'service' || t === 0),
-      );
-      if (tray !== undefined) run({ type: 'put', target: { tray } });
-      else setFeedback('承放区暂时在工作，食品仍在手里。');
+      run({ type: 'put', target: { preparation: true } });
       return;
     }
     if (target.kind === 'basket') {
@@ -293,7 +346,7 @@ export function TogetherStage({
     if (target.kind === 'world')
       run({
         type: 'put',
-        target: { world: a?.chapter === 1 && !a.steps.includes('cool') ? 'cool' : 'create' },
+        target: { world: 'create' },
       });
   };
   const drop = (target: Target) => ({
@@ -466,7 +519,7 @@ export function TogetherStage({
                   ? current.line
                   : need
                     ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
-                    : null;
+                    : commissionLine(visitor);
             const listen = () => {
               if (order?.status === 'waiting') dialogue.request(order);
               else if (line) dialogue.show({ key: `${s.runId}:need:${visitor}`, line }, true);
@@ -478,7 +531,9 @@ export function TogetherStage({
                 ? `先帮${name}`
                 : order?.status === 'waiting'
                   ? `听${name}的请求`
-                  : `邀请${name}`;
+                  : a && (a.chapter === 4 || a.kind === 'shop' || a.rewards.length)
+                    ? `邀请${name}`
+                    : `和${name}说话`;
             const foods =
               a?.foods.filter(
                 (f) => f.place === `guest-${visitor}` || f.place === `table:${index}`,
@@ -489,6 +544,17 @@ export function TogetherStage({
                   <div className="local-bubble" style={position(l.bubbles[index] ?? rect)}>
                     <Sentence line={line} audio={audio} play={listen} />
                   </div>
+                ) : null}
+                {order?.status === 'waiting' ? (
+                  <RequestPicture
+                    controller={controller}
+                    order={order}
+                    audio={audio}
+                    style={{
+                      left: Math.min(size.width - 58, rect.x + rect.width - 15),
+                      top: rect.y + rect.height * 0.43,
+                    }}
+                  />
                 ) : null}
                 <button
                   type="button"
@@ -795,17 +861,11 @@ export function TogetherStage({
           }}
         >
           {a?.foods.filter((f) => f.place === 'work').map((f) => sourceButton(f, true))}
-          {a &&
-          (a.chapter === 4 ||
-            a.kind === 'shop' ||
-            a.rewards.length ||
-            (a.chapter === 1 && !a.steps.includes('cool'))) ? (
+          {a && (a.chapter === 4 || a.kind === 'shop' || a.rewards.length) ? (
             <button
               type="button"
               {...drop({ kind: 'world' })}
-              aria-label={
-                a.chapter === 1 && !a.steps.includes('cool') ? '送去树荫分享' : '放到作品区'
-              }
+              aria-label="放到作品区"
               onClick={() => use({ kind: 'world' })}
             >
               <SceneIcon kind="table" />
@@ -908,7 +968,7 @@ export function TogetherStage({
           ) : null}
         </div>
         <p className="nearby-feedback" role="status" style={position(l.footer)}>
-          {feedback}
+          {controller.message || feedback}
         </p>
         {dialogue.current?.line.role === 'dami' ? (
           <div
@@ -929,6 +989,20 @@ export function TogetherStage({
           </div>
         ) : null}
       </div>
+      {demoOrder && s.orders.find((o) => o.id === demoOrder && o.status === 'waiting') ? (
+        <StageDemonstration
+          key={demoOrder}
+          controller={controller}
+          order={
+            s.orders.find((o) => o.id === demoOrder) ??
+            (s.orders[0] as NonNullable<(typeof s.orders)[0]>)
+          }
+          audio={audio}
+          layout={l}
+          close={closeDemo}
+          showDevice={showDemoDevice}
+        />
+      ) : null}
       {book || confirm ? (
         <div className="stage-modal-layer" inert={false}>
           <section role="dialog" aria-modal="true" aria-label={book ? '食谱与作品' : '收起成品'}>
@@ -1004,13 +1078,33 @@ export function TogetherStage({
                     保存到食谱
                   </button>
                 ) : null}
-                {a?.works.map((w) => (
-                  <section key={w.id} aria-label="已保存作品">
-                    {w.foods.map((f) => (
-                      <Food key={f.id} product={f.product} />
-                    ))}
-                  </section>
-                ))}
+                <details>
+                  <summary>回看最近交流</summary>
+                  {dialogue.recent.map((turn) => (
+                    <Sentence
+                      key={turn.key}
+                      line={turn.line}
+                      audio={audio}
+                      play={() => dialogue.replay(turn)}
+                    />
+                  ))}
+                </details>
+                <WorkGallery
+                  title="这次保存的作品"
+                  works={a?.works ?? []}
+                  audio={audio}
+                  dialogue={dialogue}
+                  revise={() => setBook(false)}
+                />
+                <WorkGallery
+                  title="旧活动的作品"
+                  works={controller.profile.value.activityMemories
+                    .filter((m) => m.runId !== s.runId)
+                    .flatMap((m) => m.state.works)}
+                  audio={audio}
+                  dialogue={dialogue}
+                  revise={() => setBook(false)}
+                />
                 <button
                   type="button"
                   onClick={() => {

@@ -127,7 +127,9 @@ export function cancelHelperActor(s: GameState): void {
           hold: p.duration,
           ...(p.event ? { event: p.event } : {}),
         }));
-      queueActor(s, j.kind, j.plan.id, stops, j.itemIds, j.tray, j.order);
+      queueActor(s, j.kind, j.plan.id, stops, j.itemIds, j.tray, j.order, j.fromHand);
+      const rebased = s.actor.queue.at(-1) ?? s.actor.current;
+      if (rebased && j.worldTarget) rebased.worldTarget = j.worldTarget;
     }
   }
   alignActionTimers(s);

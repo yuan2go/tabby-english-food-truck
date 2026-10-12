@@ -336,3 +336,53 @@ it('a hand delivery uses a short same-table path and settles only at its real re
   expect(received.adventure?.foods.map((f) => f.product)).toEqual(['apple']);
   expect(received.attempts).toHaveLength(1);
 });
+it('one preparation target atomically uses both existing storage spaces without asking for a tray', () => {
+  let s = createGame('split-prep', 0, {}, 'service');
+  for (const tray of [0, 0, 1] as const)
+    s = command(s, { type: 'move', source: { supply: 'apple' }, destination: { tray } }).state;
+  for (const product of ['banana', 'apple', 'banana']) s = pickup(s, product).state;
+  const before = s.items.map((i) => i.id).sort(),
+    r = put(s, { preparation: true });
+  expect(r.kind).toBe('ok');
+  expect(held(r.state)).toHaveLength(0);
+  expect(r.state.items.map((i) => i.id).sort()).toEqual(before);
+  expect(validateState(r.state)).toBe(true);
+});
+it('cancelling a note preserves queued real world delivery ownership and destination during rebase', () => {
+  let s = createGame('cancel-world', 0, {}, 'service');
+  s = command(s, { type: 'adventure-start', chapter: 4 }).state;
+  s = command(s, { type: 'picture-request', tray: 0, fruits: ['apple'] }).state;
+  s = pickup(s, 'banana').state;
+  s = put(s, { world: 'create' }).state;
+  expect(validateState(s)).toBe(true);
+  const r = command(s, { type: 'cancel-helper' });
+  expect(r.state.actor.current?.worldTarget).toBe('create');
+  expect(r.state.actor.current?.fromHand).toBe(true);
+  expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+  const finished = advance(r.state, 30000);
+  expect(
+    finished.adventure?.foods.map((f) => ({
+      product: f.product,
+      place: f.place,
+      source: f.source.split(':')[0],
+    })),
+  ).toEqual([{ product: 'banana', place: 'work', source: 'create' }]);
+  expect(validateState(finished)).toBe(true);
+});
+it('cancelling a note also preserves a queued hand order and its receiving identity', () => {
+  let s = createGame('cancel-order', 0, {}, 'service');
+  s = command(s, { type: 'adventure-start', chapter: 0 }).state;
+  s = command(s, { type: 'picture-request', tray: 0, fruits: ['banana'] }).state;
+  s = pickup(s, 'apple').state;
+  s = put(s, { order: 'guest-0' }).state;
+  const r = command(s, { type: 'cancel-helper' });
+  expect(r.state.actor.current?.order).toBe('guest-0');
+  expect(r.state.actor.current?.fromHand).toBe(true);
+  expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+  const settled = advance(r.state, 30000);
+  expect(settled.adventure?.foods.map((f) => ({ product: f.product, place: f.place }))).toEqual([
+    { product: 'apple', place: 'guest-rabbit' },
+  ]);
+  expect(settled.attempts).toHaveLength(1); // picture-based help does not submit English; only actual delivery does.
+  expect(validateState(settled)).toBe(true);
+});

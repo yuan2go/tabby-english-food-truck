@@ -44,6 +44,7 @@ export function App() {
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
   const [protectedSave, setProtectedSave] = useState(false);
   const [clearConfirm, setClearConfirm] = useState(false);
+  const [demoOrder, setDemoOrder] = useState<string | null>(null);
   const [retryAudio, setRetryAudio] = useState<string | null>(null);
   const shell = useRef<HTMLElement>(null),
     host = useRef<HTMLDivElement>(null),
@@ -150,6 +151,7 @@ export function App() {
     setPaused(false);
     setClearConfirm(false);
     setNote(false);
+    setDemoOrder(null);
     setScreen('home');
   };
   const enter = (
@@ -206,6 +208,8 @@ export function App() {
           controller={controller}
           audio={audio}
           dialogue={dialogue}
+          demoOrder={demoOrder}
+          closeDemo={() => setDemoOrder(null)}
           pause={() => setPaused(true)}
           home={home}
           next={() => enter('story', Math.min(4, s.session.chapter + 1))}
@@ -355,6 +359,21 @@ export function App() {
             >
               给大咪写便签
             </button>
+            {s.orders
+              .filter((o) => o.status === 'waiting')
+              .map((o) => (
+                <button
+                  type="button"
+                  key={o.id}
+                  onClick={() => {
+                    setPaused(false);
+                    setDemoOrder(o.id);
+                  }}
+                >
+                  看{o.visitor === 'hedgehog' || (!o.visitor && o.seat === 1) ? '刺刺' : '兔兔'}
+                  的同场示范
+                </button>
+              ))}
             {s.helper ? (
               <button type="button" onClick={() => controller.command({ type: 'cancel-helper' })}>
                 撤回便签
@@ -364,7 +383,10 @@ export function App() {
               <button
                 type="button"
                 onClick={() => {
-                  const tray = ([0, 1] as const).find((t) => freeSlots(controller.state, t).length);
+                  const tray = ([0, 1] as const).find(
+                    (t) =>
+                      !controller.state.trays[t].remaining && freeSlots(controller.state, t).length,
+                  );
                   if (tray !== undefined) controller.command({ type: 'restore-cleared', tray });
                   setPaused(false);
                 }}

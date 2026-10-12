@@ -87,7 +87,22 @@ export function togetherDamiRect(s: GameState, l: TogetherLayout): StageRect {
   const job = s.actor.current;
   if (job?.kind !== 'delivery') return l.dami;
   const order = s.orders.find((o) => o.id === job.order);
-  const target = l.seats[order?.visitor === 'hedgehog' || order?.seat === 1 ? 1 : 0];
+  const target =
+    job.worldTarget === 'create'
+      ? { x: l.table.x + l.table.width * 0.36, y: l.table.y + l.table.height - 52 }
+      : job.worldTarget === 'pack'
+        ? { x: l.table.x + 104, y: l.table.y + l.table.height }
+        : l.seats[
+            job.worldTarget === 'cool'
+              ? 1
+              : order?.visitor
+                ? order.visitor === 'hedgehog'
+                  ? 1
+                  : order.visitor === 'elder'
+                    ? 2
+                    : 0
+                : (order?.seat ?? 0)
+          ];
   if (!target) return l.dami;
   let received = 0;
   for (const phase of job.plan.phases) {

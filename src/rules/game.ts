@@ -213,6 +213,17 @@ export function dispatch(current: GameState, e: Envelope): Result {
     });
   }
   if (c.type === 'put' || c.type === 'return-hand') {
+    if (
+      c.type === 'put' &&
+      (!c.target ||
+        typeof c.target !== 'object' ||
+        Object.keys(c.target).length !== 1 ||
+        !['preparation', 'order', 'world', 'tray', 'machine', 'station'].some(
+          (k) => k in c.target,
+        ) ||
+        ('preparation' in c.target && c.target.preparation !== true))
+    )
+      return result('blocked', '点一个明确的实际目标。');
     const items = handItems(s);
     if (!items.length) return result('blocked', '手里还没有食品，先拿起一份。');
     if (c.type === 'return-hand') {
@@ -237,10 +248,16 @@ export function dispatch(current: GameState, e: Envelope): Result {
     }
     let candidate = s;
     for (const [index, item] of items.entries()) {
+      const prepTray =
+        c.type === 'put' && 'preparation' in c.target
+          ? MODES[candidate.mode].trays.find(
+              (t) => !candidate.trays[t].remaining && emptyTraySlots(candidate, t).length,
+            )
+          : undefined;
       const destination: Destination =
         c.type === 'return-hand'
           ? { discard: true, confirmed: Boolean(c.confirmed) }
-          : (c.target as Destination);
+          : (('preparation' in c.target ? { tray: prepTray ?? -1 } : c.target) as Destination);
       if (
         !destination ||
         typeof destination !== 'object' ||
@@ -338,7 +355,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     for (const o of s.orders)
       if (c.order === 'all' || o.id === c.order)
         o.support = [...new Set([...o.support, c.reason])].slice(-24);
-    return result('ok', '已记录这次文字或示范支持。');
+    return result('ok', '可以看图、重听，慢慢准备。');
   }
   if (c.type === 'lesson') {
     s.lessons = [...new Set([...s.lessons, c.lesson])].slice(-24);
@@ -420,10 +437,10 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if (!s.recycle) return result('blocked', '没有等待恢复的成品。');
     const slot = freeSlots(s, c.tray)[0];
     if (slot === undefined || s.trays[c.tray].remaining)
-      return result('blocked', '先在托盘腾一个位置。');
+      return result('blocked', '先在制作承放区腾一个位置。');
     s.items.push({ ...s.recycle, location: `tray:${c.tray}:${slot}` });
     s.recycle = null;
-    return result('ok', '成品回到托盘了。');
+    return result('ok', '成品回到制作承放区了。');
   }
   if (c.type === 'move') {
     const source = c.source;
@@ -440,7 +457,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
     if (existing?.location.startsWith('tray:')) {
       const tray = Number(existing.location.split(':')[1]) as TrayId;
       if (s.trays[tray].remaining > 0)
-        return result('blocked', '托盘正在回来，另一个托盘可以继续用。');
+        return result('blocked', '正在递送；可以先放回手中物，等一下再暂放。');
     }
     if ('discard' in c.destination) {
       if (!existing) return result('blocked', '放回就好，不需要从原料格清理。');
@@ -475,7 +492,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', placementMessage(location, product));
   }
   if (c.type === 'start-machine') {
-    if (s.machine.status === 'processing') return result('blocked', '正在制作，你可以准备另一盘。');
+    if (s.machine.status === 'processing')
+      return result('blocked', '正在制作，你还可以准备别的食品。');
     if (s.machine.status === 'ready') return result('blocked', '先拿走成品，才能再做一杯。');
     if (
       !s.items.some(
@@ -499,7 +517,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return result('ok', '便签已撤回，水果放回，盘位已释放。');
   }
   if (c.type === 'note' || c.type === 'picture-request') {
-    if (!MODES[s.mode].trays.includes(c.tray)) return result('blocked', '这次只用一只托盘。');
+    if (!MODES[s.mode].trays.includes(c.tray))
+      return result('blocked', '制作承放区暂时没有这个位置。');
     if (
       c.type === 'picture-request' &&
       (!c.fruits.length ||
@@ -532,9 +551,9 @@ export function dispatch(current: GameState, e: Envelope): Result {
     const blocked = s.helper
       ? '大咪正在取料。等一下，或撤回上一张便签。'
       : s.trays[c.tray].remaining > 0
-        ? '这只托盘还没回来。'
+        ? '大咪还在递送，食品会等你。'
         : slots.length < phrase.fruits.length
-          ? '托盘不够放。先移走水果，或换一只托盘。'
+          ? '制作承放区不够放。先取走已有食品，或撤回便签。'
           : '';
     if (c.type === 'note')
       attempt(s, {
@@ -573,22 +592,23 @@ export function dispatch(current: GameState, e: Envelope): Result {
       ),
     };
     s.items.push(...items);
-    return result('ok', `大咪读懂了，正在送往${c.tray + 1}号托盘。`);
+    return result('ok', `大咪读懂了，正在把食品带到制作承放区。`);
   }
   if (c.type === 'deliver') {
     const order = s.orders.find((o) => o.id === c.order);
     if (order?.status !== 'waiting') return result('blocked', '这位客人已经收到食物。');
-    if (s.trays[c.tray].remaining > 0) return result('blocked', '托盘还在回来。');
+    if (s.trays[c.tray].remaining > 0) return result('blocked', '递送还在进行，食品仍在手里。');
     if (Object.values(s.routing).some((t) => t && 'tray' in t && t.tray === c.tray))
-      return result('blocked', '这只盘正等机器的成品。可等做好，或先使用另一盘。');
+      return result('blocked', '设备预留的位置还在使用；等做好再递送，食品会保留。');
     if (s.helper?.tray === c.tray)
-      return result('blocked', '大咪预留了这只托盘。等它放好，或撤回便签。');
+      return result('blocked', '大咪正在按便签准备；等它放好，或撤回便签。');
     const items = c.fromHand ? handItems(s) : trayItems(s, c.tray);
     if (s.actor.queue.length >= 3) return result('blocked', '大咪正在递餐，稍等一下。');
     if (!canReceiveAdventure(s, items.length))
       return result('blocked', '活动桌满了，保存作品后收拾再送。');
     const expected = REQUESTS[order.request].products;
-    if (items.length < expected.length) return result('incomplete', '盘里还没准备齐，可以接着放。');
+    if (items.length < expected.length)
+      return result('incomplete', '食品还没准备齐，可以接着拿取。');
     if (!order.heard)
       order.support = [...new Set([...order.support, 'audio-not-observed'])].slice(-24);
     const match = matchProducts(
@@ -603,7 +623,10 @@ export function dispatch(current: GameState, e: Envelope): Result {
     });
     if (!match) {
       order.support = [...new Set([...order.support, 'mismatch-explanation'])];
-      return result('mismatch', `${REQUESTS[order.request].explanation} 食物留在盘里，可以调整。`);
+      return result(
+        'mismatch',
+        `${REQUESTS[order.request].explanation} ${c.fromHand ? '食品仍在手里' : '食品仍在制作承放区'}，可以调整或放回。`,
+      );
     }
 
     const duration = queueActor(
@@ -643,11 +666,11 @@ function placementMessage(location: Location, product: Product): string {
   if (location.startsWith('hand:'))
     return `拿起了${PRODUCT_NAMES[product]}。点目标放下或使用，也可以直接放回。`;
   if (location.startsWith('tray:'))
-    return `${Number(location.split(':')[1]) + 1}号盘接住了${PRODUCT_NAMES[product]}。可以继续备餐或选择客人送餐。`;
+    return `${PRODUCT_NAMES[product]}放在制作承放区了；拿起后再点接收者。`;
   if (location.startsWith('machine:'))
     return product === 'cup'
       ? '空杯在出汁口。水果由你选，机器做好后会装进这只杯。'
-      : `${PRODUCT_NAMES[product]}进入果汁机。点榨汁，等待时还可以准备另一盘。`;
+      : `${PRODUCT_NAMES[product]}进入果汁机。点榨汁，等待时还可以准备别的食品。`;
   const station = location.split(':')[1];
   if (station === 'ice')
     return product === 'cup' || product === 'cone'
@@ -680,7 +703,7 @@ function destination(
   }
   if ('station' in dest) return stationDestination(s, dest.station, product);
   if ('tray' in dest) {
-    if (!MODES[s.mode].trays.includes(dest.tray)) return { reason: '这次只用一只托盘。' };
+    if (!MODES[s.mode].trays.includes(dest.tray)) return { reason: '制作承放区暂时没有这个位置。' };
     if (product === 'cup' && !existing?.location.startsWith('hand:'))
       return { reason: '空杯放到果汁机右侧的杯座。' };
     if (s.trays[dest.tray].remaining > 0) return { reason: '托盘正在回来，试试另一盘。' };

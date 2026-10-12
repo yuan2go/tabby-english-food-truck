@@ -28,7 +28,7 @@ export function stationDestination(
         r.station === id && s.session.unlocked.includes(r.family) && r.inputs.includes(product),
     )
   )
-    return { reason: '这份食物不放在这里，可放到托盘或退回。' };
+    return { reason: '这份食品不放在这里，可暂放或放回。' };
   const slot = [0, 1, 2, 3, 4].find(
     (n) =>
       !items.some((i) => i.location === `station:${id}:${n}`) && !reserved(s, `station:${id}:${n}`),
@@ -71,7 +71,7 @@ export function startStation(s: GameState, id: StationId): { ok: boolean; messag
   st.recipe = recipe.id;
   st.remaining = recipe.ms;
   st.status = 'processing';
-  return { ok: true, message: `${recipe.action}开始了，还能准备另一盘。` };
+  return { ok: true, message: `${recipe.action}开始了，还能准备别的食品。` };
 }
 export function advanceStations(s: GameState, delta: number): boolean {
   let changed = false;

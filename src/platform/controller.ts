@@ -17,7 +17,7 @@ export class GameController {
   readonly minis = new MiniStore(() => localStorage);
   readonly profile = new ProfileStore(() => localStorage);
   readonly pauses = new Set<string>(['home']);
-  message = '听一听，准备好，再把整盘递给客人。';
+  message = '点朋友听需要，拿起食品，再点目标。';
   savedGame = false;
   private serial = 0;
   private checkpoint = 0;
@@ -89,7 +89,16 @@ export class GameController {
     // Lifecycle pauses and discarded resume frames still prevent suspended-time catch-up.
     delta = Math.min(delta, 250);
     const previous = this.state.revision;
+    const receiving = this.state.orders.filter((o) => o.status !== 'done').map((o) => o.id);
+    const helper = this.state.helper;
     this.state = advance(this.state, delta);
+    if (
+      receiving.some((id) => this.state.orders.some((o) => o.id === id && o.status === 'done')) &&
+      this.message === '大咪正把这份心意送过去。'
+    )
+      this.message = '朋友收到啦！可以接着准备。';
+    if (helper && !this.state.helper && this.message.includes('正在把食品带到制作承放区'))
+      this.message = '食品放好了，点它拿起，再点目标。';
     if (
       !this.state.adventure &&
       this.state.session.activity === 'story' &&

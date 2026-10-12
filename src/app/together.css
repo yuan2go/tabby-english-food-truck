@@ -485,3 +485,79 @@
   border-radius: 35%;
   background: #ffe7aa16;
 }
+
+.together-stage .request-picture {
+  position: absolute;
+  z-index: 16;
+}
+.together-stage .request-picture button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff4dc;
+  border: 2px solid #a58b63;
+  width: 48px;
+  height: 48px;
+}
+.together-stage .request-picture .food-art {
+  width: 36px;
+  height: 36px;
+}
+.together-stage .request-picture button:has(.food-art:nth-child(2)) .food-art {
+  width: 18px;
+}
+.together-stage .request-picture span {
+  position: absolute;
+  right: -4px;
+  bottom: -2px;
+  background: #fff4dc;
+  border-radius: 50%;
+}
+.together-stage .stage-demonstration {
+  position: absolute;
+  inset: 0;
+  z-index: 38;
+}
+.together-stage .demonstration-food {
+  position: absolute;
+  padding: 5px;
+  border: 3px dashed #dbb24f;
+  background: #fff3dacc;
+  border-radius: 50%;
+}
+.together-stage .demonstration-food span {
+  display: block;
+  font-size: 11px;
+  text-align: center;
+}
+.together-stage .demonstration-caption {
+  position: absolute;
+  background: #fff4dce8;
+  border: 3px solid #ae925d;
+  border-radius: 12px;
+  padding: 8px;
+}
+.together-stage .demonstration-caption p {
+  font-size: 14px;
+}
+.together-stage .demonstration-caption button {
+  margin: 2px;
+  background: #e5c98d;
+}
+.together-stage .work-memory {
+  border-bottom: 1px solid #ab966c;
+  padding: 8px 0;
+}
+.together-stage .remembered-table {
+  display: flex;
+  gap: 8px;
+}
+.together-stage .remembered-seat {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.together-stage .remembered-tastes span {
+  display: inline-flex;
+  align-items: center;
+}

@@ -25,7 +25,7 @@ async function bookAction(p: Page, name: string) {
 async function desserts(p: Page) {
   await send(p, 0);
   await make(p, 'strawberry-cup');
-  await click(p, '送去树荫分享');
+  await click(p, '交给刺刺');
   await expect.poll(async () => (await state(p)).adventure?.steps.includes('cool')).toBe(true);
   await bookAction(p, '比较两种甜点');
   await bookAction(p, '品尝草莓冰淇淋杯');
@@ -118,6 +118,12 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await page.reload();
   await page.locator('.yard-story .entry-main').click();
   expect((await state(page)).adventure?.works).toEqual(s.adventure?.works);
+  await click(page, '翻开旧食谱');
+  await expect(page.getByRole('region', { name: '这次保存的作品' })).toContainText('I made');
+  await click(page, '再准备一次');
+  await click(page, '翻开旧食谱');
+  await expect(page.getByRole('region', { name: '旧活动的作品' })).toContainText('I made');
+  expect((await state(page)).items).toHaveLength(0);
 });
 test('receipt presentation and low motion never repeat settlement', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
