@@ -77,6 +77,7 @@ export const foodVisitor = (food: WorldFood): Visitor =>
       ? 'elder'
       : 'rabbit');
 export function drawerTools(a: AdventureState): readonly Tool[] {
+  if (a.chapter === 4 && a.foods.length && !a.rewards.length) return ['spoon'];
   if (a.chapter === 0 && a.explored.includes('drawer')) return ['seed', 'watering-can'];
   if (a.chapter === 1 && a.explored.includes('recipe')) return ['spoon'];
   if (a.chapter === 2 && a.branch === 'hedgehog' && a.explored.includes('drawer')) return ['mat'];

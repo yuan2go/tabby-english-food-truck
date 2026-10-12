@@ -299,15 +299,36 @@ export function TogetherStage({
           dialogue.request(welcomed);
         }
       } else if (order?.status === 'waiting') dialogue.request(order);
-      else if (a && (a.chapter === 4 || a.kind === 'shop' || a.rewards.length)) {
+      else if (
+        a &&
+        (a.chapter === 4 || a.kind === 'shop' || a.rewards.length) &&
+        !a.invitations.includes(target.visitor)
+      ) {
         const r = act('invite', { visitor: target.visitor });
         if (r.kind === 'ok') dialogue.invite(target.visitor);
       } else if (commissionLine(target.visitor)) {
         const line = commissionLine(target.visitor);
         if (line) dialogue.show({ key: `${s.runId}:commission:${target.visitor}`, line });
       } else if (
+        a?.experience?.needs.some((n) => n.visitor === target.visitor && !n.fulfilled.length)
+      ) {
+        const need = a.experience.needs.find((n) => n.visitor === target.visitor);
+        if (need)
+          dialogue.show(
+            {
+              key: `${s.runId}:need:${target.visitor}`,
+              line: { ...lineFor(`sharing-${need.kind}` as LineId), role: target.visitor },
+            },
+            true,
+          );
+      } else if (
         a?.steps.includes(`served:${target.visitor}`) ||
-        a?.foods.some((f) => f.place === `guest-${target.visitor}`)
+        a?.foods.some(
+          (f) =>
+            f.recipient === target.visitor ||
+            f.place === `guest-${target.visitor}` ||
+            f.place === `table:${target.seat}`,
+        )
       )
         dialogue.show(
           {
@@ -521,18 +542,21 @@ export function TogetherStage({
             const visitor: Visitor = index === 0 ? 'rabbit' : index === 1 ? 'hedgehog' : 'elder';
             const order = orderFor(visitor, index),
               name = VISITOR_NAMES[visitor];
-            const need = a?.experience?.needs.find((n) => n.visitor === visitor);
+            const sharing = a?.experience?.needs.find((n) => n.visitor === visitor);
+            const need = sharing?.fulfilled.length ? null : sharing;
             const current = dialogue.current;
             const line: DialogueLine | null =
               order?.status === 'waiting'
                 ? { ...REQUESTS[order.request], role: visitor, trigger: 'order' }
                 : commissionLine(visitor)
                   ? commissionLine(visitor)
-                  : current?.line.role === visitor
-                    ? current.line
-                    : need
-                      ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
-                      : commissionLine(visitor);
+                  : sharing?.fulfilled.length
+                    ? { ...lineFor('thanks'), role: visitor }
+                    : current?.line.role === visitor
+                      ? current.line
+                      : need
+                        ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
+                        : commissionLine(visitor);
             const listen = () => {
               setFocusedSpeaker(visitor);
               if (order?.status === 'waiting') dialogue.request(order);
@@ -545,7 +569,9 @@ export function TogetherStage({
                 ? `先帮${name}`
                 : order?.status === 'waiting'
                   ? `听${name}的请求`
-                  : a && (a.chapter === 4 || a.kind === 'shop' || a.rewards.length)
+                  : a &&
+                      (a.chapter === 4 || a.kind === 'shop' || a.rewards.length) &&
+                      !a.invitations.includes(visitor)
                     ? `邀请${name}`
                     : `和${name}说话`;
             const foods =

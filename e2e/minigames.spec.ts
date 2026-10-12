@@ -112,7 +112,8 @@ for (const kind of ['match', 'spell'] as const)
             );
             expect((await mini(page)).draft).not.toContain(letter.id);
           }
-          await tile.tap();
+          if (n === 1 && i === 0) await tile.press('Enter');
+          else await tile.tap();
           await expect(page.locator(`[data-letter-slot="${i}"]`)).toHaveText(letter.text);
         }
         if (n === 0) {

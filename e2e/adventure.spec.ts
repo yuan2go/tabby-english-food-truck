@@ -102,7 +102,12 @@ async function creation(p: Page) {
     await p.locator(`[data-hotspot="item-${f.id}"]`).click();
     await p.locator(`[data-actor="${f.product === 'sandwich' ? 'rabbit' : 'hedgehog'}"]`).click();
   }
-  await bookAction(p, '品尝芝士三明治');
+  await click(p, '取出小勺');
+  await click(p, '拿起芝士三明治（活动）');
+  await expect(p.getByRole('button', { name: '重听兔兔：Thank you!', exact: true })).toBeVisible();
+  await expect(
+    p.getByRole('button', { name: /重听兔兔：Can I have a sandwich or a burger/ }),
+  ).toHaveCount(0);
   await bookAction(p, '保存到食谱');
   await click(p, '一起开席');
 }
