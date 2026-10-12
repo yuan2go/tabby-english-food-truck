@@ -1,6 +1,6 @@
 # 同桌共玩云端与桌面交付
 
-游戏[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)正常merge，实际main `2e3f36442a54a564647632d6bf421ec58a3b6252`，已fetch核对。精确faf1955候选全部工程门禁success；没有强推、admin或绕过保护。材料分支codex/together-release-materials-2026-10-12从该合并main创建，只包含文档、必要证据与正式材料；最终材料PR的动态合并回执与main full SHA由该PR及最终交付回复实际读回。
+游戏[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)正常merge，实际main `2e3f36442a54a564647632d6bf421ec58a3b6252`，已fetch核对。精确faf1955候选全部工程门禁success；没有强推、admin或绕过保护。材料分支codex/together-release-materials-2026-10-12从该合并main创建，只包含文档、必要证据与正式材料；[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)的动态合并回执与main full SHA由该PR及最终交付回复实际读回。
 
 原[公开游戏站点](https://tabby-english-food-truck.aw9923299.chatgpt.site)沿用，访问需要开启 VPN。project appgprj_6ab141055ab8819186112dee423d0d04，source49d307ef2573173b31a7f6225bab0380fedec574，version4，部署appgdep_6acc6e74a5508191955f926fc5c21532 succeeded。实际权限public，无登录/邀请；新匿名cookie0会话HTTP200、SHA/dirty=false读回、核心早餐/重听/误送/放回/存档PASS；不是仅根据部署命令作出上线结论。完整原始映射及失败记录见[本轮报告](../evidence/simplified-play-2026-10-12/README.md)。
 

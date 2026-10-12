@@ -1,6 +1,6 @@
 # 同桌共玩 · 2026-10-12正式交付
 
-PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING：同桌舞台覆盖五章、双野餐与自由厨房。正常新档手机连续代理游玩和桌面补查完成，问题已实际修正及定向复测。最终代码head339/339单元、39/39浏览器与必要门禁success，经[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)合并main `2e3f36442a54a564647632d6bf421ec58a3b6252`，清洁构建dirty=false；原站version4公开部署及VPN匿名真实核心游玩PASS。最新一页设计说明及可编辑Markdown同稿核验、备份旧版、复制真实桌面均PASS。最终材料与报告另走材料PR归档main；合并回执以该PR和交付回复实际读回为准。详见[完整报告](evidence/simplified-play-2026-10-12/README.md)与[材料索引](submission/index.md)。
+PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING：同桌舞台覆盖五章、双野餐与自由厨房。正常新档手机连续代理游玩和桌面补查完成，问题已实际修正及定向复测。最终代码head339/339单元、39/39浏览器与必要门禁success，经[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)合并main `2e3f36442a54a564647632d6bf421ec58a3b6252`，清洁构建dirty=false；原站version4公开部署及VPN匿名真实核心游玩PASS。最新一页设计说明及可编辑Markdown同稿核验、备份旧版、复制真实桌面均PASS。最终材料与报告由[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)归档main；合并回执以该PR和交付回复实际读回为准。详见[完整报告](evidence/simplified-play-2026-10-12/README.md)与[材料索引](submission/index.md)。
 
 已去掉端盘/选盘/分场景入口和独立演出窗口；真实手持、物件目标、加工钟、误送/放回/成品恢复、早餐探索可选及旧档位置迁移均走原规则核。实体设备/成人真人试玩/儿童观察/教研/人工听审NOT_RUN，权利审核PENDING。代理和自动化不替代真实外部验证，历史真机NEEDS_REVISION、60fps NOT_MET不撤销。
 

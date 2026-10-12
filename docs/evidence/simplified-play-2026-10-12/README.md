@@ -1,6 +1,6 @@
 # 简化游戏操作 · 游玩与发布记录
 
-2026-10-12。正式改版代码已通过精确head全部门禁，由PR20合并main，并更新原公开站点version4。VPN网络无登录新会话实际完成早餐、重听/错拿/误送/放回/刷新存档复核；一页设计说明同稿核验并复制真实桌面。最终材料和报告由独立材料PR归档入main，云端合并回执以关联PR为准。
+2026-10-12。正式改版代码已通过精确head全部门禁，由PR20合并main，并更新原公开站点version4。VPN网络无登录新会话实际完成早餐、重听/错拿/误送/放回/刷新存档复核；一页设计说明同稿核验并复制真实桌面。最终材料和报告由[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)归档入main，云端合并回执以关联PR为准。
 
 ## 范围与基线
 
@@ -53,7 +53,7 @@
 | 受影响五章/双路径/自由厨房/手机桌面/语义输入 | 冻结构建12/12退出0，[日志](frozen-affected.log)；其后小勺五章1/1、自由收据1/1退出0，见对应绿日志 |
 | 拼字触控与键盘 | 3/3退出0，[日志](letter-release-final.log)；云端精确`fe6ca85fd4e44806d86b6b1a7d838f388d843bb4`39/39、全部门禁success，[run38203732628](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38203732628) |
 | 精确`f2a81c31992bef5356eeae3feb6f078174af12cc` | 39/39浏览器及338单元、lint/resources/build均success，[run38204290384](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38204290384)；该阶段精确版本通过，不冒称最后head |
-| 最终代码PR精确faf195571c370faffb9a377558d6e6f3a88922a3 | 339/339单元、39/39浏览器及lint/resources/build全部success；Ubuntu Node22.12.0；[run38205782371](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38205782371)，[完整云端日志](ci-faf1955-success.log) |
+| 最终代码PR精确faf195571c370faffb9a377558d6e6f3a88922a3 | 339/339单元、39/39浏览器及lint/resources/build全部success；Ubuntu Node22.12.0；[run38205782371](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38205782371)，[完整云端日志](ci-faf1955-success.log.gz) |
 | 合并main清洁构建 npm run build | 退出0，SHA2e3f36442a54a564647632d6bf421ec58a3b6252，dirty=false；[实际日志](build-merged-main.log)；与PR head游戏树相同 |
 
 所有失败保留：首轮36条23通过/13失败，定向13条12通过/1失败，首页修正1/1；CI9987d7f35/36和261599938/39都被拼字问题阻断，未绕过。`speech-five-chapters.log`8通过/4失败是我同时重建dist，Vite读取资源遇ENOENT后终止；已经改成冻结预览与串行复测，`frozen-affected.log`12/12。无把中断写为通过。早期无效迁移夹具的红日志也保留，真正有效夹具红/绿另列，不以坏夹具证明产品缺陷。
@@ -75,3 +75,5 @@
 [设计说明](../../submission/index.md)：15文字块/1页A4，四项、网址与“访问需要开启 VPN”完整，源稿与PDF逐字比对、全页视觉和可点击链接检查PASS；最新线上图同字节。桌面旧同名PDF已备份，新的PDF与Markdown源稿（附相对图片）正常复制，可读/hash相同；[系统桌面回执](desktop-copy.json)含绝对路径、备份和hash。最终材料PR、main读回与本报告一起交付，不把材料提交SHA冒充运行代码SHA。
 
 并发提示定向证据：[真实命令红](receipt-source-red.log)→[10/10绿](receipt-source-green.log)。第一绿轮的存档断言误传JSON对象而非API要求的原字符串，已纠正输入，未删解码断言；该测试编写失败保留在receipt-source-green-first.log，不冒称存档产品缺陷。
+
+Git空白审查发现GitHub原始日志含行末空白。原文以无损gzip保存，解压字节与原文一致；[hash/回读](ci-log-integrity.json)，未改检查结论或删失败。
