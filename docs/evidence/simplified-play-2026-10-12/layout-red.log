@@ -1,0 +1,24 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-layout.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-layout.test.ts [ tests/together-layout.test.ts ]
+Error: Cannot find module '../src/game/together-layout' imported from /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/tests/together-layout.test.ts
+ ❯ tests/together-layout.test.ts:2:1
+      1| import { describe, expect, it } from 'vitest';
+      2| import { togetherLayout } from '../src/game/together-layout';
+       | ^
+      3|
+      4| describe('one physical stage on representative devices',()=>{
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  10:36:53
+   Duration  115ms (transform 19ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

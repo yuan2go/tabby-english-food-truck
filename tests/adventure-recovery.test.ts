@@ -4,13 +4,48 @@ import { emptyAdventure } from '../src/content/adventure';
 import { kitchenActions, layoutFor } from '../src/game/layout';
 import { GameController } from '../src/platform/controller';
 import { emptyProfile, ProfileStore } from '../src/platform/profile';
-import { SaveStore } from '../src/platform/save';
+import { SAVE_KEY, SaveStore } from '../src/platform/save';
 import { advance, createGame, dispatch } from '../src/rules/game';
 import { configureSession } from '../src/rules/sessions';
 import { decodeSnapshot } from '../src/rules/snapshot';
 import type { Command } from '../src/rules/types';
 
 // Catch session-key collisions, fabricated migration rewards, and menu changes rewriting orders.
+it('a real guest receipt cannot complete the queued work presentation', () => {
+  const values = new Map<string, string>();
+  const storage = {
+    getItem: (key: string) => values.get(key) ?? null,
+    setItem: (key: string, value: string) => {
+      values.set(key, value);
+    },
+    removeItem: (key: string) => {
+      values.delete(key);
+    },
+  };
+  vi.stubGlobal('localStorage', storage);
+  vi.spyOn(Math, 'random').mockReturnValue(0);
+  try {
+    const c = new GameController(new SaveStore(() => storage), () => 'receipt-source');
+    c.enter('endless', 0, 'pictures', true, 2);
+    c.pause('home', false);
+    const apple = c.state.orders.find((o) => o.request === 'apple');
+    expect(apple).toBeDefined();
+    expect(c.command({ type: 'pickup', source: { supply: 'apple' } }).kind).toBe('ok');
+    expect(c.command({ type: 'put', target: { order: apple?.id ?? '' } }).kind).toBe('ok');
+    expect(c.command({ type: 'pickup', source: { supply: 'banana' } }).kind).toBe('ok');
+    expect(c.command({ type: 'put', target: { world: 'create' } }).kind).toBe('ok');
+    for (let n = 0; n < 60 && !c.state.adventure?.foods.length; n++) c.tick(100);
+    expect(c.state.adventure?.foods.map((f) => f.product)).toEqual(['apple']);
+    expect(c.message).toBe('大咪正把你的作品带到活动桌。');
+    for (let n = 0; n < 60 && !c.state.adventure?.foods.some((f) => f.product === 'banana'); n++)
+      c.tick(100);
+    expect(c.message).toContain('作品放好了');
+    expect(decodeSnapshot(values.get(SAVE_KEY) ?? '').ok).toBe(true);
+  } finally {
+    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
+  }
+});
 it('normal story entry starts an activity and resumes the same items after a mode switch', () => {
   const values = new Map<string, string>();
   const storage = {

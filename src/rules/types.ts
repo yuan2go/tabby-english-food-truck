@@ -6,6 +6,7 @@ import type { ActorPlan, ActorPoint } from '../game/actor';
 import type { Routing } from './routing';
 export type TrayId = 0 | 1;
 export type Location =
+  | `hand:${0 | 1 | 2}`
   | `tray:${TrayId}:${0 | 1 | 2}`
   | 'machine:apple'
   | 'machine:cup'
@@ -113,11 +114,22 @@ export interface GameState {
 }
 export type Source = { supply: Product } | { item: string };
 export type Destination =
+  | { hand: true }
   | { tray: TrayId }
   | { machine: 'apple' | 'cup' }
   | { station: StationId }
   | { discard: true; confirmed: boolean };
 export type Command =
+  | { type: 'pickup'; source: Source }
+  | {
+      type: 'put';
+      target:
+        | Exclude<Destination, { hand: true } | { discard: true }>
+        | { order: string }
+        | { preparation: true }
+        | { world: 'pack' | 'cool' | 'create' };
+    }
+  | { type: 'return-hand'; confirmed?: boolean }
   | {
       type: 'shop-policy';
       menu: RequestId[];
@@ -135,6 +147,7 @@ export type Command =
       value?: string;
       visitor?: Visitor;
       confirmed?: boolean;
+      fromHand?: true;
     }
   | { type: 'move'; source: Source; destination: Destination }
   | { type: 'start-machine'; tray?: TrayId }
@@ -147,7 +160,7 @@ export type Command =
   | { type: 'supply-page'; page: number }
   | { type: 'menu'; requests: RequestId[]; families: Family[] }
   | { type: 'actor-anchor'; point: ActorPoint }
-  | { type: 'deliver'; tray: TrayId; order: string }
+  | { type: 'deliver'; tray: TrayId; order: string; fromHand?: true }
   | { type: 'note'; tray: TrayId; tokens: string[] }
   | { type: 'picture-request'; tray: TrayId; fruits: ('apple' | 'banana')[] }
   | { type: 'cancel-helper' }
@@ -176,6 +189,7 @@ export interface Result {
 }
 
 export interface ActorJob {
+  fromHand?: true;
   plan: ActorPlan;
   elapsed: number;
   kind: 'helper' | 'delivery' | 'return';

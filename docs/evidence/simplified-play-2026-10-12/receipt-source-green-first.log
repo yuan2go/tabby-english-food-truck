@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/adventure-recovery.test.ts (10 tests | 1 failed) 46ms
+   × a real guest receipt cannot complete the queued work presentation 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure-recovery.test.ts > a real guest receipt cannot complete the queued work presentation
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/adventure-recovery.test.ts:43:90
+     41|       c.tick(100);
+     42|     expect(c.message).toContain('作品放好了');
+     43|     expect(decodeSnapshot(JSON.parse(values.get('tabby.foodtruck.save.…
+       |                                                                                          ^
+     44|   } finally {
+     45|     vi.restoreAllMocks();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  12:53:38
+   Duration  405ms (transform 207ms, setup 0ms, import 254ms, tests 46ms, environment 0ms)
+

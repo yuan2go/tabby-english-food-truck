@@ -1,0 +1,26 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-layout.test.ts (3 tests | 1 failed) 5ms
+     × keeps core targets inside 665 by 393 without scrolling 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-layout.test.ts > one physical stage on representative devices > keeps core targets inside 665 by 393 without scrolling
+AssertionError: expected 655 to be less than or equal to 259.3
+ ❯ tests/together-layout.test.ts:18:51
+     16|       expect(l.guests).toHaveLength(2);
+     17|       expect(l.guests[0]?.height).toBeGreaterThan(90);
+     18|       expect(l.preparation.x+l.preparation.width).toBeLessThanOrEqual(…
+       |                                                   ^
+     19|     });
+     20|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  10:38:19
+   Duration  130ms (transform 25ms, setup 0ms, import 33ms, tests 5ms, environment 0ms)
+

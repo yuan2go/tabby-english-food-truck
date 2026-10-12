@@ -15,73 +15,84 @@ export async function tap(p: Page, id: string, dy = 0) {
   const q = await hot(p, id, dy);
   await p.touchscreen.tap(q.x, q.y);
 }
-async function dismissOpening(p: Page) {
-  const dialog = p.getByRole('dialog', { name: '章节开场' });
-  if (!(await dialog.count())) return;
-  const visualContinue = dialog.getByRole('button', { name: '看图继续 ↗' });
-  const button = (await visualContinue.isVisible())
-    ? visualContinue
-    : dialog.getByRole('button', { name: '跳过开场' });
-  try {
-    await button.tap();
-  } catch (error) {
-    if (await dialog.count()) throw error;
-  }
-  await expect(dialog).toHaveCount(0);
-}
 export async function lesson(p: Page) {
-  await dismissOpening(p);
-  await p.evaluate(
-    () =>
-      new Promise<void>((resolve) =>
-        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
-      ),
-  );
-  const button = p.getByRole('button', { name: '我来试试', exact: true });
-  if (await button.count()) await button.tap();
   await expect(p.locator('.loading-page')).toHaveCount(0);
 }
 export async function startStory(p: Page) {
   await p.goto('/');
-  await p.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).tap();
-  await p.getByRole('button', { name: '先帮兔兔', exact: true }).tap();
-  await p.getByRole('button', { name: '去厨房备餐', exact: true }).tap();
-  await expect(p.getByRole('dialog', { name: '场景小教学' })).toBeVisible();
-  await lesson(p);
+  await p.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
+  await p.getByRole('button', { name: '先帮兔兔', exact: true }).click();
 }
 export async function startEndless(p: Page, less = true) {
   await p.goto('/');
-  await p.locator('.yard-endless .entry-main').tap();
+  await p.locator('.yard-endless .entry-main').click();
   if (less) {
-    await p.getByRole('button', { name: '少些帮助，听一听' }).tap();
-    await p.getByRole('button', { name: '两位一起招呼' }).tap();
+    await p.getByRole('button', { name: '少些帮助，听一听' }).click();
+    await p.getByRole('button', { name: '两位一起招呼' }).click();
   }
-  await p.getByRole('button', { name: '开门 / 继续营业' }).tap();
+  await p.getByRole('button', { name: '开门 / 继续营业' }).click();
   await lesson(p);
 }
 export async function choosePrep(p: Page, name: string) {
-  // A receipt may arrive before its empty tray returns. Let the real game clock
-  // finish that journey before selecting it as a production destination; the
-  // boundary tests deliberately tap busy trays without this helper.
-  if (name.includes('盘')) {
-    const tray = name.includes('2') ? 1 : 0;
-    await expect
-      .poll(async () => (await state(p)).trays[tray].remaining, { timeout: 18000 })
-      .toBe(0);
+  const label = name.includes('盘')
+    ? '放到制作承放区'
+    : name === '果汁机'
+      ? '放入果汁机水果口'
+      : name === '冰淇淋台'
+        ? '放到冰淇淋台'
+        : name === '煎台'
+          ? '放到煎台'
+          : '放到组合板';
+  await p.getByRole('button', { name: label, exact: true }).click();
+}
+const equipment = {
+  juice: '果汁机',
+  ice: '冰淇淋台',
+  sandwich: '夹层板',
+  burger: '煎台',
+  ready: '食品篮',
+};
+export async function selectDevice(p: Page, device: string) {
+  if ((await p.locator('.preparation-scene').getAttribute('data-device')) === device) return;
+  const label =
+    device === 'burger-board' ? '汉堡组合板' : equipment[device as keyof typeof equipment];
+  for (let turns = 0; turns < 8; turns++) {
+    const desired = p.getByRole('button', { name: `看看${label}`, exact: true });
+    if (await desired.isVisible()) {
+      await desired.click();
+      return;
+    }
+    await p.locator('.equipment-rack button').last().click();
   }
-  await tap(
-    p,
-    name.includes('盘')
-      ? name.includes('2')
-        ? 'tray-1'
-        : 'tray-0'
-      : name === '果汁机'
-        ? 'machine-apple'
-        : name === '冰淇淋台'
-          ? 'station-ice'
-          : name === '煎台'
-            ? 'station-grill'
-            : 'station-board',
+  throw Error(`physical device ${device} not reachable`);
+}
+export async function supply(p: Page, product: Product) {
+  if (!(await p.locator(`[data-hotspot="supply-${product}"]`).isVisible())) {
+    const family =
+      product === 'apple' || product === 'banana' || product === 'cup'
+        ? 'juice'
+        : product === 'cone' || product === 'vanilla' || product === 'strawberry'
+          ? 'ice'
+          : product === 'bun' || product === 'patty'
+            ? 'burger'
+            : product === 'bread' ||
+                product === 'cheese' ||
+                product === 'lettuce' ||
+                product === 'tomato'
+              ? 'sandwich'
+              : 'ready';
+    await selectDevice(p, family);
+    if (family === 'ready')
+      for (let page = 0; page < 4; page++) {
+        await p.getByRole('button', { name: `查看第${page + 1}篮食物`, exact: true }).click();
+        if (await p.locator(`[data-hotspot="supply-${product}"]`).isVisible()) break;
+      }
+  }
+  await p.locator(`[data-hotspot="supply-${product}"]`).click();
+  return (
+    (await state(p)).items
+      .filter((i) => i.product === product && i.location.startsWith('hand:'))
+      .at(-1)?.id ?? null
   );
 }
 export async function make(
@@ -89,134 +100,75 @@ export async function make(
   product: Product,
   restore?: Set<string>,
 ): Promise<string | null> {
-  if (RAW.includes(product)) {
-    await tap(p, `supply-${product}`);
-    return null;
-  }
+  if (RAW.includes(product)) return supply(p, product);
   const recipe = RECIPES.find((r) => r.output === product);
-  if (!recipe) throw Error(product);
-  if ((await state(p)).session.family !== recipe.family) await tap(p, `family-${recipe.family}`);
-  await expect(p.locator('.loading-page')).toHaveCount(0);
-  const prep =
-    recipe.station === 'machine'
-      ? '果汁机'
-      : recipe.station === 'ice'
-        ? '冰淇淋台'
-        : recipe.station === 'grill'
-          ? '煎台'
-          : '组合板';
-  await choosePrep(p, prep);
+  if (!recipe) {
+    return supply(p, product);
+  }
+  const show = () =>
+    selectDevice(
+      p,
+      recipe.station === 'board' && recipe.family === 'burger' ? 'burger-board' : recipe.family,
+    );
   for (const input of recipe.inputs) {
-    if (RAW.includes(input)) {
-      if (
-        input !== 'cup' ||
-        !(await state(p)).items.some(
-          (i) => i.location === 'machine:cup' && recipe.station === 'machine',
-        )
-      )
-        await tap(p, `supply-${input}`);
-    } else {
-      const id = await make(p, input, restore);
-      if (!id) throw Error(input);
-      if (
-        !(await state(p)).items
-          .find((i) => i.id === id)
-          ?.location.startsWith(`station:${recipe.station}:`)
-      ) {
-        await tap(p, `item-${id}`);
-        await choosePrep(p, prep);
-      } else await choosePrep(p, prep);
-    }
+    let id: string | null;
+    if (RAW.includes(input)) id = await supply(p, input);
+    else id = await make(p, input, restore);
+    if (!id) throw Error(`no actual ${input}`);
+    await show();
+    const current = (await state(p)).items.find((i) => i.id === id);
+    if (!current?.location.startsWith('hand:'))
+      await p.locator(`[data-hotspot="item-${id}"]`).click();
+    await p
+      .getByRole('button', {
+        name:
+          recipe.station === 'machine'
+            ? input === 'cup'
+              ? '放到果汁机杯座'
+              : '放入果汁机水果口'
+            : recipe.station === 'ice'
+              ? '放到冰淇淋台'
+              : recipe.station === 'grill'
+                ? '放到煎台'
+                : '放到组合板',
+        exact: true,
+      })
+      .click();
   }
-  if (recipe.station === 'board') {
-    // Inspect settled ingredient slots, not an ingredient crossing the counter in transit.
-    await p.waitForTimeout(260);
-    for (const item of (await state(p)).items.filter((i) =>
-      i.location.startsWith('station:board:'),
-    )) {
-      await tap(p, `item-${item.id}`);
-      await expect(p.locator(`[data-hotspot="item-${item.id}"]`)).toHaveAttribute(
-        'aria-pressed',
-        'true',
-      );
-    }
-  }
-  await tap(p, recipe.station === 'machine' ? 'start' : `start-station-${recipe.station}`);
+  await show();
+  await p
+    .locator(
+      `[data-hotspot="${recipe.station === 'machine' ? 'start' : `start-station-${recipe.station}`}" ]`,
+    )
+    .click();
+  const before = await state(p);
+  expect(
+    recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status,
+  ).toBe('processing');
   if (restore?.has(recipe.station)) {
     restore.delete(recipe.station);
-    await p.getByRole('button', { name: '暂停', exact: true }).tap();
-    const before = await state(p);
-    const beforeStatus =
-      recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status;
-    if (beforeStatus === 'empty') {
-      expect(before.routing[recipe.station]).toBeNull();
-      expect(
-        before.items.some(
-          (i) =>
-            i.product === product &&
-            (recipe.station === 'grill'
-              ? i.location.startsWith('station:board:')
-              : i.location.startsWith('tray:')),
-        ),
-      ).toBe(true);
-    } else expect(beforeStatus).toBe('processing');
-    if (recipe.station === 'grill') await p.setViewportSize({ width: 768, height: 1024 });
+    await p.getByRole('button', { name: '暂停', exact: true }).click();
+    const frozen = await state(p);
     await p.reload();
-    await p.locator('.yard-story .entry-main').tap();
-    await lesson(p);
-    const after = await state(p);
-    expect(after.runId).toBe(before.runId);
-    if (beforeStatus === 'empty') expect(after.items).toEqual(before.items);
-    else {
-      const inputs = before.items.filter((i) =>
-        i.location.startsWith(`station:${recipe.station}:`),
-      );
-      const source = inputs[0];
-      const target = before.routing[recipe.station];
-      if (!source || !target) throw Error('processing station lost input or output reservation');
-      const output = after.items.find((i) => i.id === source.id && i.product === product);
-      if (output) {
-        expect(after.items.map((i) => i.id).sort()).toEqual(
-          before.items
-            .filter((i) => !inputs.some((input) => input.id === i.id) || i.id === source.id)
-            .map((i) => i.id)
-            .sort(),
-        );
-        for (const item of before.items.filter((i) => !inputs.some((input) => input.id === i.id)))
-          expect(after.items.find((i) => i.id === item.id)).toEqual(item);
-        expect(output.location).toBe(
-          'station' in target
-            ? `station:${target.station}:${target.slot}`
-            : `tray:${target.tray}:${target.slot}`,
-        );
-      } else {
-        expect(after.items).toEqual(before.items);
-        expect(
-          recipe.station === 'machine'
-            ? after.machine.status
-            : after.stations[recipe.station].status,
-        ).toBe('processing');
-      }
-    }
-    // Restart measurement after navigation; no gameplay state is injected.
-    await p.evaluate(() => {
-      const m = Reflect.get(window, 'm2measure');
-      if (m) {
-        m.running = true;
-        m.last = 0;
-      }
-    });
+    await p.locator('.yard-story .entry-main').click();
+    expect((await state(p)).runId).toBe(frozen.runId);
+    for (const item of frozen.items.filter(
+      (i) =>
+        !i.location.startsWith(
+          recipe.station === 'machine' ? 'machine:' : `station:${recipe.station}:`,
+        ),
+    ))
+      expect((await state(p)).items.find((i) => i.id === item.id)).toEqual(item);
   }
-
   await expect
     .poll(
       async () =>
         (await state(p)).items.some(
           (i) =>
             i.product === product &&
-            (recipe.station === 'grill'
-              ? i.location.startsWith('station:board:')
-              : i.location.startsWith('tray:')),
+            (recipe.station === 'machine'
+              ? i.location === 'machine:cup'
+              : i.location.startsWith(`station:${recipe.station}:`)),
         ),
       { timeout: 15000 },
     )
@@ -224,51 +176,42 @@ export async function make(
   const item = (await state(p)).items.find(
     (i) =>
       i.product === product &&
-      (recipe.station === 'grill'
-        ? i.location.startsWith('station:board:')
-        : i.location.startsWith('tray:')),
+      (recipe.station === 'machine'
+        ? i.location === 'machine:cup'
+        : i.location.startsWith(`station:${recipe.station}:`)),
   );
   if (!item) throw Error(product);
+  await show();
+  await p.locator(`[data-hotspot="item-${item.id}"]`).click();
+  expect((await state(p)).items.find((i) => i.id === item.id)?.location).toMatch(/^hand:/);
   return item.id;
 }
-export async function serve(p: Page, restore?: Set<string>) {
-  await lesson(p);
-  const s = await state(p),
-    order = s.orders.find((o) => o.status === 'waiting');
-  if (!order) throw Error('waiting');
-  for (const product of REQUESTS[order.request].products) {
-    if (RAW.includes(product)) {
-      if (!(await p.locator(`[data-hotspot="supply-${product}"]`).count())) {
-        await tap(p, 'family-juice');
-      }
-      await choosePrep(p, '● 1号盘');
-      await make(p, product);
-    } else {
-      const id = await make(p, product, restore);
-      if (!(await state(p)).items.find((i) => i.id === id)?.location.startsWith('tray:0:')) {
-        await tap(p, `item-${id}`);
-        await choosePrep(p, '● 1号盘');
-      }
-    }
-  }
-  await handOver(p, order.seat);
-  await expect
-    .poll(
-      async () => {
-        const next = await state(p);
-        return next.orders.find((o) => o.id === order.id)?.status ?? 'done';
-      },
-      { timeout: 18000 },
-    )
-    .toBe('done');
-}
-export async function handOver(p: Page, seat?: 0 | 1, tray: 0 | 1 = 0) {
+export async function handOver(p: Page, seat?: 0 | 1, _tray: 0 | 1 = 0) {
   const order = (await state(p)).orders.find(
     (o) => o.status === 'waiting' && (seat === undefined || o.seat === seat),
   );
-  if (!order) throw Error('no waiting guest');
-  await tap(p, `lift-tray-${tray}`);
-  await tap(p, order.id, 20);
+  if (!order) throw Error('waiting');
+  await p
+    .locator(`[data-actor="${order.visitor ?? (order.seat === 0 ? 'rabbit' : 'hedgehog')}"]`)
+    .click();
+}
+export async function serve(p: Page, restore?: Set<string>) {
+  const order = (await state(p)).orders.find((o) => o.status === 'waiting');
+  if (!order) throw Error('waiting');
+  const ids: string[] = [];
+  for (const product of REQUESTS[order.request].products) {
+    const id = await make(p, product, restore);
+    if (!id) throw Error(product);
+    ids.push(id);
+    await choosePrep(p, '盘');
+  }
+  for (const id of ids) await p.locator(`[data-hotspot="item-${id}"]`).click();
+  await handOver(p, order.seat);
+  await expect
+    .poll(async () => (await state(p)).orders.find((o) => o.id === order.id)?.status ?? 'done', {
+      timeout: 18000,
+    })
+    .toBe('done');
 }
 export async function drag(p: Page, from: string, to: string) {
   const a = await hot(p, from),
@@ -285,8 +228,10 @@ export async function drag(p: Page, from: string, to: string) {
 }
 
 export function evidencePath(original: string) {
-  if (!process.env.EVIDENCE_DIR) return original;
-  const dir = join(process.env.EVIDENCE_DIR, 'screenshots');
+  const dir = join(
+    process.env.EVIDENCE_DIR ?? 'docs/evidence/simplified-play-2026-10-12/browser',
+    'screenshots',
+  );
   mkdirSync(dir, { recursive: true });
   return join(dir, basename(original));
 }

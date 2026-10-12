@@ -1,0 +1,524 @@
+[WebServer] (node:53068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:53144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 36 tests using 1 worker
+
+(node:53190) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:95:1 › visible activity entrance reaches all five chapters and saves a real creation (1.6m)
+  ✓   2 e2e/adventure.spec.ts:122:1 › receipt presentation and low motion never repeat settlement (16.7s)
+  ✓   3 e2e/adventure.spec.ts:133:1 › phone replay follows hedgehog path with real food and no packing task (47.1s)
+  ✘   4 e2e/adventure.spec.ts:149:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (19.4s)
+(node:53482) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   5 e2e/adventure.spec.ts:175:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (14.7s)
+(node:53563) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   6 e2e/adventure.spec.ts:192:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (19.7s)
+(node:53577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 e2e/adventure.spec.ts:208:1 › low motion receipts retain actual foods and reachable controls across compact layouts (13.2s)
+  ✓   8 e2e/demo-repair.spec.ts:5:1 › scene pause isolates background, traps focus and restores a usable trigger (2.5s)
+  ✘   9 e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery (8.1s)
+(node:53607) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player (7.6s)
+  ✘  11 e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts (1.1s)
+(node:53682) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  12 e2e/demo-repair.spec.ts:86:1 › optional drag snaps only to the target actually pointed at and empty release does not submit (8.7s)
+(node:53693) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions (7.0s)
+(node:53715) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately (3.8s)
+(node:53722) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 e2e/experience.spec.ts:46:1 › muting through settings retains full English and safe replay (3.4s)
+  ✓  16 e2e/immersion.spec.ts:5:1 › normal entrance keeps requests and receipt at the speaker, with optional garden and real memory (13.7s)
+  ✘  17 e2e/immersion.spec.ts:35:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership (13.7s)
+(node:53756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  18 e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory (13.7s)
+(node:53763) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  19 e2e/m22-boundaries.spec.ts:73:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error (7.5s)
+(node:53770) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  20 e2e/m22-growth.spec.ts:5:1 › actual picked fruit introduces meaning and fresh endless explicitly introduces banana then juice (25.9s)
+(node:53858) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (3.6s)
+  ✓  22 e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (1.8s)
+  ✓  23 e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (1.9s)
+  ✓  24 e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (1.7s)
+  ✓  25 e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (1.9s)
+  ✓  26 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (1.7s)
+  ✓  27 e2e/minigames-vocab.spec.ts:260:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (2.1s)
+  ✓  28 e2e/minigames-vocab.spec.ts:337:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (1.6s)
+  ✓  29 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (3.1s)
+  ✓  30 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (3.0s)
+  ✓  31 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (5.4s)
+  ✓  32 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (1.8s)
+  ✓  33 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (12.3s)
+  ✓  34 e2e/together-play.spec.ts:30:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (7.4s)
+  ✘  35 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another actual completed order (25.6s)
+(node:54003) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  36 e2e/wp-dual-mini-course.spec.ts:7:1 › theme lobby reaches a four-task listening level and restores its progress (3.3s)
+
+
+  1) e2e/adventure.spec.ts:149:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: '今日新菜单' })
+    Expected: visible
+    Timeout: 18000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: '今日新菜单' }) with timeout 18000ms
+      - waiting for getByRole('dialog', { name: '今日新菜单' })
+
+
+      155 |   await supply(page, 'apple');
+      156 |   await pDeliver(page);
+    > 157 |   await expect(page.getByRole('dialog', { name: '今日新菜单' })).toBeVisible({ timeout: 18000 });
+          |                                                             ^
+      158 |   await click(page, '这次先不加 ↗');
+      159 |   await click(page, '暂停');
+      160 |   await click(page, '停止接客，做作品');
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:157:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/error-context.md
+
+  2) e2e/adventure.spec.ts:175:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '放回手中食品', exact: true })
+        - locator resolved to <button type="button" class="return-held" aria-label="放回手中食品">放回</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <p role="status" class="nearby-feedback">这位客人想要一个苹果。 食物留在盘里，可以调整。</p> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <p role="status" class="nearby-feedback">这位客人想要一个苹果。 食物留在盘里，可以调整。</p> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        15 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <p role="status" class="nearby-feedback">这位客人想要一个苹果。 食物留在盘里，可以调整。</p> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+      3 |
+      4 | test.use({ hasTouch: true });
+    > 5 | const click = (p: Page, name: string) => p.getByRole('button', { name, exact: true }).click();
+        |                                                                                       ^
+      6 | async function begin(p: Page) {
+      7 |   await p.goto('/');
+      8 |   await click(p, '正在准备 · 晨光开门');
+        at click (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:5:87)
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:186:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/error-context.md
+
+  3) e2e/adventure.spec.ts:192:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: '今日新菜单' })
+    Expected: visible
+    Timeout: 18000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: '今日新菜单' }) with timeout 18000ms
+      - waiting for getByRole('dialog', { name: '今日新菜单' })
+
+
+      200 |   await supply(page, 'apple');
+      201 |   await pDeliver(page);
+    > 202 |   await expect(page.getByRole('dialog', { name: '今日新菜单' })).toBeVisible({ timeout: 18000 });
+          |                                                             ^
+      203 |   await click(page, '加入今日菜单');
+      204 |   expect((await state(page)).session.menu).toContain('banana');
+      205 |   for (const o of accepted.filter((o) => o.seat === 1))
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:202:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/error-context.md
+
+  4) e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "leaving"
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      33 |   expect((await state(page)).items).toEqual(before.items);
+      34 |   await page.locator('[data-actor="rabbit"]').click();
+    > 35 |   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+         |                                                                        ^
+      36 |   expect((await state(page)).items.map((i) => i.product)).toEqual(['banana']);
+      37 |   expect((await state(page)).adventure?.foods.map((f) => f.product)).toEqual(['apple']);
+      38 | });
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/demo-repair.spec.ts:35:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-repair-individual-han-9a051-through-replay-and-delivery/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/demo-repair-individual-han-9a051-through-replay-and-delivery/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-repair-individual-han-9a051-through-replay-and-delivery/error-context.md
+
+  5) e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      80 |           );
+      81 |         }),
+    > 82 |       ).toBe(true);
+         |         ^
+      83 |     }
+      84 |   }
+      85 | });
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/demo-repair.spec.ts:82:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/error-context.md
+
+  6) e2e/demo-repair.spec.ts:86:1 › optional drag snaps only to the target actually pointed at and empty release does not submit 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "leaving"
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      105 |   });
+      106 |   await page.mouse.up();
+    > 107 |   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+          |                                                                        ^
+      108 |   expect((await state(page)).adventure?.foods.map((f) => f.product)).toEqual(['apple']);
+      109 | });
+      110 |
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/demo-repair.spec.ts:107:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-repair-optional-drag--7ea13-pty-release-does-not-submit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/demo-repair-optional-drag--7ea13-pty-release-does-not-submit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-repair-optional-drag--7ea13-pty-release-does-not-submit/error-context.md
+
+  7) e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "leaving"
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      21 |   expect((await state(page)).attempts).toEqual(before.attempts);
+      22 |   await page.locator('[data-actor="rabbit"]').click();
+    > 23 |   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+         |                                                                        ^
+      24 |   expect((await state(page)).adventure?.foods[0]?.product).toBe('apple');
+      25 | });
+      26 | test('less support retains complete English, records visible captions and audio failure separately', async ({
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/experience.spec.ts:23:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/experience-single-guest-ha-8e0fb-before-reading-instructions/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/experience-single-guest-ha-8e0fb-before-reading-instructions/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/experience-single-guest-ha-8e0fb-before-reading-instructions/error-context.md
+
+  8) e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "success"
+    Received: "completed"
+
+      42 |   await expect.poll(async () => (await state(page)).attempts.length).toBe(1);
+      43 |   expect((await state(page)).attempts[0]?.support).toContain('caption-visible');
+    > 44 |   expect((await state(page)).attempts[0]?.result).toBe('success');
+         |                                                   ^
+      45 | });
+      46 | test('muting through settings retains full English and safe replay', async ({ page }) => {
+      47 |   await page.goto('/');
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/experience.spec.ts:44:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/experience-less-support-re-cabe0-nd-audio-failure-separately/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/experience-less-support-re-cabe0-nd-audio-failure-separately/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/experience-less-support-re-cabe0-nd-audio-failure-separately/error-context.md
+
+  9) e2e/immersion.spec.ts:35:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '放回手中食品', exact: true })
+        - locator resolved to <button type="button" class="return-held" aria-label="放回手中食品">放回</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <p role="status" class="nearby-feedback">先与这位朋友打招呼，食品仍在手里。</p> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <p role="status" class="nearby-feedback">先与这位朋友打招呼，食品仍在手里。</p> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        22 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <p role="status" class="nearby-feedback">先与这位朋友打招呼，食品仍在手里。</p> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+      53 |   await page.getByRole('button', { name: '继续操作', exact: true }).click();
+      54 |   expect((await state(page)).items).toEqual(frozen.items);
+    > 55 |   await page.getByRole('button', { name: '放回手中食品', exact: true }).click();
+         |                                                                   ^
+      56 |   expect((await state(page)).items).toHaveLength(0);
+      57 | });
+      58 |
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/immersion.spec.ts:55:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/immersion-phone-actual-han-83216-nd-pause-preserve-ownership/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/immersion-phone-actual-han-83216-nd-pause-preserve-ownership/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/immersion-phone-actual-han-83216-nd-pause-preserve-ownership/error-context.md
+
+  10) e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: '大咪陪你一起做' })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: '大咪陪你一起做' }) with timeout 6000ms
+      - waiting for getByRole('heading', { name: '大咪陪你一起做' })
+
+
+      68 |   await page.getByRole('button', { name: '暂停', exact: true }).click();
+      69 |   await page.getByRole('button', { name: '给大咪写便签', exact: true }).click();
+    > 70 |   await expect(page.getByRole('heading', { name: '大咪陪你一起做' })).toBeVisible();
+         |                                                                ^
+      71 |   expect((await state(page)).items).toEqual(before.items);
+      72 | });
+      73 | test('audio failure exposes correct retry, leaves supplies playable and never creates a language error', async ({
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:70:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-wrong-deliv-9a72d-ndscape-keep-real-inventory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-wrong-deliv-9a72d-ndscape-keep-real-inventory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-wrong-deliv-9a72d-ndscape-keep-real-inventory/error-context.md
+
+  11) e2e/m22-boundaries.spec.ts:73:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error 
+
+    Error: expect(received).toBeNull()
+
+    Received: {"id": "imm-order-apple", "kind": "unsupported", "mediaCode": 4, "message": "MEDIA_ELEMENT_ERROR: Format error"}
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+       95 |         JSON.parse((await page.locator('main').getAttribute('data-audio-state')) ?? '{}').failure,
+       96 |     )
+    >  97 |     .toBeNull();
+          |      ^
+       98 |   expect((await state(page)).attempts).toEqual(before);
+       99 | });
+      100 |
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/m22-boundaries.spec.ts:97:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-boundaries-audio-failu-3549b-er-creates-a-language-error/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-boundaries-audio-failu-3549b-er-creates-a-language-error/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-boundaries-audio-failu-3549b-er-creates-a-language-error/error-context.md
+
+  12) e2e/m22-growth.spec.ts:5:1 › actual picked fruit introduces meaning and fresh endless explicitly introduces banana then juice 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: '今日新菜单' })
+    Expected: visible
+    Timeout: 18000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: '今日新菜单' }) with timeout 18000ms
+      - waiting for getByRole('dialog', { name: '今日新菜单' })
+
+
+      15 |     await serve(page);
+      16 |     expect((await state(page)).attempts.at(-1)?.support).toContain('caption-visible');
+    > 17 |     const growth = page.getByRole('dialog', { name: '今日新菜单' });
+         |                          ^
+      18 |     await expect(growth).toBeVisible({ timeout: 18000 });
+      19 |     await expect(growth.locator('.food-art')).not.toHaveCount(0);
+      20 |     await growth.getByRole('button', { name: '加入今日菜单', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/m22-growth.spec.ts:17:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/m22-growth-actual-picked-f-d17d7-ntroduces-banana-then-juice/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/m22-growth-actual-picked-f-d17d7-ntroduces-banana-then-juice/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/m22-growth-actual-picked-f-d17d7-ntroduces-banana-then-juice/error-context.md
+
+  13) e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another actual completed order 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: '今日新菜单' })
+    Expected: visible
+    Timeout: 18000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: '今日新菜单' }) with timeout 18000ms
+      - waiting for getByRole('dialog', { name: '今日新菜单' })
+
+
+       8 |   await startEndless(page, false);
+       9 |   await serve(page);
+    > 10 |   await expect(page.getByRole('dialog', { name: '今日新菜单' })).toBeVisible({ timeout: 18000 });
+         |                                                             ^
+      11 |   await page.getByRole('button', { name: '这次先不加 ↗', exact: true }).click();
+      12 |   expect((await state(page)).session.menu).toEqual(['apple']);
+      13 |   await serve(page);
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/wp-dual-growth.spec.ts:10:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wp-dual-growth-deferred-me-a69a1-ther-actual-completed-order/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/wp-dual-growth-deferred-me-a69a1-ther-actual-completed-order/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wp-dual-growth-deferred-me-a69a1-ther-actual-completed-order/error-context.md
+
+  13 failed
+    e2e/adventure.spec.ts:149:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+    e2e/adventure.spec.ts:175:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload 
+    e2e/adventure.spec.ts:192:1 › opening a new seat uses the new menu while an accepted guest keeps the old request 
+    e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery 
+    e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts 
+    e2e/demo-repair.spec.ts:86:1 › optional drag snaps only to the target actually pointed at and empty release does not submit 
+    e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions 
+    e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately 
+    e2e/immersion.spec.ts:35:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership 
+    e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory 
+    e2e/m22-boundaries.spec.ts:73:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error 
+    e2e/m22-growth.spec.ts:5:1 › actual picked fruit introduces meaning and fresh endless explicitly introduces banana then juice 
+    e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another actual completed order 
+  23 passed (7.3m)

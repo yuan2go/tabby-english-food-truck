@@ -1,0 +1,60 @@
+[WebServer] (node:54377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:54453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 13 tests using 1 worker
+
+(node:54501) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:149:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (9.1s)
+  ✓   2 e2e/adventure.spec.ts:175:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (12.7s)
+  ✓   3 e2e/adventure.spec.ts:192:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (5.0s)
+  ✓   4 e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery (5.0s)
+  ✘   5 e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts (817ms)
+(node:54575) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 e2e/demo-repair.spec.ts:86:1 › optional drag snaps only to the target actually pointed at and empty release does not submit (4.9s)
+  ✓   7 e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions (4.3s)
+  ✓   8 e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately (3.4s)
+  ✓   9 e2e/immersion.spec.ts:35:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership (1.5s)
+  ✓  10 e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory (8.7s)
+  ✓  11 e2e/m22-boundaries.spec.ts:73:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error (2.1s)
+  ✓  12 e2e/m22-growth.spec.ts:5:1 › actual picked fruit introduces meaning and fresh endless explicitly introduces banana then juice (9.1s)
+  ✓  13 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another actual completed order (10.0s)
+
+
+  1) e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      80 |           );
+      81 |         }),
+    > 82 |       ).toBe(true);
+         |         ^
+      83 |     }
+      84 |   }
+      85 | });
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/demo-repair.spec.ts:82:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/error-context.md
+
+  1 failed
+    e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts 
+  12 passed (1.5m)

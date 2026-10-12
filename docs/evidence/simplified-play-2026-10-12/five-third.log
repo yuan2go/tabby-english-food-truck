@@ -1,0 +1,75 @@
+[WebServer] (node:50401) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:50476) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:50524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:99:1 › visible activity entrance reaches all five chapters and saves a real creation (25.0s)
+
+
+  1) e2e/adventure.spec.ts:99:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '看看冰淇淋台', exact: true })
+        - locator resolved to <button type="button" aria-label="看看冰淇淋台" aria-pressed="true" data-hotspot="family-ice">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="scene-objects">…</div> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="scene-objects">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        22 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="scene-objects">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+       at helpers.ts:103
+
+      101 |         exact: true,
+      102 |       })
+    > 103 |       .click();
+          |        ^
+      104 |   for (const input of recipe.inputs) {
+      105 |     let id: string | null;
+      106 |     if (RAW.includes(input)) id = await supply(p, input);
+        at show (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/helpers.ts:103:8)
+        at make (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/helpers.ts:109:11)
+        at serve (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/helpers.ts:187:16)
+        at send (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:13:3)
+        at desserts (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:26:3)
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:107:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:99:1 › visible activity entrance reaches all five chapters and saves a real creation 

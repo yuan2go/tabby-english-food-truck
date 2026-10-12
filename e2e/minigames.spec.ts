@@ -112,13 +112,18 @@ for (const kind of ['match', 'spell'] as const)
             );
             expect((await mini(page)).draft).not.toContain(letter.id);
           }
-          await tile.tap();
+          if (n === 1 && i === 0) await tile.press('Enter');
+          else await tile.tap();
+          await expect(page.locator(`[data-letter-slot="${i}"]`)).toHaveText(letter.text);
         }
         if (n === 0) {
           const draft = page.locator('.letter-draft button').last();
           await draft.tap();
           const l = bank.find((l) => l.id === `letter-${n}-${bank.length - 1}`);
           if (!l) throw Error('letter');
+          await expect(
+            page.getByRole('button', { name: `字母 ${l.text} ${l.id}`, exact: true }),
+          ).toBeEnabled();
           await page.getByRole('button', { name: `字母 ${l.text} ${l.id}`, exact: true }).tap();
         }
         await page.getByRole('button', { name: '拼好了', exact: true }).tap();

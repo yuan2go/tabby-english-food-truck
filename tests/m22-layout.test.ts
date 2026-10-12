@@ -1,5 +1,4 @@
 import { expect, it } from 'vitest';
-import { stationActionPoint, stationPoint, stationSlotPoint } from '../src/game/KitchenView';
 import {
   layoutFor,
   projectActor,
@@ -7,6 +6,11 @@ import {
   supplyPoint,
   traySurface,
 } from '../src/game/layout';
+import {
+  stationActionPoint,
+  stationPoint,
+  stationSlotPoint,
+} from '../src/game/legacy-station-layout';
 
 it.each([300, 342, 393])(
   'short landscape %s leaves separate trays with room for 44px food and handles',

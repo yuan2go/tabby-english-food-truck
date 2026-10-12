@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (19 tests | 1 failed) 43ms
+   × migrates only already received old dinner positions without inventing attempts or rewards 13ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > migrates only already received old dinner positions without inventing attempts or rewards
+AssertionError: expected [ 'served:rabbit', 'served:hedgehog' ] to deeply equal ArrayContaining ["place:0", "place:1"]
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   "place:0",
+-   "place:1",
++ [
++   "served:rabbit",
++   "served:hedgehog",
+  ]
+
+ ❯ tests/together-play.test.ts:276:56
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Start at  11:25:17
+   Duration  885ms (transform 498ms, setup 0ms, import 583ms, tests 43ms, environment 0ms)
+

@@ -1,0 +1,20 @@
+[WebServer] (node:56758) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:56833) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:56879) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (7.7s)
+  ✓  2 e2e/together-play.spec.ts:30:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (7.7s)
+  ✓  3 e2e/together-play.spec.ts:62:1 › speaker meaning pictures and same-stage demonstration are usable assistance without inventory or language submission (5.1s)
+  ✓  4 e2e/together-play.spec.ts:88:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity (8.2s)
+
+  4 passed (37.4s)

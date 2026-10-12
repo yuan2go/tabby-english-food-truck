@@ -19,7 +19,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 0,
     title: '晨光开门',
-    goal: '送早餐，找到花苗，一起种迎客花',
+    goal: '送早餐，一起吃；饭后可以种迎客花',
     reward: 'flower-page',
     family: 'juice',
     orders: [
@@ -105,6 +105,7 @@ export const COOL_CHOICES: readonly Product[] = [
 ];
 export const FAMILIES: readonly Family[] = ['juice', 'ice', 'sandwich', 'burger'];
 export type WorldPlace =
+  | 'hand'
   | 'guest-rabbit'
   | 'guest-hedgehog'
   | 'guest-elder'

@@ -1,5 +1,5 @@
 import { ADVENTURES } from '../content/adventure';
-import { CONTENT_VERSION, JUICE_MS, REQUESTS, requestsFor } from '../content/catalog';
+import { CONTENT_VERSION, JUICE_MS, MODES, REQUESTS, requestsFor } from '../content/catalog';
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
 import { storyLevel, storyRequests } from '../content/story-levels';
@@ -47,12 +47,22 @@ export function validateState(v: unknown): v is GameState {
         str(i.id) &&
         /^food-\d+$/.test(i.id) &&
         Object.hasOwn(FOOD, i.product as string) &&
-        /^(tray:[01]:[012]|machine:(apple|cup)|helper|station:(ice|board|grill):[0-4]|delivery:[01]:[012])$/.test(
+        /^(hand:[012]|tray:[01]:[012]|machine:(apple|cup)|helper|station:(ice|board|grill):[0-4]|delivery:[01]:[012])$/.test(
           String(i.location),
         ),
     )
   )
     return false;
+  if (v.adventure) {
+    const a = v.adventure as unknown as import('../content/adventure').AdventureState;
+    const hands = [
+      v.items.some((i) => String(i.location).startsWith('hand:')),
+      a.foods.some((f) => f.place === 'hand'),
+      Boolean(a.experience?.heldTool),
+      Boolean(a.experience?.heldDecoration),
+    ];
+    if (hands.filter(Boolean).length > 1) return false;
+  }
   if (
     !Array.isArray(v.orders) ||
     (v.orders.length < 1 &&
@@ -241,6 +251,12 @@ export function validateState(v: unknown): v is GameState {
   )
     return false;
   const s = v as unknown as GameState;
+  const shared = s.items.filter(
+    (i) => i.location.startsWith('hand:') || i.location.startsWith('tray:'),
+  ).length;
+  const outputSlots = Object.values(s.routing).filter((r) => r && 'tray' in r).length;
+  if (shared + (s.helper?.slots.length ?? 0) + outputSlots > MODES[s.mode].trays.length * 3)
+    return false;
   const ids = s.items.map((i) => i.id);
   if (s.recycle) ids.push(s.recycle.id);
   if (
@@ -521,7 +537,10 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     s.trays.some(
-      (t, index) => t.remaining > 0 && s.items.some((i) => i.location.startsWith(`tray:${index}:`)),
+      (t, index) =>
+        t.remaining > 0 &&
+        s.items.some((i) => i.location.startsWith(`tray:${index}:`)) &&
+        !jobs.some((j) => j.kind === 'delivery' && j.tray === index && j.fromHand === true),
     )
   )
     return false;
@@ -534,6 +553,7 @@ function actorJob(v: unknown): boolean {
   if (
     !record(v) ||
     !['helper', 'delivery', 'return'].includes(v.kind as string) ||
+    !(v.fromHand === undefined || (v.fromHand === true && v.kind === 'delivery')) ||
     !number(v.elapsed, 120000) ||
     !strings(v.itemIds, 3) ||
     !unique(v.itemIds) ||
@@ -623,15 +643,26 @@ export function decodeSnapshot(raw: string): DecodeResult {
       value.contentVersion = CONTENT_VERSION;
       value.adventure = null;
     }
-    if (
+    const migratePositions =
       record(value) &&
       value.schemaVersion === 7 &&
-      value.contentVersion === 'playable-adventure-1'
-    )
-      value.contentVersion = CONTENT_VERSION;
+      ['playable-adventure-1', 'adventure-experience-2'].includes(String(value.contentVersion));
+    if (migratePositions) value.contentVersion = CONTENT_VERSION;
     if (!validateState(value))
       return { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };
-    if (value.adventure) hydrateExperience(value.adventure);
+    if (value.adventure) {
+      hydrateExperience(value.adventure);
+      const a = value.adventure;
+      if (migratePositions && (a.chapter === 2 || a.chapter === 3))
+        for (const [seat, visitor] of ['rabbit', 'hedgehog'].entries()) {
+          if (
+            a.steps.includes(`served:${visitor}`) &&
+            a.foods.some((f) => f.place === `guest-${visitor}`) &&
+            !a.steps.includes(`place:${seat}`)
+          )
+            a.steps.push(`place:${seat}`);
+        }
+    }
     return { ok: true, state: value };
   } catch {
     return { ok: false, reason: '存档损坏，已保留原文。', raw };

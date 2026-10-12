@@ -1,6 +1,5 @@
 import { VISITOR_NAMES, type Work } from '../content/adventure';
 import { madeLine, workCaption } from '../content/dialogue';
-import { assetUrl } from '../game/assets';
 import type { ForegroundAudio } from '../platform/audio';
 import type { DialogueDirector } from '../platform/dialogue';
 import { Sentence } from './Dialogue';
@@ -32,10 +31,9 @@ export function WorkGallery({
           <div className="remembered-table">
             {([0, 1, 2] as const).map((seat) => (
               <div className="remembered-seat" key={seat}>
-                <img
-                  src={assetUrl(seat === 2 ? 'elder' : `guest-${seat}-2`)}
-                  alt={VISITOR_NAMES[seat === 0 ? 'rabbit' : seat === 1 ? 'hedgehog' : 'elder']}
-                />
+                <span>
+                  {VISITOR_NAMES[seat === 0 ? 'rabbit' : seat === 1 ? 'hedgehog' : 'elder']}
+                </span>
                 {work.foods
                   .filter((f) => f.place === `table:${seat}`)
                   .map((food) => (
@@ -58,16 +56,7 @@ export function WorkGallery({
                 <span key={food.id}>
                   <Food product={food.product} />
                   <SceneIcon kind="taste" />
-                  {food.tastedBy ? (
-                    <img
-                      src={assetUrl(
-                        food.tastedBy === 'elder'
-                          ? 'elder'
-                          : `guest-${food.tastedBy === 'rabbit' ? 0 : 1}-2`,
-                      )}
-                      alt={VISITOR_NAMES[food.tastedBy]}
-                    />
-                  ) : null}
+                  {food.tastedBy ? <span>{VISITOR_NAMES[food.tastedBy]}</span> : null}
                 </span>
               ))}
           </section>

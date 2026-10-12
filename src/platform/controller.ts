@@ -17,10 +17,17 @@ export class GameController {
   readonly minis = new MiniStore(() => localStorage);
   readonly profile = new ProfileStore(() => localStorage);
   readonly pauses = new Set<string>(['home']);
-  message = '听一听，准备好，再把整盘递给客人。';
+  message = '点朋友听需要，拿起食品，再点目标。';
   savedGame = false;
   private serial = 0;
   private checkpoint = 0;
+  // Presentation binding only: the existing rule job and food IDs own completion.
+  private pendingReceipt: {
+    items: string[];
+    target: string;
+    order?: string;
+    message: string;
+  } | null = null;
   private listeners = new Set<() => void>();
   constructor(
     save = new SaveStore(() => localStorage),
@@ -51,13 +58,29 @@ export class GameController {
   }
   command(command: Command): Result {
     const priorAttempts = new Set(this.state.attempts.map((a) => a.id));
+    const priorJobs = new Set(
+      [this.state.actor.current, ...this.state.actor.queue].map((j) => j?.plan.id),
+    );
     const result = dispatch(this.state, {
       id: `${this.state.runId}-cmd-${Date.now()}-${++this.serial}`,
       runId: this.state.runId,
       command,
     });
     this.state = result.state;
-    if (result.message) this.message = result.message;
+    if (result.message) {
+      this.message = result.message;
+      const job = [this.state.actor.current, ...this.state.actor.queue].find(
+        (j) => j?.kind === 'delivery' && !priorJobs.has(j.plan.id),
+      );
+      this.pendingReceipt = job
+        ? {
+            items: [...job.itemIds],
+            target: job.worldTarget ?? 'order',
+            message: result.message,
+            ...(job.order ? { order: job.order } : {}),
+          }
+        : null;
+    }
     this.recordAttempts(priorAttempts);
     this.syncActivity();
     if (command.type !== 'audio') this.save.save(this.state);
@@ -89,7 +112,32 @@ export class GameController {
     // Lifecycle pauses and discarded resume frames still prevent suspended-time catch-up.
     delta = Math.min(delta, 250);
     const previous = this.state.revision;
+    const receipt = this.pendingReceipt;
+    const priorOrder = receipt?.order
+      ? this.state.orders.find((o) => o.id === receipt.order)
+      : null;
+    const helper = this.state.helper;
     this.state = advance(this.state, delta);
+    if (
+      receipt &&
+      this.message === receipt.message &&
+      (this.state.adventure
+        ? receipt.items.length > 0 &&
+          receipt.items.every((id) => this.state.adventure?.foods.some((f) => f.id === id))
+        : priorOrder &&
+          (this.state.orders.find((o) => o.id === priorOrder.id)?.status === 'done' ||
+            !this.state.orders.some((o) => o.id === priorOrder.id)))
+    ) {
+      this.message =
+        receipt.target === 'create'
+          ? '作品放好了，可以选食品分享或品尝。'
+          : receipt.target === 'pack'
+            ? '食品装好了，点篮子摆上桌。'
+            : '朋友收到啦！可以接着准备。';
+      this.pendingReceipt = null;
+    }
+    if (helper && !this.state.helper && this.message.includes('正在把食品带到制作承放区'))
+      this.message = '食品放好了，点它拿起，再点目标。';
     if (
       !this.state.adventure &&
       this.state.session.activity === 'story' &&

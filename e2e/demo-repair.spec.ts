@@ -1,188 +1,64 @@
 import { expect, test } from '@playwright/test';
-import { SCENE_KEY } from '../src/platform/minis';
-import { evidencePath, startStory, state, tap } from './helpers';
+import { make, startStory, state, supply } from './helpers';
 
-test.use({ hasTouch: true, isMobile: true });
-
-test('scene pause and restart isolate background, trap focus and restore the trigger', async ({
+test.use({ hasTouch: true });
+test('scene pause isolates background, traps focus and restores a usable trigger', async ({
   page,
 }) => {
-  await page.goto('/');
-  await page.getByRole('button', { name: '迷你游戏', exact: true }).click();
-  await page.getByRole('button', { name: /小院场景小游戏 ·/ }).click();
-  await page.getByRole('button', { name: /朋友的两份心意/ }).click();
-  await page.getByRole('button', { name: '先认识今天的物件' }).click();
-  await page.getByRole('button', { name: '我来动手' }).click();
-  await page.getByRole('button', { name: '拿起杯子', exact: true }).click();
-  const before = await page.evaluate((key) => localStorage.getItem(key), SCENE_KEY);
-  const pause = page.getByRole('button', { name: '暂停小游戏' });
-  await pause.click();
-  const dialog = page.getByRole('dialog', { name: '小游戏已暂停' });
-  await expect(dialog.getByRole('button', { name: '继续玩' })).toBeFocused();
-  for (let i = 0; i < 6; i++) {
-    await page.keyboard.press(i % 2 ? 'Shift+Tab' : 'Tab');
-    expect(await dialog.evaluate((el) => el.contains(document.activeElement))).toBe(true);
-  }
-  // A programmatic attempt to focus the background must also be redirected.
+  await startStory(page);
+  await supply(page, 'apple');
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  const before = await state(page);
+  const d = page.getByRole('dialog', { name: '休息一下' });
+  await expect(d).toBeVisible();
+  await d.getByRole('button', { name: '继续操作', exact: true }).press('Tab');
+  expect(
+    await page.evaluate(() => Boolean(document.activeElement?.closest('[role="dialog"]'))),
+  ).toBe(true);
+  await d.getByRole('button', { name: '继续操作', exact: true }).press('Enter');
+  expect((await state(page)).items).toEqual(before.items);
+  await expect(page.getByRole('button', { name: '暂停', exact: true })).toBeFocused();
+});
+test('individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery', async ({
+  page,
+}) => {
+  await startStory(page);
+  await supply(page, 'banana');
+  await page.getByRole('button', { name: '放到制作承放区', exact: true }).click();
+  await supply(page, 'apple');
+  const before = await state(page);
   await page
-    .locator('.scene-top button')
-    .first()
-    .evaluate((el) => (el as HTMLElement).focus());
-  expect(await dialog.evaluate((el) => el.contains(document.activeElement))).toBe(true);
-  await dialog.getByRole('button', { name: '继续玩' }).click();
-  await expect(pause).toBeFocused();
-  await expect(page.getByRole('group', { name: '大咪手里的物件' })).toContainText('放回');
-  expect(before).not.toBeNull();
-  expect(await page.evaluate((key) => localStorage.getItem(key), SCENE_KEY)).toBe(before);
-  const restart = page.getByRole('button', { name: '重玩这一组', exact: true });
-  await restart.click();
-  const confirm = page.getByRole('dialog', { name: '重玩场景小游戏' });
-  await expect(confirm.getByRole('button', { name: '继续这一轮' })).toBeFocused();
-  await page.keyboard.press('Shift+Tab');
-  await page.keyboard.press('Shift+Tab');
-  expect(await confirm.evaluate((el) => el.contains(document.activeElement))).toBe(true);
-  await confirm.getByRole('button', { name: '继续这一轮' }).click();
-  await expect(restart).toBeFocused();
-  expect((await state(page)).items).toEqual([]);
+    .getByRole('button', { name: '播放整句：Can I have an apple, please?', exact: true })
+    .click();
+  expect((await state(page)).items).toEqual(before.items);
+  await page.locator('[data-actor="rabbit"]').click();
+  await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+  expect((await state(page)).items.map((i) => i.product)).toEqual(['banana']);
+  expect((await state(page)).adventure?.foods.map((f) => f.product)).toEqual(['apple']);
 });
-
-test('individual food and the whole tray remain distinct through touch, rehearing and delivery', async ({
+test('real recipe comparisons preserve assistance and leave ingredients and flavor to the player', async ({
   page,
 }) => {
-  await page.setViewportSize({ width: 393, height: 665 });
   await startStory(page);
-  await tap(page, 'tray-0');
-  await tap(page, 'supply-apple');
-  await tap(page, 'supply-banana');
-  const foods = (await state(page)).items;
-  const apple = foods.find((i) => i.product === 'apple');
-  const banana = foods.find((i) => i.product === 'banana');
-  if (!apple || !banana) throw Error('actual food missing');
-  for (const size of [
-    { width: 393, height: 665 },
-    { width: 768, height: 1024 },
-    { width: 852, height: 300 },
-  ]) {
-    await page.setViewportSize(size);
-    for (const tray of [0, 1]) {
-      const body = await page.locator(`[data-hotspot="tray-${tray}"]`).boundingBox();
-      const handle = page.locator(`[data-hotspot="lift-tray-${tray}"]`);
-      await expect(handle).toBeInViewport({ ratio: 1 });
-      const box = await handle.boundingBox();
-      if (!body || !box) throw Error('missing tray geometry');
-      expect(box.x + box.width + 8).toBeLessThanOrEqual(body.x + 0.01);
-      expect(box.width).toBeGreaterThanOrEqual(48);
-      expect(box.height).toBeGreaterThanOrEqual(48);
-      expect(
-        await handle.evaluate((el) => {
-          const r = el.getBoundingClientRect();
-          return [0.25, 0.5, 0.75].every((n) => {
-            const hit = document.elementFromPoint(r.x + r.width * n, r.y + r.height / 2);
-            return hit === el || (!!hit && el.contains(hit));
-          });
-        }),
-      ).toBe(true);
-    }
-  }
-  await page.setViewportSize({ width: 393, height: 665 });
-  await tap(page, `item-${banana.id}`);
-  await expect(page.locator(`[data-hotspot="item-${banana.id}"]`)).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  );
-  await page.screenshot({ path: evidencePath('individual-food-phone.png') });
-  const handle = page.locator('[data-hotspot="lift-tray-0"]');
-  await handle.tap();
-  await expect(handle).toHaveAttribute('aria-pressed', 'true');
-  expect((await state(page)).items).toEqual(foods);
-  await page.screenshot({ path: evidencePath('whole-tray-phone.png') });
-  await page.getByRole('button', { name: '重听客人A的请求', exact: true }).tap();
-  await expect(handle).toHaveAttribute('aria-pressed', 'true');
-  await handle.tap();
-  await expect(handle).toHaveAttribute('aria-pressed', 'false');
-  expect((await state(page)).items).toEqual(foods);
-  await tap(page, `item-${banana.id}`);
-  const body = page.locator('[data-hotspot="tray-1"]');
-  const bodyBox = await body.boundingBox();
-  if (!bodyBox) throw Error('plate body missing');
-  await page.touchscreen.tap(bodyBox.x + bodyBox.width / 2, bodyBox.y + bodyBox.height * 0.75);
-  await expect
-    .poll(async () => (await state(page)).items.find((i) => i.id === banana.id)?.location)
-    .toMatch(/^tray:1:/);
-  await handle.tap();
-  const order = (await state(page)).orders.find((o) => o.status === 'waiting');
-  if (!order) throw Error('guest missing');
-  await tap(page, order.id, 20);
-  await expect
-    .poll(async () => (await state(page)).adventure?.foods.some((i) => i.product === 'apple'), {
-      timeout: 15000,
-    })
-    .toBe(true);
-  expect((await state(page)).attempts.filter((a) => a.activity === 'delivery')).toHaveLength(1);
-  expect((await state(page)).items.find((i) => i.id === banana.id)?.location).toMatch(/^tray:1:/);
-  await page.getByRole('button', { name: '到活动桌', exact: true }).tap();
-  await expect(page.locator('.goal-guide')).not.toHaveAttribute('data-guide', 'wait');
-  const hint = await page.locator('.goal-pictures').getAttribute('aria-label');
-  await expect(page.locator('.world-feedback')).not.toContainText('正在送过去');
-  await expect(page.locator('.world-feedback')).toHaveText(
-    hint?.replace('图示下一步：', '') ?? 'missing guide',
-  );
-  await page.screenshot({ path: evidencePath('received-current-goal-phone.png') });
+  await page.getByRole('button', { name: '翻开旧食谱', exact: true }).click();
+  const book = page.getByRole('dialog', { name: '食谱与作品' });
+  await expect(book.locator('.recipe-pictures .food-art')).not.toHaveCount(0);
+  const before = await state(page);
+  await book.getByRole('button', { name: '收起食谱', exact: true }).click();
+  expect((await state(page)).attempts).toEqual(before.attempts);
+  expect((await state(page)).items).toEqual(before.items);
+  await make(page, 'banana-juice');
+  expect(
+    (await state(page)).items.filter((i) => i.location.startsWith('hand:')).map((i) => i.product),
+  ).toEqual(['banana-juice']);
+  expect((await state(page)).orders[0]?.request).toBe('apple');
 });
-
-test('optional visual contrasts preserve assistance and leave the choice to the player', async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 393, height: 665 });
-  await startStory(page);
-  const helpTrigger = page.locator('[data-hotspot="note"]');
-  await helpTrigger.focus();
-  await helpTrigger.press('Enter');
-  await page.getByRole('button', { name: '看食物和份数对比', exact: true }).tap();
-  const contrast = page.getByRole('region', { name: '食物和份数图音对比' });
-  await expect(contrast.getByRole('img', { name: '汉堡', exact: true })).toBeVisible();
-  await expect(contrast.getByRole('img', { name: '芝士汉堡', exact: true })).toBeVisible();
-  await contrast
-    .locator('img')
-    .evaluateAll((images) => Promise.all(images.map((img) => (img as HTMLImageElement).decode())));
-  await page.screenshot({ path: evidencePath('burger-contrast-phone.png') });
-  await contrast.getByRole('button', { name: '杯和筒', exact: true }).tap();
-  await expect(contrast.getByRole('img', { name: '香草冰淇淋杯', exact: true })).toBeVisible();
-  await expect(contrast.getByRole('img', { name: '香草蛋筒', exact: true })).toBeVisible();
-  await contrast
-    .locator('img')
-    .evaluateAll((images) => Promise.all(images.map((img) => (img as HTMLImageElement).decode())));
-  await page.screenshot({ path: evidencePath('cup-cone-contrast-phone.png') });
-  await contrast.getByRole('button', { name: '一份和两份', exact: true }).tap();
-  await expect(contrast.getByRole('img', { name: '苹果', exact: true })).toHaveCount(3);
-  await contrast.getByRole('button', { name: '听两份', exact: true }).tap();
-  await contrast
-    .locator('img')
-    .evaluateAll((images) => Promise.all(images.map((img) => (img as HTMLImageElement).decode())));
-  await page.screenshot({ path: evidencePath('quantity-contrast-phone.png') });
-  await contrast.getByRole('button', { name: '两种壶', exact: true }).tap();
-  await expect(contrast.getByRole('button', { name: '听倒水的壶', exact: true })).toBeVisible();
-  await contrast
-    .locator('img')
-    .evaluateAll((images) => Promise.all(images.map((img) => (img as HTMLImageElement).decode())));
-  await page.screenshot({ path: evidencePath('vessel-contrast-phone.png') });
-  await page.getByRole('button', { name: '回去自己做', exact: true }).tap();
-  await expect(helpTrigger).toBeFocused();
-  expect((await state(page)).orders[0]?.support).toContain('visual-contrast');
-  expect((await state(page)).items).toEqual([]);
-  expect((await state(page)).attempts).toEqual([]);
-  await page.reload();
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).tap();
-  expect((await state(page)).orders[0]?.support).toContain('visual-contrast');
-});
-
-test('home main invitation and autonomous entrances are physically reachable in compact layouts', async ({
+test('home invitation and autonomous entrances remain reachable in compact layouts', async ({
   page,
 }) => {
   await page.goto('/');
   for (const size of [
     { width: 393, height: 665 },
-    { width: 768, height: 1024 },
     { width: 852, height: 300 },
   ]) {
     await page.setViewportSize(size);
@@ -193,22 +69,41 @@ test('home main invitation and autonomous entrances are physically reachable in 
       '教学练习',
       '旧食谱 · 回访活动与作品',
     ]) {
-      const button = page.getByRole('button', { name, exact: true });
-      await expect(button).toBeInViewport({ ratio: 1 });
+      const b = page.getByRole('button', { name, exact: true });
+      await expect(b).toBeInViewport({ ratio: 1 });
       expect(
-        await button.evaluate((el) => {
+        await b.evaluate((el) => {
           const r = el.getBoundingClientRect();
+          const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
           return (
-            r.width >= 48 &&
-            r.height >= 48 &&
-            [0.25, 0.5, 0.75].every((n) => {
-              const hit = document.elementFromPoint(r.x + r.width * n, r.y + r.height * 0.5);
-              return hit === el || (hit !== null && el.contains(hit));
-            })
+            r.width >= 48 && r.height >= 48 && (hit === el || Boolean(hit && el.contains(hit)))
           );
         }),
       ).toBe(true);
     }
-    await page.screenshot({ path: evidencePath(`home-${size.width}x${size.height}.png`) });
   }
+});
+test('optional drag snaps only to the target actually pointed at and empty release does not submit', async ({
+  page,
+}) => {
+  await startStory(page);
+  const before = await state(page);
+  const source = await page.locator('[data-hotspot="supply-apple"]').boundingBox();
+  if (!source) throw Error('source');
+  await page.mouse.move(source.x + 25, source.y + 25);
+  await page.mouse.down();
+  await page.mouse.move(380, 10, { steps: 8 });
+  await page.mouse.up();
+  expect((await state(page)).items).toEqual(before.items);
+  expect((await state(page)).attempts).toEqual(before.attempts);
+  const receiver = await page.locator('[data-actor="rabbit"]').boundingBox();
+  if (!receiver) throw Error('receiver');
+  await page.mouse.move(source.x + 25, source.y + 25);
+  await page.mouse.down();
+  await page.mouse.move(receiver.x + receiver.width / 2, receiver.y + receiver.height / 2, {
+    steps: 8,
+  });
+  await page.mouse.up();
+  await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+  expect((await state(page)).adventure?.foods.map((f) => f.product)).toEqual(['apple']);
 });

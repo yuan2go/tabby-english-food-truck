@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { MODES, TOKENS } from '../content/catalog';
+import { TOKENS } from '../content/catalog';
 import { assetUrl } from '../game/assets';
 import type { GameController } from '../platform/controller';
 import type { TrayId } from '../rules/types';
@@ -15,7 +15,7 @@ export function Note({ controller, initialTray, close, feedback }: Props) {
   const [picture, setPicture] = useState(controller.state.mode !== 'service');
   const [fruits, setFruits] = useState<{ id: string; product: 'apple' | 'banana' }[]>([]);
   const [ids, setIds] = useState<string[]>([]);
-  const [tray, setTray] = useState<TrayId>(initialTray);
+  const tray = initialTray;
   const [message, setMessage] = useState('用词块告诉大咪拿什么。');
   const gesture = useRef<{
     id: string;
@@ -120,18 +120,8 @@ export function Note({ controller, initialTray, close, feedback }: Props) {
         </button>
       </div>
       <div className="note-destination">
-        <span>送到</span>
-        {MODES[controller.state.mode].trays.map((i) => (
-          <button
-            type="button"
-            key={i}
-            className={tray === i ? 'chosen' : ''}
-            onClick={() => setTray(i)}
-          >
-            {i + 1}号盘
-          </button>
-        ))}
-        <small>营业继续中</small>
+        <span>放到制作承放区</span>
+        <small>可以一边准备一边表达</small>
       </div>
       <div className="note-format">
         <button type="button" aria-pressed={picture} onClick={() => setPicture(true)}>

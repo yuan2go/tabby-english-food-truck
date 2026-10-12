@@ -1,0 +1,578 @@
+.together-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  overflow: clip;
+  color: #264637;
+  touch-action: manipulation;
+}
+.together-content {
+  position: absolute;
+  inset: 0;
+}
+.together-stage header {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 46px;
+  pointer-events: none;
+}
+.together-stage header > span {
+  display: inline-block;
+  margin: 7px 12px;
+  padding: 5px 12px;
+  border-radius: 9px;
+  background: #fff2d8;
+  box-shadow: 0 2px 2px #73573555;
+  font-size: 18px;
+}
+.together-stage button {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 3px;
+  border: 0;
+  border-radius: 10px;
+  touch-action: manipulation;
+}
+.together-stage header button {
+  position: absolute;
+  pointer-events: auto;
+  background: #fff2d8;
+}
+.together-stage .friend-hotspot {
+  position: absolute;
+  background: transparent;
+  border: 0;
+  z-index: 6;
+}
+.together-stage .friend-hotspot:hover,
+.together-stage .friend-hotspot:focus-visible {
+  background: #ffcf5129;
+  outline: 3px solid #ecc468;
+  border-radius: 40%;
+}
+.together-stage .meal-seat {
+  position: absolute;
+  background: #fff1d0;
+  border: 4px solid #e4ce9b;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px #fff9e8;
+  z-index: 6;
+}
+.together-stage .actual-meal {
+  position: absolute;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.together-stage .actual-meal button {
+  pointer-events: auto;
+}
+.together-stage .loose-food {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  flex-shrink: 0;
+  padding: 0;
+}
+.together-stage .food-art {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.together-stage .flavor-note {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  color: #bb6748;
+  font-size: 25px;
+  pointer-events: none;
+}
+.together-stage .local-bubble {
+  position: absolute;
+  z-index: 15;
+  background: #fff4dc;
+  border: 2px solid #a58b63;
+  border-radius: 18px;
+  padding: 3px 5px;
+}
+.together-stage .speaker-replay {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: #eccd7f;
+  border-radius: 50%;
+}
+.together-stage .speaker-mini {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.together-stage .speaker-mini:after {
+  display: none;
+}
+.together-stage .local-bubble:after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 38%;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  background: #fff4dc;
+  border-right: 2px solid #a58b63;
+  border-bottom: 2px solid #a58b63;
+}
+.together-stage .spoken-sentence {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.together-stage .sentence-text {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  font-size: clamp(14px, 1.9vw, 22px);
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 3px;
+  background: transparent;
+  text-align: left;
+  white-space: normal;
+}
+.together-stage .sentence-play {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  background: #eccd7f;
+  border-radius: 50%;
+}
+.together-stage .scene-objects {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  width: auto;
+  height: auto;
+  z-index: 12;
+}
+.together-stage .scene-objects button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background: #f6dfb6;
+  border: 2px solid #997042;
+}
+.together-stage .scene-icon {
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+}
+.together-stage .preparation-scene {
+  position: absolute;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+.together-stage .equipment-rack {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+}
+.together-stage .equipment-rack button {
+  width: 96px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: 8px;
+  background: #ad8049;
+  box-shadow: 0 3px 0 #77542f;
+}
+.together-stage .equipment-rack button[aria-pressed="true"] {
+  outline: 3px solid #f1d58a;
+}
+.together-stage .equipment-rack img {
+  width: 44px;
+  height: 42px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.together-stage .juice-appliance,
+.together-stage .cooking-appliance {
+  position: relative;
+  width: min(100%, 320px);
+  height: 100%;
+  min-height: 90px;
+  background-size: auto 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px 45px 4px 0;
+}
+.together-stage .juice-appliance {
+  border-radius: 12px;
+}
+.together-stage .device-port {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44%;
+  min-height: 60px;
+}
+.together-stage .device-port > button.stage-drop {
+  width: 66px;
+  min-height: 58px;
+  border: 3px solid #816c3f;
+  background: #faf0d6ac;
+  border-radius: 50%;
+}
+.together-stage .device-port .loose-food {
+  position: absolute;
+  top: 0;
+}
+.together-stage .device-port > button span {
+  font-size: 12px;
+  display: block;
+  margin-top: 25px;
+}
+.together-stage .physical-switch {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  width: 48px;
+  height: 48px;
+  background: #3c6a50;
+  color: #fff1cc;
+  border: 3px solid #d9bc6f;
+}
+.together-stage .appliance-workspace {
+  position: absolute;
+  inset: 5px 50px 8px 4px;
+  background: #e6d6a66a;
+  border: 3px dashed #897249;
+}
+.together-stage .device-ingredients {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: none;
+  gap: 1px;
+  max-width: calc(100% - 55px);
+  align-self: flex-start;
+}
+.together-stage .device-ingredients button {
+  pointer-events: auto;
+}
+.together-stage .preparation-rest {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 6px solid #976e3e;
+  gap: 2px;
+}
+.together-stage .preparation-rest > button:first-child {
+  background: #e1c48f;
+  font-size: 12px;
+}
+.together-stage .ingredient-basket {
+  position: absolute;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  justify-content: space-around;
+  background: repeating-linear-gradient(90deg, #c4a06d 0 12px, #b68b56 12px 15px);
+  border: 3px solid #815e37;
+  border-radius: 10px 10px 22px 22px;
+  z-index: 11;
+}
+.together-stage .ingredient-basket button {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 58px;
+  padding: 0;
+}
+.together-stage .ingredient-basket span {
+  font-size: 11px;
+  line-height: 1;
+  background: #fff2d8dc;
+  border-radius: 5px;
+  padding: 1px 3px;
+  white-space: nowrap;
+}
+.together-stage .ingredient-basket .food-art {
+  height: 43px;
+  width: 43px;
+}
+.together-stage .held-objects {
+  position: absolute;
+  z-index: 13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.together-stage .held-objects .food-art {
+  width: 36px;
+  height: 48px;
+  flex-shrink: 1;
+}
+.together-stage .return-held {
+  position: absolute;
+  z-index: 14;
+  background: #f8e5b9;
+}
+.together-stage .activity-workspace {
+  position: absolute;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+}
+.together-stage .activity-workspace > button {
+  background: #f0deb3;
+}
+.together-stage .activity-workspace .loose-food {
+  background: none;
+}
+.together-stage .garden-spots {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+.together-stage .garden-spots button {
+  position: relative;
+  background: #b18b5c88;
+  border: 2px solid #84633c;
+  border-radius: 12px 12px 24px 24px;
+}
+.together-stage .garden-spots span {
+  position: absolute;
+  left: 8px;
+  top: -15px;
+  font-size: 22px;
+}
+.together-stage .scene-finishing {
+  position: absolute;
+  z-index: 12;
+  display: flex;
+  gap: 4px;
+}
+.together-stage .scene-finishing button {
+  background: #e8cb88;
+}
+.together-stage .natural-finish {
+  background: #3c6a50 !important;
+  color: #fff4d5;
+  font-size: 14px;
+  padding: 5px 8px;
+  white-space: nowrap;
+}
+.together-stage .nearby-feedback {
+  pointer-events: none;
+  position: absolute;
+  margin: 0;
+  background: #fff1d6ed;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.1;
+  padding: 3px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 14;
+  text-align: center;
+}
+.together-stage .drag-food {
+  position: absolute;
+  z-index: 30;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+.together-stage .stage-modal-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: #17372970;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.together-stage [role="dialog"] {
+  background: #fff2d8;
+  border: 4px solid #85653c;
+  border-radius: 16px;
+  padding: 12px;
+  max-height: 85%;
+  width: min(90%, 660px);
+  overflow: auto;
+}
+.together-stage .recipe-pictures {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-block: 4px;
+}
+.together-stage .recipe-pictures .food-art {
+  width: 40px;
+  height: 40px;
+}
+.together-stage [role="dialog"] h2 {
+  font-size: 20px;
+  margin: 6px 0;
+}
+.together-stage [role="dialog"] > button {
+  margin: 3px;
+  background: #e9d39e;
+}
+.short-stage .scene-objects {
+  gap: 2px;
+}
+.short-stage .scene-objects button {
+  width: 48px;
+}
+.short-stage .sentence-text {
+  font-size: 14px;
+}
+.short-stage .local-bubble {
+  height: 64px !important;
+}
+.short-stage .scene-finishing {
+  transform: translateX(-35%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .together-stage * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.game-shell > .canvas-host {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: clip;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .together-stage .juice-appliance,
+  .together-stage .cooking-appliance {
+    width: min(100%, 215px);
+  }
+}
+
+.together-stage .equipment-rack span {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.together-stage .friend-hotspot[data-waiting="true"] {
+  outline: 2px solid #ecd499aa;
+  border-radius: 35%;
+  background: #ffe7aa16;
+}
+
+.together-stage .request-picture {
+  position: absolute;
+  z-index: 16;
+}
+.together-stage .request-picture button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff4dc;
+  border: 2px solid #a58b63;
+  width: 48px;
+  height: 48px;
+}
+.together-stage .request-picture .food-art {
+  width: 36px;
+  height: 36px;
+}
+.together-stage .request-picture button:has(.food-art:nth-child(2)) .food-art {
+  width: 18px;
+}
+.together-stage .request-picture span {
+  position: absolute;
+  right: -4px;
+  bottom: -2px;
+  background: #fff4dc;
+  border-radius: 50%;
+}
+.together-stage .stage-demonstration {
+  position: absolute;
+  inset: 0;
+  z-index: 38;
+}
+.together-stage .demonstration-food {
+  position: absolute;
+  padding: 5px;
+  border: 3px dashed #dbb24f;
+  background: #fff3dacc;
+  border-radius: 50%;
+}
+.together-stage .demonstration-food span {
+  display: block;
+  font-size: 11px;
+  text-align: center;
+}
+.together-stage .demonstration-caption {
+  position: absolute;
+  background: #fff4dce8;
+  border: 3px solid #ae925d;
+  border-radius: 12px;
+  padding: 8px;
+}
+.together-stage .demonstration-caption p {
+  font-size: 14px;
+}
+.together-stage .demonstration-caption button {
+  margin: 2px;
+  background: #e5c98d;
+}
+.together-stage .work-memory {
+  border-bottom: 1px solid #ab966c;
+  padding: 8px 0;
+}
+.together-stage .remembered-table {
+  display: flex;
+  gap: 8px;
+}
+.together-stage .remembered-seat {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.together-stage .remembered-tastes span {
+  display: inline-flex;
+  align-items: center;
+}

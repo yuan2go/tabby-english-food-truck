@@ -1,0 +1,26 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (18 tests | 1 failed) 16ms
+   × actual recipient receipts already count as putting food before that friend in the dinner scene 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > actual recipient receipts already count as putting food before that friend in the dinner scene
+AssertionError: expected [ 'served:hedgehog' ] to include 'place:1'
+ ❯ tests/together-play.test.ts:246:29
+    244|  // Exercise the existing clock receiver with real identities, without…
+    245|  receiveAdventure(s,[{id:'food-500',product:'juice',location:'delivery…
+    246|  expect(s.adventure?.steps).toContain('place:1');expect(s.adventure?.f…
+       |                             ^
+    247| });
+    248|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+   Start at  11:12:39
+   Duration  298ms (transform 147ms, setup 0ms, import 175ms, tests 16ms, environment 0ms)
+

@@ -1,0 +1,14 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts -g visible activity entrance
+
+[WebServer] (node:59984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:60028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/adventure.spec.ts:96:1 › visible activity entrance reaches all five chapters and saves a real creation (1.0m)
+
+  1 passed (1.0m)

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+
+ Test Files  3 passed (3)
+      Tests  64 passed (64)
+   Start at  11:25:58
+   Duration  1.11s (transform 1.22s, setup 0ms, import 1.62s, tests 228ms, environment 0ms)
+
