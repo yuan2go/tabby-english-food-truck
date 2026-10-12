@@ -1,4 +1,3 @@
-import { ADVENTURES } from '../content/adventure';
 import { CONTENT_VERSION, JUICE_MS, MODES, REQUESTS, requestsFor } from '../content/catalog';
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
@@ -7,6 +6,7 @@ import { validAdventure } from './adventure';
 import { hydrateExperience } from './adventure-experience';
 import { stationItems } from './cooking';
 import { emptyRouting, targetLocation } from './routing';
+import { storyExpectedOrders } from './story-flow';
 import type { GameState } from './types';
 
 const record = (v: unknown): v is Record<string, unknown> =>
@@ -285,7 +285,7 @@ export function validateState(v: unknown): v is GameState {
     const level = storyLevel(s.session.levelId);
     const expected =
       s.adventure?.kind === 'chapter'
-        ? ADVENTURES[s.adventure.chapter]?.orders.map((o) => o.request)
+        ? storyExpectedOrders(s.adventure).map((o) => o.request)
         : level
           ? storyRequests(level, s.session.storyChoice ?? 0)
           : s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
@@ -300,7 +300,8 @@ export function validateState(v: unknown): v is GameState {
     if (
       s.adventure?.kind === 'chapter' &&
       s.orders.some(
-        (o, i) => o.visitor !== ADVENTURES[s.adventure?.chapter ?? 0]?.orders[i]?.visitor,
+        (o, i) =>
+          o.visitor !== (s.adventure ? storyExpectedOrders(s.adventure)[i]?.visitor : undefined),
       )
     )
       return false;
@@ -437,7 +438,8 @@ export function validateState(v: unknown): v is GameState {
             at >= 0 &&
             job.elapsed >= job.plan.phases.slice(0, at + 1).reduce((n, p) => n + p.duration, 0),
         );
-      if (a.steps.includes(`served:${order.visitor}`) !== received) return false;
+      if (!a.flow && a.steps.includes(`served:${order.visitor}`) !== received) return false;
+      if (a.flow && received && !a.steps.includes(`served:${order.visitor}`)) return false;
       const foods = a.foods.filter((f) => f.source === order.id);
       if ((!received && foods.length) || (received && !a.rewards.length && !foods.length))
         return false;
@@ -656,7 +658,11 @@ export function decodeSnapshot(raw: string): DecodeResult {
       ['playable-adventure-1', 'adventure-experience-2', 'together-play-1'].includes(
         String(value.contentVersion),
       );
-    if (migratePositions) value.contentVersion = CONTENT_VERSION;
+    if (
+      migratePositions ||
+      (record(value) && value.schemaVersion === 7 && value.contentVersion === 'direct-cooking-1')
+    )
+      value.contentVersion = CONTENT_VERSION;
     if (!validateState(value))
       return { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };
     if (value.adventure) {

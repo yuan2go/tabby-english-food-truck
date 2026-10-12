@@ -1,6 +1,7 @@
 import type { AdventureExperience } from './adventure-experience';
 import type { RequestId } from './catalog';
 import type { Family, Product } from './recipes';
+import type { StoryFlow } from './story-flow';
 export type Visitor = 'rabbit' | 'hedgehog' | 'elder';
 export const VISITOR_NAMES: Record<Visitor, string> = {
   rabbit: '兔兔',
@@ -18,7 +19,7 @@ export interface AdventureChapter {
 export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 0,
-    title: '晨光开门',
+    title: '早餐派对',
     goal: '送早餐，一起吃；饭后可以种迎客花',
     reward: 'flower-page',
     family: 'juice',
@@ -29,7 +30,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   },
   {
     id: 1,
-    title: '树荫甜点',
+    title: '冰淇淋狂欢',
     goal: '尝不同口味，把分享彩旗挂起来',
     reward: 'bunting-page',
     family: 'ice',
@@ -37,7 +38,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   },
   {
     id: 2,
-    title: '野餐准备',
+    title: '野餐接力',
     goal: '帮朋友备餐，一起把野餐桌摆好',
     reward: 'picnic-page',
     family: 'sandwich',
@@ -48,7 +49,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   },
   {
     id: 3,
-    title: '黄昏协作',
+    title: '黄昏餐车',
     goal: '安排煎制与饮品，把灯带到餐桌',
     reward: 'light-page',
     family: 'burger',
@@ -59,7 +60,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   },
   {
     id: 4,
-    title: '社区小食会',
+    title: '美食嘉年华',
     goal: '邀请老朋友，创作拼盘，留下食谱末页',
     reward: 'feast-page',
     family: 'juice',
@@ -129,6 +130,7 @@ export interface Work {
   signature: string;
 }
 export interface AdventureState {
+  flow?: StoryFlow;
   experience?: AdventureExperience;
   chapter: number;
   kind: 'chapter' | 'shop';

@@ -141,7 +141,7 @@ export type Command =
       theme: 'all' | 'fruit' | 'cool' | 'share';
       accepting: boolean;
     }
-  | { type: 'adventure-start'; chapter: number; kind?: 'chapter' | 'shop' }
+  | { type: 'adventure-start'; chapter: number; kind?: 'chapter' | 'shop'; continuous?: boolean }
   | {
       type: 'adventure';
       action: string;

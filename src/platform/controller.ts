@@ -7,6 +7,7 @@ import { startAdventure } from '../rules/adventure';
 import { hydrateExperience } from '../rules/adventure-experience';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
+import { enableStoryFlow } from '../rules/story-flow';
 import type { Command, GameState, Result } from '../rules/types';
 import { MiniStore } from './minis';
 import { ProfileStore } from './profile';
@@ -164,7 +165,15 @@ export class GameController {
   private syncActivity(): void {
     const a = this.state.adventure;
     if (!a) return;
-    this.profile.rememberActivity(this.state.runId, a);
+    for (const memory of a.flow?.archives ?? []) {
+      this.profile.rememberActivity(this.state.runId, memory);
+      this.profile.complete(memory.chapter);
+    }
+    const { flow: _, ...memory } = a;
+    this.profile.rememberActivity(this.state.runId, memory);
+    if (a.rewards.length) this.profile.complete(a.chapter);
+    for (const family of this.state.session.unlocked)
+      if (!this.profile.value.introduced.includes(family)) this.profile.introduce(family);
     for (const food of a.foods) {
       const id = `world:${this.state.runId}:${food.id}`;
       if (this.profile.value.observedIds.includes(id)) continue;
@@ -198,7 +207,12 @@ export class GameController {
       this.state.session.concurrency = concurrency;
       startAdventure(this.state, chapter);
     }
-    applyPolicy(this.state, support, concurrency);
+    if (this.state.adventure) enableStoryFlow(this.state, !stored || replay);
+    applyPolicy(
+      this.state,
+      support,
+      this.state.adventure?.flow ? this.state.session.concurrency : concurrency,
+    );
     if (this.state.adventure) {
       hydrateExperience(this.state.adventure);
       const e = this.state.adventure.experience;

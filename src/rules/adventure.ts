@@ -23,6 +23,7 @@ import {
   worldMoment,
 } from './adventure-experience';
 import { admitAdventure } from './sessions';
+import { flowReceived, validStoryFlow } from './story-flow';
 import type { Command, GameState, Item, Result } from './types';
 
 export function startAdventure(
@@ -57,7 +58,15 @@ export function startAdventure(
 }
 export function adventureReady(a: AdventureState): boolean {
   const has = (step: string) => a.steps.includes(step);
-  if (a.kind === 'shop' || !experienceReady(a)) return false;
+  if (a.kind === 'shop' || !experienceReady(a) || (a.flow && !flowReceived(a))) return false;
+  if (
+    a.flow &&
+    a.chapter === 4 &&
+    !['rabbit', 'hedgehog'].every((v) =>
+      a.experience?.needs.some((n) => n.visitor === v && n.fulfilled.length),
+    )
+  )
+    return false;
   const twoSeats =
     !!a.rewards.length ||
     ([0, 1] as const).every((seat) =>
@@ -150,6 +159,8 @@ export function receiveAdventure(
       step(a, `place:${visitor === 'rabbit' ? 0 : 1}`);
     if (a.chapter === 2 && a.branch === null && (visitor === 'rabbit' || visitor === 'hedgehog'))
       a.branch = visitor;
+    if (a.flow && a.chapter === 2 && a.branch === 'rabbit' && !a.explored.includes('basket'))
+      a.explored.push('basket');
   } else if (source !== 'pack' || a.foods.filter((f) => f.place === 'basket').length === 2)
     step(a, source);
 }
@@ -590,6 +601,7 @@ export function validAdventure(v: unknown): v is AdventureState {
       (f.tasted && ['rabbit', 'hedgehog', 'elder'].includes(f.tastedBy))) &&
     (f.recipient === undefined || ['rabbit', 'hedgehog', 'elder'].includes(f.recipient));
   return (
+    validStoryFlow(a) &&
     (a.experience === undefined || validExperience(a.experience)) &&
     Number.isInteger(a.chapter) &&
     a.chapter >= 0 &&
@@ -658,7 +670,11 @@ export function openCommission(a: AdventureState | null): {
   if (!a) return null;
   if (a.kind === 'shop' || a.rewards.length || a.chapter === 4)
     return { action: 'create', label: '带作品到活动桌', choices: EDIBLE };
-  if (a.chapter === 1 && !a.steps.includes('cool'))
+  if (
+    a.chapter === 1 &&
+    !a.steps.includes('cool') &&
+    (!a.flow || a.flow.legacy || a.flow.wave === 2)
+  )
     return { action: 'cool', label: '送去树荫分享', choices: COOL_CHOICES };
   if (
     a.chapter === 2 &&
