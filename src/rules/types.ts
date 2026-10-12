@@ -121,7 +121,13 @@ export type Destination =
   | { discard: true; confirmed: boolean };
 export type Command =
   | { type: 'pickup'; source: Source }
-  | { type: 'put'; target: Exclude<Destination, { hand: true } | { discard: true }> | { order: string } | { world: 'pack' | 'cool' | 'create' } }
+  | {
+      type: 'put';
+      target:
+        | Exclude<Destination, { hand: true } | { discard: true }>
+        | { order: string }
+        | { world: 'pack' | 'cool' | 'create' };
+    }
   | { type: 'return-hand'; confirmed?: boolean }
   | {
       type: 'shop-policy';

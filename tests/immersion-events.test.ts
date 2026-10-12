@@ -33,14 +33,14 @@ it('yard prompts follow prerequisites and successful differences only', () => {
   old.adventure = emptyAdventure(0);
   expect(actionPrompt(old)?.audio).not.toBe('imm-drawer');
   old.adventure.steps.push('served:rabbit');
-  expect(actionPrompt(old)?.audio).toBe('imm-drawer');
+  expect(actionPrompt(old)?.audio).toBe('imm-welcome');
   const opened = dispatch(old, {
     id: 'open',
     runId: old.runId,
     command: { type: 'adventure', action: 'explore', object: 'drawer' },
   }).state;
   expect(dialogueEvents(old, opened).map((e) => e.line.audio)).toContain('imm-found-flower');
-  expect(actionPrompt(opened)?.audio).toBe('imm-plant');
+  expect(actionPrompt(opened)?.audio).toBe('imm-welcome');
   const repeated = dispatch(opened, {
     id: 'repeat',
     runId: opened.runId,

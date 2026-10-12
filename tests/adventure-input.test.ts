@@ -209,5 +209,5 @@ it('activity guidance ends receiving at the real food transfer, before the empty
   for (let n = 0; n < 250 && !s.adventure?.foods.length; n++) s = advance(s, 100);
   expect(s.adventure?.foods).toHaveLength(1);
   expect(s.orders[0]?.status).toBe('leaving');
-  expect(activityGuidance(s).id).toBe('drawer');
+  expect(activityGuidance(s).id).toBe('welcome');
 });

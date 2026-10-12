@@ -53,6 +53,16 @@ export function validateState(v: unknown): v is GameState {
     )
   )
     return false;
+  if (v.adventure) {
+    const a = v.adventure as unknown as import('../content/adventure').AdventureState;
+    const hands = [
+      v.items.some((i) => String(i.location).startsWith('hand:')),
+      a.foods.some((f) => f.place === 'hand'),
+      Boolean(a.experience?.heldTool),
+      Boolean(a.experience?.heldDecoration),
+    ];
+    if (hands.filter(Boolean).length > 1) return false;
+  }
   if (
     !Array.isArray(v.orders) ||
     (v.orders.length < 1 &&
@@ -241,8 +251,10 @@ export function validateState(v: unknown): v is GameState {
   )
     return false;
   const s = v as unknown as GameState;
-  const shared = s.items.filter(i => i.location.startsWith('hand:') || i.location.startsWith('tray:')).length;
-  const outputSlots = Object.values(s.routing).filter(r => r && 'tray' in r).length;
+  const shared = s.items.filter(
+    (i) => i.location.startsWith('hand:') || i.location.startsWith('tray:'),
+  ).length;
+  const outputSlots = Object.values(s.routing).filter((r) => r && 'tray' in r).length;
   if (shared + (s.helper?.slots.length ?? 0) + outputSlots > MODES[s.mode].trays.length * 3)
     return false;
   const ids = s.items.map((i) => i.id);
@@ -525,8 +537,10 @@ export function validateState(v: unknown): v is GameState {
     return false;
   if (
     s.trays.some(
-      (t, index) => t.remaining > 0 && s.items.some((i) => i.location.startsWith(`tray:${index}:`)) &&
-        !jobs.some(j => j.kind === 'delivery' && j.tray === index && j.fromHand === true),
+      (t, index) =>
+        t.remaining > 0 &&
+        s.items.some((i) => i.location.startsWith(`tray:${index}:`)) &&
+        !jobs.some((j) => j.kind === 'delivery' && j.tray === index && j.fromHand === true),
     )
   )
     return false;
@@ -629,15 +643,26 @@ export function decodeSnapshot(raw: string): DecodeResult {
       value.contentVersion = CONTENT_VERSION;
       value.adventure = null;
     }
-    if (
+    const migratePositions =
       record(value) &&
       value.schemaVersion === 7 &&
-      ['playable-adventure-1', 'adventure-experience-2'].includes(String(value.contentVersion))
-    )
-      value.contentVersion = CONTENT_VERSION;
+      ['playable-adventure-1', 'adventure-experience-2'].includes(String(value.contentVersion));
+    if (migratePositions) value.contentVersion = CONTENT_VERSION;
     if (!validateState(value))
       return { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };
-    if (value.adventure) hydrateExperience(value.adventure);
+    if (value.adventure) {
+      hydrateExperience(value.adventure);
+      const a = value.adventure;
+      if (migratePositions && (a.chapter === 2 || a.chapter === 3))
+        for (const [seat, visitor] of ['rabbit', 'hedgehog'].entries()) {
+          if (
+            a.steps.includes(`served:${visitor}`) &&
+            a.foods.some((f) => f.place === `guest-${visitor}`) &&
+            !a.steps.includes(`place:${seat}`)
+          )
+            a.steps.push(`place:${seat}`);
+        }
+    }
     return { ok: true, state: value };
   } catch {
     return { ok: false, reason: '存档损坏，已保留原文。', raw };

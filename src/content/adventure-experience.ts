@@ -21,7 +21,13 @@ export interface WorldMoment {
   tool?: Tool;
   prop?: 'cup';
 }
+export type Decoration =
+  | { kind: 'bunting'; value: 'warm' | 'cool' }
+  | { kind: 'cloth'; value: 'leaf' | 'sun' }
+  | { kind: 'light'; value: 'warm' | 'moon' };
 export interface AdventureExperience {
+  heldDecoration?: Decoration | null;
+  heldTool?: Tool | null;
   version: 2;
   tools: Tool[];
   used: ('water' | 'compare' | 'cooperate' | 'share')[];

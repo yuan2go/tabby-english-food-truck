@@ -19,20 +19,37 @@ export function queueActor(
   itemIds: string[],
   tray?: TrayId,
   order?: string,
+  fromHand?: true,
 ): number {
   if (s.actor.current?.kind === 'return' && !s.actor.queue.length) s.actor.current = null;
   const previous = s.actor.queue.at(-1) ?? s.actor.current;
   const from = previous ? samplePlan(previous.plan, previous.plan.duration).point : s.actor.point;
+  const route = fromHand
+    ? stops.map((stop) =>
+        stop.event === 'lift'
+          ? { ...stop, point: from, hold: 120 }
+          : stop.event === 'return'
+            ? { ...stop, point: HOME, hold: 120 }
+            : stop,
+      )
+    : stops;
   const plan = buildPlan(
     id,
     from,
-    stops.map((stop, i) => (i === 0 && stop.pose === 'read' ? { ...stop, point: from } : stop)),
+    route.map((stop, i) => (i === 0 && stop.pose === 'read' ? { ...stop, point: from } : stop)),
   );
+  if (fromHand) {
+    for (const phase of plan.phases)
+      if (phase.from.x !== phase.to.x || phase.from.y !== phase.to.y)
+        phase.duration = Math.max(180, phase.duration * 0.65);
+    plan.duration = plan.phases.reduce((sum, phase) => sum + phase.duration, 0);
+  }
   const job: ActorJob = {
     plan,
     elapsed: 0,
     kind,
     itemIds,
+    ...(fromHand ? { fromHand: true as const } : {}),
     ...(tray !== undefined ? { tray } : {}),
     ...(order ? { order } : {}),
   };
@@ -45,7 +62,7 @@ export function queueActor(
 }
 export function advanceActor(s: GameState, delta: number): boolean {
   let time = delta;
-  let transferred = false;
+  let changed = false;
   while (s.actor.current && time > 0) {
     const job = s.actor.current;
     const used = Math.min(time, job.plan.duration - job.elapsed);
@@ -74,12 +91,13 @@ export function advanceActor(s: GameState, delta: number): boolean {
         );
         s.items = s.items.filter((i) => !job.itemIds.includes(i.id));
         job.itemIds = [];
-        transferred = true;
+        changed = true;
       }
     }
     time -= used;
     s.actor.point = samplePlan(job.plan, job.elapsed).point;
     if (job.elapsed >= job.plan.duration) {
+      changed = true;
       s.actor.current = s.actor.queue.shift() ?? null;
       if (!s.actor.current && job.kind !== 'return')
         queueActor(
@@ -91,7 +109,7 @@ export function advanceActor(s: GameState, delta: number): boolean {
         );
     }
   }
-  return transferred;
+  return changed;
 }
 export function cancelHelperActor(s: GameState): void {
   s.actor.queue = s.actor.queue.filter((j) => j.kind !== 'helper');

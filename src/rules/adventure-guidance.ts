@@ -152,18 +152,16 @@ export function activityGuidance(s: GameState): ActivityGuidance {
   )
     return guide('welcome', 'friend', 'counter', '点一位朋友，自己决定先帮谁。', 'welcome');
   if (a.chapter === 0) {
-    if (!has('served:rabbit') && !has('served:hedgehog')) return serve();
-    if (!a.explored.includes('drawer'))
-      return guide('drawer', 'drawer', 'seed', '朋友找到了抽屉，一起打开看看。', 'drawer');
-    if (!tools('seed'))
-      return guide('seed', 'drawer', 'seed', '取出花苗，选一个花盆的位置。', 'seed');
-    if (!has('plant'))
-      return guide('plant', 'seed', 'flower', '点一个位置，把花苗种下来。', 'plant');
-    if (!tools('watering-can'))
-      return guide('watering-can', 'drawer', 'watering-can', '从抽屉取出小水壶。', 'watering-can');
-    if (!used('water'))
-      return guide('water', 'watering-can', 'flower', '给花喝水，看看谁会飞来。', 'water');
     if (waiting) return serve();
+    if (adventureReady(a))
+      return guide(
+        'finish',
+        'friend',
+        'taste',
+        '早餐接好了，一起吃吧；种花可以稍后探索。',
+        'finish',
+      );
+    return guide('welcome', 'friend', 'counter', '点另一位朋友，听听早餐需要。', 'welcome');
   }
   if (a.chapter === 1) {
     if (waiting) return serve();

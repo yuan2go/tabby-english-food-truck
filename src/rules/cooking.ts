@@ -15,7 +15,7 @@ export function stationDestination(
   id: StationId,
   product: Product,
 ): Location | { reason: string } {
-  if (!RECIPES.some(r => r.station === id && s.session.unlocked.includes(r.family)))
+  if (!RECIPES.some((r) => r.station === id && s.session.unlocked.includes(r.family)))
     return { reason: '这台设备的做法还没有介绍。' };
   const station = s.stations[id];
   if (station.status === 'processing' || station.status === 'ready')
@@ -24,7 +24,8 @@ export function stationDestination(
   if (items.length >= 5) return { reason: '备餐台满了，点选原料放回。' };
   if (
     !RECIPES.some(
-      (r) => r.station === id && s.session.unlocked.includes(r.family) && r.inputs.includes(product),
+      (r) =>
+        r.station === id && s.session.unlocked.includes(r.family) && r.inputs.includes(product),
     )
   )
     return { reason: '这份食物不放在这里，可放到托盘或退回。' };

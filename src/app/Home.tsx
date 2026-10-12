@@ -36,20 +36,6 @@ export function Home({
         }}
       >
         <span>{name}</span>
-        {id === 'story' ? (
-          <span
-            role="img"
-            className="first-journey"
-            aria-label="听需要、亲手做、拿整盘、交给朋友、改变小院"
-          >
-            {['ear', 'kitchen', 'carry', 'friend', 'flower'].map((kind, index) => (
-              <span key={kind}>
-                <SceneIcon kind={kind} />
-                {index < 4 ? <b aria-hidden="true">➜</b> : null}
-              </span>
-            ))}
-          </span>
-        ) : null}
         <small>
           {id === 'story'
             ? firstVisit

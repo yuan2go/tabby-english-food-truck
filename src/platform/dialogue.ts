@@ -43,7 +43,9 @@ export function dialogueEvents(old: GameState, s: GameState): DialogueTurn[] {
         s,
         job.worldTarget === 'create' ? 'share' : 'thanks',
         job.plan.id,
-        job.worldTarget === 'create' ? 'dami' : (order?.visitor ?? 'guest'),
+        job.worldTarget === 'create'
+          ? 'dami'
+          : (order?.visitor ?? (order?.seat === 1 ? 'hedgehog' : 'rabbit')),
       ),
     );
   }
@@ -103,8 +105,7 @@ export function actionPrompt(s: GameState): DialogueLine | null {
   const has = (id: string) => a.steps.includes(id);
   if (a.rewards.length || a.kind === 'shop') return lineFor('open-create');
   let id: LineId = 'welcome';
-  if (a.chapter === 0 && (has('served:rabbit') || has('served:hedgehog')))
-    id = !a.explored.includes('drawer') ? 'drawer' : !has('plant') ? 'plant' : 'try';
+  if (a.chapter === 0) id = 'welcome';
   if (a.chapter === 1)
     id = !has('cool')
       ? 'open-cool'

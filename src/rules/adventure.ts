@@ -58,7 +58,12 @@ export function adventureReady(a: AdventureState): boolean {
   if (a.kind === 'shop' || !experienceReady(a)) return false;
   const twoSeats =
     !!a.rewards.length ||
-    ([0, 1] as const).every((seat) => a.foods.some((f) => f.place === `table:${seat}`));
+    ([0, 1] as const).every((seat) =>
+      a.foods.some(
+        (f) =>
+          f.place === `table:${seat}` || f.place === `guest-${seat === 0 ? 'rabbit' : 'hedgehog'}`,
+      ),
+    );
   switch (a.chapter) {
     case 0:
       return has('served:rabbit') && has('served:hedgehog');
@@ -139,6 +144,8 @@ export function receiveAdventure(
   });
   if (visitor) {
     step(a, `served:${visitor}`);
+    if ((a.chapter === 2 || a.chapter === 3) && visitor !== 'elder')
+      step(a, `place:${visitor === 'rabbit' ? 0 : 1}`);
     if (a.chapter === 2 && a.branch === null && (visitor === 'rabbit' || visitor === 'hedgehog'))
       a.branch = visitor;
   } else step(a, source);
@@ -222,7 +229,9 @@ export function adventureCommand(
       s.actor.queue.length >= 3
     )
       return result('blocked', '这只盘还在工作，等好或换一只盘。');
-    const items = s.items.filter((i) => i.location.startsWith(c.fromHand ? 'hand:' : `tray:${c.tray}:`));
+    const items = s.items.filter((i) =>
+      i.location.startsWith(c.fromHand ? 'hand:' : `tray:${c.tray}:`),
+    );
     if (!items.length || (c.action === 'pack' && items.length < 2))
       return result('incomplete', '盘里还没准备齐，食物留在原处。');
     const products = items.map((i) => i.product);
@@ -256,6 +265,8 @@ export function adventureCommand(
       ],
       items.map((i) => i.id),
       c.tray,
+      undefined,
+      c.fromHand,
     );
     const job = s.actor.queue.at(-1) ?? s.actor.current;
     if (job) {
@@ -263,7 +274,8 @@ export function adventureCommand(
       if (c.fromHand) job.fromHand = true;
     }
     for (const i of items)
-      i.location = `delivery:${c.tray}:${i.location.split(':')[c.fromHand ? 1 : 2]}` as Item['location'];
+      i.location =
+        `delivery:${c.tray}:${i.location.split(':')[c.fromHand ? 1 : 2]}` as Item['location'];
     s.trays[c.tray].remaining = duration;
     return result(
       'ok',
@@ -302,11 +314,57 @@ export function adventureCommand(
     step(a, `place:${c.seat}`);
     return result('ok', `食物摆在${c.seat + 1}号餐位。`);
   }
+  if (c.action === 'take-decoration') {
+    const allowed: Record<string, readonly string[]> = {
+      bunting: ['warm', 'cool'],
+      cloth: ['leaf', 'sun'],
+      light: ['warm', 'moon'],
+    };
+    if (!allowed[c.object ?? '']?.includes(c.value ?? ''))
+      return result('blocked', '选择实际的装饰物。');
+    if (
+      s.items.some((i) => i.location.startsWith('hand:')) ||
+      a.foods.some((f) => f.place === 'hand') ||
+      a.experience?.heldTool ||
+      a.experience?.heldDecoration
+    )
+      return result('blocked', '先放下手中的物件。');
+    hydrateExperience(a);
+    if (a.experience)
+      a.experience.heldDecoration = { kind: c.object, value: c.value } as NonNullable<
+        NonNullable<AdventureState['experience']>['heldDecoration']
+      >;
+    return result('ok', '装饰在手里了，点桌面或上方挂绳放好。');
+  }
+  if (c.action === 'return-decoration') {
+    if (a.experience) a.experience.heldDecoration = null;
+    return result('ok', '装饰已放回。');
+  }
+  if (c.action === 'put-decoration') {
+    const held = a.experience?.heldDecoration;
+    if (!held) return result('blocked', '先拿起装饰。');
+    const placed = adventureCommand(s, { ...c, action: held.kind, value: held.value });
+    if (placed.kind === 'ok' && a.experience) a.experience.heldDecoration = null;
+    return placed;
+  }
   if (c.action === 'pickup') {
     const food = a.foods.find((f) => f.id === c.item);
-    if (!food || !food.place.startsWith('table:')) return result('blocked', '先选桌上的一份食品。');
-    food.place = 'work';
+    if (!food || food.place === 'basket') return result('blocked', '先选桌上的一份食品。');
+    if (
+      s.items.some((i) => i.location.startsWith('hand:')) ||
+      a.foods.some((f) => f.place === 'hand' && f.id !== food.id) ||
+      a.experience?.heldTool ||
+      a.experience?.heldDecoration
+    )
+      return result('blocked', '先放下手中的物件。');
+    food.place = 'hand';
     return result('ok', `${PRODUCT_NAMES[food.product]}拿回桌边了，可以重新选餐位。`);
+  }
+  if (c.action === 'put-world') {
+    const food = a.foods.find((f) => f.place === 'hand');
+    if (!food) return result('blocked', '手里没有活动食品。');
+    food.place = 'work';
+    return result('ok', '活动食品放在作品区了。');
   }
   if (c.action === 'taste') {
     if (c.visitor !== undefined && !['rabbit', 'hedgehog', 'elder'].includes(c.visitor))
@@ -377,6 +435,7 @@ export function adventureCommand(
     if (!complete && !a.experience?.tools.includes('seed'))
       return result('blocked', '先把花苗从抽屉取出来。');
     a.decor.flower = c.seat as 0 | 1 | 2;
+    if (a.experience) a.experience.heldTool = null;
     step(a, 'plant');
     return result('ok', '迎客花种好了，它让早餐桌有了新的位置。');
   }
@@ -502,6 +561,7 @@ export function validAdventure(v: unknown): v is AdventureState {
       'guest-elder',
       'basket',
       'work',
+      'hand',
       'table:0',
       'table:1',
       'table:2',
@@ -546,6 +606,7 @@ export function validAdventure(v: unknown): v is AdventureState {
     Array.isArray(a.foods) &&
     a.foods.length <= 12 &&
     a.foods.every(food) &&
+    a.foods.filter((f) => f.place === 'hand').length <= 1 &&
     new Set(a.foods.map((f) => f.id)).size === a.foods.length &&
     Array.isArray(a.works) &&
     a.works.length <= 8 &&

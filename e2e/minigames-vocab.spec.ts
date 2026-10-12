@@ -339,19 +339,19 @@ test('yard minigames return to the activity and preserve adventure and free-kitc
 }) => {
   await page.goto('/');
   await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  await page.getByRole('button', { name: '去小院游乐角' }).click();
+  await page.getByRole('button', { name: '翻开旧食谱', exact: true }).click();
+  await page.getByRole('button', { name: '去游乐角', exact: true }).click();
   await page.getByRole('button', { name: '← 小院', exact: true }).click();
-  await expect(page.getByRole('region', { name: '小院活动桌' })).toBeVisible();
-  await page.getByRole('button', { name: '返回小院', exact: true }).click();
+  await expect(page.getByRole('region', { name: '同桌厨房' })).toBeVisible();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
   await expect(page.locator('canvas')).toBeVisible();
-  await page.getByRole('button', { name: '我来试试', exact: true }).click();
-  await expect(page.getByRole('group', { name: '餐车操作' })).toBeVisible();
+  await expect(page.getByRole('region', { name: '同桌厨房' })).toBeVisible();
   const apple = await hot(page, 'supply-apple');
   await page.mouse.click(apple.x, apple.y);
-  const tray = await hot(page, 'tray-0');
-  await page.mouse.click(tray.x, tray.y);
+  await page.getByRole('button', { name: '放到制作承放区', exact: true }).click();
   await expect
     .poll(async () => (await worldState(page)).items.some((i) => i.product === 'apple'))
     .toBe(true);

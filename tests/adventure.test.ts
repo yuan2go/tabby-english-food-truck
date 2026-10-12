@@ -291,6 +291,11 @@ it('moving one food through two seats does not satisfy a two-friend table', () =
   s = act(s, 'take-tool', { object: 'mat' }).state;
   const id = s.adventure?.foods[0]?.id;
   if (!id) throw Error('food');
+  // Real receipts now occupy the original seats. Lift the other actual food so
+  // this regression still tests one food moving through two otherwise empty seats.
+  s = act(s, 'put-tool').state;
+  const other = s.adventure?.foods.find((f) => f.id !== id)?.id;
+  s = act(s, 'pickup', { item: other }).state;
   s = act(s, 'place', { item: id, seat: 0 }).state;
   s = act(s, 'place', { item: id, seat: 1 }).state;
   s = act(s, 'cloth', { value: 'leaf' }).state;

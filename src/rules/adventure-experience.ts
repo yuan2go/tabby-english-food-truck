@@ -27,12 +27,12 @@ export function experienceReady(a: AdventureState): boolean {
   const e = a.experience;
   if (!e || a.rewards.length) return true;
   return a.chapter === 1
-      ? e.used.includes('compare')
-      : a.chapter === 3
-        ? e.used.includes('cooperate')
-        : a.chapter === 4
-          ? e.used.includes('share')
-          : true;
+    ? e.used.includes('compare')
+    : a.chapter === 3
+      ? e.used.includes('cooperate')
+      : a.chapter === 4
+        ? e.used.includes('share')
+        : true;
 }
 export function experienceCommand(
   s: GameState,
@@ -51,16 +51,38 @@ export function experienceCommand(
     const tool = TOOLS.find((t) => t === c.object);
     if (!tool || !drawerTools(a).includes(tool))
       return result('blocked', '先打开有这个物件的抽屉或食谱。');
-    if (e.tools.includes(tool)) return result('duplicate', '这个物件已经取出了。');
-    e.tools.push(tool);
+    if (
+      s.items.some((i) => i.location.startsWith('hand:')) ||
+      a.foods.some((f) => f.place === 'hand') ||
+      (e.heldTool && e.heldTool !== tool) ||
+      e.heldDecoration
+    )
+      return result('blocked', '先放下手中的物件，再取工具。');
+    if (e.heldTool === tool) return result('duplicate', '这件工具已经在手里。');
+    if (!e.tools.includes(tool)) e.tools.push(tool);
+    e.heldTool = tool;
     worldMoment(s, { kind: 'tool', foods: [], tool });
     return result('ok', '物件取出来了，点场景目标就能使用。');
+  }
+  if (c.action === 'put-tool') {
+    if (!e.heldTool) return result('blocked', '手里没有工具。');
+    const tool = e.heldTool;
+    e.heldTool = null;
+    if (tool === 'seed' && !a.steps.includes('plant')) e.tools = e.tools.filter((t) => t !== tool);
+    worldMoment(s, {
+      kind: 'place',
+      foods: [],
+      tool,
+      ...(c.seat === undefined ? {} : { seat: c.seat }),
+    });
+    return result('ok', '工具放在你选的位置了。');
   }
   if (c.action === 'water') {
     if (!a.steps.includes('plant') || !e.tools.includes('watering-can'))
       return result('blocked', '先种花并取出浇水壶。');
     if (e.used.includes('water')) return result('duplicate', '花已经喝过水了。');
     use('water');
+    e.heldTool = null;
     worldMoment(s, { kind: 'water', foods: [], seat: a.decor.flower, tool: 'watering-can' });
     return result('ok', '水流进花盆，花展开了，蝴蝶来到迎客的位置。');
   }
@@ -92,6 +114,7 @@ export function experienceCommand(
     if (e.helpers.some((h) => h.visitor === visitor))
       return result('duplicate', '这位朋友已经帮忙了。');
     e.helpers.push({ visitor, role });
+    if (role === 'lantern') e.heldTool = null;
     use('cooperate');
     worldMoment(s, {
       kind: 'cooperate',
@@ -154,7 +177,19 @@ export function validExperience(value: unknown): boolean {
   const visitors = ['rabbit', 'hedgehog', 'elder'];
   return (
     e.version === 2 &&
+    (e.heldDecoration === undefined ||
+      e.heldDecoration === null ||
+      (['bunting', 'cloth', 'light'].includes(e.heldDecoration.kind) &&
+        (e.heldDecoration.kind === 'cloth'
+          ? ['leaf', 'sun']
+          : e.heldDecoration.kind === 'light'
+            ? ['warm', 'moon']
+            : ['warm', 'cool']
+        ).includes(e.heldDecoration.value))) &&
     list(e.tools, 5, TOOLS) &&
+    (e.heldTool === undefined ||
+      e.heldTool === null ||
+      (TOOLS.includes(e.heldTool) && e.tools.includes(e.heldTool))) &&
     list(e.used, 4, ['water', 'compare', 'cooperate', 'share']) &&
     list(e.known, EDIBLE.length, EDIBLE) &&
     (e.picnic === null || ['rabbit', 'hedgehog'].includes(e.picnic)) &&

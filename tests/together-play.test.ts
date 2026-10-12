@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { adventureReady } from '../src/rules/adventure';
+import { type Product, RECIPES } from '../src/content/recipes';
+import { queueActor } from '../src/rules/actions';
+import { adventureReady, receiveAdventure } from '../src/rules/adventure';
 import { advance, createGame, dispatch } from '../src/rules/game';
 import { decodeSnapshot, validateState } from '../src/rules/snapshot';
 import type { Command, GameState, Location } from '../src/rules/types';
@@ -7,7 +9,7 @@ import type { Command, GameState, Location } from '../src/rules/types';
 let serial = 0;
 const command = (s: GameState, c: unknown) =>
   dispatch(s, { runId: s.runId, id: `together-${++serial}`, command: c as Command });
-const held = (s: GameState) => s.items.filter(i => i.location.startsWith('hand:'));
+const held = (s: GameState) => s.items.filter((i) => i.location.startsWith('hand:'));
 const pickup = (s: GameState, supply: string) => command(s, { type: 'pickup', source: { supply } });
 const put = (s: GameState, target: unknown) => command(s, { type: 'put', target });
 function breakfast() {
@@ -19,7 +21,7 @@ describe('real hand ownership and explicit targets', () => {
   it('takes a unique real item and restores that same held item after reload', () => {
     const r = pickup(breakfast(), 'apple');
     expect(r.kind).toBe('ok');
-    expect(held(r.state).map(i => i.product)).toEqual(['apple']);
+    expect(held(r.state).map((i) => i.product)).toEqual(['apple']);
     expect(r.state.items).toHaveLength(1);
     const decoded = decodeSnapshot(JSON.stringify(r.state));
     expect(decoded.ok).toBe(true);
@@ -33,7 +35,7 @@ describe('real hand ownership and explicit targets', () => {
     const blocked = pickup(s, 'banana');
     expect(blocked.kind).toBe('blocked');
     expect(blocked.state.items).toEqual(s.items);
-    expect(held(s).map(i => i.product)).toEqual(['apple', 'banana', 'apple']);
+    expect(held(s).map((i) => i.product)).toEqual(['apple', 'banana', 'apple']);
     expect(held(s)[0]?.id).toBe(first);
   });
   it('putting a mixed handful into an invalid device rolls back every portion', () => {
@@ -71,19 +73,19 @@ describe('real hand ownership and explicit targets', () => {
     let s = pickup(breakfast(), 'apple').state;
     s = put(s, { machine: 'apple' }).state;
     s = pickup(s, 'cup').state;
-    expect(held(s).map(i => i.product)).toEqual(['cup']);
+    expect(held(s).map((i) => i.product)).toEqual(['cup']);
     s = put(s, { machine: 'cup' }).state;
     s = command(s, { type: 'start-machine' }).state;
     expect(s.machine.status).toBe('processing');
-    expect(s.items.map(i => i.product)).toEqual(['apple', 'cup']);
+    expect(s.items.map((i) => i.product)).toEqual(['apple', 'cup']);
     s = advance(s, 4999);
     expect(s.machine.status).toBe('processing');
     s = advance(s, 1);
     expect(s.machine.status).toBe('ready');
-    const id = s.items.find(i => i.product === 'juice')?.id;
+    const id = s.items.find((i) => i.product === 'juice')?.id;
     const r = command(s, { type: 'pickup', source: { item: id } });
     expect(r.kind).toBe('ok');
-    expect(held(r.state).map(i => i.product)).toEqual(['juice']);
+    expect(held(r.state).map((i) => i.product)).toEqual(['juice']);
     expect(r.state.machine.status).toBe('empty');
     expect(validateState(r.state)).toBe(true);
   });
@@ -97,7 +99,7 @@ describe('real hand ownership and explicit targets', () => {
     expect(placed.kind).toBe('ok');
     s = command(placed.state, { type: 'start-station', station: 'ice' }).state;
     s = advance(s, 1000);
-    expect(s.items.map(i => i.product)).toEqual(['vanilla-cone']);
+    expect(s.items.map((i) => i.product)).toEqual(['vanilla-cone']);
     expect(s.session.family).toBe('juice');
   });
   it('delivers just the held portion while preserving other food on the preparation surface', () => {
@@ -109,17 +111,45 @@ describe('real hand ownership and explicit targets', () => {
     expect(offered.kind).toBe('ok');
     expect(validateState(offered.state)).toBe(true);
     const received = advance(offered.state, 30000);
-    expect(received.adventure?.foods.map(i => i.product)).toEqual(['apple']);
-    expect(received.items.map(i => i.product)).toEqual(['banana']);
+    expect(received.adventure?.foods.map((i) => i.product)).toEqual(['apple']);
+    expect(received.items.map((i) => i.product)).toEqual(['banana']);
     expect(validateState(received)).toBe(true);
   });
 });
 
 describe('breakfast ending and this repository save migration', () => {
+  it('world food also has a persistent hand owner and cannot mix with preparation inventory', () => {
+    let s = createGame('world-hand', 0, {}, 'practice');
+    s = command(s, { type: 'adventure-start', chapter: 4 }).state;
+    s = command(s, { type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } }).state;
+    s = command(s, { type: 'adventure', action: 'create', tray: 0 }).state;
+    s = advance(s, 30000);
+    const id = s.adventure?.foods[0]?.id;
+    s = command(s, { type: 'adventure', action: 'place', item: id, seat: 0 }).state;
+    const picked = command(s, { type: 'adventure', action: 'pickup', item: id });
+    expect(picked.kind).toBe('ok');
+    expect(picked.state.adventure?.foods[0]?.place).toBe('hand');
+    expect(decodeSnapshot(JSON.stringify(picked.state)).ok).toBe(true);
+    expect(pickup(picked.state, 'banana').kind).toBe('blocked');
+  });
+  it('a picked exploration tool is actually held and remains held on reload', () => {
+    let s = breakfast();
+    s = command(s, { type: 'adventure', action: 'welcome', visitor: 'rabbit' }).state;
+    s = pickup(s, 'apple').state;
+    s = advance(put(s, { order: 'guest-0' }).state, 30000);
+    s = command(s, { type: 'adventure', action: 'explore', object: 'drawer' }).state;
+    const taken = command(s, { type: 'adventure', action: 'take-tool', object: 'seed' });
+    expect(taken.kind).toBe('ok');
+    expect((taken.state.adventure?.experience as unknown as { heldTool?: string })?.heldTool).toBe(
+      'seed',
+    );
+    expect(decodeSnapshot(JSON.stringify(taken.state)).ok).toBe(true);
+  });
   it('received breakfasts can finish without forcing planting or watering', () => {
     let s = breakfast();
     for (const [visitor, supply, order] of [
-      ['rabbit', 'apple', 'guest-0'], ['hedgehog', 'banana', 'guest-1'],
+      ['rabbit', 'apple', 'guest-0'],
+      ['hedgehog', 'banana', 'guest-1'],
     ]) {
       s = command(s, { type: 'adventure', action: 'welcome', visitor }).state;
       s = pickup(s, supply ?? '').state;
@@ -136,8 +166,14 @@ describe('breakfast ending and this repository save migration', () => {
   });
   it('migration preserves old food and does not invent exploration, attempts, or rewards', () => {
     const s = breakfast();
-    const saved = command(s, { type: 'move', source: { supply: 'banana' }, destination: { tray: 0 } }).state;
-    const decoded = decodeSnapshot(JSON.stringify({ ...saved, contentVersion: 'adventure-experience-2' }));
+    const saved = command(s, {
+      type: 'move',
+      source: { supply: 'banana' },
+      destination: { tray: 0 },
+    }).state;
+    const decoded = decodeSnapshot(
+      JSON.stringify({ ...saved, contentVersion: 'adventure-experience-2' }),
+    );
     expect(decoded.ok).toBe(true);
     if (decoded.ok) {
       expect(decoded.state.items).toEqual(saved.items);
@@ -148,7 +184,11 @@ describe('breakfast ending and this repository save migration', () => {
     }
   });
   it('refuses an invalid hand slot rather than losing a held item during hydration', () => {
-    const s = command(breakfast(), { type: 'move', source: { supply: 'apple' }, destination: { tray: 0 } }).state;
+    const s = command(breakfast(), {
+      type: 'move',
+      source: { supply: 'apple' },
+      destination: { tray: 0 },
+    }).state;
     const invalid = structuredClone(s);
     if (!invalid.items[0]) throw Error('hand item must exist');
     invalid.items[0].location = 'hand:3' as Location;
@@ -156,7 +196,9 @@ describe('breakfast ending and this repository save migration', () => {
   });
   it('rejects a save that invents capacity beyond the original hands and preparation spaces', () => {
     const s = breakfast();
-    s.items = ['hand:0','hand:1','hand:2','tray:0:0','tray:0:1','tray:0:2','tray:1:0'].map((location,i)=>({id:`food-${i+1}`,product:'apple',location:location as Location}));
+    s.items = ['hand:0', 'hand:1', 'hand:2', 'tray:0:0', 'tray:0:1', 'tray:0:2', 'tray:1:0'].map(
+      (location, i) => ({ id: `food-${i + 1}`, product: 'apple', location: location as Location }),
+    );
     s.nextId = 8;
     expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(false);
   });
@@ -165,6 +207,132 @@ describe('breakfast ending and this repository save migration', () => {
     s = command(s, { type: 'adventure', action: 'welcome', visitor: 'rabbit' }).state;
     s = pickup(s, 'apple').state;
     s = put(s, { order: 'guest-0' }).state;
-    expect(decodeSnapshot(JSON.stringify(s).replace('"fromHand":true','"fromHand":"yes"')).ok).toBe(false);
+    expect(
+      decodeSnapshot(JSON.stringify(s).replace('"fromHand":true', '"fromHand":"yes"')).ok,
+    ).toBe(false);
   });
+});
+
+it('holds decoration without applying it, retains it on an invalid placement and can return it', () => {
+  let s = breakfast();
+  s = command(s, {
+    type: 'adventure',
+    action: 'take-decoration',
+    object: 'cloth',
+    value: 'leaf',
+  }).state;
+  expect(s.adventure?.experience?.heldDecoration).toEqual({ kind: 'cloth', value: 'leaf' });
+  expect(s.adventure?.steps).not.toContain('cloth');
+  const invalid = command(s, { type: 'adventure', action: 'put-decoration' });
+  expect(invalid.kind).toBe('blocked');
+  expect(invalid.state.adventure?.experience?.heldDecoration).toEqual({
+    kind: 'cloth',
+    value: 'leaf',
+  });
+  expect(decodeSnapshot(JSON.stringify(invalid.state)).ok).toBe(true);
+  const returned = command(invalid.state, { type: 'adventure', action: 'return-decoration' });
+  expect(returned.state.adventure?.experience?.heldDecoration).toBeNull();
+});
+it('refuses snapshots that put a preparation item and activity object in the same hand', () => {
+  const s = pickup(breakfast(), 'apple').state;
+  if (!s.adventure?.experience) throw Error('experience');
+  s.adventure.experience.tools = ['seed'];
+  s.adventure.experience.heldTool = 'seed';
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(false);
+});
+it('actual recipient receipts already count as putting food before that friend in the dinner scene', () => {
+  let s = createGame('dinner-position', 0, {}, 'practice');
+  s = command(s, { type: 'adventure-start', chapter: 3 }).state;
+  const a = s.adventure;
+  if (!a) throw Error('dinner');
+  // Exercise the existing clock receiver with real identities, without a presentation callback.
+  receiveAdventure(
+    s,
+    [{ id: 'food-500', product: 'juice', location: 'delivery:0:0' }],
+    'guest-1',
+    'hedgehog',
+  );
+  expect(s.adventure?.steps).toContain('place:1');
+  expect(s.adventure?.foods[0]?.place).toBe('guest-hedgehog');
+});
+it('migrates only already received old dinner positions without inventing attempts or rewards', () => {
+  let s = createGame('migration-dinner', 0, {}, 'practice');
+  s = command(s, { type: 'adventure-start', chapter: 3 }).state;
+  function prepare(state: GameState, product: Product): GameState {
+    const recipe = RECIPES.find((r) => r.output === product);
+    if (!recipe) throw Error(product);
+    for (const input of recipe.inputs) {
+      if (input === 'cooked-patty') {
+        state = prepare(state, input);
+        continue;
+      }
+      state = command(state, {
+        type: 'move',
+        source: { supply: input },
+        destination:
+          recipe.station === 'machine'
+            ? { machine: input === 'cup' ? 'cup' : 'apple' }
+            : { station: recipe.station },
+      }).state;
+    }
+    const r = command(
+      state,
+      recipe.station === 'machine'
+        ? { type: 'start-machine', tray: 0 }
+        : { type: 'start-station', station: recipe.station, tray: 0 },
+    );
+    expect(r.kind).toBe('ok');
+    return advance(r.state, 30000);
+  }
+  for (const [visitor, product, order] of [
+    ['rabbit', 'cheese-burger', 'guest-0'],
+    ['hedgehog', 'juice', 'guest-1'],
+  ] as const) {
+    s = command(s, { type: 'adventure', action: 'welcome', visitor }).state;
+    s = prepare(s, product);
+    s = advance(command(s, { type: 'deliver', tray: 0, order }).state, 30000);
+  }
+  expect(validateState(s)).toBe(true);
+  if (!s.adventure) throw Error('adventure');
+  s.adventure.steps = s.adventure.steps.filter((v) => !v.startsWith('place:'));
+  const before = JSON.stringify(s.attempts),
+    foods = structuredClone(s.adventure.foods);
+  const decoded = decodeSnapshot(
+    JSON.stringify({ ...s, contentVersion: 'adventure-experience-2' }),
+  );
+  expect(decoded.ok).toBe(true);
+  if (decoded.ok) {
+    expect(decoded.state.adventure?.steps).toEqual(expect.arrayContaining(['place:0', 'place:1']));
+    expect(decoded.state.adventure?.foods).toEqual(foods);
+    expect(JSON.stringify(decoded.state.attempts)).toBe(before);
+    expect(decoded.state.adventure?.rewards).toEqual([]);
+  }
+});
+it('publishes return-job completion so a waiting menu introduction can appear without another click', () => {
+  const s = createGame('return-notify', 0, {}, 'practice');
+  queueActor(s, 'return', 'near-return', [{ point: s.actor.point, pose: 'idle', hold: 120 }], []);
+  const revision = s.revision,
+    next = advance(s, 120);
+  expect(next.actor.current).toBeNull();
+  expect(next.revision).toBeGreaterThan(revision);
+});
+it('a hand delivery uses a short same-table path and settles only at its real receive phase', () => {
+  let s = breakfast();
+  s = command(s, { type: 'adventure', action: 'welcome', visitor: 'rabbit' }).state;
+  s = pickup(s, 'apple').state;
+  s = put(s, { order: 'guest-0' }).state;
+  const job = s.actor.current;
+  if (!job) throw Error('job');
+  expect(job.fromHand).toBe(true);
+  expect(job.plan.duration).toBeLessThan(3500);
+  let at = 0;
+  for (const phase of job.plan.phases) {
+    at += phase.duration;
+    if (phase.event === 'receive') break;
+  }
+  const before = advance(s, at - 1);
+  expect(before.adventure?.foods).toHaveLength(0);
+  const received = advance(before, 1);
+  expect(received.adventure?.foods.map((f) => f.product)).toEqual(['apple']);
+  expect(received.attempts).toHaveLength(1);
 });
