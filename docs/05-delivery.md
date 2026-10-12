@@ -46,6 +46,8 @@ Interfaces: Task2状态投影，统一pickup/ingredient/put命令；进度无UI�
 
 - [x] push/PR，精确head正常门禁通过后合并main；核验完整SHA和工作区保护。
 - [x] 合并main干净构建更新原Sites，保存版本映射；匿名新会话真实版本/正常核心路径验证。
-- [ ] 更新STATUS/README/验收报告及参赛说明/PDF/真实同版配图，文字比对/渲染检查；材料归档PR，最终报告。
+- [x] 更新STATUS/README/验收报告及参赛说明/PDF/真实同版配图，文字比对/渲染检查；材料归档PR，最终报告。
 
 本轮准确head a7ab8ed6de9567d8610eafd0b15fa35005180e9a的371/45正常CI通过，PR25已合并，原站v6和两个匿名正常五章/两路通过；最终事实/失败/版映射见evidence/continuous-gameplay-2026-10-13/README.md。最后纯材料PR不重跑同一游戏矩阵，执行PDF全文/全页/图hash/链接/范围核对。
+
+材料[PR26](https://github.com/yuan2go/tabby-english-food-truck/pull/26)仅README/docs；PDF文字与1页渲染/线上图byte、十文件旧档hash与30个当前本地引用通过。main正常推送门禁38292804117也通过371/45。外部验收状态不因交付改变。

@@ -54,10 +54,12 @@ ENGINEERING_PASS / PUBLIC_V6_DEPLOYED / ANONYMOUS_NORMAL_PLAY_PASS / EXTERNAL_PE
 
 [PR25](https://github.com/yuan2go/tabby-english-food-truck/pull/25)于2026-10-12T18:43:07Z正常合并，运行main为1c6af31fd2c109fca3cb36786f2e5232814b5839，与受测head整树相同。Sites来源2096d7fdbbcf99edf7a439ac4e3b233be5c19891，保存v6，部署succeeded，原project/public/URL保留。完整opaque版本、部署ID和archive hash见deployment.json；1058保留源路径byte相同，仅排除历史证明、生成发布元数据，见source-integrity.json。
 
-两个新建匿名Chromium上下文，经现有本机VPN代理访问原站，不导入cookie/存档、不注入状态、不修改游戏钟。各完成连续五章：兔兔路线103触控、野餐4份食品、嘉年华sandwich/strawberry-cup；刺刺路线96触控、野餐原2份食品、嘉年华juice/strawberry-cup。均验证误送、并行/暂停刷新、作品、自由厨房和小游戏入口，393×665/665×393/1280×720/820×1180实画；1280桌面及1024 Pad鼠键/几何另由完整CI覆盖。DOM读回运行main完整SHA、dirty=false、continuous-gameplay-1及冻结资源hash；pageerror为空，音频有started/completed且无failed事件。快速操作中断语音记录保留，不等于完整人工听审。见online-rabbit、online-hedgehog的trajectory.json。
+两个新建匿名Chromium上下文，经现有本机VPN代理访问原站，不导入cookie/存档、不注入状态、不修改游戏钟。各完成连续五章：兔兔路线103触控、野餐4份食品、嘉年华sandwich/strawberry-cup；刺刺路线96触控、野餐原2份食品、嘉年华juice/strawberry-cup。均验证误送、并行/暂停刷新、作品、自由厨房和小游戏入口，393×665/665×393/1280×720/820×1180实画；1280桌面及1024 Pad鼠键/几何另由完整CI覆盖。DOM/规则存档读回运行main完整SHA、dirty=false、continuous-gameplay-1及冻结资源hash；pageerror为空，音频有started/completed且无failed事件。快速操作中断语音记录保留，不等于完整人工听审。见online-rabbit、online-hedgehog的trajectory.json。
 
 第一次线上检查在已经显示小院时因等待networkidle超时；修正脚本为等实际入口出现后操作，并重新建两个匿名上下文，红记录在online-readiness-red-*。这属于检查等待条件，不把它计为游戏流程失败。
 
 说明正文、PDF与配图描述同版实际行为；旧材料十文件逐字节归档，01–06历史图保持来源。PDF全文按NFC/空白归一比对，所有页渲染查看，图片与原线上图byte/hash一致。
 
 真人成人、儿童观察、实体iPhone/Pad、教研与人工听审NOT_RUN；素材/声音权利PENDING、开发TTS未审核。历史真机NEEDS_REVISION和60fps NOT_MET保留。代理“可操作/流程通过”不意味着儿童觉得好玩、学习有效或外部公开审核通过。
+
+最终纯材料[PR26](https://github.com/yuan2go/tabby-english-food-truck/pull/26)仅README/docs，无运行/资源/依赖/测试/工作流/构建配置变化；材料核验见material-validation.json。正常main门禁38292804117也通过371/45，其main-ci.json/log保留。纯材料不重新发布相同游戏，线上仍标运行main1c6af31，不将后续材料SHA伪装成新游戏验证。归档核验发现并纠正新landing索引覆盖旧索引命名冲突，旧index已恢复baseline完整字节，新landing单独README，red记录保留。

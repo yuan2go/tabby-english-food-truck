@@ -26,7 +26,7 @@
   "deployment": {
     "id": "appgdep_6acd2ab2191481918640e528dd660fe1",
     "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
-    "title": "狸花猫的英语餐车",
+    "title": "\u72f8\u82b1\u732b\u7684\u82f1\u8bed\u9910\u8f66",
     "version_id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_4d66aee14b2481919193acb342b39121",
     "type": "publish",
     "status": "succeeded",
@@ -37,5 +37,13 @@
     "failure_message": null,
     "env_set_revision": 0,
     "updated_at": "2026-10-12T18:45:15.442284+00:00"
+  },
+  "materialPullRequest": "https://github.com/yuan2go/tabby-english-food-truck/pull/26",
+  "codeMainCI": {
+    "runId": 38292804117,
+    "headSha": "1c6af31fd2c109fca3cb36786f2e5232814b5839",
+    "conclusion": "success",
+    "unit": 371,
+    "browser": 45
   }
 }
