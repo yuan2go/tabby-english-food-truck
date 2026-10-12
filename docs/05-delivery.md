@@ -43,20 +43,20 @@ Files: app/TogetherStage及同桌场景/输入/CSS、App接线、替代旧入口
 Files: docs/evidence/simplified-play-2026-10-12、STATUS、相关测试/源码。Interfaces: 正常新入口实际制作，不注入游戏状态；只读快照核对。
 - [x] 代表手机连续五章，抽查自由厨房/另一野餐路线；桌面补布局，重听、错拿、误送、放回、实际加工、刷新/暂停恢复。记录代理从玩家角度的疑惑、读说明、无意义操作、等待和选择后果。
 - [x] 保存必要画面/短录像，发现问题实际修复，RED→GREEN定向复测。
-- [ ] 最终候选必要门禁：`npm test`/`npm run lint`/`npm run build`/`npm run resources`/词库；当前有效E2E受影响全路径。已通过无变更不重复无关全量。代理/成人/儿童/真机分记，未做NOT_RUN。
+- [x] 最终候选必要门禁：`npm test`/`npm run lint`/`npm run build`/`npm run resources`/词库；当前有效E2E受影响全路径。已通过无变更不重复无关全量。代理/成人/儿童/真机分记，未做NOT_RUN。
 - [x] 一次独立代理只读全分支审查，处理实质问题并定向/影响回归；审查diff排密钥/无关/临时产物。
 
 ### Task 5: Git与原站公开发布
 
 Files: 发布映射/本次报告；唯一目标原Sites项目。
-- [ ] Push工作分支，PR完整说明及精确head实际门禁；按规则merge，不force/no bypass；fetch并读回main full SHA。
-- [ ] 从合并main准备既有Sites源/构建、正常save/deploy；确认public无需邀请。保存代码SHA/源SHA/版本/部署ID/URL。
-- [ ] 退出登录/无痕新会话、具备VPN的当前网络，真实打开最新站点玩核心段，复核资源/声音/保存；线上失败修复→PR→merge→重发及受影响复测。
+- [x] Push工作分支，PR完整说明及精确head实际门禁；按规则merge，不force/no bypass；fetch并读回main full SHA。
+- [x] 从合并main准备既有Sites源/构建、正常save/deploy；确认public无需邀请。保存代码SHA/源SHA/版本/部署ID/URL。
+- [x] 退出登录/无痕新会话、具备VPN的当前网络，真实打开最新站点玩核心段，复核资源/声音/保存；线上失败修复→PR→merge→重发及受影响复测。
 
 ### Task 6: 最新设计说明与桌面交付
 
 Files: docs/submission既有源稿/PDF/validation/evidence/index，本次报告/STATUS。
-- [ ] 先线上核验，再写简短一页主题/目标玩家、实有玩法、真实AI工具/用途、亮点；不称运行时AI/听审/学习效果，附可点击原站及“访问需要开启 VPN”。截图只用最新站。
-- [ ] 同稿可编辑源稿/PDF，逐页渲染和文字/链接/版本核验；材料与报告另经PR合并main，如影响站点产物再发。
-- [ ] 查真实Desktop目录、同名旧版备份，复制PDF及可编辑源稿，确认存在/可读/hash相同。
-- [ ] 最终baseline/final SHA、行为、问题修复、命令/退出码/环境/NOT_RUN、所有PR/main读回、线上映射及公开访问、报告和桌面绝对路径完整交付。
+- [x] 先线上核验，再写简短一页主题/目标玩家、实有玩法、真实AI工具/用途、亮点；不称运行时AI/听审/学习效果，附可点击原站及“访问需要开启 VPN”。截图只用最新站。
+- [x] 同稿可编辑源稿/PDF，逐页渲染和文字/链接/版本核验。材料与报告另由材料PR承载门禁及main合并回执；运行输入未改，不重发站点文档版本。
+- [x] 查真实Desktop目录、同名旧版备份，复制PDF及可编辑源稿，确认存在/可读/hash相同。
+- [x] 形成最终baseline/final代码SHA、行为、问题修复、命令/退出码/环境/NOT_RUN、所有PR/main读回、线上映射及公开访问、报告和桌面绝对路径完整交付。

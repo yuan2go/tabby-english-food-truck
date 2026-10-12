@@ -1,0 +1,1144 @@
+game	Set up job	﻿2026-10-12T04:56:02.9101078Z Current runner version: '2.337.0'
+game	Set up job	2026-10-12T04:56:02.9129036Z ##[group]Runner Image Provisioner
+game	Set up job	2026-10-12T04:56:02.9129951Z Hosted Compute Agent
+game	Set up job	2026-10-12T04:56:02.9130687Z Version: 20261002.596
+game	Set up job	2026-10-12T04:56:02.9131376Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+game	Set up job	2026-10-12T04:56:02.9132115Z Build Date: 2026-10-02T22:28:27Z
+game	Set up job	2026-10-12T04:56:02.9132964Z Worker ID: {9d65e7bb-0f81-4500-9045-922cb5226474}
+game	Set up job	2026-10-12T04:56:02.9133688Z Region: westus
+game	Set up job	2026-10-12T04:56:02.9134309Z Cloud: Azure
+game	Set up job	2026-10-12T04:56:02.9134847Z ##[endgroup]
+game	Set up job	2026-10-12T04:56:02.9136762Z ##[group]Operating System
+game	Set up job	2026-10-12T04:56:02.9137601Z Ubuntu
+game	Set up job	2026-10-12T04:56:02.9138150Z 24.04.5
+game	Set up job	2026-10-12T04:56:02.9138705Z LTS
+game	Set up job	2026-10-12T04:56:02.9139290Z ##[endgroup]
+game	Set up job	2026-10-12T04:56:02.9139855Z ##[group]Runner Image
+game	Set up job	2026-10-12T04:56:02.9140558Z Image: ubuntu-24.04
+game	Set up job	2026-10-12T04:56:02.9141134Z Version: 20261004.327.1
+game	Set up job	2026-10-12T04:56:02.9142385Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+game	Set up job	2026-10-12T04:56:02.9144266Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+game	Set up job	2026-10-12T04:56:02.9145629Z ##[endgroup]
+game	Set up job	2026-10-12T04:56:02.9146935Z ##[group]GITHUB_TOKEN Permissions
+game	Set up job	2026-10-12T04:56:02.9149257Z Contents: read
+game	Set up job	2026-10-12T04:56:02.9149904Z Metadata: read
+game	Set up job	2026-10-12T04:56:02.9150577Z ##[endgroup]
+game	Set up job	2026-10-12T04:56:02.9152740Z Secret source: Actions
+game	Set up job	2026-10-12T04:56:02.9153836Z Cache mode: write
+game	Set up job	2026-10-12T04:56:02.9154588Z Prepare workflow directory
+game	Set up job	2026-10-12T04:56:02.9511393Z Prepare all required actions
+game	Set up job	2026-10-12T04:56:02.9561602Z Getting action download info
+game	Set up job	2026-10-12T04:56:03.3131710Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+game	Set up job	2026-10-12T04:56:03.4162272Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+game	Set up job	2026-10-12T04:56:03.5029684Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+game	Set up job	2026-10-12T04:56:03.7183512Z Complete job name: game
+game	Run actions/checkout@v4	﻿2026-10-12T04:56:03.8011859Z ##[group]Run actions/checkout@v4
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8012774Z with:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8013283Z   repository: yuan2go/tabby-english-food-truck
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8017384Z   token: ***
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8017833Z   ssh-strict: true
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8018273Z   ssh-user: git
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8018725Z   persist-credentials: true
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8019215Z   clean: true
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8019665Z   sparse-checkout-cone-mode: true
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8020183Z   fetch-depth: 1
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8020614Z   fetch-tags: false
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8021059Z   show-progress: true
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8021502Z   lfs: false
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8021901Z   submodules: false
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8022351Z   set-safe-directory: true
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8022855Z   allow-unsafe-pr-checkout: false
+game	Run actions/checkout@v4	2026-10-12T04:56:03.8023623Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9164582Z Syncing repository: yuan2go/tabby-english-food-truck
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9167317Z ##[group]Getting Git version info
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9168288Z Working directory is '/home/runner/work/tabby-english-food-truck/tabby-english-food-truck'
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9169717Z [command]/usr/bin/git version
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9240783Z git version 2.55.0
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9265142Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9284577Z Temporarily overriding HOME='/home/runner/work/_temp/11e738ea-84d1-4bd0-a2c2-836cfda04cc8' before making global git config changes
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9287337Z Adding repository directory to the temporary git global config as a safe directory
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9291869Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tabby-english-food-truck/tabby-english-food-truck
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9353809Z Deleting the contents of '/home/runner/work/tabby-english-food-truck/tabby-english-food-truck'
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9364513Z ##[group]Initializing the repository
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9367464Z [command]/usr/bin/git init /home/runner/work/tabby-english-food-truck/tabby-english-food-truck
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9488244Z hint: Using 'master' as the name for the initial branch. This default branch name
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9491341Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9493472Z hint: to use in all of your new repositories, which will suppress this warning,
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9495019Z hint: call:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9496481Z hint:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9497568Z hint: 	git config --global init.defaultBranch <name>
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9499022Z hint:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9500183Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9501804Z hint: 'development'. The just-created branch can be renamed via this command:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9503190Z hint:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9503993Z hint: 	git branch -m <name>
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9504856Z hint:
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9506546Z hint: Disable this message with "git config set advice.defaultBranchName false"
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9508785Z Initialized empty Git repository in /home/runner/work/tabby-english-food-truck/tabby-english-food-truck/.git/
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9512118Z [command]/usr/bin/git remote add origin https://github.com/yuan2go/tabby-english-food-truck
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9564794Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9566725Z ##[group]Disabling automatic garbage collection
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9570584Z [command]/usr/bin/git config --local gc.auto 0
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9606758Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9607527Z ##[group]Setting up auth
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9616106Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+game	Run actions/checkout@v4	2026-10-12T04:56:03.9662269Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0180029Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0236838Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0511921Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0551692Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0791970Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0836544Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0837588Z ##[group]Fetching the repository
+game	Run actions/checkout@v4	2026-10-12T04:56:04.0847247Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d11468b7e8aa5844faae25fe3f90128c6171613f:refs/remotes/pull/20/merge
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7652994Z From https://github.com/yuan2go/tabby-english-food-truck
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7654293Z  * [new ref]         d11468b7e8aa5844faae25fe3f90128c6171613f -> pull/20/merge
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7676563Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7677116Z ##[group]Determining the checkout info
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7769290Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7770216Z [command]/usr/bin/git sparse-checkout disable
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7790741Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7819868Z ##[group]Checking out the ref
+game	Run actions/checkout@v4	2026-10-12T04:56:54.7824411Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/20/merge
+game	Run actions/checkout@v4	2026-10-12T04:56:55.7951127Z Updating files:  14% (519/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:55.8391582Z Updating files:  15% (521/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:55.8644398Z Updating files:  16% (556/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:55.9563966Z Updating files:  17% (590/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:55.9831137Z Updating files:  18% (625/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.0032014Z Updating files:  19% (660/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.0214824Z Updating files:  20% (694/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.0439578Z Updating files:  21% (729/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.0720567Z Updating files:  22% (764/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.1305024Z Updating files:  23% (798/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.1932269Z Updating files:  24% (833/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.2220534Z Updating files:  25% (868/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.2540064Z Updating files:  26% (902/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.2766621Z Updating files:  27% (937/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.2796320Z Updating files:  28% (972/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.2917767Z Updating files:  29% (1007/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.3460802Z Updating files:  30% (1041/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.5057925Z Updating files:  31% (1076/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.5296108Z Updating files:  32% (1111/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.5344643Z Updating files:  33% (1145/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.5526227Z Updating files:  34% (1180/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.6034934Z Updating files:  35% (1215/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.6948724Z Updating files:  36% (1249/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.7226003Z Updating files:  37% (1284/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.8083350Z Updating files:  38% (1319/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.8090276Z Updating files:  38% (1340/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.9016299Z Updating files:  39% (1353/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.9478259Z Updating files:  40% (1388/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:56.9723031Z Updating files:  41% (1423/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.0282752Z Updating files:  42% (1457/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.1307612Z Updating files:  43% (1492/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.2090090Z Updating files:  44% (1527/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.2336557Z Updating files:  45% (1562/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.2932344Z Updating files:  46% (1596/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.3421035Z Updating files:  47% (1631/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.4800595Z Updating files:  48% (1666/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.5245808Z Updating files:  49% (1700/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.5890267Z Updating files:  50% (1735/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.6925747Z Updating files:  51% (1770/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.7863832Z Updating files:  52% (1804/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.7887768Z Updating files:  53% (1839/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.7920105Z Updating files:  54% (1874/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:57.8808816Z Updating files:  55% (1908/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.0159040Z Updating files:  56% (1943/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.0946991Z Updating files:  57% (1978/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.0947802Z Updating files:  58% (2013/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.0964439Z Updating files:  59% (2047/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.1235025Z Updating files:  60% (2082/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.1254550Z Updating files:  61% (2117/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.1285561Z Updating files:  62% (2151/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.1300754Z Updating files:  63% (2186/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.3353011Z Updating files:  64% (2221/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.4882120Z Updating files:  65% (2255/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.5580913Z Updating files:  66% (2290/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.5595060Z Updating files:  67% (2325/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.5829436Z Updating files:  68% (2359/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.6213973Z Updating files:  69% (2394/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.6389518Z Updating files:  70% (2429/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.6572602Z Updating files:  71% (2463/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.7611885Z Updating files:  72% (2498/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.8727194Z Updating files:  73% (2533/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.8865712Z Updating files:  73% (2543/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.8909605Z Updating files:  74% (2568/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.8958832Z Updating files:  75% (2602/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.8999914Z Updating files:  76% (2637/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9032784Z Updating files:  77% (2672/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9097373Z Updating files:  78% (2706/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9221443Z Updating files:  79% (2741/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9317741Z Updating files:  80% (2776/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9386945Z Updating files:  81% (2810/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9517216Z Updating files:  82% (2845/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9708485Z Updating files:  83% (2880/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:58.9877504Z Updating files:  84% (2914/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0033690Z Updating files:  85% (2949/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0193623Z Updating files:  86% (2984/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0314081Z Updating files:  87% (3019/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0453716Z Updating files:  88% (3053/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0584921Z Updating files:  89% (3088/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0640674Z Updating files:  90% (3123/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0703892Z Updating files:  91% (3157/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.0888014Z Updating files:  92% (3192/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1036544Z Updating files:  93% (3227/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1257501Z Updating files:  94% (3261/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1473656Z Updating files:  95% (3296/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1498249Z Updating files:  96% (3331/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1521673Z Updating files:  97% (3365/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1557730Z Updating files:  98% (3400/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1582044Z Updating files:  99% (3435/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1582787Z Updating files: 100% (3469/3469)
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1583244Z Updating files: 100% (3469/3469), done.
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1622250Z Note: switching to 'refs/remotes/pull/20/merge'.
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1622755Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1623129Z You are in 'detached HEAD' state. You can look around, make experimental
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1624013Z changes and commit them, and you can discard any commits you make in this
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1624769Z state without impacting any branches by switching back to a branch.
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1625469Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1625788Z If you want to create a new branch to retain commits you create, you may
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1626527Z do so (now or later) by using -c with the switch command. Example:
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1626942Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1627098Z   git switch -c <new-branch-name>
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1627363Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1627513Z Or undo this operation with:
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1627763Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1627895Z   git switch -
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1628095Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1628456Z Turn off this advice by setting config variable advice.detachedHead to false
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1629009Z 
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1629613Z HEAD is now at d11468b Merge faf195571c370faffb9a377558d6e6f3a88922a3 into f817324da75f4fb96314af390014bb78f979aba9
+game	Run actions/checkout@v4	2026-10-12T04:56:59.1967860Z ##[endgroup]
+game	Run actions/checkout@v4	2026-10-12T04:56:59.2022956Z [command]/usr/bin/git log -1 --format=%H
+game	Run actions/checkout@v4	2026-10-12T04:56:59.2054045Z d11468b7e8aa5844faae25fe3f90128c6171613f
+game	Run actions/setup-node@v4	﻿2026-10-12T04:56:59.2347297Z ##[group]Run actions/setup-node@v4
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2347602Z with:
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2347824Z   node-version: 22.12.0
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2348042Z   cache: npm
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2348239Z   always-auth: false
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2348460Z   check-latest: false
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2350975Z   token: ***
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.2351181Z ##[endgroup]
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.3764173Z Attempting to download 22.12.0...
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.3874053Z (node:2311) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+game	Run actions/setup-node@v4	2026-10-12T04:56:59.3875001Z (Use `node --trace-deprecation ...` to show where the warning was created)
+game	Run actions/setup-node@v4	2026-10-12T04:57:00.0094229Z Acquiring 22.12.0 - x64 from https://github.com/actions/node-versions/releases/download/22.12.0-12152383658/node-22.12.0-linux-x64.tar.gz
+game	Run actions/setup-node@v4	2026-10-12T04:57:00.6656234Z Extracting ...
+game	Run actions/setup-node@v4	2026-10-12T04:57:00.6772162Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/fa30c57f-788e-4d63-84c5-4f57fe01931a -f /home/runner/work/_temp/b7c7dea9-38ac-463c-b6c5-3ba48d437029
+game	Run actions/setup-node@v4	2026-10-12T04:57:01.8695870Z Adding to the cache ...
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.1698867Z ##[group]Environment details
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.3934134Z node: v22.12.0
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.3934596Z npm: 10.9.0
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.3934932Z yarn: 1.22.22
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.3935950Z ##[endgroup]
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.3956222Z [command]/opt/hostedtoolcache/node/22.12.0/x64/bin/npm config get cache
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.4951944Z /home/runner/.npm
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.7556546Z Cache hit for: node-cache-Linux-x64-npm-a1f178a045965ed76fd0c8d4815b9e22b19ce6b2acad1ac6437563f3eed5679e
+game	Run actions/setup-node@v4	2026-10-12T04:57:05.7689238Z (node:2311) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+game	Run actions/setup-node@v4	2026-10-12T04:57:07.0306308Z Received 4194304 of 85846894 (4.9%), 4.0 MBs/sec
+game	Run actions/setup-node@v4	2026-10-12T04:57:07.5436422Z Received 85846894 of 85846894 (100.0%), 54.0 MBs/sec
+game	Run actions/setup-node@v4	2026-10-12T04:57:07.5437549Z Cache Size: ~82 MB (85846894 B)
+game	Run actions/setup-node@v4	2026-10-12T04:57:07.5551239Z [command]/usr/bin/tar -xf /home/runner/work/_temp/e8c46a72-46bc-4647-aad4-5729718f41e6/cache.tzst -P -C /home/runner/work/tabby-english-food-truck/tabby-english-food-truck --use-compress-program unzstd
+game	Run actions/setup-node@v4	2026-10-12T04:57:07.7012740Z Cache restored successfully
+game	Run actions/setup-node@v4	2026-10-12T04:57:07.7059379Z Cache restored from key: node-cache-Linux-x64-npm-a1f178a045965ed76fd0c8d4815b9e22b19ce6b2acad1ac6437563f3eed5679e
+game	Run npm ci --no-audit --no-fund	﻿2026-10-12T04:57:07.7263785Z ##[group]Run npm ci --no-audit --no-fund
+game	Run npm ci --no-audit --no-fund	2026-10-12T04:57:07.7264207Z ^[[36;1mnpm ci --no-audit --no-fund^[[0m
+game	Run npm ci --no-audit --no-fund	2026-10-12T04:57:07.7556637Z shell: /usr/bin/bash -e {0}
+game	Run npm ci --no-audit --no-fund	2026-10-12T04:57:07.7556981Z ##[endgroup]
+game	Run npm ci --no-audit --no-fund	2026-10-12T04:57:10.9536322Z 
+game	Run npm ci --no-audit --no-fund	2026-10-12T04:57:10.9543295Z added 68 packages in 3s
+game	Run npm run lint	﻿2026-10-12T04:57:10.9886548Z ##[group]Run npm run lint
+game	Run npm run lint	2026-10-12T04:57:10.9886888Z ^[[36;1mnpm run lint^[[0m
+game	Run npm run lint	2026-10-12T04:57:10.9952913Z shell: /usr/bin/bash -e {0}
+game	Run npm run lint	2026-10-12T04:57:10.9953203Z ##[endgroup]
+game	Run npm run lint	2026-10-12T04:57:11.1062303Z 
+game	Run npm run lint	2026-10-12T04:57:11.1063263Z > tabby-english-food-truck@0.1.0 lint
+game	Run npm run lint	2026-10-12T04:57:11.1063767Z > biome check .
+game	Run npm run lint	2026-10-12T04:57:11.1063937Z 
+game	Run npm run lint	2026-10-12T04:57:11.6538541Z scripts/check-vocabulary.mjs:201:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6539542Z 
+game	Run npm run lint	2026-10-12T04:57:11.6540614Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6541306Z   
+game	Run npm run lint	2026-10-12T04:57:11.6541842Z     199 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6542531Z     200 │     'docs/evidence/minigames-vocab/coverage.json',
+game	Run npm run lint	2026-10-12T04:57:11.6543539Z   > 201 │     JSON.stringify(summary, null, 2) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6544358Z         │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6545545Z     202 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6546159Z     203 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6546698Z   
+game	Run npm run lint	2026-10-12T04:57:11.6547158Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6547669Z   
+game	Run npm run lint	2026-10-12T04:57:11.6548185Z     199 199 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6548996Z     200 200 │       'docs/evidence/minigames-vocab/coverage.json',
+game	Run npm run lint	2026-10-12T04:57:11.6550162Z     201     │ - ····JSON.stringify(summary,·null,·2)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6551153Z         201 │ + ····`${JSON.stringify(summary,·null,·2)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6551851Z     202 202 │     );
+game	Run npm run lint	2026-10-12T04:57:11.6552385Z     203 203 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6552838Z   
+game	Run npm run lint	2026-10-12T04:57:11.6553032Z 
+game	Run npm run lint	2026-10-12T04:57:11.6554004Z scripts/export-m22.mjs:46:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6554714Z 
+game	Run npm run lint	2026-10-12T04:57:11.6555120Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6555977Z   
+game	Run npm run lint	2026-10-12T04:57:11.6556432Z     44 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6557024Z     45 │   'art/m22-production.json',
+game	Run npm run lint	2026-10-12T04:57:11.6557574Z   > 46 │   JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6558029Z        │   ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6558451Z   > 47 │     {
+game	Run npm run lint	2026-10-12T04:57:11.6558798Z         ...
+game	Run npm run lint	2026-10-12T04:57:11.6559220Z   > 56 │     2,
+game	Run npm run lint	2026-10-12T04:57:11.6559650Z   > 57 │   ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6560103Z        │   ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6560560Z     58 │ );
+game	Run npm run lint	2026-10-12T04:57:11.6561574Z     59 │ console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+game	Run npm run lint	2026-10-12T04:57:11.6562472Z   
+game	Run npm run lint	2026-10-12T04:57:11.6562942Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6563420Z   
+game	Run npm run lint	2026-10-12T04:57:11.6563963Z     44 44 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6565115Z     45 45 │     'art/m22-production.json',
+game	Run npm run lint	2026-10-12T04:57:11.6566107Z     46    │ - ··JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6566681Z        46 │ + ··`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6567192Z     47 47 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6567802Z     48 48 │         tool: 'OpenAI built-in imagegen',
+game	Run npm run lint	2026-10-12T04:57:11.6568382Z     ····· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6568797Z     55 55 │       null,
+game	Run npm run lint	2026-10-12T04:57:11.6569227Z     56 56 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6569674Z     57    │ - ··)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6570131Z        57 │ + ··)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6570555Z     58 58 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6571608Z     59 59 │   console.log(`Exported ${records.length} independent foods; missing ${missing.join(',') || 'none'}`);
+game	Run npm run lint	2026-10-12T04:57:11.6572485Z   
+game	Run npm run lint	2026-10-12T04:57:11.6572668Z 
+game	Run npm run lint	2026-10-12T04:57:11.6573635Z scripts/immersion-audio.mjs:72:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6574354Z 
+game	Run npm run lint	2026-10-12T04:57:11.6574762Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6575658Z   
+game	Run npm run lint	2026-10-12T04:57:11.6576211Z     70 │     else manifest.assets[index] = entry;
+game	Run npm run lint	2026-10-12T04:57:11.6576789Z     71 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6577684Z   > 72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6579191Z        │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6580266Z     73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6581101Z     74 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6581502Z   
+game	Run npm run lint	2026-10-12T04:57:11.6581910Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6582383Z   
+game	Run npm run lint	2026-10-12T04:57:11.6582942Z      70  70 │       else manifest.assets[index] = entry;
+game	Run npm run lint	2026-10-12T04:57:11.6583543Z      71  71 │     }
+game	Run npm run lint	2026-10-12T04:57:11.6584527Z      72     │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6586201Z          72 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6587640Z      73  73 │     await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6588567Z      74  74 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6588996Z   
+game	Run npm run lint	2026-10-12T04:57:11.6589172Z 
+game	Run npm run lint	2026-10-12T04:57:11.6590064Z scripts/immersion-audio.mjs:73:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6590756Z 
+game	Run npm run lint	2026-10-12T04:57:11.6591141Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6591730Z   
+game	Run npm run lint	2026-10-12T04:57:11.6592098Z     71 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6592996Z     72 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6594257Z   > 73 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6616996Z        │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6619274Z     74 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6619668Z     75 │     'art/immersion-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6619970Z   
+game	Run npm run lint	2026-10-12T04:57:11.6620225Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6620529Z   
+game	Run npm run lint	2026-10-12T04:57:11.6620768Z      71  71 │     }
+game	Run npm run lint	2026-10-12T04:57:11.6625752Z      72  72 │     await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6630127Z      73     │ - ··await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6630938Z          73 │ + ··await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6631459Z      74  74 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6631827Z      75  75 │       'art/immersion-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6632125Z   
+game	Run npm run lint	2026-10-12T04:57:11.6632228Z 
+game	Run npm run lint	2026-10-12T04:57:11.6634435Z scripts/immersion-audio.mjs:76:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6640114Z 
+game	Run npm run lint	2026-10-12T04:57:11.6640473Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6640833Z   
+game	Run npm run lint	2026-10-12T04:57:11.6641097Z     74 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6641455Z     75 │     'art/immersion-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6641786Z   > 76 │     JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6642074Z        │     ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6642324Z   > 77 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6642530Z         ...
+game	Run npm run lint	2026-10-12T04:57:11.6642757Z   > 84 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6644698Z   > 85 │     ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6644947Z        │     ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6645415Z     86 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6645734Z     87 │   execFileSync(
+game	Run npm run lint	2026-10-12T04:57:11.6645961Z   
+game	Run npm run lint	2026-10-12T04:57:11.6646196Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6646466Z   
+game	Run npm run lint	2026-10-12T04:57:11.6646723Z      74  74 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6647102Z      75  75 │       'art/immersion-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6647495Z      76     │ - ····JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6647836Z          76 │ + ····`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6648124Z      77  77 │         {
+game	Run npm run lint	2026-10-12T04:57:11.6648793Z      78  78 │           source: 'macOS say / Samantha 140 wpm, offline PCM 22050 Hz',
+game	Run npm run lint	2026-10-12T04:57:11.6649223Z     ······· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6649470Z      83  83 │         null,
+game	Run npm run lint	2026-10-12T04:57:11.6649735Z      84  84 │         2,
+game	Run npm run lint	2026-10-12T04:57:11.6650068Z      85     │ - ····)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6650356Z          85 │ + ····)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6650613Z      86  86 │     );
+game	Run npm run lint	2026-10-12T04:57:11.6650888Z      87  87 │     execFileSync(
+game	Run npm run lint	2026-10-12T04:57:11.6651116Z   
+game	Run npm run lint	2026-10-12T04:57:11.6651221Z 
+game	Run npm run lint	2026-10-12T04:57:11.6651728Z scripts/m21-audio.mjs:60:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6652112Z 
+game	Run npm run lint	2026-10-12T04:57:11.6652319Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6652680Z   
+game	Run npm run lint	2026-10-12T04:57:11.6652903Z     58 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6653204Z     59 │     'art/m21-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6653503Z   > 60 │     JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6653794Z        │     ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6654045Z   > 61 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6654247Z         ...
+game	Run npm run lint	2026-10-12T04:57:11.6654468Z   > 68 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6654696Z   > 69 │     ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6654941Z        │     ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6655345Z     70 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6655791Z     71 │   console.log(`Generated ${ids.length} registered development clips`);
+game	Run npm run lint	2026-10-12T04:57:11.6656177Z   
+game	Run npm run lint	2026-10-12T04:57:11.6656425Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6656688Z   
+game	Run npm run lint	2026-10-12T04:57:11.6656934Z     58 58 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6657259Z     59 59 │       'art/m21-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6657609Z     60    │ - ····JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6657949Z        60 │ + ····`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6658232Z     61 61 │         {
+game	Run npm run lint	2026-10-12T04:57:11.6658580Z     62 62 │           humanListeningReview: 'NOT_RUN',
+game	Run npm run lint	2026-10-12T04:57:11.6658921Z     ····· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6659159Z     67 67 │         null,
+game	Run npm run lint	2026-10-12T04:57:11.6659428Z     68 68 │         2,
+game	Run npm run lint	2026-10-12T04:57:11.6659683Z     69    │ - ····)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6659947Z        69 │ + ····)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6660189Z     70 70 │     );
+game	Run npm run lint	2026-10-12T04:57:11.6660636Z     71 71 │     console.log(`Generated ${ids.length} registered development clips`);
+game	Run npm run lint	2026-10-12T04:57:11.6661023Z   
+game	Run npm run lint	2026-10-12T04:57:11.6661124Z 
+game	Run npm run lint	2026-10-12T04:57:11.6661612Z scripts/m22-audio.mjs:44:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6661997Z 
+game	Run npm run lint	2026-10-12T04:57:11.6662211Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6662547Z   
+game	Run npm run lint	2026-10-12T04:57:11.6662750Z     42 │     ]);
+game	Run npm run lint	2026-10-12T04:57:11.6663140Z     43 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6663634Z   > 44 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6664305Z        │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6664692Z     45 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6664996Z     46 │     'art/m22-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6665438Z   
+game	Run npm run lint	2026-10-12T04:57:11.6665675Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6665931Z   
+game	Run npm run lint	2026-10-12T04:57:11.6666141Z     42 42 │       ]);
+game	Run npm run lint	2026-10-12T04:57:11.6666377Z     43 43 │     }
+game	Run npm run lint	2026-10-12T04:57:11.6666923Z     44    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6667685Z        44 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6668199Z     45 45 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6668534Z     46 46 │       'art/m22-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6668806Z   
+game	Run npm run lint	2026-10-12T04:57:11.6668907Z 
+game	Run npm run lint	2026-10-12T04:57:11.6669395Z scripts/m22-audio.mjs:47:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6669772Z 
+game	Run npm run lint	2026-10-12T04:57:11.6669985Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6670472Z   
+game	Run npm run lint	2026-10-12T04:57:11.6670698Z     45 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6671004Z     46 │     'art/m22-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6671302Z   > 47 │     JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6671576Z        │     ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6671831Z   > 48 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6672033Z         ...
+game	Run npm run lint	2026-10-12T04:57:11.6672248Z   > 55 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6672477Z   > 56 │     ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6672725Z        │     ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6672955Z     57 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6673388Z     58 │   console.log(`Generated ${records.length} individual registered clips`);
+game	Run npm run lint	2026-10-12T04:57:11.6673781Z   
+game	Run npm run lint	2026-10-12T04:57:11.6674017Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6674279Z   
+game	Run npm run lint	2026-10-12T04:57:11.6674524Z     45 45 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6674847Z     46 46 │       'art/m22-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6678079Z     47    │ - ····JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6681326Z        47 │ + ····`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6686124Z     48 48 │         {
+game	Run npm run lint	2026-10-12T04:57:11.6690422Z     49 49 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+game	Run npm run lint	2026-10-12T04:57:11.6693714Z     ····· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6694154Z     54 54 │         null,
+game	Run npm run lint	2026-10-12T04:57:11.6694601Z     55 55 │         2,
+game	Run npm run lint	2026-10-12T04:57:11.6695060Z     56    │ - ····)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6695740Z        56 │ + ····)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6696181Z     57 57 │     );
+game	Run npm run lint	2026-10-12T04:57:11.6696992Z     58 58 │     console.log(`Generated ${records.length} individual registered clips`);
+game	Run npm run lint	2026-10-12T04:57:11.6697635Z   
+game	Run npm run lint	2026-10-12T04:57:11.6697747Z 
+game	Run npm run lint	2026-10-12T04:57:11.6698273Z scripts/m22-growth-audio.mjs:39:46 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6698689Z 
+game	Run npm run lint	2026-10-12T04:57:11.6698921Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6699272Z   
+game	Run npm run lint	2026-10-12T04:57:11.6699679Z     37 │     speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+game	Run npm run lint	2026-10-12T04:57:11.6700094Z     38 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6700605Z   > 39 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6701233Z        │                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6701617Z     40 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6701945Z     41 │     'art/m22-growth-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6702216Z   
+game	Run npm run lint	2026-10-12T04:57:11.6702452Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6702723Z   
+game	Run npm run lint	2026-10-12T04:57:11.6703136Z     37 37 │       speech[r.id] = { ...r, path, status: 'DEVELOPMENT_TTS_UNREVIEWED' };
+game	Run npm run lint	2026-10-12T04:57:11.6703753Z     38 38 │     }
+game	Run npm run lint	2026-10-12T04:57:11.6704309Z     39    │ - ··await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6705078Z        39 │ + ··await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6705972Z     40 40 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6706338Z     41 41 │       'art/m22-growth-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6706623Z   
+game	Run npm run lint	2026-10-12T04:57:11.6706728Z 
+game	Run npm run lint	2026-10-12T04:57:11.6707222Z scripts/m22-growth-audio.mjs:42:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6707608Z 
+game	Run npm run lint	2026-10-12T04:57:11.6707823Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6708163Z   
+game	Run npm run lint	2026-10-12T04:57:11.6708388Z     40 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6708710Z     41 │     'art/m22-growth-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6709023Z   > 42 │     JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6709299Z        │     ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6709574Z   > 43 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6709782Z         ...
+game	Run npm run lint	2026-10-12T04:57:11.6710001Z   > 50 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6710236Z   > 51 │     ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6710490Z        │     ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6710723Z     52 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6710960Z     53 │ } finally {
+game	Run npm run lint	2026-10-12T04:57:11.6711170Z   
+game	Run npm run lint	2026-10-12T04:57:11.6711396Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6711662Z   
+game	Run npm run lint	2026-10-12T04:57:11.6711907Z     40 40 │     await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6712260Z     41 41 │       'art/m22-growth-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6712625Z     42    │ - ····JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6712954Z        42 │ + ····`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6713246Z     43 43 │         {
+game	Run npm run lint	2026-10-12T04:57:11.6713644Z     44 44 │           source: 'macOS say / Samantha 140 wpm, PCM 22050 Hz',
+game	Run npm run lint	2026-10-12T04:57:11.6714020Z     ····· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6714264Z     49 49 │         null,
+game	Run npm run lint	2026-10-12T04:57:11.6714520Z     50 50 │         2,
+game	Run npm run lint	2026-10-12T04:57:11.6714789Z     51    │ - ····)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6715074Z        51 │ + ····)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6715984Z     52 52 │     );
+game	Run npm run lint	2026-10-12T04:57:11.6716449Z     53 53 │   } finally {
+game	Run npm run lint	2026-10-12T04:57:11.6716696Z   
+game	Run npm run lint	2026-10-12T04:57:11.6716825Z 
+game	Run npm run lint	2026-10-12T04:57:11.6717360Z scripts/measure-together-actors.mjs:45:53 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6717763Z 
+game	Run npm run lint	2026-10-12T04:57:11.6717983Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6718327Z   
+game	Run npm run lint	2026-10-12T04:57:11.6718541Z     43 │   };
+game	Run npm run lint	2026-10-12T04:57:11.6718763Z     44 │ }
+game	Run npm run lint	2026-10-12T04:57:11.6719285Z   > 45 │ await fs.writeFile('src/game/together-actors.json', JSON.stringify(bounds, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6719955Z        │                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6720674Z     46 │ console.log(`Measured ${names.length} existing actor alpha silhouettes; source images unchanged.`);
+game	Run npm run lint	2026-10-12T04:57:11.6721383Z     47 │ 
+game	Run npm run lint	2026-10-12T04:57:11.6721576Z   
+game	Run npm run lint	2026-10-12T04:57:11.6721808Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6722073Z   
+game	Run npm run lint	2026-10-12T04:57:11.6722284Z     43 43 │     };
+game	Run npm run lint	2026-10-12T04:57:11.6722532Z     44 44 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6723114Z     45    │ - await·fs.writeFile('src/game/together-actors.json',·JSON.stringify(bounds,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6723950Z        45 │ + await·fs.writeFile('src/game/together-actors.json',·`${JSON.stringify(bounds,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6724806Z     46 46 │   console.log(`Measured ${names.length} existing actor alpha silhouettes; source images unchanged.`);
+game	Run npm run lint	2026-10-12T04:57:11.6725512Z     47 47 │   
+game	Run npm run lint	2026-10-12T04:57:11.6725716Z   
+game	Run npm run lint	2026-10-12T04:57:11.6725817Z 
+game	Run npm run lint	2026-10-12T04:57:11.6726325Z scripts/vocab-resources.mjs:351:40 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6726719Z 
+game	Run npm run lint	2026-10-12T04:57:11.6726930Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6727292Z   
+game	Run npm run lint	2026-10-12T04:57:11.6727803Z     349 │   // Update only the selected vector/image records in place; audio and text remain untouched.
+game	Run npm run lint	2026-10-12T04:57:11.6728633Z     350 │   manifest.assets = manifest.assets.map((a) => newAssets.find((n) => n.assetId === a.assetId) ?? a);
+game	Run npm run lint	2026-10-12T04:57:11.6729560Z   > 351 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6730159Z         │                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6730791Z     352 │   console.log(`Exported ${newAssets.length / 2} registered objects; speech untouched.`);
+game	Run npm run lint	2026-10-12T04:57:11.6731297Z     353 │   process.exit(0);
+game	Run npm run lint	2026-10-12T04:57:11.6731538Z   
+game	Run npm run lint	2026-10-12T04:57:11.6731779Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6732073Z   
+game	Run npm run lint	2026-10-12T04:57:11.6732607Z     349 349 │     // Update only the selected vector/image records in place; audio and text remain untouched.
+game	Run npm run lint	2026-10-12T04:57:11.6733464Z     350 350 │     manifest.assets = manifest.assets.map((a) => newAssets.find((n) => n.assetId === a.assetId) ?? a);
+game	Run npm run lint	2026-10-12T04:57:11.6734276Z     351     │ - ··await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6735031Z         351 │ + ··await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6735986Z     352 352 │     console.log(`Exported ${newAssets.length / 2} registered objects; speech untouched.`);
+game	Run npm run lint	2026-10-12T04:57:11.6736529Z     353 353 │     process.exit(0);
+game	Run npm run lint	2026-10-12T04:57:11.6736778Z   
+game	Run npm run lint	2026-10-12T04:57:11.6736879Z 
+game	Run npm run lint	2026-10-12T04:57:11.6737372Z scripts/vocab-resources.mjs:426:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6737760Z 
+game	Run npm run lint	2026-10-12T04:57:11.6737973Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6738307Z   
+game	Run npm run lint	2026-10-12T04:57:11.6738643Z     424 │   review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+game	Run npm run lint	2026-10-12T04:57:11.6739015Z     425 │ }));
+game	Run npm run lint	2026-10-12T04:57:11.6739561Z   > 426 │ await writeFile('src/content/vocabulary-extra.json', JSON.stringify(extra, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6740221Z         │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6740639Z     427 │ const instructions = [
+game	Run npm run lint	2026-10-12T04:57:11.6741137Z     428 │   ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+game	Run npm run lint	2026-10-12T04:57:11.6741534Z   
+game	Run npm run lint	2026-10-12T04:57:11.6741768Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6742033Z   
+game	Run npm run lint	2026-10-12T04:57:11.6742384Z     424 424 │     review: 'PENDING_TEACHING_AND_LISTENING_REVIEW',
+game	Run npm run lint	2026-10-12T04:57:11.6742756Z     425 425 │   }));
+game	Run npm run lint	2026-10-12T04:57:11.6743345Z     426     │ - await·writeFile('src/content/vocabulary-extra.json',·JSON.stringify(extra,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6744187Z         426 │ + await·writeFile('src/content/vocabulary-extra.json',·`${JSON.stringify(extra,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6744909Z     427 427 │   const instructions = [
+game	Run npm run lint	2026-10-12T04:57:11.6745610Z     428 428 │     ['scene-welcome', 'Touch an object. Touch a place. You can listen again.'],
+game	Run npm run lint	2026-10-12T04:57:11.6746024Z   
+game	Run npm run lint	2026-10-12T04:57:11.6746143Z 
+game	Run npm run lint	2026-10-12T04:57:11.6746663Z scripts/vocab-resources.mjs:475:55 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6747053Z 
+game	Run npm run lint	2026-10-12T04:57:11.6747263Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6747595Z   
+game	Run npm run lint	2026-10-12T04:57:11.6747911Z     473 │   ['lamp-on', 'Put the lamp on the table.'],
+game	Run npm run lint	2026-10-12T04:57:11.6748436Z     474 │ ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+game	Run npm run lint	2026-10-12T04:57:11.6749198Z   > 475 │ await writeFile('src/content/mini-instructions.json', JSON.stringify(instructions, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6749918Z         │                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6750531Z     476 │ const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+game	Run npm run lint	2026-10-12T04:57:11.6750986Z     477 │ const records = [
+game	Run npm run lint	2026-10-12T04:57:11.6751217Z   
+game	Run npm run lint	2026-10-12T04:57:11.6751444Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6751855Z   
+game	Run npm run lint	2026-10-12T04:57:11.6752180Z     473 473 │     ['lamp-on', 'Put the lamp on the table.'],
+game	Run npm run lint	2026-10-12T04:57:11.6752736Z     474 474 │   ].map(([id, text]) => ({ id: `vocab-${id}`, text, kind: 'instruction' }));
+game	Run npm run lint	2026-10-12T04:57:11.6753580Z     475     │ - await·writeFile('src/content/mini-instructions.json',·JSON.stringify(instructions,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6754496Z         475 │ + await·writeFile('src/content/mini-instructions.json',·`${JSON.stringify(instructions,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6755454Z     476 476 │   const speech = JSON.parse(await readFile('src/content/speech.json', 'utf8'));
+game	Run npm run lint	2026-10-12T04:57:11.6755979Z     477 477 │   const records = [
+game	Run npm run lint	2026-10-12T04:57:11.6756245Z   
+game	Run npm run lint	2026-10-12T04:57:11.6756352Z 
+game	Run npm run lint	2026-10-12T04:57:11.6756852Z scripts/vocab-resources.mjs:513:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6757240Z 
+game	Run npm run lint	2026-10-12T04:57:11.6757459Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6757809Z   
+game	Run npm run lint	2026-10-12T04:57:11.6758195Z     511 │   .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+game	Run npm run lint	2026-10-12T04:57:11.6758633Z     512 │   .concat(newAssets);
+game	Run npm run lint	2026-10-12T04:57:11.6759182Z   > 513 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6759795Z         │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6760400Z     514 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6760865Z     515 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6761089Z   
+game	Run npm run lint	2026-10-12T04:57:11.6761329Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6761605Z   
+game	Run npm run lint	2026-10-12T04:57:11.6762002Z     511 511 │     .filter((a) => !newAssets.some((n) => n.assetId === a.assetId))
+game	Run npm run lint	2026-10-12T04:57:11.6762457Z     512 512 │     .concat(newAssets);
+game	Run npm run lint	2026-10-12T04:57:11.6763044Z     513     │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6763862Z         513 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6764608Z     514 514 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6765112Z     515 515 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6765495Z   
+game	Run npm run lint	2026-10-12T04:57:11.6765602Z 
+game	Run npm run lint	2026-10-12T04:57:11.6766101Z scripts/vocab-resources.mjs:514:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6766481Z 
+game	Run npm run lint	2026-10-12T04:57:11.6766697Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6767035Z   
+game	Run npm run lint	2026-10-12T04:57:11.6767461Z     512 │   .concat(newAssets);
+game	Run npm run lint	2026-10-12T04:57:11.6768005Z     513 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6768710Z   > 514 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6769301Z         │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6769666Z     515 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6769986Z     516 │   'art/vocab-production.json',
+game	Run npm run lint	2026-10-12T04:57:11.6770262Z   
+game	Run npm run lint	2026-10-12T04:57:11.6770488Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6770748Z   
+game	Run npm run lint	2026-10-12T04:57:11.6771000Z     512 512 │     .concat(newAssets);
+game	Run npm run lint	2026-10-12T04:57:11.6771569Z     513 513 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6772327Z     514     │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6773050Z         514 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6773564Z     515 515 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6773921Z     516 516 │     'art/vocab-production.json',
+game	Run npm run lint	2026-10-12T04:57:11.6774207Z   
+game	Run npm run lint	2026-10-12T04:57:11.6774482Z 
+game	Run npm run lint	2026-10-12T04:57:11.6774998Z scripts/vocab-resources.mjs:517:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6775593Z 
+game	Run npm run lint	2026-10-12T04:57:11.6775812Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6776153Z   
+game	Run npm run lint	2026-10-12T04:57:11.6776391Z     515 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6776715Z     516 │   'art/vocab-production.json',
+game	Run npm run lint	2026-10-12T04:57:11.6777036Z   > 517 │   JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6777307Z         │   ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6777561Z   > 518 │     {
+game	Run npm run lint	2026-10-12T04:57:11.6777770Z          ...
+game	Run npm run lint	2026-10-12T04:57:11.6777996Z   > 526 │     2,
+game	Run npm run lint	2026-10-12T04:57:11.6778234Z   > 527 │   ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6778489Z         │   ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6778721Z     528 │ );
+game	Run npm run lint	2026-10-12T04:57:11.6778952Z     529 │ console.log(
+game	Run npm run lint	2026-10-12T04:57:11.6779159Z   
+game	Run npm run lint	2026-10-12T04:57:11.6779383Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6779642Z   
+game	Run npm run lint	2026-10-12T04:57:11.6779905Z     515 515 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6780249Z     516 516 │     'art/vocab-production.json',
+game	Run npm run lint	2026-10-12T04:57:11.6780619Z     517     │ - ··JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6780958Z         517 │ + ··`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6781246Z     518 518 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6781785Z     519 519 │         source: 'Original vector art and offline macOS Samantha development synthesis',
+game	Run npm run lint	2026-10-12T04:57:11.6782263Z     ······· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6782503Z     525 525 │       null,
+game	Run npm run lint	2026-10-12T04:57:11.6782760Z     526 526 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6783022Z     527     │ - ··)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6783295Z         527 │ + ··)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6783545Z     528 528 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6783809Z     529 529 │   console.log(
+game	Run npm run lint	2026-10-12T04:57:11.6784042Z   
+game	Run npm run lint	2026-10-12T04:57:11.6784141Z 
+game	Run npm run lint	2026-10-12T04:57:11.6784638Z scripts/vocab-scene-audio.mjs:58:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6785024Z 
+game	Run npm run lint	2026-10-12T04:57:11.6785364Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6785709Z   
+game	Run npm run lint	2026-10-12T04:57:11.6785927Z     56 │   });
+game	Run npm run lint	2026-10-12T04:57:11.6786150Z     57 │ }
+game	Run npm run lint	2026-10-12T04:57:11.6786627Z   > 58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6787234Z        │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6787816Z     59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6788278Z     60 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6788500Z   
+game	Run npm run lint	2026-10-12T04:57:11.6788725Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6788983Z   
+game	Run npm run lint	2026-10-12T04:57:11.6789350Z     56 56 │     });
+game	Run npm run lint	2026-10-12T04:57:11.6789589Z     57 57 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6790130Z     58    │ - await·writeFile('src/content/speech.json',·JSON.stringify(speech,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6790905Z        58 │ + await·writeFile('src/content/speech.json',·`${JSON.stringify(speech,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6791666Z     59 59 │   await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6792163Z     60 60 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6792403Z   
+game	Run npm run lint	2026-10-12T04:57:11.6792499Z 
+game	Run npm run lint	2026-10-12T04:57:11.6792996Z scripts/vocab-scene-audio.mjs:59:38 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6793383Z 
+game	Run npm run lint	2026-10-12T04:57:11.6793591Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6793929Z   
+game	Run npm run lint	2026-10-12T04:57:11.6794131Z     57 │ }
+game	Run npm run lint	2026-10-12T04:57:11.6794603Z     58 │ await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6795473Z   > 59 │ await writeFile('art/manifest.json', JSON.stringify(manifest, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6796056Z        │                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6796585Z     60 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6796909Z     61 │   'art/vocab-scene-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6797177Z   
+game	Run npm run lint	2026-10-12T04:57:11.6797405Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6797669Z   
+game	Run npm run lint	2026-10-12T04:57:11.6797878Z     57 57 │   }
+game	Run npm run lint	2026-10-12T04:57:11.6798378Z     58 58 │   await writeFile('src/content/speech.json', JSON.stringify(speech, null, 2) + '\n');
+game	Run npm run lint	2026-10-12T04:57:11.6799112Z     59    │ - await·writeFile('art/manifest.json',·JSON.stringify(manifest,·null,·2)·+·'\n');
+game	Run npm run lint	2026-10-12T04:57:11.6799835Z        59 │ + await·writeFile('art/manifest.json',·`${JSON.stringify(manifest,·null,·2)}\n`);
+game	Run npm run lint	2026-10-12T04:57:11.6800323Z     60 60 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6800667Z     61 61 │     'art/vocab-scene-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6800967Z   
+game	Run npm run lint	2026-10-12T04:57:11.6801065Z 
+game	Run npm run lint	2026-10-12T04:57:11.6801560Z scripts/vocab-scene-audio.mjs:62:3 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+game	Run npm run lint	2026-10-12T04:57:11.6801950Z 
+game	Run npm run lint	2026-10-12T04:57:11.6802169Z   i Template literals are preferred over string concatenation.
+game	Run npm run lint	2026-10-12T04:57:11.6802509Z   
+game	Run npm run lint	2026-10-12T04:57:11.6802731Z     60 │ await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6803048Z     61 │   'art/vocab-scene-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6803364Z   > 62 │   JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6803627Z        │   ^^^^^^^^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6803871Z   > 63 │     {
+game	Run npm run lint	2026-10-12T04:57:11.6804073Z         ...
+game	Run npm run lint	2026-10-12T04:57:11.6804296Z   > 70 │     2,
+game	Run npm run lint	2026-10-12T04:57:11.6804525Z   > 71 │   ) + '\n',
+game	Run npm run lint	2026-10-12T04:57:11.6804762Z        │   ^^^^^^^^
+game	Run npm run lint	2026-10-12T04:57:11.6804996Z     72 │ );
+game	Run npm run lint	2026-10-12T04:57:11.6805691Z     73 │ console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+game	Run npm run lint	2026-10-12T04:57:11.6806334Z   
+game	Run npm run lint	2026-10-12T04:57:11.6806575Z   i Unsafe fix: Use a template literal.
+game	Run npm run lint	2026-10-12T04:57:11.6806874Z   
+game	Run npm run lint	2026-10-12T04:57:11.6807130Z     60 60 │   await writeFile(
+game	Run npm run lint	2026-10-12T04:57:11.6807474Z     61 61 │     'art/vocab-scene-audio.json',
+game	Run npm run lint	2026-10-12T04:57:11.6807849Z     62    │ - ··JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6808163Z        62 │ + ··`${JSON.stringify(
+game	Run npm run lint	2026-10-12T04:57:11.6808440Z     63 63 │       {
+game	Run npm run lint	2026-10-12T04:57:11.6808826Z     64 64 │         source: 'macOS Samantha static development speech',
+game	Run npm run lint	2026-10-12T04:57:11.6809196Z     ····· │ 
+game	Run npm run lint	2026-10-12T04:57:11.6809427Z     69 69 │       null,
+game	Run npm run lint	2026-10-12T04:57:11.6809681Z     70 70 │       2,
+game	Run npm run lint	2026-10-12T04:57:11.6809934Z     71    │ - ··)·+·'\n',
+game	Run npm run lint	2026-10-12T04:57:11.6810196Z        71 │ + ··)}\n`,
+game	Run npm run lint	2026-10-12T04:57:11.6810434Z     72 72 │   );
+game	Run npm run lint	2026-10-12T04:57:11.6811002Z     73 73 │   console.log(`${records.length} unique exact scene instructions, real WAV and hashes registered.`);
+game	Run npm run lint	2026-10-12T04:57:11.6811483Z   
+game	Run npm run lint	2026-10-12T04:57:11.6811604Z 
+game	Run npm run lint	2026-10-12T04:57:11.6811996Z The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+game	Run npm run lint	2026-10-12T04:57:11.6812510Z Diagnostics not shown: 131.
+game	Run npm run lint	2026-10-12T04:57:11.6812848Z Checked 236 files in 508ms. No fixes applied.
+game	Run npm run lint	2026-10-12T04:57:11.6813297Z Found 130 warnings.
+game	Run npm run lint	2026-10-12T04:57:11.6813520Z Found 21 infos.
+game	Run npm test	﻿2026-10-12T04:57:11.6964719Z ##[group]Run npm test
+game	Run npm test	2026-10-12T04:57:11.6965026Z ^[[36;1mnpm test^[[0m
+game	Run npm test	2026-10-12T04:57:11.7028775Z shell: /usr/bin/bash -e {0}
+game	Run npm test	2026-10-12T04:57:11.7029068Z ##[endgroup]
+game	Run npm test	2026-10-12T04:57:11.8142141Z 
+game	Run npm test	2026-10-12T04:57:11.8142944Z > tabby-english-food-truck@0.1.0 test
+game	Run npm test	2026-10-12T04:57:11.8143628Z > vitest run
+game	Run npm test	2026-10-12T04:57:11.8143868Z 
+game	Run npm test	2026-10-12T04:57:12.1326873Z 
+game	Run npm test	2026-10-12T04:57:12.1329632Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv4.1.11 ^[[39m^[[90m/home/runner/work/tabby-english-food-truck/tabby-english-food-truck^[[39m
+game	Run npm test	2026-10-12T04:57:12.1330567Z 
+game	Run npm test	2026-10-12T04:57:12.7547288Z  ^[[32m✓^[[39m tests/together-play.test.ts ^[[2m(^[[22m^[[2m24 tests^[[22m^[[2m)^[[22m^[[32m 58^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:12.8390958Z  ^[[32m✓^[[39m tests/adventure.test.ts ^[[2m(^[[22m^[[2m31 tests^[[22m^[[2m)^[[22m^[[32m 152^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:12.9236560Z  ^[[32m✓^[[39m tests/rules.test.ts ^[[2m(^[[22m^[[2m27 tests^[[22m^[[2m)^[[22m^[[32m 60^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:13.1830808Z  ^[[32m✓^[[39m tests/adventure-recovery.test.ts ^[[2m(^[[22m^[[2m10 tests^[[22m^[[2m)^[[22m^[[32m 124^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:13.2276448Z  ^[[32m✓^[[39m tests/adventure-input.test.ts ^[[2m(^[[22m^[[2m14 tests^[[22m^[[2m)^[[22m^[[32m 52^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:13.4930833Z  ^[[32m✓^[[39m tests/mini-expansion-recovery.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 81^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:13.5835990Z  ^[[32m✓^[[39m tests/wp-dual-layout.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 81^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:13.8891623Z  ^[[32m✓^[[39m tests/immersion-director.test.ts ^[[2m(^[[22m^[[2m11 tests^[[22m^[[2m)^[[22m^[[32m 52^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:13.9273675Z  ^[[32m✓^[[39m tests/m21-contracts.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[32m 55^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.1471947Z  ^[[32m✓^[[39m tests/scene-games.test.ts ^[[2m(^[[22m^[[2m11 tests^[[22m^[[2m)^[[22m^[[32m 17^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.3471871Z  ^[[32m✓^[[39m tests/m22-layout.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 18^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.3712307Z  ^[[32m✓^[[39m tests/m22-content.test.ts ^[[2m(^[[22m^[[2m119 tests^[[22m^[[2m)^[[22m^[[32m 136^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.4831664Z  ^[[32m✓^[[39m tests/m2-world.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[33m 1356^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.4833581Z      ^[[33m^[[2m✓^[[22m^[[39m 100 endless orders stay reachable, deterministic across refresh and bounded ^[[33m 1213^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.5818927Z  ^[[32m✓^[[39m tests/m22-growth.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 14^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.6529633Z  ^[[32m✓^[[39m tests/m21-audio.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 16^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.7869817Z  ^[[32m✓^[[39m tests/adventure-experience.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 30^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.8351175Z  ^[[32m✓^[[39m tests/m22-playability.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 22^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:14.9006449Z  ^[[32m✓^[[39m tests/m22-routing.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 20^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.0381291Z  ^[[32m✓^[[39m tests/immersion-events.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 24^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.0877477Z  ^[[32m✓^[[39m tests/immersion-content.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 33^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.1705150Z  ^[[32m✓^[[39m tests/journey.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 16^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.2802864Z  ^[[32m✓^[[39m tests/m2-regressions.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 6^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.2867147Z  ^[[32m✓^[[39m tests/together-layout.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 16^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.4362707Z  ^[[32m✓^[[39m tests/m21-regressions.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 14^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.4673105Z  ^[[32m✓^[[39m tests/vocabulary-expansion.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.4784677Z  ^[[32m✓^[[39m tests/note-order.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 4^[[2mms^[[22m^[[39m
+game	Run npm test	2026-10-12T04:57:15.4819934Z 
+game	Run npm test	2026-10-12T04:57:15.4827437Z ^[[2m Test Files ^[[22m ^[[1m^[[32m26 passed^[[39m^[[22m^[[90m (26)^[[39m
+game	Run npm test	2026-10-12T04:57:15.4829611Z ^[[2m      Tests ^[[22m ^[[1m^[[32m339 passed^[[39m^[[22m^[[90m (339)^[[39m
+game	Run npm test	2026-10-12T04:57:15.4830433Z ^[[2m   Start at ^[[22m 04:57:12
+game	Run npm test	2026-10-12T04:57:15.4832179Z ^[[2m   Duration ^[[22m 3.34s^[[2m (transform 1.39s, setup 0ms, import 3.08s, tests 2.46s, environment 4ms)^[[22m
+game	Run npm test	2026-10-12T04:57:15.4834588Z 
+game	Run npm run resources	﻿2026-10-12T04:57:15.5439706Z ##[group]Run npm run resources
+game	Run npm run resources	2026-10-12T04:57:15.5440034Z ^[[36;1mnpm run resources^[[0m
+game	Run npm run resources	2026-10-12T04:57:15.5504213Z shell: /usr/bin/bash -e {0}
+game	Run npm run resources	2026-10-12T04:57:15.5504500Z ##[endgroup]
+game	Run npm run resources	2026-10-12T04:57:15.6595135Z 
+game	Run npm run resources	2026-10-12T04:57:15.6595628Z > tabby-english-food-truck@0.1.0 resources
+game	Run npm run resources	2026-10-12T04:57:15.6596471Z > node scripts/check-resources.mjs
+game	Run npm run resources	2026-10-12T04:57:15.6596728Z 
+game	Run npm run resources	2026-10-12T04:57:28.6888106Z PASS: 818 files, actual hashes/dimensions/alpha and runtime registry checked
+game	Run npm run resources	2026-10-12T04:57:28.6901374Z PASS: four procedural audio layers and nine cues registered; listening review remains NOT_RUN
+game	Run npm run resources	2026-10-12T04:57:28.6917493Z PASS: 591 explicit speech references; no guessed item paths
+game	Run npm run resources	2026-10-12T04:57:28.6923632Z PASS: all 50 food concepts resolve real independent images and both speech clips
+game	Run npm run resources	2026-10-12T04:57:28.6929179Z PASS: 133 whole-sentence mappings; human listening NOT_RUN, rights PENDING
+game	Run npm run build	﻿2026-10-12T04:57:28.7140825Z ##[group]Run npm run build
+game	Run npm run build	2026-10-12T04:57:28.7141287Z ^[[36;1mnpm run build^[[0m
+game	Run npm run build	2026-10-12T04:57:28.7222431Z shell: /usr/bin/bash -e {0}
+game	Run npm run build	2026-10-12T04:57:28.7222857Z ##[endgroup]
+game	Run npm run build	2026-10-12T04:57:28.8546259Z 
+game	Run npm run build	2026-10-12T04:57:28.8566608Z > tabby-english-food-truck@0.1.0 build
+game	Run npm run build	2026-10-12T04:57:28.8567534Z > npm run typecheck && vite build
+game	Run npm run build	2026-10-12T04:57:28.8568159Z 
+game	Run npm run build	2026-10-12T04:57:28.9752124Z 
+game	Run npm run build	2026-10-12T04:57:28.9752932Z > tabby-english-food-truck@0.1.0 typecheck
+game	Run npm run build	2026-10-12T04:57:28.9753602Z > tsc --noEmit
+game	Run npm run build	2026-10-12T04:57:28.9753836Z 
+game	Run npm run build	2026-10-12T04:57:35.9302634Z ^[[36mvite v7.3.6 ^[[32mbuilding client environment for production...^[[36m^[[39m
+game	Run npm run build	2026-10-12T04:57:35.9936918Z transforming...
+game	Run npm run build	2026-10-12T04:57:41.1710380Z ^[[32m✓^[[39m 109 modules transformed.
+game	Run npm run build	2026-10-12T04:57:42.3936286Z rendering chunks...
+game	Run npm run build	2026-10-12T04:57:42.7335135Z computing gzip size...
+game	Run npm run build	2026-10-12T04:57:42.7680359Z ^[[2mdist/^[[22m^[[32mindex.html                 ^[[39m^[[1m^[[2m    0.60 kB^[[22m^[[1m^[[22m^[[2m │ gzip:   0.42 kB^[[22m
+game	Run npm run build	2026-10-12T04:57:42.7682163Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[35mindex-JgCwdNTw.css  ^[[39m^[[1m^[[2m   65.25 kB^[[22m^[[1m^[[22m^[[2m │ gzip:  14.52 kB^[[22m
+game	Run npm run build	2026-10-12T04:57:42.7683809Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[36mindex-CvAn9Xx8.js   ^[[39m^[[1m^[[33m  633.41 kB^[[39m^[[22m^[[2m │ gzip: 174.80 kB^[[22m
+game	Run npm run build	2026-10-12T04:57:42.7685500Z ^[[33m
+game	Run npm run build	2026-10-12T04:57:42.7686186Z (!) Some chunks are larger than 500 kB after minification. Consider:
+game	Run npm run build	2026-10-12T04:57:42.7686794Z - Using dynamic import() to code-split the application
+game	Run npm run build	2026-10-12T04:57:42.7687735Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+game	Run npm run build	2026-10-12T04:57:42.7689469Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.^[[39m
+game	Run npm run build	2026-10-12T04:57:42.7691108Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[36mphaser-DXXWZowi.js  ^[[39m^[[1m^[[33m1,208.05 kB^[[39m^[[22m^[[2m │ gzip: 332.16 kB^[[22m
+game	Run npm run build	2026-10-12T04:57:42.7692279Z ^[[32m✓ built in 6.81s^[[39m
+game	Run npx playwright install --with-deps chromium	﻿2026-10-12T04:57:42.8611158Z ##[group]Run npx playwright install --with-deps chromium
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:42.8611790Z ^[[36;1mnpx playwright install --with-deps chromium^[[0m
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:42.8674275Z shell: /usr/bin/bash -e {0}
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:42.8674654Z ##[endgroup]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.7159214Z Installing dependencies...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.7235652Z Switching to root user to install dependencies...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.8256971Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.8876852Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.8892095Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.8904198Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.8943170Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:43.8986425Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0139832Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.3 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0228000Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main all Packages [640 B]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0248287Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [492 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0294517Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [548 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0644961Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1375 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0727049Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [306 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0729832Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1702 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0846955Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0877285Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1761 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.0996626Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [401 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.1016900Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [55.0 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.1018540Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.1767283Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1121 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.1829120Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [228 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.2273442Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1220 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.2333494Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [245 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.2349222Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1669 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.2424999Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [383 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.2451503Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [49.8 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:44.2458663Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:47.2732479Z Fetched 12.3 MB in 1s (9504 kB/s)
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.1784595Z Reading package lists...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.2020885Z Reading package lists...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.4080557Z Building dependency tree...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.4088695Z Reading state information...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5633115Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5634702Z libasound2t64 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5635738Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5636478Z libatk-bridge2.0-0t64 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5637201Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5638615Z libatk1.0-0t64 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5639374Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5639999Z libatspi2.0-0t64 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5640651Z libcairo2 is already the newest version (1.18.0-3build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5641181Z libcairo2 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5641982Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5642586Z libcups2t64 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5643158Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5643632Z libdbus-1-3 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5644118Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5644702Z libdrm2 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5645165Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5645721Z libgbm1 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5646136Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5646555Z libglib2.0-0t64 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5646974Z libnspr4 is already the newest version (2:4.35-1.1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5647354Z libnspr4 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5647732Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5648234Z libnss3 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5648643Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5649049Z libpango-1.0-0 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5649457Z libx11-6 is already the newest version (2:1.8.7-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5649842Z libx11-6 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5650204Z libxcb1 is already the newest version (1.15-1ubuntu2).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5650559Z libxcb1 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5650979Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5651387Z libxcomposite1 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5651799Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5652185Z libxdamage1 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5652640Z libxext6 is already the newest version (2:1.3.4-1build2).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5653071Z libxext6 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5653462Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5653862Z libxfixes3 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5654264Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5654665Z libxkbcommon0 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5655068Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5655593Z libxrandr2 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5655987Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5656545Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5657253Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5657954Z libfontconfig1 set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5658380Z fonts-liberation is already the newest version (1:2.1.5-3).
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5658782Z fonts-liberation set to manually installed.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5659186Z The following additional packages will be installed:
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5659550Z   xfonts-encodings xfonts-utils
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5659836Z Recommended packages:
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5660115Z   fonts-ipafont-mincho fonts-tlwg-loma
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5839865Z The following NEW packages will be installed:
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5840617Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5846308Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5846811Z   xfonts-utils
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5850903Z The following packages will be upgraded:
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.5856614Z   libfreetype6
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.6020369Z 1 upgraded, 9 newly installed, 0 to remove and 22 not upgraded.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.6020959Z Need to get 21.5 MB of archives.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.6021424Z After this operation, 79.5 MB of additional disk space will be used.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.6021930Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:48.9716525Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:50.6253353Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:51.0672302Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:51.2457480Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:51.4686602Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:52.4956017Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libfreetype6 amd64 2.13.2+dfsg-1ubuntu0.2 [403 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:52.6658098Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:52.8396189Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.0051378Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.1750169Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4395247Z Fetched 21.5 MB in 5s (4684 kB/s)
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4635470Z Selecting previously unselected package fonts-ipafont-gothic.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4933962Z (Reading database ... 
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4934489Z (Reading database ... 5%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4935130Z (Reading database ... 10%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4935999Z (Reading database ... 15%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4936567Z (Reading database ... 20%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4937044Z (Reading database ... 25%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4937570Z (Reading database ... 30%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4938025Z (Reading database ... 35%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4938351Z (Reading database ... 40%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4938666Z (Reading database ... 45%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4938967Z (Reading database ... 50%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.4997115Z (Reading database ... 55%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.6035806Z (Reading database ... 60%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:53.8518520Z (Reading database ... 65%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.0387601Z (Reading database ... 70%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.2056738Z (Reading database ... 75%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.3482175Z (Reading database ... 80%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.5461647Z (Reading database ... 85%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.6991698Z (Reading database ... 90%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.8667206Z (Reading database ... 95%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.8667845Z (Reading database ... 100%
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.8668393Z (Reading database ... 203191 files and directories currently installed.)
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.8709654Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:54.8801127Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.1083439Z Selecting previously unselected package fonts-freefont-ttf.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.1208233Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.1217086Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.2045153Z Selecting previously unselected package fonts-tlwg-loma-otf.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.2168976Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.2176104Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.2385890Z Selecting previously unselected package fonts-unifont.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.2509263Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.2517260Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.3542480Z Selecting previously unselected package fonts-wqy-zenhei.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.3667760Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.3771328Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.8649241Z Preparing to unpack .../5-libfreetype6_2.13.2+dfsg-1ubuntu0.2_amd64.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.8680573Z Unpacking libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) over (2.13.2+dfsg-1ubuntu0.1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.8933102Z Selecting previously unselected package xfonts-encodings.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.9059344Z Preparing to unpack .../6-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.9068444Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.9361325Z Selecting previously unselected package xfonts-utils.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.9486073Z Preparing to unpack .../7-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.9496700Z Unpacking xfonts-utils (1:7.7+6build3) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:55.9879377Z Selecting previously unselected package xfonts-cyrillic.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.0003369Z Preparing to unpack .../8-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.0011453Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.0349863Z Selecting previously unselected package xfonts-scalable.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.0477026Z Preparing to unpack .../9-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.0485026Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.0948854Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1066407Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1083087Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1101723Z Setting up libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1120965Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1139221Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1204310Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1222475Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1239426Z Setting up xfonts-utils (1:7.7+6build3) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1276929Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1557138Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.1825599Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.2173968Z Processing triggers for man-db (2.12.0-4build2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.2197811Z Not building database; man-db/auto-update is not 'true'.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.2210120Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.9538649Z 
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.9539472Z Running kernel seems to be up-to-date.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.9539913Z 
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.9540117Z Restarting services...
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:56.9617421Z  systemctl restart php8.3-fpm.service
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:57.0691587Z 
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:57.0693057Z No containers need to be restarted.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:57.0693480Z 
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:57.0693948Z No user sessions are running outdated binaries.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:57.0694443Z 
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:57.0695135Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:58.0359544Z Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:58.4778200Z |                                                                                |   0% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:58.6457294Z |■■■■■■■■                                                                        |  10% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:58.7694731Z |■■■■■■■■■■■■■■■■                                                                |  20% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:58.9060861Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.0154354Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.1149588Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.2220582Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.3347699Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.4588266Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.5576448Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:57:59.6606554Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 186.8 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.4767881Z Chrome for Testing 153.0.8010.12 (playwright chromium v1243) downloaded to /home/runner/.cache/ms-playwright/chromium-1243
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.4773215Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.8876324Z |                                                                                |   0% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9153549Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9274951Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9351206Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9413403Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9478625Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9503314Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9540376Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9575325Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9611302Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:02.9622918Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.0218603Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.0222027Z Downloading Chrome Headless Shell 153.0.8010.12 (playwright chromium-headless-shell v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-headless-shell-linux64.zip
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.4671873Z |                                                                                |   0% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.6060280Z |■■■■■■■■                                                                        |  10% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.6742122Z |■■■■■■■■■■■■■■■■                                                                |  20% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.7379346Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.7944116Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.8701734Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.9288608Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:03.9932313Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:04.0617196Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:04.1223514Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:04.2118730Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 114.3 MiB
+game	Run npx playwright install --with-deps chromium	2026-10-12T04:58:06.1647127Z Chrome Headless Shell 153.0.8010.12 (playwright chromium-headless-shell v1243) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1243
+game	Run npx playwright test	﻿2026-10-12T04:58:06.1843021Z ##[group]Run npx playwright test
+game	Run npx playwright test	2026-10-12T04:58:06.1843361Z ^[[36;1mnpx playwright test^[[0m
+game	Run npx playwright test	2026-10-12T04:58:06.1906342Z shell: /usr/bin/bash -e {0}
+game	Run npx playwright test	2026-10-12T04:58:06.1906618Z ##[endgroup]
+game	Run npx playwright test	2026-10-12T04:58:08.8228544Z 
+game	Run npx playwright test	2026-10-12T04:58:08.8229221Z Running 39 tests using 1 worker
+game	Run npx playwright test	2026-10-12T04:58:08.8229644Z 
+game	Run npx playwright test	2026-10-12T04:59:51.0440552Z   ✓   1 e2e/adventure.spec.ts:114:1 › visible activity entrance reaches all five chapters and saves a real creation (1.7m)
+game	Run npx playwright test	2026-10-12T05:00:07.1423205Z   ✓   2 e2e/adventure.spec.ts:147:1 › receipt presentation and low motion never repeat settlement (16.1s)
+game	Run npx playwright test	2026-10-12T05:00:56.3151941Z   ✓   3 e2e/adventure.spec.ts:158:1 › phone replay follows hedgehog path with real food and no packing task (49.1s)
+game	Run npx playwright test	2026-10-12T05:01:06.6313731Z   ✓   4 e2e/adventure.spec.ts:174:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (10.3s)
+game	Run npx playwright test	2026-10-12T05:01:24.3195172Z   ✓   5 e2e/adventure.spec.ts:201:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (17.7s)
+game	Run npx playwright test	2026-10-12T05:01:30.4086083Z   ✓   6 e2e/adventure.spec.ts:218:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (6.1s)
+game	Run npx playwright test	2026-10-12T05:01:42.6894223Z   ✓   7 e2e/adventure.spec.ts:234:1 › low motion receipts retain actual foods and reachable controls across compact layouts (12.3s)
+game	Run npx playwright test	2026-10-12T05:01:46.0582909Z   ✓   8 e2e/demo-repair.spec.ts:5:1 › scene pause isolates background, traps focus and restores a usable trigger (3.3s)
+game	Run npx playwright test	2026-10-12T05:01:53.4523878Z   ✓   9 e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery (7.4s)
+game	Run npx playwright test	2026-10-12T05:02:04.0867453Z   ✓  10 e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player (10.6s)
+game	Run npx playwright test	2026-10-12T05:02:05.6218505Z   ✓  11 e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts (1.5s)
+game	Run npx playwright test	2026-10-12T05:02:13.1112103Z   ✓  12 e2e/demo-repair.spec.ts:86:1 › optional drag snaps only to the target actually pointed at and empty release does not submit (7.5s)
+game	Run npx playwright test	2026-10-12T05:02:19.4082216Z   ✓  13 e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions (6.3s)
+game	Run npx playwright test	2026-10-12T05:02:23.0287888Z   ✓  14 e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately (3.6s)
+game	Run npx playwright test	2026-10-12T05:02:25.7944419Z   ✓  15 e2e/experience.spec.ts:46:1 › muting through settings retains full English and safe replay (2.7s)
+game	Run npx playwright test	2026-10-12T05:02:40.1357544Z   ✓  16 e2e/immersion.spec.ts:5:1 › normal entrance keeps requests and receipt at the speaker, with optional garden and real memory (14.3s)
+game	Run npx playwright test	2026-10-12T05:02:44.2392390Z   ✓  17 e2e/immersion.spec.ts:35:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership (4.1s)
+game	Run npx playwright test	2026-10-12T05:02:56.3599916Z   ✓  18 e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory (12.1s)
+game	Run npx playwright test	2026-10-12T05:02:59.5504690Z   ✓  19 e2e/m22-boundaries.spec.ts:73:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error (3.2s)
+game	Run npx playwright test	2026-10-12T05:03:11.9088338Z   ✓  20 e2e/m22-growth.spec.ts:5:1 › actual picked fruit introduces meaning and fresh endless explicitly introduces banana then juice (12.3s)
+game	Run npx playwright test	2026-10-12T05:03:15.9863446Z   ✓  21 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (4.0s)
+game	Run npx playwright test	2026-10-12T05:03:18.4857878Z   ✓  22 e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (2.5s)
+game	Run npx playwright test	2026-10-12T05:03:21.0527537Z   ✓  23 e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (2.5s)
+game	Run npx playwright test	2026-10-12T05:03:23.4771068Z   ✓  24 e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (2.4s)
+game	Run npx playwright test	2026-10-12T05:03:26.4741042Z   ✓  25 e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (3.0s)
+game	Run npx playwright test	2026-10-12T05:03:28.9664223Z   ✓  26 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (2.5s)
+game	Run npx playwright test	2026-10-12T05:03:31.7847670Z   ✓  27 e2e/minigames-vocab.spec.ts:260:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (2.8s)
+game	Run npx playwright test	2026-10-12T05:03:36.1450753Z   ✓  28 e2e/minigames-vocab.spec.ts:337:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (4.3s)
+game	Run npx playwright test	2026-10-12T05:03:40.1419490Z   ✓  29 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (4.0s)
+game	Run npx playwright test	2026-10-12T05:03:44.8087521Z   ✓  30 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (4.6s)
+game	Run npx playwright test	2026-10-12T05:03:51.7865522Z   ✓  31 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (7.0s)
+game	Run npx playwright test	2026-10-12T05:03:53.9136392Z   ✓  32 e2e/minigames.spec.ts:143:1 › M2 bilingual uses explicit support and preserves business inventory (2.1s)
+game	Run npx playwright test	2026-10-12T05:04:04.1916943Z   ✓  33 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (10.3s)
+game	Run npx playwright test	2026-10-12T05:04:14.8380503Z   ✓  34 e2e/together-play.spec.ts:30:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (10.6s)
+game	Run npx playwright test	2026-10-12T05:04:22.0122482Z   ✓  35 e2e/together-play.spec.ts:62:1 › speaker meaning pictures and same-stage demonstration are usable assistance without inventory or language submission (7.2s)
+game	Run npx playwright test	2026-10-12T05:04:33.3439458Z   ✓  36 e2e/together-play.spec.ts:88:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity (11.3s)
+game	Run npx playwright test	2026-10-12T05:04:44.5396406Z   ✓  37 e2e/together-play.spec.ts:122:1 › open request remains at its actual speaker after another conversation and cannot thank before receipt (11.2s)
+game	Run npx playwright test	2026-10-12T05:04:56.3131610Z   ✓  38 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another actual completed order (11.7s)
+game	Run npx playwright test	2026-10-12T05:05:00.1883919Z   ✓  39 e2e/wp-dual-mini-course.spec.ts:7:1 › theme lobby reaches a four-task listening level and restores its progress (3.8s)
+game	Run npx playwright test	2026-10-12T05:05:00.2425721Z 
+game	Run npx playwright test	2026-10-12T05:05:00.2431767Z   39 passed (6.9m)
+game	Post Run actions/setup-node@v4	﻿2026-10-12T05:05:00.3748826Z Post job cleanup.
+game	Post Run actions/setup-node@v4	2026-10-12T05:05:00.4995802Z (node:5139) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+game	Post Run actions/setup-node@v4	2026-10-12T05:05:00.4997494Z (Use `node --trace-deprecation ...` to show where the warning was created)
+game	Post Run actions/setup-node@v4	2026-10-12T05:05:00.5000474Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-a1f178a045965ed76fd0c8d4815b9e22b19ce6b2acad1ac6437563f3eed5679e, not saving cache.
+game	Post Run actions/checkout@v4	﻿2026-10-12T05:05:00.5158137Z Post job cleanup.
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6084459Z [command]/usr/bin/git version
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6137437Z git version 2.55.0
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6206800Z Temporarily overriding HOME='/home/runner/work/_temp/f8d5571f-33cf-4122-9e64-982d2a4eb6d2' before making global git config changes
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6216404Z Adding repository directory to the temporary git global config as a safe directory
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6236815Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/tabby-english-food-truck/tabby-english-food-truck
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6257768Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6279510Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6554376Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6585866Z http.https://github.com/.extraheader
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6598170Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.6640059Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.7019635Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+game	Post Run actions/checkout@v4	2026-10-12T05:05:00.7127520Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+game	Complete job	﻿2026-10-12T05:05:00.7777655Z Cleaning up orphan processes
+game	Complete job	2026-10-12T05:05:00.8166318Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

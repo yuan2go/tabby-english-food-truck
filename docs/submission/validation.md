@@ -1,22 +1,17 @@
 # 参赛说明核验记录
 
-2026-10-12。源稿[design-description.md](design-description.md)，[一页PDF](design-description.pdf)为同稿打印派生。正文基于公开站点version 3与上述实际代码身份，已删去碎片点餐、本地启动入口、无同版Demo及已修复裁切/焦点的过时描述；历史资料仍可追溯。
-
-## 方法与结果
+2026-10-12，同桌共玩公开v4，游戏main2e3f36442a54a564647632d6bf421ec58a3b6252。可编辑[Markdown源稿](design-description.md)、[PDF](design-description.pdf)及最新原图同版；正文已替换旧端整盘/独立拿盘描述。Markdown源稿在桌面独立文件夹携带相对assets，正常可编辑/显示配图。
 
 | 检查 | 实际结果 |
-| --- | --- |
-| 四项要求及网址/VPN | 玩法、主题、用了哪些AI、核心亮点全部存在；实际网址与“访问需要开启 VPN”明示 |
-| ReportLab导出 | 1页、16正文文字块、1张实际线上原图；退出0 |
-| pypdf完整文字比较 | 去Markdown标题/列表标记后，逐字核对完整正文；只统一空白及NFC，不忽略标点、大小写或全角差别；退出0 |
-| pypdfium2渲染与逐页视觉 | 全部1页实际查看，文字/链接/图注可读、图片等比且无裁切、重叠/乱码或空白页；代理检查，不称负责人审核 |
-| 图片来源/hash | 1280×720，04与最新线上原图字节相同，原3张历史图片不改 |
-| Desktop正常系统复制及核验 | [实际回执](../evidence/contest-release-2026-10-12/desktop-copy.json)，普通 cp 复制，直接读取桌面文件并逐字节/SHA-256核对；内容hash相同 |
+|---|---|
+| 四项/网址/VPN | 主题与目标玩家、实际玩法、AI工具用途、亮点全部存在；实际原站及“访问需要开启 VPN”明示 |
+| ReportLab导出 | 退出0，1页A4、15正文文字块、1张实际v4原图 |
+| pypdf全文 | 与Markdown逐字相同，仅统一空白/NFC，保留全部标点/大小写；PASS |
+| 点击链接 | PDF URI annotation指向实际原站；提取文字含VPN原句；PASS |
+| pypdfium2渲染 | 实际查看全部1页PNG，无裁切、重叠、乱码、空白页；字体嵌入、原图等比；代理视觉PASS |
+| 源码/截图身份 | v4与SHA2e3实际读回；图05与CUA原图相同hash；历史图01–04保留 |
+| 真实桌面 | Foundation FileManager系统目录 /Users/dafangzi/Desktop；旧PDF正常备份、新PDF/Markdown及图片正常复制、直接读取、byte/SHA256一致；[回执](../evidence/simplified-play-2026-10-12/desktop-copy.json) |
 
-使用Codex配置Python3.12.14、ReportLab/pypdf/pypdfium2与系统Arial Unicode嵌入字体子集，未改工程依赖。可复现[导出程序](render-description.py)，[提取文字/完整性](pdf-qa/exported-text.txt)、[核验JSON](pdf-qa/pdf-validation.json)和[全页渲染](pdf-qa/page-1.png)。实际线上行为和完整工程门禁另见[本轮主报告](../evidence/contest-release-2026-10-12/README.md)，不把文档导出当游戏验收。
+Markdown SHA256 `60415e958a88589cc3285164ad7add5d1f83799aaa7312545c31fbf8c0f756b3`；PDF SHA256 `bec9916388015425c9091ad05c73072d0952165003fb697fd97a5a8c09d08097`。使用 bundled Python、ReportLab/pypdf/pypdfium2和系统Arial Unicode嵌入子集，工程依赖未改。可复现[导出程序](render-description.py)、[逐字提取](pdf-qa/exported-text.txt)、[JSON核验](pdf-qa/pdf-validation.json)、[全页图](pdf-qa/page-1.png)。PDF视觉与桌面核验不当作游戏儿童验收。
 
-- Markdown SHA256：`8dfe4381031e7bca64d5927c20ebac13ac978c29c83324c1171d17769e415921`
-- PDF SHA256：`ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10`
-- 当前图1 SHA256：`d16376dcbe54c8fabe75ed9092b77b5d71f895d2edf74421984622d4b358d1ce`
-
-源稿约566个汉字加必要英文，明确四项。材料中的AI贡献以真实登记为准，普通TTS不称实时AI。实体设备、儿童、听审/教研、权利和报名时效不在代理材料核验中冒记为通过。仅文档/报告/PDF的最后提交与已验代码无运行输入差异，因此不重复完整33条游戏检查；没有修改CI/仓库权限或绕过失败门禁。
+[完整游戏/发布报告](../evidence/simplified-play-2026-10-12/README.md)保留所有失败与实际修复、339/39精确head云端门禁、VPN匿名真实游玩、历史外部待验。材料仅修改docs/报告/图片/PDF，无运行输入变化，不重跑无关游戏门禁或再次发布站点；材料PR的仓库强制检查照常执行。

@@ -1,6 +1,6 @@
 # 简化游戏操作 · 游玩与发布记录
 
-2026-10-12。当前工程候选已完成；PR20最终提交门禁、main读回、原站新版匿名验证及桌面设计说明交付仍PENDING，本文件将在发布后补齐实际映射。不能把旧线上version3当作本改版上线。
+2026-10-12。正式改版代码已通过精确head全部门禁，由PR20合并main，并更新原公开站点version4。VPN网络无登录新会话实际完成早餐、重听/错拿/误送/放回/刷新存档复核；一页设计说明同稿核验并复制真实桌面。最终材料和报告由独立材料PR归档入main，云端合并回执以关联PR为准。
 
 ## 范围与基线
 
@@ -8,7 +8,7 @@
 - 隔离分支 `codex/simplified-play-2026-10-12`。原工作区HEAD `64f03fc716de70e20f64f9bbc3802de7601a460f` 与未跟踪docs/playtests保留；没有导入旧仓库。
 - 先治理唯一01–05、STATUS、README与索引，原冲突合同和改版草案逐字节归档，独立提交 `17f7ec4751069ea504c8c554afe1db2feb9613cc` 后才编码。
 - 只实现同桌共玩：五章、双野餐路径、自由厨房、既有50食品/120概念/十类小游戏。未增加账号、经济、后端、运行时AI、依赖或新素材。
-- 原站Sites项目 `appgprj_6ab141055ab8819186112dee423d0d04` 已实读owner/public/active/version3，网址保持 https://tabby-english-food-truck.aw9923299.chatgpt.site 。本机Shadowrocket VPN显示Connected，系统HTTPS代理启用；未修改网络设置。
+- 原站Sites项目 `appgprj_6ab141055ab8819186112dee423d0d04` 已实读owner/public/active/version4，网址保持 https://tabby-english-food-truck.aw9923299.chatgpt.site 。本机Shadowrocket VPN显示Connected，系统HTTPS代理启用；未修改网络设置。
 
 ## 实际变化
 
@@ -52,7 +52,9 @@
 | npm run resources / 词库检查 | 818文件与hash/尺寸检查、120概念/50食品/51实际方案均退出0；素材字节和锁文件未改，[资源](resources.log)、[词库](vocabulary.log) |
 | 受影响五章/双路径/自由厨房/手机桌面/语义输入 | 冻结构建12/12退出0，[日志](frozen-affected.log)；其后小勺五章1/1、自由收据1/1退出0，见对应绿日志 |
 | 拼字触控与键盘 | 3/3退出0，[日志](letter-release-final.log)；云端精确`fe6ca85fd4e44806d86b6b1a7d838f388d843bb4`39/39、全部门禁success，[run38203732628](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38203732628) |
-| 精确`f2a81c31992bef5356eeae3feb6f078174af12cc` | 39/39浏览器及338单元、lint/resources/build均success，[run38204290384](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38204290384)；最后反馈文本/报告提交门禁PENDING |
+| 精确`f2a81c31992bef5356eeae3feb6f078174af12cc` | 39/39浏览器及338单元、lint/resources/build均success，[run38204290384](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38204290384)；该阶段精确版本通过，不冒称最后head |
+| 最终代码PR精确faf195571c370faffb9a377558d6e6f3a88922a3 | 339/339单元、39/39浏览器及lint/resources/build全部success；Ubuntu Node22.12.0；[run38205782371](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38205782371)，[完整云端日志](ci-faf1955-success.log) |
+| 合并main清洁构建 npm run build | 退出0，SHA2e3f36442a54a564647632d6bf421ec58a3b6252，dirty=false；[实际日志](build-merged-main.log)；与PR head游戏树相同 |
 
 所有失败保留：首轮36条23通过/13失败，定向13条12通过/1失败，首页修正1/1；CI9987d7f35/36和261599938/39都被拼字问题阻断，未绕过。`speech-five-chapters.log`8通过/4失败是我同时重建dist，Vite读取资源遇ENOENT后终止；已经改成冻结预览与串行复测，`frozen-affected.log`12/12。无把中断写为通过。早期无效迁移夹具的红日志也保留，真正有效夹具红/绿另列，不以坏夹具证明产品缺陷。
 
@@ -60,6 +62,16 @@
 
 ## 发布与材料
 
-[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20) 当前待精确最终门禁/merge。原站发布、合并main SHA、Sites源SHA、版本/部署ID、匿名VPN实际游玩、最新线上截图、设计说明校验和桌面源稿/PDF的真实路径，均在完成后补记；当前PENDING。
+[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20) 已于2026-10-12T05:08:34Z正常merge；main完整SHA `2e3f36442a54a564647632d6bf421ec58a3b6252`，已fetch远端核对父提交与tree，无强推、admin或绕过检查。材料分支codex/together-release-materials-2026-10-12从该main创建，只有docs/报告/图片/PDF变化，不影响站点运行输入，不重复部署文档版本。
+
+原Sites源 `49d307ef2573173b31a7f6225bab0380fedec574`，version4，saved version `appgprj_6ab141055ab8819186112dee423d0d04~appgver_1382b4db00ac8191849ecf466ec0cf1b`；部署 `appgdep_6acc6e74a5508191955f926fc5c21532` succeeded，public/active，无登录或邀请。沿用[实际原站](https://tabby-english-food-truck.aw9923299.chatgpt.site)，访问需要开启 VPN。[原始发布映射](deployment.json)、[1118保留路径逐文件同一性](site-source-integrity.json)、[匿名实测](online/anonymous-validation.json)相互关联；只排除docs/evidence及docs/playtests2351件历史原证据，它们完整留在GitHub main。发布归档724文件/53790720bytes，来自合并main清洁dist，不用push成功冒充已上线。
+
+匿名Chromium新上下文cookie=0，393×665、VPN代理正常访问HTTP200，SHA/dirty/content identity实际读回；完成整句语音记录、误送留物/放回、兔兔苹果与刺刺香蕉两份真实接收、早餐开席、刷新保持食品/奖页、正常进入下一章且profile保留早餐记忆；1280×720桌面补查，资源和pageerror均无失败。CUA另从正常首页实际完成两份早餐和原位品尝，最新[实际画面](online-cua-request.png)用于说明，不拼接/重绘。声音HTTP206是合法范围响应，不当错误；播放完成记录不等于人工听审。
+
+线上脚本的四次失败完整保留：online-first在receive事件早于order done时迎第二客；online-second/third将进入新章清空该章foods/rewards误判为存档丢失；online-fourth拒绝正常206音频范围响应。按现行规则修正脚本等待与profile历史核验及范围请求判断，未改生产规则、降低食品/保存断言、注入或绕过浏览器安全；online最终退出0。两次章节预期编写失败应合并看作同一根因，不虚构产品缺陷。
+
+第一轮Site同步误带近2GB历史原证据，正常上传被主动中断；新凭据helper重新fetch证明远端仍为旧1ab5870，没有远端历史被改写。未发布local commit1531db5和原文件保留本地；按既有链路排除原证据后从原remote创建新commit，普通push/remote HEAD核验/保存/部署完成。
+
+[设计说明](../../submission/index.md)：15文字块/1页A4，四项、网址与“访问需要开启 VPN”完整，源稿与PDF逐字比对、全页视觉和可点击链接检查PASS；最新线上图同字节。桌面旧同名PDF已备份，新的PDF与Markdown源稿（附相对图片）正常复制，可读/hash相同；[系统桌面回执](desktop-copy.json)含绝对路径、备份和hash。最终材料PR、main读回与本报告一起交付，不把材料提交SHA冒充运行代码SHA。
 
 并发提示定向证据：[真实命令红](receipt-source-red.log)→[10/10绿](receipt-source-green.log)。第一绿轮的存档断言误传JSON对象而非API要求的原字符串，已纠正输入，未删解码断言；该测试编写失败保留在receipt-source-green-first.log，不冒称存档产品缺陷。

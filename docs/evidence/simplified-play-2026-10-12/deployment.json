@@ -1,0 +1,63 @@
+{
+  "githubRepository": "https://github.com/yuan2go/tabby-english-food-truck",
+  "baseline": "f817324da75f4fb96314af390014bb78f979aba9",
+  "githubCodeMainSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+  "codePr": "https://github.com/yuan2go/tabby-english-food-truck/pull/20",
+  "codePrHead": "faf195571c370faffb9a377558d6e6f3a88922a3",
+  "codePrMergedAt": "2026-10-12T05:08:34Z",
+  "source": {
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "checkout_path": "/private/tmp/tabby-sites-simplify-20261012",
+    "commit_sha": "49d307ef2573173b31a7f6225bab0380fedec574",
+    "archive": "/tmp/tabby-together-public-v4.tar.gz"
+  },
+  "version": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_1382b4db00ac8191849ecf466ec0cf1b",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "version_number": 4,
+    "source": {
+      "commit_sha": "49d307ef2573173b31a7f6225bab0380fedec574"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000008a3881fda4cd93183ade7183",
+      "content_hash": "sha256:e42331689f1188d95007934ad7eba8418a10bed5d23962efc233e01fc98d4f9f",
+      "size_bytes": 53790720,
+      "file_count": 724
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6acc6e74a5508191955f926fc5c21532",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "title": "狸花猫的英语餐车",
+    "version_id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_1382b4db00ac8191849ecf466ec0cf1b",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ab141055ab8819186112dee423d0d04",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-12T05:22:04.620518+00:00"
+  },
+  "publicAccess": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "access_mode": "public",
+    "current_live_url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "latest_version_number": 4,
+    "status": "active",
+    "current_user_role": "owner",
+    "auth_client_id": "oaiapp_2587eca210b096e19cdb2e6c208d08d82e638a684952f1d785d221971f531648",
+    "requires_byop": false
+  },
+  "anonymousVerification": "online/anonymous-validation.json",
+  "vpn": "Shadowrocket Connected; system HTTPS proxy active; fresh browser context uses 127.0.0.1:1082; settings unchanged",
+  "interruptedSourcePush": {
+    "status": "INTERRUPTED",
+    "reason": "included nearly 2GB historical raw evidence; no remote update; native helper fresh fetch verified remote remained 1ab58709b1d557099180f28174cb0526cdfc7160; local unpublished commit and files retained; new normal push excludes docs/evidence and docs/playtests per existing release chain"
+  },
+  "materialBranch": "codex/together-release-materials-2026-10-12"
+}

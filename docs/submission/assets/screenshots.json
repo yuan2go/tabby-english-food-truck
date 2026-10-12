@@ -29,7 +29,7 @@
       }
     ]
   },
-  "currentOnline": {
+  "previousOnlineVersion3": {
     "githubCodeMainSha": "7339c5119007e913327609fa6e24d89a5a86cb21",
     "providerSourceSha": "1ab58709b1d557099180f28174cb0526cdfc7160",
     "siteVersion": 3,
@@ -44,6 +44,24 @@
         "width": 1280,
         "height": 720,
         "treatment": "byte-identical actual public site screenshot; no editing"
+      }
+    ]
+  },
+  "currentOnline": {
+    "githubCodeMainSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+    "providerSourceSha": "49d307ef2573173b31a7f6225bab0380fedec574",
+    "siteVersion": 4,
+    "deploymentId": "appgdep_6acc6e74a5508191955f926fc5c21532",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "checkedAt": "2026-10-12T05:26:39.510Z",
+    "screenshots": [
+      {
+        "file": "05-online-together.png",
+        "original": "../../evidence/simplified-play-2026-10-12/online-cua-request.png",
+        "sha256": "8df2cb75646dafe53da29881cc592620de29e47a1973ebe10e049013e8bb0fea",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical actual public site CUA screenshot; no editing"
       }
     ]
   }

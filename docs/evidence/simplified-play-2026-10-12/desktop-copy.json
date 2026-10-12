@@ -1,0 +1,36 @@
+{
+  "desktopDirectory": "/Users/dafangzi/Desktop",
+  "directorySource": "Foundation FileManager.desktopDirectory userDomainMask",
+  "backups": [
+    "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.备份-20261012-132827.pdf"
+  ],
+  "files": [
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/docs/submission/design-description.pdf",
+      "destination": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf",
+      "sha256": "bec9916388015425c9091ad05c73072d0952165003fb697fd97a5a8c09d08097",
+      "bytes": 374588,
+      "readable": true,
+      "byteIdentical": true
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/docs/submission/design-description.md",
+      "destination": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明源稿/狸花猫英语餐车-设计说明.md",
+      "sha256": "60415e958a88589cc3285164ad7add5d1f83799aaa7312545c31fbf8c0f756b3",
+      "bytes": 2137,
+      "readable": true,
+      "byteIdentical": true
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/docs/submission/assets/05-online-together.png",
+      "destination": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明源稿/assets/05-online-together.png",
+      "sha256": "8df2cb75646dafe53da29881cc592620de29e47a1973ebe10e049013e8bb0fea",
+      "bytes": 190232,
+      "readable": true,
+      "byteIdentical": true
+    }
+  ],
+  "status": "PASS",
+  "copiedAt": "2026-10-12T13:28:27.236059",
+  "editableFormat": "Markdown UTF-8, bundled relative image; same source as PDF"
+}

@@ -1,0 +1,61 @@
+{
+  "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+  "expectedSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+  "authenticated": false,
+  "freshContext": true,
+  "vpnProxy": "127.0.0.1:1082",
+  "startedAt": "2026-10-12T05:26:24.644Z",
+  "status": "PASS",
+  "initialCookieCount": 0,
+  "httpStatus": 200,
+  "actualSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+  "buildDirty": "false",
+  "contentVersion": "together-play-1",
+  "completedSpeech": [
+    {
+      "id": "imm-order-apple",
+      "status": "completed"
+    }
+  ],
+  "checks": [
+    "anonymous public entry",
+    "exact merged-main SHA and clean build",
+    "complete speech playback record",
+    "wrong food retained",
+    "put back",
+    "actual two receipts",
+    "optional breakfast ending",
+    "reload preserves food and reward",
+    "desktop screenshot",
+    "no critical resource or page errors"
+  ],
+  "audioResponses": [
+    {
+      "path": "/audio/imm-order-apple.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-carry.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-thanks.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-carry.wav",
+      "status": 206
+    },
+    {
+      "path": "/audio/imm-thanks.wav",
+      "status": 206
+    },
+    {
+      "path": "/audio/imm-taste.wav",
+      "status": 200
+    }
+  ],
+  "failedResources": [],
+  "pageErrors": [],
+  "finishedAt": "2026-10-12T05:26:39.510Z"
+}
