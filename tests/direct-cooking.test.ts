@@ -97,3 +97,76 @@ test('the prior content snapshot keeps held food and in-flight heat without new 
     expect(restored.state.attempts).toEqual(s.attempts);
   }
 });
+test('natural assembly preserves an old pan output reservation and remains recoverable', () => {
+  let s = kitchen();
+  s = add(s, 'patty', 'grill').state;
+  s = run(s, { type: 'start-station', station: 'grill', tray: 0 }).state;
+  expect(s.routing.grill).toEqual({ station: 'board', slot: 0 });
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+  s = add(s, 'bread', 'board').state;
+  s = add(s, 'cheese', 'board').state;
+  s = add(s, 'bread', 'board').state;
+  expect(s.items.find((i) => i.product === 'sandwich')?.location).not.toBe('station:board:0');
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+  const sandwich = s.items.find((i) => i.product === 'sandwich');
+  if (!sandwich) throw Error('sandwich');
+  s = run(s, { type: 'pickup', source: { item: sandwich.id } }).state;
+  s = advance(s, 4000);
+  expect(s.items.find((i) => i.product === 'cooked-patty')?.location).toBe('station:board:0');
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+});
+test('an incoming sharing recipient is reserved; three distinct shares form a valid bounded work', () => {
+  let s = createGame('sharing-race');
+  s = run(s, { type: 'adventure-start', chapter: 4 }).state;
+  for (const visitor of ['rabbit', 'hedgehog', 'elder'])
+    s = run(s, { type: 'adventure', action: 'invite', visitor }).state;
+  s = run(s, { type: 'pickup', source: { supply: 'apple' } }).state;
+  s = run(s, {
+    type: 'adventure',
+    action: 'create',
+    visitor: 'rabbit',
+    tray: 0,
+    fromHand: true,
+  }).state;
+  s = run(s, { type: 'pickup', source: { supply: 'banana' } }).state;
+  const before = s.items;
+  const duplicate = run(s, {
+    type: 'adventure',
+    action: 'create',
+    visitor: 'rabbit',
+    tray: 1,
+    fromHand: true,
+  });
+  expect(duplicate.kind).toBe('blocked');
+  expect(duplicate.state.items).toEqual(before);
+  s = run(duplicate.state, { type: 'return-hand' }).state;
+  s = advance(s, 30000);
+  s = run(s, { type: 'ingredient', product: 'apple', target: { machine: 'apple' } }).state;
+  s = run(s, { type: 'ingredient', product: 'cup', target: { machine: 'cup' } }).state;
+  s = run(s, { type: 'start-machine' }).state;
+  s = advance(s, 5000);
+  const juice = s.items.find((i) => i.product === 'juice');
+  if (!juice) throw Error('juice');
+  s = run(s, { type: 'pickup', source: { item: juice.id } }).state;
+  s = run(s, {
+    type: 'adventure',
+    action: 'create',
+    visitor: 'hedgehog',
+    tray: 0,
+    fromHand: true,
+  }).state;
+  s = advance(s, 30000);
+  s = run(s, { type: 'pickup', source: { supply: 'apple' } }).state;
+  s = run(s, {
+    type: 'adventure',
+    action: 'create',
+    visitor: 'elder',
+    tray: 0,
+    fromHand: true,
+  }).state;
+  s = advance(s, 30000);
+  s = run(s, { type: 'adventure', action: 'save-work' }).state;
+  expect(s.adventure?.works[0]?.foods).toHaveLength(3);
+  expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(true);
+  expect(s.adventure?.experience?.needs.every((n) => n.fulfilled.length === 1)).toBe(true);
+});

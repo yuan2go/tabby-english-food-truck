@@ -1,7 +1,7 @@
 import type { Mode } from '../content/catalog';
 import { type ActorStop, buildPlan, HOME, samplePlan } from '../game/actor';
 import { receiveAdventure } from './adventure';
-import { experienceCommand } from './adventure-experience';
+import { experienceCommand, worldMoment } from './adventure-experience';
 import type { ActorJob, GameState, TrayId } from './types';
 export const trayAnchor = (tray: TrayId, mode: Mode = 'service') => ({
   x: mode === 'service' ? (tray === 0 ? 0.205 : 0.695) : 0.45,
@@ -90,13 +90,26 @@ export function advanceActor(s: GameState, delta: number): boolean {
               : undefined),
           job.creationGroup ?? job.plan.id,
         );
-        if (job.shareWith && received[0])
-          experienceCommand(s, {
+        if (job.shareWith && received[0]) {
+          const shared = experienceCommand(s, {
             type: 'adventure',
             action: 'share',
             visitor: job.shareWith,
             item: received[0].id,
           });
+          if (shared?.kind !== 'ok') {
+            const food = s.adventure?.foods.find((f) => f.id === received[0]?.id);
+            if (food) {
+              food.place = 'work';
+              worldMoment(s, {
+                kind: 'place',
+                destination: 'work',
+                visitor: job.shareWith,
+                foods: [{ id: food.id, product: food.product }],
+              });
+            }
+          }
+        }
         s.items = s.items.filter((i) => !job.itemIds.includes(i.id));
         job.itemIds = [];
         changed = true;

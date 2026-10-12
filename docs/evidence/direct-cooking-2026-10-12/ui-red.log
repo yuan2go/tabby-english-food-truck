@@ -1,0 +1,82 @@
+[WebServer] (node:76162) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:76243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:76291) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/direct-cooking.spec.ts:4:1 › single scoop uses four real actions and a different dessert is tasted on the scene (19.4s)
+(node:76308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/direct-cooking.spec.ts:17:1 › free kitchen starts at once and configuration is optional (6.8s)
+
+
+  1) e2e/direct-cooking.spec.ts:4:1 › single scoop uses four real actions and a different dessert is tasted on the scene 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '冰淇淋：蛋筒', exact: true })
+
+
+       8 |  }
+       9 |  await page.getByRole('button',{name:'一起吃早餐',exact:true}).click();await page.getByRole('button',{name:'下一院活动',exact:true}).click();await page.getByRole('button',{name:'先帮兔兔',exact:true}).click();
+    > 10 |  await page.getByRole('button',{name:'冰淇淋：蛋筒',exact:true}).click();await page.getByRole('button',{name:'冰淇淋：香草球',exact:true}).click();
+         |                                                            ^
+      11 |  expect((await state(page)).items.map(i=>i.product)).toEqual(['vanilla-cone']);
+      12 |  await expect(page.getByRole('button',{name:'启动冰淇淋台',exact:true})).toHaveCount(0);
+      13 |  await page.getByRole('button',{name:'拿起香草蛋筒',exact:true}).click();await page.getByRole('button',{name:'交给兔兔',exact:true}).click();await expect.poll(async()=> (await state(page)).orders[0]?.status).toBe('done');
+        at /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/direct-cooking.spec.ts:10:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/error-context.md
+
+  2) e2e/direct-cooking.spec.ts:17:1 › free kitchen starts at once and configuration is optional ───
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('region', { name: '同桌厨房', exact: true })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('region', { name: '同桌厨房', exact: true }) with timeout 6000ms
+      - waiting for getByRole('region', { name: '同桌厨房', exact: true })
+
+
+      16 | });
+      17 | test('free kitchen starts at once and configuration is optional',async({page})=>{
+    > 18 |  await page.goto('/');await page.locator('.yard-endless .entry-main').click();await expect(page.getByRole('region',{name:'同桌厨房',exact:true})).toBeVisible();await expect(page.getByRole('region',{name:'自由开店菜单',exact:true})).toHaveCount(0);
+         |                                                                                                                                               ^
+      19 |  await page.getByRole('button',{name:'暂停',exact:true}).click();await page.getByRole('button',{name:'调整开店设置',exact:true}).click();await expect(page.getByRole('region',{name:'自由开店菜单',exact:true})).toBeVisible();
+      20 | });
+      21 |
+        at /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/direct-cooking.spec.ts:18:143
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/error-context.md
+
+  2 failed
+    e2e/direct-cooking.spec.ts:4:1 › single scoop uses four real actions and a different dessert is tasted on the scene 
+    e2e/direct-cooking.spec.ts:17:1 › free kitchen starts at once and configuration is optional ────

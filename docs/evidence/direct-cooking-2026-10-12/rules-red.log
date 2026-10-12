@@ -1,0 +1,90 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/direct-cooking.test.ts (5 tests | 4 failed) 10ms
+   × cup then flavor makes one real scoop; a legal second scoop extends it without a confirmation 6ms
+   × last bread naturally closes a sandwich, malformed layers remain recoverable 1ms
+   × pan needs explicit heat and real clock before cooked meat can combine 0ms
+   × juice still requires fruit, actual cup and a switch, with no preparation selection 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/direct-cooking.test.ts > cup then flavor makes one real scoop; a legal second scoop extends it without a confirmation
+AssertionError: expected [] to deeply equal [ { id: undefined, …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "id": undefined,
+-     "location": "station:ice:0",
+-     "product": "vanilla-cup",
+-   },
+- ]
++ []
+
+ ❯ tests/direct-cooking.test.ts:12:18
+     10|  let s = kitchen(); s = add(s,'cup','ice').state; const cup = s.items[…
+     11|  s = add(s,'vanilla','ice').state;
+     12|  expect(s.items).toEqual([{id:cup,product:'vanilla-cup',location:'stat…
+       |                  ^
+     13|  expect(s.stations.ice.status).toBe('ready');
+     14|  s = add(s,'strawberry','ice').state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/direct-cooking.test.ts > last bread naturally closes a sandwich, malformed layers remain recoverable
+AssertionError: expected 'empty' to be 'loaded' // Object.is equality
+
+Expected: "loaded"
+Received: "empty"
+
+ ❯ tests/direct-cooking.test.ts:27:34
+     25| test('last bread naturally closes a sandwich, malformed layers remain …
+     26|  let s=kitchen();s=add(s,'bread','board').state;s=add(s,'cheese','boar…
+     27|  expect(s.stations.board.status).toBe('loaded');s=add(s,'bread','board…
+       |                                  ^
+     28|  expect(s.items.map(i=>i.product)).toEqual(['sandwich']);expect(s.stat…
+     29|  s=run(s,{type:'pickup',source:{item:s.items[0]?.id}}).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/direct-cooking.test.ts > pan needs explicit heat and real clock before cooked meat can combine
+AssertionError: expected 'empty' to be 'loaded' // Object.is equality
+
+Expected: "loaded"
+Received: "empty"
+
+ ❯ tests/direct-cooking.test.ts:34:34
+     32| test('pan needs explicit heat and real clock before cooked meat can co…
+     33|  let s=kitchen();s=add(s,'patty','grill').state;
+     34|  expect(s.stations.grill.status).toBe('loaded');s=advance(s,4000);expe…
+       |                                  ^
+     35|  s=run(s,{type:'start-station',station:'grill'}).state;s=advance(s,349…
+     36|  expect(s.items[0]?.product).toBe('cooked-patty');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/direct-cooking.test.ts > juice still requires fruit, actual cup and a switch, with no preparation selection
+AssertionError: expected 'empty' to be 'loaded' // Object.is equality
+
+Expected: "loaded"
+Received: "empty"
+
+ ❯ tests/direct-cooking.test.ts:44:45
+     42|  let s=kitchen();s=run(s,{type:'ingredient',product:'banana',target:{m…
+     43|  s=run(s,{type:'ingredient',product:'cup',target:{machine:'cup'}}).sta…
+     44|  s=advance(s,6000);expect(s.machine.status).toBe('loaded');s=run(s,{ty…
+       |                                             ^
+     45|  s=advance(s,5000);expect(s.items.map(i=>i.product)).toEqual(['banana-…
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  23:13:04
+   Duration  258ms (transform 127ms, setup 0ms, import 152ms, tests 10ms, environment 0ms)
+

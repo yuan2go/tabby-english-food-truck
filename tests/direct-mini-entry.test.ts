@@ -11,7 +11,8 @@ test('scene start immediately makes the physical scene operable without fabricat
   expect(s.phase).toBe('play');
   expect(s.objects).toEqual(level.tasks[0]?.objects);
   expect(s.attempts).toEqual([]);
-  expect(s.support).toContain('meaning-demonstration');
+  expect(s.support).toContain('meaning-picture');
+  expect(s.support).not.toContain('meaning-demonstration');
 });
 test('a course enters its playable task with its meaning pictures accounted for', () => {
   const level = ALL_MINI_LEVELS[0];

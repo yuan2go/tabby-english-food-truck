@@ -56,7 +56,9 @@ export function TogetherKitchen({
           onClick={() => use({ kind: 'station', station: id })}
         />
         <div className="direct-inputs">
-          {s.items.filter((i) => i.location.startsWith(`station:${id}:`)).map(source)}
+          {s.items
+            .filter((i) => i.location.startsWith(`station:${id}:`))
+            .map((item) => source(item))}
         </div>
         {id === 'grill' && s.stations.grill.status !== 'ready' ? (
           <button
@@ -104,7 +106,9 @@ export function TogetherKitchen({
                     aria-label={port === 'apple' ? '放入果汁机水果口' : '放到果汁机杯座'}
                     onClick={() => use({ kind: 'machine', port })}
                   />
-                  {s.items.filter((i) => i.location === `machine:${port}`).map(source)}
+                  {s.items
+                    .filter((i) => i.location === `machine:${port}`)
+                    .map((item) => source(item))}
                 </div>
               ))}
               <button
@@ -193,7 +197,7 @@ export function TogetherKitchen({
         >
           <SceneIcon kind="carry" />
         </button>
-        {s.items.filter((i) => i.location.startsWith('tray:')).map(source)}
+        {s.items.filter((i) => i.location.startsWith('tray:')).map((item) => source(item))}
         {unlocked.includes('ready') ? (
           <button
             type="button"

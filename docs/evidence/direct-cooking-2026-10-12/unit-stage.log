@@ -1,0 +1,373 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (31 tests | 16 failed) 56ms
+     × does not branch on a mismatch or before the real receive phase 5ms
+     × keeps accepted orders stable after rabbit is served first 1ms
+     × keeps accepted orders stable after hedgehog is served first 1ms
+     × rabbit path needs real two-part packing, then merges with the same picnic reward 1ms
+     × hedgehog path needs two distinct seats and cannot recycle delivered food 2ms
+     × accepts declared ice alternatives but rejects extra food and records no language attempt 1ms
+     × roundtrips mid-delivery and never awards twice 2ms
+     × strict delivery receipts stay recoverable through each receive and return phase 1ms
+     × can recover every phase of an open commission, including the received food 2ms
+     × rejects duplicate world ownership and forged activity receipts 1ms
+   × moving one food through two seats does not satisfy a two-friend table 1ms
+   × a second creation saves its own three portions rather than merging every past dish 2ms
+   × sweet comparisons require two genuinely different creations and survive interruption 1ms
+   × cooperation carries a real found tool without changing cooking, orders or food 1ms
+   × hanging shade flags moves both actual desserts once and recolouring preserves their seats 1ms
+   × same-session return needs remember desserts actually received, even after putting the food away 1ms
+ ❯ tests/together-play.test.ts (24 tests | 1 failed) 31ms
+   × migrates only already received old dinner positions without inventing attempts or rewards 5ms
+ ❯ tests/m22-playability.test.ts (3 tests | 1 failed) 9ms
+   × two later-story guests choose separate plates while juice and ice run in parallel 6ms
+ ❯ tests/together-layout.test.ts (4 tests | 2 failed) 9ms
+     × keeps core targets inside 393 by 665 without scrolling 5ms
+     × keeps core targets inside 1280 by 720 without scrolling 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > does not branch on a mismatch or before the real receive phase
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ tests/adventure.test.ts:99:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > keeps accepted orders stable after rabbit is served first
+ FAIL  tests/adventure.test.ts > adventure causal rules > keeps accepted orders stable after hedgehog is served first
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:118:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > rabbit path needs real two-part packing, then merges with the same picnic reward
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:123:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > hedgehog path needs two distinct seats and cannot recycle delivered food
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:156:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > accepts declared ice alternatives but rejects extra food and records no language attempt
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ tests/adventure.test.ts:177:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > roundtrips mid-delivery and never awards twice
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ tests/adventure.test.ts:209:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > strict delivery receipts stay recoverable through each receive and return phase
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ tests/adventure.test.ts:221:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > can recover every phase of an open commission, including the received food
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ tests/adventure.test.ts:233:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > rejects duplicate world ownership and forged activity receipts
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:262:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  tests/adventure.test.ts > moving one food through two seats does not satisfy a two-friend table
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:288:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  tests/adventure.test.ts > a second creation saves its own three portions rather than merging every past dish
+AssertionError: expected [ [ 'banana' ], [ 'banana', 'apple' ] ] to deeply equal [ [ 'banana' ], [ 'apple' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "banana",
+    ],
+    [
++     "banana",
+      "apple",
+    ],
+  ]
+
+ ❯ tests/adventure.test.ts:312:72
+    310|   s = wait(act(s, 'create', { tray: 0 }).state);
+    311|   s = act(s, 'save-work').state;
+    312|   expect(s.adventure?.works.map((w) => w.foods.map((f) => f.product)))…
+       |                                                                        ^
+    313|     ['banana'],
+    314|     ['apple'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+ FAIL  tests/adventure.test.ts > sweet comparisons require two genuinely different creations and survive interruption
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:377:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯
+
+ FAIL  tests/adventure.test.ts > cooperation carries a real found tool without changing cooking, orders or food
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:390:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/20]⎯
+
+ FAIL  tests/adventure.test.ts > hanging shade flags moves both actual desserts once and recolouring preserves their seats
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:453:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/20]⎯
+
+ FAIL  tests/adventure.test.ts > same-session return needs remember desserts actually received, even after putting the food away
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ make tests/adventure.test.ts:49:24
+     47|       : { type: 'start-station', station: r.station, tray },
+     48|   );
+     49|   expect(started.kind).toBe('ok');
+       |                        ^
+     50|   return wait(started.state);
+     51| }
+ ❯ deliver tests/adventure.test.ts:53:7
+ ❯ tests/adventure.test.ts:507:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/20]⎯
+
+ FAIL  tests/m22-playability.test.ts > two later-story guests choose separate plates while juice and ice run in parallel
+AssertionError: expected null to deeply equal { tray: 1, slot: +0 }
+
+- Expected:
+{
+  "slot": 0,
+  "tray": 1,
+}
+
++ Received:
+null
+
+ ❯ tests/m22-playability.test.ts:47:29
+     45|   state = send(state, { type: 'start-station', station: 'ice', tray: 1…
+     46|   expect(state.routing.machine).toEqual({ tray: 0, slot: 0 });
+     47|   expect(state.routing.ice).toEqual({ tray: 1, slot: 0 });
+       |                             ^
+     48|   const restored = decodeSnapshot(JSON.stringify(state));
+     49|   expect(restored.ok).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/20]⎯
+
+ FAIL  tests/together-layout.test.ts > one physical stage on representative devices > keeps core targets inside 393 by 665 without scrolling
+ FAIL  tests/together-layout.test.ts > one physical stage on representative devices > keeps core targets inside 1280 by 720 without scrolling
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/together-layout.test.ts:26:9
+     24|         l.preparation.x + l.preparation.width <= l.dami.x + 30 ||
+     25|           l.dami.x + l.dami.width <= l.preparation.x + 30,
+     26|       ).toBe(true);
+       |         ^
+     27|     });
+     28|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/20]⎯
+
+ FAIL  tests/together-play.test.ts > migrates only already received old dinner positions without inventing attempts or rewards
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ prepare tests/together-play.test.ts:284:20
+    282|         : { type: 'start-station', station: recipe.station, tray: 0 },
+    283|     );
+    284|     expect(r.kind).toBe('ok');
+       |                    ^
+    285|     return advance(r.state, 30000);
+    286|   }
+ ❯ tests/together-play.test.ts:292:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/20]⎯
+
+
+ Test Files  4 failed | 23 passed (27)
+      Tests  20 failed | 325 passed (345)
+   Start at  23:18:13
+   Duration  1.24s (transform 1.40s, setup 0ms, import 2.86s, tests 1.42s, environment 2ms)
+

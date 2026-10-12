@@ -34,6 +34,12 @@ export function experienceReady(a: AdventureState): boolean {
         ? e.used.includes('share')
         : true;
 }
+/** A destination promised to an incoming portion cannot be occupied by a second move. */
+export const recipientReserved = (s: GameState, visitor: string, item?: string): boolean =>
+  [s.actor.current, ...s.actor.queue].some(
+    (job) =>
+      job?.shareWith === visitor && job.itemIds.length > 0 && !job.itemIds.includes(item ?? ''),
+  );
 export function experienceCommand(
   s: GameState,
   c: Extract<Command, { type: 'adventure' }>,
@@ -134,6 +140,8 @@ export function experienceCommand(
     const food = a.foods.find((f) => f.id === c.item);
     if (!need || !food || food.place === 'basket')
       return result('blocked', '先邀请朋友，再选桌边真实的食品。');
+    if (recipientReserved(s, c.visitor ?? '', food.id))
+      return result('blocked', '朋友正在接收一份分享，食品保留在原处。');
     if (need.fulfilled.length || e.needs.some((n) => n.fulfilled.includes(food.id)))
       return result('duplicate', '这份分享已经留下了。');
     if (food.tasted) return result('blocked', '这份已经品尝过了。留在作品里，再做一份新食品分享。');

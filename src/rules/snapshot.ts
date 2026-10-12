@@ -481,6 +481,8 @@ export function validateState(v: unknown): v is GameState {
     )
   )
     return false;
+  const pendingShares = jobs.filter((job) => job.shareWith && job.itemIds.length);
+  if (!unique(pendingShares.map((job) => job.shareWith))) return false;
   if (!s.actor.current && s.actor.queue.length) return false;
   let completion = 0;
   for (const [index, job] of jobs.entries()) {

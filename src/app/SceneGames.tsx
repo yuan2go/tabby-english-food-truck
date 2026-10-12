@@ -321,7 +321,19 @@ export function SceneGames({
               <button type="button" aria-label="重听场景请求" onClick={() => void say()}>
                 <VoiceIcon />
               </button>
-              <p>{state.mode === 'free' ? '自由布置 · 没有标准答案' : task.instruction}</p>
+              <div>
+                <p>{state.mode === 'free' ? '自由布置 · 没有标准答案' : task.instruction}</p>
+                {level.kind !== 'memory' || state.phase === 'observe' ? (
+                  <section className="scene-inline-meaning" aria-label="场景物件与英文">
+                    {words.map((word) => (
+                      <span key={word}>
+                        <VocabularyVisual id={word} />
+                        <span lang="en">{vocabularyWord(word)?.text}</span>
+                      </span>
+                    ))}
+                  </section>
+                ) : null}
+              </div>
               <button
                 type="button"
                 onClick={() => {
@@ -333,6 +345,15 @@ export function SceneGames({
                 看图示范
               </button>
             </div>
+            {level.kind === 'design' && state.mode !== 'free' && state.phase === 'play' ? (
+              <button
+                className="scene-free-entry"
+                type="button"
+                onClick={() => send({ type: 'free' })}
+              >
+                自由布置餐桌
+              </button>
+            ) : null}
             {supported && showGuide ? (
               <section className="scene-help" aria-label="物件与动作示范">
                 <button type="button" onClick={() => setShowGuide(false)}>

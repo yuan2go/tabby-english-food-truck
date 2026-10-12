@@ -18,6 +18,7 @@ import {
   experienceReady,
   foodVisitor,
   hydrateExperience,
+  recipientReserved,
   validExperience,
   worldMoment,
 } from './adventure-experience';
@@ -260,6 +261,8 @@ export function adventureCommand(
             : '先把可吃的食品做好，最多放三份。',
       );
     if (c.action === 'create' && c.visitor) {
+      if (recipientReserved(s, c.visitor))
+        return result('blocked', '朋友正在接收一份分享，食品仍在手里。');
       const need = a.experience?.needs.find((n) => n.visitor === c.visitor);
       if (
         !need ||
@@ -317,6 +320,8 @@ export function adventureCommand(
   }
   if (c.action === 'place') {
     if (c.seat !== 0 && c.seat !== 1 && c.seat !== 2) return result('blocked', '选一个可见餐位。');
+    if (recipientReserved(s, c.seat === 0 ? 'rabbit' : c.seat === 1 ? 'hedgehog' : 'elder', c.item))
+      return result('blocked', '这里正在接收分享，食品保留在原处。');
     const food = a.foods.find((f) => f.id === c.item);
     if (!food || food.place === 'basket') return result('blocked', '先把食物真正送到活动桌。');
     if (a.foods.some((f) => f.id !== food.id && f.place === `table:${c.seat}`))
@@ -410,6 +415,7 @@ export function adventureCommand(
     const source = a.foods.filter((f) => f.source.startsWith('create:')).at(-1)?.source;
     const foods = a.foods.filter((f) => f.source === source);
     if (!foods.length) return result('blocked', '先把自己的拼盘送到桌边。');
+    if (foods.length > 3) return result('blocked', '每份作品最多三份食品，先调整再保存。');
     const signature = workSignature(foods);
     if (a.works.some((w) => w.signature === signature))
       return result('duplicate', '这个作品已经留在食谱里。');

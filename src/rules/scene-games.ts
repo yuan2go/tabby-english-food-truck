@@ -189,7 +189,7 @@ export function sceneCommand(s: SceneState, c: SceneCommand): SceneState {
   if (c.type === 'start')
     return s.phase === 'intro'
       ? {
-          ...addSupport(s, 'meaning-demonstration'),
+          ...addSupport(s, 'meaning-picture'),
           phase: level.kind === 'memory' ? 'observe' : 'play',
         }
       : s;
@@ -209,7 +209,7 @@ export function sceneCommand(s: SceneState, c: SceneCommand): SceneState {
   if (c.type === 'play')
     return s.phase === 'meaning'
       ? {
-          ...addSupport(s, 'meaning-demonstration'),
+          ...addSupport(s, 'meaning-picture'),
           phase: level.kind === 'memory' ? 'observe' : 'play',
           heard: false,
           feedback: '',
@@ -244,7 +244,7 @@ export function sceneCommand(s: SceneState, c: SceneCommand): SceneState {
       round: next,
       phase: level.kind === 'memory' ? 'observe' : 'play',
       objects: level.kind === 'theatre' ? s.objects : copy(level.tasks[next]?.objects ?? []),
-      support: [...s.carry],
+      support: [...new Set([...s.carry, 'meaning-picture'])],
       heard: false,
       undo: [],
       feedback: '',

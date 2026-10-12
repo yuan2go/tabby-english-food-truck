@@ -1,6 +1,6 @@
 # 2026-10-12 · 全游戏操作减负与游戏性重构
 
-IN_PROGRESS。最新远端main baseline0164da67de128110b75c4a6fa2c414914faebfb3；隔离codex/direct-cooking-experience-2026-10-12，原64f03fc试玩分支及未跟踪文件保留。八份旧合同逐字节归档，现行01–05已更新，正式代码尚未开始。基线339/339单元退出0；正常手机新入口单球蛋筒7次操作。新发布/成人真人/儿童观察/真机/教研/听审NOT_RUN，原审核边界保留。详见[evidence](evidence/direct-cooking-2026-10-12/README.md)。
+IMPLEMENTED / FINAL_VALIDATION_IN_PROGRESS。最新远端main baseline0164da67de128110b75c4a6fa2c414914faebfb3；隔离codex/direct-cooking-experience-2026-10-12，原64f03fc试玩分支及未跟踪文件保留。先归档旧合同，再独立docs提交；现行01–05为唯一合同。已实现五章、双野餐、同屏真实料理、直接分享/保存、自由厨房默认开门和小游戏直接进入。独立只读审查发现的预留冲突、共享竞态与虚假意义曝光记录已实际修正，定向规则/UI已绿。350/350单元、lint、资源、词库退出0；正在冻结干净源码进行全浏览器回归及新档连续触控验收，尚未push/PR/发布。成人真人/儿童观察/真机/教研/听审NOT_RUN，原审核边界保留。详见[evidence](evidence/direct-cooking-2026-10-12/README.md)。
 
 # 同桌共玩 · 2026-10-12正式交付
 

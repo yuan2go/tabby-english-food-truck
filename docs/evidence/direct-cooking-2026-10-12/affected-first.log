@@ -1,0 +1,85 @@
+[WebServer] (node:77387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:77456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 1 worker
+
+(node:77502) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:102:1 › visible activity entrance reaches all five chapters and saves a real creation (38.5s)
+(node:77516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/adventure.spec.ts:135:1 › receipt presentation and low motion never repeat settlement (11.3s)
+  ✓  3 e2e/adventure.spec.ts:146:1 › phone replay follows hedgehog path with real food and no packing task (19.2s)
+  ✓  4 e2e/adventure.spec.ts:162:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (6.5s)
+  ✓  5 e2e/adventure.spec.ts:193:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (8.9s)
+  ✓  6 e2e/adventure.spec.ts:210:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (4.0s)
+  ✓  7 e2e/adventure.spec.ts:228:1 › low motion receipts retain actual foods and reachable controls across compact layouts (7.2s)
+  ✓  8 e2e/direct-cooking.spec.ts:4:1 › single scoop uses four real actions and a different dessert is tasted on the scene (12.2s)
+  ✓  9 e2e/direct-cooking.spec.ts:17:1 › free kitchen starts at once and configuration is optional (1.0s)
+
+
+  1) e2e/adventure.spec.ts:102:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for locator('[data-hotspot="item-food-2"]')
+        - locator resolved to <button type="button" aria-label="拿起熟饼" class="loose-food" data-grab="item:food-2" data-hotspot="item-food-2">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" aria-label="启动煎台" class="heat-switch" data-hotspot="start-station-grill">🔥</button> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" aria-label="启动煎台" class="heat-switch" data-hotspot="start-station-grill">🔥</button> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        22 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <button type="button" aria-label="启动煎台" class="heat-switch" data-hotspot="start-station-grill">🔥</button> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+       at helpers.ts:132
+
+      130 |   );
+      131 |   if (!item) throw Error(product);
+    > 132 |   await p.locator(`[data-hotspot="item-${item.id}"]`).click();
+          |                                                       ^
+      133 |   expect((await state(p)).items.find((i) => i.id === item.id)?.location).toMatch(/^hand:/);
+      134 |   return item.id;
+      135 | }
+        at make (/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/helpers.ts:132:55)
+        at make (/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/helpers.ts:82:16)
+        at serve (/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/helpers.ts:150:16)
+        at dinner (/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/adventure.spec.ts:67:3)
+        at /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/adventure.spec.ts:114:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:102:1 › visible activity entrance reaches all five chapters and saves a real creation 
+  8 passed (2.0m)

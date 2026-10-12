@@ -62,16 +62,6 @@ export function activityObstacle(s: GameState, c: ActivityCommand): ActivityGuid
       audio: NEED_AUDIO[need.kind],
     };
   if (c.action === 'place' || c.action === 'share') {
-    // Match rule precedence: the drawer must be available before placement.
-    if (c.action === 'place' && !a.rewards.length && a.chapter === 2 && a.branch !== 'hedgehog')
-      return activityGuidance(s);
-    if (
-      c.action === 'place' &&
-      !a.rewards.length &&
-      ((a.chapter === 2 && a.branch === 'hedgehog' && !a.explored.includes('drawer')) ||
-        (a.chapter === 3 && !a.explored.includes('drawer')))
-    )
-      return guide('drawer', 'drawer', 'mat', '先打开抽屉，取出摆餐的物件。', 'drawer');
     const seat = c.action === 'share' && need ? visitorSeat(need.visitor) : c.seat;
     const occupied = a.foods.find((f) => f.id !== c.item && f.place === `table:${seat}`);
     if (food && occupied)
@@ -84,14 +74,6 @@ export function activityObstacle(s: GameState, c: ActivityCommand): ActivityGuid
         [occupied.product],
         occupied.id,
       );
-    if (
-      c.action === 'place' &&
-      a.chapter === 2 &&
-      a.branch === 'hedgehog' &&
-      !a.rewards.length &&
-      !a.experience?.tools.includes('mat')
-    )
-      return guide('mat', 'drawer', 'mat', '先取出餐垫，食品就有摆放的位置。', 'mat');
   }
   if (c.action === 'share' && !need)
     return guide('invite', 'friend', 'table', '先邀请一位朋友，听听分享需要。', 'invite');

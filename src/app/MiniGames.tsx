@@ -608,6 +608,12 @@ export function MiniGames({
       ) : (
         <>
           <div className="mini-prompt">
+            {state.support.includes('meaning-picture') ? (
+              <section className="mini-inline-meaning" aria-label="食物与英文名字">
+                <Food product={word.image} />
+                <span lang="en">{word.text}</span>
+              </section>
+            ) : null}
             {state.kind === 'spell' ? <Food product={word.image} /> : null}
             <button type="button" className="sound-tile" onClick={say}>
               {state.kind === 'match' && state.mode === 'word-picture'
@@ -637,7 +643,9 @@ export function MiniGames({
             </div>
           ) : (
             <div className="spelling-table">
-              {state.difficulty === 'demo' || state.support.includes('answer-help') ? (
+              {state.difficulty === 'demo' ||
+              state.support.includes('answer-help') ||
+              state.support.includes('word-model') ? (
                 <p className="spell-model">{word.text.toUpperCase()}</p>
               ) : null}
               <section

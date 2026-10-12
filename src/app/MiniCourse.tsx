@@ -445,6 +445,20 @@ export function MiniCourse({
               <button type="button" onClick={() => say()}>
                 ♫ 重听请求
               </button>
+              {wordById(target) && mechanic !== 'quantity' && mechanic !== 'sentence' ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    update({
+                      ...state,
+                      support: [...new Set([...state.support, 'context-example'])],
+                    });
+                    say(state, true);
+                  }}
+                >
+                  <VoiceIcon /> 听一句怎么用
+                </button>
+              ) : null}
               {showHelp ? (
                 <span>
                   <Pictures id={target} />

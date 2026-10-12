@@ -127,6 +127,12 @@ export function TogetherStage({
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
+    if (moment?.kind === 'place' && moment.destination === 'work' && moment.visitor) {
+      controller.message = '这份分享留在作品区。朋友的餐位有变化，食品保留，可以再拿起分享。';
+      setFeedback(controller.message);
+    }
+  }, [moment, controller]);
+  useEffect(() => {
     if (!moment) {
       setMomentAge(0);
       return;
@@ -378,21 +384,26 @@ export function TogetherStage({
           <button
             type="button"
             className="loose-food"
-            aria-label={`品尝${PRODUCT_NAMES[item.product]}`}
-            onClick={() => act('taste', { item: item.id })}
+            aria-label={`${held.length ? '交到餐位：' : '品尝'}${PRODUCT_NAMES[item.product]}`}
+            data-put-target={JSON.stringify({ kind: 'food', id: item.id })}
+            onClick={() =>
+              held.length ? use({ kind: 'food', id: item.id }) : act('taste', { item: item.id })
+            }
           >
             <Food product={item.product} />
           </button>
-          <button
-            type="button"
-            className="move-portion"
-            data-grab={`world:${item.id}`}
-            data-hotspot={`item-${item.id}`}
-            aria-label={`拿起${PRODUCT_NAMES[item.product]}（活动）`}
-            onClick={() => take(`world:${item.id}`)}
-          >
-            ↥
-          </button>
+          {!held.length ? (
+            <button
+              type="button"
+              className="move-portion"
+              data-grab={`world:${item.id}`}
+              data-hotspot={`item-${item.id}`}
+              aria-label={`拿起${PRODUCT_NAMES[item.product]}（活动）`}
+              onClick={() => take(`world:${item.id}`)}
+            >
+              ↥
+            </button>
+          ) : null}
         </span>
       );
     return (

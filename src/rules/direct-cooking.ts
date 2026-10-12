@@ -13,7 +13,7 @@ export function assemble(s: GameState, id: StationId): boolean {
   if (!recipe || !s.session.unlocked.includes(recipe.family) || !inputs[0]) return false;
   const ids = new Set(inputs.map((i) => i.id));
   s.items = s.items.filter((i) => !ids.has(i.id));
-  s.items.push({ id: inputs[0].id, product: recipe.output, location: `station:${id}:0` });
+  s.items.push({ id: inputs[0].id, product: recipe.output, location: inputs[0].location });
   s.stations[id] = { recipe: recipe.id, status: 'ready', remaining: 0 };
   return true;
 }

@@ -1655,6 +1655,15 @@
   justify-content: center;
   gap: 8px;
 }
+.mini-inline-meaning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mini-inline-meaning .food-art {
+  width: 44px;
+  height: 44px;
+}
 .inline-word-shelf > span {
   display: flex;
   flex-direction: column;

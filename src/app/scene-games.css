@@ -455,6 +455,34 @@
   border-radius: 18px;
   padding: 8px 14px;
 }
+.scene-prompt > div {
+  flex: 1;
+  min-width: 0;
+}
+.scene-prompt > div > p {
+  margin: 0 0 3px;
+}
+.scene-inline-meaning {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+.scene-inline-meaning > span {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+}
+.scene-inline-meaning .vocab-art,
+.scene-inline-meaning .meaning-scene {
+  width: 28px;
+  height: 28px;
+}
+.scene-free-entry {
+  display: block;
+  margin: 2px auto;
+  min-height: 44px;
+}
 .scene-prompt > p {
   flex: 1;
   margin: 0;

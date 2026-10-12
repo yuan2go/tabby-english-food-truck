@@ -17,7 +17,7 @@ const errors = [];
 p.on('pageerror', (e) => errors.push(e.message));
 await p.goto(base);
 const identity = await p
-  .locator('.game-app')
+  .locator('[data-build-sha]')
   .getAttribute('data-build-sha')
   .catch(() => null);
 const tap = async (name) => {

@@ -65,7 +65,11 @@ for (const kind of ['match', 'spell'] as const)
       if (await page.getByRole('button', { name: '我来找 / 拼', exact: true }).isVisible())
         await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
       if (kind === 'match') {
-        await expect(page.locator('.mini-play')).not.toContainText(word.text);
+        if (s.support.includes('meaning-picture'))
+          await expect(page.getByRole('region', { name: '食物与英文名字' })).toContainText(
+            word.text,
+          );
+        else await expect(page.locator('.mini-play')).not.toContainText(word.text);
         await page.locator('.sound-tile').tap();
         const wrong = page
           .locator('.matching-pictures button')
