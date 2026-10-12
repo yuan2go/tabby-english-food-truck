@@ -1,5 +1,7 @@
 # 全游戏直接操作 · 基线与执行记录
 
+2026-10-13补充交付：[完整执行产物归档](execution-artifacts/README.md)保存本任务临时目录内217件日志、截图、录像、脚本、发布包及材料，并补充66件原工作区历史试玩文件；逐文件manifest可追溯。代码PR22和材料PR23已合并main；本次仅归档与Git交付，按用户要求不测试，原验证记录不作本次重测。
+
 Baseline full SHA0164da67de128110b75c4a6fa2c414914faebfb3，2026-10-12；main已fetch核验。原工作区64f03fc及docs/playtests保留。隔离目录/分支见STATUS。用户本轮授权全流程至原站公开更新和材料main归档。
 
 ## 修改前真实操作链

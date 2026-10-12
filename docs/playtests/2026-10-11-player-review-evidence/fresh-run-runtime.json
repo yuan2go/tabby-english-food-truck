@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-11T14:50:09.881Z",
+  "ended": "2026-10-11T14:51:32.337Z",
+  "url": "http://127.0.0.1:5196/",
+  "browser": "153.0.8010.12",
+  "attributes": {
+    "class": "game-shell m2-shell screen-home",
+    "data-build-sha": "64f03fc716de70e20f64f9bbc3802de7601a460f",
+    "data-build-dirty": "true",
+    "data-content-version": "playable-adventure-1",
+    "data-asset-version": "9ab86e7149691cd47504e1ae152aa247bbd0ea0e499338dd6f52b120b0cffead",
+    "data-audio-state": "{\"active\":null,\"failure\":null,\"loops\":[],\"settings\":{\"master\":true,\"voice\":true,\"music\":true,\"ambience\":true,\"effects\":true},\"context\":\"not-created\",\"effects\":0}",
+    "style": "width: 1280px; height: 900px; left: 0px; top: 0px;"
+  },
+  "errors": []
+}

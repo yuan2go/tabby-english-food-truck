@@ -1,0 +1,38 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/direct-cooking.test.ts (9 tests | 1 failed) 18ms
+   × a burger on the board accepts cheese afterwards without forcing a hidden layer order 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/direct-cooking.test.ts > a burger on the board accepts cheese afterwards without forcing a hidden layer order
+AssertionError: expected [ { id: 'food-1', …(2) } ] to deeply equal [ { product: 'cheese-burger' } ]
+
+- Expected
++ Received
+
+  [
+    {
++     "id": "food-1",
++     "location": "station:board:1",
+      "product": "cheese-burger",
+    },
+  ]
+
+ ❯ tests/direct-cooking.test.ts:88:25
+     86|   const r=add(s,'cheese','board');
+     87|   expect(r.kind).toBe('ok');
+     88|   expect(r.state.items).toEqual([{...burger,product:'cheese-burger'}]);
+       |                         ^
+     89|   expect(r.state.attempts).toEqual([]);
+     90|   expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  00:13:50
+   Duration  330ms (transform 175ms, setup 0ms, import 207ms, tests 18ms, environment 0ms)
+

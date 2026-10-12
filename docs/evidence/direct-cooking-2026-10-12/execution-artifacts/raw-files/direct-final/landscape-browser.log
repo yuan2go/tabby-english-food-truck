@@ -1,0 +1,26 @@
+[WebServer] (node:82925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 17 tests using 1 worker
+
+(node:82973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:112:1 › visible activity entrance reaches all five chapters and saves a real creation (44.1s)
+  ✓   2 e2e/adventure.spec.ts:172:1 › receipt presentation and low motion never repeat settlement (11.3s)
+  ✓   3 e2e/adventure.spec.ts:183:1 › phone replay follows hedgehog path with real food and no packing task (19.7s)
+  ✓   4 e2e/adventure.spec.ts:199:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (7.1s)
+  ✓   5 e2e/adventure.spec.ts:230:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (9.3s)
+  ✓   6 e2e/adventure.spec.ts:247:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (4.2s)
+  ✓   7 e2e/adventure.spec.ts:265:1 › low motion receipts retain actual foods and reachable controls across compact layouts (7.3s)
+  ✓   8 e2e/direct-cooking.spec.ts:6:1 › single scoop uses four real actions and a different dessert is tasted on the scene (12.4s)
+  ✓   9 e2e/direct-cooking.spec.ts:48:1 › free kitchen starts at once and configuration is optional (2.2s)
+  ✓  10 e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable (1.2s)
+  ✓  11 e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory (7.9s)
+  ✓  12 e2e/m22-boundaries.spec.ts:71:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error (1.9s)
+  ✓  13 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (7.5s)
+  ✓  14 e2e/together-play.spec.ts:30:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (7.9s)
+  ✓  15 e2e/together-play.spec.ts:61:1 › speaker meaning pictures and same-stage demonstration are usable assistance without inventory or language submission (5.1s)
+  ✓  16 e2e/together-play.spec.ts:87:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity (7.8s)
+  ✓  17 e2e/together-play.spec.ts:123:1 › open request remains at its actual speaker after another conversation and cannot thank before receipt (7.9s)
+
+  17 passed (2.8m)

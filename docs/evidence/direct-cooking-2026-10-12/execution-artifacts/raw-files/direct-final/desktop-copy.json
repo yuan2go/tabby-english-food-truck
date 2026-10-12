@@ -1,0 +1,30 @@
+{
+  "desktop": "/Users/dafangzi/Desktop",
+  "resolvedBy": "osascript path to desktop folder",
+  "backup": "/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138",
+  "at": "2026-10-13T00:31:39.345589+08:00",
+  "files": [
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/docs/submission/design-description.pdf",
+      "desktop": "/Users/dafangzi/Desktop/大咪的英语餐车-设计说明.pdf",
+      "bytes": 2470660,
+      "sha256": "03dca11e9aa9a8047338ebd5b432fcb9c753f888778360d1c9b354d6977eb55a",
+      "exactBytes": true
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/docs/submission/design-description.md",
+      "desktop": "/Users/dafangzi/Desktop/大咪的英语餐车-设计说明源稿/大咪的英语餐车-设计说明.md",
+      "bytes": 2133,
+      "sha256": "26a5cdd4fd6fefdea4eedb26c29f9c0a7c1614845735e41998fb486268440ae0",
+      "exactBytes": true
+    },
+    {
+      "source": "/Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/docs/submission/assets/06-online-direct-cooking.png",
+      "desktop": "/Users/dafangzi/Desktop/大咪的英语餐车-设计说明源稿/assets/06-online-direct-cooking.png",
+      "bytes": 1288975,
+      "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d",
+      "exactBytes": true
+    }
+  ],
+  "status": "PASS"
+}

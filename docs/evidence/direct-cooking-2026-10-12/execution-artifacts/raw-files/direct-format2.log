@@ -1,0 +1,68 @@
+e2e/direct-cooking.spec.ts:15:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    13 │     ['刺刺', '香蕉'],
+    14 │   ]) {
+  > 15 │     await page.getByRole('button', { name: '先帮' + friend, exact: true }).click();
+       │                                            ^^^^^^^^^^^^^^^
+    16 │     await page.getByRole('button', { name: '拿起' + food, exact: true }).click();
+    17 │     await page.getByRole('button', { name: '交给' + friend, exact: true }).click();
+  
+  i Unsafe fix: Use a template literal.
+  
+    13 13 │       ['刺刺', '香蕉'],
+    14 14 │     ]) {
+    15    │ - ····await·page.getByRole('button',·{·name:·'先帮'·+·friend,·exact:·true·}).click();
+       15 │ + ····await·page.getByRole('button',·{·name:·`先帮${friend}`,·exact:·true·}).click();
+    16 16 │       await page.getByRole('button', { name: '拿起' + food, exact: true }).click();
+    17 17 │       await page.getByRole('button', { name: '交给' + friend, exact: true }).click();
+  
+
+e2e/direct-cooking.spec.ts:16:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    14 │   ]) {
+    15 │     await page.getByRole('button', { name: '先帮' + friend, exact: true }).click();
+  > 16 │     await page.getByRole('button', { name: '拿起' + food, exact: true }).click();
+       │                                            ^^^^^^^^^^^^^
+    17 │     await page.getByRole('button', { name: '交给' + friend, exact: true }).click();
+    18 │     await expect
+  
+  i Unsafe fix: Use a template literal.
+  
+    14 14 │     ]) {
+    15 15 │       await page.getByRole('button', { name: '先帮' + friend, exact: true }).click();
+    16    │ - ····await·page.getByRole('button',·{·name:·'拿起'·+·food,·exact:·true·}).click();
+       16 │ + ····await·page.getByRole('button',·{·name:·`拿起${food}`,·exact:·true·}).click();
+    17 17 │       await page.getByRole('button', { name: '交给' + friend, exact: true }).click();
+    18 18 │       await expect
+  
+
+e2e/direct-cooking.spec.ts:17:44 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    15 │     await page.getByRole('button', { name: '先帮' + friend, exact: true }).click();
+    16 │     await page.getByRole('button', { name: '拿起' + food, exact: true }).click();
+  > 17 │     await page.getByRole('button', { name: '交给' + friend, exact: true }).click();
+       │                                            ^^^^^^^^^^^^^^^
+    18 │     await expect
+    19 │       .poll(
+  
+  i Unsafe fix: Use a template literal.
+  
+    15 15 │       await page.getByRole('button', { name: '先帮' + friend, exact: true }).click();
+    16 16 │       await page.getByRole('button', { name: '拿起' + food, exact: true }).click();
+    17    │ - ····await·page.getByRole('button',·{·name:·'交给'·+·friend,·exact:·true·}).click();
+       17 │ + ····await·page.getByRole('button',·{·name:·`交给${friend}`,·exact:·true·}).click();
+    18 18 │       await expect
+    19 19 │         .poll(
+  
+
+Skipped 3 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 3 files in 53ms. No fixes applied.
+Found 3 infos.
