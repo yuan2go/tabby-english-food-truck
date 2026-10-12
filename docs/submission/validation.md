@@ -1,17 +1,9 @@
-# 参赛说明核验记录
+# 设计说明核验 · 2026-10-13
 
-2026-10-12，同桌共玩公开v4，游戏main2e3f36442a54a564647632d6bf421ec58a3b6252。可编辑[Markdown源稿](design-description.md)、[PDF](design-description.pdf)及最新原图同版；正文已替换旧端整盘/独立拿盘描述。Markdown源稿在桌面独立文件夹携带相对assets，正常可编辑/显示配图。
+正文为公开v5实际玩法，源稿和PDF四项完整，原网址及“访问需要开启 VPN”存在。1页A4、16正文文字块、1张1280×720匿名公开实测原图；图与online/layout-1280.png字节相同。pypdf全文与Markdown仅统一空白/NFC后逐字相同，URI链接指向原站；所有1页pypdfium2渲染已实际查看，无裁切/重叠/乱码/空白页，字体Arial Unicode嵌入子集。PDF title/author均为大咪。
 
-| 检查 | 实际结果 |
-|---|---|
-| 四项/网址/VPN | 主题与目标玩家、实际玩法、AI工具用途、亮点全部存在；实际原站及“访问需要开启 VPN”明示 |
-| ReportLab导出 | 退出0，1页A4、15正文文字块、1张实际v4原图 |
-| pypdf全文 | 与Markdown逐字相同，仅统一空白/NFC，保留全部标点/大小写；PASS |
-| 点击链接 | PDF URI annotation指向实际原站；提取文字含VPN原句；PASS |
-| pypdfium2渲染 | 实际查看全部1页PNG，无裁切、重叠、乱码、空白页；字体嵌入、原图等比；代理视觉PASS |
-| 源码/截图身份 | v4与SHA2e3实际读回；图05与CUA原图相同hash；历史图01–04保留 |
-| 真实桌面 | Foundation FileManager系统目录 /Users/dafangzi/Desktop；旧PDF正常备份、新PDF/Markdown及图片正常复制、直接读取、byte/SHA256一致；[回执](../evidence/simplified-play-2026-10-12/desktop-copy.json) |
+[Markdown](design-description.md) SHA256 26a5cdd4fd6fefdea4eedb26c29f9c0a7c1614845735e41998fb486268440ae0；[PDF](design-description.pdf) SHA256 03dca11e9aa9a8047338ebd5b432fcb9c753f888778360d1c9b354d6977eb55a。可复现[导出程序](render-description.py)、[全文](pdf-qa/exported-text.txt)、[JSON](pdf-qa/pdf-validation.json)与[全页图](pdf-qa/page-1.png)。
 
-Markdown SHA256 `60415e958a88589cc3285164ad7add5d1f83799aaa7312545c31fbf8c0f756b3`；PDF SHA256 `bec9916388015425c9091ad05c73072d0952165003fb697fd97a5a8c09d08097`。使用 bundled Python、ReportLab/pypdf/pypdfium2和系统Arial Unicode嵌入子集，工程依赖未改。可复现[导出程序](render-description.py)、[逐字提取](pdf-qa/exported-text.txt)、[JSON核验](pdf-qa/pdf-validation.json)、[全页图](pdf-qa/page-1.png)。PDF视觉与桌面核验不当作游戏儿童验收。
+系统osascript确认真实桌面/Users/dafangzi/Desktop，旧PDF/源稿/图已备份，新PDF和MD/图复制后逐文件byte/hash一致。[桌面回执](../evidence/direct-cooking-2026-10-12/desktop-copy.json)和[旧版备份](../evidence/direct-cooking-2026-10-12/desktop-backup.json)提供实际路径。使用bundled Python及既有ReportLab/pypdf/pypdfium2，不改工程依赖；系统Python不含pypdf，已使用bundled运行时成功导出。
 
-[完整游戏/发布报告](../evidence/simplified-play-2026-10-12/README.md)保留所有失败与实际修复、339/39精确head云端门禁、VPN匿名真实游玩、历史外部待验。材料仅修改docs/报告/图片/PDF，无运行输入变化，不重跑无关游戏门禁或再次发布站点；材料PR的仓库强制检查照常执行。
+材料仅docs/报告/图/PDF，无运行代码与配置变化；仓库PR强制门禁照常执行。PDF/代理视觉PASS不代表真人、儿童、实体设备、人工听审或权利审核通过。

@@ -1,0 +1,16 @@
+{
+  "githubCodeMainSha": "15191872c7ae6abeda95c9998893faedc2a403a0",
+  "verifiedRetainedPaths": 1135,
+  "excludedPrefixes": [
+    "docs/evidence/",
+    "docs/playtests/"
+  ],
+  "excludedRawEvidencePaths": 2437,
+  "excludedEvidencePreserved": "all in merged GitHub main",
+  "removedOldTrackedPaths": [],
+  "differences": [],
+  "distVerifiedFiles": 723,
+  "distDifferences": [],
+  "status": "PASS",
+  "sitesSourceSha": "a93bd4de240cfc247ed77e5f177f5cabbfd16a40"
+}

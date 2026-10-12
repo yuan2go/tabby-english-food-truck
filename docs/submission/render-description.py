@@ -42,7 +42,7 @@ for block in re.split(r'\n\s*\n', md.read_text().strip()):
   xml = escape(text)
   xml = re.sub(r'(https://[^\s]+)', r'<link href="\1" color="#32654d">\1</link>', xml)
   flows.append(Paragraph(xml, style))
-SimpleDocTemplate(str(pdf), pagesize=A4, leftMargin=42,rightMargin=42,topMargin=36,bottomMargin=36,title='狸花猫的英语餐车设计说明',author='狸花猫的英语餐车').build(flows)
+SimpleDocTemplate(str(pdf), pagesize=A4, leftMargin=42,rightMargin=42,topMargin=36,bottomMargin=36,title='大咪的英语餐车设计说明',author='大咪的英语餐车').build(flows)
 reader = PdfReader(pdf)
 actual = '\n'.join(page.extract_text() or '' for page in reader.pages)
 canonical = lambda text: re.sub(r'\s+', '', unicodedata.normalize('NFC', text))

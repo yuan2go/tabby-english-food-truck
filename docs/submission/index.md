@@ -1,7 +1,7 @@
-# 参赛设计说明与线上版本
+# 参赛设计说明 · 直接操作公开v5
 
-唯一正文：[简短设计说明](design-description.md)，可编辑UTF-8 Markdown；[一页A4 PDF](design-description.pdf)是同稿派生。正文覆盖主题与目标玩家、实际玩法、真实AI工具/用途、核心亮点，附[原公开站点](https://tabby-english-food-truck.aw9923299.chatgpt.site)及“访问需要开启 VPN”。
+唯一正文：[简短设计说明](design-description.md)，可编辑UTF-8 Markdown；[一页A4 PDF](design-description.pdf)为同稿派生。正文包含主题与目标玩家、实际玩法、真实AI工具与用途、核心亮点，附[原公开站](https://tabby-english-food-truck.aw9923299.chatgpt.site)及“访问需要开启 VPN”。
 
-当前公开version4，游戏代码main `2e3f36442a54a564647632d6bf421ec58a3b6252`，Sites来源 `49d307ef2573173b31a7f6225bab0380fedec574`。合并main清洁构建、发布身份、公开权限、VPN匿名核心游玩、源码逐文件同一性、原失败及材料/桌面回执见[主报告](../evidence/simplified-play-2026-10-12/README.md)、[证据附录](evidence.md)、[核验](validation.md)、[云端交付](cloud-delivery.md)。本次[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)仅docs/报告/截图/PDF，不改运行产物；文档main的SHA不冒充本站游戏代码。
+当前v5游戏代码main15191872c7ae6abeda95c9998893faedc2a403a0，由[游戏PR22](https://github.com/yuan2go/tabby-english-food-truck/pull/22)合并；Sites来源a93bd4de240cfc247ed77e5f177f5cabbfd16a40，public/active，部署succeeded。精确代码head云端350/42门禁、真实新档五章/双野餐/自由/小游戏、VPN匿名线上92次触控与SHA/dirty读回、失败修复、桌面与版本映射详见[全报告](../evidence/direct-cooking-2026-10-12/README.md)、[材料核验](validation.md)和[交付](cloud-delivery.md)。
 
-正文图1只使用公开v4正常UI的CUA原图。原01–04图片与来源保留在assets清单，历史稿和核验可从Git历史复核；不把历史图当新版证据。实体设备、成人真人、儿童、教研、听审及权利分别待验。
+图06为v5匿名正常连续游玩的原始桌面画面；未裁剪/编辑。图01–05均保留各自历史版本，旧正文/PDF/核验/原索引/画面已[归档](../archive/pre-direct-description-2026-10-13/index.md)。成人真人、儿童观察、实体设备、教研、听审均NOT_RUN；素材/声音权利PENDING。文档归档提交不改变运行产物，文档main SHA与本站游戏代码SHA分别记录。

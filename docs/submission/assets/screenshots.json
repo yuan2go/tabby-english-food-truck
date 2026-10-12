@@ -47,7 +47,7 @@
       }
     ]
   },
-  "currentOnline": {
+  "previousOnlineVersion4": {
     "githubCodeMainSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
     "providerSourceSha": "49d307ef2573173b31a7f6225bab0380fedec574",
     "siteVersion": 4,
@@ -62,6 +62,23 @@
         "width": 1280,
         "height": 720,
         "treatment": "byte-identical actual public site CUA screenshot; no editing"
+      }
+    ]
+  },
+  "currentOnline": {
+    "githubCodeMainSha": "15191872c7ae6abeda95c9998893faedc2a403a0",
+    "providerSourceSha": "a93bd4de240cfc247ed77e5f177f5cabbfd16a40",
+    "siteVersion": 5,
+    "deploymentId": "appgdep_6acd0aa7bf5081919466e77b840dfd1b",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "screenshots": [
+      {
+        "file": "06-online-direct-cooking.png",
+        "original": "../../evidence/direct-cooking-2026-10-12/online/layout-1280.png",
+        "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical actual anonymous public v5 screenshot; no editing"
       }
     ]
   }

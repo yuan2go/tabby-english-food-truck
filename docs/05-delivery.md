@@ -45,7 +45,9 @@ Interfaces: 复用Task2命令/真实归属，活动实际食品判定，小游�
 
 ### Task 5: PR、发布与材料
 
-- [ ] 提交push/PR、精确head检查success后按规则merge；核对main及完整SHA。原站appgprj_6ab141055ab8819186112dee423d0d04从merged main更新，不新建站、不绕保护。
-- [ ] 原网址匿名VPN访问、SHA/content/dirty和真实核心料理复核，存版本/部署ID。
-- [ ] 最新设计说明短稿及同稿PDF，真实AI与实有玩法，附原网址及“访问需要开启 VPN”；文字比对/渲染QA，真实桌面旧版备份+复制hash回读。
-- [ ] 报告/材料通过PR归档main，最终前后对照、问题修复、测试退出码/限制、Git/部署/桌面绝对路径交付。
+- [x] 提交push/PR、精确head检查success后按规则merge；核对main及完整SHA。原站appgprj_6ab141055ab8819186112dee423d0d04从merged main更新，不新建站、不绕保护。
+- [x] 原网址匿名VPN访问、SHA/content/dirty和真实核心料理复核，存版本/部署ID。
+- [x] 最新设计说明短稿及同稿PDF，真实AI与实有玩法，附原网址及“访问需要开启 VPN”；文字比对/渲染QA，真实桌面旧版备份+复制hash回读。
+- [x] 报告/材料通过PR归档main，最终前后对照、问题修复、测试退出码/限制、Git/部署/桌面绝对路径交付。
+
+交付回执：游戏PR22实际MERGED、云端350/42 SUCCESS、公开v5和匿名正常游玩PASS；PDF/源稿/桌面PASS。本材料的main归档以实际PR合并为完成条件，回执在GitHub及最终回复读回，不再次改动已验证游戏代码。
