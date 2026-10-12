@@ -32,7 +32,7 @@ export class TogetherView {
       .setDepth(depth)
       .setVisible(true);
   }
-  draw(s: GameState, width: number, height: number, visible: boolean) {
+  draw(s: GameState, width: number, height: number, visible: boolean, reduced = false) {
     this.background.setVisible(visible);
     this.surface.setVisible(visible);
     for (const sprite of this.actors.values()) sprite.setVisible(false);
@@ -45,7 +45,7 @@ export class TogetherView {
     this.background
       .setScale(scale)
       .setPosition((width - texture.width * scale) / 2, (height - texture.height * scale) / 2)
-      .setTint(0xe9e0ba);
+      .setTint([0xffedc6, 0xe5f3ed, 0xe4edc6, 0xffcca5, 0xffe9ba][a?.chapter ?? 0] ?? 0xe9e0ba);
     this.surface.clear();
     const t = l.table;
     this.surface.fillStyle(0x735132).fillRoundedRect(t.x, t.y + 18, t.width, t.height, 35);
@@ -82,12 +82,23 @@ export class TogetherView {
       const used = a?.foods.some((f) => foodVisitor(f) === visitor && f.tasted);
       const stage =
         moment && s.gameTime - moment.at < 3000 ? Math.floor((s.gameTime - moment.at) / 600) : 4;
+      const order = s.orders.find(
+        (o) => o.visitor === visitor && (o.status === 'waiting' || o.status === 'leaving'),
+      );
+      const arrived = order?.arrivedAt;
+      const entering =
+        !reduced && arrived !== undefined ? Math.max(0, 1 - (s.gameTime - arrived) / 650) : 0;
+      const visibleRect = {
+        ...rect,
+        x: rect.x + entering * (i ? 100 : -100),
+        y: rect.y - Math.sin((1 - entering) * Math.PI) * 8,
+      };
       this.actor(
         visitor,
         visitor === 'elder'
           ? 'elder'
           : `guest-${i}-${used && stage >= 3 ? 2 : a?.foods.some((f) => foodVisitor(f) === visitor) ? 1 : 0}`,
-        rect,
+        visibleRect,
       );
     }
     const job = s.actor.current;

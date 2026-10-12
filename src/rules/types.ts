@@ -20,6 +20,7 @@ export interface Item {
   location: Location;
 }
 export interface Order {
+  arrivedAt?: number;
   visitor?: Visitor;
   revisit: boolean;
   heard: boolean;

@@ -11,6 +11,7 @@ import { drawerTools, type Tool } from '../content/adventure-experience';
 import { PRODUCT_NAMES, REQUESTS } from '../content/catalog';
 import { type DialogueLine, type LineId, lineFor } from '../content/dialogue';
 import { type Product, RECIPES, type StationId } from '../content/recipes';
+import { STORY_WAVES } from '../content/story-flow';
 import { type StageRect, togetherDamiRect, togetherLayout } from '../game/together-layout';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -58,7 +59,6 @@ export function TogetherStage({
   dialogue,
   pause,
   home,
-  next,
   replay,
   games,
   demoOrder,
@@ -69,7 +69,6 @@ export function TogetherStage({
   dialogue: DialogueDirector;
   pause: () => void;
   home: () => void;
-  next: () => void;
   replay: () => void;
   games: () => void;
   demoOrder: string | null;
@@ -82,7 +81,7 @@ export function TogetherStage({
   const [book, setBook] = useState(false),
     [confirm, setConfirm] = useState(false);
   const [focusedSpeaker, setFocusedSpeaker] = useState<Visitor | null>(null);
-  const [feedback, setFeedback] = useState('点朋友听需要，拿起食品，再点目标。');
+  const [feedback, setFeedback] = useState('听听需要，拿食品，再点朋友。');
   const say = (message: string) => {
     controller.message = message;
     setFeedback(message);
@@ -173,9 +172,18 @@ export function TogetherStage({
     action: string,
     extra: Omit<Extract<Command, { type: 'adventure' }>, 'type' | 'action'> = {},
   ) => run({ type: 'adventure', action, ...extra });
+  const openBook = () => {
+    for (const o of controller.state.orders.filter((o) => o.status === 'waiting'))
+      controller.command({ type: 'support', order: o.id, reason: 'recipe-reference' });
+    setBook(true);
+  };
   const commission = a ? openCommission(a) : null;
   const narrowPortrait = size.width < 600 && size.height >= size.width;
-  const currentRole = dialogue.current?.line.role;
+  const activeRequest = s.orders.find((o) => o.status === 'waiting');
+  const currentRole =
+    a?.flow && activeRequest && dialogue.current?.line.role === 'dami'
+      ? activeRequest.visitor
+      : dialogue.current?.line.role;
   const visibleSpeaker =
     currentRole === 'rabbit' || currentRole === 'hedgehog' || currentRole === 'elder'
       ? currentRole
@@ -191,7 +199,9 @@ export function TogetherStage({
       : null;
   const orderFor = (v: Visitor, seat: number) =>
     controller.state.orders.find(
-      (o) => o.status !== 'done' && (o.visitor === v || (!o.visitor && o.seat === seat)),
+      (o) =>
+        (a?.flow ? o.status === 'waiting' || o.status === 'leaving' : o.status !== 'done') &&
+        (o.visitor === v || (!o.visitor && o.seat === seat)),
     );
   const take = (source: string) => {
     if (source.startsWith('stock:'))
@@ -269,7 +279,7 @@ export function TogetherStage({
       }
       if (held.length) {
         if (order?.status === 'waiting') run({ type: 'put', target: { order: order.id } });
-        else if (a?.chapter === 1 && target.visitor === 'hedgehog')
+        else if (a?.chapter === 1 && target.visitor === 'hedgehog' && commission?.action === 'cool')
           run({ type: 'put', target: { world: 'cool' } });
         else if (
           a &&
@@ -441,11 +451,19 @@ export function TogetherStage({
     a?.kind === 'shop'
       ? '自由厨房'
       : (ADVENTURES[a?.chapter ?? s.session.chapter]?.title ?? '玩具厨房');
-  const phase = Math.min(4, Math.floor(momentAge / 700));
+  const phase = Math.min(4, Math.floor(momentAge / 450));
+  const receipt = a?.experience?.moments
+    .slice()
+    .reverse()
+    .find((m) => m.kind === 'receive');
+  const showReceipt = receipt && s.gameTime - receipt.at < 1600;
+  const wave = a?.flow ? STORY_WAVES[a.chapter]?.[a.flow.legacy ? 0 : a.flow.wave] : null;
   return (
     <section
       ref={root}
-      className={`together-stage ${l.short ? 'short-stage' : ''}`}
+      className={`together-stage ${l.short ? 'short-stage' : ''} chapter-${a?.chapter ?? 0}`}
+      data-carrying={isCarrying}
+      data-story-phase={a?.flow?.phase}
       aria-label="同桌厨房"
       onClickCapture={(e) => {
         if (performance.now() < suppress.current) {
@@ -527,6 +545,19 @@ export function TogetherStage({
       <div className="together-content">
         <header>
           <span>{title}</span>
+          {a?.flow ? (
+            <div
+              className="story-progress"
+              aria-label={`第${a.chapter + 1}章，第${a.flow.wave + 1}波：${wave?.title ?? ''}`}
+            >
+              <span>{wave?.title}</span>
+              <div aria-hidden="true">
+                {(STORY_WAVES[a.chapter] ?? []).map((w, i) => (
+                  <i key={w.title} className={i <= (a.flow?.wave ?? 0) ? 'wave-lit' : ''} />
+                ))}
+              </div>
+            </div>
+          ) : null}
           <button type="button" style={position(l.pause)} aria-label="暂停" onClick={pause}>
             Ⅱ
           </button>
@@ -550,11 +581,17 @@ export function TogetherStage({
                   ? commissionLine(visitor)
                   : sharing?.fulfilled.length
                     ? { ...lineFor('thanks'), role: visitor }
-                    : current?.line.role === visitor
-                      ? current.line
-                      : need
-                        ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
-                        : commissionLine(visitor);
+                    : a?.flow &&
+                        a.foods.some(
+                          (f) => f.place === `guest-${visitor}` || f.place === `table:${index}`,
+                        ) &&
+                        !need
+                      ? { ...lineFor('thanks'), role: visitor }
+                      : current?.line.role === visitor
+                        ? current.line
+                        : need
+                          ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
+                          : commissionLine(visitor);
             const listen = () => {
               setFocusedSpeaker(visitor);
               if (order?.status === 'waiting') dialogue.request(order);
@@ -574,7 +611,9 @@ export function TogetherStage({
                     : `和${name}说话`;
             const foods =
               a?.foods.filter(
-                (f) => f.place === `guest-${visitor}` || f.place === `table:${index}`,
+                (f) =>
+                  (f.place === `guest-${visitor}` || f.place === `table:${index}`) &&
+                  (!a.flow || !order || order.status !== 'waiting' || f.source === order.id),
               ) ?? [];
             return (
               <div key={visitor}>
@@ -648,7 +687,18 @@ export function TogetherStage({
                   <span className="sr-only">{name}面前的接餐盘</span>
                 </button>
                 <div className="actual-meal" style={position(l.seats[index] ?? rect)}>
-                  {foods.map((f) => sourceButton(f, true))}
+                  {(a?.flow ? foods.slice(-2) : foods).map((f) => sourceButton(f, true))}
+                  {showReceipt &&
+                  receipt.foods.some((f) => foods.some((food) => food.id === f.id)) ? (
+                    <span
+                      key={receipt.id}
+                      className="receive-reward"
+                      role="status"
+                      aria-label={`${name}收到真正的食品`}
+                    >
+                      ✦ ♡ ✦
+                    </span>
+                  ) : null}
                   {foods.some((f) => f.tasted) ? (
                     <span role="img" className="flavor-note" aria-label={`${name}已经品尝`}>
                       ♡
@@ -677,10 +727,10 @@ export function TogetherStage({
               <SceneIcon kind="recipe" />
             </button>
           ) : null}
-          <button type="button" aria-label="翻开旧食谱" onClick={() => setBook(true)}>
+          <button type="button" aria-label="翻开旧食谱" onClick={openBook}>
             <SceneIcon kind="recipe" />
           </button>
-          {a?.chapter === 1 && a.steps.includes('cool') ? (
+          {!a?.flow && a?.chapter === 1 && a.steps.includes('cool') ? (
             <button type="button" aria-label="比较两份甜点" onClick={() => act('compare')}>
               <SceneIcon kind="compare" />
             </button>
@@ -910,7 +960,7 @@ export function TogetherStage({
                 </button>
               ))
             : null}
-          {a?.kind === 'chapter' && !a.rewards.length && adventureReady(a) ? (
+          {!a?.flow && a?.kind === 'chapter' && !a.rewards.length && adventureReady(a) ? (
             <button
               type="button"
               className="natural-finish"
@@ -920,16 +970,24 @@ export function TogetherStage({
               {a.chapter === 0 ? '一起吃早餐' : '一起开席'}
             </button>
           ) : null}
-          {a?.rewards.length && a.chapter < 4 ? (
-            <button type="button" className="natural-finish" onClick={next}>
-              下一院活动
-            </button>
-          ) : null}
         </div>
+        {a?.flow && a.rewards.length ? (
+          <div
+            className="chapter-reward"
+            role="status"
+            style={{ left: l.table.x, top: l.table.y + 12, width: l.table.width }}
+          >
+            <SceneIcon kind="recipe" />
+            <strong>
+              {a.chapter === 4 ? '美食嘉年华 · 你的作品留下了！' : `${title} · 食谱页收到了！`}
+            </strong>
+            <span>{a.chapter === 4 ? '继续做饭，或去自由厨房' : '餐车驶向下一站…'}</span>
+          </div>
+        ) : null}
         <p className="nearby-feedback" role="status" style={position(l.footer)}>
           {controller.message || feedback}
         </p>
-        {dialogue.current?.line.role === 'dami' ? (
+        {dialogue.current?.line.role === 'dami' && (!a?.flow || !activeRequest) ? (
           <div
             className="local-bubble dami-bubble"
             style={{

@@ -1,32 +1,15 @@
 import { expect, test } from '@playwright/test';
 import { targetWord } from '../src/rules/minigames';
-import { state } from './helpers';
+import { finishChapter, serve, state } from './helpers';
 
 test.use({ viewport: { width: 393, height: 665 }, hasTouch: true, isMobile: true });
-test('single scoop uses four real actions and a different dessert is tasted on the scene', async ({
+test('single scoop uses four real actions and dessert comparison and tasting follow actual receipt', async ({
   page,
 }) => {
+  test.setTimeout(120000);
   await page.goto('/');
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  for (const [friend, food] of [
-    ['兔兔', '苹果'],
-    ['刺刺', '香蕉'],
-  ]) {
-    await page.getByRole('button', { name: '先帮' + friend, exact: true }).click();
-    await page.getByRole('button', { name: '拿起' + food, exact: true }).click();
-    await page.getByRole('button', { name: '交给' + friend, exact: true }).click();
-    await expect
-      .poll(
-        async () =>
-          (await state(page)).orders.find(
-            (o) => o.visitor === (friend === '兔兔' ? 'rabbit' : 'hedgehog'),
-          )?.status,
-      )
-      .toBe('done');
-  }
-  await page.getByRole('button', { name: '一起吃早餐', exact: true }).click();
-  await page.getByRole('button', { name: '下一院活动', exact: true }).click();
-  await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
+  await page.locator('.yard-story .entry-main').click();
+  await finishChapter(page, 0);
   await page.getByRole('button', { name: '冰淇淋：蛋筒', exact: true }).click();
   await page.getByRole('button', { name: '冰淇淋：香草球', exact: true }).click();
   expect((await state(page)).items.map((i) => i.product)).toEqual(['vanilla-cone']);
@@ -34,15 +17,10 @@ test('single scoop uses four real actions and a different dessert is tasted on t
   await page.getByRole('button', { name: '拿起香草蛋筒', exact: true }).click();
   await page.getByRole('button', { name: '交给兔兔', exact: true }).click();
   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
-  await page.getByRole('button', { name: '冰淇淋：空杯', exact: true }).click();
-  await page.getByRole('button', { name: '冰淇淋：草莓球', exact: true }).click();
-  await page.getByRole('button', { name: '拿起草莓冰淇淋杯', exact: true }).click();
-  await page.getByRole('button', { name: '交给刺刺', exact: true }).click();
-  await expect.poll(async () => (await state(page)).adventure?.steps.includes('cool')).toBe(true);
-  await page.getByRole('button', { name: '比较两份甜点', exact: true }).click();
-  await page.getByRole('button', { name: '品尝草莓冰淇淋杯', exact: true }).click();
-  await page.getByRole('button', { name: '一起开席', exact: true }).click();
-  expect((await state(page)).adventure?.rewards).toEqual(['bunting-page']);
+  await serve(page);
+  await expect.poll(async () => (await state(page)).adventure?.foods[1]?.tasted).toBe(true);
+  expect((await state(page)).adventure?.foods[1]?.product).toBe('strawberry-cup');
+  await expect(page.getByRole('button', { name: '比较两份甜点', exact: true })).toHaveCount(0);
   expect((await state(page)).adventure?.explored).not.toContain('recipe');
 });
 test('free kitchen starts at once and configuration is optional', async ({ page }) => {

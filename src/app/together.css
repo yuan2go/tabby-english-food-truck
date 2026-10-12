@@ -649,3 +649,174 @@
   padding: 8px;
   min-height: 48px;
 }
+
+.story-progress {
+  position: absolute;
+  left: 50%;
+  top: 9px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff3cc;
+  font-weight: 700;
+  font-size: 14px;
+  text-shadow: 0 2px 3px #183c2e;
+}
+.story-progress > div {
+  display: flex;
+  gap: 5px;
+}
+.story-progress i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1d473f;
+  border: 2px solid #f3deb1;
+}
+.story-progress .wave-lit {
+  background: #ffc95a;
+}
+.receive-reward {
+  position: absolute;
+  top: -26px;
+  color: #ffe072;
+  font-size: 28px;
+  font-weight: 900;
+  text-shadow: 0 2px 2px #85502b;
+  pointer-events: none;
+  animation: receipt-pop 1600ms ease-out both;
+}
+@keyframes receipt-pop {
+  0% {
+    transform: scale(0.3) translateY(8px);
+    opacity: 0;
+  }
+  18% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-22px);
+    opacity: 0;
+  }
+}
+.chapter-reward {
+  position: absolute;
+  z-index: 18;
+  pointer-events: none;
+  text-align: center;
+  color: #54391f;
+  background: #fff4d6ed;
+  border: 3px solid #edc267;
+  border-radius: 50%;
+  padding: 16px 4px;
+  display: grid;
+  justify-items: center;
+  box-shadow: 0 0 30px #ffd56999;
+  animation: receipt-pop 1800ms ease-out both;
+}
+.chapter-reward strong {
+  font-size: clamp(15px, 2vw, 24px);
+}
+.chapter-reward span {
+  font-size: 12px;
+}
+[data-story-phase="complete"] .chapter-reward {
+  animation: none;
+  margin-top: 32px;
+  padding: 8px;
+  border-radius: 12px;
+}
+[data-carrying="true"] .friend-hotspot {
+  outline: 3px dashed #f3cf73;
+  border-radius: 40%;
+}
+.direct-kitchen .device-surface.processing {
+  box-shadow: 0 0 14px #f1c667a8;
+  animation: simmer 700ms ease-in-out infinite alternate;
+}
+.direct-kitchen .device-surface.ready {
+  filter: drop-shadow(0 0 6px #ffe98a);
+}
+@keyframes simmer {
+  to {
+    transform: translateY(-2px);
+  }
+}
+@media (max-width: 600px) {
+  .story-progress {
+    left: auto;
+    right: 68px;
+    transform: none;
+    top: 15px;
+    font-size: 11px;
+    gap: 5px;
+  }
+  .story-progress > span {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .receive-reward,
+  .chapter-reward,
+  .direct-kitchen .device-surface.processing {
+    animation: none;
+  }
+}
+
+.direct-kitchen[data-devices=""] .direct-rest {
+  top: 42%;
+  bottom: auto;
+  justify-content: center;
+  gap: 20px;
+}
+.direct-kitchen[data-devices=""] .fruit-basket {
+  border-radius: 24px;
+  padding: 10px;
+  background: linear-gradient(#a27241, #704628);
+  border: 5px solid #dba75e;
+  box-shadow: 0 8px 0 #543d2a77;
+}
+.direct-kitchen[data-devices=""] .fruit-basket button {
+  width: 84px;
+  height: 84px;
+  background: #f4dfa077;
+  border-radius: 50%;
+}
+.direct-kitchen[data-devices=""] .fruit-basket .food-art {
+  width: 76px;
+  height: 76px;
+}
+.short-stage .direct-kitchen[data-devices=""] .direct-rest {
+  top: 25%;
+}
+
+@media (min-height: 500px) {
+  .direct-kitchen[data-devices="ice"] .direct-equipment {
+    display: flex;
+    justify-content: center;
+  }
+  .direct-kitchen[data-devices="ice"] .device-ice {
+    width: min(320px, 100%);
+  }
+  .direct-kitchen[data-devices="ice"] .device-surface {
+    height: 96px;
+    background-size: auto 94px;
+  }
+  .direct-kitchen[data-devices="ice"] .device-stock {
+    justify-content: center;
+  }
+  .direct-kitchen[data-devices="ice"] .direct-ingredient {
+    width: 58px;
+    height: 58px;
+  }
+  .direct-kitchen[data-devices="ice"] .direct-ingredient .food-art {
+    width: 54px;
+    height: 54px;
+  }
+}

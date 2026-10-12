@@ -31,8 +31,7 @@ test('less support retains complete English, records visible captions and audio 
   await page.getByRole('button', { name: '旧食谱 · 回访活动与作品', exact: true }).click();
   await page.getByRole('button', { name: '跳过序章', exact: true }).click();
   await page.getByRole('button', { name: '少些帮助，听一听', exact: true }).click();
-  await page.getByRole('button', { name: '晨光开门', exact: true }).click();
-  await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
+  await page.getByRole('button', { name: '早餐派对', exact: true }).click();
   await expect
     .poll(async () => (await state(page)).orders[0]?.support.includes('audio-unavailable'))
     .toBe(true);
@@ -48,11 +47,10 @@ test('muting through settings retains full English and safe replay', async ({ pa
   await page.getByRole('button', { name: '设置', exact: true }).click();
   await page.getByRole('checkbox', { name: '全部声音', exact: true }).uncheck();
   await page.getByRole('button', { name: '← 返回', exact: true }).click();
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  await page.getByRole('button', { name: '先帮刺刺', exact: true }).click();
+  await page.getByRole('button', { name: '正在准备 · 早餐派对', exact: true }).click();
   const before = await state(page);
   await page
-    .getByRole('button', { name: '播放整句：Can I have a banana, please?', exact: true })
+    .getByRole('button', { name: '播放整句：Can I have an apple, please?', exact: true })
     .click();
   await expect.poll(async () => (await state(page)).audio.at(-1)?.status).toBe('muted');
   expect((await state(page)).adventure).toEqual(before.adventure);

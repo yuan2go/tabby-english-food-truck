@@ -20,8 +20,7 @@ export async function lesson(p: Page) {
 }
 export async function startStory(p: Page) {
   await p.goto('/');
-  await p.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  await p.getByRole('button', { name: '先帮兔兔', exact: true }).click();
+  await p.getByRole('button', { name: '正在准备 · 早餐派对', exact: true }).click();
 }
 export async function startEndless(p: Page, less = true) {
   await p.goto('/');
@@ -204,4 +203,75 @@ export function evidencePath(original: string) {
   );
   mkdirSync(dir, { recursive: true });
   return join(dir, basename(original));
+}
+/** Normal UI only: real preparation, explicit recipients and the running game clock. */
+export async function finishChapter(
+  p: Page,
+  chapter: number,
+  first: 'rabbit' | 'hedgehog' = 'rabbit',
+  restore?: Set<string>,
+) {
+  await expect.poll(async () => (await state(p)).session.chapter).toBe(chapter);
+  while ((await state(p)).orders.some((o) => o.status !== 'done')) {
+    await expect
+      .poll(async () => (await state(p)).orders.some((o) => o.status === 'waiting'), {
+        timeout: 15000,
+      })
+      .toBe(true);
+    const s = await state(p);
+    const o =
+      s.orders.find((o) => o.status === 'waiting' && o.visitor === first) ??
+      s.orders.find((o) => o.status === 'waiting');
+    if (!o) throw Error('waiting guest');
+    for (const product of REQUESTS[o.request].products) await make(p, product, restore);
+    await p.locator(`[data-actor="${o.visitor}"]`).click();
+    await expect
+      .poll(async () => (await state(p)).orders.find((x) => x.id === o.id)?.status, {
+        timeout: 18000,
+      })
+      .toBe('done');
+  }
+  if (chapter === 1) {
+    await expect.poll(async () => (await state(p)).adventure?.flow?.wave).toBe(2);
+    await make(p, 'strawberry-cup');
+    await p.getByRole('button', { name: '交给刺刺', exact: true }).click();
+  }
+  if (chapter === 2 && first === 'rabbit') {
+    await make(p, 'sandwich');
+    await p.getByRole('button', { name: '把食品放进野餐篮', exact: true }).click();
+    await expect
+      .poll(
+        async () => (await state(p)).adventure?.foods.filter((f) => f.place === 'basket').length,
+      )
+      .toBe(1);
+    await supply(p, 'banana');
+    await p.getByRole('button', { name: '把食品放进野餐篮', exact: true }).click();
+  }
+  if (chapter < 4)
+    await expect
+      .poll(async () => (await state(p)).session.chapter, { timeout: 15000 })
+      .toBe(chapter + 1);
+  else {
+    for (const [visitor, product] of [
+      ['rabbit', first === 'rabbit' ? 'sandwich' : 'juice'],
+      ['hedgehog', 'strawberry-cup'],
+    ] as const) {
+      await make(p, product);
+      await p.locator(`[data-actor="${visitor}"]`).click();
+      await expect
+        .poll(
+          async () =>
+            (await state(p)).adventure?.experience?.needs.find((n) => n.visitor === visitor)
+              ?.fulfilled.length,
+          { timeout: 18000 },
+        )
+        .toBe(1);
+      await expect
+        .poll(async () => (await state(p)).actor.current?.kind === 'delivery')
+        .toBe(false);
+    }
+    await expect
+      .poll(async () => (await state(p)).adventure?.flow?.phase, { timeout: 15000 })
+      .toBe('complete');
+  }
 }

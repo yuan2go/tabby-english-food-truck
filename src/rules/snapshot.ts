@@ -1,6 +1,7 @@
 import { CONTENT_VERSION, JUICE_MS, MODES, REQUESTS, requestsFor } from '../content/catalog';
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
+import { waveIndices } from '../content/story-flow';
 import { storyLevel, storyRequests } from '../content/story-levels';
 import { validAdventure } from './adventure';
 import { hydrateExperience } from './adventure-experience';
@@ -77,6 +78,8 @@ export function validateState(v: unknown): v is GameState {
     !v.orders.every(
       (o) =>
         record(o) &&
+        (o.arrivedAt === undefined ||
+          (number(o.arrivedAt) && Number(o.arrivedAt) <= Number(v.gameTime))) &&
         typeof o.revisit === 'boolean' &&
         typeof o.heard === 'boolean' &&
         (o.visitor === undefined || ['rabbit', 'hedgehog', 'elder'].includes(String(o.visitor))) &&
@@ -280,6 +283,19 @@ export function validateState(v: unknown): v is GameState {
   const active = s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving');
   if (active.length > (s.mode === 'service' ? 2 : 1) || !unique(active.map((o) => o.seat)))
     return false;
+  if (s.adventure?.flow && !s.adventure.flow.legacy) {
+    const a = s.adventure,
+      indices = waveIndices(a);
+    const first = indices[0] ?? s.orders.length;
+    const last = indices.at(-1) ?? first - 1;
+    if (
+      s.orders.some(
+        (o, i) => (i < first && o.status !== 'done') || (i > last && o.status !== 'queued'),
+      )
+    )
+      return false;
+    if (a.flow && a.flow.until > s.gameTime + 1800) return false;
+  }
   if (s.session.activity === 'story') {
     const oldIce = ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'];
     const level = storyLevel(s.session.levelId);

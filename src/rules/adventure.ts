@@ -227,6 +227,8 @@ export function adventureCommand(
       (chapter !== 2 || a.branch !== 'rabbit' || !a.explored.includes('basket'))
     )
       return result('blocked', '先检查兔兔的篮子。');
+    if (c.action === 'cool' && a.flow && !a.flow.legacy && a.flow.wave !== 2)
+      return result('blocked', '这位朋友还在等自己的订单。食品仍在手里。');
     if (c.action === 'cool' && chapter !== 1) return result('blocked', '这个活动没有甜点委托。');
     if (c.action === 'create' && !complete && chapter !== 4)
       return result('blocked', '先完成共同活动，再做自己的作品。');

@@ -13,7 +13,7 @@ import { Food } from './Food';
 function expose(controller: GameController, order: Order, reason: string) {
   controller.command({ type: 'support', order: order.id, reason });
   const profile = controller.profile,
-    key = `${controller.state.runId}:${order.id}`;
+    key = `${controller.state.runId}:chapter:${controller.state.session.chapter}:${order.id}`;
   const units = [...REQUEST_UNITS[order.request]];
   for (const unit of units) profile.present(unit);
   const prior = profile.value.lessons[key];

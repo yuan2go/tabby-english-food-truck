@@ -33,7 +33,10 @@ it('continuous picnic presents both real needs without choosing the first receip
   expect(c.state.session.concurrency).toBe(2);
   expect(c.state.session.support).toBe('less');
   expect(c.state.orders.filter((o) => o.status === 'waiting')).toHaveLength(2);
-  c.command({ type: 'audio', audio: { id: 'request-sandwich', status: 'completed', version: 'dev' } });
+  c.command({
+    type: 'audio',
+    audio: { id: 'request-sandwich', status: 'completed', version: 'dev' },
+  });
   expect(c.state.orders.find((o) => o.visitor === 'hedgehog')?.status).toBe('waiting');
   expect(c.state.orders.find((o) => o.visitor === 'rabbit')?.status).toBe('waiting');
   expect(c.state.adventure?.branch).toBeNull();

@@ -20,7 +20,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 0,
     title: '早餐派对',
-    goal: '送早餐，一起吃；饭后可以种迎客花',
+    goal: '听需要，把水果送给朋友。',
     reward: 'flower-page',
     family: 'juice',
     orders: [
@@ -31,7 +31,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 1,
     title: '冰淇淋狂欢',
-    goal: '尝不同口味，把分享彩旗挂起来',
+    goal: '杯子、蛋筒、球数与配料，亲手做出甜点。',
     reward: 'bunting-page',
     family: 'ice',
     orders: [{ request: 'vanilla-cone', visitor: 'rabbit' }],
@@ -39,7 +39,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 2,
     title: '野餐接力',
-    goal: '帮朋友备餐，一起把野餐桌摆好',
+    goal: '你先帮谁？两份三明治做好，一起去野餐。',
     reward: 'picnic-page',
     family: 'sandwich',
     orders: [
@@ -50,7 +50,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 3,
     title: '黄昏餐车',
-    goal: '安排煎制与饮品，把灯带到餐桌',
+    goal: '开煎锅，也能同时准备果汁。',
     reward: 'light-page',
     family: 'burger',
     orders: [
@@ -61,7 +61,7 @@ export const ADVENTURES: readonly AdventureChapter[] = [
   {
     id: 4,
     title: '美食嘉年华',
-    goal: '邀请老朋友，创作拼盘，留下食谱末页',
+    goal: '老朋友回来了，为他们做一份分享拼盘。',
     reward: 'feast-page',
     family: 'juice',
     orders: [],

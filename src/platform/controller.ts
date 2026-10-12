@@ -207,23 +207,26 @@ export class GameController {
       this.state.session.concurrency = concurrency;
       startAdventure(this.state, chapter);
     }
+    if (this.state.adventure) {
+      hydrateExperience(this.state.adventure);
+      const e = this.state.adventure.experience;
+      if (e) {
+        e.known = [...new Set([...e.known, ...this.profile.value.receivedProducts])];
+        e.picnic =
+          e.picnic ??
+          this.state.adventure?.flow?.archives.find((m) => m.chapter === 2)?.branch ??
+          this.profile.value.activityMemories
+            .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
+            .at(-1)?.state.branch ??
+          null;
+      }
+    }
     if (this.state.adventure) enableStoryFlow(this.state, !stored || replay);
     applyPolicy(
       this.state,
       support,
       this.state.adventure?.flow ? this.state.session.concurrency : concurrency,
     );
-    if (this.state.adventure) {
-      hydrateExperience(this.state.adventure);
-      const e = this.state.adventure.experience;
-      if (e) {
-        e.known = [...this.profile.value.receivedProducts];
-        e.picnic =
-          this.profile.value.activityMemories
-            .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
-            .at(-1)?.state.branch ?? null;
-      }
-    }
     if (stored) {
       this.state.noteSupport = [
         ...new Set([...this.state.noteSupport, ...stored.noteSupport]),
@@ -389,11 +392,14 @@ export class GameController {
       hydrateExperience(this.state.adventure);
       const e = this.state.adventure.experience;
       if (e) {
-        e.known = [...this.profile.value.receivedProducts];
+        e.known = [...new Set([...e.known, ...this.profile.value.receivedProducts])];
         e.picnic =
+          e.picnic ??
+          this.state.adventure?.flow?.archives.find((m) => m.chapter === 2)?.branch ??
           this.profile.value.activityMemories
             .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
-            .at(-1)?.state.branch ?? null;
+            .at(-1)?.state.branch ??
+          null;
       }
     }
     applyPolicy(this.state, support, concurrency);
@@ -429,7 +435,7 @@ export class GameController {
         if (request) {
           this.profile.present(`menu:${request}`);
           const order = this.state.orders.find((o) => a.input.startsWith(`${o.id}:`));
-          const key = `${this.state.runId}:${order?.id}`;
+          const key = `${this.state.runId}:chapter:${this.state.session.chapter}:${order?.id}`;
           const lesson = this.profile.value.lessons[key];
           if (lesson?.phase === 'practice') {
             this.profile.lesson(key, { ...lesson, phase: 'done' });

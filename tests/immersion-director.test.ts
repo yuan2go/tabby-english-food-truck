@@ -105,10 +105,11 @@ it('foreign audio order identity never credits a waiting request', () => {
   });
   expect(r.state.orders[0]?.heard).toBe(false);
 });
-it('a new chapter on the same yard surface immediately presents its own action sentence', () => {
+it('a new continuous chapter immediately presents its actual first request on the same yard surface', () => {
   director.setSurface('yard');
   controller.enter('story', 1, 'less', true);
-  expect(director.current?.line.audio).toBe('imm-open-cool');
+  expect(director.current?.line.audio).toBe(REQUESTS['vanilla-cone'].audio);
+  expect(director.current?.order).toBe('guest-0');
 });
 it('explicit history replay of an already received request retains exact text while never crediting another guest', async () => {
   const o = controller.state.orders[0];

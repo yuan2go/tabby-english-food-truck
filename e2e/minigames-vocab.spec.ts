@@ -338,7 +338,7 @@ test('yard minigames return to the activity and preserve adventure and free-kitc
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
+  await page.getByRole('button', { name: '正在准备 · 早餐派对', exact: true }).click();
   await page.getByRole('button', { name: '翻开旧食谱', exact: true }).click();
   await page.getByRole('button', { name: '去游乐角', exact: true }).click();
   await page.getByRole('button', { name: '← 小院', exact: true }).click();

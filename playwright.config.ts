@@ -7,6 +7,7 @@ export default defineConfig({
   // Current scope: causal chapters replace the retired fixed-order throughline.
   // Historical scripts and their evidence remain in the repository (see e2e/README).
   testMatch: [
+    '**/continuous-gameplay.spec.ts',
     '**/direct-cooking.spec.ts',
     '**/together-play.spec.ts',
     '**/minigames-vocab.spec.ts',

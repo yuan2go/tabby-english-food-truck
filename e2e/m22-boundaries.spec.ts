@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
-import { hot, startStory, state, supply } from './helpers';
+import { hot, startEndless, startStory, state, supply } from './helpers';
 
 test.use({ viewport: { width: 393, height: 665 }, hasTouch: true, isMobile: true });
 test('wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory', async ({
   page,
 }) => {
   test.setTimeout(90000);
-  await startStory(page);
+  await startEndless(page, false);
   await supply(page, 'banana');
   const wrong = await state(page);
   await page.locator('[data-actor="rabbit"]').click();

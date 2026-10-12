@@ -146,10 +146,13 @@ export function admitAdventure(s: GameState, visitor?: Visitor): boolean {
   if (!order || active.length >= s.session.concurrency) return false;
   const seat = ([0, 1] as const).find((seat) => !active.some((o) => o.seat === seat));
   if (seat === undefined) return false;
-  order.seat = seat;
-  order.status = 'waiting';
+  const copy = { ...order, support: [...order.support] };
+  s.orders = s.orders.map((o) => (o === order ? copy : o));
+  copy.seat = seat;
+  copy.status = 'waiting';
+  if (s.adventure.flow) copy.arrivedAt = s.gameTime;
   if (s.session.support !== 'less')
-    order.support = [
+    copy.support = [
       ...new Set([
         ...order.support,
         'picture-request',

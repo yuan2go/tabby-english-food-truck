@@ -47,7 +47,10 @@ export function TogetherKitchen({
   );
   const manual = (id: StationId, title: string, products: Product[], image: string) => (
     <section className={`direct-device device-${id}`} aria-label={title} key={id}>
-      <div className="device-surface" style={{ backgroundImage: `url(${assetUrl(image)})` }}>
+      <div
+        className={`device-surface ${s.stations[id].status}`}
+        style={{ backgroundImage: `url(${assetUrl(image)})` }}
+      >
         <button
           type="button"
           {...drop({ kind: 'station', station: id })}
@@ -78,10 +81,17 @@ export function TogetherKitchen({
       <div className="device-stock">{products.map((p) => stock(p, { station: id }, title))}</div>
     </section>
   );
-  const juice = unlocked.includes('juice');
-  const ice = unlocked.includes('ice');
-  const board = unlocked.includes('sandwich') || unlocked.includes('burger');
-  const grill = unlocked.includes('burger');
+  const chapter =
+    s.adventure?.flow && s.adventure.flow.phase !== 'complete' ? s.adventure.chapter : null;
+  const active = (ids: number[]) => chapter === null || ids.includes(chapter);
+  const juice =
+    unlocked.includes('juice') &&
+    (active([3, 4]) || s.items.some((i) => i.location.startsWith('machine:')));
+  const ice =
+    unlocked.includes('ice') &&
+    (active([1, 4]) || s.items.some((i) => i.location.startsWith('station:ice:')));
+  const board = (unlocked.includes('sandwich') || unlocked.includes('burger')) && active([2, 3, 4]);
+  const grill = unlocked.includes('burger') && active([3, 4]);
   return (
     <div
       className="direct-kitchen"
@@ -94,7 +104,7 @@ export function TogetherKitchen({
         {juice ? (
           <section className="direct-device device-juice" aria-label="果汁机">
             <div
-              className="device-surface"
+              className={`device-surface ${s.machine.status}`}
               style={{ backgroundImage: `url(${assetUrl('machine')})` }}
             >
               {(['apple', 'cup'] as const).map((port) => (
@@ -111,18 +121,20 @@ export function TogetherKitchen({
                     .map((item) => source(item))}
                 </div>
               ))}
-              <button
-                type="button"
-                className="heat-switch"
-                data-hotspot="start"
-                aria-label="启动果汁机"
-                disabled={s.machine.status === 'processing'}
-                onClick={() => run({ type: 'start-machine' })}
-              >
-                {s.machine.status === 'processing'
-                  ? `${Math.ceil(s.machine.remaining / 1000)}s`
-                  : '▶'}
-              </button>
+              {s.machine.status !== 'ready' ? (
+                <button
+                  type="button"
+                  className="heat-switch"
+                  data-hotspot="start"
+                  aria-label="启动果汁机"
+                  disabled={s.machine.status === 'processing'}
+                  onClick={() => run({ type: 'start-machine' })}
+                >
+                  {s.machine.status === 'processing'
+                    ? `${Math.ceil(s.machine.remaining / 1000)}s`
+                    : '▶'}
+                </button>
+              ) : null}
             </div>
             <div className="device-stock">
               {(['apple', 'banana', 'cup'] as Product[]).map((p) =>

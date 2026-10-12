@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { make, startStory, state, supply } from './helpers';
+import { make, startEndless, startStory, state, supply } from './helpers';
 
 test.use({ hasTouch: true });
 test('scene pause isolates background, traps focus and restores a usable trigger', async ({
@@ -44,9 +44,13 @@ test('real recipe comparisons preserve assistance and leave ingredients and flav
   const book = page.getByRole('dialog', { name: '食谱与作品' });
   await expect(book.locator('.recipe-pictures .food-art')).not.toHaveCount(0);
   const before = await state(page);
+  expect(before.orders[0]?.support).toContain('recipe-reference');
   await book.getByRole('button', { name: '收起食谱', exact: true }).click();
   expect((await state(page)).attempts).toEqual(before.attempts);
   expect((await state(page)).items).toEqual(before.items);
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
+  await startEndless(page, false);
   await make(page, 'banana-juice');
   expect(
     (await state(page)).items.filter((i) => i.location.startsWith('hand:')).map((i) => i.product),
@@ -63,7 +67,7 @@ test('home invitation and autonomous entrances remain reachable in compact layou
   ]) {
     await page.setViewportSize(size);
     for (const name of [
-      '正在准备 · 晨光开门',
+      '正在准备 · 早餐派对',
       '自由开店',
       '迷你游戏',
       '教学练习',

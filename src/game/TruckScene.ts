@@ -142,7 +142,13 @@ export class TruckScene extends Phaser.Scene {
   }
   private draw() {
     if (this.width && this.height)
-      this.view?.draw(this.controller.state, this.width, this.height, this.ui.togetherVisible);
+      this.view?.draw(
+        this.controller.state,
+        this.width,
+        this.height,
+        this.ui.togetherVisible,
+        this.ui.lowGraphics || matchMedia('(prefers-reduced-motion: reduce)').matches,
+      );
   }
   update(_time: number, delta: number) {
     if (this.discardDelta) this.discardDelta = false;

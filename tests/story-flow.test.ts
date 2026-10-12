@@ -136,6 +136,7 @@ test('desserts retain strict real compositions; comparison and tasting follow re
     s = tick(s, (s) => s.orders.some((o) => o.status === 'waiting'));
     s = serve(s);
   }
+  s = tick(s, (s) => s.adventure?.flow?.wave === 2);
   s = make(s, 'vanilla-cup');
   s = run(s, { type: 'put', target: { world: 'cool' } }).state;
   s = tick(s, (s) => Boolean(s.adventure?.rewards.length));
@@ -228,4 +229,55 @@ test('returning guests naturally request real food; two valid shares save the ac
   expect(next.adventure?.rewards).toHaveLength(1);
   expect(next.adventure?.works).toHaveLength(1);
   expect(decodeSnapshot(JSON.stringify(next)).ok).toBe(true);
+});
+test('admitting the next guest does not mutate the prior immutable game snapshot', () => {
+  let s = start();
+  s = make(s, 'apple');
+  s = run(s, { type: 'put', target: { order: 'guest-0' } }).state;
+  s = advance(s, (s.orders[0]?.remaining ?? 0) - 1);
+  const before = JSON.stringify(s.orders);
+  advance(s, 2);
+  expect(JSON.stringify(s.orders)).toBe(before);
+});
+test('a save cannot skip a breakfast wave without the real earlier receptions', () => {
+  const s = start();
+  const value = structuredClone(s);
+  if (value.adventure?.flow) value.adventure.flow.wave = 1;
+  expect(decodeSnapshot(JSON.stringify(value)).ok).toBe(false);
+});
+test('an open dessert cannot be accepted before its actual sharing wave', () => {
+  let s = start(1);
+  s = make(s, 'strawberry-cup');
+  const r = run(s, { type: 'put', target: { world: 'cool' } });
+  expect(r.kind).toBe('blocked');
+  expect(r.state.items).toEqual(s.items);
+  expect(r.state.adventure?.foods).toEqual([]);
+});
+test('restoring a real picnic run keeps its route memory even when the separate profile write was lost', async () => {
+  const { vi } = await import('vitest');
+  const { GameController } = await import('../src/platform/controller');
+  const { SaveStore, SAVE_KEY } = await import('../src/platform/save');
+  let s = start(2);
+  s = serve(s, 'hedgehog');
+  s = serve(s, 'rabbit');
+  s = tick(s, (s) => s.session.chapter === 3);
+  const values = new Map([[SAVE_KEY, JSON.stringify(s)]]);
+  const storage = {
+    getItem: (k: string) => values.get(k) ?? null,
+    setItem: (k: string, v: string) => {
+      values.set(k, v);
+    },
+    removeItem: (k: string) => {
+      values.delete(k);
+    },
+  };
+  vi.stubGlobal('localStorage', storage);
+  try {
+    const c = new GameController(new SaveStore(() => storage));
+    c.enter('story', 3);
+    expect(c.state.adventure?.experience?.picnic).toBe('hedgehog');
+    expect(c.state.adventure?.flow?.archives[0]?.branch).toBe('hedgehog');
+  } finally {
+    vi.unstubAllGlobals();
+  }
 });

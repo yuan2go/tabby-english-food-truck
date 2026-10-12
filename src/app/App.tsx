@@ -39,7 +39,6 @@ export function App() {
   const [chapter, setChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
   const [concurrency, setConcurrency] = useState<1 | 2>(controller.profile.value.concurrency);
-  const [storyGuests, setStoryGuests] = useState<1 | 2>(1);
   const [miniReturn, setMiniReturn] = useState<Screen>('home');
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
   const [protectedSave, setProtectedSave] = useState(false);
@@ -167,7 +166,7 @@ export function App() {
       index,
       support,
       replay,
-      activity === 'story' ? storyGuests : activity === 'endless' ? concurrency : 1,
+      activity === 'endless' ? concurrency : 1,
       levelId,
       shop,
     );
@@ -212,7 +211,6 @@ export function App() {
           closeDemo={() => setDemoOrder(null)}
           pause={() => setPaused(true)}
           home={home}
-          next={() => enter('story', Math.min(4, s.session.chapter + 1))}
           replay={() => enter(s.session.activity, s.session.chapter, true, s.session.levelId)}
           games={openMini}
         />
@@ -239,8 +237,6 @@ export function App() {
           audio={audio}
           support={support}
           setSupport={setSupport}
-          guests={storyGuests}
-          setGuests={setStoryGuests}
           enter={(c, r, id) => enter('story', c, r, id)}
           home={home}
           resumeExisting={() => {

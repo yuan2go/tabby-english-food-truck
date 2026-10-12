@@ -187,6 +187,7 @@ export class DialogueDirector {
   private surface: 'off' | 'kitchen' | 'yard' = 'off';
   private seen = new Set<string>();
   private pendingRequest: string | null = null;
+  private announcing = false;
   private unsubscribe: () => void;
   constructor(
     private controller: GameController,
@@ -224,15 +225,17 @@ export class DialogueDirector {
     if (this.seen.size > 64) this.seen.delete(this.seen.values().next().value ?? '');
     this.current = t;
     this.recent = [...this.recent.filter((r) => r.key !== t.key), t].slice(-6);
+    this.announcing = true;
     this.controller.notify();
     if (this.current?.key === t.key && available && (allowed || !automatic))
       void this.audio.play(t.line.audio, undefined, t.order);
+    this.announcing = false;
   }
   request(order: Order, automatic = false): void {
     const r = REQUESTS[order.request];
     this.show(
       {
-        key: `${this.controller.state.runId}:request:${order.id}`,
+        key: `${this.controller.state.runId}:chapter:${this.controller.state.session.chapter}:request:${order.id}`,
         order: order.id,
         line: { ...r, role: order.visitor ?? 'guest', trigger: 'order' },
       },
@@ -240,7 +243,30 @@ export class DialogueDirector {
     );
   }
   prompt(automatic = true): void {
-    const line = actionPrompt(this.controller.state);
+    const s = this.controller.state;
+    if (s.adventure?.flow) {
+      const first = s.orders.find((o) => o.status === 'waiting');
+      if (first) {
+        this.request(first, automatic);
+        return;
+      }
+      if (s.adventure.chapter === 4) {
+        this.show(
+          {
+            key: `${s.runId}:chapter:4:need:rabbit`,
+            line: {
+              ...lineFor(
+                `sharing-${s.adventure.experience?.needs.find((n) => n.visitor === 'rabbit')?.kind ?? 'any'}` as LineId,
+              ),
+              role: 'rabbit',
+            },
+          },
+          automatic,
+        );
+        return;
+      }
+    }
+    const line = actionPrompt(s);
     if (line)
       this.show({ key: `${this.controller.state.runId}:prompt:${line.audio}`, line }, automatic);
   }
@@ -277,7 +303,7 @@ export class DialogueDirector {
     const s = this.controller.state,
       old = this.last;
     this.last = s;
-    if (old.runId !== s.runId) {
+    if (old.runId !== s.runId || old.session.chapter !== s.session.chapter) {
       this.audio.stop();
       this.current = null;
       this.recent = [];
@@ -312,7 +338,46 @@ export class DialogueDirector {
     const latest =
       events.find((e) => ['imm-thanks', 'imm-share', 'imm-taste'].includes(e.line.audio)) ??
       events.at(-1);
-    if (latest) this.show(latest, true);
+    if (latest && !(s.adventure?.flow && this.audio.active)) this.show(latest, true);
+    if (
+      s.adventure?.flow &&
+      !this.announcing &&
+      !this.audio.active &&
+      !this.controller.pauses.size
+    ) {
+      const first = s.orders.find(
+        (o) =>
+          o.status === 'waiting' &&
+          !this.seen.has(`${s.runId}:chapter:${s.session.chapter}:request:${o.id}`),
+      );
+      if (first) this.request(first, true);
+      else {
+        const a = s.adventure;
+        const c = openCommission(a);
+        const id = c?.action === 'cool' ? 'open-cool' : c?.action === 'pack' ? 'open-pack' : null;
+        if (id && !this.seen.has(`${s.runId}:chapter:${a.chapter}:commission:${id}`))
+          this.show(
+            {
+              key: `${s.runId}:chapter:${a.chapter}:commission:${id}`,
+              line: { ...lineFor(id), role: c?.action === 'cool' ? 'hedgehog' : 'rabbit' },
+            },
+            true,
+          );
+        else if (a.chapter === 4) {
+          const need = a.experience?.needs.find(
+            (n) => !n.fulfilled.length && !this.seen.has(`${s.runId}:chapter:4:need:${n.visitor}`),
+          );
+          if (need)
+            this.show(
+              {
+                key: `${s.runId}:chapter:4:need:${need.visitor}`,
+                line: { ...lineFor(`sharing-${need.kind}` as LineId), role: need.visitor },
+              },
+              true,
+            );
+        }
+      }
+    }
   }
   destroy(): void {
     this.unsubscribe();
