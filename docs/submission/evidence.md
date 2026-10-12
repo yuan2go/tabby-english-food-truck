@@ -1,44 +1,27 @@
 # 设计说明证据附录
 
-2026-10-12。正文只保留参赛要求四项；本附录提供可核验来源和实际边界。
+2026-10-12，同桌共玩公开版v4。正文四项只描述最新实际运行内容，不增加草案功能或审核结论。
 
-## 同版来源
+## 同版身份与访问
 
-| 项目 | 实际记录 |
-| --- | --- |
-| 发布main基线 | `0b249b04697b1df43d74bbe1a4f532175b2d04f1` |
-| Demo完整源包 | `36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5` |
-| 英语完整源包 | `103c2bb2272ddaa86fe32e342fc20e86feeb3a80` |
-| 最新GitHub代码main | `7339c5119007e913327609fa6e24d89a5a86cb21` |
-| 最终代码PR受检head | `53c072bda4a5c3668f4bd973232f46e5f25cde0d` |
-| Sites来源 | `1ab58709b1d557099180f28174cb0526cdfc7160`，dirty=false |
-| 线上身份 | version 3，content adventure-experience-2，asset `aee135e9f33a2fa387ba5319e0f7ced101841b38207d06e2e303bf67db230caa` |
-| 实际网址 | https://tabby-english-food-truck.aw9923299.chatgpt.site |
+游戏GitHub main `2e3f36442a54a564647632d6bf421ec58a3b6252`，来自[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)；受检head faf195571c370faffb9a377558d6e6f3a88922a3，339单元、39浏览器及必要门禁全部success，合并树相同。Sites source `49d307ef2573173b31a7f6225bab0380fedec574`，version4，deployment appgdep_6acc6e74a5508191955f926fc5c21532 succeeded；[发布映射](../evidence/simplified-play-2026-10-12/deployment.json)、[逐文件源同一性](../evidence/simplified-play-2026-10-12/site-source-integrity.json)及[实际匿名读回](../evidence/simplified-play-2026-10-12/online/anonymous-validation.json)关联源码、静态构建、真实公开站点。
 
-[部署映射](../evidence/contest-release-2026-10-12/deployment.json)、[源文件同一性](../evidence/contest-release-2026-10-12/site-source-integrity.json)、[工程结果](../evidence/contest-release-2026-10-12/engineering-results.json)共同关联GitHub、Sites与静态构建。Sites仅排除docs/evidence和docs/playtests的大量原始验证录像，它们完整留在已合并GitHub仓库；所有保留源码/运行资源逐路径Git blob相同，仅添加只读site-release.json版本映射。
+public/active，空cookie新Chromium上下文、VPN代理、HTTP200，无登录/邀请；实际SHA完整读回2e3、dirty=false、content together-play-1。正常首页→请求重听→误送留物→放回→真实两份早餐接收→可选探索之外开席→刷新保存→下一章/既有早餐记忆保留。声音资源200/206成功，真实播放完成记录存在；不冒称人工听审。CUA另从正常首页玩完早餐，配图来自这一最新线上会话。线上脚本的四次预期/时序编写失败保留并解释，不删断言伪造通关；见主报告。访问需要开启 VPN。
 
-## 玩法与主题
+## 实际玩法与目标
 
-五章、双野餐选择、自由制作/作品记忆、十类自选小游戏来自[01产品](../01-product.md)、[02规则](../02-game-design.md)和[03体验](../03-experience-design.md)。统一规则、真实食品接收/品尝、合法开放方案、错单留盘以及支持/尝试分记分别见src/rules、src/platform和有效E2E。完整故事与代表行为通过精确代码head的33条GitHub浏览器门禁；实际线上只复核代表入口，不冒称重新逐项玩完五章。
+[01产品](../01-product.md)、[02规则](../02-game-design.md)、[03体验](../03-experience-design.md)为唯一现行权威：五章、双野餐、自由厨房/作品与回访、50食品/120概念/十类自选小游戏。单一近景舞台、真实手持→点目标、真实选料/加工钟/取成品、明确接收者、原位接收/品尝、错物保留/放回、气泡仅重听、早餐探索可选均有已合并规则/输入/存档回归与实际游玩证据。正常新档手机连续代理五章与自由厨房、桌面布局补查见[完整报告](../evidence/simplified-play-2026-10-12/README.md)。3–6岁是产品目标，代理通关不证明儿童适龄、乐趣或学习效果。
 
-[匿名线上读回](../evidence/contest-release-2026-10-12/live/live-verification.json)：空cookie的新Chromium上下文，HTTP200、正常首页→晨光→主动迎入兔兔→图示教学→完整英文苹果请求→取苹果→端整盘→明确交付→真实苹果回执→活动桌。1280×720、393×665、852×300、768×1024三个演出控制均48px以上、完整在视口并可实际命中；新增图带图示包含/不叠压约束也复核。没有注入通关或伪造孩子作答，读回语言尝试实际为assisted、audio-not-observed。
+## 真实AI使用
 
-3–6岁是产品目标，纸艺小院、亲手准备与帮助朋友是主题。工程/浏览器代理检查不证明真实儿童适龄、趣味或学习效果。
+OpenAI Codex用于设计治理、规则/输入/界面/存档、失败修复、验证及材料；OpenAI内置imagegen用于此前本仓库新背景、角色姿态、食品/设备源稿。登记见[AI使用](../AI-usage.md)、[素材来源/权利](../../art/README.md)、[制作提示词与修订](../../art/m2-production.json)及manifest。本轮没有新imagegen素材或新声音，使用既有Alpha轮廓测量统一比例，未镜像/改变冻结角色身份。提示词意图摘要与真实exact提示词分记，不虚构模型型号、工时收益、审核者或学习成效。
 
-## AI采用案例
+Samantha/Tingting为macOS离线开发TTS，未人工听审、分发权PENDING。运行时明确规则和本地状态，没有大模型调用、实时AI对话、模型判题、后端、麦克风或账号/儿童身份采集。
 
-采用OpenAI Codex和OpenAI内置imagegen。Codex参与规则、界面、存档、原创SVG/DOM图示、验证修复及文档；imagegen生成本仓库新背景、姿态和食品。记录见[AI使用](../AI-usage.md)和[资源来源/权利](../../art/README.md)。
+## 配图与历史
 
-真实修订案例：初始m2-foods三明治/汉堡配料与规则不符，[制作记录](../../art/m2-production.json)保留原因；随后按两片面包＋芝士，以及圆面包＋熟肉饼＋生菜＋番茄、无芝士的约束重生成recipe-outputs，经[机械导出](../../scripts/export-m2.mjs)与[登记](../../art/manifest.json)接入成品显示。前六条promptRecord是制作意图摘要，标exact的记录才是实际提示词，不补造原始对话、效率数字或学习成效。
+图1 [05-online-together](assets/05-online-together.png)，1280×720，来自最新v4正常入口→真实兔兔接收苹果→刺刺请求香蕉→拿起香蕉的CUA公开会话；与[原图](../evidence/simplified-play-2026-10-12/online-cua-request.png)字节相同，SHA256 8df2cb75646dafe53da29881cc592620de29e47a1973ebe10e049013e8bb0fea。无裁切、拼合、重绘或后加文字；PDF原比例缩放。01–03为43d7c76历史图，04为version3，原件和来源/hash保留[清单](assets/screenshots.json)。[上一公开说明证据](https://github.com/yuan2go/tabby-english-food-truck/blob/2e3f36442a54a564647632d6bf421ec58a3b6252/docs/submission/evidence.md)保留完整历史，不作本版验证。
 
-Samantha/Tingting是普通离线开发TTS，当前133条新增整句映射与文本/文件登记一致；未人工听审、分发权待验。运行时是明确规则和本地状态，没有实时模型对话、模型判题、后端、麦克风或儿童身份采集。
+## 材料与外部边界
 
-## 配图
-
-当前图1：[04-online-kitchen](assets/04-online-kitchen.png)，1280×720，来自最新公开站点正常入口，SHA256 `d16376dcbe54c8fabe75ed9092b77b5d71f895d2edf74421984622d4b358d1ce`，与[原图](../evidence/contest-release-2026-10-12/live/04-online-kitchen.png)逐字节相同；无裁切、拼合、重绘或后加文字。PDF按原比例缩放嵌入。原01/02/03三图仍保留，来源43d7c76，仅作为历史材料，身份和hash见[清单](assets/screenshots.json)。
-
-## 参赛要求与边界
-
-负责人要求“附一份简短《设计说明》，写清玩法、主题、用了哪些AI、核心亮点”；当前一页正文逐项覆盖，附实际可玩网址，并明确“访问需要开启 VPN”。已核验public与免登录访问，GitHub源码链接未当成游戏网址。
-
-比赛原通知的截止/评选日期未注明年份；是否接受本次提交由组织方确认，本轮不冒称报名或按时提交成功。实体手机/Pad、儿童观察、教研、人工听审及素材/声音权利各自NOT_RUN/PENDING；历史真机NEEDS_REVISION、60fps NOT_MET和真实后台hidden NOT_CONFIRMED保留。用户授权上线不等于这些审核通过。
+一页A4、同稿文字、可点击实际站点及VPN提示、全页渲染和真实桌面复制/hash核验见[validation](validation.md)。比赛是否接收/时效由组织方决定，本轮没有冒称报名或提交参赛成功。成人真人、实体手机/Pad、儿童观察、教研、人工听审、分发权分别NOT_RUN/PENDING；历史真机NEEDS_REVISION、60fps NOT_MET与真实后台hidden NOT_CONFIRMED保留。

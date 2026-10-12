@@ -1,15 +1,14 @@
-# 同桌共玩 · 2026-10-12实施进度
+# 同桌共玩 · 2026-10-12正式交付
 
-IN_PROGRESS：同桌舞台覆盖五章、双野餐与自由厨房，正常新档手机连续代理游玩和桌面补查已完成；339单元、本地必要检查通过。精确fe6ca85/f2a81c3云端39/39浏览器与其他门禁success；最后自由收据提示修正和报告提交的精确head门禁仍PENDING。一次独立代理审查八项问题已关闭，游玩发现的问题已实际修正及定向复测。PR20待最终门禁/merge；原站新版公开实测、最新设计说明与桌面交付仍PENDING，不把旧version3当新版。详见[实际游玩/失败/修复报告](evidence/simplified-play-2026-10-12/README.md)。
+PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING：同桌舞台覆盖五章、双野餐与自由厨房。正常新档手机连续代理游玩和桌面补查完成，问题已实际修正及定向复测。最终代码head339/339单元、39/39浏览器与必要门禁success，经[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)合并main `2e3f36442a54a564647632d6bf421ec58a3b6252`，清洁构建dirty=false；原站version4公开部署及VPN匿名真实核心游玩PASS。最新一页设计说明及可编辑Markdown同稿核验、备份旧版、复制真实桌面均PASS。最终材料与报告由[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)归档main；合并回执以该PR和交付回复实际读回为准。详见[完整报告](evidence/simplified-play-2026-10-12/README.md)与[材料索引](submission/index.md)。
 
-已去掉端盘/选盘/分场景入口和独立演出窗口；真实手持、物件目标、加工钟、误送/放回/成品恢复、早餐探索可选及旧档位置迁移均走原规则核。实体设备/成人真人试玩/儿童观察/教研/人工听审NOT_RUN，权利审核PENDING。不以代理或自动化替代这些验证。
+已去掉端盘/选盘/分场景入口和独立演出窗口；真实手持、物件目标、加工钟、误送/放回/成品恢复、早餐探索可选及旧档位置迁移均走原规则核。实体设备/成人真人试玩/儿童观察/教研/人工听审NOT_RUN，权利审核PENDING。代理和自动化不替代真实外部验证，历史真机NEEDS_REVISION、60fps NOT_MET不撤销。
 
 # 项目状态
 
-## 2026-10-12 · 同桌共玩正式改版 · IN_PROGRESS
+## 2026-10-12 · 同桌共玩正式改版 · PUBLISHED / DOCUMENTS_READY
 
-最新main基线f817324da75f4fb96314af390014bb78f979aba9；隔离分支codex/simplified-play-2026-10-12。原工作区64f03fc和未跟踪docs/playtests保留。既有Sites项目appgprj_6ab141055ab8819186112dee423d0d04已实读owner/public/version3/原网址；新版源码已实施，上线仍PENDING。先治理冲突合同/索引并独立提交，再按05执行。当前用户已授权PR合并main与原站公开更新。最终提交门禁、新版部署及桌面新材料待完成；历史结果下文均保留，不当新版证据。
-
+baseline f817324da75f4fb96314af390014bb78f979aba9；隔离实施分支codex/simplified-play-2026-10-12，材料分支codex/together-release-materials-2026-10-12从最新合并main创建。原工作区64f03fc及未跟踪docs/playtests保留。先归档冲突合同、修唯一权威01–05，再独立docs提交和编码。代码/源/版本/部署ID、公开权限、完整工程日志、真实游玩问题与修复、线上失败脚本和桌面回执均在上述报告。原Sites项目appgprj_6ab141055ab8819186112dee423d0d04及原网址保持；无新项目、强推、绕保护、运行时AI或新依赖。下文历史阶段状态保留，不当新版验收。
 
 ## 2026-10-12 · 双工作包集成与公开站点交付 · PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING
 

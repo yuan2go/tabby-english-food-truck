@@ -1,0 +1,50 @@
+{
+  "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+  "expectedSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+  "authenticated": false,
+  "freshContext": true,
+  "vpnProxy": "127.0.0.1:1082",
+  "startedAt": "2026-10-12T05:23:59.319Z",
+  "status": "FAIL",
+  "initialCookieCount": 0,
+  "httpStatus": 200,
+  "actualSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+  "buildDirty": "false",
+  "contentVersion": "together-play-1",
+  "completedSpeech": [
+    {
+      "id": "imm-order-apple",
+      "status": "completed"
+    }
+  ],
+  "error": "expect(received).toEqual(expected) // deep equality\n\n- Expected  - 18\n+ Received  +  1\n\n- Array [\n-   Object {\n-     \"id\": \"food-2\",\n-     \"place\": \"guest-rabbit\",\n-     \"product\": \"apple\",\n-     \"source\": \"guest-0\",\n-     \"tasted\": true,\n-     \"tastedBy\": \"rabbit\",\n-   },\n-   Object {\n-     \"id\": \"food-4\",\n-     \"place\": \"guest-hedgehog\",\n-     \"product\": \"banana\",\n-     \"source\": \"guest-1\",\n-     \"tasted\": true,\n-     \"tastedBy\": \"hedgehog\",\n-   },\n- ]\n+ Array []",
+  "audioResponses": [
+    {
+      "path": "/audio/imm-welcome.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-order-apple.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-carry.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-thanks.wav",
+      "status": 200
+    },
+    {
+      "path": "/audio/imm-carry.wav",
+      "status": 206
+    },
+    {
+      "path": "/audio/imm-thanks.wav",
+      "status": 206
+    }
+  ],
+  "failedResources": [],
+  "pageErrors": [],
+  "finishedAt": "2026-10-12T05:24:13.138Z"
+}

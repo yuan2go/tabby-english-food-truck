@@ -1,0 +1,9 @@
+{
+  "run": "https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38205782371",
+  "sourceRawSha256": "8d7a22e42f68f27c0677e0523568a29f65dd01d25b672ffc5d8201c9b1a1aae0",
+  "uncompressedBytes": 130315,
+  "encoding": "lossless gzip, timestamp 0",
+  "roundTripByteIdentical": true,
+  "reason": "Git whitespace validation found trailing spaces in verbatim GitHub output; preserve raw log without editing via gzip",
+  "originalRetainedLocally": "/tmp/tabby-final-game-ci.log"
+}

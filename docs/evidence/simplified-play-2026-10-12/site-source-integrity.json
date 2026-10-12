@@ -1,0 +1,13 @@
+{
+  "githubCodeMainSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+  "sitesSourceSha": "49d307ef2573173b31a7f6225bab0380fedec574",
+  "verifiedRetainedPaths": 1118,
+  "excludedPrefixes": [
+    "docs/evidence/",
+    "docs/playtests/"
+  ],
+  "excludedRawEvidencePaths": 2351,
+  "excludedEvidencePreserved": "all tracked in merged GitHub main; interrupted local source also retained outside deploy checkout",
+  "differences": [],
+  "status": "PASS"
+}

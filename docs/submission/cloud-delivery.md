@@ -1,20 +1,16 @@
-# 本轮云端与桌面交付
+# 同桌共玩云端与桌面交付
 
-负责人已明确授权：两个完成包及全部代码、资源、报告、文档提交/推送，PR合并main，更新原公开网站，按最新线上内容更新简短四项说明与同稿PDF，再复制桌面。未重复请求确认。
+游戏[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)正常merge，实际main `2e3f36442a54a564647632d6bf421ec58a3b6252`，已fetch核对。精确faf1955候选全部工程门禁success；没有强推、admin或绕过保护。材料分支codex/together-release-materials-2026-10-12从该合并main创建，只包含文档、必要证据与正式材料；[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)的动态合并回执与main full SHA由该PR及最终交付回复实际读回。
 
-发布baseline `0b249b04697b1df43d74bbe1a4f532175b2d04f1`；[PR17](https://github.com/yuan2go/tabby-english-food-truck/pull/17)整合两包，精确head cbdd515的310单元/33浏览器及其他工程门禁通过后合并 `2a7b774a33d6586aa586bb6a3ed59c9ac2b83405`；[PR18](https://github.com/yuan2go/tabby-english-food-truck/pull/18)修正实际线上发现的图带叠压，最终代码head `53c072bda4a5c3668f4bd973232f46e5f25cde0d`，门禁通过后main `7339c5119007e913327609fa6e24d89a5a86cb21`。源分支推送与531件原工作包证据同一性见[主报告](../evidence/contest-release-2026-10-12/README.md)。
+原[公开游戏站点](https://tabby-english-food-truck.aw9923299.chatgpt.site)沿用，访问需要开启 VPN。project appgprj_6ab141055ab8819186112dee423d0d04，source49d307ef2573173b31a7f6225bab0380fedec574，version4，部署appgdep_6acc6e74a5508191955f926fc5c21532 succeeded。实际权限public，无登录/邀请；新匿名cookie0会话HTTP200、SHA/dirty=false读回、核心早餐/重听/误送/放回/存档PASS；不是仅根据部署命令作出上线结论。完整原始映射及失败记录见[本轮报告](../evidence/simplified-play-2026-10-12/README.md)。
 
-| 部署对应 | 实际值 |
-| --- | --- |
-| 站点ID | appgprj_6ab141055ab8819186112dee423d0d04 |
-| 网址与权限 | https://tabby-english-food-truck.aw9923299.chatgpt.site，public，空cookie免登录HTTP200 |
-| Sites来源SHA | `1ab58709b1d557099180f28174cb0526cdfc7160` |
-| 保存版本 | 3，`appgprj_6ab141055ab8819186112dee423d0d04~appgver_c315d17ab284819181f3887729a4eeb5` |
-| 部署 | `appgdep_6acbf0bdd1b08191b4e863c6d50c7fe2`，succeeded |
-| GitHub代码来源 | `7339c5119007e913327609fa6e24d89a5a86cb21` |
+一页设计说明与可编辑UTF-8 Markdown采用同稿，全文/链接/全部渲染PASS。真实系统桌面文件：
 
-[部署JSON](../evidence/contest-release-2026-10-12/deployment.json)分别记GitHub SHA、Sites SHA、原生版本/部署ID、服务器存储hash和本地archive hash；凭证仅会话内存/隐藏stdin，不写文件或参数。所有保留源码及资源按Git blob逐路径同一，仅新增只读版本映射；大量原验证录像完整留在GitHub，未重复灌入Sites源仓库。首次v2匿名访问与后续图带修正事实分别保存，不覆盖原成功/失败。
+- PDF：/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf
+- 源稿：/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明源稿/狸花猫英语餐车-设计说明.md
+- 配图：同源稿目录assets/05-online-together.png
+- 旧PDF备份：/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.备份-20261012-132827.pdf
 
-最终[说明](design-description.md)、[一页PDF](design-description.pdf)、新配图、核验和本轮报告在独立codex文档分支交付。文档最终完整SHA及PR/main合并回执从GitHub读回写入该PR正文与最终回复，避免在文件中自引用尚不存在的提交SHA。最后文档提交不会改变src/public/art/scripts/依赖等运行输入，本站已是最新游戏代码，无需为文档再重复部署。
+[复制回执](../evidence/simplified-play-2026-10-12/desktop-copy.json)记系统目录、时间、字节/hash一致与可读结果；[材料核验](validation.md)提供全文/字体/链接/截图来源证据。没有把仓库或沙箱目录冒称桌面。线上代码SHA2e3与后续纯材料main不同属正常版本层次；材料不影响运行产物，无重复站点发布。
 
-桌面文件：`/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf`，正常系统复制后内容SHA256 `ac7e847a0353bd45bb79c6038cf404f612e2aa4cdd36bcf3ef1921a59fbf1a10`，[实际核验](../evidence/contest-release-2026-10-12/desktop-copy.json)。原工作区64f03fc和未跟踪docs/playtests保持；没有强推、修改仓库权限或覆盖无关修改。实体设备、儿童、教研、人工听审及权利状态仍分别待验，不把实际上线冒称这些审核通过。
+实体设备、成人真人、儿童观察、听审/教研/权利待验，报名或比赛接受NOT_RUN。所有历史报告与原用户工作区保留。
