@@ -1,0 +1,108 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (8 tests | 6 failed) 14ms
+   × natural first guest and two short breakfast waves introduce quantities without welcome buttons 5ms
+   × wrong food and replayed input cannot produce a receive or advance a wave 3ms
+   × picnic route is decided by actual rabbit receive; both guests arrive together 1ms
+   × picnic route is decided by actual hedgehog receive; both guests arrive together 0ms
+   × desserts retain strict real compositions; comparison and tasting follow receipts naturally 1ms
+   × new-format saves reject out-of-range progress and fabricated chapter archives 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > natural first guest and two short breakfast waves introduce quantities without welcome buttons
+AssertionError: expected [] to deeply equal [ 'apple' ]
+
+- Expected
++ Received
+
+- [
+-   "apple",
+- ]
++ []
+
+ ❯ tests/story-flow.test.ts:46:80
+     44| test('natural first guest and two short breakfast waves introduce quan…
+     45|   let s = start();
+     46|   expect(s.orders.filter((o) => o.status === 'waiting').map((o) => o.r…
+       |                                                                                ^
+     47|   s = serve(s);
+     48|   s = tick(s, (s) => s.orders.some((o) => o.status === 'waiting'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/story-flow.test.ts > wrong food and replayed input cannot produce a receive or advance a wave
+AssertionError: expected 'blocked' to be 'mismatch' // Object.is equality
+
+Expected: "mismatch"
+Received: "blocked"
+
+ ❯ tests/story-flow.test.ts:70:18
+     68|   const e = { id: 'wrong', runId: s.runId, command: { type: 'put', tar…
+     69|   const r = dispatch(s, e);
+     70|   expect(r.kind).toBe('mismatch');
+       |                  ^
+     71|   s = advance(r.state, 10000);
+     72|   expect(s.adventure?.foods).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/story-flow.test.ts > picnic route is decided by actual rabbit receive; both guests arrive together
+ FAIL  tests/story-flow.test.ts > picnic route is decided by actual hedgehog receive; both guests arrive together
+AssertionError: expected [] to have a length of 2 but got +0
+
+- Expected
++ Received
+
+- 2
++ 0
+
+ ❯ tests/story-flow.test.ts:79:58
+     77| test.each(['rabbit', 'hedgehog'])('picnic route is decided by actual %…
+     78|   let s = start(2);
+     79|   expect(s.orders.filter((o) => o.status === 'waiting')).toHaveLength(…
+       |                                                          ^
+     80|   expect(s.adventure?.branch).toBe(null);
+     81|   s = serve(s, first);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/story-flow.test.ts > desserts retain strict real compositions; comparison and tasting follow receipts naturally
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tick tests/story-flow.test.ts:12:20
+     10| const tick = (s: GameState, until: (s: GameState) => boolean, limit = …
+     11|   for (let ms = 0; ms < limit && !until(s); ms += 100) s = advance(s, …
+     12|   expect(until(s)).toBe(true);
+       |                    ^
+     13|   return s;
+     14| };
+ ❯ tests/story-flow.test.ts:100:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  tests/story-flow.test.ts > new-format saves reject out-of-range progress and fabricated chapter archives
+AssertionError: expected undefined to be defined
+ ❯ tests/story-flow.test.ts:128:29
+    126| test('new-format saves reject out-of-range progress and fabricated cha…
+    127|   const s = start();
+    128|   expect(s.adventure?.flow).toBeDefined();
+       |                             ^
+    129|   expect(decodeSnapshot(JSON.stringify({ ...s, adventure: { ...s.adven…
+    130| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 2 passed (8)
+   Start at  01:39:40
+   Duration  277ms (transform 137ms, setup 0ms, import 164ms, tests 14ms, environment 0ms)
+

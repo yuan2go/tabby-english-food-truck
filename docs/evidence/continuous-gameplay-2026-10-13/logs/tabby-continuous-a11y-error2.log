@@ -1,0 +1,26 @@
+src/app/TogetherStage.tsx:551:15 lint/a11y/useSemanticElements ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The elements with this role can be changed to the following elements:
+    <fieldset>
+  
+    549 │             <div
+    550 │               className="story-progress"
+  > 551 │               role="group"
+        │               ^^^^^^^^^^^^
+    552 │               aria-label={`第${a.chapter + 1}章，第${a.flow.wave + 1}波：${wave?.title ?? ''}`}
+    553 │             >
+  
+  i For examples and more information, see WAI-ARIA Roles
+  
+  i Replace with one of these elements:
+  
+  - <fieldset>
+  
+
+Checked 249 files in 464ms. No fixes applied.
+Found 1 error.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

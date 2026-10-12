@@ -1,0 +1,348 @@
+src/app/together.css:234:23 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    232 │ }
+    233 │ .together-stage .natural-finish {
+  > 234 │   background: #3c6a50 !important;
+        │                       ^^^^^^^^^^
+    235 │   color: #fff4d5;
+    236 │   font-size: 14px;
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    234 │ ··background:·#3c6a50·!important;
+        │                      ----------- 
+
+src/app/together.css:308:16 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    306 │ }
+    307 │ .short-stage .local-bubble {
+  > 308 │   height: 64px !important;
+        │                ^^^^^^^^^^
+    309 │ }
+    310 │ @media (prefers-reduced-motion: reduce) {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    308 │ ··height:·64px·!important;
+        │               ----------- 
+
+src/app/together.css:312:21 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    310 │ @media (prefers-reduced-motion: reduce) {
+    311 │   .together-stage * {
+  > 312 │     animation: none !important;
+        │                     ^^^^^^^^^^
+    313 │     transition: none !important;
+    314 │   }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    312 │ ····animation:·none·!important;
+        │                    ----------- 
+
+src/app/together.css:313:22 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    311 │   .together-stage * {
+    312 │     animation: none !important;
+  > 313 │     transition: none !important;
+        │                      ^^^^^^^^^^
+    314 │   }
+    315 │ }
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    313 │ ····transition:·none·!important;
+        │                     ----------- 
+
+src/app/together.css:527:29 lint/complexity/noImportantStyles  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Avoid the use of the !important style.
+  
+    525 │   color: #fff1cc;
+    526 │   background: #3c6a50;
+  > 527 │   border: 3px solid #d9bc6f !important;
+        │                             ^^^^^^^^^^
+    528 │ }
+    529 │ .juice-port {
+  
+  i This style reverses the cascade logic, and precedence is reversed. This could lead to having styles with higher specificity being overridden by styles with lower specificity.
+  
+  i Unsafe fix: Remove the style.
+  
+    527 │ ··border:·3px·solid·#d9bc6f·!important;
+        │                            ----------- 
+
+src/app/together.css:474:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    472 │   pointer-events: none;
+    473 │ }
+  > 474 │ .direct-inputs .loose-food {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    475 │   pointer-events: auto;
+    476 │ }
+  
+  i This selector specificity is (0, 3, 0)
+  
+    201 │   background: #f0deb3;
+    202 │ }
+  > 203 │ .together-stage .activity-workspace .loose-food {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    204 │   background: none;
+    205 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:491:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    489 │   padding: 0;
+    490 │ }
+  > 491 │ .direct-kitchen .food-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^
+    492 │   width: 44px;
+    493 │   height: 44px;
+  
+  i This selector specificity is (0, 5, 1)
+  
+    367 │   height: 36px;
+    368 │ }
+  > 369 │ .together-stage .request-picture button:has(.food-art:nth-child(2)) .food-art {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    370 │   width: 18px;
+    371 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:495:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    493 │   height: 44px;
+    494 │ }
+  > 495 │ .direct-kitchen .loose-food {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    496 │   width: 52px;
+    497 │   height: 52px;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    201 │   background: #f0deb3;
+    202 │ }
+  > 203 │ .together-stage .activity-workspace .loose-food {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    204 │   background: none;
+    205 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:516:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    514 │   border-radius: 16px;
+    515 │ }
+  > 516 │ .fruit-basket button {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    517 │   background: transparent;
+    518 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    67 │   pointer-events: none;
+    68 │ }
+  > 69 │ .together-stage .actual-meal button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    70 │   pointer-events: auto;
+    71 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:541:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 2, 0)
+  
+    539 │   right: 48px;
+    540 │ }
+  > 541 │ .juice-port .loose-food {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^
+    542 │   position: absolute;
+    543 │   inset: 0;
+  
+  i This selector specificity is (0, 3, 0)
+  
+    201 │   background: #f0deb3;
+    202 │ }
+  > 203 │ .together-stage .activity-workspace .loose-food {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    204 │   background: none;
+    205 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:551:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    549 │   z-index: 12;
+    550 │ }
+  > 551 │ .direct-cooperation button {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    552 │   background: #ffdf8c;
+    553 │   display: flex;
+  
+  i This selector specificity is (0, 2, 1)
+  
+    67 │   pointer-events: none;
+    68 │ }
+  > 69 │ .together-stage .actual-meal button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    70 │   pointer-events: auto;
+    71 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:627:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    625 │   gap: 4px;
+    626 │ }
+  > 627 │ .extra-pantry button {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    628 │   background: #ffe9b8;
+    629 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    67 │   pointer-events: none;
+    68 │ }
+  > 69 │ .together-stage .actual-meal button {
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    70 │   pointer-events: auto;
+    71 │ }
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/app/together.css:726:1 lint/style/noDescendingSpecificity ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Descending specificity selector found. This selector specificity is (0, 1, 1)
+  
+    724 │   font-size: clamp(15px, 2vw, 24px);
+    725 │ }
+  > 726 │ .chapter-reward span {
+        │ ^^^^^^^^^^^^^^^^^^^^
+    727 │   font-size: 12px;
+    728 │ }
+  
+  i This selector specificity is (0, 2, 1)
+  
+    216 │   border-radius: 12px 12px 24px 24px;
+    217 │ }
+  > 218 │ .together-stage .garden-spots span {
+        │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    219 │   position: absolute;
+    220 │   left: 8px;
+  
+  i Descending specificity selector may not be applied. Consider rearranging the order of the selectors. See MDN web docs for more details.
+  
+
+src/game/TruckScene.ts:101:9 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+     99 │   private resizeBuffer() {
+    100 │     const host = this.game.canvas.parentElement;
+  > 101 │     if (!host || !host.clientWidth || !host.clientHeight) return;
+        │         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    102 │     this.width = host.clientWidth;
+    103 │     this.height = host.clientHeight;
+  
+  i Unsafe fix: Change to an optional chain.
+  
+     99  99 │     private resizeBuffer() {
+    100 100 │       const host = this.game.canvas.parentElement;
+    101     │ - ····if·(!host·||·!host.clientWidth·||·!host.clientHeight)·return;
+        101 │ + ····if·(!host?.clientWidth·||·!host.clientHeight)·return;
+    102 102 │       this.width = host.clientWidth;
+    103 103 │       this.height = host.clientHeight;
+  
+
+src/rules/snapshot.ts:511:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    509 │         (job.worldTarget
+    510 │           ? !s.adventure || job.order !== undefined
+  > 511 │           : !order ||
+        │             ^^^^^^^^^
+  > 512 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    513 │             Math.abs(order.remaining - completion) > 0.05) ||
+    514 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    509 509 │           (job.worldTarget
+    510 510 │             ? !s.adventure || job.order !== undefined
+    511     │ - ··········:·!order·||
+    512     │ - ············order.status·!==·'leaving'·||
+        511 │ + ··········:·order?.status·!==·'leaving'·||
+    513 512 │               Math.abs(order.remaining - completion) > 0.05) ||
+    514 513 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+src/app/TogetherStage.tsx:540:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    538 │           <span>{title}</span>
+    539 │           {a?.flow ? (
+  > 540 │             <div
+        │             ^^^^
+  > 541 │               className="story-progress"
+  > 542 │               aria-label={`第${a.chapter + 1}章，第${a.flow.wave + 1}波：${wave?.title ?? ''}`}
+  > 543 │             >
+        │             ^
+    544 │               <span>{wave?.title}</span>
+    545 │               <div aria-hidden="true">
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+Skipped 7 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 14 files in 68ms. Fixed 10 files.
+Found 1 error.
+Found 15 warnings.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

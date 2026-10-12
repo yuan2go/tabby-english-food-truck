@@ -1,0 +1,39 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/continuous-gameplay.spec.ts --grep short landscape
+
+
+Running 1 test using 1 worker
+
+(node:95850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/continuous-gameplay.spec.ts:60:1 › short landscape keeps the current full sentence inside its bubble and above cooking controls (1.4s)
+
+
+  1) e2e/continuous-gameplay.spec.ts:60:1 › short landscape keeps the current full sentence inside its bubble and above cooking controls 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      69 |     const kitchen = document.querySelector('.direct-kitchen')!.getBoundingClientRect();
+      70 |     return text.top >= bubble.top && text.bottom <= bubble.bottom && bubble.bottom <= kitchen.top;
+    > 71 |   })).toBe(true);
+         |       ^
+      72 | });
+      73 |
+        at /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck/e2e/continuous-gameplay.spec.ts:71:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-short-red/test-results/continuous-gameplay-short--2634d--and-above-cooking-controls/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-short-red/test-results/continuous-gameplay-short--2634d--and-above-cooking-controls/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-continuous-short-red/test-results/continuous-gameplay-short--2634d--and-above-cooking-controls/error-context.md
+
+  1 failed
+    e2e/continuous-gameplay.spec.ts:60:1 › short landscape keeps the current full sentence inside its bubble and above cooking controls 

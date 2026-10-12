@@ -1,0 +1,4 @@
+# Preserve original terminal evidence byte-for-byte without noisy ANSI diffs.
+*.log -text -diff
+*.webm binary
+error-context.md -text -diff

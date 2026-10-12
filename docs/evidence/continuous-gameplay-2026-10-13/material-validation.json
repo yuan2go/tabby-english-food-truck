@@ -1,0 +1,13 @@
+{
+  "files": 229,
+  "scopeOnlyREADMEAndDocs": true,
+  "runtimeResourcesDependenciesTestsConfigsUnchanged": true,
+  "tenOldFilesByteMatchBaseline": true,
+  "pdfExactTextAllPagesVisualPass": true,
+  "sameOnlineFigureByteMatch": true,
+  "bothAnonymousNormalRunsPass": true,
+  "currentLocalMarkdownReferencesChecked": 30,
+  "currentReferencesMissing": 0,
+  "rawEvidenceCredentialScan": "PASS",
+  "archiveLandingCollisionCorrectedBeforeDelivery": true
+}

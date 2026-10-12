@@ -1,0 +1,54 @@
+[WebServer] (node:93716) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:93785) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:93831) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/continuous-gameplay.spec.ts:34:1 › leaving during a chapter reward resumes the same real kitchen and keeps an extra fruit (16.2s)
+
+
+  1) e2e/continuous-gameplay.spec.ts:34:1 › leaving during a chapter reward resumes the same real kitchen and keeps an extra fruit 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.yard-story .entry-main')
+    Expected: "正在准备 · 早餐派对"
+    Received: "正在准备 · 冰淇淋狂欢"
+    Timeout:  6000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.yard-story .entry-main') with timeout 6000ms
+      - waiting for locator('.yard-story .entry-main')
+        16 × locator resolved to <button type="button" class="entry-main" aria-label="正在准备 · 冰淇淋狂欢">…</button>
+           - unexpected value "正在准备 · 冰淇淋狂欢"
+
+
+      40 |   await supply(page,'banana');await page.getByRole('button',{name:'暂停',exact:true}).click();
+      41 |   const before=await state(page);await page.getByRole('button',{name:'收摊回小院',exact:true}).click();
+    > 42 |   await expect(page.locator('.yard-story .entry-main')).toHaveAttribute('aria-label','正在准备 · 早餐派对');
+         |                                                         ^
+      43 |   await page.locator('.yard-story .entry-main').click();
+      44 |   expect((await state(page)).runId).toBe(before.runId);expect((await state(page)).items).toEqual(before.items);
+      45 | });
+        at /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck/e2e/continuous-gameplay.spec.ts:42:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-resume-red/test-results/continuous-gameplay-leavin-c2eb4-en-and-keeps-an-extra-fruit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-resume-red/test-results/continuous-gameplay-leavin-c2eb4-en-and-keeps-an-extra-fruit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-continuous-resume-red/test-results/continuous-gameplay-leavin-c2eb4-en-and-keeps-an-extra-fruit/error-context.md
+
+  1 failed
+    e2e/continuous-gameplay.spec.ts:34:1 › leaving during a chapter reward resumes the same real kitchen and keeps an extra fruit 

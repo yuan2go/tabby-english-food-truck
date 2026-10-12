@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (12 tests | 1 failed) 54ms
+   × a save cannot skip a breakfast wave without the real earlier receptions 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > a save cannot skip a breakfast wave without the real earlier receptions
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/story-flow.test.ts:242:52
+    240|   const value=structuredClone(s);
+    241|   if(value.adventure?.flow) value.adventure.flow.wave=1;
+    242|   expect(decodeSnapshot(JSON.stringify(value)).ok).toBe(false);
+       |                                                    ^
+    243| });
+    244|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Start at  01:51:14
+   Duration  498ms (transform 238ms, setup 0ms, import 288ms, tests 54ms, environment 0ms)
+

@@ -1,0 +1,48 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (16 tests | 2 failed) 366ms
+   × clearing the completed carnival preserves its reward and a valid recoverable world 22ms
+   × an already rewarded legacy feast gains no new sharing obligations on adoption 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > clearing the completed carnival preserves its reward and a valid recoverable world
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/story-flow.test.ts:296:54
+    294|   expect(r.state.adventure?.foods).toEqual([]);
+    295|   expect(r.state.adventure?.works).toEqual(works);
+    296|   expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+       |                                                      ^
+    297| });
+    298| test('an already rewarded legacy feast gains no new sharing obligation…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/story-flow.test.ts > an already rewarded legacy feast gains no new sharing obligations on adoption
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/story-flow.test.ts:312:191
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 14 passed (16)
+   Start at  01:59:50
+   Duration  1.32s (transform 692ms, setup 0ms, import 587ms, tests 366ms, environment 0ms)
+

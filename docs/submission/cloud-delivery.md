@@ -1,12 +1,7 @@
-# 直接操作版云端与桌面交付
+# 连续游戏版发布与材料交付
 
-游戏[PR22](https://github.com/yuan2go/tabby-english-food-truck/pull/22)已于2026-10-13北京时间合并main。代码head0a4c0d4dc81c060b758263a3c2a5bdba8e95d56f；合并main15191872c7ae6abeda95c9998893faedc2a403a0与该head整树相同。当前原站v5/public/active/succeeded，页面SHA1519187、dirty=false、direct-cooking-1；Sites来源a93bd4de240cfc247ed77e5f177f5cabbfd16a40。完整opaque版本与部署ID见[发布回执](../evidence/direct-cooking-2026-10-12/deployment.json)。
+[游戏PR25](https://github.com/yuan2go/tabby-english-food-truck/pull/25)已正常合并；受测head `a7ab8ed6de9567d8610eafd0b15fa35005180e9a`，云端371单元/45浏览器以及lint/resources/build全通过。运行main `1c6af31fd2c109fca3cb36786f2e5232814b5839`与其整树相同。独立审查无剩余Critical/Important。
 
-真实桌面最新材料：
+原站v6、公有访问/active、部署succeeded；Sites来源 `2096d7fdbbcf99edf7a439ac4e3b233be5c19891`。精确opaque版本/部署ID和archive哈希见[deployment.json](../evidence/continuous-gameplay-2026-10-13/deployment.json)。匿名新会话DOM/存档读回运行main完整SHA、dirty=false、continuous-gameplay-1；两条路线各正常完成五章、实际食品/加工/恢复/自由作品，未注入状态。
 
-- PDF：/Users/dafangzi/Desktop/大咪的英语餐车-设计说明.pdf
-- 可编辑源稿：/Users/dafangzi/Desktop/大咪的英语餐车-设计说明源稿/大咪的英语餐车-设计说明.md
-- 源稿配图：上述源稿目录的assets/06-online-direct-cooking.png
-- 旧版备份：/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138
-
-正文/派生PDF文字相同，全部1页实际视觉检查通过；源稿和图可直接编辑，桌面文件与仓库字节一致。本材料分支codex/direct-cooking-release-materials-2026-10-13从上述最新main创建，仅文档/报告，无游戏行为变化。最终材料PR与main合并SHA以GitHub实际回执及任务最终回复为准，不把后续纯文档main SHA冒称运行版本。
+本材料分支codex/continuous-gameplay-materials-2026-10-13从上述main创建，仅更新当前README/STATUS/验收记录、说明/一页PDF/真实图及历史归档。纯文档提交不改变运行产物；最终材料main/PR以GitHub实际回执和本任务最终答复为准，不把后续文档SHA冒称线上构建SHA。旧桌面路径和交付回执仅在归档中保留。

@@ -1,0 +1,50 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (12 tests | 2 failed) 52ms
+   × admitting the next guest does not mutate the prior immutable game snapshot 5ms
+   × a save cannot skip a breakfast wave without the real earlier receptions 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > admitting the next guest does not mutate the prior immutable game snapshot
+AssertionError: expected '[{"request":"apple","visitor":"rabbit…' to be '[{"request":"apple","visitor":"rabbit…' // Object.is equality
+
+Expected: "[{"request":"apple","visitor":"rabbit","id":"guest-0","seat":0,"status":"leaving","remaining":1,"heard":false,"revisit":false,"support":["audio-not-observed"],"arrivedAt":0},{"request":"banana","visitor":"hedgehog","id":"guest-1","seat":1,"status":"queued","remaining":0,"heard":false,"revisit":false,"support":[]},{"request":"two","visitor":"rabbit","id":"guest-2","seat":0,"status":"queued","remaining":0,"heard":false,"revisit":false,"support":[]},{"request":"fruit","visitor":"hedgehog","id":"guest-3","seat":1,"status":"queued","remaining":0,"heard":false,"revisit":false,"support":[]}]"
+Received: "[{"request":"apple","visitor":"rabbit","id":"guest-0","seat":0,"status":"leaving","remaining":1,"heard":false,"revisit":false,"support":["audio-not-observed"],"arrivedAt":0},{"request":"banana","visitor":"hedgehog","id":"guest-1","seat":0,"status":"waiting","remaining":0,"heard":false,"revisit":false,"support":[],"arrivedAt":1488.376792053008},{"request":"two","visitor":"rabbit","id":"guest-2","seat":0,"status":"queued","remaining":0,"heard":false,"revisit":false,"support":[]},{"request":"fruit","visitor":"hedgehog","id":"guest-3","seat":1,"status":"queued","remaining":0,"heard":false,"revisit":false,"support":[]}]"
+
+ ❯ tests/story-flow.test.ts:237:36
+    235|   const before=JSON.stringify(s.orders);
+    236|   advance(s,2);
+    237|   expect(JSON.stringify(s.orders)).toBe(before);
+       |                                    ^
+    238| });
+    239| test('a save cannot skip a breakfast wave without the real earlier rec…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/story-flow.test.ts > a save cannot skip a breakfast wave without the real earlier receptions
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/story-flow.test.ts:243:52
+    241|   const value=structuredClone(s);
+    242|   if(value.adventure?.flow) value.adventure.flow.wave=1;
+    243|   expect(decodeSnapshot(JSON.stringify(value)).ok).toBe(false);
+       |                                                    ^
+    244| });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  01:51:37
+   Duration  430ms (transform 208ms, setup 0ms, import 244ms, tests 52ms, environment 0ms)
+

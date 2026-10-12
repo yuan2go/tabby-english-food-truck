@@ -1,0 +1,3 @@
+Error: wait unpack actual food
+    at wait (file:///private/tmp/tabby-continuous-play.mjs:19:227)
+    at async file:///private/tmp/tabby-continuous-play.mjs:55:210

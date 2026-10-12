@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (13 tests | 1 failed) 34ms
+   × an open dessert cannot be accepted before its actual sharing wave 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > an open dessert cannot be accepted before its actual sharing wave
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/story-flow.test.ts:250:18
+    248|   let s=start(1); s=make(s,'strawberry-cup');
+    249|   const r=run(s,{type:'put',target:{world:'cool'}});
+    250|   expect(r.kind).toBe('blocked');
+       |                  ^
+    251|   expect(r.state.items).toEqual(s.items);
+    252|   expect(r.state.adventure?.foods).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  01:54:55
+   Duration  331ms (transform 167ms, setup 0ms, import 198ms, tests 34ms, environment 0ms)
+

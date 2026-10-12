@@ -1,0 +1,8 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/rules/snapshot.ts(1,1): error TS6133: 'ADVENTURES' is declared but its value is never read.
+src/rules/story-flow.ts(58,43): error TS2550: Property 'findLast' does not exist on type 'WorldMoment[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later.
+src/rules/story-flow.ts(58,53): error TS7006: Parameter 'm' implicitly has an 'any' type.
+src/rules/story-flow.ts(58,97): error TS7006: Parameter 'x' implicitly has an 'any' type.

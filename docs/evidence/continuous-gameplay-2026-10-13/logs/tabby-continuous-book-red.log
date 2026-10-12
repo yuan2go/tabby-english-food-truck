@@ -1,0 +1,45 @@
+[WebServer] (node:91447) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:91516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:91567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player (1.4s)
+
+
+  1) e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player 
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected value: "recipe-reference"
+    Received array: ["picture-request", "meaning-picture", "caption-visible"]
+
+      45 |   await expect(book.locator('.recipe-pictures .food-art')).not.toHaveCount(0);
+      46 |   const before = await state(page);
+    > 47 |   expect(before.orders[0]?.support).toContain('recipe-reference');
+         |                                     ^
+      48 |   await book.getByRole('button', { name: '收起食谱', exact: true }).click();
+      49 |   expect((await state(page)).attempts).toEqual(before.attempts);
+      50 |   expect((await state(page)).items).toEqual(before.items);
+        at /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck/e2e/demo-repair.spec.ts:47:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-book-red/test-results/demo-repair-real-recipe-co-98b3c-ts-and-flavor-to-the-player/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-book-red/test-results/demo-repair-real-recipe-co-98b3c-ts-and-flavor-to-the-player/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-continuous-book-red/test-results/demo-repair-real-recipe-co-98b3c-ts-and-flavor-to-the-player/error-context.md
+
+  1 failed
+    e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player 

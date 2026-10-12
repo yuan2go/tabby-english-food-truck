@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+   Start at  02:16:41
+   Duration  421ms (transform 225ms, setup 0ms, import 186ms, tests 145ms, environment 0ms)
+

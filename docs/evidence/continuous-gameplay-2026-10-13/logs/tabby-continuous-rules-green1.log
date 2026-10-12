@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (8 tests | 1 failed) 26ms
+   × picnic route is decided by actual rabbit receive; both guests arrive together 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > picnic route is decided by actual rabbit receive; both guests arrive together
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/story-flow.test.ts:88:22
+     86|       s = make(s, p);
+     87|       const r = run(s, { type: 'put', target: { world: 'pack' } });
+     88|       expect(r.kind).toBe('ok');
+       |                      ^
+     89|       s = tick(r.state, (s) => !s.actor.current);
+     90|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  01:41:27
+   Duration  299ms (transform 151ms, setup 0ms, import 180ms, tests 26ms, environment 0ms)
+

@@ -1,0 +1,56 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (13 tests | 1 failed) 73ms
+   × desserts retain strict real compositions; comparison and tasting follow receipts naturally 26ms
+ ❯ tests/immersion-director.test.ts (11 tests | 1 failed) 37ms
+   × a new chapter on the same yard surface immediately presents its own action sentence 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-director.test.ts > a new chapter on the same yard surface immediately presents its own action sentence
+AssertionError: expected 'imm-order-vanilla-cone' to be 'imm-open-cool' // Object.is equality
+
+Expected: "imm-open-cool"
+Received: "imm-order-vanilla-cone"
+
+ ❯ tests/immersion-director.test.ts:111:40
+    109|   director.setSurface('yard');
+    110|   controller.enter('story', 1, 'less', true);
+    111|   expect(director.current?.line.audio).toBe('imm-open-cool');
+       |                                        ^
+    112| });
+    113| it('explicit history replay of an already received request retains exa…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/story-flow.test.ts > desserts retain strict real compositions; comparison and tasting follow receipts naturally
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tick tests/story-flow.test.ts:19:20
+     17| const tick = (s: GameState, until: (s: GameState) => boolean, limit = …
+     18|   for (let ms = 0; ms < limit && !until(s); ms += 100) s = advance(s, …
+     19|   expect(until(s)).toBe(true);
+       |                    ^
+     20|   return s;
+     21| };
+ ❯ tests/story-flow.test.ts:141:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 27 passed (29)
+      Tests  2 failed | 361 passed (363)
+   Start at  01:55:32
+   Duration  1.47s (transform 1.62s, setup 0ms, import 3.50s, tests 1.72s, environment 2ms)
+

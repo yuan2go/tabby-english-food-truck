@@ -1,0 +1,8 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/rules/story-flow.ts(133,5): error TS2375: Type '{ wave: number; phase: "service"; until: number; legacy: false; completion: undefined; version: 1; legacyChapter?: number; archives: ChapterMemory[]; }' is not assignable to type 'StoryFlow' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'completion' are incompatible.
+    Type 'undefined' is not assignable to type 'ChapterMemory'.
+      Type 'undefined' is not assignable to type 'Omit<AdventureState, "flow">'.
