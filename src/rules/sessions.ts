@@ -10,6 +10,7 @@ import {
 } from '../content/chapters';
 import { themeAllows } from '../content/free-shop';
 import type { Family } from '../content/recipes';
+import { waveIndices } from '../content/story-flow';
 import { storyLevel, storyRequests } from '../content/story-levels';
 import type { GameState, Order, TrayId } from './types';
 export function orderFor(
@@ -128,7 +129,7 @@ export function applyPolicy(s: GameState, support: Support, concurrency: 1 | 2):
   // A legacy one-tray layout changes only at an idle action boundary.
   if (concurrency === 2 && !s.actor.current && !s.helper && !s.trays.some((t) => t.remaining))
     s.mode = 'service';
-  if (s.adventure?.kind === 'chapter' && concurrency === 2)
+  if (s.adventure?.kind === 'chapter' && !s.adventure.flow && concurrency === 2)
     for (const order of s.orders.filter((o) => o.status === 'queued'))
       admitAdventure(s, order.visitor);
   if (s.mode === 'service' || concurrency === 1) replenish(s);
@@ -137,15 +138,21 @@ export function applyPolicy(s: GameState, support: Support, concurrency: 1 | 2):
 /** Admission is a player choice in a single-guest adventure, never a queue side effect. */
 export function admitAdventure(s: GameState, visitor?: Visitor): boolean {
   if (s.adventure?.kind !== 'chapter' || !visitor) return false;
-  const order = s.orders.find((o) => o.visitor === visitor && o.status === 'queued');
+  const indices = s.adventure.flow ? waveIndices(s.adventure) : null;
+  const order = s.orders.find(
+    (o, i) => o.visitor === visitor && o.status === 'queued' && (!indices || indices.includes(i)),
+  );
   const active = s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving');
   if (!order || active.length >= s.session.concurrency) return false;
   const seat = ([0, 1] as const).find((seat) => !active.some((o) => o.seat === seat));
   if (seat === undefined) return false;
-  order.seat = seat;
-  order.status = 'waiting';
+  const copy = { ...order, support: [...order.support] };
+  s.orders = s.orders.map((o) => (o === order ? copy : o));
+  copy.seat = seat;
+  copy.status = 'waiting';
+  if (s.adventure.flow) copy.arrivedAt = s.gameTime;
   if (s.session.support !== 'less')
-    order.support = [
+    copy.support = [
       ...new Set([
         ...order.support,
         'picture-request',

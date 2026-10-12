@@ -50,7 +50,7 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
     return { x: r.x + r.width / 2 - width / 2, y: short ? 47 : 49, width, height: short ? 58 : 75 };
   });
   const preparation = short
-    ? { x: inset + w * 0.4, y: 86, width: w * 0.6, height: height - 121 }
+    ? { x: inset + w * 0.4, y: 120, width: w * 0.6, height: height - 155 }
     : {
         x: inset,
         y: tableY + Math.min(60, height * 0.09) + 54,

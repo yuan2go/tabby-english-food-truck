@@ -16,7 +16,7 @@ function start(guests: 1 | 2) {
   return command(s, { type: 'adventure-start', chapter: 2 }).state;
 }
 afterEach(() => vi.unstubAllGlobals());
-it('story controller passes single guest independently from less assistance', () => {
+it('continuous picnic presents both real needs without choosing the first receipt or changing assistance', () => {
   const values = new Map<string, string>();
   const storage = {
     getItem: (key: string) => values.get(key) ?? null,
@@ -30,11 +30,15 @@ it('story controller passes single guest independently from less assistance', ()
   vi.stubGlobal('localStorage', storage);
   const c = new GameController(new SaveStore(() => storage));
   c.enter('story', 2, 'less', false, 1);
-  expect(c.state.session.concurrency).toBe(1);
-  expect(c.state.orders.filter((o) => o.status === 'waiting')).toHaveLength(0);
-  c.command({ type: 'adventure', action: 'welcome', visitor: 'hedgehog' });
+  expect(c.state.session.concurrency).toBe(2);
+  expect(c.state.session.support).toBe('less');
+  expect(c.state.orders.filter((o) => o.status === 'waiting')).toHaveLength(2);
+  c.command({
+    type: 'audio',
+    audio: { id: 'request-sandwich', status: 'completed', version: 'dev' },
+  });
   expect(c.state.orders.find((o) => o.visitor === 'hedgehog')?.status).toBe('waiting');
-  expect(c.state.orders.find((o) => o.visitor === 'rabbit')?.status).toBe('queued');
+  expect(c.state.orders.find((o) => o.visitor === 'rabbit')?.status).toBe('waiting');
   expect(c.state.adventure?.branch).toBeNull();
 });
 it('single mode never chooses a friend via elapsed time or playback', () => {

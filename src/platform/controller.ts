@@ -7,6 +7,7 @@ import { startAdventure } from '../rules/adventure';
 import { hydrateExperience } from '../rules/adventure-experience';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
+import { enableStoryFlow, exploreStory } from '../rules/story-flow';
 import type { Command, GameState, Result } from '../rules/types';
 import { MiniStore } from './minis';
 import { ProfileStore } from './profile';
@@ -132,7 +133,9 @@ export class GameController {
         receipt.target === 'create'
           ? '作品放好了，可以选食品分享或品尝。'
           : receipt.target === 'pack'
-            ? '食品装好了，点篮子摆上桌。'
+            ? this.state.adventure?.flow
+              ? '食品进篮了，装齐后会自然摆上桌。'
+              : '食品装好了，点篮子摆上桌。'
             : '朋友收到啦！可以接着准备。';
       this.pendingReceipt = null;
     }
@@ -164,7 +167,20 @@ export class GameController {
   private syncActivity(): void {
     const a = this.state.adventure;
     if (!a) return;
-    this.profile.rememberActivity(this.state.runId, a);
+    for (const memory of a.flow?.archives ?? []) {
+      this.profile.rememberActivity(this.state.runId, memory);
+      this.profile.complete(memory.chapter);
+    }
+    const { flow: _, ...memory } = a;
+    this.profile.rememberActivity(
+      this.state.runId,
+      a.flow?.completion
+        ? { ...a.flow.completion, works: memory.works, decor: memory.decor }
+        : memory,
+    );
+    if (a.rewards.length) this.profile.complete(a.chapter);
+    for (const family of this.state.session.unlocked)
+      if (!this.profile.value.introduced.includes(family)) this.profile.introduce(family);
     for (const food of a.foods) {
       const id = `world:${this.state.runId}:${food.id}`;
       if (this.profile.value.observedIds.includes(id)) continue;
@@ -186,11 +202,18 @@ export class GameController {
     support: Support,
     replay: boolean,
     concurrency: 1 | 2,
+    explore = false,
   ): void {
     if (!ADVENTURES[chapter]) return;
     this.save.save(this.state);
     const stored = this.save.loadSession(`story-${chapter}-adventure`);
     if (this.save.blocked) return;
+    const visiting =
+      !replay &&
+      Boolean(stored?.adventure?.rewards.length) &&
+      (explore ||
+        this.state.session.activity !== 'story' ||
+        this.state.session.chapter !== chapter);
     const history = this.history();
     this.state = !replay && stored ? stored : createGame(this.runId(), 0, history, 'practice');
     if (!this.state.adventure) {
@@ -198,18 +221,27 @@ export class GameController {
       this.state.session.concurrency = concurrency;
       startAdventure(this.state, chapter);
     }
-    applyPolicy(this.state, support, concurrency);
     if (this.state.adventure) {
       hydrateExperience(this.state.adventure);
       const e = this.state.adventure.experience;
       if (e) {
-        e.known = [...this.profile.value.receivedProducts];
+        e.known = [...new Set([...e.known, ...this.profile.value.receivedProducts])];
         e.picnic =
+          e.picnic ??
+          this.state.adventure?.flow?.archives.find((m) => m.chapter === 2)?.branch ??
           this.profile.value.activityMemories
             .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
-            .at(-1)?.state.branch ?? null;
+            .at(-1)?.state.branch ??
+          null;
       }
     }
+    if (this.state.adventure) enableStoryFlow(this.state, !stored || replay);
+    if (visiting) exploreStory(this.state);
+    applyPolicy(
+      this.state,
+      support,
+      this.state.adventure?.flow ? this.state.session.concurrency : concurrency,
+    );
     if (stored) {
       this.state.noteSupport = [
         ...new Set([...this.state.noteSupport, ...stored.noteSupport]),
@@ -299,9 +331,10 @@ export class GameController {
     concurrency: 1 | 2 = this.profile.value.concurrency,
     levelId?: string,
     shop?: { menu: RequestId[]; theme: ShopTheme },
+    explore = false,
   ): void {
     if (activity === 'story' && !levelId) {
-      this.enterAdventure(chapter, support, replay, concurrency);
+      this.enterAdventure(chapter, support, replay, concurrency, explore);
       return;
     }
     if (
@@ -375,11 +408,14 @@ export class GameController {
       hydrateExperience(this.state.adventure);
       const e = this.state.adventure.experience;
       if (e) {
-        e.known = [...this.profile.value.receivedProducts];
+        e.known = [...new Set([...e.known, ...this.profile.value.receivedProducts])];
         e.picnic =
+          e.picnic ??
+          this.state.adventure?.flow?.archives.find((m) => m.chapter === 2)?.branch ??
           this.profile.value.activityMemories
             .filter((m) => m.state.chapter === 2 && m.state.rewards.length)
-            .at(-1)?.state.branch ?? null;
+            .at(-1)?.state.branch ??
+          null;
       }
     }
     applyPolicy(this.state, support, concurrency);
@@ -415,7 +451,7 @@ export class GameController {
         if (request) {
           this.profile.present(`menu:${request}`);
           const order = this.state.orders.find((o) => a.input.startsWith(`${o.id}:`));
-          const key = `${this.state.runId}:${order?.id}`;
+          const key = `${this.state.runId}:chapter:${this.state.session.chapter}:${order?.id}`;
           const lesson = this.profile.value.lessons[key];
           if (lesson?.phase === 'practice') {
             this.profile.lesson(key, { ...lesson, phase: 'done' });

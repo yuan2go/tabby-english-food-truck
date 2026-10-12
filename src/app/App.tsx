@@ -39,7 +39,6 @@ export function App() {
   const [chapter, setChapter] = useState(0);
   const [support, setSupport] = useState<Support>(controller.profile.value.support);
   const [concurrency, setConcurrency] = useState<1 | 2>(controller.profile.value.concurrency);
-  const [storyGuests, setStoryGuests] = useState<1 | 2>(1);
   const [miniReturn, setMiniReturn] = useState<Screen>('home');
   const [collection, setCollection] = useState<{ ids: string[]; focus: string } | null>(null);
   const [protectedSave, setProtectedSave] = useState(false);
@@ -160,6 +159,7 @@ export function App() {
     replay = false,
     levelId?: string,
     shop?: { menu: RequestId[]; theme: ShopTheme },
+    explore = false,
   ) => {
     audio.stop();
     controller.enter(
@@ -167,9 +167,10 @@ export function App() {
       index,
       support,
       replay,
-      activity === 'story' ? storyGuests : activity === 'endless' ? concurrency : 1,
+      activity === 'endless' ? concurrency : 1,
       levelId,
       shop,
+      explore,
     );
     if (controller.save.blocked) {
       setProtectedSave(true);
@@ -212,7 +213,6 @@ export function App() {
           closeDemo={() => setDemoOrder(null)}
           pause={() => setPaused(true)}
           home={home}
-          next={() => enter('story', Math.min(4, s.session.chapter + 1))}
           replay={() => enter(s.session.activity, s.session.chapter, true, s.session.levelId)}
           games={openMini}
         />
@@ -221,7 +221,11 @@ export function App() {
           profile={controller.profile.value}
           legacy={Boolean(controller.save.legacyRaw)}
           audio={audio}
-          onActivity={(c) => enter('story', c)}
+          {...(s.adventure?.kind === 'chapter' &&
+          (!s.adventure.rewards.length || s.adventure.flow?.phase === 'reward')
+            ? { resumeChapter: s.session.chapter }
+            : {})}
+          onActivity={(c, explore) => enter('story', c, false, undefined, undefined, explore)}
           onChoose={(choice) => {
             audio.stop();
             if (choice === 'endless') enter('endless');
@@ -239,9 +243,7 @@ export function App() {
           audio={audio}
           support={support}
           setSupport={setSupport}
-          guests={storyGuests}
-          setGuests={setStoryGuests}
-          enter={(c, r, id) => enter('story', c, r, id)}
+          enter={(c, r, id) => enter('story', c, r, id, undefined, true)}
           home={home}
           resumeExisting={() => {
             if (controller.resumeLegacyStory()) {

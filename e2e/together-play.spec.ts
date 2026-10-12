@@ -1,28 +1,26 @@
 import { expect, test } from '@playwright/test';
-import { state } from './helpers';
+import { finishChapter, serve, state } from './helpers';
 
 test.use({ viewport: { width: 393, height: 665 }, hasTouch: true, isMobile: true });
-test('breakfast is three meaningful actions with a real held item and optional exploration', async ({
+test('breakfast starts with two meaningful actions with a real held item and optional exploration', async ({
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
+  await page.getByRole('button', { name: '正在准备 · 早餐派对', exact: true }).click();
   const stage = page.getByRole('region', { name: '同桌厨房', exact: true });
   await expect(stage).toBeVisible();
-  await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
   await page.getByRole('button', { name: '拿起苹果', exact: true }).click();
   expect(
     (await state(page)).items.filter((i) => i.location.startsWith('hand:')).map((i) => i.product),
   ).toEqual(['apple']);
   await page.getByRole('button', { name: '交给兔兔', exact: true }).click();
   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
-  await page.getByRole('button', { name: '先帮刺刺', exact: true }).click();
   await page.getByRole('button', { name: '拿起香蕉', exact: true }).click();
   await page.getByRole('button', { name: '交给刺刺', exact: true }).click();
   await expect.poll(async () => (await state(page)).orders[1]?.status).toBe('done');
-  await page.getByRole('button', { name: '一起吃早餐', exact: true }).click();
-  expect((await state(page)).adventure?.rewards).toEqual(['flower-page']);
-  expect((await state(page)).adventure?.steps).not.toContain('plant');
+  await finishChapter(page, 0);
+  expect((await state(page)).adventure?.flow?.archives[0]?.rewards).toEqual(['flower-page']);
+  expect((await state(page)).adventure?.flow?.archives[0]?.steps).not.toContain('plant');
   for (const label of ['去厨房备餐', '到活动桌', '端盘', '选盘'])
     await expect(page.getByRole('button', { name: label, exact: true })).toHaveCount(0);
 });
@@ -31,8 +29,7 @@ test('visible device targets make real juice and wrong delivery leaves hand owne
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
+  await page.locator('.yard-endless .entry-main').click();
   await page.getByRole('button', { name: '拿起香蕉', exact: true }).click();
   const before = (await state(page)).items;
   await page.getByRole('button', { name: '交给兔兔', exact: true }).click();
@@ -52,7 +49,7 @@ test('visible device targets make real juice and wrong delivery leaves hand owne
     (await state(page)).items.filter((i) => i.location.startsWith('hand:')).map((i) => i.product),
   ).toEqual(['juice']);
   await page.reload();
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
+  await page.locator('.yard-endless .entry-main').click();
   expect(
     (await state(page)).items.filter((i) => i.location.startsWith('hand:')).map((i) => i.product),
   ).toEqual(['juice']);
@@ -62,8 +59,7 @@ test('speaker meaning pictures and same-stage demonstration are usable assistanc
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
+  await page.getByRole('button', { name: '正在准备 · 早餐派对', exact: true }).click();
   await expect(
     page.getByRole('button', { name: '看图理解兔兔的请求', exact: true }).locator('img'),
   ).toBeVisible();
@@ -123,36 +119,25 @@ test('occupied receiving plate still matches the friend and preparation uses the
 test('open request remains at its actual speaker after another conversation and cannot thank before receipt', async ({
   page,
 }) => {
+  test.setTimeout(120000);
   await page.goto('/');
-  await page.getByRole('button', { name: '正在准备 · 晨光开门', exact: true }).click();
-  for (const [friend, food] of [
-    ['兔兔', '苹果'],
-    ['刺刺', '香蕉'],
-  ]) {
-    await page.getByRole('button', { name: `先帮${friend}`, exact: true }).click();
-    await page.getByRole('button', { name: `拿起${food}`, exact: true }).click();
-    await page.getByRole('button', { name: `交给${friend}`, exact: true }).click();
+  await page.locator('.yard-story .entry-main').click();
+  await finishChapter(page, 0);
+  for (let i = 0; i < 4; i++) {
     await expect
-      .poll(
-        async () =>
-          (await state(page)).orders.find(
-            (o) => o.visitor === (friend === '兔兔' ? 'rabbit' : 'hedgehog'),
-          )?.status,
-      )
-      .toBe('done');
+      .poll(async () => (await state(page)).orders.some((o) => o.status === 'waiting'))
+      .toBe(true);
+    await serve(page);
   }
-  await page.getByRole('button', { name: '一起吃早餐', exact: true }).click();
-  await page.getByRole('button', { name: '下一院活动', exact: true }).click();
-  await page.getByRole('button', { name: '先帮兔兔', exact: true }).click();
+  await expect.poll(async () => (await state(page)).adventure?.flow?.wave).toBe(2);
   const open = page.getByRole('button', { name: /重听刺刺：.*ice cream/ });
   await expect(open).toBeVisible();
+  await page.waitForTimeout(1200);
   const before = await state(page);
   await open.click();
-  await page.locator('[data-actor="hedgehog"]').click();
+  await page.locator('[data-actor="rabbit"]').click();
   expect((await state(page)).adventure?.foods).toEqual(before.adventure?.foods);
   expect((await state(page)).attempts).toEqual(before.attempts);
   await expect(open).toBeVisible();
-  await expect(page.getByRole('button', { name: '重听刺刺：Thank you!', exact: true })).toHaveCount(
-    0,
-  );
+  expect((await state(page)).adventure?.steps).not.toContain('cool');
 });

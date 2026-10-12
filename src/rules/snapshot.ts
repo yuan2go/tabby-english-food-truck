@@ -1,12 +1,13 @@
-import { ADVENTURES } from '../content/adventure';
 import { CONTENT_VERSION, JUICE_MS, MODES, REQUESTS, requestsFor } from '../content/catalog';
 import { CHAPTERS, endlessPool, requestFamily } from '../content/chapters';
 import { FOOD, RAW, RECIPES, recipeFor } from '../content/recipes';
+import { waveIndices } from '../content/story-flow';
 import { storyLevel, storyRequests } from '../content/story-levels';
 import { validAdventure } from './adventure';
 import { hydrateExperience } from './adventure-experience';
 import { stationItems } from './cooking';
 import { emptyRouting, targetLocation } from './routing';
+import { storyExpectedOrders } from './story-flow';
 import type { GameState } from './types';
 
 const record = (v: unknown): v is Record<string, unknown> =>
@@ -77,6 +78,8 @@ export function validateState(v: unknown): v is GameState {
     !v.orders.every(
       (o) =>
         record(o) &&
+        (o.arrivedAt === undefined ||
+          (number(o.arrivedAt) && Number(o.arrivedAt) <= Number(v.gameTime))) &&
         typeof o.revisit === 'boolean' &&
         typeof o.heard === 'boolean' &&
         (o.visitor === undefined || ['rabbit', 'hedgehog', 'elder'].includes(String(o.visitor))) &&
@@ -135,6 +138,7 @@ export function validateState(v: unknown): v is GameState {
       (a) =>
         record(a) &&
         str(a.id) &&
+        (a.chapter === undefined || integer(a.chapter, 4)) &&
         ['guided', 'assisted', 'independent-condition'].includes(a.condition as string) &&
         ['first', 'revisit'].includes(a.visit as string) &&
         a.audioQualified === false &&
@@ -280,12 +284,25 @@ export function validateState(v: unknown): v is GameState {
   const active = s.orders.filter((o) => o.status === 'waiting' || o.status === 'leaving');
   if (active.length > (s.mode === 'service' ? 2 : 1) || !unique(active.map((o) => o.seat)))
     return false;
+  if (s.adventure?.flow && !s.adventure.flow.legacy) {
+    const a = s.adventure,
+      indices = waveIndices(a);
+    const first = indices[0] ?? s.orders.length;
+    const last = indices.at(-1) ?? first - 1;
+    if (
+      s.orders.some(
+        (o, i) => (i < first && o.status !== 'done') || (i > last && o.status !== 'queued'),
+      )
+    )
+      return false;
+    if (a.flow && a.flow.until > s.gameTime + 1800) return false;
+  }
   if (s.session.activity === 'story') {
     const oldIce = ['vanilla-cone', 'strawberry-cup', 'double-cream', 'banana-cream'];
     const level = storyLevel(s.session.levelId);
     const expected =
       s.adventure?.kind === 'chapter'
-        ? ADVENTURES[s.adventure.chapter]?.orders.map((o) => o.request)
+        ? storyExpectedOrders(s.adventure).map((o) => o.request)
         : level
           ? storyRequests(level, s.session.storyChoice ?? 0)
           : s.session.chapter === 1 && s.orders.map((o) => o.request).join('|') === oldIce.join('|')
@@ -300,7 +317,8 @@ export function validateState(v: unknown): v is GameState {
     if (
       s.adventure?.kind === 'chapter' &&
       s.orders.some(
-        (o, i) => o.visitor !== ADVENTURES[s.adventure?.chapter ?? 0]?.orders[i]?.visitor,
+        (o, i) =>
+          o.visitor !== (s.adventure ? storyExpectedOrders(s.adventure)[i]?.visitor : undefined),
       )
     )
       return false;
@@ -437,7 +455,8 @@ export function validateState(v: unknown): v is GameState {
             at >= 0 &&
             job.elapsed >= job.plan.phases.slice(0, at + 1).reduce((n, p) => n + p.duration, 0),
         );
-      if (a.steps.includes(`served:${order.visitor}`) !== received) return false;
+      if (!a.flow && a.steps.includes(`served:${order.visitor}`) !== received) return false;
+      if (a.flow && received && !a.steps.includes(`served:${order.visitor}`)) return false;
       const foods = a.foods.filter((f) => f.source === order.id);
       if ((!received && foods.length) || (received && !a.rewards.length && !foods.length))
         return false;
@@ -656,7 +675,11 @@ export function decodeSnapshot(raw: string): DecodeResult {
       ['playable-adventure-1', 'adventure-experience-2', 'together-play-1'].includes(
         String(value.contentVersion),
       );
-    if (migratePositions) value.contentVersion = CONTENT_VERSION;
+    if (
+      migratePositions ||
+      (record(value) && value.schemaVersion === 7 && value.contentVersion === 'direct-cooking-1')
+    )
+      value.contentVersion = CONTENT_VERSION;
     if (!validateState(value))
       return { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };
     if (value.adventure) {

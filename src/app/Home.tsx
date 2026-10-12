@@ -10,19 +10,21 @@ export function Home({
   audio,
   legacy,
   onActivity,
+  resumeChapter,
 }: {
   profile: Profile;
   onChoose: (screen: 'story' | 'endless' | 'mini' | 'training' | 'settings') => void;
   audio: ForegroundAudio;
   legacy: boolean;
-  onActivity: (chapter: number) => void;
+  onActivity: (chapter: number, explore?: boolean) => void;
+  resumeChapter?: number;
 }) {
   const completed = (chapter: number) =>
     profile.activityMemories.some(
       (m) => m.state.kind === 'chapter' && m.state.chapter === chapter && m.state.rewards.length,
     );
   const firstVisit = !profile.activityMemories.length;
-  const next = ADVENTURES.find((c) => !completed(c.id))?.id ?? 4;
+  const next = resumeChapter ?? ADVENTURES.find((c) => !completed(c.id))?.id ?? 4;
   const entry = (id: 'story' | 'endless' | 'mini' | 'training', name: string, sound: string) => (
     <div className={`yard-entry yard-${id}`}>
       <button
@@ -93,7 +95,7 @@ export function Home({
           type="button"
           className="yard-planter"
           aria-label="照顾迎客花"
-          onClick={() => onActivity(0)}
+          onClick={() => onActivity(0, true)}
         >
           {['left', 'middle', 'right'].map((place) => (
             <i key={place} className={`flower flower-${place}`}>
@@ -107,7 +109,7 @@ export function Home({
           type="button"
           className="yard-bunting"
           aria-label="换分享彩旗"
-          onClick={() => onActivity(1)}
+          onClick={() => onActivity(1, true)}
         >
           <i />
           <i />
@@ -121,7 +123,7 @@ export function Home({
           type="button"
           className="yard-picnic"
           aria-label="回到野餐桌"
-          onClick={() => onActivity(2)}
+          onClick={() => onActivity(2, true)}
         />
       ) : null}
       {completed(3) ? (
@@ -129,7 +131,7 @@ export function Home({
           type="button"
           className="yard-lights"
           aria-label="点亮晚餐灯"
-          onClick={() => onActivity(3)}
+          onClick={() => onActivity(3, true)}
         >
           <i />
           <i />

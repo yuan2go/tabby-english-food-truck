@@ -26,6 +26,7 @@ import {
 import { assemble, extendIce } from './direct-cooking';
 import { emptyRouting, reserved, reserveOutput, routeReady } from './routing';
 import { applyPolicy, replenish } from './sessions';
+import { advanceStoryFlow, enableStoryFlow } from './story-flow';
 import type {
   Attempt,
   Command,
@@ -143,12 +144,13 @@ function attempt(
   s: GameState,
   a: Omit<
     Attempt,
-    'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified' | 'id'
+    'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified' | 'id' | 'chapter'
   >,
 ): void {
   s.attempts.push({
     ...a,
     id: `${s.runId}:attempt:${s.revision}`,
+    chapter: s.session.chapter,
     condition:
       s.mode === 'guided' ? 'guided' : a.support.length ? 'assisted' : 'independent-condition',
     visit:
@@ -164,6 +166,8 @@ function attempt(
     gameTime: s.gameTime,
     retry: s.attempts.filter(
       (t) =>
+        (t.chapter === s.session.chapter ||
+          (t.chapter === undefined && (!s.adventure?.flow || s.adventure.flow.legacy))) &&
         t.activity === a.activity &&
         (a.activity === 'note' || t.input.startsWith(a.input.split(':')[0] ?? '')),
     ).length,
@@ -330,11 +334,11 @@ export function dispatch(current: GameState, e: Envelope): Result {
         : '招呼完已接的朋友，就可以自由做作品或收摊。',
     );
   }
-  if (c.type === 'adventure-start')
-    return result(
-      startAdventure(s, c.chapter, c.kind) ? 'ok' : 'blocked',
-      '先备餐，再到活动桌一起准备。',
-    );
+  if (c.type === 'adventure-start') {
+    const started = startAdventure(s, c.chapter, c.kind);
+    if (started && c.continuous) enableStoryFlow(s, true);
+    return result(started ? 'ok' : 'blocked', '朋友来啦，听听需要，亲手做饭。');
+  }
   if (c.type === 'adventure') {
     const r = adventureCommand(s, c);
     return result(r.kind, r.message);
@@ -885,6 +889,7 @@ export function advance(current: GameState, milliseconds: number): GameState {
       changed = true;
     }
   }
+  changed = advanceStoryFlow(s) || changed;
   if (changed) s.revision++;
   return s;
 }

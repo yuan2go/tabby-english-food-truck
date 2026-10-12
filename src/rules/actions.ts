@@ -43,6 +43,13 @@ export function queueActor(
     for (const phase of plan.phases)
       if (phase.from.x !== phase.to.x || phase.from.y !== phase.to.y)
         phase.duration = Math.max(180, phase.duration * 0.65);
+    if (s.adventure?.flow) {
+      for (const phase of plan.phases) {
+        if (phase.from.x !== phase.to.x || phase.from.y !== phase.to.y)
+          phase.duration = Math.max(120, phase.duration * 0.5);
+        else if (phase.event === 'receive') phase.duration = 200;
+      }
+    }
     plan.duration = plan.phases.reduce((sum, phase) => sum + phase.duration, 0);
   }
   const job: ActorJob = {

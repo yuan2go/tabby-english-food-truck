@@ -20,6 +20,7 @@ export interface Item {
   location: Location;
 }
 export interface Order {
+  arrivedAt?: number;
   visitor?: Visitor;
   revisit: boolean;
   heard: boolean;
@@ -31,6 +32,7 @@ export interface Order {
   support: string[];
 }
 export interface Attempt {
+  chapter?: number;
   id: string;
   condition: 'guided' | 'assisted' | 'independent-condition';
   visit: 'first' | 'revisit';
@@ -141,7 +143,7 @@ export type Command =
       theme: 'all' | 'fruit' | 'cool' | 'share';
       accepting: boolean;
     }
-  | { type: 'adventure-start'; chapter: number; kind?: 'chapter' | 'shop' }
+  | { type: 'adventure-start'; chapter: number; kind?: 'chapter' | 'shop'; continuous?: boolean }
   | {
       type: 'adventure';
       action: string;

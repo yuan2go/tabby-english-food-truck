@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { serve, startStory, state, supply } from './helpers';
+import { finishChapter, serve, startStory, state, supply } from './helpers';
 
 test.use({ hasTouch: true });
 test('normal entrance keeps requests and receipt at the speaker, with optional garden and real memory', async ({
@@ -13,7 +13,6 @@ test('normal entrance keeps requests and receipt at the speaker, with optional g
   await expect(
     page.getByRole('button', { name: '重听兔兔：Thank you!', exact: true }),
   ).toBeVisible();
-  await page.getByRole('button', { name: '先帮刺刺', exact: true }).click();
   await serve(page);
   await page.getByRole('button', { name: '打开储物抽屉', exact: true }).click();
   await page.getByRole('button', { name: '取出花苗', exact: true }).click();
@@ -22,15 +21,15 @@ test('normal entrance keeps requests and receipt at the speaker, with optional g
   await page.getByRole('button', { name: '把花种在中间', exact: true }).click();
   expect((await state(page)).adventure?.experience?.used).toContain('water');
   const before = await state(page);
-  await page.getByRole('button', { name: '一起吃早餐', exact: true }).click();
-  expect((await state(page)).adventure?.foods).toHaveLength(2);
+  await finishChapter(page, 0);
+  expect((await state(page)).adventure?.flow?.archives[0]?.foods).toHaveLength(6);
   const settled = await state(page);
   await page
     .getByRole('button', { name: /播放整句/ })
     .last()
     .click();
   expect((await state(page)).adventure?.rewards).toEqual(settled.adventure?.rewards);
-  expect((await state(page)).attempts).toEqual(before.attempts);
+  expect((await state(page)).attempts.slice(0, 2)).toEqual(before.attempts);
 });
 test('phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership', async ({
   page,
