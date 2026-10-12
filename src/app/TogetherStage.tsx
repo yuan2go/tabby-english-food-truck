@@ -178,7 +178,7 @@ export function TogetherStage({
     setBook(true);
   };
   const commission = a ? openCommission(a) : null;
-  const narrowPortrait = size.width < 600 && size.height >= size.width;
+  const compactCaption = (size.width < 600 && size.height >= size.width) || l.short;
   const activeRequest = s.orders.find((o) => o.status === 'waiting');
   const currentRole =
     a?.flow && activeRequest && dialogue.current?.line.role === 'dami'
@@ -544,7 +544,7 @@ export function TogetherStage({
     >
       <div className="together-content">
         <header>
-          <span>{title}</span>
+          <span>{a?.flow?.phase === 'complete' ? `${title} · 食谱已收录` : title}</span>
           {a?.flow ? (
             <section
               className="story-progress"
@@ -619,9 +619,9 @@ export function TogetherStage({
               <div key={visitor}>
                 {line ? (
                   <div
-                    className={`local-bubble${narrowPortrait && (index !== focusedIndex || currentRole === 'dami') ? ' speaker-mini' : ''}`}
+                    className={`local-bubble${compactCaption && (index !== focusedIndex || currentRole === 'dami') ? ' speaker-mini' : ''}`}
                     style={
-                      narrowPortrait
+                      compactCaption
                         ? {
                             ...position(l.bubbles[index] ?? rect),
                             left:
@@ -639,7 +639,7 @@ export function TogetherStage({
                         : position(l.bubbles[index] ?? rect)
                     }
                   >
-                    {narrowPortrait && (index !== focusedIndex || currentRole === 'dami') ? (
+                    {compactCaption && (index !== focusedIndex || currentRole === 'dami') ? (
                       <button
                         type="button"
                         className="speaker-replay"
@@ -971,7 +971,10 @@ export function TogetherStage({
             </button>
           ) : null}
         </div>
-        {a?.flow && a.rewards.length ? (
+        {a?.flow &&
+        a.rewards.length &&
+        (a.flow.phase === 'reward' ||
+          (a.flow.phase === 'complete' && moment?.kind === 'finish' && momentAge < 3000)) ? (
           <div
             className="chapter-reward"
             role="status"
@@ -991,9 +994,9 @@ export function TogetherStage({
           <div
             className="local-bubble dami-bubble"
             style={{
-              left: narrowPortrait ? 68 : (size.width - 350) / 2,
-              top: narrowPortrait ? 49 : 3,
-              width: narrowPortrait ? size.width - 136 : 350,
+              left: compactCaption ? 68 : (size.width - 350) / 2,
+              top: compactCaption ? 49 : 3,
+              width: compactCaption ? size.width - 136 : 350,
               minHeight: 78,
             }}
           >

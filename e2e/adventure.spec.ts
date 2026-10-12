@@ -37,6 +37,9 @@ test('visible activity entrance naturally reaches all five chapters and saves a 
     'strawberry-cup',
   ]);
   expect(s.adventure?.experience?.used).toContain('share');
+  await expect(page.locator('.chapter-reward')).toHaveCount(0, { timeout: 6000 });
+  expect((await state(page)).adventure?.works).toEqual(s.adventure?.works);
+  expect((await state(page)).adventure?.foods).toEqual(s.adventure?.foods);
   for (const viewport of [
     { width: 1280, height: 720 },
     { width: 665, height: 393 },

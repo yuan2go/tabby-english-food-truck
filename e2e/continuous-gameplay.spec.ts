@@ -57,3 +57,21 @@ test('leaving during a chapter reward resumes the same real kitchen and keeps an
   expect((await state(page)).runId).toBe(before.runId);
   expect((await state(page)).items).toEqual(before.items);
 });
+test('short landscape keeps the current full sentence inside its bubble and above cooking controls', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 665, height: 393 });
+  await page.goto('/');
+  await page.locator('.yard-story .entry-main').click();
+  const sentence = page.locator('.local-bubble:not(.speaker-mini) .sentence-text').first();
+  await expect(sentence).toContainText('Can I have an apple, please?');
+  expect(
+    await sentence.evaluate((el) => {
+      const text = el.getBoundingClientRect();
+      const bubble = el.closest('.local-bubble')?.getBoundingClientRect();
+      const kitchen = document.querySelector('.direct-kitchen')?.getBoundingClientRect();
+      if (!bubble || !kitchen) return false;
+      return text.top >= bubble.top && text.bottom <= bubble.bottom && bubble.bottom <= kitchen.top;
+    }),
+  ).toBe(true);
+});
