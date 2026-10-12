@@ -120,7 +120,13 @@ export async function make(
     await p.getByRole('button', { name: '暂停', exact: true }).click();
     const frozen = await state(p);
     await p.reload();
-    await p.locator('.yard-story .entry-main').click();
+    await p
+      .locator(
+        frozen.session.activity === 'endless'
+          ? '.yard-endless .entry-main'
+          : '.yard-story .entry-main',
+      )
+      .click();
     expect((await state(p)).runId).toBe(frozen.runId);
     for (const item of frozen.items.filter(
       (i) =>

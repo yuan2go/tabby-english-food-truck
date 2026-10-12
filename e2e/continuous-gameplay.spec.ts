@@ -31,3 +31,29 @@ test('natural entrance, clear wave goal and receipt feedback need no welcome or 
     )
     .toBe(true);
 });
+test('leaving during a chapter reward resumes the same real kitchen and keeps an extra fruit', async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  const { serve, supply } = await import('./helpers');
+  await page.goto('/');
+  await page.locator('.yard-story .entry-main').click();
+  for (let i = 0; i < 4; i++) {
+    await expect
+      .poll(async () => (await state(page)).orders.some((o) => o.status === 'waiting'))
+      .toBe(true);
+    await serve(page);
+  }
+  await expect.poll(async () => (await state(page)).adventure?.flow?.phase).toBe('reward');
+  await supply(page, 'banana');
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  const before = await state(page);
+  await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
+  await expect(page.locator('.yard-story .entry-main')).toHaveAttribute(
+    'aria-label',
+    '正在准备 · 早餐派对',
+  );
+  await page.locator('.yard-story .entry-main').click();
+  expect((await state(page)).runId).toBe(before.runId);
+  expect((await state(page)).items).toEqual(before.items);
+});

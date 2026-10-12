@@ -7,7 +7,7 @@ import { startAdventure } from '../rules/adventure';
 import { hydrateExperience } from '../rules/adventure-experience';
 import { advance, createGame, dispatch } from '../rules/game';
 import { applyPolicy, configureSession } from '../rules/sessions';
-import { enableStoryFlow } from '../rules/story-flow';
+import { enableStoryFlow, exploreStory } from '../rules/story-flow';
 import type { Command, GameState, Result } from '../rules/types';
 import { MiniStore } from './minis';
 import { ProfileStore } from './profile';
@@ -166,11 +166,21 @@ export class GameController {
     const a = this.state.adventure;
     if (!a) return;
     for (const memory of a.flow?.archives ?? []) {
-      this.profile.rememberActivity(this.state.runId, memory);
+      this.profile.rememberActivity(
+        this.state.runId,
+        a.flow?.completion
+          ? { ...a.flow.completion, works: memory.works, decor: memory.decor }
+          : memory,
+      );
       this.profile.complete(memory.chapter);
     }
     const { flow: _, ...memory } = a;
-    this.profile.rememberActivity(this.state.runId, memory);
+    this.profile.rememberActivity(
+      this.state.runId,
+      a.flow?.completion
+        ? { ...a.flow.completion, works: memory.works, decor: memory.decor }
+        : memory,
+    );
     if (a.rewards.length) this.profile.complete(a.chapter);
     for (const family of this.state.session.unlocked)
       if (!this.profile.value.introduced.includes(family)) this.profile.introduce(family);
@@ -195,11 +205,18 @@ export class GameController {
     support: Support,
     replay: boolean,
     concurrency: 1 | 2,
+    explore = false,
   ): void {
     if (!ADVENTURES[chapter]) return;
     this.save.save(this.state);
     const stored = this.save.loadSession(`story-${chapter}-adventure`);
     if (this.save.blocked) return;
+    const visiting =
+      !replay &&
+      Boolean(stored?.adventure?.rewards.length) &&
+      (explore ||
+        this.state.session.activity !== 'story' ||
+        this.state.session.chapter !== chapter);
     const history = this.history();
     this.state = !replay && stored ? stored : createGame(this.runId(), 0, history, 'practice');
     if (!this.state.adventure) {
@@ -222,6 +239,7 @@ export class GameController {
       }
     }
     if (this.state.adventure) enableStoryFlow(this.state, !stored || replay);
+    if (visiting) exploreStory(this.state);
     applyPolicy(
       this.state,
       support,
@@ -316,9 +334,10 @@ export class GameController {
     concurrency: 1 | 2 = this.profile.value.concurrency,
     levelId?: string,
     shop?: { menu: RequestId[]; theme: ShopTheme },
+    explore = false,
   ): void {
     if (activity === 'story' && !levelId) {
-      this.enterAdventure(chapter, support, replay, concurrency);
+      this.enterAdventure(chapter, support, replay, concurrency, explore);
       return;
     }
     if (

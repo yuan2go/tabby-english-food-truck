@@ -32,6 +32,7 @@ export interface Order {
   support: string[];
 }
 export interface Attempt {
+  chapter?: number;
   id: string;
   condition: 'guided' | 'assisted' | 'independent-condition';
   visit: 'first' | 'revisit';

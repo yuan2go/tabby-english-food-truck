@@ -25,16 +25,16 @@
 
 Files: content/story-flow.ts，rules/story-flow.ts、adventure/game/snapshot，platform/controller/profile；tests/story-flow.test.ts。
 Interfaces: enableStoryFlow(GameState)，advanceStoryFlow(GameState): boolean，validStoryFlow(AdventureState): boolean；AdventureState.flow可选兼容字段。
-- [ ] RED：自动首客与下一波、严格错单不推进、真实接收/两野餐路线、品尝奖励幂等、暂停/旧档/在途/跨章库存恢复。
-- [ ] 实现全部五章波次/自动后果与档案，定向GREEN；保留旧规则验证，阶段提交。
+- [x] RED：自动首客与下一波、严格错单不推进、真实接收/两野餐路线、品尝奖励幂等、暂停/旧档/在途/跨章库存恢复。
+- [x] 实现全部五章波次/自动后果与档案，定向GREEN；保留旧规则验证，阶段提交。
 
 ### Task 3: 输入与音画
 
 Files: TogetherStage/Kitchen/Home、together.css、TogetherView、dialogue；e2e/continuous-gameplay.spec.ts及受影响helpers/套件。
 Interfaces: Task2状态投影，统一pickup/ingredient/put命令；进度无UI判定。
-- [ ] RED正常入口首客/反馈/无流程按钮、五章/两路/并行/自由/小游戏/视口和英语自动首次。
-- [ ] 各章固定可见设备与目标、食品/角色反馈、波次旅程、自然奖励过场；低动态/静音/触控/键盘不改变事实。更新旧UI路径，守恒/容量/错误/支持断言保留。
-- [ ] 定向GREEN、阶段提交。
+- [x] RED正常入口首客/反馈/无流程按钮、五章/两路/并行/自由/小游戏/视口和英语自动首次。
+- [x] 各章固定可见设备与目标、食品/角色反馈、波次旅程、自然奖励过场；低动态/静音/触控/键盘不改变事实。更新旧UI路径，守恒/容量/错误/支持断言保留。
+- [x] 定向GREEN、阶段提交。
 
 ### Task 4: 游戏性审查与工程门禁
 

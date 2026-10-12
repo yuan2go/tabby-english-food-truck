@@ -138,6 +138,7 @@ export function validateState(v: unknown): v is GameState {
       (a) =>
         record(a) &&
         str(a.id) &&
+        (a.chapter === undefined || integer(a.chapter, 4)) &&
         ['guided', 'assisted', 'independent-condition'].includes(a.condition as string) &&
         ['first', 'revisit'].includes(a.visit as string) &&
         a.audioQualified === false &&

@@ -1,6 +1,7 @@
 import { ADVENTURES, type AdventureState, emptyAdventure, FAMILIES } from '../content/adventure';
 import { REQUESTS } from '../content/catalog';
 import {
+  type ChapterMemory,
   flowOrders,
   REWARD_MS,
   STORY_WAVES,
@@ -38,6 +39,8 @@ export function enableStoryFlow(s: GameState, fresh = false): void {
     legacy: !fresh,
     archives: [],
   };
+  if (!fresh && a.flow) a.flow.legacyChapter = a.chapter;
+  if (a.rewards.length && a.flow) a.flow.completion = completionMemory(a, !fresh);
   if (fresh) initializeOrders(s);
   admitStoryGuests(s);
   if (a.chapter === 4) inviteReturningGuests(s);
@@ -84,7 +87,7 @@ const idle = (s: GameState) =>
 /** Clock-driven consequences of actual receipts; never called by an animation callback. */
 export function advanceStoryFlow(s: GameState): boolean {
   const old = s.adventure;
-  if (!old?.flow || old.flow.phase === 'complete') return false;
+  if (!old?.flow || old.flow.phase === 'complete' || old.flow.phase === 'explore') return false;
   const f = old.flow;
   const tastable = old.foods.filter(
     (food) =>
@@ -117,8 +120,11 @@ export function advanceStoryFlow(s: GameState): boolean {
   if (admitStoryGuests(s)) changed = true;
   if (flow.phase === 'reward') {
     if (s.gameTime < flow.until || !idle(s)) return changed;
-    const { flow: _, ...memory } = a;
-    flow.archives = [...flow.archives, memory].slice(-4);
+    if (!flow.completion) return changed;
+    flow.archives = [
+      ...flow.archives,
+      { ...flow.completion, works: structuredClone(a.works), decor: { ...a.decor } },
+    ].slice(-4);
     const chapter = a.chapter + 1;
     const known = [...new Set([...(a.experience?.known ?? []), ...a.foods.map((x) => x.product)])];
     const picnic = a.chapter === 2 ? a.branch : (a.experience?.picnic ?? null);
@@ -127,7 +133,14 @@ export function advanceStoryFlow(s: GameState): boolean {
         ...new Set([...(s.history[order.request] ?? []), ...order.support, 'seen-before']),
       ].slice(-24);
     s.adventure = emptyAdventure(chapter);
-    s.adventure.flow = { ...flow, wave: 0, phase: 'service', until: 0, legacy: false };
+    s.adventure.flow = {
+      ...flow,
+      wave: 0,
+      phase: 'service',
+      until: 0,
+      legacy: false,
+    };
+    delete s.adventure.flow.completion;
     hydrateExperience(s.adventure);
     if (s.adventure.experience) {
       s.adventure.experience.known = known;
@@ -211,14 +224,74 @@ export function advanceStoryFlow(s: GameState): boolean {
     if (a.chapter === 1 && !a.steps.includes('bunting'))
       adventureCommand(s, { type: 'adventure', action: 'bunting', value: 'cool' });
     if (adventureCommand(s, { type: 'adventure', action: 'finish' }).kind === 'ok') {
-      flow.phase = a.chapter === 4 ? 'complete' : 'reward';
-      flow.until = s.gameTime + REWARD_MS;
+      recordStoryCompletion(s);
       return true;
     }
   }
   return changed;
 }
-/** Progress and historical receipts are bounded and cannot contain recursive worlds. */
+/** An explicit visit to a rewarded chapter opens its real optional kitchen and props. */
+export function exploreStory(s: GameState): void {
+  const a = s.adventure;
+  if (a?.flow?.completion && a.rewards.length) {
+    a.flow.phase = 'explore';
+    a.flow.until = 0;
+  }
+}
+/** Immutable memory of the actual award moment; clearing the live table cannot erase it. */
+function completionMemory(a: AdventureState, legacy: boolean): ChapterMemory {
+  const { flow: _, ...state } = a;
+  return {
+    ...structuredClone(state),
+    contract: legacy ? 'legacy-adventure' : 'continuous-gameplay-1',
+  };
+}
+export function recordStoryCompletion(s: GameState): void {
+  const a = s.adventure,
+    flow = a?.flow;
+  if (!a || !flow || !a.rewards.length || flow.completion) return;
+  flow.phase = a.chapter === 4 ? 'complete' : 'reward';
+  flow.until = s.gameTime + REWARD_MS;
+  flow.completion = completionMemory(a, flow.legacy);
+}
+function validMemory(m: ChapterMemory): boolean {
+  if (
+    !m ||
+    typeof m !== 'object' ||
+    Object.hasOwn(m, 'flow') ||
+    !['continuous-gameplay-1', 'legacy-adventure'].includes(m.contract) ||
+    m.kind !== 'chapter' ||
+    m.rewards?.length !== 1 ||
+    !validAdventure(m)
+  )
+    return false;
+  if (m.contract === 'legacy-adventure') return true;
+  if (
+    !flowOrders(m).every(
+      (o, i) =>
+        m.foods
+          .filter((f) => f.source === `guest-${i}`)
+          .map((f) => f.product)
+          .sort()
+          .join('|') === [...REQUESTS[o.request].products].sort().join('|'),
+    )
+  )
+    return false;
+  if (
+    m.chapter === 4 &&
+    !['rabbit', 'hedgehog'].every((v) =>
+      m.experience?.needs.some(
+        (n) =>
+          n.visitor === v &&
+          n.fulfilled.length === 1 &&
+          m.foods.some((f) => n.fulfilled.includes(f.id) && f.tasted && f.recipient === v),
+      ),
+    )
+  )
+    return false;
+  return true;
+}
+/** New archives retain receipt provenance; explicitly adopted legacy awards keep their contract. */
 export function validStoryFlow(a: AdventureState): boolean {
   const f = a.flow;
   if (f === undefined) return true;
@@ -230,23 +303,31 @@ export function validStoryFlow(a: AdventureState): boolean {
     Number.isInteger(f.wave) &&
     f.wave >= 0 &&
     f.wave < (f.legacy ? 1 : (STORY_WAVES[a.chapter]?.length ?? 0)) &&
-    ['service', 'reward', 'complete'].includes(f.phase) &&
+    ['service', 'reward', 'complete', 'explore'].includes(f.phase) &&
     Number.isFinite(f.until) &&
     f.until >= 0 &&
     f.until <= 1e12 &&
+    (f.legacyChapter === undefined ||
+      (Number.isInteger(f.legacyChapter) &&
+        f.legacyChapter >= 0 &&
+        f.legacyChapter <= a.chapter)) &&
+    (!f.legacy || f.legacyChapter === a.chapter) &&
     (f.phase === 'service'
-      ? !a.rewards.length
-      : a.rewards.length === 1 && (f.phase !== 'complete' || a.chapter === 4)) &&
+      ? !a.rewards.length && f.completion === undefined
+      : a.rewards.length === 1 &&
+        (f.phase !== 'complete' || a.chapter === 4) &&
+        !!f.completion &&
+        f.completion.chapter === a.chapter &&
+        f.completion.contract === (f.legacy ? 'legacy-adventure' : 'continuous-gameplay-1') &&
+        validMemory(f.completion)) &&
     Array.isArray(f.archives) &&
     f.archives.length <= 4 &&
     f.archives.every(
       (m, i) =>
-        !Object.hasOwn(m, 'flow') &&
-        m.kind === 'chapter' &&
+        validMemory(m) &&
         m.chapter < a.chapter &&
         (!i || m.chapter > (f.archives[i - 1]?.chapter ?? -1)) &&
-        m.rewards.length === 1 &&
-        validAdventure(m),
+        (m.contract !== 'legacy-adventure' || (i === 0 && m.chapter === f.legacyChapter)),
     )
   );
 }

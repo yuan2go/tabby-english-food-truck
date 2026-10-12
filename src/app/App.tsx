@@ -159,6 +159,7 @@ export function App() {
     replay = false,
     levelId?: string,
     shop?: { menu: RequestId[]; theme: ShopTheme },
+    explore = false,
   ) => {
     audio.stop();
     controller.enter(
@@ -169,6 +170,7 @@ export function App() {
       activity === 'endless' ? concurrency : 1,
       levelId,
       shop,
+      explore,
     );
     if (controller.save.blocked) {
       setProtectedSave(true);
@@ -219,7 +221,11 @@ export function App() {
           profile={controller.profile.value}
           legacy={Boolean(controller.save.legacyRaw)}
           audio={audio}
-          onActivity={(c) => enter('story', c)}
+          {...(s.adventure?.kind === 'chapter' &&
+          (!s.adventure.rewards.length || s.adventure.flow?.phase === 'reward')
+            ? { resumeChapter: s.session.chapter }
+            : {})}
+          onActivity={(c, explore) => enter('story', c, false, undefined, undefined, explore)}
           onChoose={(choice) => {
             audio.stop();
             if (choice === 'endless') enter('endless');
@@ -237,7 +243,7 @@ export function App() {
           audio={audio}
           support={support}
           setSupport={setSupport}
-          enter={(c, r, id) => enter('story', c, r, id)}
+          enter={(c, r, id) => enter('story', c, r, id, undefined, true)}
           home={home}
           resumeExisting={() => {
             if (controller.resumeLegacyStory()) {

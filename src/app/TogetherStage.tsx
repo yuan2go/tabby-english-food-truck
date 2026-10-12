@@ -546,7 +546,7 @@ export function TogetherStage({
         <header>
           <span>{title}</span>
           {a?.flow ? (
-            <div
+            <section
               className="story-progress"
               aria-label={`第${a.chapter + 1}章，第${a.flow.wave + 1}波：${wave?.title ?? ''}`}
             >
@@ -556,7 +556,7 @@ export function TogetherStage({
                   <i key={w.title} className={i <= (a.flow?.wave ?? 0) ? 'wave-lit' : ''} />
                 ))}
               </div>
-            </div>
+            </section>
           ) : null}
           <button type="button" style={position(l.pause)} aria-label="暂停" onClick={pause}>
             Ⅱ

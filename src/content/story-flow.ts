@@ -5,13 +5,18 @@ export interface StoryWave {
   guests: readonly { request: RequestId; visitor: Visitor }[];
   together: boolean;
 }
+export type ChapterMemory = Omit<AdventureState, 'flow'> & {
+  contract: 'continuous-gameplay-1' | 'legacy-adventure';
+};
 export interface StoryFlow {
   version: 1;
   wave: number;
-  phase: 'service' | 'reward' | 'complete';
+  phase: 'service' | 'reward' | 'complete' | 'explore';
   until: number;
   legacy: boolean;
-  archives: Omit<AdventureState, 'flow'>[];
+  legacyChapter?: number;
+  completion?: ChapterMemory;
+  archives: ChapterMemory[];
 }
 export const WAVE_GAP_MS = 650;
 export const REWARD_MS = 1800;

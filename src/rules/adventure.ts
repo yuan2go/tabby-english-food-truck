@@ -23,7 +23,7 @@ import {
   worldMoment,
 } from './adventure-experience';
 import { admitAdventure } from './sessions';
-import { flowReceived, validStoryFlow } from './story-flow';
+import { flowReceived, recordStoryCompletion, validStoryFlow } from './story-flow';
 import type { Command, GameState, Item, Result } from './types';
 
 export function startAdventure(
@@ -58,9 +58,11 @@ export function startAdventure(
 }
 export function adventureReady(a: AdventureState): boolean {
   const has = (step: string) => a.steps.includes(step);
-  if (a.kind === 'shop' || !experienceReady(a) || (a.flow && !flowReceived(a))) return false;
+  if (a.kind === 'shop' || !experienceReady(a) || (a.flow && !a.rewards.length && !flowReceived(a)))
+    return false;
   if (
     a.flow &&
+    !a.rewards.length &&
     a.chapter === 4 &&
     !['rabbit', 'hedgehog'].every((v) =>
       a.experience?.needs.some((n) => n.visitor === v && n.fulfilled.length),
@@ -567,6 +569,7 @@ export function adventureCommand(
         })),
       destination: 'table',
     });
+    recordStoryCompletion(s);
     return result('ok', '大家一起开席！可以继续做作品、布置，或自然收摊。');
   }
   return result('blocked', '这个动作还没开放。');

@@ -12,3 +12,5 @@
 恢复与迁移仅指本仓库。连续过程的章记忆随游戏快照持久化，Controller将其同步到profile，避免跨两个localStorage写入丢奖励。保留真实run/food IDs、支持、订单/processing与routing；后台丢大delta、暂停不补钟、取消生命周期清理。
 
 发布使用合并main的干净构建与真实SHA/content/assets，沿用Sites项目appgprj_6ab141055ab8819186112dee423d0d04及static.directory=dist，原网址https://tabby-english-food-truck.aw9923299.chatgpt.site。保存GitHub→Sites source→version→deployment映射，匿名新会话验证，无法发布则明确BLOCKED。
+
+完成收据保存授奖当时的实际食品与版本合同，当前桌面清理不撤销奖励。新章节档案核对配置与全部接收多重集合；本仓库合法旧奖励显式标记旧合同。尝试附章节身份，跨章同一guest编号不计为重试。显式回访已完成站进入explore，连续主线仍自动过场；奖励期回首页优先续当前实际厨房，保留额外食品及加工。

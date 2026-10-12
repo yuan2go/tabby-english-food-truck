@@ -281,3 +281,131 @@ test('restoring a real picnic run keeps its route memory even when the separate 
     vi.unstubAllGlobals();
   }
 });
+test('clearing the completed carnival preserves its reward and a valid recoverable world', () => {
+  let s = start(4);
+  for (const [visitor, product] of [
+    ['rabbit', 'apple'],
+    ['hedgehog', 'juice'],
+  ] as const) {
+    s = make(s, product);
+    s = run(s, { type: 'adventure', action: 'create', tray: 0, fromHand: true, visitor }).state;
+    s = tick(s, (s) => !s.actor.current);
+  }
+  s = tick(s, (s) => s.adventure?.flow?.phase === 'complete');
+  const works = structuredClone(s.adventure?.works);
+  const r = run(s, { type: 'adventure', action: 'clear-table', confirmed: true });
+  expect(r.kind).toBe('ok');
+  expect(r.state.adventure?.foods).toEqual([]);
+  expect(r.state.adventure?.works).toEqual(works);
+  expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+});
+test('an already rewarded legacy feast gains no new sharing obligations on adoption', async () => {
+  const { vi } = await import('vitest');
+  const { GameController } = await import('../src/platform/controller');
+  const { SaveStore, SAVE_KEY } = await import('../src/platform/save');
+  let s = run(createGame('old-feast', 0, {}, 'practice'), {
+    type: 'adventure-start',
+    chapter: 4,
+  }).state;
+  for (const visitor of ['rabbit', 'hedgehog'])
+    s = run(s, { type: 'adventure', action: 'invite', visitor }).state;
+  s = make(s, 'apple');
+  s = run(s, {
+    type: 'adventure',
+    action: 'create',
+    tray: 0,
+    fromHand: true,
+    visitor: 'rabbit',
+  }).state;
+  s = tick(s, (s) => !s.actor.current);
+  s = run(s, { type: 'adventure', action: 'taste', item: s.adventure?.foods[0]?.id }).state;
+  s = run(s, { type: 'adventure', action: 'save-work' }).state;
+  const finish = run(s, { type: 'adventure', action: 'finish' });
+  expect(finish.kind).toBe('ok');
+  s = finish.state;
+  const values = new Map([
+    [SAVE_KEY, JSON.stringify({ ...s, contentVersion: 'direct-cooking-1' })],
+  ]);
+  const storage = {
+    getItem: (k: string) => values.get(k) ?? null,
+    setItem: (k: string, v: string) => {
+      values.set(k, v);
+    },
+    removeItem: (k: string) => {
+      values.delete(k);
+    },
+  };
+  vi.stubGlobal('localStorage', storage);
+  try {
+    const c = new GameController(new SaveStore(() => storage));
+    c.enter('story', 4);
+    expect(c.state.adventure?.rewards).toEqual(['feast-page']);
+    expect(decodeSnapshot(JSON.stringify(c.state)).ok).toBe(true);
+  } finally {
+    vi.unstubAllGlobals();
+  }
+});
+test('a new archive cannot manufacture a breakfast completion from only step and reward strings', () => {
+  const s = start(1);
+  const memory = {
+    chapter: 0,
+    kind: 'chapter',
+    branch: null,
+    explored: [],
+    steps: ['served:rabbit', 'served:hedgehog'],
+    rewards: ['flower-page'],
+    foods: [],
+    works: [],
+    decor: { flower: 0, bunting: 'warm', cloth: 'leaf', light: 'warm' },
+    invitations: [],
+  };
+  const value = structuredClone(s);
+  if (value.adventure?.flow) value.adventure.flow.archives.push(memory as never);
+  expect(decodeSnapshot(JSON.stringify(value)).ok).toBe(false);
+});
+test('the first real dessert attempt has its own chapter and is not a breakfast retry', () => {
+  let s = start();
+  for (let i = 0; i < 4; i++) {
+    s = tick(s, (s) => s.orders.some((o) => o.status === 'waiting'));
+    s = serve(s);
+  }
+  s = tick(s, (s) => s.session.chapter === 1);
+  s = serve(s);
+  expect(s.attempts.at(-1)?.retry).toBe(0);
+  expect(s.attempts.at(-1)?.chapter).toBe(1);
+});
+test('explicitly revisiting a completed station keeps exploration open rather than sending it away again', async () => {
+  const { vi } = await import('vitest');
+  const { GameController } = await import('../src/platform/controller');
+  const { SaveStore } = await import('../src/platform/save');
+  const values = new Map<string, string>();
+  const storage = {
+    getItem: (k: string) => values.get(k) ?? null,
+    setItem: (k: string, v: string) => {
+      values.set(k, v);
+    },
+    removeItem: (k: string) => {
+      values.delete(k);
+    },
+  };
+  let s = start();
+  for (let i = 0; i < 4; i++) {
+    s = tick(s, (s) => s.orders.some((o) => o.status === 'waiting'));
+    s = serve(s);
+  }
+  s = tick(s, (s) => !!s.adventure?.rewards.length);
+  const store = new SaveStore(() => storage);
+  store.save(s);
+  s = tick(s, (s) => s.session.chapter === 1);
+  store.save(s);
+  vi.stubGlobal('localStorage', storage);
+  try {
+    const c = new GameController(new SaveStore(() => storage));
+    c.enter('story', 0);
+    expect(c.state.adventure?.flow?.phase).toBe('explore');
+    expect(advance(c.state, 5000).session.chapter).toBe(0);
+    expect(decodeSnapshot(JSON.stringify(c.state)).ok).toBe(true);
+  } finally {
+    vi.unstubAllGlobals();
+  }
+});

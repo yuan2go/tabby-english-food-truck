@@ -144,12 +144,13 @@ function attempt(
   s: GameState,
   a: Omit<
     Attempt,
-    'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified' | 'id'
+    'runId' | 'gameTime' | 'retry' | 'condition' | 'visit' | 'audioQualified' | 'id' | 'chapter'
   >,
 ): void {
   s.attempts.push({
     ...a,
     id: `${s.runId}:attempt:${s.revision}`,
+    chapter: s.session.chapter,
     condition:
       s.mode === 'guided' ? 'guided' : a.support.length ? 'assisted' : 'independent-condition',
     visit:
@@ -165,6 +166,8 @@ function attempt(
     gameTime: s.gameTime,
     retry: s.attempts.filter(
       (t) =>
+        (t.chapter === s.session.chapter ||
+          (t.chapter === undefined && (!s.adventure?.flow || s.adventure.flow.legacy))) &&
         t.activity === a.activity &&
         (a.activity === 'note' || t.input.startsWith(a.input.split(':')[0] ?? '')),
     ).length,
