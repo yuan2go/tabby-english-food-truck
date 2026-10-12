@@ -65,8 +65,7 @@ export function MiniGames({
     moved: boolean;
     node: HTMLButtonElement;
   } | null>(null);
-  const ignore = useRef(false),
-    ghost = useRef<HTMLDivElement>(null);
+  const ghost = useRef<HTMLDivElement>(null);
   const update = useCallback(
     (next: MiniState) => {
       store.save(next);
@@ -81,7 +80,6 @@ export function MiniGames({
     gesture.current = null;
     if (g?.node.hasPointerCapture(g.pointer)) g.node.releasePointerCapture(g.pointer);
     if (ghost.current) ghost.current.style.display = 'none';
-    ignore.current = true;
   }, []);
   useEffect(() => {
     const other = (e: PointerEvent) => {
@@ -397,7 +395,6 @@ export function MiniGames({
         cancel();
         return;
       }
-      ignore.current = false;
       gesture.current = {
         id,
         pointer: e.pointerId,
@@ -433,8 +430,16 @@ export function MiniGames({
       if (ghost.current) ghost.current.style.display = 'none';
       if (e.currentTarget.hasPointerCapture(e.pointerId))
         e.currentTarget.releasePointerCapture(e.pointerId);
-      if (!g.moved) return;
-      ignore.current = true;
+      if (!g.moved) {
+        if (from !== null) {
+          commitLetter(g.id, null);
+          setSlot(from);
+        } else {
+          commitLetter(g.id, slot !== null ? slot : state.draft.findIndex((x) => !x));
+          setSlot(null);
+        }
+        return;
+      }
       const target = document.elementFromPoint(e.clientX, e.clientY);
       const cell = target?.closest<HTMLElement>('[data-letter-slot]');
       if (cell) commitLetter(g.id, Number(cell.dataset.letterSlot));
@@ -445,11 +450,11 @@ export function MiniGames({
           state.draft.findIndex((x) => !x),
         );
     },
-    onClick: () => {
-      if (ignore.current) {
-        ignore.current = false;
-        return;
-      }
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+      // Pointer taps and drags commit on release. Only keyboard/accessibility
+      // activation uses click, so a delayed synthetic click cannot consume the
+      // next gesture or apply the same letter twice.
+      if (e.detail !== 0) return;
       if (from !== null) {
         commitLetter(id, null);
         setSlot(from);
