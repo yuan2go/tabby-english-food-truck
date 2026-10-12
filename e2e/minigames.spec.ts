@@ -57,13 +57,19 @@ for (const kind of ['match', 'spell'] as const)
             : 'A B C WordSpell 拼食物 听发音，摆字母',
       })
       .tap();
-    await page.getByRole('button', { name: '开始玩', exact: true }).tap();
+    if (await page.getByRole('button', { name: '开始玩', exact: true }).isVisible())
+      await page.getByRole('button', { name: '开始玩', exact: true }).tap();
     for (let n = 0; n < 4; n++) {
       const s = await mini(page),
         word = targetWord(s);
-      await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
+      if (await page.getByRole('button', { name: '我来找 / 拼', exact: true }).isVisible())
+        await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
       if (kind === 'match') {
-        await expect(page.locator('.mini-play')).not.toContainText(word.text);
+        if (s.support.includes('meaning-picture'))
+          await expect(page.getByRole('region', { name: '食物与英文名字' })).toContainText(
+            word.text,
+          );
+        else await expect(page.locator('.mini-play')).not.toContainText(word.text);
         await page.locator('.sound-tile').tap();
         const wrong = page
           .locator('.matching-pictures button')
@@ -135,7 +141,7 @@ for (const kind of ['match', 'spell'] as const)
     await expect(page.getByRole('heading', { name: '四份心意，都找到了！' })).toBeVisible();
     expect((await mini(page)).attempts.filter((a) => a.result)).toHaveLength(4);
     await page.getByRole('button', { name: '再玩一组', exact: true }).tap();
-    await expect(page.getByRole('button', { name: '开始玩', exact: true })).toBeVisible();
+    await expect(page.locator('.matching-pictures, .letter-bank')).toBeVisible();
     await page.getByRole('button', { name: '← 回游戏小摊', exact: true }).tap();
     await page.getByRole('button', { name: '← 小院', exact: true }).tap();
     await expect(page.locator('.yard-story')).toBeVisible();
@@ -149,8 +155,10 @@ test('M2 bilingual uses explicit support and preserves business inventory', asyn
   await page.getByText('换帮助或玩法', { exact: true }).tap();
   await page.getByRole('button', { name: '中英配对（识字后）', exact: true }).tap();
   await page.getByRole('button', { name: /食物找朋友 看中文，选英文/ }).tap();
-  await page.getByRole('button', { name: '开始玩', exact: true }).tap();
-  await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
+  if (await page.getByRole('button', { name: '开始玩', exact: true }).isVisible())
+    await page.getByRole('button', { name: '开始玩', exact: true }).tap();
+  if (await page.getByRole('button', { name: '我来找 / 拼', exact: true }).isVisible())
+    await page.getByRole('button', { name: '我来找 / 拼', exact: true }).tap();
   const word = targetWord(await mini(page));
   await page.locator('.sound-tile').tap();
   await page

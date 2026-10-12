@@ -1,0 +1,52 @@
+[WebServer] (node:80773) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:80847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:80894) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable (7.1s)
+
+
+  1) e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('region', { name: '食物与英文名字' })
+    Expected substring: "apple"
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('region', { name: '食物与英文名字' }) with timeout 6000ms
+      - waiting for getByRole('region', { name: '食物与英文名字' })
+
+
+      62 |   const word=targetWord(mini);
+      63 |   expect(mini.support).toContain('meaning-picture');
+    > 64 |   await expect(page.getByRole('region',{name:'食物与英文名字'})).toContainText(word.text);
+         |                                                           ^
+      65 |   await expect(page.getByRole('region',{name:'食物与英文名字'}).locator('img')).toBeVisible();
+      66 |   await page.getByRole('button',{name:'← 回游戏小摊'}).click();
+      67 |   await page.getByRole('button',{name:/A B C WordSpell/}).click();
+        at /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/direct-cooking.spec.ts:64:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/error-context.md
+
+  1 failed
+    e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable 

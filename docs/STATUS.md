@@ -1,3 +1,7 @@
+# 2026-10-12 · 全游戏操作减负与游戏性重构
+
+READY_FOR_PR / LOCAL_PLAY_VERIFIED。最新远端main baseline0164da67de128110b75c4a6fa2c414914faebfb3；隔离codex/direct-cooking-experience-2026-10-12，原64f03fc试玩分支及未跟踪文件保留。先归档旧合同，再独立docs提交；现行01–05为唯一合同。已实现五章、双野餐、同屏真实料理、直接分享/保存、自由厨房默认开门和小游戏直接进入。独立只读审查发现的预留冲突、共享竞态与虚假意义曝光记录已实际修正，定向规则/UI已绿。350/350单元、lint、typecheck/build、资源、词库退出0；干净5b67版本完整42/42浏览器通过，正常393×665连续五章→自由厨房→小游戏92次触控/单球4次。短横屏后期全部设备裁切已实际修复，修正布局17/17定向回归与连续触控/1280×720/665×393复测通过。待精确最终head云端检查、PR合并及原站发布，尚未push/PR/发布。成人真人/儿童观察/真机/教研/听审NOT_RUN，原审核边界保留。详见[evidence](evidence/direct-cooking-2026-10-12/README.md)。
+
 # 同桌共玩 · 2026-10-12正式交付
 
 PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING：同桌舞台覆盖五章、双野餐与自由厨房。正常新档手机连续代理游玩和桌面补查完成，问题已实际修正及定向复测。最终代码head339/339单元、39/39浏览器与必要门禁success，经[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)合并main `2e3f36442a54a564647632d6bf421ec58a3b6252`，清洁构建dirty=false；原站version4公开部署及VPN匿名真实核心游玩PASS。最新一页设计说明及可编辑Markdown同稿核验、备份旧版、复制真实桌面均PASS。最终材料与报告由[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)归档main；合并回执以该PR和交付回复实际读回为准。详见[完整报告](evidence/simplified-play-2026-10-12/README.md)与[材料索引](submission/index.md)。

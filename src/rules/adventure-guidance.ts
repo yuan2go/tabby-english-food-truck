@@ -62,16 +62,6 @@ export function activityObstacle(s: GameState, c: ActivityCommand): ActivityGuid
       audio: NEED_AUDIO[need.kind],
     };
   if (c.action === 'place' || c.action === 'share') {
-    // Match rule precedence: the drawer must be available before placement.
-    if (c.action === 'place' && !a.rewards.length && a.chapter === 2 && a.branch !== 'hedgehog')
-      return activityGuidance(s);
-    if (
-      c.action === 'place' &&
-      !a.rewards.length &&
-      ((a.chapter === 2 && a.branch === 'hedgehog' && !a.explored.includes('drawer')) ||
-        (a.chapter === 3 && !a.explored.includes('drawer')))
-    )
-      return guide('drawer', 'drawer', 'mat', '先打开抽屉，取出摆餐的物件。', 'drawer');
     const seat = c.action === 'share' && need ? visitorSeat(need.visitor) : c.seat;
     const occupied = a.foods.find((f) => f.id !== c.item && f.place === `table:${seat}`);
     if (food && occupied)
@@ -84,14 +74,6 @@ export function activityObstacle(s: GameState, c: ActivityCommand): ActivityGuid
         [occupied.product],
         occupied.id,
       );
-    if (
-      c.action === 'place' &&
-      a.chapter === 2 &&
-      a.branch === 'hedgehog' &&
-      !a.rewards.length &&
-      !a.experience?.tools.includes('mat')
-    )
-      return guide('mat', 'drawer', 'mat', '先取出餐垫，食品就有摆放的位置。', 'mat');
   }
   if (c.action === 'share' && !need)
     return guide('invite', 'friend', 'table', '先邀请一位朋友，听听分享需要。', 'invite');
@@ -118,7 +100,6 @@ export function activityGuidance(s: GameState): ActivityGuidance {
   const e = a.experience;
   const has = (step: string) => a.steps.includes(step);
   const used = (step: NonNullable<typeof e>['used'][number]) => e?.used.includes(step);
-  const tools = (tool: NonNullable<typeof e>['tools'][number]) => e?.tools.includes(tool);
   const waiting = s.orders.find((o) => o.status === 'waiting');
   const serve = () =>
     guide(
@@ -174,8 +155,6 @@ export function activityGuidance(s: GameState): ActivityGuidance {
         'kitchen',
         openCommission(a)?.choices,
       );
-    if (!a.explored.includes('recipe'))
-      return guide('recipe', 'recipe', 'compare', '翻开旧食谱，看看两份真实甜点。', 'recipe');
     if (!used('compare'))
       return guide(
         'compare',
@@ -186,8 +165,6 @@ export function activityGuidance(s: GameState): ActivityGuidance {
         a.foods.map((f) => f.product),
       );
     if (!has('taste')) return guide('taste', 'spoon', 'friend', '选一份，让朋友尝一口。', 'taste');
-    if (!has('bunting'))
-      return guide('bunting', 'bunting', 'shade', '挂起彩旗，把甜点送到阴凉的分享处。', 'bunting');
   }
   if (a.chapter === 2) {
     if (!a.branch) return serve();
@@ -199,22 +176,14 @@ export function activityGuidance(s: GameState): ActivityGuidance {
           'pack',
           'kitchen',
           'basket',
-          '一份三明治和一份水果，装入同一盘带来。',
+          '分别把一份三明治和一份水果放进篮子。',
           'kitchen',
           openCommission(a)?.choices,
         );
       if (!has('unpack'))
         return guide('unpack', 'basket', 'table', '把装好的篮子带到桌上打开。', 'unpack');
     } else {
-      if (!a.explored.includes('drawer'))
-        return guide('mat', 'drawer', 'mat', '取出餐垫，给朋友找到各自的位置。', 'drawer');
-      if (!tools('mat'))
-        return guide('mat', 'drawer', 'mat', '拿出两张餐垫，食物就有位置了。', 'mat');
-      if (![0, 1].every((seat) => a.foods.some((f) => f.place === `table:${seat}`))) {
-        if (a.foods.some((f) => f.place.startsWith('guest-') || f.place === 'work'))
-          return guide('place', 'carry', 'table', '选食品，再点空餐位，每位朋友一份。', 'place');
-        return serve();
-      }
+      if (waiting) return serve();
     }
     if (waiting) return serve();
     if (!has('cloth'))
@@ -222,10 +191,6 @@ export function activityGuidance(s: GameState): ActivityGuidance {
   }
   if (a.chapter === 3) {
     if (!has('served:rabbit') && !has('served:hedgehog')) return serve();
-    if (!a.explored.includes('drawer'))
-      return guide('lantern', 'drawer', 'lantern', '另一份正在做时，找出餐桌灯。', 'drawer');
-    if (!tools('lantern'))
-      return guide('lantern', 'drawer', 'lantern', '拿出灯串，邀请朋友帮忙搬过来。', 'lantern');
     if (!used('cooperate'))
       return guide(
         'cooperate',
@@ -235,28 +200,30 @@ export function activityGuidance(s: GameState): ActivityGuidance {
         'cooperate',
       );
     if (waiting) return serve();
-    if (![0, 1].every((seat) => a.foods.some((f) => f.place === `table:${seat}`)))
+    if (
+      ![0, 1].every((seat) =>
+        a.foods.some(
+          (f) =>
+            f.place === `table:${seat}` ||
+            f.place === `guest-${seat === 0 ? 'rabbit' : 'hedgehog'}`,
+        ),
+      )
+    )
       return guide('place', 'carry', 'table', '安排食品和朋友的座位。', 'place');
     if (!has('light'))
       return guide('light', 'lantern', 'table', '把灯点亮，看看两种灯光。', 'light');
   }
   if (a.chapter === 4) {
     if (!a.invitations.includes('rabbit') || !a.invitations.includes('hedgehog'))
-      return guide('invite', 'friend', 'table', '点朋友的邀请牌，听听今天的新需要。', 'invite');
+      return guide('invite', 'friend', 'table', '点朋友，听听今天的新需要。', 'invite');
     if (!a.foods.some((f) => f.source.startsWith('create:')))
       return guide('create', 'kitchen', 'table', '自己搭配，做好拼盘带到桌边。', 'kitchen');
     if (!used('share'))
-      return guide(
-        'share',
-        'ear',
-        'friend',
-        '听朋友的分享需要，选食品，再点朋友的分享牌。',
-        'share',
-      );
+      return guide('share', 'ear', 'friend', '听朋友的分享需要，选食品，再点朋友。', 'share');
     if (!a.foods.some((f) => f.source.startsWith('create:') && f.tasted))
       return guide('taste', 'spoon', 'friend', '让朋友尝你的选择，看看回应。', 'taste');
     if (!has('save-work'))
-      return guide('save', 'table', 'recipe', '把实际作品放进食谱，下次能翻看。', 'save-work');
+      return guide('save', 'table', 'recipe', '点食谱保存实际作品，下次能翻看。', 'save-work');
   }
   return adventureReady(a)
     ? guide('finish', 'table', 'friends', '准备好了，点餐桌一起开席。', 'finish')

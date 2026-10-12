@@ -1,0 +1,89 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (31 tests | 2 failed) 101ms
+     × rabbit path needs real two-part packing, then merges with the same picnic reward 12ms
+   × cooperation carries a real found tool without changing cooking, orders or food 4ms
+ ❯ tests/mini-expansion-recovery.test.ts (12 tests | 2 failed) 80ms
+   × refresh preserves held objects, help, seed and old course progress without awarding new content 12ms
+   × challenge audio is observed separately from the learning example 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > adventure causal rules > rabbit path needs real two-part packing, then merges with the same picnic reward
+AssertionError: expected 'ok' to be 'incomplete' // Object.is equality
+
+Expected: "incomplete"
+Received: "ok"
+
+ ❯ tests/adventure.test.ts:132:46
+    130|     s = act(s, 'explore', { object: 'basket' }).state;
+    131|     s = make(s, 'apple');
+    132|     expect(act(s, 'pack', { tray: 0 }).kind).toBe('incomplete');
+       |                                              ^
+    133|     s = make(s, 'salad-sandwich');
+    134|     const packed = act(s, 'pack', { tray: 0 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/adventure.test.ts > cooperation carries a real found tool without changing cooking, orders or food
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/adventure.test.ts:391:78
+    389| it('cooperation carries a real found tool without changing cooking, or…
+    390|   let s = deliver(start(3), 0, 'cheese-burger');
+    391|   expect(act(s, 'cooperate', { visitor: 'rabbit', object: 'lantern' })…
+       |                                                                              ^
+    392|   s = act(s, 'explore', { object: 'drawer' }).state;
+    393|   s = act(s, 'take-tool', { object: 'lantern' }).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > refresh preserves held objects, help, seed and old course progress without awarding new content
+AssertionError: expected 'play' to be 'meaning' // Object.is equality
+
+Expected: "meaning"
+Received: "play"
+
+ ❯ tests/mini-expansion-recovery.test.ts:36:43
+     34|   expect(restored.scenes['hunt-0']?.seed).toBe(4);
+     35|   expect(restored.completedScenes).toEqual([]);
+     36|   expect(restored.courses[old.id]?.phase).toBe('meaning');
+       |                                           ^
+     37|   expect(data.has(COURSE_KEY)).toBe(true);
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/mini-expansion-recovery.test.ts > challenge audio is observed separately from the learning example
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/mini-expansion-recovery.test.ts:189:27
+    187|   };
+    188|   const challenge = playCourse(meaning);
+    189|   expect(challenge.heard).toBe(false);
+       |                           ^
+    190|   expect(challenge.support).toContain('context-example');
+    191| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed | 26 passed (28)
+      Tests  4 failed | 344 passed (348)
+   Start at  23:20:00
+   Duration  1.16s (transform 1.37s, setup 0ms, import 2.86s, tests 1.42s, environment 2ms)
+

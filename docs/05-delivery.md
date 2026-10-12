@@ -1,62 +1,51 @@
-# 简化操作与正式交付 Implementation Plan
+# 全游戏操作重构 Implementation Plan
 
-> For agentic workers: use superpowers:executing-plans inline；一名实现负责人，完成后一次独立只读审查。
+> For agentic workers: superpowers:executing-plans inline；一名实现负责人，末尾一次独立只读全分支审查。用户已授权自主设计/实现/验证/PR/按规则合并main/原站发布/桌面材料。
 
-**Goal:** 将同桌拿放贯穿五章和自由厨房，优化真实游玩，经PR合并main更新原公开站点，交付最新一页设计说明源稿/PDF至真实桌面。
-**Architecture:** 现规则核新增原子拿放适配及可校验手中归属；同桌舞台替代分离入口/独立剧场；生命周期、声音、存档和判定复用。
-**Tech Stack:** 现有React/Phaser/TypeScript/Vite及真实锁文件。
-**Spec:** 本轮用户指令、01产品、02规则、03体验、04技术。
+**Goal:** 五章、双野餐、自由厨房及受影响小游戏均以直接物件操作持续可玩。
+**Architecture:** 单规则核直接输入和组合命令；各设备同屏投影；活动简化前置，实际行为/实例/收据继续判定。
+**Tech Stack:** 既有锁定React/Phaser/TypeScript/Vite，不加依赖或运行时AI。
+**Spec:** 01–04及本轮用户任务。
 
 ## Global Constraints
 
-只做同桌共玩，不做近景轮流；同屏角色一次；48px起目标、点击独立/拖动可选；完整英文/气泡重听/落空不提交；没有盘管理步骤、隐藏模式投料；真实选料/启动/取成品；错放/误送保留物品；早餐探索可选。保留五章/双路线/自由厨房/50食品/120概念/十类小游戏，单归属/容量/时钟/记录/旧档恢复。禁止旧项目导入及账号/经济/后端/运行时AI扩张。2026-10-12负责人已授权提交push/PR/按规则merge/main及更新原站；不强推或绕保护。
+保留严格订单/食品唯一归属/容量/有效时钟/原子失败/双客选择/两路野餐/学习历史/旧档迁移；完整英文/重听一致，操作错误不是英语错误。新知识先表意义，帮助留痕。保持既有角色资源及审核记录。无测试通关注入、不删关键断言、不强推/绕保护。
 
 ## Review Focus
 
-- 已持物重复点供给和多份失败：不静默替换或部分丢料。
-- 一个设备混合family、正在加工、旧预留盘：可见目标决定输入且忙态/预留保留。
-- 气泡/等待朋友/盘子/空地/手势取消：重听不交付、等待不隐式切单、语义一致。
-- 刷新/后台/旋转/旧档：实例和持有关系可恢复，不补时或推断探索完成。
-- 开席/品尝/重播/低动态/章节恢复：奖励及消费只来自真实命令/时钟。
+持物点直接供给不丢物；冰淇淋追加非法组合保留原品；封合前误料可恢复；设备并发/满盘/旧加工预留不被重排；旧档迁移不补奖或洗白；逐份装篮不能多装或复制；小游戏减少阶段仍保留支持和物理前置。
 
-### Task 1: 权威文档治理
+### Task 1: 治理与修改前基线
 
-Files: README、01–05、STATUS、docs/index、docs/archive/pre-simplified-play-2026-10-12。Interfaces: 消费用户指令/原合同，产出唯一现行合同。
-- [x] 先读latest main/线上登记/草案/发布和试玩报告，逐字节归档冲突原文，修索引。
-- [x] 写回确定交互、早餐完成条件、迁移/验收与Git发布授权；独立docs提交，之后才产品代码。
+- [x] 最新main完整SHA、原工作区保留、隔离分支；读现行合同/最新报告/实际源码状态机测试。
+- [x] 逐字节归档被替代八份合同、更新唯一01–05，独立docs提交先于代码。
+- [x] 正常手机入口测单球7点击，基线339单元通过；其余操作链源读回见本轮baseline。
 
-### Task 2: 原子拿放与早餐收尾
+### Task 2: 料理规则
 
-Files: rules/types/game/cooking/snapshot/adventure/adventure-experience，tests/together-play.test.ts及受影响原测试。Interfaces: Command pickup(source)/put(target)/return-hand；Item.location包含hand:0–2，持物来自真实实例，无额外镜像库存。
-- [x] RED：供给→手中唯一实例、已有手中物不可替换、原子失败、放回/错单、设备明确目标与预留、早餐无探索可完成、旧档/非法手中槽位恢复。
-- [x] Run `npx vitest run tests/together-play.test.ts`，核对具体缺行为失败；实现仅走既有规则；GREEN及必要完整`npm test`，阶段提交。
+Files: rules/direct-cooking/game/cooking/types/snapshot、content/recipes/catalog，tests/direct-cooking.test.ts。
+Interfaces: ingredient(product,target)明确设备原子投料；compose真实输入/输出，旧move仍有效；assemble自然完成、肉饼/果汁时钟不改。
+- [x] RED：杯筒/口味/追加球与非法追加、bread盖合、熟饼实际煎制、忙态/手持/容量/失败原子性、有效旧档恢复。
+- [x] 实现单规则命令与迁移；定向GREEN，必要完整单元回归，阶段提交。
 
-### Task 3: 同桌舞台贯通
+### Task 3: 全场景与模式
 
-Files: app/TogetherStage及同桌场景/输入/CSS、App接线、替代旧入口、game资源轮廓投影，e2e/together-play.spec.ts及现行受影响E2E。Interfaces: 从Task2规则读取手中归属/物品/收据，使用Controller.command；后台时钟由既有Phaser生命周期。
-- [x] RED：正常新入口第一章三核心点击/气泡重听/错物保留；一种料理输入→启动→取出；手机目标/角色不重复；观察失败后接入。
-- [x] 第一章与真料理空间/恢复通过后，在同一舞台完整覆盖五章、另一野餐路线、活动工具/物品、自由制作/保存/回访/停止接客；清除被替代并行入口。旧E2E改正常入口/语义，保留食品/错误/守恒/恢复断言，不减少行为。
-- [x] `npm run typecheck`、定向单元及浏览器，修真实失败并阶段提交。
+Files: app/TogetherKitchen/Stage/App、rules/adventure/experience/guidance、小游戏规则/组件，受影响E2E/helpers。
+Interfaces: 复用Task2命令/真实归属，活动实际食品判定，小游戏规则开场与下一轮。
+- [x] RED场景入口：无接好/盖合/设备轮换；四点击冰淇淋、同屏煎锅/果汁、一次自由入口与直接小游戏。
+- [x] 实现全部五章：场景对比/品尝，逐份篮/原位布置双路，直接协作/装饰，分享/保存；去除旧导航与冗余确认。保持高级拼写自选、记忆主动遮挡。
+- [x] 定向规则/UI GREEN、更新旧E2E正常语义但保留守恒/匹配/错单/恢复断言，阶段提交。
 
-### Task 4: 真实代理游玩与候选门禁
+### Task 4: 正常游玩与质量
 
-Files: docs/evidence/simplified-play-2026-10-12、STATUS、相关测试/源码。Interfaces: 正常新入口实际制作，不注入游戏状态；只读快照核对。
-- [x] 代表手机连续五章，抽查自由厨房/另一野餐路线；桌面补布局，重听、错拿、误送、放回、实际加工、刷新/暂停恢复。记录代理从玩家角度的疑惑、读说明、无意义操作、等待和选择后果。
-- [x] 保存必要画面/短录像，发现问题实际修复，RED→GREEN定向复测。
-- [x] 最终候选必要门禁：`npm test`/`npm run lint`/`npm run build`/`npm run resources`/词库；当前有效E2E受影响全路径。已通过无变更不重复无关全量。代理/成人/儿童/真机分记，未做NOT_RUN。
-- [x] 一次独立代理只读全分支审查，处理实质问题并定向/影响回归；审查diff排密钥/无关/临时产物。
+- [x] 正常新档393×665触控连续五章、自由厨房、受影响小游戏、另一野餐路；1280×720及短横屏必要补查。
+- [x] 记录看不懂/读说明/操作次数/重复动作/遮挡与恢复，实际修复→定向复测；少量必要截图和可复现操作记录。
+- [x] lint、typecheck/build、resources、词库、共享单元及当前42浏览器回归；一次独立只读全分支审查并处理实际问题。
+- [x] 代理/真人成人/儿童/实体设备/教研/听审分记；未执行NOT_RUN，不撤销历史真机NEEDS_REVISION与性能NOT_MET。
 
-### Task 5: Git与原站公开发布
+### Task 5: PR、发布与材料
 
-Files: 发布映射/本次报告；唯一目标原Sites项目。
-- [x] Push工作分支，PR完整说明及精确head实际门禁；按规则merge，不force/no bypass；fetch并读回main full SHA。
-- [x] 从合并main准备既有Sites源/构建、正常save/deploy；确认public无需邀请。保存代码SHA/源SHA/版本/部署ID/URL。
-- [x] 退出登录/无痕新会话、具备VPN的当前网络，真实打开最新站点玩核心段，复核资源/声音/保存；线上失败修复→PR→merge→重发及受影响复测。
-
-### Task 6: 最新设计说明与桌面交付
-
-Files: docs/submission既有源稿/PDF/validation/evidence/index，本次报告/STATUS。
-- [x] 先线上核验，再写简短一页主题/目标玩家、实有玩法、真实AI工具/用途、亮点；不称运行时AI/听审/学习效果，附可点击原站及“访问需要开启 VPN”。截图只用最新站。
-- [x] 同稿可编辑源稿/PDF，逐页渲染和文字/链接/版本核验。材料与报告另由材料PR承载门禁及main合并回执；运行输入未改，不重发站点文档版本。
-- [x] 查真实Desktop目录、同名旧版备份，复制PDF及可编辑源稿，确认存在/可读/hash相同。
-- [x] 形成最终baseline/final代码SHA、行为、问题修复、命令/退出码/环境/NOT_RUN、所有PR/main读回、线上映射及公开访问、报告和桌面绝对路径完整交付。
+- [ ] 提交push/PR、精确head检查success后按规则merge；核对main及完整SHA。原站appgprj_6ab141055ab8819186112dee423d0d04从merged main更新，不新建站、不绕保护。
+- [ ] 原网址匿名VPN访问、SHA/content/dirty和真实核心料理复核，存版本/部署ID。
+- [ ] 最新设计说明短稿及同稿PDF，真实AI与实有玩法，附原网址及“访问需要开启 VPN”；文字比对/渲染QA，真实桌面旧版备份+复制hash回读。
+- [ ] 报告/材料通过PR归档main，最终前后对照、问题修复、测试退出码/限制、Git/部署/桌面绝对路径交付。

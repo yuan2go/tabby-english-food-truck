@@ -20,21 +20,22 @@ async function finishBreakfast(p: Page) {
 }
 async function bookAction(p: Page, name: string) {
   await click(p, '翻开旧食谱');
-  await click(p, name);
+  await p
+    .getByRole('dialog', { name: '食谱与作品' })
+    .getByRole('button', { name, exact: true })
+    .click();
 }
+
 async function desserts(p: Page) {
   await send(p, 0);
   await make(p, 'strawberry-cup');
   await click(p, '交给刺刺');
   await expect.poll(async () => (await state(p)).adventure?.steps.includes('cool')).toBe(true);
-  await bookAction(p, '比较两种甜点');
-  await bookAction(p, '品尝草莓冰淇淋杯');
-  await click(p, '拿起清凉彩旗');
-  expect((await state(p)).adventure?.experience?.heldDecoration).toEqual({
-    kind: 'bunting',
-    value: 'cool',
-  });
-  await click(p, '把装饰挂到绳上');
+  await click(p, '比较两份甜点');
+  await click(p, '品尝草莓冰淇淋杯');
+  await click(p, '挂起清凉彩旗');
+  expect((await state(p)).adventure?.decor.bunting).toBe('cool');
+  expect((await state(p)).adventure?.experience?.heldDecoration).toBeFalsy();
   await click(p, '一起开席');
 }
 async function picnic(p: Page, hedgehog = false) {
@@ -67,8 +68,8 @@ async function picnic(p: Page, hedgehog = false) {
       expect.arrayContaining(['place:0', 'place:1']),
     );
   }
-  await click(p, '拿起叶子桌布');
-  await click(p, '把桌布铺在桌面');
+  await click(p, '铺叶子桌布');
+  expect((await state(p)).adventure?.steps).toContain('cloth');
   await click(p, '一起开席');
 }
 async function dinner(p: Page, restore?: Set<string>) {
@@ -76,12 +77,10 @@ async function dinner(p: Page, restore?: Set<string>) {
   await serve(p, restore);
   await click(p, '先帮刺刺');
   await serve(p, restore);
-  await click(p, '打开储物抽屉');
-  await click(p, '取出灯串');
-  await p.locator('[data-actor="rabbit"]').click();
+  await click(p, '请兔兔带灯');
   expect((await state(p)).adventure?.steps).toEqual(expect.arrayContaining(['place:0', 'place:1']));
-  await click(p, '拿起暖灯');
-  await click(p, '把装饰挂到绳上');
+  await click(p, '点亮暖灯');
+  expect((await state(p)).adventure?.steps).toContain('light');
   await click(p, '一起开席');
 }
 async function creation(p: Page) {
@@ -102,13 +101,12 @@ async function creation(p: Page) {
     await p.locator(`[data-hotspot="item-${f.id}"]`).click();
     await p.locator(`[data-actor="${f.product === 'sandwich' ? 'rabbit' : 'hedgehog'}"]`).click();
   }
-  await click(p, '取出小勺');
-  await click(p, '拿起芝士三明治（活动）');
+  await click(p, '品尝芝士三明治');
   await expect(p.getByRole('button', { name: '重听兔兔：Thank you!', exact: true })).toBeVisible();
   await expect(
     p.getByRole('button', { name: /重听兔兔：Can I have a sandwich or a burger/ }),
   ).toHaveCount(0);
-  await bookAction(p, '保存到食谱');
+  await click(p, '保存到食谱');
   await click(p, '一起开席');
 }
 test('visible activity entrance reaches all five chapters and saves a real creation', async ({
@@ -125,6 +123,33 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await click(page, '下一院活动');
   await dinner(page, new Set(['grill', 'machine']));
   await click(page, '下一院活动');
+  for (const viewport of [
+    { width: 1280, height: 720 },
+    { width: 665, height: 393 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await expect
+      .poll(async () =>
+        page.locator('.direct-ingredient').evaluateAll((buttons) =>
+          buttons.every((button) => {
+            const r = button.getBoundingClientRect();
+            const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+            return (
+              r.width >= 48 &&
+              r.height >= 48 &&
+              r.x >= 0 &&
+              r.y >= 0 &&
+              r.right <= innerWidth &&
+              r.bottom <= innerHeight - 30 &&
+              !!hit &&
+              button.contains(hit)
+            );
+          }),
+        ),
+      )
+      .toBe(true);
+  }
+  await page.setViewportSize({ width: 393, height: 665 });
   await creation(page);
   const s = await state(page);
   expect(s.adventure?.rewards).toEqual(['feast-page']);
@@ -176,6 +201,8 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
 }) => {
   await page.goto('/');
   await page.locator('.yard-endless .entry-main').click();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '调整开店设置', exact: true }).click();
   await click(page, '开门 / 继续营业');
   await supply(page, 'apple');
   await pDeliver(page);
@@ -192,6 +219,8 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   const saved = (await state(page)).adventure?.works;
   await page.reload();
   await page.locator('.yard-endless .entry-main').click();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '调整开店设置', exact: true }).click();
   await click(page, '开门 / 继续营业');
   expect((await state(page)).adventure?.works).toEqual(saved);
 });
@@ -220,6 +249,8 @@ test('opening a new seat uses the new menu while an accepted guest keeps the old
 }) => {
   await page.goto('/');
   await page.locator('.yard-endless .entry-main').click();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '调整开店设置', exact: true }).click();
   await click(page, '两位一起招呼');
   await click(page, '开门 / 继续营业');
   const accepted = (await state(page)).orders;

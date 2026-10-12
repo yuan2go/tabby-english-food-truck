@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+
+ Test Files  28 passed (28)
+      Tests  348 passed (348)
+   Start at  23:49:28
+   Duration  4.33s (transform 4.73s, setup 0ms, import 9.24s, tests 5.57s, environment 4ms)
+

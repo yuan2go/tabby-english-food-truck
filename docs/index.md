@@ -1,6 +1,6 @@
 # 现行文档索引
 
-作品统一名称《大咪的英语餐车》/ Dami's English Food Truck。产品与规则只有01–04一套权威（当前同桌共玩）；实现及验收另看STATUS，不按历史包标题推断当前状态。
+作品统一名称《大咪的英语餐车》/ Dami's English Food Truck。产品与规则只有01–04一套权威（当前直接做饭）；实现及验收另看STATUS，不按历史包标题推断当前状态。
 
 | 入口 | 用途 |
 | --- | --- |
@@ -14,3 +14,5 @@
 01中保留吐司/烤面包机和自选速度模式等有效未实现候选，非当前功能/本轮范围。各历史失败、资源制作与权利记录保留原位置，不移动原始证据。
 
 [本轮旧合同归档](archive/pre-simplified-play-2026-10-12/index.md)保留冲突设计；本轮实施/验收只见现行05，真实结果见STATUS及[evidence](evidence/simplified-play-2026-10-12/README.md)。
+
+本轮唯一合同及验收01–05；[操作基线与新结果](evidence/direct-cooking-2026-10-12/README.md)，[被替代合同](archive/pre-direct-cooking-2026-10-12/index.md)。

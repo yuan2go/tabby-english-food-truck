@@ -22,11 +22,11 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
   const short = height < 500 && width > 600;
   const inset = Math.max(10, (width - 1040) / 2);
   const w = width - inset * 2;
-  const sceneWidth = short ? w * 0.42 : w;
-  const tableY = short ? height * 0.56 : height * 0.36;
+  const sceneWidth = short ? w * 0.36 : w;
+  const tableY = short ? height * 0.56 : height * 0.27;
   const body = Math.min(
     short ? 125 : 205,
-    height * (short ? 0.34 : 0.27),
+    height * (short ? 0.34 : 0.18),
     sceneWidth / (count + 0.35),
   );
   const actorWidth = Math.min(200, (sceneWidth / count) * 0.76);
@@ -37,12 +37,12 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
     height: body,
   }));
   const seats = guests.map((r) => {
-    const width = Math.max(52, Math.min(112, r.width * 0.56));
+    const width = Math.max(104, Math.min(112, r.width * 0.56));
     return {
       x: r.x + (r.width - width) / 2,
-      y: tableY + 12,
+      y: tableY + 4,
       width,
-      height: Math.max(52, Math.min(74, height * 0.11)),
+      height: 52,
     };
   });
   const bubbles = guests.map((r) => {
@@ -50,26 +50,26 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
     return { x: r.x + r.width / 2 - width / 2, y: short ? 47 : 49, width, height: short ? 58 : 75 };
   });
   const preparation = short
-    ? { x: inset + w * 0.48, y: 100, width: w * 0.52, height: height - 200 }
+    ? { x: inset + w * 0.4, y: 86, width: w * 0.6, height: height - 121 }
     : {
         x: inset,
-        y: tableY + Math.min(106, height * 0.14) + 42,
-        width: w * 0.69,
-        height: Math.max(130, height - tableY - Math.min(106, height * 0.14) - 144),
+        y: tableY + Math.min(60, height * 0.09) + 54,
+        width: w,
+        height: Math.max(130, height - tableY - Math.min(60, height * 0.09) - 89),
       };
   const dami = short
-    ? { x: inset + w * 0.34, y: height - 172, width: w * 0.13, height: 135 }
+    ? { x: inset + w * 0.27, y: height - 172, width: w * 0.12, height: 135 }
     : {
-        x: inset + w - Math.min(220, w * 0.36),
-        y: height - 226,
-        width: Math.min(220, w * 0.36),
-        height: Math.min(200, height * 0.27),
+        x: inset + w / 2 - Math.min(110, w * 0.26) / 2,
+        y: tableY - 45,
+        width: Math.min(110, w * 0.26),
+        height: Math.min(90, height * 0.14),
       };
   return {
     guests,
     seats,
     bubbles,
-    table: { x: inset, y: tableY, width: sceneWidth, height: Math.min(106, height * 0.14) },
+    table: { x: inset, y: tableY, width: sceneWidth, height: Math.min(60, height * 0.09) },
     preparation,
     supplies: short
       ? { x: preparation.x, y: height - 93, width: preparation.width, height: 60 }

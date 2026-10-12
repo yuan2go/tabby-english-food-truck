@@ -1,0 +1,38 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/direct-cooking.test.ts (8 tests | 2 failed) 12ms
+   × natural assembly preserves an old pan output reservation and remains recoverable 3ms
+   × an incoming sharing recipient is reserved; three distinct shares form a valid bounded work 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/direct-cooking.test.ts > natural assembly preserves an old pan output reservation and remains recoverable
+AssertionError: expected 'station:board:0' not to be 'station:board:0' // Object.is equality
+ ❯ tests/direct-cooking.test.ts:104:64
+    102|  expect(s.routing.grill).toEqual({station:'board',slot:0});expect(deco…
+    103|  s=add(s,'bread','board').state;s=add(s,'cheese','board').state;s=add(…
+    104|  expect(s.items.find(i=>i.product==='sandwich')?.location).not.toBe('s…
+       |                                                                ^
+    105|  const sandwich=s.items.find(i=>i.product==='sandwich');if(!sandwich)t…
+    106|  expect(s.items.find(i=>i.product==='cooked-patty')?.location).toBe('s…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/direct-cooking.test.ts > an incoming sharing recipient is reserved; three distinct shares form a valid bounded work
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/direct-cooking.test.ts:112:198
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 passed (8)
+   Start at  23:55:20
+   Duration  249ms (transform 122ms, setup 0ms, import 148ms, tests 12ms, environment 0ms)
+

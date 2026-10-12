@@ -1,0 +1,81 @@
+[WebServer] (node:81188) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:81258) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:81304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable (13.1s)
+(node:81333) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (1.6s)
+  ✓  3 e2e/minigames-vocab.spec.ts:361:1 › phone five-cup layout and theatre controls remain visible and individually usable (2.7s)
+  ✘  4 e2e/together-play.spec.ts:87:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity (10.4s)
+
+
+  1) e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable 
+
+    TimeoutError: locator.click: Timeout 12000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '餐桌设计师', exact: true })
+
+
+      76 |   await page.getByRole('button', { name: '← 回游戏小摊' }).click();
+      77 |   await page.getByRole('button', { name: /小院场景小游戏 ·/ }).click();
+    > 78 |   await page.getByRole('button', { name: '餐桌设计师', exact: true }).click();
+         |                                                                  ^
+      79 |   await page.getByRole('button', { name: /上下里面旁边/ }).click();
+      80 |   await expect(page.getByRole('region', { name: '场景物件与英文' })).toBeVisible();
+      81 |   await page.getByRole('button', { name: '自由布置餐桌', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/direct-cooking.spec.ts:78:66
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/error-context.md
+
+  2) e2e/together-play.spec.ts:87:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 1
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      118 |   if (!box) throw Error('plate');
+      119 |   await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+    > 120 |   await expect.poll(async () => (await state(page)).session.served).toBe(2);
+          |                                                                     ^
+      121 |   expect((await state(page)).attempts.filter((a) => a.activity === 'delivery')).toHaveLength(2);
+      122 | });
+      123 | test('open request remains at its actual speaker after another conversation and cannot thank before receipt', async ({
+        at /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck/e2e/together-play.spec.ts:120:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/error-context.md
+
+  2 failed
+    e2e/direct-cooking.spec.ts:57:1 › direct mini entry visibly presents recorded meanings and keeps free design reachable 
+    e2e/together-play.spec.ts:87:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity 
+  2 passed (37.7s)

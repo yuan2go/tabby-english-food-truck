@@ -10,16 +10,7 @@ import { ADVENTURES, VISITOR_NAMES, type Visitor } from '../content/adventure';
 import { drawerTools, type Tool } from '../content/adventure-experience';
 import { PRODUCT_NAMES, REQUESTS } from '../content/catalog';
 import { type DialogueLine, type LineId, lineFor } from '../content/dialogue';
-import {
-  FAMILY_SUPPLIES,
-  type Family,
-  FOOD,
-  type Product,
-  RECIPES,
-  type StationId,
-  SUPPLY_PAGES,
-} from '../content/recipes';
-import { assetUrl } from '../game/assets';
+import { type Product, RECIPES, type StationId } from '../content/recipes';
 import { type StageRect, togetherDamiRect, togetherLayout } from '../game/together-layout';
 import type { ForegroundAudio } from '../platform/audio';
 import type { GameController } from '../platform/controller';
@@ -32,6 +23,7 @@ import { useDialogFocus } from './dialog-focus';
 import { Food } from './Food';
 import { SceneIcon } from './SceneIcon';
 import { RequestPicture, StageDemonstration } from './TogetherHelp';
+import { TogetherKitchen } from './TogetherKitchen';
 import { WorkGallery } from './WorkGallery';
 import './together.css';
 
@@ -41,14 +33,6 @@ const position = (r: StageRect): CSSProperties => ({
   width: r.width,
   height: r.height,
 });
-const deviceNames: Record<Device, string> = {
-  juice: '果汁机',
-  ice: '冰淇淋台',
-  sandwich: '夹层板',
-  burger: '煎台',
-  'burger-board': '汉堡组合板',
-  ready: '食品篮',
-};
 const toolNames: Record<Tool, string> = {
   seed: '花苗',
   'watering-can': '浇水壶',
@@ -56,7 +40,6 @@ const toolNames: Record<Tool, string> = {
   lantern: '灯串',
   spoon: '小勺',
 };
-type Device = Family | 'burger-board';
 type Target =
   | { kind: 'friend'; visitor: Visitor; seat: 0 | 1 | 2 }
   | { kind: 'machine'; port: 'apple' | 'cup' }
@@ -94,12 +77,7 @@ export function TogetherStage({
 }) {
   const s = controller.state,
     a = s.adventure;
-  const [device, setDevice] = useState<Device>(s.session.family);
-  const showDemoDevice = useCallback(
-    (family: Family, station: string) =>
-      setDevice(station === 'board' && family === 'burger' ? 'burger-board' : family),
-    [],
-  );
+  const showDemoDevice = useCallback(() => {}, []);
   const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
   const [book, setBook] = useState(false),
     [confirm, setConfirm] = useState(false);
@@ -148,6 +126,12 @@ export function TogetherStage({
     measure();
     return () => observer.disconnect();
   }, []);
+  useEffect(() => {
+    if (moment?.kind === 'place' && moment.destination === 'work' && moment.visitor) {
+      controller.message = '这份分享留在作品区。朋友的餐位有变化，食品保留，可以再拿起分享。';
+      setFeedback(controller.message);
+    }
+  }, [moment, controller]);
   useEffect(() => {
     if (!moment) {
       setMomentAge(0);
@@ -287,7 +271,14 @@ export function TogetherStage({
         if (order?.status === 'waiting') run({ type: 'put', target: { order: order.id } });
         else if (a?.chapter === 1 && target.visitor === 'hedgehog')
           run({ type: 'put', target: { world: 'cool' } });
-        else say('先与这位朋友打招呼，食品仍在手里。');
+        else if (
+          a &&
+          (a.chapter === 4 || a.kind === 'shop' || a.rewards.length) &&
+          a.invitations.includes(target.visitor)
+        ) {
+          const tray = ([0, 1] as const).find((t) => !s.trays[t].remaining);
+          if (tray !== undefined) act('create', { tray, fromHand: true, visitor: target.visitor });
+        } else say('先与这位朋友打招呼，食品仍在手里。');
         return;
       }
       if (order?.status === 'queued') {
@@ -386,59 +377,66 @@ export function TogetherStage({
     className: 'stage-drop',
   });
   const isCarrying = held.length > 0 || Boolean(worldHand) || Boolean(tool) || Boolean(decoration);
-  const sourceButton = (item: { id: string; product: Product }, world = false) => (
-    <button
-      type="button"
-      key={item.id}
-      className="loose-food"
-      style={
-        !world &&
-        held.length &&
-        s.items.some(
-          (i) =>
-            i.id === item.id &&
-            (i.location.startsWith('station:') || i.location.startsWith('machine:')),
-        )
-          ? { pointerEvents: 'none' }
-          : undefined
-      }
-      data-grab={`${world ? 'world' : 'item'}:${item.id}`}
-      data-hotspot={`item-${item.id}`}
-      data-put-target={world ? JSON.stringify({ kind: 'food', id: item.id }) : undefined}
-      aria-label={`拿起${PRODUCT_NAMES[item.product]}${world ? '（活动）' : ''}`}
-      onClick={() => (world ? use({ kind: 'food', id: item.id }) : take(`item:${item.id}`))}
-    >
-      <Food product={item.product} />
-    </button>
-  );
-  const stageItems = s.items.filter((i) => i.location.startsWith('tray:'));
+  const sourceButton = (item: { id: string; product: Product }, world = false) => {
+    if (world)
+      return (
+        <span className="world-food" key={item.id}>
+          <button
+            type="button"
+            className="loose-food"
+            aria-label={`${held.length ? '交到餐位：' : '品尝'}${PRODUCT_NAMES[item.product]}`}
+            data-put-target={JSON.stringify({ kind: 'food', id: item.id })}
+            onClick={() =>
+              held.length ? use({ kind: 'food', id: item.id }) : act('taste', { item: item.id })
+            }
+          >
+            <Food product={item.product} />
+          </button>
+          {!held.length ? (
+            <button
+              type="button"
+              className="move-portion"
+              data-grab={`world:${item.id}`}
+              data-hotspot={`item-${item.id}`}
+              aria-label={`拿起${PRODUCT_NAMES[item.product]}（活动）`}
+              onClick={() => take(`world:${item.id}`)}
+            >
+              ↥
+            </button>
+          ) : null}
+        </span>
+      );
+    return (
+      <button
+        type="button"
+        key={item.id}
+        className="loose-food"
+        style={
+          !world &&
+          held.length &&
+          s.items.some(
+            (i) =>
+              i.id === item.id &&
+              (i.location.startsWith('station:') || i.location.startsWith('machine:')),
+          )
+            ? { pointerEvents: 'none' }
+            : undefined
+        }
+        data-grab={`${world ? 'world' : 'item'}:${item.id}`}
+        data-hotspot={`item-${item.id}`}
+        data-put-target={world ? JSON.stringify({ kind: 'food', id: item.id }) : undefined}
+        aria-label={`${world ? '品尝' : '拿起'}${PRODUCT_NAMES[item.product]}`}
+        onClick={() => (world ? act('taste', { item: item.id }) : take(`item:${item.id}`))}
+      >
+        <Food product={item.product} />
+      </button>
+    );
+  };
   const delivered =
     s.actor.current?.kind === 'delivery'
       ? s.items.filter((i) => s.actor.current?.itemIds.includes(i.id))
       : [];
   const cat = togetherDamiRect(s, l);
-  const supply =
-    device === 'ready'
-      ? (SUPPLY_PAGES[s.session.supplyPage] ?? [])
-      : FAMILY_SUPPLIES[device === 'burger-board' ? 'burger' : device];
-  const devices: Device[] = [
-    ...s.session.unlocked,
-    ...(s.session.unlocked.includes('burger') ? ['burger-board' as const] : []),
-  ];
-  const deviceIndex = devices.indexOf(device);
-  const neighbors =
-    devices.length < 2
-      ? []
-      : devices.length === 2
-        ? devices.filter((f) => f !== device)
-        : [
-            devices[(deviceIndex + devices.length - 1) % devices.length],
-            devices[(deviceIndex + 1) % devices.length],
-          ].filter((f): f is Device => Boolean(f));
-  const station: StationId = device === 'ice' ? 'ice' : device === 'burger' ? 'grill' : 'board';
-  const ingredients = s.items.filter((i) => i.location.startsWith(`station:${station}:`));
-  const machineFruit = s.items.find((i) => i.location === 'machine:apple'),
-    machineCup = s.items.find((i) => i.location === 'machine:cup');
   const title =
     a?.kind === 'shop'
       ? '自由厨房'
@@ -582,24 +580,27 @@ export function TogetherStage({
               <div key={visitor}>
                 {line ? (
                   <div
-                    className={`local-bubble${narrowPortrait && index !== focusedIndex ? ' speaker-mini' : ''}`}
+                    className={`local-bubble${narrowPortrait && (index !== focusedIndex || currentRole === 'dami') ? ' speaker-mini' : ''}`}
                     style={
                       narrowPortrait
                         ? {
                             ...position(l.bubbles[index] ?? rect),
                             left:
-                              index === focusedIndex
+                              index === focusedIndex && currentRole !== 'dami'
                                 ? 10 + focusedIndex * 58
                                 : index < focusedIndex
                                   ? 10 + index * 58
                                   : size.width - 10 - (count - index) * 58,
-                            width: index === focusedIndex ? size.width - 20 - (count - 1) * 58 : 48,
-                            height: index === focusedIndex ? 74 : 48,
+                            width:
+                              index === focusedIndex && currentRole !== 'dami'
+                                ? size.width - 20 - (count - 1) * 58
+                                : 48,
+                            height: index === focusedIndex && currentRole !== 'dami' ? 74 : 48,
                           }
                         : position(l.bubbles[index] ?? rect)
                     }
                   >
-                    {narrowPortrait && index !== focusedIndex ? (
+                    {narrowPortrait && (index !== focusedIndex || currentRole === 'dami') ? (
                       <button
                         type="button"
                         className="speaker-replay"
@@ -660,9 +661,9 @@ export function TogetherStage({
         </section>
         <div
           className="scene-objects"
-          style={{ left: l.table.x + 4, top: l.table.y + l.table.height - 12 }}
+          style={{ left: l.table.x + 4, top: l.table.y + l.table.height + 4 }}
         >
-          {a ? (
+          {a && (a.chapter === 0 || (a.chapter === 2 && a.branch === 'hedgehog')) ? (
             <button
               type="button"
               aria-label="打开储物抽屉"
@@ -671,16 +672,19 @@ export function TogetherStage({
               <SceneIcon kind="drawer" />
             </button>
           ) : null}
-          <button
-            type="button"
-            aria-label="翻开旧食谱"
-            onClick={() => {
-              if (a) act('explore', { object: 'recipe' });
-              setBook(true);
-            }}
-          >
+          {a?.foods.some((f) => f.source.startsWith('create:')) ? (
+            <button type="button" aria-label="保存到食谱" onClick={() => act('save-work')}>
+              <SceneIcon kind="recipe" />
+            </button>
+          ) : null}
+          <button type="button" aria-label="翻开旧食谱" onClick={() => setBook(true)}>
             <SceneIcon kind="recipe" />
           </button>
+          {a?.chapter === 1 && a.steps.includes('cool') ? (
+            <button type="button" aria-label="比较两份甜点" onClick={() => act('compare')}>
+              <SceneIcon kind="compare" />
+            </button>
+          ) : null}
           {a?.chapter === 2 && a.branch === 'rabbit' && !a.rewards.length ? (
             <button
               type="button"
@@ -723,154 +727,14 @@ export function TogetherStage({
                 </button>
               ))}
         </div>
-        <div className="preparation-scene" data-device={device} style={position(l.preparation)}>
-          <nav className="equipment-rack" aria-label="旁边的实体设备">
-            {neighbors.map((f) => (
-              <button
-                type="button"
-                key={f}
-                aria-label={`看看${deviceNames[f]}`}
-                onClick={() => setDevice(f)}
-              >
-                {f === 'ready' ? (
-                  <SceneIcon kind="basket" />
-                ) : (
-                  <img
-                    src={assetUrl(
-                      f === 'juice'
-                        ? 'machine'
-                        : f === 'ice'
-                          ? 'ice-station'
-                          : f === 'burger'
-                            ? 'grill-station'
-                            : 'board-station',
-                    )}
-                    alt=""
-                  />
-                )}
-                <span>{deviceNames[f]}</span>
-              </button>
-            ))}
-          </nav>
-          {device === 'ready' ? (
-            <div className="food-shelves">
-              {SUPPLY_PAGES.map((_, page) => (
-                <button
-                  type="button"
-                  key={SUPPLY_PAGES[page]?.join('|')}
-                  aria-label={`查看第${page + 1}篮食物`}
-                  onClick={() => run({ type: 'supply-page', page })}
-                >
-                  第{page + 1}篮
-                </button>
-              ))}
-            </div>
-          ) : device === 'juice' ? (
-            <div
-              className="juice-appliance"
-              style={{ backgroundImage: `url(${assetUrl('machine')})` }}
-            >
-              <div className="device-port fruit-port">
-                <button
-                  type="button"
-                  {...drop({ kind: 'machine', port: 'apple' })}
-                  aria-label="放入果汁机水果口"
-                  onClick={() => use({ kind: 'machine', port: 'apple' })}
-                >
-                  <span className="sr-only">水果口</span>
-                </button>
-                {machineFruit ? sourceButton(machineFruit) : null}
-              </div>
-              <div className="device-port cup-port">
-                <button
-                  type="button"
-                  {...drop({ kind: 'machine', port: 'cup' })}
-                  aria-label="放到果汁机杯座"
-                  onClick={() => use({ kind: 'machine', port: 'cup' })}
-                >
-                  <SceneIcon kind="cup" />
-                </button>
-                {machineCup ? sourceButton(machineCup) : null}
-              </div>
-              <button
-                type="button"
-                className="physical-switch"
-                data-hotspot="start"
-                aria-label="启动果汁机"
-                disabled={s.machine.status === 'processing'}
-                onClick={() => run({ type: 'start-machine' })}
-              >
-                {s.machine.status === 'processing'
-                  ? `${Math.ceil(s.machine.remaining / 1000)}s`
-                  : '榨汁'}
-              </button>
-            </div>
-          ) : (
-            <div
-              className="cooking-appliance"
-              style={{
-                backgroundImage: `url(${assetUrl(station === 'ice' ? 'ice-station' : station === 'grill' ? 'grill-station' : 'board-station')})`,
-              }}
-            >
-              <button
-                type="button"
-                {...drop({ kind: 'station', station })}
-                className="appliance-workspace stage-drop"
-                aria-label={`放到${station === 'ice' ? '冰淇淋台' : station === 'grill' ? '煎台' : '组合板'}`}
-                onClick={() => use({ kind: 'station', station })}
-              />
-              <div className="device-ingredients">{ingredients.map((i) => sourceButton(i))}</div>
-              <button
-                type="button"
-                className="physical-switch"
-                data-hotspot={`start-station-${station}`}
-                aria-label={`启动${station === 'ice' ? '冰淇淋台' : station === 'grill' ? '煎台' : '组合板'}`}
-                disabled={s.stations[station].status === 'processing'}
-                onClick={() => run({ type: 'start-station', station })}
-              >
-                {s.stations[station].status === 'processing'
-                  ? `${Math.ceil(s.stations[station].remaining / 1000)}s`
-                  : station === 'ice'
-                    ? '接好'
-                    : station === 'grill'
-                      ? '煎制'
-                      : '盖合'}
-              </button>
-            </div>
-          )}
-          <div className="preparation-rest">
-            <button
-              type="button"
-              {...drop({ kind: 'preparation' })}
-              aria-label="放到制作承放区"
-              onClick={() => use({ kind: 'preparation' })}
-            >
-              暂放
-            </button>
-            {stageItems.map((i) => sourceButton(i))}
-          </div>
-        </div>
-        <div
-          className="ingredient-basket"
-          style={position({
-            ...l.supplies,
-            width: Math.min(l.supplies.width, supply.length * 62 + 12),
-          })}
-        >
-          {supply.map((p) => (
-            <button
-              type="button"
-              key={p}
-              data-grab={`stock:${p}`}
-              data-hotspot={`supply-${p}`}
-              aria-label={`拿起${PRODUCT_NAMES[p]}`}
-              onClick={() => take(`stock:${p}`)}
-            >
-              <Food product={p} />
-              <span lang="en">{FOOD[p][1]}</span>
-            </button>
-          ))}
-        </div>
+        <TogetherKitchen
+          state={s}
+          rect={l.preparation}
+          run={run}
+          use={use}
+          drop={drop}
+          source={sourceButton}
+        />
         <section
           className="held-objects"
           style={position({ ...l.hand, x: cat.x - 5, y: cat.y + cat.height * 0.58 })}
@@ -910,9 +774,9 @@ export function TogetherStage({
             type="button"
             className="return-held"
             style={{
-              left: l.dami.x,
-              top: Math.min(size.height - 96, l.dami.y + l.dami.height - 15),
-              width: l.dami.width,
+              left: size.width - 62,
+              top: l.table.y + l.table.height + 4,
+              width: 52,
               minHeight: 48,
             }}
             aria-label="放回手中食品"
@@ -986,17 +850,35 @@ export function TogetherStage({
             放好
           </button>
         ) : null}
+        {a?.chapter === 3 && a.steps.some((step) => step.startsWith('served:')) ? (
+          <div
+            className="direct-cooperation"
+            style={{ left: l.table.x, top: l.table.y + l.table.height - 12 }}
+          >
+            {(['rabbit', 'hedgehog'] as const).map((visitor) => (
+              <button
+                type="button"
+                key={visitor}
+                aria-label={`请${VISITOR_NAMES[visitor]}带灯`}
+                onClick={() => act('cooperate', { visitor, object: 'lantern' })}
+              >
+                <SceneIcon kind="lantern" />
+                {VISITOR_NAMES[visitor]}
+              </button>
+            ))}
+          </div>
+        ) : null}
         <div
           className="scene-finishing"
-          style={{ left: l.table.x + l.table.width * 0.55, top: l.table.y + l.table.height - 12 }}
+          style={{ left: l.table.x + l.table.width * 0.55, top: l.table.y + l.table.height + 4 }}
         >
           {a?.chapter === 1 && a.steps.includes('cool') && a.steps.includes('taste')
             ? (['warm', 'cool'] as const).map((value) => (
                 <button
                   type="button"
                   key={value}
-                  aria-label={value === 'warm' ? '拿起暖色彩旗' : '拿起清凉彩旗'}
-                  onClick={() => act('take-decoration', { object: 'bunting', value })}
+                  aria-label={value === 'warm' ? '挂起暖色彩旗' : '挂起清凉彩旗'}
+                  onClick={() => act('bunting', { value })}
                 >
                   <SceneIcon kind="bunting" tone={value === 'cool' ? '#69aaa0' : '#eeb46d'} />
                 </button>
@@ -1009,20 +891,20 @@ export function TogetherStage({
                 <button
                   type="button"
                   key={value}
-                  aria-label={value === 'leaf' ? '拿起叶子桌布' : '拿起阳光桌布'}
-                  onClick={() => act('take-decoration', { object: 'cloth', value })}
+                  aria-label={value === 'leaf' ? '铺叶子桌布' : '铺阳光桌布'}
+                  onClick={() => act('cloth', { value })}
                 >
                   <SceneIcon kind="mat" tone={value === 'leaf' ? '#719675' : '#f1d485'} />
                 </button>
               ))
             : null}
-          {a?.chapter === 3 && a.experience?.tools.includes('lantern')
+          {a?.chapter === 3 && a.steps.some((step) => step.startsWith('served:'))
             ? (['warm', 'moon'] as const).map((value) => (
                 <button
                   type="button"
                   key={value}
-                  aria-label={value === 'warm' ? '拿起暖灯' : '拿起月光灯'}
-                  onClick={() => act('take-decoration', { object: 'light', value })}
+                  aria-label={value === 'warm' ? '点亮暖灯' : '点亮月光灯'}
+                  onClick={() => act('light', { value })}
                 >
                   <SceneIcon kind="lantern" tone={value === 'moon' ? '#d2eafa' : '#ffde7d'} />
                 </button>
@@ -1051,9 +933,9 @@ export function TogetherStage({
           <div
             className="local-bubble dami-bubble"
             style={{
-              left: l.short ? l.table.x : size.width - Math.min(200, size.width * 0.38) - 10,
-              top: l.short ? size.height - 93 : l.preparation.y - 20,
-              width: l.short ? 160 : Math.min(200, size.width * 0.38),
+              left: narrowPortrait ? 68 : (size.width - 350) / 2,
+              top: narrowPortrait ? 49 : 3,
+              width: narrowPortrait ? size.width - 136 : 350,
               minHeight: 78,
             }}
           >

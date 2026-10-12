@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+
+ Test Files  2 passed (2)
+      Tests  14 passed (14)
+   Start at  23:14:37
+   Duration  691ms (transform 288ms, setup 0ms, import 374ms, tests 385ms, environment 0ms)
+

@@ -41,8 +41,7 @@ test('visible device targets make real juice and wrong delivery leaves hand owne
   expect((await state(page)).items).toEqual([]);
   await page.getByRole('button', { name: '拿起苹果', exact: true }).click();
   await page.getByRole('button', { name: '放入果汁机水果口', exact: true }).click();
-  await page.getByRole('button', { name: '拿起空杯', exact: true }).click();
-  await page.getByRole('button', { name: '放到果汁机杯座', exact: true }).click();
+  await page.getByRole('button', { name: '果汁机：空杯', exact: true }).click();
   await page.getByRole('button', { name: '启动果汁机', exact: true }).click();
   expect((await state(page)).machine.status).toBe('processing');
   await expect(page.getByRole('button', { name: '拿起苹果汁', exact: true })).toBeVisible({
@@ -90,6 +89,8 @@ test('occupied receiving plate still matches the friend and preparation uses the
 }) => {
   await page.goto('/');
   await page.locator('.yard-endless .entry-main').click();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '调整开店设置', exact: true }).click();
   await page.getByRole('button', { name: '两位一起招呼', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
   for (let i = 0; i < 3; i++) {

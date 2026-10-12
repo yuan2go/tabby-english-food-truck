@@ -129,7 +129,14 @@ export function SceneGames({
     if (!level) return;
     stop();
     const saved = store.scenes[id];
-    update(saved ?? createScene(level, crypto.randomUUID(), Date.now() >>> 0));
+    const next = saved ?? createScene(level, crypto.randomUUID(), Date.now() >>> 0);
+    update(
+      next.phase === 'intro'
+        ? sceneCommand(next, { type: 'start' })
+        : next.phase === 'meaning'
+          ? sceneCommand(next, { type: 'play' })
+          : next,
+    );
   };
   const exportSave = () => {
     const blob = new Blob([JSON.stringify(store.export(), null, 2)], { type: 'application/json' }),
@@ -314,7 +321,19 @@ export function SceneGames({
               <button type="button" aria-label="重听场景请求" onClick={() => void say()}>
                 <VoiceIcon />
               </button>
-              <p>{state.mode === 'free' ? '自由布置 · 没有标准答案' : task.instruction}</p>
+              <div>
+                <p>{state.mode === 'free' ? '自由布置 · 没有标准答案' : task.instruction}</p>
+                {level.kind !== 'memory' || state.phase === 'observe' ? (
+                  <section className="scene-inline-meaning" aria-label="场景物件与英文">
+                    {words.map((word) => (
+                      <span key={word}>
+                        <VocabularyVisual id={word} />
+                        <span lang="en">{vocabularyWord(word)?.text}</span>
+                      </span>
+                    ))}
+                  </section>
+                ) : null}
+              </div>
               <button
                 type="button"
                 onClick={() => {
@@ -326,6 +345,15 @@ export function SceneGames({
                 看图示范
               </button>
             </div>
+            {level.kind === 'design' && state.mode !== 'free' && state.phase === 'play' ? (
+              <button
+                className="scene-free-entry"
+                type="button"
+                onClick={() => send({ type: 'free' })}
+              >
+                自由布置餐桌
+              </button>
+            ) : null}
             {supported && showGuide ? (
               <section className="scene-help" aria-label="物件与动作示范">
                 <button type="button" onClick={() => setShowGuide(false)}>
@@ -389,7 +417,7 @@ export function SceneGames({
             <button
               type="button"
               onClick={() => {
-                update(replayScene(state, crypto.randomUUID()));
+                update(sceneCommand(replayScene(state, crypto.randomUUID()), { type: 'start' }));
               }}
             >
               再玩这一组
@@ -476,7 +504,7 @@ export function SceneGames({
             type="button"
             onClick={() => {
               stop();
-              update(replayScene(state, crypto.randomUUID()));
+              update(sceneCommand(replayScene(state, crypto.randomUUID()), { type: 'start' }));
               setRestart(false);
             }}
           >

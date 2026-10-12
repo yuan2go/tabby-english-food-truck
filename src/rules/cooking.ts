@@ -21,6 +21,8 @@ export function stationDestination(
   if (station.status === 'processing' || station.status === 'ready')
     return { reason: '等制作完成，取走成品后再准备。' };
   const items = stationItems(s, id);
+  if (id === 'ice' && !items.length && product !== 'cup' && product !== 'cone')
+    return { reason: '先点杯或筒，再挖球。' };
   if (items.length >= 5) return { reason: '备餐台满了，点选原料放回。' };
   if (
     !RECIPES.some(
@@ -50,8 +52,8 @@ export function syncStations(s: GameState): void {
 }
 export function startStation(s: GameState, id: StationId): { ok: boolean; message: string } {
   const st = s.stations[id];
-  if (st.status === 'processing' || st.status === 'ready')
-    return { ok: false, message: '先等一等或取走成品。' };
+  if (st.status === 'ready') return { ok: false, message: '搭配已完成，直接拿起交付。' };
+  if (st.status === 'processing') return { ok: false, message: '先等一等或取走成品。' };
   const recipe = recipeFor(
     id,
     stationItems(s, id).map((i) => i.product),

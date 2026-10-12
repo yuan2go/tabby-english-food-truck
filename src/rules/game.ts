@@ -23,6 +23,7 @@ import {
   stationDestination,
   syncStations,
 } from './cooking';
+import { assemble, extendIce } from './direct-cooking';
 import { emptyRouting, reserved, reserveOutput, routeReady } from './routing';
 import { applyPolicy, replenish } from './sessions';
 import type {
@@ -197,6 +198,33 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'ingredient') {
+    if (
+      handItems(s).length ||
+      s.adventure?.foods.some((f) => f.place === 'hand') ||
+      s.adventure?.experience?.heldTool ||
+      s.adventure?.experience?.heldDecoration
+    )
+      return result('blocked', '手中物件仍在原处。先放下或交付，再做下一份。');
+    if (
+      !c.target ||
+      Object.keys(c.target).length !== 1 ||
+      (!('station' in c.target) && !('machine' in c.target)) ||
+      !canSupply(c.product)
+    )
+      return result('blocked', '点设备旁的实际原料。');
+    if ('machine' in c.target && !s.session.unlocked.includes('juice'))
+      return result('blocked', '果汁机还没有介绍。');
+    return dispatch(s, {
+      ...e,
+      id: `${e.id}:ingredient`,
+      command: {
+        type: 'move',
+        source: { supply: c.product },
+        destination: c.target,
+      },
+    });
+  }
   if (c.type === 'pickup') {
     if (
       s.adventure?.foods.some((f) => f.place === 'hand') ||
@@ -256,7 +284,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
           : undefined;
       const destination: Destination =
         c.type === 'return-hand'
-          ? { discard: true, confirmed: Boolean(c.confirmed) }
+          ? { discard: true, confirmed: true }
           : (('preparation' in c.target ? { tray: prepTray ?? -1 } : c.target) as Destination);
       if (
         !destination ||
@@ -429,6 +457,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
   if (c.type === 'start-station') {
     if (c.tray !== undefined && !reserveOutput(s, c.station, c.tray))
       return result('blocked', '先在目的盘或组合板腾一个位置，再开始。');
+    if (c.tray !== undefined && s.stations[c.station].status === 'ready')
+      return result('ok', '成品已做好，沿原目的位置承放。');
     const r = startStation(s, c.station);
     if (!r.ok) s.routing[c.station] = null;
     return result(r.ok ? 'ok' : 'blocked', r.message);
@@ -477,6 +507,17 @@ export function dispatch(current: GameState, e: Envelope): Result {
         isFinished(product) ? '成品已收起，可以恢复或重新制作。' : '已放回原料。',
       );
     }
+    if (
+      'station' in c.destination &&
+      c.destination.station === 'ice' &&
+      s.stations.ice.status === 'ready'
+    ) {
+      const candidate = structuredClone(s);
+      if (!extendIce(candidate, product))
+        return result('blocked', '这份搭配保持原样。可以拿走，也可放回另做。');
+      const r = dispatch(candidate, { ...e, id: `${e.id}:extend`, command: c });
+      return r.kind === 'ok' ? r : result(r.kind, r.message);
+    }
     const location = destination(s, c.destination, product, existing);
     if (typeof location !== 'string') return result('blocked', location.reason);
     if (existing) {
@@ -489,6 +530,8 @@ export function dispatch(current: GameState, e: Envelope): Result {
     } else s.items.push({ id: nextId(s, 'food'), product, location });
     syncMachine(s);
     syncStations(s);
+    if ('station' in c.destination && assemble(s, c.destination.station))
+      return result('ok', '你选的搭配做好了。可以继续挖球或拿起交付。');
     return result('ok', placementMessage(location, product));
   }
   if (c.type === 'start-machine') {
@@ -674,13 +717,13 @@ function placementMessage(location: Location, product: Product): string {
   const station = location.split(':')[1];
   if (station === 'ice')
     return product === 'cup' || product === 'cone'
-      ? `${PRODUCT_NAMES[product]}已摆好。接球或加配料，随后点接好。`
+      ? `${PRODUCT_NAMES[product]}已摆好。点口味直接挖球。`
       : `${PRODUCT_NAMES[product]}放进冰淇淋台。球数与配料可见，点同一份可放回。`;
   if (station === 'grill') return '生饼上煎台。点煎制，等待时可在组合板放面包和配料。';
   if (station === 'board')
     return product === 'cooked-patty'
-      ? '熟饼已到组合板。检查配料，再点盖合。'
-      : `${PRODUCT_NAMES[product]}放在组合板。夹层可调整，准备好再点盖合。`;
+      ? '熟饼已到组合板。加入配料后自然组合。'
+      : `${PRODUCT_NAMES[product]}放在组合板。继续叠放夹层，最后放面包自然完成。`;
   return '食物已放好。';
 }
 function destination(

@@ -21,7 +21,9 @@ describe('one physical stage on representative devices', () => {
       expect(l.guests).toHaveLength(2);
       expect(l.guests[0]?.height).toBeGreaterThan(90);
       expect(
-        l.preparation.x + l.preparation.width <= l.dami.x + 30 ||
+        l.dami.y + l.dami.height <= l.preparation.y ||
+          l.preparation.y + l.preparation.height <= l.dami.y ||
+          l.preparation.x + l.preparation.width <= l.dami.x + 30 ||
           l.dami.x + l.dami.width <= l.preparation.x + 30,
       ).toBe(true);
     });

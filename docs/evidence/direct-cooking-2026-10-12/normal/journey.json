@@ -1,0 +1,667 @@
+{
+  "base": "http://127.0.0.1:4296",
+  "identity": "5b67a7f33f2617c64761b13459c6ad7759ed04ab",
+  "viewport": {
+    "width": 393,
+    "height": 665
+  },
+  "input": "trusted browser touchscreen taps",
+  "iceClicks": 4,
+  "journal": [
+    {
+      "action": "正在准备 · 晨光开门",
+      "at": "2026-10-12T16:04:36.012Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T16:04:36.255Z"
+    },
+    {
+      "action": "拿起苹果",
+      "at": "2026-10-12T16:04:36.348Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T16:04:36.418Z"
+    },
+    {
+      "action": "先帮刺刺",
+      "at": "2026-10-12T16:04:39.600Z"
+    },
+    {
+      "action": "拿起香蕉",
+      "at": "2026-10-12T16:04:39.683Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T16:04:39.784Z"
+    },
+    {
+      "action": "一起吃早餐",
+      "at": "2026-10-12T16:04:42.800Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T16:04:42.899Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T16:04:42.981Z"
+    },
+    {
+      "action": "冰淇淋：蛋筒",
+      "at": "2026-10-12T16:04:43.046Z"
+    },
+    {
+      "action": "冰淇淋：香草球",
+      "at": "2026-10-12T16:04:43.113Z"
+    },
+    {
+      "action": "拿起香草蛋筒",
+      "at": "2026-10-12T16:04:43.179Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T16:04:43.248Z"
+    },
+    {
+      "action": "冰淇淋：空杯",
+      "at": "2026-10-12T16:04:46.231Z"
+    },
+    {
+      "action": "冰淇淋：草莓球",
+      "at": "2026-10-12T16:04:46.298Z"
+    },
+    {
+      "action": "拿起草莓冰淇淋杯",
+      "at": "2026-10-12T16:04:46.363Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T16:04:46.431Z"
+    },
+    {
+      "action": "比较两份甜点",
+      "at": "2026-10-12T16:04:48.397Z"
+    },
+    {
+      "action": "品尝香草蛋筒",
+      "at": "2026-10-12T16:04:48.461Z"
+    },
+    {
+      "action": "一起开席",
+      "at": "2026-10-12T16:04:48.595Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T16:04:48.662Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T16:04:48.732Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:04:48.812Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T16:04:48.881Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:04:48.947Z"
+    },
+    {
+      "action": "拿起芝士三明治",
+      "at": "2026-10-12T16:04:49.014Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T16:04:49.082Z"
+    },
+    {
+      "action": "检查野餐篮",
+      "at": "2026-10-12T16:04:52.047Z"
+    },
+    {
+      "action": "先帮刺刺",
+      "at": "2026-10-12T16:04:52.117Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:04:52.197Z"
+    },
+    {
+      "action": "组合板：生菜",
+      "at": "2026-10-12T16:04:52.260Z"
+    },
+    {
+      "action": "组合板：番茄",
+      "at": "2026-10-12T16:04:52.331Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:04:52.393Z"
+    },
+    {
+      "action": "拿起蔬菜三明治",
+      "at": "2026-10-12T16:04:52.463Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T16:04:52.529Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:04:55.511Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T16:04:55.576Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:04:55.644Z"
+    },
+    {
+      "action": "拿起芝士三明治",
+      "at": "2026-10-12T16:04:55.713Z"
+    },
+    {
+      "action": "把食品放进野餐篮",
+      "at": "2026-10-12T16:04:55.776Z"
+    },
+    {
+      "action": "拿起苹果",
+      "at": "2026-10-12T16:04:57.748Z"
+    },
+    {
+      "action": "把食品放进野餐篮",
+      "at": "2026-10-12T16:04:57.831Z"
+    },
+    {
+      "action": "把篮子摆上桌",
+      "at": "2026-10-12T16:04:59.795Z"
+    },
+    {
+      "action": "铺叶子桌布",
+      "at": "2026-10-12T16:04:59.863Z"
+    },
+    {
+      "action": "一起开席",
+      "at": "2026-10-12T16:04:59.964Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T16:05:00.096Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T16:05:00.161Z"
+    },
+    {
+      "action": "煎锅：生饼",
+      "at": "2026-10-12T16:05:00.228Z"
+    },
+    {
+      "action": "启动煎台",
+      "at": "2026-10-12T16:05:00.298Z"
+    },
+    {
+      "action": "果汁机：苹果",
+      "at": "2026-10-12T16:05:00.377Z"
+    },
+    {
+      "action": "果汁机：空杯",
+      "at": "2026-10-12T16:05:00.444Z"
+    },
+    {
+      "action": "启动果汁机",
+      "at": "2026-10-12T16:05:00.513Z"
+    },
+    {
+      "action": "组合板：圆面包",
+      "at": "2026-10-12T16:05:00.578Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T16:05:00.642Z"
+    },
+    {
+      "action": "拿起熟饼",
+      "at": "2026-10-12T16:05:04.077Z"
+    },
+    {
+      "action": "放到组合板",
+      "at": "2026-10-12T16:05:04.143Z"
+    },
+    {
+      "action": "拿起芝士汉堡",
+      "at": "2026-10-12T16:05:04.211Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T16:05:04.277Z"
+    },
+    {
+      "action": "请兔兔带灯",
+      "at": "2026-10-12T16:05:07.245Z"
+    },
+    {
+      "action": "先帮刺刺",
+      "at": "2026-10-12T16:05:07.312Z"
+    },
+    {
+      "action": "拿起苹果汁",
+      "at": "2026-10-12T16:05:07.378Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T16:05:07.460Z"
+    },
+    {
+      "action": "点亮暖灯",
+      "at": "2026-10-12T16:05:10.463Z"
+    },
+    {
+      "action": "一起开席",
+      "at": "2026-10-12T16:05:10.660Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T16:05:10.728Z"
+    },
+    {
+      "action": "邀请兔兔",
+      "at": "2026-10-12T16:05:10.797Z"
+    },
+    {
+      "action": "邀请刺刺",
+      "at": "2026-10-12T16:05:10.892Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:05:10.966Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T16:05:11.044Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T16:05:11.109Z"
+    },
+    {
+      "action": "拿起芝士三明治",
+      "at": "2026-10-12T16:05:11.192Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T16:05:11.259Z"
+    },
+    {
+      "action": "冰淇淋：空杯",
+      "at": "2026-10-12T16:05:13.226Z"
+    },
+    {
+      "action": "冰淇淋：草莓球",
+      "at": "2026-10-12T16:05:13.295Z"
+    },
+    {
+      "action": "拿起草莓冰淇淋杯",
+      "at": "2026-10-12T16:05:13.363Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T16:05:13.444Z"
+    },
+    {
+      "action": "品尝芝士三明治",
+      "at": "2026-10-12T16:05:15.429Z"
+    },
+    {
+      "action": "保存到食谱",
+      "at": "2026-10-12T16:05:15.513Z"
+    },
+    {
+      "action": "一起开席",
+      "at": "2026-10-12T16:05:15.578Z"
+    },
+    {
+      "action": "暂停",
+      "at": "2026-10-12T16:05:15.764Z"
+    },
+    {
+      "action": "收摊回小院",
+      "at": "2026-10-12T16:05:15.846Z"
+    },
+    {
+      "action": "自由开店",
+      "at": "2026-10-12T16:05:15.906Z"
+    },
+    {
+      "action": "暂停",
+      "at": "2026-10-12T16:05:15.982Z"
+    },
+    {
+      "action": "停止接客，做作品",
+      "at": "2026-10-12T16:05:16.059Z"
+    },
+    {
+      "action": "拿起苹果",
+      "at": "2026-10-12T16:05:16.126Z"
+    },
+    {
+      "action": "放到作品区",
+      "at": "2026-10-12T16:05:16.195Z"
+    },
+    {
+      "action": "品尝苹果",
+      "at": "2026-10-12T16:05:18.180Z"
+    },
+    {
+      "action": "保存到食谱",
+      "at": "2026-10-12T16:05:18.260Z"
+    },
+    {
+      "action": "暂停",
+      "at": "2026-10-12T16:05:18.342Z"
+    },
+    {
+      "action": "收摊回小院",
+      "at": "2026-10-12T16:05:18.409Z"
+    },
+    {
+      "action": "迷你游戏",
+      "at": "2026-10-12T16:05:18.478Z"
+    }
+  ],
+  "chapter5": {
+    "chapter": 4,
+    "kind": "chapter",
+    "branch": null,
+    "explored": [],
+    "steps": [
+      "create",
+      "place:0",
+      "place:1",
+      "taste",
+      "save-work"
+    ],
+    "rewards": [
+      "feast-page"
+    ],
+    "foods": [
+      {
+        "id": "food-1",
+        "product": "sandwich",
+        "source": "create:sharing-first",
+        "place": "table:0",
+        "tasted": true,
+        "recipient": "rabbit",
+        "tastedBy": "rabbit"
+      },
+      {
+        "id": "food-7",
+        "product": "strawberry-cup",
+        "source": "create:sharing-first",
+        "place": "table:1",
+        "tasted": true,
+        "recipient": "hedgehog",
+        "tastedBy": "hedgehog"
+      }
+    ],
+    "works": [
+      {
+        "id": "b272a28d-abb2-4149-9682-e21741f037ca:work:13",
+        "foods": [
+          {
+            "id": "food-1",
+            "product": "sandwich",
+            "source": "create:sharing-first",
+            "place": "table:0",
+            "tasted": true,
+            "recipient": "rabbit",
+            "tastedBy": "rabbit"
+          },
+          {
+            "id": "food-7",
+            "product": "strawberry-cup",
+            "source": "create:sharing-first",
+            "place": "table:1",
+            "tasted": false,
+            "recipient": "hedgehog"
+          }
+        ],
+        "signature": "food-1:sandwich:table:0:true|food-7:strawberry-cup:table:1:false"
+      }
+    ],
+    "decor": {
+      "flower": 0,
+      "bunting": "warm",
+      "cloth": "leaf",
+      "light": "warm"
+    },
+    "invitations": [
+      "rabbit",
+      "hedgehog"
+    ],
+    "experience": {
+      "version": 2,
+      "tools": [],
+      "used": [
+        "share"
+      ],
+      "helpers": [],
+      "needs": [
+        {
+          "visitor": "rabbit",
+          "kind": "savory",
+          "basis": "packing",
+          "fulfilled": [
+            "food-1"
+          ]
+        },
+        {
+          "visitor": "hedgehog",
+          "kind": "cool",
+          "basis": "treat",
+          "fulfilled": [
+            "food-7"
+          ]
+        }
+      ],
+      "known": [
+        "apple",
+        "banana",
+        "vanilla-cone",
+        "strawberry-cup",
+        "sandwich",
+        "salad-sandwich",
+        "cheese-burger",
+        "juice"
+      ],
+      "picnic": "rabbit",
+      "moments": [
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "sandwich"
+            }
+          ],
+          "destination": "work",
+          "id": "b272a28d-abb2-4149-9682-e21741f037ca:moment:5",
+          "at": 1549.9000000000015
+        },
+        {
+          "kind": "share",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "sandwich"
+            }
+          ],
+          "visitor": "rabbit",
+          "seat": 0,
+          "id": "b272a28d-abb2-4149-9682-e21741f037ca:moment:6",
+          "at": 1549.9000000000015
+        },
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-7",
+              "product": "strawberry-cup"
+            }
+          ],
+          "destination": "work",
+          "id": "b272a28d-abb2-4149-9682-e21741f037ca:moment:10",
+          "at": 3733.2000000000044
+        },
+        {
+          "kind": "share",
+          "foods": [
+            {
+              "id": "food-7",
+              "product": "strawberry-cup"
+            }
+          ],
+          "visitor": "hedgehog",
+          "seat": 1,
+          "id": "b272a28d-abb2-4149-9682-e21741f037ca:moment:11",
+          "at": 3733.2000000000044
+        },
+        {
+          "kind": "taste",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "sandwich"
+            }
+          ],
+          "visitor": "rabbit",
+          "seat": 0,
+          "id": "b272a28d-abb2-4149-9682-e21741f037ca:moment:12",
+          "at": 4699.800000000003
+        },
+        {
+          "kind": "finish",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "sandwich",
+              "visitor": "rabbit"
+            },
+            {
+              "id": "food-7",
+              "product": "strawberry-cup",
+              "visitor": "hedgehog"
+            }
+          ],
+          "destination": "table",
+          "id": "b272a28d-abb2-4149-9682-e21741f037ca:moment:14",
+          "at": 4849.800000000003
+        }
+      ]
+    }
+  },
+  "free": {
+    "chapter": 4,
+    "kind": "shop",
+    "branch": null,
+    "explored": [],
+    "steps": [
+      "create",
+      "taste",
+      "save-work"
+    ],
+    "rewards": [],
+    "foods": [
+      {
+        "id": "food-1",
+        "product": "apple",
+        "source": "create:world-2",
+        "place": "work",
+        "tasted": true,
+        "tastedBy": "rabbit"
+      }
+    ],
+    "works": [
+      {
+        "id": "82566415-0af5-4d95-8d35-6daad6b51f18:work:5",
+        "foods": [
+          {
+            "id": "food-1",
+            "product": "apple",
+            "source": "create:world-2",
+            "place": "work",
+            "tasted": true,
+            "tastedBy": "rabbit"
+          }
+        ],
+        "signature": "food-1:apple:work:true"
+      }
+    ],
+    "decor": {
+      "flower": 0,
+      "bunting": "warm",
+      "cloth": "leaf",
+      "light": "warm"
+    },
+    "invitations": [],
+    "experience": {
+      "version": 2,
+      "tools": [],
+      "used": [],
+      "helpers": [],
+      "needs": [],
+      "known": [
+        "apple",
+        "banana",
+        "vanilla-cone",
+        "strawberry-cup",
+        "sandwich",
+        "salad-sandwich",
+        "cheese-burger",
+        "juice"
+      ],
+      "picnic": "rabbit",
+      "moments": [
+        {
+          "kind": "receive",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "apple"
+            }
+          ],
+          "destination": "work",
+          "id": "82566415-0af5-4d95-8d35-6daad6b51f18:moment:3",
+          "at": 1216.699999999997
+        },
+        {
+          "kind": "taste",
+          "foods": [
+            {
+              "id": "food-1",
+              "product": "apple"
+            }
+          ],
+          "visitor": "rabbit",
+          "id": "82566415-0af5-4d95-8d35-6daad6b51f18:moment:4",
+          "at": 2183.2999999999956
+        }
+      ]
+    }
+  },
+  "pageErrors": [],
+  "notRun": [
+    "real adult",
+    "child observation",
+    "physical device",
+    "manual audio review"
+  ]
+}

@@ -1,0 +1,54 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/direct-mini-entry.test.ts (3 tests | 3 failed) 5ms
+   × scene start immediately makes the physical scene operable without fabricating attempts 4ms
+   × a course enters its playable task with its meaning pictures accounted for 0ms
+   × memory still has a real observation stage and only a player cover hides the objects 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/direct-mini-entry.test.ts > scene start immediately makes the physical scene operable without fabricating attempts
+AssertionError: expected 'meaning' to be 'play' // Object.is equality
+
+Expected: "play"
+Received: "meaning"
+
+ ❯ tests/direct-mini-entry.test.ts:7:141
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/direct-mini-entry.test.ts > a course enters its playable task with its meaning pictures accounted for
+AssertionError: expected 'meaning' to be 'play' // Object.is equality
+
+Expected: "play"
+Received: "meaning"
+
+ ❯ tests/direct-mini-entry.test.ts:10:89
+      8| });
+      9| test('a course enters its playable task with its meaning pictures acco…
+     10|  const s=startCourse(createCourse(ALL_MINI_LEVELS[0]!,'direct-course')…
+       |                                                                                         ^
+     11| });
+     12| test('memory still has a real observation stage and only a player cove…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/direct-mini-entry.test.ts > memory still has a real observation stage and only a player cover hides the objects
+AssertionError: expected 'meaning' to be 'observe' // Object.is equality
+
+Expected: "observe"
+Received: "meaning"
+
+ ❯ tests/direct-mini-entry.test.ts:13:138
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  23:20:00
+   Duration  207ms (transform 95ms, setup 0ms, import 115ms, tests 5ms, environment 0ms)
+

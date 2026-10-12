@@ -186,7 +186,13 @@ export function sceneCommand(s: SceneState, c: SceneCommand): SceneState {
       ? { ...s, heard: true }
       : addSupport({ ...s, heard: false }, 'audio-unavailable');
   if ('token' in c && c.token && c.token !== `${s.id}:${s.round}`) return s;
-  if (c.type === 'start') return s.phase === 'intro' ? { ...s, phase: 'meaning' } : s;
+  if (c.type === 'start')
+    return s.phase === 'intro'
+      ? {
+          ...addSupport(s, 'meaning-picture'),
+          phase: level.kind === 'memory' ? 'observe' : 'play',
+        }
+      : s;
   if (c.type === 'help')
     return addSupport({ ...s, feedback: '看看图示和动作，再自己试试。' }, 'answer-help');
   if (c.type === 'free')
@@ -203,7 +209,7 @@ export function sceneCommand(s: SceneState, c: SceneCommand): SceneState {
   if (c.type === 'play')
     return s.phase === 'meaning'
       ? {
-          ...addSupport(s, 'meaning-demonstration'),
+          ...addSupport(s, 'meaning-picture'),
           phase: level.kind === 'memory' ? 'observe' : 'play',
           heard: false,
           feedback: '',
@@ -236,9 +242,9 @@ export function sceneCommand(s: SceneState, c: SceneCommand): SceneState {
     return {
       ...s,
       round: next,
-      phase: level.kind === 'theatre' ? 'play' : 'meaning',
+      phase: level.kind === 'memory' ? 'observe' : 'play',
       objects: level.kind === 'theatre' ? s.objects : copy(level.tasks[next]?.objects ?? []),
-      support: [...s.carry],
+      support: [...new Set([...s.carry, 'meaning-picture'])],
       heard: false,
       undo: [],
       feedback: '',

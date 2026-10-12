@@ -32,7 +32,7 @@ function make(s: GameState, product: Product): [GameState, Source] {
   const r = RECIPES.find((r) => r.output === product);
   if (!r) throw Error(product);
   s = send(s, { type: 'family', family: r.family }).state;
-  for (const input of [...r.inputs].reverse()) {
+  for (const input of r.station === 'ice' ? r.inputs : [...r.inputs].reverse()) {
     const [next, source] = make(s, input);
     s = next;
     s = send(s, {

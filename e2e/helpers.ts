@@ -27,10 +27,12 @@ export async function startEndless(p: Page, less = true) {
   await p.goto('/');
   await p.locator('.yard-endless .entry-main').click();
   if (less) {
+    await p.getByRole('button', { name: '暂停', exact: true }).click();
+    await p.getByRole('button', { name: '调整开店设置', exact: true }).click();
     await p.getByRole('button', { name: '少些帮助，听一听' }).click();
     await p.getByRole('button', { name: '两位一起招呼' }).click();
+    await p.getByRole('button', { name: '开门 / 继续营业' }).click();
   }
-  await p.getByRole('button', { name: '开门 / 继续营业' }).click();
   await lesson(p);
 }
 export async function choosePrep(p: Page, name: string) {
@@ -45,48 +47,26 @@ export async function choosePrep(p: Page, name: string) {
           : '放到组合板';
   await p.getByRole('button', { name: label, exact: true }).click();
 }
-const equipment = {
-  juice: '果汁机',
-  ice: '冰淇淋台',
-  sandwich: '夹层板',
-  burger: '煎台',
-  ready: '食品篮',
-};
 export async function selectDevice(p: Page, device: string) {
-  if ((await p.locator('.preparation-scene').getAttribute('data-device')) === device) return;
-  const label =
-    device === 'burger-board' ? '汉堡组合板' : equipment[device as keyof typeof equipment];
-  for (let turns = 0; turns < 8; turns++) {
-    const desired = p.getByRole('button', { name: `看看${label}`, exact: true });
-    if (await desired.isVisible()) {
-      await desired.click();
-      return;
-    }
-    await p.locator('.equipment-rack button').last().click();
-  }
-  throw Error(`physical device ${device} not reachable`);
+  const name =
+    device === 'burger'
+      ? '煎锅'
+      : device === 'burger-board' || device === 'sandwich'
+        ? '组合板'
+        : device === 'juice'
+          ? '果汁机'
+          : device === 'ice'
+            ? '冰淇淋'
+            : null;
+  if (name) await expect(p.getByRole('region', { name, exact: true })).toBeVisible();
 }
 export async function supply(p: Page, product: Product) {
   if (!(await p.locator(`[data-hotspot="supply-${product}"]`).isVisible())) {
-    const family =
-      product === 'apple' || product === 'banana' || product === 'cup'
-        ? 'juice'
-        : product === 'cone' || product === 'vanilla' || product === 'strawberry'
-          ? 'ice'
-          : product === 'bun' || product === 'patty'
-            ? 'burger'
-            : product === 'bread' ||
-                product === 'cheese' ||
-                product === 'lettuce' ||
-                product === 'tomato'
-              ? 'sandwich'
-              : 'ready';
-    await selectDevice(p, family);
-    if (family === 'ready')
-      for (let page = 0; page < 4; page++) {
-        await p.getByRole('button', { name: `查看第${page + 1}篮食物`, exact: true }).click();
-        if (await p.locator(`[data-hotspot="supply-${product}"]`).isVisible()) break;
-      }
+    await p.getByRole('button', { name: '查看更多食物篮', exact: true }).click();
+    for (let page = 0; page < 4; page++) {
+      await p.getByRole('button', { name: `查看第${page + 1}篮食物`, exact: true }).click();
+      if (await p.locator(`[data-hotspot="supply-${product}"]`).isVisible()) break;
+    }
   }
   await p.locator(`[data-hotspot="supply-${product}"]`).click();
   return (
@@ -105,46 +85,37 @@ export async function make(
   if (!recipe) {
     return supply(p, product);
   }
-  const show = () =>
-    selectDevice(
-      p,
-      recipe.station === 'board' && recipe.family === 'burger' ? 'burger-board' : recipe.family,
-    );
-  for (const input of recipe.inputs) {
-    let id: string | null;
-    if (RAW.includes(input)) id = await supply(p, input);
-    else id = await make(p, input, restore);
-    if (!id) throw Error(`no actual ${input}`);
-    await show();
-    const current = (await state(p)).items.find((i) => i.id === id);
-    if (!current?.location.startsWith('hand:'))
-      await p.locator(`[data-hotspot="item-${id}"]`).click();
-    await p
-      .getByRole('button', {
-        name:
-          recipe.station === 'machine'
-            ? input === 'cup'
-              ? '放到果汁机杯座'
-              : '放入果汁机水果口'
-            : recipe.station === 'ice'
-              ? '放到冰淇淋台'
-              : recipe.station === 'grill'
-                ? '放到煎台'
-                : '放到组合板',
-        exact: true,
-      })
-      .click();
+  const inputs =
+    recipe.family === 'sandwich'
+      ? ['bread' as Product, ...recipe.inputs.filter((x) => x !== 'bread'), 'bread' as Product]
+      : recipe.inputs;
+  for (const input of inputs) {
+    if (!RAW.includes(input)) {
+      const id = await make(p, input, restore);
+      if (!id) throw Error(`no actual ${input}`);
+      await p.getByRole('button', { name: '放到组合板', exact: true }).click();
+    } else {
+      const name =
+        recipe.station === 'machine'
+          ? '果汁机'
+          : recipe.station === 'ice'
+            ? '冰淇淋'
+            : recipe.station === 'grill'
+              ? '煎锅'
+              : '组合板';
+      const labels = (await import('../src/content/catalog')).PRODUCT_NAMES;
+      await p.getByRole('button', { name: `${name}：${labels[input]}`, exact: true }).click();
+    }
   }
-  await show();
-  await p
-    .locator(
-      `[data-hotspot="${recipe.station === 'machine' ? 'start' : `start-station-${recipe.station}`}" ]`,
-    )
-    .click();
-  const before = await state(p);
-  expect(
-    recipe.station === 'machine' ? before.machine.status : before.stations[recipe.station].status,
-  ).toBe('processing');
+  if (recipe.station === 'machine' || recipe.station === 'grill') {
+    await p
+      .locator(`[data-hotspot="${recipe.station === 'machine' ? 'start' : 'start-station-grill'}"]`)
+      .click();
+    const before = await state(p);
+    expect(
+      recipe.station === 'machine' ? before.machine.status : before.stations.grill.status,
+    ).toBe('processing');
+  } else expect((await state(p)).stations[recipe.station].status).toBe('ready');
   if (restore?.has(recipe.station)) {
     restore.delete(recipe.station);
     await p.getByRole('button', { name: '暂停', exact: true }).click();
@@ -181,7 +152,6 @@ export async function make(
         : i.location.startsWith(`station:${recipe.station}:`)),
   );
   if (!item) throw Error(product);
-  await show();
   await p.locator(`[data-hotspot="item-${item.id}"]`).click();
   expect((await state(p)).items.find((i) => i.id === item.id)?.location).toMatch(/^hand:/);
   return item.id;

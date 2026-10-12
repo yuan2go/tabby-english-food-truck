@@ -1650,3 +1650,29 @@
     height: 54px;
   }
 }
+.inline-word-shelf {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.mini-inline-meaning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mini-inline-meaning .food-art {
+  width: 44px;
+  height: 44px;
+}
+.inline-word-shelf > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.inline-word-shelf .food-art,
+.inline-word-shelf img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}

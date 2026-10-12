@@ -120,6 +120,11 @@ export type Destination =
   | { station: StationId }
   | { discard: true; confirmed: boolean };
 export type Command =
+  | {
+      type: 'ingredient';
+      product: Product;
+      target: { station: StationId } | { machine: 'apple' | 'cup' };
+    }
   | { type: 'pickup'; source: Source }
   | {
       type: 'put';
@@ -189,6 +194,8 @@ export interface Result {
 }
 
 export interface ActorJob {
+  shareWith?: Visitor;
+  creationGroup?: string;
   fromHand?: true;
   plan: ActorPlan;
   elapsed: number;
