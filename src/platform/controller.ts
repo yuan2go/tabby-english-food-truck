@@ -133,7 +133,9 @@ export class GameController {
         receipt.target === 'create'
           ? '作品放好了，可以选食品分享或品尝。'
           : receipt.target === 'pack'
-            ? '食品装好了，点篮子摆上桌。'
+            ? this.state.adventure?.flow
+              ? '食品进篮了，装齐后会自然摆上桌。'
+              : '食品装好了，点篮子摆上桌。'
             : '朋友收到啦！可以接着准备。';
       this.pendingReceipt = null;
     }
