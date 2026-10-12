@@ -1,0 +1,54 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (14 tests | 2 failed) 133ms
+   × desserts retain strict real compositions; comparison and tasting follow receipts naturally 15ms
+   × restoring a real picnic run keeps its route memory even when the separate profile write was lost 90ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > desserts retain strict real compositions; comparison and tasting follow receipts naturally
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tick tests/story-flow.test.ts:19:20
+     17| const tick = (s: GameState, until: (s: GameState) => boolean, limit = …
+     18|   for (let ms = 0; ms < limit && !until(s); ms += 100) s = advance(s, …
+     19|   expect(until(s)).toBe(true);
+       |                    ^
+     20|   return s;
+     21| };
+ ❯ tests/story-flow.test.ts:141:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/story-flow.test.ts > restoring a real picnic run keeps its route memory even when the separate profile write was lost
+AssertionError: expected null to be 'hedgehog' // Object.is equality
+
+- Expected:
+"hedgehog"
+
++ Received:
+null
+
+ ❯ tests/story-flow.test.ts:265:51
+    263|   try {
+    264|     const c=new GameController(new SaveStore(()=>storage)); c.enter('s…
+    265|     expect(c.state.adventure?.experience?.picnic).toBe('hedgehog');
+       |                                                   ^
+    266|     expect(c.state.adventure?.flow?.archives[0]?.branch).toBe('hedgeho…
+    267|   } finally {vi.unstubAllGlobals();}
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 12 passed (14)
+   Start at  01:56:03
+   Duration  404ms (transform 222ms, setup 0ms, import 180ms, tests 133ms, environment 0ms)
+

@@ -1,0 +1,71 @@
+[WebServer] (node:90762) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:90831) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 17 tests using 1 worker
+
+(node:90877) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/demo-repair.spec.ts:5:1 › scene pause isolates background, traps focus and restores a usable trigger (1.3s)
+  ✓   2 e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery (3.0s)
+  ✓   3 e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player (7.8s)
+  ✓   4 e2e/demo-repair.spec.ts:59:1 › home invitation and autonomous entrances remain reachable in compact layouts (780ms)
+  ✓   5 e2e/demo-repair.spec.ts:89:1 › optional drag snaps only to the target actually pointed at and empty release does not submit (3.2s)
+  ✓   6 e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions (3.0s)
+  ✓   7 e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately (1.3s)
+  ✓   8 e2e/experience.spec.ts:45:1 › muting through settings retains full English and safe replay (2.9s)
+  ✘   9 e2e/immersion.spec.ts:5:1 › normal entrance keeps requests and receipt at the speaker, with optional garden and real memory (9.0s)
+(node:90902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 e2e/immersion.spec.ts:34:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership (1.5s)
+  ✓  11 e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory (6.7s)
+  ✓  12 e2e/m22-boundaries.spec.ts:71:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error (1.3s)
+  ✓  13 e2e/together-play.spec.ts:5:1 › breakfast starts with two meaningful actions with a real held item and optional exploration (11.1s)
+  ✓  14 e2e/together-play.spec.ts:28:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (7.3s)
+  ✓  15 e2e/together-play.spec.ts:58:1 › speaker meaning pictures and same-stage demonstration are usable assistance without inventory or language submission (3.1s)
+  ✓  16 e2e/together-play.spec.ts:83:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity (7.4s)
+  ✓  17 e2e/together-play.spec.ts:119:1 › open request remains at its actual speaker after another conversation and cannot thank before receipt (21.9s)
+
+
+  1) e2e/immersion.spec.ts:5:1 › normal entrance keeps requests and receipt at the speaker, with optional garden and real memory 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: '重听兔兔：Thank you!', exact: true })
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: '重听兔兔：Thank you!', exact: true }) with timeout 6000ms
+      - waiting for getByRole('button', { name: '重听兔兔：Thank you!', exact: true })
+
+
+      13 |   await expect(
+      14 |     page.getByRole('button', { name: '重听兔兔：Thank you!', exact: true }),
+    > 15 |   ).toBeVisible();
+         |     ^
+      16 |   await serve(page);
+      17 |   await page.getByRole('button', { name: '打开储物抽屉', exact: true }).click();
+      18 |   await page.getByRole('button', { name: '取出花苗', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck/e2e/immersion.spec.ts:15:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-adapt/test-results/immersion-normal-entrance--3cb6d-onal-garden-and-real-memory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-adapt/test-results/immersion-normal-entrance--3cb6d-onal-garden-and-real-memory/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-continuous-adapt/test-results/immersion-normal-entrance--3cb6d-onal-garden-and-real-memory/error-context.md
+
+  1 failed
+    e2e/immersion.spec.ts:5:1 › normal entrance keeps requests and receipt at the speaker, with optional garden and real memory 
+  16 passed (1.7m)

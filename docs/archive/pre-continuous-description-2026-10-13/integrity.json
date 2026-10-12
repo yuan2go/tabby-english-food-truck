@@ -1,0 +1,15 @@
+{
+  "baselineMain": "f10f4b5b58e4ae815c213fa5ac69bf0591630682",
+  "sha256": {
+    "design-description.md": "26a5cdd4fd6fefdea4eedb26c29f9c0a7c1614845735e41998fb486268440ae0",
+    "design-description.pdf": "03dca11e9aa9a8047338ebd5b432fcb9c753f888778360d1c9b354d6977eb55a",
+    "index.md": "7bb463d3c0a5dfff6087cec1551f38ec046b10d0718a0cc49f71b9554c05e54d",
+    "evidence.md": "902e966378dd6f0c921f28a1b964283f316e5240904618620ee3511be3049ece",
+    "validation.md": "8e8f55595a187e8d5e21ebf1ce9d2107d063c2c1f2a87d0de508d8701b903478",
+    "cloud-delivery.md": "e83c71c44c3ec9e2e13730c41a282c4e8b68cc4bc80cc3abf6d1a0bcda8d55b8",
+    "assets/screenshots.json": "5891bd8f3afe6b1fd4460752c408bae9f082b780e86a6e4ce3a44b0e11deea8f",
+    "pdf-qa/exported-text.txt": "80b5c9aba95d44543f42a340815148405c828a4357a09ebb6a59c38330675282",
+    "pdf-qa/page-1.png": "d80def4d510b97b917c6ddc466a37f02591495b1f67cce13939f67af5203500c",
+    "pdf-qa/pdf-validation.json": "ce66c95d438819219d9d8ff8271db3bab00a61efb3c93aa6af7c974cfa664f8a"
+  }
+}

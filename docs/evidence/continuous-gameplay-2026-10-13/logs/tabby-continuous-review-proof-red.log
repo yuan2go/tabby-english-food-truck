@@ -1,0 +1,88 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (18 tests | 4 failed) 408ms
+   × clearing the completed carnival preserves its reward and a valid recoverable world 22ms
+   × an already rewarded legacy feast gains no new sharing obligations on adoption 9ms
+   × a new archive cannot manufacture a breakfast completion from only step and reward strings 1ms
+   × the first real dessert attempt has its own chapter and is not a breakfast retry 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > clearing the completed carnival preserves its reward and a valid recoverable world
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/story-flow.test.ts:296:54
+    294|   expect(r.state.adventure?.foods).toEqual([]);
+    295|   expect(r.state.adventure?.works).toEqual(works);
+    296|   expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+       |                                                      ^
+    297| });
+    298| test('an already rewarded legacy feast gains no new sharing obligation…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/story-flow.test.ts > an already rewarded legacy feast gains no new sharing obligations on adoption
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/story-flow.test.ts:312:191
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/story-flow.test.ts > a new archive cannot manufacture a breakfast completion from only step and reward strings
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/story-flow.test.ts:319:52
+    317|   const value=structuredClone(s);
+    318|   if(value.adventure?.flow)value.adventure.flow.archives.push(memory a…
+    319|   expect(decodeSnapshot(JSON.stringify(value)).ok).toBe(false);
+       |                                                    ^
+    320| });
+    321| test('the first real dessert attempt has its own chapter and is not a …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/story-flow.test.ts > the first real dessert attempt has its own chapter and is not a breakfast retry
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/story-flow.test.ts:325:36
+    323|   for(let i=0;i<4;i++){s=tick(s,(s)=>s.orders.some((o)=>o.status==='wa…
+    324|   s=tick(s,(s)=>s.session.chapter===1);s=serve(s);
+    325|   expect(s.attempts.at(-1)?.retry).toBe(0);
+       |                                    ^
+    326|   expect(s.attempts.at(-1)?.chapter).toBe(1);
+    327| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 14 passed (18)
+   Start at  02:01:27
+   Duration  1.49s (transform 794ms, setup 0ms, import 712ms, tests 408ms, environment 0ms)
+

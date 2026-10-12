@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (15 tests | 1 failed) 408ms
+   × clearing the completed carnival preserves its reward and a valid recoverable world 23ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > clearing the completed carnival preserves its reward and a valid recoverable world
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/story-flow.test.ts:296:54
+    294|   expect(r.state.adventure?.foods).toEqual([]);
+    295|   expect(r.state.adventure?.works).toEqual(works);
+    296|   expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
+       |                                                      ^
+    297| });
+    298|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 14 passed (15)
+   Start at  01:59:01
+   Duration  1.26s (transform 717ms, setup 0ms, import 578ms, tests 408ms, environment 0ms)
+

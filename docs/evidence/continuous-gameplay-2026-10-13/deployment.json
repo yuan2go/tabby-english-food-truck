@@ -1,0 +1,49 @@
+{
+  "baselineMain": "f10f4b5b58e4ae815c213fa5ac69bf0591630682",
+  "testedHead": "a7ab8ed6de9567d8610eafd0b15fa35005180e9a",
+  "githubCodeMain": "1c6af31fd2c109fca3cb36786f2e5232814b5839",
+  "pullRequest": "https://github.com/yuan2go/tabby-english-food-truck/pull/25",
+  "ciRun": 38291628118,
+  "siteProjectId": "appgprj_6ab141055ab8819186112dee423d0d04",
+  "siteSourceSha": "2096d7fdbbcf99edf7a439ac4e3b233be5c19891",
+  "version": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_4d66aee14b2481919193acb342b39121",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "version_number": 6,
+    "source": {
+      "commit_sha": "2096d7fdbbcf99edf7a439ac4e3b233be5c19891"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000e85481fd937affe443b2aa40",
+      "content_hash": "sha256:02ec667b1cba6b3682f19d161bd7d824bc9e580c564316b14e6cf1886e0b3640",
+      "size_bytes": 53811200,
+      "file_count": 725
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6acd2ab2191481918640e528dd660fe1",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "title": "\u72f8\u82b1\u732b\u7684\u82f1\u8bed\u9910\u8f66",
+    "version_id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_4d66aee14b2481919193acb342b39121",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ab141055ab8819186112dee423d0d04",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-12T18:45:15.442284+00:00"
+  },
+  "materialPullRequest": "https://github.com/yuan2go/tabby-english-food-truck/pull/26",
+  "codeMainCI": {
+    "runId": 38292804117,
+    "headSha": "1c6af31fd2c109fca3cb36786f2e5232814b5839",
+    "conclusion": "success",
+    "unit": 371,
+    "browser": 45
+  }
+}

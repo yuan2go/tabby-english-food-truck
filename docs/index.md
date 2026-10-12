@@ -6,4 +6,6 @@
 - e2e/README：正常用户操作和边界，旧流程只作历史。
 - art/README、manifest：来源/审核/权利不因重构变化。
 - submission/index：最终真实玩法说明/PDF/同版配图。
+- [新版实证](evidence/continuous-gameplay-2026-10-13/README.md)：371/45准确head、独立审查、正常两路线/发布/说明核验。
 - evidence/direct-cooking-2026-10-12及历史playtests：原发布/失败，不能当新版重测。
+- [说明更新前原文](archive/pre-continuous-description-2026-10-13/README.md)：十文件byte/hash保留。

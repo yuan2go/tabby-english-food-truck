@@ -1,0 +1,36 @@
+{
+  "candidateHead": "82c89a0f591da90aa997f38efe4f45f5e03807fa",
+  "touches": 103,
+  "physicalActions": 91,
+  "wrongExplicitDelivery": 1,
+  "foodStepsAccepted": 90,
+  "normalRunSeconds": 66.945,
+  "actualArchives": [
+    {
+      "chapter": 0,
+      "foods": 6,
+      "branch": null
+    },
+    {
+      "chapter": 1,
+      "foods": 5,
+      "branch": null
+    },
+    {
+      "chapter": 2,
+      "foods": 4,
+      "branch": "rabbit"
+    },
+    {
+      "chapter": 3,
+      "foods": 4,
+      "branch": null
+    }
+  ],
+  "actualFinalFoods": [
+    "sandwich",
+    "strawberry-cup"
+  ],
+  "attempts": 15,
+  "notAChildOrPhysicalDevice": true
+}

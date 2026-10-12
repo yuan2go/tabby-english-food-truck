@@ -1,0 +1,85 @@
+{
+  "historicalSource": {
+    "testedSha": "43d7c76c80df54361790c47ba1715fe7290f9039",
+    "contentVersion": "adventure-experience-2",
+    "screenshots": [
+      {
+        "file": "01-making-icecream.png",
+        "original": "../../playtests/2026-10-11-integrated-validation-43d7c76/manual/09-icecream-processing.png",
+        "sha256": "632c6dff60eb7674bee1ad911b145fed0c852ca4ee4a431dcf23863309faf20e",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical copy, no editing"
+      },
+      {
+        "file": "02-picnic-sharing.png",
+        "original": "../../playtests/2026-10-11-integrated-validation-43d7c76/manual/24-ch3-rabbit-complete.png",
+        "sha256": "553b39dee2f4dc5a8eb6fb8f29a8b806ce0eee8704580131147c2443388ed78b",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical copy, no editing"
+      },
+      {
+        "file": "03-saved-work.png",
+        "original": "../../playtests/2026-10-11-integrated-validation-43d7c76/manual/52-free-gallery.png",
+        "sha256": "b1d0c9eeacc7406ce0a101a10e4c19b8d5f8d991b146c4e5db02743783872bb7",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical copy, no editing"
+      }
+    ]
+  },
+  "previousOnlineVersion3": {
+    "githubCodeMainSha": "7339c5119007e913327609fa6e24d89a5a86cb21",
+    "providerSourceSha": "1ab58709b1d557099180f28174cb0526cdfc7160",
+    "siteVersion": 3,
+    "deploymentId": "appgdep_6acbf0bdd1b08191b4e863c6d50c7fe2",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "checkedAt": "2026-10-11T20:26:24.916Z",
+    "screenshots": [
+      {
+        "file": "04-online-kitchen.png",
+        "original": "../../evidence/contest-release-2026-10-12/live/04-online-kitchen.png",
+        "sha256": "d16376dcbe54c8fabe75ed9092b77b5d71f895d2edf74421984622d4b358d1ce",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical actual public site screenshot; no editing"
+      }
+    ]
+  },
+  "previousOnlineVersion4": {
+    "githubCodeMainSha": "2e3f36442a54a564647632d6bf421ec58a3b6252",
+    "providerSourceSha": "49d307ef2573173b31a7f6225bab0380fedec574",
+    "siteVersion": 4,
+    "deploymentId": "appgdep_6acc6e74a5508191955f926fc5c21532",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "checkedAt": "2026-10-12T05:26:39.510Z",
+    "screenshots": [
+      {
+        "file": "05-online-together.png",
+        "original": "../../evidence/simplified-play-2026-10-12/online-cua-request.png",
+        "sha256": "8df2cb75646dafe53da29881cc592620de29e47a1973ebe10e049013e8bb0fea",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical actual public site CUA screenshot; no editing"
+      }
+    ]
+  },
+  "currentOnline": {
+    "githubCodeMainSha": "15191872c7ae6abeda95c9998893faedc2a403a0",
+    "providerSourceSha": "a93bd4de240cfc247ed77e5f177f5cabbfd16a40",
+    "siteVersion": 5,
+    "deploymentId": "appgdep_6acd0aa7bf5081919466e77b840dfd1b",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "screenshots": [
+      {
+        "file": "06-online-direct-cooking.png",
+        "original": "../../evidence/direct-cooking-2026-10-12/online/layout-1280.png",
+        "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical actual anonymous public v5 screenshot; no editing"
+      }
+    ]
+  }
+}

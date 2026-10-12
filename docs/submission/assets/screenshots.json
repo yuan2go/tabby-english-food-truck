@@ -65,7 +65,7 @@
       }
     ]
   },
-  "currentOnline": {
+  "previousOnlineVersion5": {
     "githubCodeMainSha": "15191872c7ae6abeda95c9998893faedc2a403a0",
     "providerSourceSha": "a93bd4de240cfc247ed77e5f177f5cabbfd16a40",
     "siteVersion": 5,
@@ -79,6 +79,26 @@
         "width": 1280,
         "height": 720,
         "treatment": "byte-identical actual anonymous public v5 screenshot; no editing"
+      }
+    ]
+  },
+  "currentOnline": {
+    "githubCodeMainSha": "1c6af31fd2c109fca3cb36786f2e5232814b5839",
+    "testedHead": "a7ab8ed6de9567d8610eafd0b15fa35005180e9a",
+    "providerSourceSha": "2096d7fdbbcf99edf7a439ac4e3b233be5c19891",
+    "siteVersion": 6,
+    "versionId": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_4d66aee14b2481919193acb342b39121",
+    "deploymentId": "appgdep_6acd2ab2191481918640e528dd660fe1",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "checkedAt": "2026-10-12T18:49:00.626Z",
+    "screenshots": [
+      {
+        "file": "07-online-continuous.png",
+        "original": "../../evidence/continuous-gameplay-2026-10-13/online-rabbit/04-parallel-1280x720.png",
+        "sha256": "bb6f3913d9317607b67bdf25ddb4c550e70ed81a9cd97dc33b2e18aef4cc81cd",
+        "width": 1280,
+        "height": 720,
+        "treatment": "byte-identical actual anonymous v6 normal-play screenshot; no editing"
       }
     ]
   }

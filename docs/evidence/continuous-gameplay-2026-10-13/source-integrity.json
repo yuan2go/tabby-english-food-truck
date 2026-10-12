@@ -1,0 +1,10 @@
+{
+  "sourceFromCommittedGitMain": "1c6af31fd2c109fca3cb36786f2e5232814b5839",
+  "testedHead": "a7ab8ed6de9567d8610eafd0b15fa35005180e9a",
+  "retainedPaths": 1058,
+  "excludedHistoricalProofPaths": 2839,
+  "allRetainedPathsByteIdentical": true,
+  "extraPublicMetadataOnly": "site-release.json",
+  "distBuildFromCleanGitHubMain": true,
+  "manifestProjectUnchanged": true
+}

@@ -1,0 +1,20 @@
+[WebServer] (node:93449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:93519) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:93565) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/adventure.spec.ts:14:1 › visible activity entrance naturally reaches all five chapters and saves a real creation (1.1m)
+  ✓  2 e2e/adventure.spec.ts:92:1 › phone replay follows hedgehog path with real food and no packing task (28.7s)
+  ✓  3 e2e/adventure.spec.ts:137:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (9.4s)
+  ✓  4 e2e/continuous-gameplay.spec.ts:5:1 › natural entrance, clear wave goal and receipt feedback need no welcome or finish buttons (5.6s)
+
+  4 passed (2.0m)

@@ -1,0 +1,53 @@
+src/rules/snapshot.ts:525:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    523 │         (job.worldTarget
+    524 │           ? !s.adventure || job.order !== undefined
+  > 525 │           : !order ||
+        │             ^^^^^^^^^
+  > 526 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    527 │             Math.abs(order.remaining - completion) > 0.05) ||
+    528 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    523 523 │           (job.worldTarget
+    524 524 │             ? !s.adventure || job.order !== undefined
+    525     │ - ··········:·!order·||
+    526     │ - ············order.status·!==·'leaving'·||
+        525 │ + ··········:·order?.status·!==·'leaving'·||
+    527 526 │               Math.abs(order.remaining - completion) > 0.05) ||
+    528 527 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+src/app/TogetherStage.tsx:544:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    542 │           <span>{title}</span>
+    543 │           {a?.flow ? (
+  > 544 │             <div
+        │             ^^^^
+  > 545 │               className="story-progress"
+  > 546 │               aria-label={`第${a.chapter + 1}章，第${a.flow.wave + 1}波：${wave?.title ?? ''}`}
+  > 547 │             >
+        │             ^
+    548 │               <span>{wave?.title}</span>
+    549 │               <div aria-hidden="true">
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+Skipped 2 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 4 files in 37ms. Fixed 3 files.
+Found 1 error.
+Found 1 warning.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

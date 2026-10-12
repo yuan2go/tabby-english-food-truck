@@ -1,0 +1,151 @@
+{
+  "base": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+  "first": "rabbit",
+  "started": "2026-10-12T18:45:40.024Z",
+  "actions": [],
+  "waits": [],
+  "screenshots": [],
+  "errors": [],
+  "result": "FAIL",
+  "failure": "TimeoutError: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://tabby-english-food-truck.aw9923299.chatgpt.site/\", waiting until \"networkidle\"\u001b[22m\n",
+  "failureState": {
+    "schemaVersion": 7,
+    "adventure": null,
+    "routing": {
+      "machine": null,
+      "ice": null,
+      "board": null,
+      "grill": null
+    },
+    "session": {
+      "activity": "training",
+      "chapter": 0,
+      "support": "pictures",
+      "concurrency": 1,
+      "supplyPage": 0,
+      "language": "flavor",
+      "menu": [
+        "apple",
+        "banana",
+        "juice",
+        "banana-juice",
+        "two",
+        "fruit"
+      ],
+      "family": "juice",
+      "unlocked": [
+        "juice"
+      ],
+      "seed": 1,
+      "cursor": 0,
+      "served": 0,
+      "lastRequest": ""
+    },
+    "stations": {
+      "ice": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "board": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "grill": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      }
+    },
+    "actor": {
+      "point": {
+        "x": 0.73,
+        "y": 0.43
+      },
+      "current": null,
+      "queue": []
+    },
+    "recycle": null,
+    "contentVersion": "continuous-gameplay-1",
+    "mode": "practice",
+    "history": {},
+    "runId": "4442ba53-c511-4b30-b29e-336ea9bb4513",
+    "revision": 0,
+    "nextId": 1,
+    "variant": 0,
+    "gameTime": 0,
+    "items": [],
+    "orders": [
+      {
+        "id": "guest-0",
+        "request": "apple",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": []
+      },
+      {
+        "id": "guest-1",
+        "request": "banana",
+        "seat": 0,
+        "status": "queued",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": []
+      },
+      {
+        "id": "guest-2",
+        "request": "two",
+        "seat": 0,
+        "status": "queued",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": []
+      },
+      {
+        "id": "guest-3",
+        "request": "fruit",
+        "seat": 0,
+        "status": "queued",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": []
+      },
+      {
+        "id": "guest-4",
+        "request": "juice",
+        "seat": 0,
+        "status": "queued",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": []
+      }
+    ],
+    "machine": {
+      "status": "empty",
+      "remaining": 0,
+      "jobId": null
+    },
+    "helper": null,
+    "trays": [
+      {
+        "remaining": 0
+      },
+      {
+        "remaining": 0
+      }
+    ],
+    "receipts": [],
+    "attempts": [],
+    "audio": [],
+    "lessons": [],
+    "noteSupport": []
+  }
+}

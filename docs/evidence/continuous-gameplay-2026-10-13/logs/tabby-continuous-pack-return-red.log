@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (21 tests | 1 failed) 165ms
+   × a received partial picnic pack accepts its next food while Dami returns, without overfilling 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > a received partial picnic pack accepts its next food while Dami returns, without overfilling
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/story-flow.test.ts:186:21
+    184|   s = make(s, 'banana');
+    185|   const next = run(s, { type: 'put', target: { world: 'pack' } });
+    186|   expect(next.kind).toBe('ok');
+       |                     ^
+    187|   expect(decodeSnapshot(JSON.stringify(next.state)).ok).toBe(true);
+    188|   s = tick(next.state, (s) => s.adventure?.foods.filter((f) => f.sourc…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  02:21:07
+   Duration  460ms (transform 238ms, setup 0ms, import 195ms, tests 165ms, environment 0ms)
+

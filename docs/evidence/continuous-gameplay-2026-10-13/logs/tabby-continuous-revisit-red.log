@@ -1,0 +1,25 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (19 tests | 1 failed) 135ms
+   × explicitly revisiting a completed station keeps exploration open rather than sending it away again 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > explicitly revisiting a completed station keeps exploration open rather than sending it away again
+AssertionError: expected 'reward' to be 'explore' // Object.is equality
+
+Expected: "explore"
+Received: "reward"
+
+ ❯ tests/story-flow.test.ts:382:158
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Start at  02:08:19
+   Duration  419ms (transform 224ms, setup 0ms, import 190ms, tests 135ms, environment 0ms)
+

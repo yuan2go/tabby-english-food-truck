@@ -1,0 +1,49 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts --grep naturally reaches all five
+
+
+Running 1 test using 1 worker
+
+(node:95963) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:14:1 › visible activity entrance naturally reaches all five chapters and saves a real creation (1.2m)
+
+
+  1) e2e/adventure.spec.ts:14:1 › visible activity entrance naturally reaches all five chapters and saves a real creation 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.chapter-reward')
+    Expected: 0
+    Received: 1
+    Timeout:  6000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.chapter-reward') with timeout 6000ms
+      - waiting for locator('.chapter-reward')
+        16 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      38 |   ]);
+      39 |   expect(s.adventure?.experience?.used).toContain('share');
+    > 40 |   await expect(page.locator('.chapter-reward')).toHaveCount(0, { timeout: 6000 });
+         |                                                 ^
+      41 |   expect((await state(page)).adventure?.works).toEqual(s.adventure?.works);
+      42 |   expect((await state(page)).adventure?.foods).toEqual(s.adventure?.foods);
+      43 |   for (const viewport of [
+        at /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck/e2e/adventure.spec.ts:40:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-celebration-red/test-results/adventure-visible-activity-94f2b-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-celebration-red/test-results/adventure-visible-activity-94f2b-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-continuous-celebration-red/test-results/adventure-visible-activity-94f2b-s-and-saves-a-real-creation/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:14:1 › visible activity entrance naturally reaches all five chapters and saves a real creation 

@@ -1,0 +1,56 @@
+{
+  "sha": "6216347a5bd75eee41746b9ee582a3e2c62f02bd",
+  "dirty": false,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "node": "v24.15.0",
+  "results": [
+    {
+      "label": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "seconds": 0.65
+    },
+    {
+      "label": "unit",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 1.84
+    },
+    {
+      "label": "resources",
+      "command": [
+        "npm",
+        "run",
+        "resources"
+      ],
+      "exit_code": 0,
+      "seconds": 7.01
+    },
+    {
+      "label": "vocabulary",
+      "command": [
+        "node",
+        "scripts/check-vocabulary.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.44
+    },
+    {
+      "label": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 7.98
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck
+
+ ❯ tests/story-flow.test.ts (20 tests | 1 failed) 157ms
+   × restoring a rewarded chapter without the separate profile recovers each actual chapter memory 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/story-flow.test.ts > restoring a rewarded chapter without the separate profile recovers each actual chapter memory
+AssertionError: expected [ undefined ] to deeply equal [ +0, 1 ]
+
+- Expected
++ Received
+
+  [
+-   0,
+-   1,
++   undefined,
+  ]
+
+ ❯ tests/story-flow.test.ts:331:51
+    329|     c.enter('story', 1);
+    330|     const memories = c.profile.value.activityMemories;
+    331|     expect(memories.map((m) => m.chapter).sort()).toEqual([0, 1]);
+       |                                                   ^
+    332|     expect(memories.find((m) => m.chapter === 0)?.foods.map((f) => f.p…
+    333|       s.adventure?.flow?.archives[0]?.foods.map((f) => f.product),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  02:16:22
+   Duration  460ms (transform 241ms, setup 0ms, import 203ms, tests 157ms, environment 0ms)
+

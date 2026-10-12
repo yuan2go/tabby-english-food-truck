@@ -1,0 +1,71 @@
+src/rules/snapshot.ts:509:13 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    507 │         (job.worldTarget
+    508 │           ? !s.adventure || job.order !== undefined
+  > 509 │           : !order ||
+        │             ^^^^^^^^^
+  > 510 │             order.status !== 'leaving' ||
+        │             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    511 │             Math.abs(order.remaining - completion) > 0.05) ||
+    512 │         Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    507 507 │           (job.worldTarget
+    508 508 │             ? !s.adventure || job.order !== undefined
+    509     │ - ··········:·!order·||
+    510     │ - ············order.status·!==·'leaving'·||
+        509 │ + ··········:·order?.status·!==·'leaving'·||
+    511 510 │               Math.abs(order.remaining - completion) > 0.05) ||
+    512 511 │           Math.abs(s.trays[job.tray].remaining - completion) > 0.05
+  
+
+src/rules/story-flow.ts:32:7 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    30 │ export function enableStoryFlow(s: GameState, fresh = false): void {
+    31 │   const a = s.adventure;
+  > 32 │   if (!a || a.kind !== 'chapter' || a.flow) return;
+       │       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    33 │   a.flow = {
+    34 │     version: 1,
+  
+  i Unsafe fix: Change to an optional chain.
+  
+     30  30 │   export function enableStoryFlow(s: GameState, fresh = false): void {
+     31  31 │     const a = s.adventure;
+     32     │ - ··if·(!a·||·a.kind·!==·'chapter'·||·a.flow)·return;
+         32 │ + ··if·(a?.kind·!==·'chapter'·||·a.flow)·return;
+     33  33 │     a.flow = {
+     34  34 │       version: 1,
+  
+
+src/rules/story-flow.ts:61:7 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    59 │ export function admitStoryGuests(s: GameState): boolean {
+    60 │   const a = s.adventure;
+  > 61 │   if (!a?.flow || a.flow.phase !== 'service') return false;
+       │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    62 │   const together =
+    63 │     a.chapter === 2 || a.chapter === 3 || STORY_WAVES[a.chapter]?.[a.flow.wave]?.together;
+  
+  i Unsafe fix: Change to an optional chain.
+  
+     59  59 │   export function admitStoryGuests(s: GameState): boolean {
+     60  60 │     const a = s.adventure;
+     61     │ - ··if·(!a?.flow·||·a.flow.phase·!==·'service')·return·false;
+         61 │ + ··if·(a.flow?.phase·!==·'service')·return·false;
+     62  62 │     const together =
+     63  63 │       a.chapter === 2 || a.chapter === 3 || STORY_WAVES[a.chapter]?.[a.flow.wave]?.together;
+  
+
+Skipped 6 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 11 files in 64ms. Fixed 9 files.
+Found 3 warnings.

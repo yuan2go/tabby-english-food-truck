@@ -1,0 +1,1798 @@
+{
+  "base": "http://127.0.0.1:4294/",
+  "first": "rabbit",
+  "started": "2026-10-12T18:18:52.241Z",
+  "actions": [
+    {
+      "label": "main entrance",
+      "at": 1791829133412,
+      "chapter": 0,
+      "bounds": {
+        "x": 46.640625,
+        "y": 288.9375,
+        "width": 299.6875,
+        "height": 126
+      },
+      "revisionBefore": 0,
+      "revisionAfter": 2
+    },
+    {
+      "label": "supply-banana",
+      "at": 1791829134096,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 284,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 2,
+      "revisionAfter": 4
+    },
+    {
+      "label": "交给兔兔",
+      "at": 1791829134248,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 32.375,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 4,
+      "revisionAfter": 5
+    },
+    {
+      "label": "放回手中食品",
+      "at": 1791829134646,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 331,
+        "y": 243.390625,
+        "width": 52,
+        "height": 48
+      },
+      "revisionBefore": 5,
+      "revisionAfter": 6
+    },
+    {
+      "label": "supply-apple",
+      "at": 1791829135047,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 200,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 6,
+      "revisionAfter": 7
+    },
+    {
+      "label": "receive rabbit",
+      "at": 1791829135196,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 32.375,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 7,
+      "revisionAfter": 8
+    },
+    {
+      "label": "supply-banana",
+      "at": 1791829137081,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 284,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 17,
+      "revisionAfter": 18
+    },
+    {
+      "label": "receive hedgehog",
+      "at": 1791829137229,
+      "chapter": 0,
+      "wave": 0,
+      "bounds": {
+        "x": 218.875,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 18,
+      "revisionAfter": 19
+    },
+    {
+      "label": "supply-apple",
+      "at": 1791829139634,
+      "chapter": 0,
+      "wave": 1,
+      "bounds": {
+        "x": 200,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 27,
+      "revisionAfter": 28
+    },
+    {
+      "label": "supply-apple",
+      "at": 1791829139777,
+      "chapter": 0,
+      "wave": 1,
+      "bounds": {
+        "x": 200,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 28,
+      "revisionAfter": 29
+    },
+    {
+      "label": "receive rabbit",
+      "at": 1791829139929,
+      "chapter": 0,
+      "wave": 1,
+      "bounds": {
+        "x": 32.375,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 29,
+      "revisionAfter": 30
+    },
+    {
+      "label": "supply-apple",
+      "at": 1791829141488,
+      "chapter": 0,
+      "wave": 1,
+      "bounds": {
+        "x": 200,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 37,
+      "revisionAfter": 41
+    },
+    {
+      "label": "supply-banana",
+      "at": 1791829141647,
+      "chapter": 0,
+      "wave": 1,
+      "bounds": {
+        "x": 284,
+        "y": 525.984375,
+        "width": 84,
+        "height": 84
+      },
+      "revisionBefore": 41,
+      "revisionAfter": 42
+    },
+    {
+      "label": "receive hedgehog",
+      "at": 1791829141795,
+      "chapter": 0,
+      "wave": 1,
+      "bounds": {
+        "x": 218.875,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 42,
+      "revisionAfter": 43
+    },
+    {
+      "label": "冰淇淋：蛋筒",
+      "at": 1791829145571,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 47.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 55,
+      "revisionAfter": 57
+    },
+    {
+      "label": "冰淇淋：香草球",
+      "at": 1791829145732,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 167.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 57,
+      "revisionAfter": 58
+    },
+    {
+      "label": "item-food-19",
+      "at": 1791829145881,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 170.5,
+        "y": 317.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 58,
+      "revisionAfter": 59
+    },
+    {
+      "label": "receive rabbit",
+      "at": 1791829146031,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 32.375,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 59,
+      "revisionAfter": 60
+    },
+    {
+      "label": "冰淇淋：空杯",
+      "at": 1791829147613,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 107.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 67,
+      "revisionAfter": 70
+    },
+    {
+      "label": "冰淇淋：草莓球",
+      "at": 1791829147983,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 227.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 70,
+      "revisionAfter": 71
+    },
+    {
+      "label": "item-food-23",
+      "at": 1791829148145,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 170.5,
+        "y": 317.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 71,
+      "revisionAfter": 72
+    },
+    {
+      "label": "receive hedgehog",
+      "at": 1791829148299,
+      "chapter": 1,
+      "wave": 0,
+      "bounds": {
+        "x": 218.875,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 72,
+      "revisionAfter": 73
+    },
+    {
+      "label": "冰淇淋：空杯",
+      "at": 1791829150649,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 107.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 84,
+      "revisionAfter": 86
+    },
+    {
+      "label": "冰淇淋：香草球",
+      "at": 1791829150798,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 167.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 86,
+      "revisionAfter": 87
+    },
+    {
+      "label": "冰淇淋：草莓球",
+      "at": 1791829150948,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 227.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 87,
+      "revisionAfter": 88
+    },
+    {
+      "label": "item-food-27",
+      "at": 1791829151105,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 170.5,
+        "y": 317.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 88,
+      "revisionAfter": 89
+    },
+    {
+      "label": "receive rabbit",
+      "at": 1791829151265,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 32.375,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 89,
+      "revisionAfter": 90
+    },
+    {
+      "label": "冰淇淋：空杯",
+      "at": 1791829152858,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 107.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 94,
+      "revisionAfter": 96
+    },
+    {
+      "label": "冰淇淋：香草球",
+      "at": 1791829153016,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 167.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 96,
+      "revisionAfter": 97
+    },
+    {
+      "label": "冰淇淋：香蕉",
+      "at": 1791829153167,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 287.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 97,
+      "revisionAfter": 98
+    },
+    {
+      "label": "item-food-33",
+      "at": 1791829153324,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 170.5,
+        "y": 317.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 98,
+      "revisionAfter": 99
+    },
+    {
+      "label": "receive hedgehog",
+      "at": 1791829153481,
+      "chapter": 1,
+      "wave": 1,
+      "bounds": {
+        "x": 218.875,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 99,
+      "revisionAfter": 100
+    },
+    {
+      "label": "冰淇淋：空杯",
+      "at": 1791829155079,
+      "chapter": 1,
+      "wave": 2,
+      "bounds": {
+        "x": 107.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 105,
+      "revisionAfter": 106
+    },
+    {
+      "label": "冰淇淋：草莓球",
+      "at": 1791829155234,
+      "chapter": 1,
+      "wave": 2,
+      "bounds": {
+        "x": 227.5,
+        "y": 391.390625,
+        "width": 58,
+        "height": 58
+      },
+      "revisionBefore": 106,
+      "revisionAfter": 107
+    },
+    {
+      "label": "item-food-39",
+      "at": 1791829155383,
+      "chapter": 1,
+      "wave": 2,
+      "bounds": {
+        "x": 170.5,
+        "y": 317.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 107,
+      "revisionAfter": 108
+    },
+    {
+      "label": "交给刺刺",
+      "at": 1791829155533,
+      "chapter": 1,
+      "wave": 2,
+      "bounds": {
+        "x": 218.875,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 108,
+      "revisionAfter": 109
+    },
+    {
+      "label": "组合板：面包",
+      "at": 1791829158793,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 65.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 121,
+      "revisionAfter": 123
+    },
+    {
+      "label": "组合板：芝士",
+      "at": 1791829158952,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 115.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 123,
+      "revisionAfter": 124
+    },
+    {
+      "label": "组合板：面包",
+      "at": 1791829159105,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 65.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 124,
+      "revisionAfter": 125
+    },
+    {
+      "label": "item-food-46",
+      "at": 1791829159274,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 138.90625,
+        "y": 300.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 125,
+      "revisionAfter": 126
+    },
+    {
+      "label": "receive rabbit",
+      "at": 1791829159432,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 32.375,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 126,
+      "revisionAfter": 127
+    },
+    {
+      "label": "组合板：面包",
+      "at": 1791829161057,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 65.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 132,
+      "revisionAfter": 134
+    },
+    {
+      "label": "组合板：生菜",
+      "at": 1791829161217,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 165.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 134,
+      "revisionAfter": 135
+    },
+    {
+      "label": "组合板：番茄",
+      "at": 1791829161367,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 215.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 135,
+      "revisionAfter": 136
+    },
+    {
+      "label": "组合板：面包",
+      "at": 1791829161534,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 65.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 136,
+      "revisionAfter": 137
+    },
+    {
+      "label": "item-food-51",
+      "at": 1791829161697,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 138.90625,
+        "y": 300.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 137,
+      "revisionAfter": 138
+    },
+    {
+      "label": "receive hedgehog",
+      "at": 1791829161849,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 218.875,
+        "y": 89.84375,
+        "width": 141.734375,
+        "height": 119.6875
+      },
+      "revisionBefore": 138,
+      "revisionAfter": 139
+    },
+    {
+      "label": "组合板：面包",
+      "at": 1791829162700,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 65.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 141,
+      "revisionAfter": 143
+    },
+    {
+      "label": "组合板：芝士",
+      "at": 1791829162851,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 115.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 143,
+      "revisionAfter": 147
+    },
+    {
+      "label": "组合板：面包",
+      "at": 1791829163272,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 65.90625,
+        "y": 355.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 147,
+      "revisionAfter": 148
+    },
+    {
+      "label": "item-food-56",
+      "at": 1791829163492,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 138.90625,
+        "y": 300.390625,
+        "width": 52,
+        "height": 52
+      },
+      "revisionBefore": 148,
+      "revisionAfter": 149
+    },
+    {
+      "label": "把食品放进野餐篮",
+      "at": 1791829163655,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 66,
+        "y": 243.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 149,
+      "revisionAfter": 150
+    },
+    {
+      "label": "supply-banana",
+      "at": 1791829164399,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 333,
+        "y": 571.984375,
+        "width": 50,
+        "height": 53
+      },
+      "revisionBefore": 151,
+      "revisionAfter": 152
+    },
+    {
+      "label": "把食品放进野餐篮",
+      "at": 1791829164552,
+      "chapter": 2,
+      "wave": 0,
+      "bounds": {
+        "x": 66,
+        "y": 243.390625,
+        "width": 48,
+        "height": 48
+      },
+      "revisionBefore": 152,
+      "revisionAfter": 154
+    }
+  ],
+  "waits": [
+    {
+      "label": "first natural guest",
+      "ms": 8,
+      "chapter": 0,
+      "wave": 0
+    },
+    {
+      "label": "natural chapter 0",
+      "ms": 2,
+      "chapter": 0,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 3,
+      "chapter": 0,
+      "wave": 0
+    },
+    {
+      "label": "receive guest-0",
+      "ms": 1493,
+      "chapter": 0,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 3,
+      "chapter": 0,
+      "wave": 0
+    },
+    {
+      "label": "receive guest-1",
+      "ms": 1397,
+      "chapter": 0,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 860,
+      "chapter": 0,
+      "wave": 1
+    },
+    {
+      "label": "receive guest-2",
+      "ms": 1402,
+      "chapter": 0,
+      "wave": 1
+    },
+    {
+      "label": "next natural guest",
+      "ms": 8,
+      "chapter": 0,
+      "wave": 1
+    },
+    {
+      "label": "receive guest-3",
+      "ms": 1410,
+      "chapter": 0,
+      "wave": 1
+    },
+    {
+      "label": "natural chapter 1",
+      "ms": 1962,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 11,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "real prepared vanilla-cone",
+      "ms": 8,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "receive guest-0",
+      "ms": 1422,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 4,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "real prepared strawberry-cup",
+      "ms": 11,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "receive guest-1",
+      "ms": 1429,
+      "chapter": 1,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 769,
+      "chapter": 1,
+      "wave": 1
+    },
+    {
+      "label": "real prepared double-cream",
+      "ms": 8,
+      "chapter": 1,
+      "wave": 1
+    },
+    {
+      "label": "receive guest-2",
+      "ms": 1428,
+      "chapter": 1,
+      "wave": 1
+    },
+    {
+      "label": "next natural guest",
+      "ms": 7,
+      "chapter": 1,
+      "wave": 1
+    },
+    {
+      "label": "real prepared banana-cream",
+      "ms": 7,
+      "chapter": 1,
+      "wave": 1
+    },
+    {
+      "label": "receive guest-3",
+      "ms": 661,
+      "chapter": 1,
+      "wave": 1
+    },
+    {
+      "label": "open dessert wave",
+      "ms": 774,
+      "chapter": 1,
+      "wave": 2
+    },
+    {
+      "label": "real prepared strawberry-cup",
+      "ms": 7,
+      "chapter": 1,
+      "wave": 2
+    },
+    {
+      "label": "actual open dessert",
+      "ms": 559,
+      "chapter": 1,
+      "wave": 2
+    },
+    {
+      "label": "natural chapter 2",
+      "ms": 2033,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 7,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "real prepared sandwich",
+      "ms": 8,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "receive guest-0",
+      "ms": 1460,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "next natural guest",
+      "ms": 8,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "real prepared salad-sandwich",
+      "ms": 9,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "receive guest-1",
+      "ms": 675,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "real prepared sandwich",
+      "ms": 10,
+      "chapter": 2,
+      "wave": 0
+    },
+    {
+      "label": "pack sandwich",
+      "ms": 571,
+      "chapter": 2,
+      "wave": 0
+    }
+  ],
+  "screenshots": [
+    "00-home-393x665.png",
+    "01-first-goal-393x665.png",
+    "01-wrong-recover-393x665.png",
+    "chapter-1-start-393x665.png",
+    "01-first-reward-393x665.png",
+    "chapter-2-start-393x665.png",
+    "02-dessert-taste-393x665.png",
+    "chapter-3-start-393x665.png"
+  ],
+  "errors": [],
+  "build": {
+    "sha": "344585ac2b99f0d0e8e6039973263fe116c746ad",
+    "dirty": "false",
+    "assets": "aee135e9f33a2fa387ba5319e0f7ced101841b38207d06e2e303bf67db230caa"
+  },
+  "initialStorage": [
+    "tabby.foodtruck.save.m2.session.training-0",
+    "tabby.foodtruck.save.m2",
+    "tabby.foodtruck.save.m2.practice"
+  ],
+  "geometry": [
+    {
+      "name": "00-home",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": []
+    },
+    {
+      "name": "01-first-goal",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "听兔兔的请求",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "和刺刺说话",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 543.984375,
+            "width": 48,
+            "height": 48,
+            "top": 543.984375,
+            "right": 58,
+            "bottom": 591.984375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 200,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 284,
+            "bottom": 609.984375,
+            "left": 200
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 284,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 368,
+            "bottom": 609.984375,
+            "left": 284
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "01-wrong-recover",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "交给兔兔",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "交给刺刺",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 543.984375,
+            "width": 48,
+            "height": 48,
+            "top": 543.984375,
+            "right": 58,
+            "bottom": 591.984375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 200,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 284,
+            "bottom": 609.984375,
+            "left": 200
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 284,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 368,
+            "bottom": 609.984375,
+            "left": 284
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "chapter-1-start",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "听兔兔的请求",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "和刺刺说话",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 543.984375,
+            "width": 48,
+            "height": 48,
+            "top": 543.984375,
+            "right": 58,
+            "bottom": 591.984375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 200,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 284,
+            "bottom": 609.984375,
+            "left": 200
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 284,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 368,
+            "bottom": 609.984375,
+            "left": 284
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "01-first-reward",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "和兔兔说话",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "听刺刺的请求",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 543.984375,
+            "width": 48,
+            "height": 48,
+            "top": 543.984375,
+            "right": 58,
+            "bottom": 591.984375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 200,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 284,
+            "bottom": 609.984375,
+            "left": 200
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 284,
+            "y": 525.984375,
+            "width": 84,
+            "height": 84,
+            "top": 525.984375,
+            "right": 368,
+            "bottom": 609.984375,
+            "left": 284
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "chapter-2-start",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "听兔兔的请求",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "和刺刺说话",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到冰淇淋台",
+          "rect": {
+            "x": 38.5,
+            "y": 295.390625,
+            "width": 316,
+            "height": 96,
+            "top": 295.390625,
+            "right": 354.5,
+            "bottom": 391.390625,
+            "left": 38.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：蛋筒",
+          "rect": {
+            "x": 47.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 105.5,
+            "bottom": 449.390625,
+            "left": 47.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：空杯",
+          "rect": {
+            "x": 107.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 165.5,
+            "bottom": 449.390625,
+            "left": 107.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：香草球",
+          "rect": {
+            "x": 167.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 225.5,
+            "bottom": 449.390625,
+            "left": 167.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：草莓球",
+          "rect": {
+            "x": 227.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 285.5,
+            "bottom": 449.390625,
+            "left": 227.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：香蕉",
+          "rect": {
+            "x": 287.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 345.5,
+            "bottom": 449.390625,
+            "left": 287.5
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 574.484375,
+            "width": 48,
+            "height": 48,
+            "top": 574.484375,
+            "right": 58,
+            "bottom": 622.484375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 283,
+            "y": 571.984375,
+            "width": 50,
+            "height": 53,
+            "top": 571.984375,
+            "right": 333,
+            "bottom": 624.984375,
+            "left": 283
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 333,
+            "y": 571.984375,
+            "width": 50,
+            "height": 53,
+            "top": 571.984375,
+            "right": 383,
+            "bottom": 624.984375,
+            "left": 333
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "02-dessert-taste",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "和兔兔说话",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "和刺刺说话",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到冰淇淋台",
+          "rect": {
+            "x": 38.5,
+            "y": 295.390625,
+            "width": 316,
+            "height": 96,
+            "top": 295.390625,
+            "right": 354.5,
+            "bottom": 391.390625,
+            "left": 38.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：蛋筒",
+          "rect": {
+            "x": 47.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 105.5,
+            "bottom": 449.390625,
+            "left": 47.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：空杯",
+          "rect": {
+            "x": 107.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 165.5,
+            "bottom": 449.390625,
+            "left": 107.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：香草球",
+          "rect": {
+            "x": 167.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 225.5,
+            "bottom": 449.390625,
+            "left": 167.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：草莓球",
+          "rect": {
+            "x": 227.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 285.5,
+            "bottom": 449.390625,
+            "left": 227.5
+          },
+          "hit": true
+        },
+        {
+          "label": "冰淇淋：香蕉",
+          "rect": {
+            "x": 287.5,
+            "y": 391.390625,
+            "width": 58,
+            "height": 58,
+            "top": 391.390625,
+            "right": 345.5,
+            "bottom": 449.390625,
+            "left": 287.5
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 574.484375,
+            "width": 48,
+            "height": 48,
+            "top": 574.484375,
+            "right": 58,
+            "bottom": 622.484375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 283,
+            "y": 571.984375,
+            "width": 50,
+            "height": 53,
+            "top": 571.984375,
+            "right": 333,
+            "bottom": 624.984375,
+            "left": 283
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 333,
+            "y": 571.984375,
+            "width": 50,
+            "height": 53,
+            "top": 571.984375,
+            "right": 383,
+            "bottom": 624.984375,
+            "left": 333
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "chapter-3-start",
+      "view": {
+        "width": 393,
+        "height": 665
+      },
+      "targets": [
+        {
+          "label": "听兔兔的请求",
+          "rect": {
+            "x": 32.375,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 174.109375,
+            "bottom": 209.53125,
+            "left": 32.375
+          },
+          "hit": true
+        },
+        {
+          "label": "听刺刺的请求",
+          "rect": {
+            "x": 218.875,
+            "y": 89.84375,
+            "width": 141.734375,
+            "height": 119.6875,
+            "top": 89.84375,
+            "right": 360.609375,
+            "bottom": 209.53125,
+            "left": 218.875
+          },
+          "hit": true
+        },
+        {
+          "label": "放到组合板",
+          "rect": {
+            "x": 12,
+            "y": 295.390625,
+            "width": 305.828125,
+            "height": 60,
+            "top": 295.390625,
+            "right": 317.828125,
+            "bottom": 355.390625,
+            "left": 12
+          },
+          "hit": true
+        },
+        {
+          "label": "组合板：面包",
+          "rect": {
+            "x": 65.90625,
+            "y": 355.390625,
+            "width": 48,
+            "height": 48,
+            "top": 355.390625,
+            "right": 113.90625,
+            "bottom": 403.390625,
+            "left": 65.90625
+          },
+          "hit": true
+        },
+        {
+          "label": "组合板：芝士",
+          "rect": {
+            "x": 115.90625,
+            "y": 355.390625,
+            "width": 48,
+            "height": 48,
+            "top": 355.390625,
+            "right": 163.90625,
+            "bottom": 403.390625,
+            "left": 115.90625
+          },
+          "hit": true
+        },
+        {
+          "label": "组合板：生菜",
+          "rect": {
+            "x": 165.90625,
+            "y": 355.390625,
+            "width": 48,
+            "height": 48,
+            "top": 355.390625,
+            "right": 213.90625,
+            "bottom": 403.390625,
+            "left": 165.90625
+          },
+          "hit": true
+        },
+        {
+          "label": "组合板：番茄",
+          "rect": {
+            "x": 215.90625,
+            "y": 355.390625,
+            "width": 48,
+            "height": 48,
+            "top": 355.390625,
+            "right": 263.90625,
+            "bottom": 403.390625,
+            "left": 215.90625
+          },
+          "hit": true
+        },
+        {
+          "label": "放到制作承放区",
+          "rect": {
+            "x": 10,
+            "y": 574.484375,
+            "width": 48,
+            "height": 48,
+            "top": 574.484375,
+            "right": 58,
+            "bottom": 622.484375,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起苹果",
+          "rect": {
+            "x": 283,
+            "y": 571.984375,
+            "width": 50,
+            "height": 53,
+            "top": 571.984375,
+            "right": 333,
+            "bottom": 624.984375,
+            "left": 283
+          },
+          "hit": true
+        },
+        {
+          "label": "拿起香蕉",
+          "rect": {
+            "x": 333,
+            "y": 571.984375,
+            "width": 50,
+            "height": 53,
+            "top": 571.984375,
+            "right": 383,
+            "bottom": 624.984375,
+            "left": 333
+          },
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "result": "FAIL",
+  "failure": "Error: wait unpack actual food"
+}

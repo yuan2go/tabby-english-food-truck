@@ -1,0 +1,12 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/continuous-gameplay.spec.ts --grep short landscape
+
+
+Running 1 test using 1 worker
+
+(node:95897) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/continuous-gameplay.spec.ts:60:1 › short landscape keeps the current full sentence inside its bubble and above cooking controls (1.4s)
+
+  1 passed (1.9s)

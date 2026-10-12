@@ -1,0 +1,52 @@
+[WebServer] (node:89791) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:89893) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:89949) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/continuous-gameplay.spec.ts:4:1 › natural entrance, clear wave goal and receipt feedback need no welcome or finish buttons (7.3s)
+
+
+  1) e2e/continuous-gameplay.spec.ts:4:1 › natural entrance, clear wave goal and receipt feedback need no welcome or finish buttons 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.story-progress')
+    Expected: visible
+    Timeout: 6000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.story-progress') with timeout 6000ms
+      - waiting for locator('.story-progress')
+
+
+       5 |   await page.goto('/');
+       6 |   await page.locator('.yard-story .entry-main').click();
+    >  7 |   await expect(page.locator('.story-progress')).toBeVisible();
+         |                                                 ^
+       8 |   await expect(page.getByRole('button', { name: /先帮|一起吃早餐|一起开席|下一院活动/ })).toHaveCount(0);
+       9 |   await expect(page.getByRole('region', { name: '果汁机', exact: true })).toHaveCount(0);
+      10 |   await page.getByRole('button', { name: '拿起苹果', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/continuous-gameplay-2026-10-13/tabby-english-food-truck/e2e/continuous-gameplay.spec.ts:7:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-ui-red/test-results/continuous-gameplay-natura-4888c-o-welcome-or-finish-buttons/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../../../../tmp/tabby-continuous-ui-red/test-results/continuous-gameplay-natura-4888c-o-welcome-or-finish-buttons/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../tmp/tabby-continuous-ui-red/test-results/continuous-gameplay-natura-4888c-o-welcome-or-finish-buttons/error-context.md
+
+  1 failed
+    e2e/continuous-gameplay.spec.ts:4:1 › natural entrance, clear wave goal and receipt feedback need no welcome or finish buttons 

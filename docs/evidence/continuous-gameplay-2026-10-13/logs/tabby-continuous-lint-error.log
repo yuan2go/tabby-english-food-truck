@@ -1,0 +1,25 @@
+src/app/TogetherStage.tsx:549:13 lint/a11y/useAriaPropsSupportedByRole ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The ARIA attribute 'aria-label' is not supported by this element.
+  
+    547 │           <span>{title}</span>
+    548 │           {a?.flow ? (
+  > 549 │             <div
+        │             ^^^^
+  > 550 │               className="story-progress"
+  > 551 │               aria-label={`第${a.chapter + 1}章，第${a.flow.wave + 1}波：${wave?.title ?? ''}`}
+  > 552 │             >
+        │             ^
+    553 │               <span>{wave?.title}</span>
+    554 │               <div aria-hidden="true">
+  
+  i Ensure that ARIA attributes are valid for the role of the element.
+  
+
+Checked 249 files in 280ms. No fixes applied.
+Found 1 error.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+
