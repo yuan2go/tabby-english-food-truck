@@ -1,0 +1,26 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (20 tests | 1 failed) 33ms
+   × publishes return-job completion so a waiting menu introduction can appear without another click 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > publishes return-job completion so a waiting menu introduction can appear without another click
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/together-play.test.ts:315:62
+    313|  queueActor(s,'return','near-return',[{point:s.actor.point,pose:'idle'…
+    314|  const revision=s.revision,next=advance(s,120);
+    315|  expect(next.actor.current).toBeNull();expect(next.revision).toBeGreat…
+       |                                                              ^
+    316| });
+    317|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  11:29:22
+   Duration  637ms (transform 327ms, setup 0ms, import 408ms, tests 33ms, environment 0ms)
+

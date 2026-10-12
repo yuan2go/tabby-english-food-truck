@@ -1,0 +1,25 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/together-play.spec.ts e2e/adventure.spec.ts
+
+[WebServer] (node:61378) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:61422) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 e2e/adventure.spec.ts:109:1 › visible activity entrance reaches all five chapters and saves a real creation (1.0m)
+  ✓   2 e2e/adventure.spec.ts:142:1 › receipt presentation and low motion never repeat settlement (11.4s)
+  ✓   3 e2e/adventure.spec.ts:153:1 › phone replay follows hedgehog path with real food and no packing task (27.9s)
+  ✓   4 e2e/adventure.spec.ts:169:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (6.1s)
+  ✓   5 e2e/adventure.spec.ts:195:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (10.2s)
+  ✓   6 e2e/adventure.spec.ts:212:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (4.5s)
+  ✓   7 e2e/adventure.spec.ts:228:1 › low motion receipts retain actual foods and reachable controls across compact layouts (7.7s)
+  ✓   8 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (7.2s)
+  ✓   9 e2e/together-play.spec.ts:30:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (7.3s)
+  ✓  10 e2e/together-play.spec.ts:62:1 › speaker meaning pictures and same-stage demonstration are usable assistance without inventory or language submission (4.3s)
+  ✓  11 e2e/together-play.spec.ts:88:1 › occupied receiving plate still matches the friend and preparation uses the remaining real capacity (7.2s)
+  ✓  12 e2e/together-play.spec.ts:122:1 › open request remains at its actual speaker after another conversation and cannot thank before receipt (7.2s)
+
+  12 passed (2.7m)

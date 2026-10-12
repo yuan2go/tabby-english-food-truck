@@ -1,0 +1,20 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/minigames.spec.ts -g M2 spell --repeat-each=3
+
+[WebServer] (node:58670) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:58718) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (6.1s)
+(node:58744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (5.8s)
+(node:58757) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (5.5s)
+
+  3 passed (19.9s)

@@ -1,0 +1,161 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (11 tests | 8 failed) 12ms
+     × takes a unique real item and restores that same held item after reload 5ms
+     × adds explicitly picked portions without replacing an earlier item and respects capacity 2ms
+     × misdelivery preserves hand items and does not welcome a waiting visitor implicitly 1ms
+     × raw portions can be directly returned and never turn that action into a language attempt 0ms
+     × makes a real juice with separate fruit and cup targets, a clock, and an explicit pickup 0ms
+     × the visible ice device accepts its ingredients regardless of an unrelated active family 0ms
+     × delivers just the held portion while preserving other food on the preparation surface 1ms
+     × received breakfasts can finish without forcing planting or watering 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > takes a unique real item and restores that same held item after reload
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:21:20
+     19|   it('takes a unique real item and restores that same held item after …
+     20|     const r = pickup(breakfast(), 'apple');
+     21|     expect(r.kind).toBe('ok');
+       |                    ^
+     22|     expect(held(r.state).map(i => i.product)).toEqual(['apple']);
+     23|     expect(r.state.items).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > adds explicitly picked portions without replacing an earlier item and respects capacity
+AssertionError: expected [] to deeply equal [ 'apple', 'banana', 'apple' ]
+
+- Expected
++ Received
+
+- [
+-   "apple",
+-   "banana",
+-   "apple",
+- ]
++ []
+
+ ❯ tests/together-play.test.ts:36:41
+     34|     expect(blocked.kind).toBe('blocked');
+     35|     expect(blocked.state.items).toEqual(s.items);
+     36|     expect(held(s).map(i => i.product)).toEqual(['apple', 'banana', 'a…
+       |                                         ^
+     37|     expect(held(s)[0]?.id).toBe(first);
+     38|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > misdelivery preserves hand items and does not welcome a waiting visitor implicitly
+AssertionError: expected 'blocked' to be 'mismatch' // Object.is equality
+
+Expected: "mismatch"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:53:20
+     51|     s = pickup(s, 'banana').state;
+     52|     const r = put(s, { order: 'guest-0' });
+     53|     expect(r.kind).toBe('mismatch');
+       |                    ^
+     54|     expect(held(r.state)).toEqual(held(s));
+     55|     expect(r.state.attempts).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > raw portions can be directly returned and never turn that action into a language attempt
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:66:20
+     64|     s = pickup(s, 'banana').state;
+     65|     const r = command(s, { type: 'return-hand' });
+     66|     expect(r.kind).toBe('ok');
+       |                    ^
+     67|     expect(r.state.items).toEqual([]);
+     68|     expect(r.state.attempts).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > makes a real juice with separate fruit and cup targets, a clock, and an explicit pickup
+AssertionError: expected [] to deeply equal [ 'cup' ]
+
+- Expected
++ Received
+
+- [
+-   "cup",
+- ]
++ []
+
+ ❯ tests/together-play.test.ts:74:41
+     72|     s = put(s, { machine: 'apple' }).state;
+     73|     s = pickup(s, 'cup').state;
+     74|     expect(held(s).map(i => i.product)).toEqual(['cup']);
+       |                                         ^
+     75|     s = put(s, { machine: 'cup' }).state;
+     76|     s = command(s, { type: 'start-machine' }).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > the visible ice device accepts its ingredients regardless of an unrelated active family
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:97:25
+     95|     s = pickup(s, 'vanilla').state;
+     96|     const placed = put(s, { station: 'ice' });
+     97|     expect(placed.kind).toBe('ok');
+       |                         ^
+     98|     s = command(placed.state, { type: 'start-station', station: 'ice' …
+     99|     s = advance(s, 1000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  tests/together-play.test.ts > real hand ownership and explicit targets > delivers just the held portion while preserving other food on the preparation surface
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:109:26
+    107|     s = pickup(s, 'apple').state;
+    108|     const offered = put(s, { order: 'guest-0' });
+    109|     expect(offered.kind).toBe('ok');
+       |                          ^
+    110|     expect(validateState(offered.state)).toBe(true);
+    111|     const received = advance(offered.state, 30000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  tests/together-play.test.ts > breakfast ending and this repository save migration > received breakfasts can finish without forcing planting or watering
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:127:25
+    125|       s = pickup(s, supply ?? '').state;
+    126|       const sent = put(s, { order });
+    127|       expect(sent.kind).toBe('ok');
+       |                         ^
+    128|       s = advance(sent.state, 30000);
+    129|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 3 passed (11)
+   Start at  10:24:24
+   Duration  258ms (transform 125ms, setup 0ms, import 149ms, tests 12ms, environment 0ms)
+

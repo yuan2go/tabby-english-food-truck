@@ -1,0 +1,89 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test together-play.spec.ts
+
+[WebServer] (node:48495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:48568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:48612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (7.9s)
+(node:48641) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/together-play.spec.ts:26:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (17.7s)
+
+
+  1) e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "done"
+    Received: "leaving"
+
+    Call Log:
+    - Timeout 6000ms exceeded while waiting on the predicate
+
+      12 |   expect((await state(page)).items.filter(i => i.location.startsWith('hand:')).map(i => i.product)).toEqual(['apple']);
+      13 |   await page.getByRole('button', { name: '交给兔兔', exact: true }).click();
+    > 14 |   await expect.poll(async () => (await state(page)).orders[0]?.status).toBe('done');
+         |                                                                        ^
+      15 |   await page.getByRole('button', { name: '先帮刺刺', exact: true }).click();
+      16 |   await page.getByRole('button', { name: '拿起香蕉', exact: true }).click();
+      17 |   await page.getByRole('button', { name: '交给刺刺', exact: true }).click();
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/together-play.spec.ts:14:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/simplified-play-2026-10-12/stage-first/test-results/together-play-breakfast-is-d0af7-em-and-optional-exploration/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/simplified-play-2026-10-12/stage-first/test-results/together-play-breakfast-is-d0af7-em-and-optional-exploration/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/simplified-play-2026-10-12/stage-first/test-results/together-play-breakfast-is-d0af7-em-and-optional-exploration/error-context.md
+
+  2) e2e/together-play.spec.ts:26:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: '拿起苹果汁', exact: true })
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: '拿起苹果汁', exact: true }) with timeout 15000ms
+      - waiting for getByRole('button', { name: '拿起苹果汁', exact: true })
+
+
+      40 |   await page.getByRole('button', { name: '启动果汁机', exact: true }).click();
+      41 |   expect((await state(page)).machine.status).toBe('processing');
+    > 42 |   await expect(page.getByRole('button', { name: '拿起苹果汁', exact: true })).toBeVisible({ timeout: 15000 });
+         |                                                                          ^
+      43 |   await page.getByRole('button', { name: '拿起苹果汁', exact: true }).click();
+      44 |   expect((await state(page)).items.filter(i => i.location.startsWith('hand:')).map(i => i.product)).toEqual(['juice']);
+      45 |   await page.reload();
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/together-play.spec.ts:42:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/evidence/simplified-play-2026-10-12/stage-first/test-results/together-play-visible-devi-0a660--hand-ownership-recoverable/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    docs/evidence/simplified-play-2026-10-12/stage-first/test-results/together-play-visible-devi-0a660--hand-ownership-recoverable/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/evidence/simplified-play-2026-10-12/stage-first/test-results/together-play-visible-devi-0a660--hand-ownership-recoverable/error-context.md
+
+  2 failed
+    e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration 
+    e2e/together-play.spec.ts:26:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable 

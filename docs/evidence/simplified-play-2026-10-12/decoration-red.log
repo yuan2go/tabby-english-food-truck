@@ -1,0 +1,56 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (17 tests | 2 failed) 17ms
+   × holds decoration without applying it, retains it on an invalid placement and can return it 3ms
+   × refuses snapshots that put a preparation item and activity object in the same hand 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > holds decoration without applying it, retains it on an invalid placement and can return it
+AssertionError: expected undefined to deeply equal { kind: 'cloth', value: 'leaf' }
+
+- Expected:
+{
+  "kind": "cloth",
+  "value": "leaf",
+}
+
++ Received:
+undefined
+
+ ❯ tests/together-play.test.ts:200:51
+    198|   let s=breakfast();
+    199|   s=command(s,{type:'adventure',action:'take-decoration',object:'cloth…
+    200|   expect(s.adventure?.experience?.heldDecoration).toEqual({kind:'cloth…
+       |                                                   ^
+    201|   expect(s.adventure?.steps).not.toContain('cloth');
+    202|   const invalid=command(s,{type:'adventure',action:'put-decoration'});
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/together-play.test.ts > refuses snapshots that put a preparation item and activity object in the same hand
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/together-play.test.ts:213:48
+    211|   if(!s.adventure?.experience)throw Error('experience');
+    212|   s.adventure.experience.tools=['seed'];s.adventure.experience.heldToo…
+    213|   expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(false);
+       |                                                ^
+    214| });
+    215|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 15 passed (17)
+   Start at  10:58:40
+   Duration  288ms (transform 133ms, setup 0ms, import 158ms, tests 17ms, environment 0ms)
+

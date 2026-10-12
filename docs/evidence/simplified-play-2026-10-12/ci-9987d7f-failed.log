@@ -1,0 +1,89 @@
+game	Run npx playwright test	﻿2026-10-12T03:41:49.9682337Z ##[group]Run npx playwright test
+game	Run npx playwright test	2026-10-12T03:41:49.9682885Z ^[[36;1mnpx playwright test^[[0m
+game	Run npx playwright test	2026-10-12T03:41:49.9760277Z shell: /usr/bin/bash -e {0}
+game	Run npx playwright test	2026-10-12T03:41:49.9760759Z ##[endgroup]
+game	Run npx playwright test	2026-10-12T03:41:52.5222767Z 
+game	Run npx playwright test	2026-10-12T03:41:52.5223353Z Running 36 tests using 1 worker
+game	Run npx playwright test	2026-10-12T03:41:52.5223736Z 
+game	Run npx playwright test	2026-10-12T03:43:34.3372012Z   ✓   1 e2e/adventure.spec.ts:95:1 › visible activity entrance reaches all five chapters and saves a real creation (1.7m)
+game	Run npx playwright test	2026-10-12T03:43:50.2355726Z   ✓   2 e2e/adventure.spec.ts:122:1 › receipt presentation and low motion never repeat settlement (15.9s)
+game	Run npx playwright test	2026-10-12T03:44:40.0024023Z   ✓   3 e2e/adventure.spec.ts:133:1 › phone replay follows hedgehog path with real food and no packing task (49.7s)
+game	Run npx playwright test	2026-10-12T03:44:49.9617117Z   ✓   4 e2e/adventure.spec.ts:149:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (9.9s)
+game	Run npx playwright test	2026-10-12T03:45:07.0132296Z   ✓   5 e2e/adventure.spec.ts:175:1 › desktop mouse and keyboard preserve a wrong delivery and paused cooking on reload (17.0s)
+game	Run npx playwright test	2026-10-12T03:45:12.9661414Z   ✓   6 e2e/adventure.spec.ts:192:1 › opening a new seat uses the new menu while an accepted guest keeps the old request (5.9s)
+game	Run npx playwright test	2026-10-12T03:45:25.1689793Z   ✓   7 e2e/adventure.spec.ts:208:1 › low motion receipts retain actual foods and reachable controls across compact layouts (12.2s)
+game	Run npx playwright test	2026-10-12T03:45:28.5116284Z   ✓   8 e2e/demo-repair.spec.ts:5:1 › scene pause isolates background, traps focus and restores a usable trigger (3.3s)
+game	Run npx playwright test	2026-10-12T03:45:35.7641546Z   ✓   9 e2e/demo-repair.spec.ts:22:1 › individual hand portions, preparation rest and explicit recipients stay distinct through replay and delivery (7.2s)
+game	Run npx playwright test	2026-10-12T03:45:46.4105177Z   ✓  10 e2e/demo-repair.spec.ts:39:1 › real recipe comparisons preserve assistance and leave ingredients and flavor to the player (10.6s)
+game	Run npx playwright test	2026-10-12T03:45:47.8987892Z   ✓  11 e2e/demo-repair.spec.ts:56:1 › home invitation and autonomous entrances remain reachable in compact layouts (1.5s)
+game	Run npx playwright test	2026-10-12T03:45:55.3773833Z   ✓  12 e2e/demo-repair.spec.ts:86:1 › optional drag snaps only to the target actually pointed at and empty release does not submit (7.4s)
+game	Run npx playwright test	2026-10-12T03:46:01.5794122Z   ✓  13 e2e/experience.spec.ts:5:1 › single guest has a complete local request and direct physical path before reading instructions (6.2s)
+game	Run npx playwright test	2026-10-12T03:46:06.6901465Z   ✓  14 e2e/experience.spec.ts:26:1 › less support retains complete English, records visible captions and audio failure separately (5.1s)
+game	Run npx playwright test	2026-10-12T03:46:11.4394893Z   ✓  15 e2e/experience.spec.ts:46:1 › muting through settings retains full English and safe replay (4.7s)
+game	Run npx playwright test	2026-10-12T03:46:25.4838250Z   ✓  16 e2e/immersion.spec.ts:5:1 › normal entrance keeps requests and receipt at the speaker, with optional garden and real memory (14.0s)
+game	Run npx playwright test	2026-10-12T03:46:29.4962107Z   ✓  17 e2e/immersion.spec.ts:35:1 › phone actual hand and both guests re-hear without delivery; wrong recipient and pause preserve ownership (4.0s)
+game	Run npx playwright test	2026-10-12T03:46:41.4986041Z   ✓  18 e2e/m22-boundaries.spec.ts:5:1 › wrong delivery, reserved capacity, cancel/multitouch and landscape keep real inventory (12.0s)
+game	Run npx playwright test	2026-10-12T03:46:44.6268106Z   ✓  19 e2e/m22-boundaries.spec.ts:73:1 › audio failure exposes correct retry, leaves supplies playable and never creates a language error (3.1s)
+game	Run npx playwright test	2026-10-12T03:46:57.0057451Z   ✓  20 e2e/m22-growth.spec.ts:5:1 › actual picked fruit introduces meaning and fresh endless explicitly introduces banana then juice (12.4s)
+game	Run npx playwright test	2026-10-12T03:47:00.9750237Z   ✓  21 e2e/minigames-vocab.spec.ts:49:1 › desktop hunt, actual two-item delivery, recovery and no broken artwork (3.9s)
+game	Run npx playwright test	2026-10-12T03:47:03.5030173Z   ✓  22 e2e/minigames-vocab.spec.ts:82:1 › phone memory supports relook and classifies a wrong replacement separately (2.5s)
+game	Run npx playwright test	2026-10-12T03:47:05.9836094Z   ✓  23 e2e/minigames-vocab.spec.ts:116:1 › phone sorting accepts both-use containers without English penalties for incomplete moves (2.5s)
+game	Run npx playwright test	2026-10-12T03:47:08.3455626Z   ✓  24 e2e/minigames-vocab.spec.ts:159:1 › phone designer spatial targets and saved free mode use actual objects (2.3s)
+game	Run npx playwright test	2026-10-12T03:47:11.3151515Z   ✓  25 e2e/minigames-vocab.spec.ts:190:1 › desktop theatre follows actual tool and liquid prerequisites with keyboard operation (3.0s)
+game	Run npx playwright test	2026-10-12T03:47:13.7081310Z   ✓  26 e2e/minigames-vocab.spec.ts:220:1 › new vocabulary is reachable in small batches and audio failure keeps support through replay (2.4s)
+game	Run npx playwright test	2026-10-12T03:47:16.5147610Z   ✓  27 e2e/minigames-vocab.spec.ts:260:1 › original five mechanics retain normal entry and optional literacy, with hands-on quantity (2.8s)
+game	Run npx playwright test	2026-10-12T03:47:20.6127823Z   ✓  28 e2e/minigames-vocab.spec.ts:337:1 › yard minigames return to the activity and preserve adventure and free-kitchen entry (4.1s)
+game	Run npx playwright test	2026-10-12T03:47:24.5207995Z   ✓  29 e2e/minigames-vocab.spec.ts:359:1 › phone five-cup layout and theatre controls remain visible and individually usable (3.9s)
+game	Run npx playwright test	2026-10-12T03:47:28.5775673Z   ✓  30 e2e/minigames.spec.ts:44:3 › M2 match complete four rounds, help, resume, settlement and return (4.0s)
+game	Run npx playwright test	2026-10-12T03:47:44.8010016Z   ✘  31 e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return (16.2s)
+game	Run npx playwright test	2026-10-12T03:47:48.0716056Z   ✓  32 e2e/minigames.spec.ts:138:1 › M2 bilingual uses explicit support and preserves business inventory (2.6s)
+game	Run npx playwright test	2026-10-12T03:47:58.2300266Z   ✓  33 e2e/together-play.spec.ts:5:1 › breakfast is three meaningful actions with a real held item and optional exploration (10.1s)
+game	Run npx playwright test	2026-10-12T03:48:09.2466940Z   ✓  34 e2e/together-play.spec.ts:30:1 › visible device targets make real juice and wrong delivery leaves hand ownership recoverable (11.0s)
+game	Run npx playwright test	2026-10-12T03:48:20.7576444Z   ✓  35 e2e/wp-dual-growth.spec.ts:4:1 › deferred menu introduction returns after another actual completed order (11.5s)
+game	Run npx playwright test	2026-10-12T03:48:24.6304086Z   ✓  36 e2e/wp-dual-mini-course.spec.ts:7:1 › theme lobby reaches a four-task listening level and restores its progress (3.8s)
+game	Run npx playwright test	2026-10-12T03:48:24.6834501Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6839974Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6849773Z   1) e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return 
+game	Run npx playwright test	2026-10-12T03:48:24.6850313Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6850551Z     TimeoutError: locator.tap: Timeout 12000ms exceeded.
+game	Run npx playwright test	2026-10-12T03:48:24.6851144Z     Call log:
+game	Run npx playwright test	2026-10-12T03:48:24.6851918Z       - waiting for getByRole('button', { name: '字母 E letter-0-4', exact: true })
+game	Run npx playwright test	2026-10-12T03:48:24.6852928Z         - locator resolved to <button disabled type="button" aria-label="字母 E letter-0-4">E</button>
+game	Run npx playwright test	2026-10-12T03:48:24.6853504Z       - attempting tap action
+game	Run npx playwright test	2026-10-12T03:48:24.6854006Z         2 × waiting for element to be visible, enabled and stable
+game	Run npx playwright test	2026-10-12T03:48:24.6854433Z           - element is not enabled
+game	Run npx playwright test	2026-10-12T03:48:24.6854744Z         - retrying tap action
+game	Run npx playwright test	2026-10-12T03:48:24.6855019Z         - waiting 20ms
+game	Run npx playwright test	2026-10-12T03:48:24.6855680Z         2 × waiting for element to be visible, enabled and stable
+game	Run npx playwright test	2026-10-12T03:48:24.6856114Z           - element is not enabled
+game	Run npx playwright test	2026-10-12T03:48:24.6856408Z         - retrying tap action
+game	Run npx playwright test	2026-10-12T03:48:24.6856700Z           - waiting 100ms
+game	Run npx playwright test	2026-10-12T03:48:24.6857136Z         22 × waiting for element to be visible, enabled and stable
+game	Run npx playwright test	2026-10-12T03:48:24.6857550Z            - element is not enabled
+game	Run npx playwright test	2026-10-12T03:48:24.6857874Z          - retrying tap action
+game	Run npx playwright test	2026-10-12T03:48:24.6858147Z            - waiting 500ms
+game	Run npx playwright test	2026-10-12T03:48:24.6858313Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6858321Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6858621Z       120 |           const l = bank.find((l) => l.id === `letter-${n}-${bank.length - 1}`);
+game	Run npx playwright test	2026-10-12T03:48:24.6859383Z       121 |           if (!l) throw Error('letter');
+game	Run npx playwright test	2026-10-12T03:48:24.6860075Z     > 122 |           await page.getByRole('button', { name: `字母 ${l.text} ${l.id}`, exact: true }).tap();
+game	Run npx playwright test	2026-10-12T03:48:24.6860721Z           |                                                                                         ^
+game	Run npx playwright test	2026-10-12T03:48:24.6861102Z       123 |         }
+game	Run npx playwright test	2026-10-12T03:48:24.6861620Z       124 |         await page.getByRole('button', { name: '拼好了', exact: true }).tap();
+game	Run npx playwright test	2026-10-12T03:48:24.6862240Z       125 |       }
+game	Run npx playwright test	2026-10-12T03:48:24.6862837Z         at /home/runner/work/tabby-english-food-truck/tabby-english-food-truck/e2e/minigames.spec.ts:122:89
+game	Run npx playwright test	2026-10-12T03:48:24.6863330Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6863792Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-12T03:48:24.6864633Z     test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/test-failed-1.png
+game	Run npx playwright test	2026-10-12T03:48:24.6865839Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-12T03:48:24.6866163Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6866561Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-12T03:48:24.6867236Z     test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/video.webm
+game	Run npx playwright test	2026-10-12T03:48:24.6867962Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+game	Run npx playwright test	2026-10-12T03:48:24.6868265Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6868700Z     Error Context: test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/error-context.md
+game	Run npx playwright test	2026-10-12T03:48:24.6869167Z 
+game	Run npx playwright test	2026-10-12T03:48:24.6869255Z   1 failed
+game	Run npx playwright test	2026-10-12T03:48:24.6869772Z     e2e/minigames.spec.ts:44:3 › M2 spell complete four rounds, help, resume, settlement and return 
+game	Run npx playwright test	2026-10-12T03:48:24.6870241Z   35 passed (6.6m)
+game	Run npx playwright test	2026-10-12T03:48:24.8058885Z ##[error]Process completed with exit code 1.

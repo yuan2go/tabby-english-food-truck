@@ -1,0 +1,54 @@
+[WebServer] (node:52289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:52363) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:52409) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:95:1 › visible activity entrance reaches all five chapters and saves a real creation (27.6s)
+
+
+  1) e2e/adventure.spec.ts:95:1 › visible activity entrance reaches all five chapters and saves a real creation 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at helpers.ts:166
+
+      164 |       { timeout: 15000 },
+      165 |     )
+    > 166 |     .toBe(true);
+          |      ^
+      167 |   const item = (await state(p)).items.find(
+      168 |     (i) =>
+      169 |       i.product === product &&
+        at make (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/helpers.ts:166:6)
+        at serve (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/helpers.ts:195:16)
+        at send (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:13:3)
+        at desserts (/Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:26:3)
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:103:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:95:1 › visible activity entrance reaches all five chapters and saves a real creation 

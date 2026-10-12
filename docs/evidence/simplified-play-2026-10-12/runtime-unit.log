@@ -1,0 +1,13 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+
+ Test Files  26 passed (26)
+      Tests  331 passed (331)
+   Start at  11:18:28
+   Duration  2.60s (transform 3.98s, setup 0ms, import 6.70s, tests 3.57s, environment 3ms)
+

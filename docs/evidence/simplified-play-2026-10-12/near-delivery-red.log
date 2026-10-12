@@ -1,0 +1,39 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (21 tests | 2 failed) 21ms
+   × publishes return-job completion so a waiting menu introduction can appear without another click 3ms
+   × a hand delivery uses a short same-table path and settles only at its real receive phase 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > publishes return-job completion so a waiting menu introduction can appear without another click
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/together-play.test.ts:315:62
+    313|  queueActor(s,'return','near-return',[{point:s.actor.point,pose:'idle'…
+    314|  const revision=s.revision,next=advance(s,120);
+    315|  expect(next.actor.current).toBeNull();expect(next.revision).toBeGreat…
+       |                                                              ^
+    316| });
+    317| it('a hand delivery uses a short same-table path and settles only at i…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/together-play.test.ts > a hand delivery uses a short same-table path and settles only at its real receive phase
+AssertionError: expected 5750.8862318197625 to be less than 3500
+ ❯ tests/together-play.test.ts:319:113
+    317| it('a hand delivery uses a short same-table path and settles only at i…
+    318|  let s=breakfast();s=command(s,{type:'adventure',action:'welcome',visi…
+    319|  const job=s.actor.current;if(!job)throw Error('job');expect(job.fromH…
+       |                                                                                                                 ^
+    320|  let at=0;for(const phase of job.plan.phases){at+=phase.duration;if(ph…
+    321|  const before=advance(s,at-1);expect(before.adventure?.foods).toHaveLe…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 19 passed (21)
+   Start at  11:29:58
+   Duration  275ms (transform 133ms, setup 0ms, import 162ms, tests 21ms, environment 0ms)
+

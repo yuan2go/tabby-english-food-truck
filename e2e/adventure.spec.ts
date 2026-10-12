@@ -187,6 +187,7 @@ test('free shop stops accepting, saves actual food, restores and returns to a na
   await supply(page, 'apple');
   await click(page, '放到作品区');
   await expect.poll(async () => (await state(page)).adventure?.foods.length).toBeGreaterThan(1);
+  await expect(page.locator('.nearby-feedback')).toContainText('作品放好了');
   await bookAction(page, '保存到食谱');
   const saved = (await state(page)).adventure?.works;
   await page.reload();

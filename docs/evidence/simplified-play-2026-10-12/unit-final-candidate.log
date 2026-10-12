@@ -1,0 +1,34 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/immersion-events.test.ts (3 tests | 1 failed) 28ms
+   × yard prompts follow prerequisites and successful differences only 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/immersion-events.test.ts > yard prompts follow prerequisites and successful differences only
+AssertionError: expected 'imm-welcome' to be 'imm-drawer' // Object.is equality
+
+Expected: "imm-drawer"
+Received: "imm-welcome"
+
+ ❯ tests/immersion-events.test.ts:36:36
+     34|   expect(actionPrompt(old)?.audio).not.toBe('imm-drawer');
+     35|   old.adventure.steps.push('served:rabbit');
+     36|   expect(actionPrompt(old)?.audio).toBe('imm-drawer');
+       |                                    ^
+     37|   const opened = dispatch(old, {
+     38|     id: 'open',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 25 passed (26)
+      Tests  1 failed | 333 passed (334)
+   Start at  11:34:02
+   Duration  1.94s (transform 2.58s, setup 0ms, import 4.59s, tests 2.30s, environment 4ms)
+

@@ -1,0 +1,5 @@
+
+> tabby-english-food-truck@0.1.0 typecheck
+> tsc --noEmit
+
+src/app/App.tsx(77,1238): error TS2339: Property 'retry' does not exist on type 'ForegroundAudio'.

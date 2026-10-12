@@ -1,0 +1,59 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-layout.test.ts (4 tests | 1 failed) 9ms
+   × projects to the named visitor even when the rule admits that visitor into seat1 5ms
+ ❯ tests/together-play.test.ts (23 tests | 2 failed) 26ms
+   × one preparation target atomically uses both existing storage spaces without asking for a tray 4ms
+   × cancelling a note preserves queued real world delivery ownership and destination during rebase 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-layout.test.ts > projects to the named visitor even when the rule admits that visitor into seat1
+AssertionError: expected 249.686816 to be close to 115.40681600000002, received difference is 134.27999999999997, but expected 0.005
+ ❯ tests/together-layout.test.ts:35:66
+     33|  s=dispatch(s,{id:'take',runId:s.runId,command:{type:'pickup',source:{…
+     34|  const job=s.actor.current;if(!job)throw Error('delivery');job.elapsed…
+     35|  const l=togetherLayout(393,665);expect(togetherDamiRect(s,l).x).toBeC…
+       |                                                                  ^
+     36| });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/together-play.test.ts > one preparation target atomically uses both existing storage spaces without asking for a tray
+AssertionError: expected 'blocked' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "blocked"
+
+ ❯ tests/together-play.test.ts:344:17
+    342|  for(const product of ['banana','apple','banana'])s=pickup(s,product).…
+    343|  const before=s.items.map(i=>i.id).sort(),r=put(s,{preparation:true});
+    344|  expect(r.kind).toBe('ok');expect(held(r.state)).toHaveLength(0);expec…
+       |                 ^
+    345| });
+    346| it('cancelling a note preserves queued real world delivery ownership a…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/together-play.test.ts > cancelling a note preserves queued real world delivery ownership and destination during rebase
+AssertionError: expected undefined to be 'create' // Object.is equality
+
+- Expected:
+"create"
+
++ Received:
+undefined
+
+ ❯ tests/together-play.test.ts:350:45
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 24 passed (27)
+   Start at  11:44:37
+   Duration  382ms (transform 396ms, setup 0ms, import 482ms, tests 34ms, environment 0ms)
+

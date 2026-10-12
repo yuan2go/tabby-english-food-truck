@@ -1,0 +1,28 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (19 tests | 1 failed) 32ms
+   × migrates only already received old dinner positions without inventing attempts or rewards 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > migrates only already received old dinner positions without inventing attempts or rewards
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/together-play.test.ts:265:21
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Start at  11:24:30
+   Duration  556ms (transform 271ms, setup 0ms, import 336ms, tests 32ms, environment 0ms)
+

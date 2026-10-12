@@ -1,0 +1,51 @@
+
+> tabby-english-food-truck@0.1.0 test:browser
+> playwright test e2e/adventure.spec.ts -g free shop stops
+
+[WebServer] (node:62864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:62917) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/adventure.spec.ts:174:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending (12.7s)
+
+
+  1) e2e/adventure.spec.ts:174:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.nearby-feedback')
+    Expected substring: "作品放好了"
+    Received string:    "大咪正把你的作品带到活动桌。"
+    Timeout: 6000ms
+
+    Call log:
+      - Expect "toContainText" locator('.nearby-feedback') with timeout 6000ms
+      - waiting for locator('.nearby-feedback')
+        16 × locator resolved to <p role="status" class="nearby-feedback">大咪正把你的作品带到活动桌。</p>
+           - unexpected value "大咪正把你的作品带到活动桌。"
+
+
+      188 |   await click(page, '放到作品区');
+      189 |   await expect.poll(async () => (await state(page)).adventure?.foods.length).toBeGreaterThan(1);
+    > 190 |   await expect(page.locator('.nearby-feedback')).toContainText('作品放好了');
+          |                                                  ^
+      191 |   await bookAction(page, '保存到食谱');
+      192 |   const saved = (await state(page)).adventure?.works;
+      193 |   await page.reload();
+        at /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck/e2e/adventure.spec.ts:190:50
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/error-context.md
+
+  1 failed
+    e2e/adventure.spec.ts:174:1 › free shop stops accepting, saves actual food, restores and returns to a natural ending 

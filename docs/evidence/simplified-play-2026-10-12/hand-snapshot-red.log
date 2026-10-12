@@ -1,0 +1,53 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (13 tests | 2 failed) 16ms
+     × rejects a save that invents capacity beyond the original hands and preparation spaces 3ms
+     × refuses malformed hand delivery metadata rather than trusting a forged ownership flag 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > breakfast ending and this repository save migration > rejects a save that invents capacity beyond the original hands and preparation spaces
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/together-play.test.ts:161:50
+    159|     s.items = ['hand:0','hand:1','hand:2','tray:0:0','tray:0:1','tray:…
+    160|     s.nextId = 8;
+    161|     expect(decodeSnapshot(JSON.stringify(s)).ok).toBe(false);
+       |                                                  ^
+    162|   });
+    163|   it('refuses malformed hand delivery metadata rather than trusting a …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/together-play.test.ts > breakfast ending and this repository save migration > refuses malformed hand delivery metadata rather than trusting a forged ownership flag
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/together-play.test.ts:168:96
+    166|     s = pickup(s, 'apple').state;
+    167|     s = put(s, { order: 'guest-0' }).state;
+    168|     expect(decodeSnapshot(JSON.stringify(s).replace('"fromHand":true',…
+       |                                                                                                ^
+    169|   });
+    170| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 11 passed (13)
+   Start at  10:26:39
+   Duration  274ms (transform 139ms, setup 0ms, import 167ms, tests 16ms, environment 0ms)
+

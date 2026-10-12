@@ -1,0 +1,26 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (21 tests | 1 failed) 19ms
+   × a hand delivery uses a short same-table path and settles only at its real receive phase 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > a hand delivery uses a short same-table path and settles only at its real receive phase
+AssertionError: expected 3822.697821701563 to be less than 3500
+ ❯ tests/together-play.test.ts:327:29
+    325|   if (!job) throw Error('job');
+    326|   expect(job.fromHand).toBe(true);
+    327|   expect(job.plan.duration).toBeLessThan(3500);
+       |                             ^
+    328|   let at = 0;
+    329|   for (const phase of job.plan.phases) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Start at  11:30:42
+   Duration  279ms (transform 134ms, setup 0ms, import 164ms, tests 19ms, environment 0ms)
+

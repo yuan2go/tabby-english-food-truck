@@ -1,0 +1,34 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/adventure.test.ts (31 tests | 1 failed) 109ms
+   × new breakfast uses actual drawer tools and watering without duplicating food 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/adventure.test.ts > new breakfast uses actual drawer tools and watering without duplicating food
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ tests/adventure.test.ts:320:33
+    318|   s = act(s, 'take-tool', { object: 'seed' }).state;
+    319|   s = act(s, 'plant', { seat: 1 }).state;
+    320|   expect(act(s, 'finish').kind).toBe('blocked');
+       |                                 ^
+    321|   expect(act(s, 'water').kind).toBe('blocked');
+    322|   s = act(s, 'take-tool', { object: 'watering-can' }).state;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 24 passed (25)
+      Tests  1 failed | 320 passed (321)
+   Start at  10:26:04
+   Duration  1.29s (transform 1.39s, setup 0ms, import 2.97s, tests 1.70s, environment 2ms)
+

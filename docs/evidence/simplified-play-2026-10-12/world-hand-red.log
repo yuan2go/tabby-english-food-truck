@@ -1,0 +1,50 @@
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/simplify-gameplay/tabby-english-food-truck
+
+ ❯ tests/together-play.test.ts (15 tests | 2 failed) 17ms
+     × world food also has a persistent hand owner and cannot mix with preparation inventory 3ms
+     × a picked exploration tool is actually held and remains held on reload 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/together-play.test.ts > breakfast ending and this repository save migration > world food also has a persistent hand owner and cannot mix with preparation inventory
+AssertionError: expected 'work' to be 'hand' // Object.is equality
+
+Expected: "hand"
+Received: "work"
+
+ ❯ tests/together-play.test.ts:129:53
+    127|     const picked=command(s,{type:'adventure',action:'pickup',item:id});
+    128|     expect(picked.kind).toBe('ok');
+    129|     expect(picked.state.adventure?.foods[0]?.place).toBe('hand');
+       |                                                     ^
+    130|     expect(decodeSnapshot(JSON.stringify(picked.state)).ok).toBe(true);
+    131|     expect(pickup(picked.state,'banana').kind).toBe('blocked');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/together-play.test.ts > breakfast ending and this repository save migration > a picked exploration tool is actually held and remains held on reload
+AssertionError: expected undefined to be 'seed' // Object.is equality
+
+- Expected:
+"seed"
+
++ Received:
+undefined
+
+ ❯ tests/together-play.test.ts:141:92
+    139|     const taken=command(s,{type:'adventure',action:'take-tool',object:…
+    140|     expect(taken.kind).toBe('ok');
+    141|     expect((taken.state.adventure?.experience as unknown as {heldTool?…
+       |                                                                                            ^
+    142|     expect(decodeSnapshot(JSON.stringify(taken.state)).ok).toBe(true);
+    143|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 13 passed (15)
+   Start at  10:34:52
+   Duration  270ms (transform 135ms, setup 0ms, import 160ms, tests 17ms, environment 0ms)
+
