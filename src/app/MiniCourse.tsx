@@ -20,6 +20,7 @@ import {
   coursePool,
   courseTarget,
   createCourse,
+  enterCourse,
   nextCourse,
   playCourse,
   quantityProducts,
@@ -187,7 +188,7 @@ export function MiniCourse({
         : restart && saved
           ? replayCourse(chosen, saved, crypto.randomUUID())
           : createCourse(chosen, crypto.randomUUID());
-    update(next);
+    update(enterCourse(next));
     setShowHelp(false);
     setConfirmRestart(false);
   };
@@ -429,6 +430,16 @@ export function MiniCourse({
         ) : null}
         {state.phase === 'play' || state.phase === 'feedback' ? (
           <>
+            {state.round === 0 ? (
+              <section className="inline-word-shelf" aria-label="今天的物件">
+                {level.targets.slice(0, 4).map((id) => (
+                  <span key={id}>
+                    <Pictures id={id} />
+                    <span lang="en">{wordById(id)?.text ?? ''}</span>
+                  </span>
+                ))}
+              </section>
+            ) : null}
             <div className="course-prompt">
               {mechanic === 'spell' || mechanic === 'sentence' ? <Pictures id={target} /> : null}
               <button type="button" onClick={() => say()}>

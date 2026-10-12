@@ -224,7 +224,8 @@ export function App() {
           onActivity={(c) => enter('story', c)}
           onChoose={(choice) => {
             audio.stop();
-            if (choice === 'endless' || choice === 'training') {
+            if (choice === 'endless') enter('endless');
+            else if (choice === 'training') {
               setSetup(choice);
               setScreen('setup');
             } else if (choice === 'settings') settings('home');
@@ -411,6 +412,18 @@ export function App() {
                 }}
               >
                 {clearConfirm ? '确认收拾活动桌（作品仍保存在食谱）' : '收拾活动桌'}
+              </button>
+            ) : null}
+            {s.session.activity === 'endless' ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setPaused(false);
+                  setSetup('endless');
+                  setScreen('setup');
+                }}
+              >
+                调整开店设置
               </button>
             ) : null}
             {s.session.activity === 'endless' ? (

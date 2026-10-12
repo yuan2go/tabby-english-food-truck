@@ -9,6 +9,7 @@ import {
   type WorldFood,
   workSignature,
 } from '../content/adventure';
+import { needAccepts, visitorSeat } from '../content/adventure-experience';
 import { PRODUCT_NAMES } from '../content/catalog';
 import { queueActor, trayAnchor } from './actions';
 import {
@@ -68,7 +69,7 @@ export function adventureReady(a: AdventureState): boolean {
     case 0:
       return has('served:rabbit') && has('served:hedgehog');
     case 1:
-      return has('served:rabbit') && has('cool') && has('taste') && has('bunting');
+      return has('served:rabbit') && has('cool') && has('taste');
     case 2:
       return (
         has('served:rabbit') &&
@@ -115,7 +116,7 @@ export function receiveAdventure(
   if (!s.adventure || !items.length) return;
   s.adventure = structuredClone(s.adventure);
   const a = s.adventure;
-  if (a.foods.some((f) => f.source === source) && source !== 'create') return;
+  if (a.foods.some((f) => f.source === source) && source !== 'create' && source !== 'pack') return;
   for (const item of items)
     if (!a.foods.some((f) => f.id === item.id))
       a.foods.push({
@@ -148,7 +149,8 @@ export function receiveAdventure(
       step(a, `place:${visitor === 'rabbit' ? 0 : 1}`);
     if (a.chapter === 2 && a.branch === null && (visitor === 'rabbit' || visitor === 'hedgehog'))
       a.branch = visitor;
-  } else step(a, source);
+  } else if (source !== 'pack' || a.foods.filter((f) => f.place === 'basket').length === 2)
+    step(a, source);
 }
 export function canReceiveAdventure(s: GameState, count: number): boolean {
   const pending = [s.actor.current, ...s.actor.queue].reduce(
@@ -232,14 +234,19 @@ export function adventureCommand(
     const items = s.items.filter((i) =>
       i.location.startsWith(c.fromHand ? 'hand:' : `tray:${c.tray}:`),
     );
-    if (!items.length || (c.action === 'pack' && items.length < 2))
-      return result('incomplete', '盘里还没准备齐，食物留在原处。');
-    const products = items.map((i) => i.product);
+    if (!items.length) return result('incomplete', '盘里还没准备齐，食物留在原处。');
+    const products = [
+      ...(c.action === 'pack'
+        ? a.foods.filter((f) => f.place === 'basket').map((f) => f.product)
+        : []),
+      ...items.map((i) => i.product),
+    ];
     const valid =
       c.action === 'pack'
-        ? products.length === 2 &&
-          products.some((p) => ['sandwich', 'salad-sandwich'].includes(p)) &&
-          products.some((p) => p === 'apple' || p === 'banana')
+        ? products.length <= 2 &&
+          products.every((p) => ['sandwich', 'salad-sandwich', 'apple', 'banana'].includes(p)) &&
+          products.filter((p) => ['sandwich', 'salad-sandwich'].includes(p)).length <= 1 &&
+          products.filter((p) => p === 'apple' || p === 'banana').length <= 1
         : c.action === 'cool'
           ? products.length === 1 && COOL_CHOICES.includes(products[0] as WorldFood['product'])
           : products.length <= 3 && products.every((p) => EDIBLE.includes(p));
@@ -252,6 +259,24 @@ export function adventureCommand(
             ? '可选一杯香草、草莓、双球或香蕉冰淇淋。其他食物留在盘里。'
             : '先把可吃的食品做好，最多放三份。',
       );
+    if (c.action === 'create' && c.visitor) {
+      const need = a.experience?.needs.find((n) => n.visitor === c.visitor);
+      if (
+        !need ||
+        need.fulfilled.length ||
+        items.length !== 1 ||
+        !needAccepts(need, {
+          ...items[0],
+          source: 'create',
+          place: 'work',
+          tasted: false,
+        } as WorldFood)
+      )
+        return result('blocked', '食品仍在手里。先听朋友的分享需要，再选一份合适食品。');
+      const seat = visitorSeat(c.visitor);
+      if (a.foods.some((f) => f.place === `table:${seat}` || f.place === `guest-${c.visitor}`))
+        return result('blocked', '餐位已有食品，可以先拿回作品区。');
+    }
     if (!canReceiveAdventure(s, items.length))
       return result('blocked', '活动桌满了。保存作品后收拾桌面再做。');
     const duration = queueActor(
@@ -271,6 +296,10 @@ export function adventureCommand(
     const job = s.actor.queue.at(-1) ?? s.actor.current;
     if (job) {
       job.worldTarget = c.action;
+      if (c.action === 'create' && c.visitor) {
+        job.shareWith = c.visitor;
+        job.creationGroup = `sharing-${a.works.at(-1)?.id.split(':').at(-1) ?? 'first'}`;
+      }
       if (c.fromHand) job.fromHand = true;
     }
     for (const i of items)
@@ -288,21 +317,10 @@ export function adventureCommand(
   }
   if (c.action === 'place') {
     if (c.seat !== 0 && c.seat !== 1 && c.seat !== 2) return result('blocked', '选一个可见餐位。');
-    if (!complete && chapter === 2 && (a.branch !== 'hedgehog' || !a.explored.includes('drawer')))
-      return result('blocked', '先打开刺刺的摆餐抽屉。');
-    if (!complete && chapter === 3 && !a.explored.includes('drawer'))
-      return result('blocked', '先打开灯串抽屉。');
     const food = a.foods.find((f) => f.id === c.item);
     if (!food || food.place === 'basket') return result('blocked', '先把食物真正送到活动桌。');
     if (a.foods.some((f) => f.id !== food.id && f.place === `table:${c.seat}`))
       return result('blocked', '这个餐位有食物了，换一个位置。');
-    if (
-      a.chapter === 2 &&
-      a.branch === 'hedgehog' &&
-      !complete &&
-      !a.experience?.tools.includes('mat')
-    )
-      return result('blocked', '先从抽屉取出餐垫，找到摆餐的位置。');
     food.place = `table:${c.seat}`;
     food.recipient = c.seat === 0 ? 'rabbit' : c.seat === 1 ? 'hedgehog' : 'elder';
     worldMoment(s, {
@@ -443,7 +461,6 @@ export function adventureCommand(
     if (
       (chapter !== 1 && !complete) ||
       (!complete && (!has('cool') || !has('taste'))) ||
-      (!a.explored.includes('recipe') && !complete) ||
       !['warm', 'cool'].includes(c.value ?? '')
     )
       return result('blocked', '先翻旧食谱，再选彩旗颜色。');
@@ -499,14 +516,10 @@ export function adventureCommand(
     return result('ok', '桌布铺好了，大家有了可以围坐的野餐桌。');
   }
   if (c.action === 'light') {
-    if (
-      (chapter !== 3 && !complete) ||
-      (!a.explored.includes('drawer') && !complete) ||
-      !['warm', 'moon'].includes(c.value ?? '')
-    )
+    if ((chapter !== 3 && !complete) || !['warm', 'moon'].includes(c.value ?? ''))
       return result('blocked', '先找到灯串，再选择灯光。');
-    if (!complete && !a.experience?.tools.includes('lantern'))
-      return result('blocked', '先取出灯，让朋友帮忙带到桌边。');
+    if (!complete && !a.experience?.used.includes('cooperate'))
+      return result('blocked', '请一位朋友带灯，再点亮。');
     a.decor.light = c.value as 'warm' | 'moon';
     step(a, 'light');
     return result('ok', '灯亮了，晚餐桌等着朋友围坐。');
@@ -655,13 +668,13 @@ export function openCommission(a: AdventureState | null): {
   return null;
 }
 export function activityHint(a: AdventureState): string {
-  if (a.kind === 'shop') return '选择喜欢的菜单，服务朋友，也可以自由做作品。';
+  if (a.kind === 'shop') return '店已开门，服务朋友或做作品；菜单可随时调整。';
   if (a.rewards.length) return '活动已经开席。继续制作、布置，或收摊回小院。';
   if (a.chapter === 2)
     return a.branch === null
       ? '两位朋友都在等。先成功送给谁，就一起做谁的准备。'
       : a.branch === 'rabbit'
         ? '兔兔先收到啦：检查篮子，补齐三明治与水果，再摆上桌。'
-        : '刺刺先收到啦：打开抽屉，给两位朋友各摆一份。';
+        : '刺刺先收到啦：两份实餐在原位，选桌布一起布置。';
   return ADVENTURES[a.chapter]?.goal ?? '';
 }

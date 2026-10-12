@@ -14,12 +14,12 @@ const choose = async (page: Page, kind: string, title: string) => {
     .first()
     .click();
   await page.getByRole('button', { name: new RegExp(title) }).click();
-  await page.getByRole('button', { name: '先认识今天的物件' }).click();
-  await page.getByRole('button', { name: '我来动手' }).click();
+  await expect(page.locator('.scene-stage')).toBeVisible();
+  await expect(page.locator('.scene-stage')).toBeVisible();
 };
 const meaning = async (page: Page) => {
   if (await page.getByRole('button', { name: '我来动手' }).isVisible())
-    await page.getByRole('button', { name: '我来动手' }).click();
+    await expect(page.locator('.scene-stage')).toBeVisible();
 };
 const take = async (page: Page, name: string) => {
   await page.getByRole('button', { name: `拿起${name}`, exact: true }).click();
@@ -231,8 +231,8 @@ test('new vocabulary is reachable in small batches and audio failure keeps suppo
   await page.getByRole('button', { name: '交付找到的物件' }).click();
   await page.getByRole('button', { name: '重玩这一组', exact: true }).click();
   await page.getByRole('button', { name: '确认重玩' }).click();
-  await page.getByRole('button', { name: '先认识今天的物件' }).click();
-  await page.getByRole('button', { name: '我来动手' }).click();
+  await expect(page.locator('.scene-stage')).toBeVisible();
+  await expect(page.locator('.scene-stage')).toBeVisible();
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem('tabby.foodtruck.scene-mini.v1') ?? '{}'),
   );
@@ -247,7 +247,7 @@ test('new vocabulary is reachable in small batches and audio failure keeps suppo
   await expect(page.locator('.library-navigation')).toContainText('第2小组');
   for (let i = 2; i < 11; i++) await page.getByRole('button', { name: '认识下一小组' }).click();
   await page.getByRole('button', { name: '开始', exact: true }).click();
-  await page.getByRole('button', { name: '看看今天的内容' }).click();
+  await expect(page.locator('.course-prompt')).toBeVisible();
   await expect(page.getByRole('button', { name: '听一句怎么用' })).toBeVisible();
   await page.getByRole('button', { name: '听一句怎么用' }).click();
   const courses = await page.evaluate(() =>
@@ -264,8 +264,8 @@ test('original five mechanics retain normal entry and optional literacy, with ha
   await page.getByRole('button', { name: '迷你游戏', exact: true }).click();
   await page.getByRole('button', { name: /主题关卡 ·/ }).click();
   await page.getByRole('button', { name: '开始', exact: true }).first().click();
-  await page.getByRole('button', { name: '看看今天的内容' }).click();
-  await page.getByRole('button', { name: '我来试试' }).click();
+  await expect(page.locator('.course-prompt')).toBeVisible();
+  await expect(page.locator('.course-prompt')).toBeVisible();
   await page.getByRole('button', { name: '选择苹果', exact: true }).click();
   await expect(page.getByRole('button', { name: '下一份' })).toBeVisible();
   await page.getByRole('button', { name: '← 返回主题' }).click();
@@ -275,8 +275,8 @@ test('original five mechanics retain normal entry and optional literacy, with ha
     .filter({ hasText: '水果标签成组配' })
     .getByRole('button', { name: '开始' })
     .click();
-  await page.getByRole('button', { name: '看看今天的内容' }).click();
-  await page.getByRole('button', { name: '我来试试' }).click();
+  await expect(page.locator('.course-prompt')).toBeVisible();
+  await expect(page.locator('.course-prompt')).toBeVisible();
   await page.getByRole('button', { name: `选择${wordById('apple')?.chinese}` }).click();
   await expect(page.getByRole('button', { name: '下一份' })).toBeVisible();
   await page.getByRole('button', { name: '← 返回主题' }).click();
@@ -288,8 +288,8 @@ test('original five mechanics retain normal entry and optional literacy, with ha
     .filter({ hasText: '短短的水果词' })
     .getByRole('button', { name: '开始' })
     .click();
-  await page.getByRole('button', { name: '看看今天的内容' }).click();
-  await page.getByRole('button', { name: '我来试试' }).click();
+  await expect(page.locator('.course-prompt')).toBeVisible();
+  await expect(page.locator('.course-prompt')).toBeVisible();
   for (const letter of 'APPLE')
     await page
       .getByRole('group', { name: '可用词块' })
@@ -306,8 +306,8 @@ test('original five mechanics retain normal entry and optional literacy, with ha
     .filter({ hasText: '一个还是两个' })
     .getByRole('button', { name: '开始' })
     .click();
-  await page.getByRole('button', { name: '看看今天的内容' }).click();
-  await page.getByRole('button', { name: '我来试试' }).click();
+  await expect(page.locator('.course-prompt')).toBeVisible();
+  await expect(page.locator('.course-prompt')).toBeVisible();
   await page.getByRole('button', { name: '动手摆一盘' }).click();
   await page.getByRole('button', { name: '摆入苹果' }).click();
   await page.getByRole('button', { name: '交付这一盘' }).click();
@@ -322,8 +322,8 @@ test('original five mechanics retain normal entry and optional literacy, with ha
     .filter({ hasText: '用词表达需要' })
     .getByRole('button', { name: '开始' })
     .click();
-  await page.getByRole('button', { name: '看看今天的内容' }).click();
-  await page.getByRole('button', { name: '我来试试' }).click();
+  await expect(page.locator('.course-prompt')).toBeVisible();
+  await expect(page.locator('.course-prompt')).toBeVisible();
   for (const word of ['An', 'apple', 'please'])
     await page
       .getByRole('group', { name: '可用词块' })
@@ -346,6 +346,8 @@ test('yard minigames return to the activity and preserve adventure and free-kitc
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   await page.getByRole('button', { name: '收摊回小院', exact: true }).click();
   await page.getByRole('button', { name: '自由开店', exact: true }).click();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '调整开店设置', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业', exact: true }).click();
   await expect(page.locator('canvas')).toBeVisible();
   await expect(page.getByRole('region', { name: '同桌厨房' })).toBeVisible();

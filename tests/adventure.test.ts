@@ -124,12 +124,18 @@ describe('adventure causal rules', () => {
     const received = s.adventure?.foods[0];
     if (!received) throw Error('received sandwich');
     const blockedPlace = { action: 'place', item: received.id, seat: 0 } as const;
-    expect(act(s, 'place', blockedPlace).kind).toBe('blocked');
-    expect(activityObstacle(s, blockedPlace)).toMatchObject({ id: 'basket', target: 'basket' });
+    const placed = act(s, 'place', blockedPlace);
+    expect(placed.kind).toBe('ok');
+    expect(placed.state.adventure?.foods[0]?.id).toBe(received.id);
+    expect(placed.state.adventure?.branch).toBe('rabbit');
     expect(act(s, 'pack', { tray: 0 }).kind).toBe('blocked');
     s = act(s, 'explore', { object: 'basket' }).state;
     s = make(s, 'apple');
-    expect(act(s, 'pack', { tray: 0 }).kind).toBe('incomplete');
+    const first = act(s, 'pack', { tray: 0 });
+    expect(first.kind).toBe('ok');
+    s = wait(first.state);
+    expect(s.adventure?.steps).not.toContain('pack');
+    expect(act(s, 'unpack').kind).toBe('blocked');
     s = make(s, 'salad-sandwich');
     const packed = act(s, 'pack', { tray: 0 });
     expect(packed.kind).toBe('ok');
@@ -388,7 +394,7 @@ it('sweet comparisons require two genuinely different creations and survive inte
 });
 it('cooperation carries a real found tool without changing cooking, orders or food', () => {
   let s = deliver(start(3), 0, 'cheese-burger');
-  expect(act(s, 'cooperate', { visitor: 'rabbit', object: 'lantern' }).kind).toBe('blocked');
+  expect(act(s, 'cooperate', { visitor: 'rabbit', object: 'lantern' }).kind).toBe('ok');
   s = act(s, 'explore', { object: 'drawer' }).state;
   s = act(s, 'take-tool', { object: 'lantern' }).state;
   const before = structuredClone(s);

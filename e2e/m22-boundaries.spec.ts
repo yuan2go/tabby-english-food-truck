@@ -15,8 +15,7 @@ test('wrong delivery, reserved capacity, cancel/multitouch and landscape keep re
   await page.getByRole('button', { name: '放回手中食品', exact: true }).click();
   await supply(page, 'apple');
   await page.getByRole('button', { name: '放入果汁机水果口', exact: true }).click();
-  await supply(page, 'cup');
-  await page.getByRole('button', { name: '放到果汁机杯座', exact: true }).click();
+  await page.getByRole('button', { name: '果汁机：空杯', exact: true }).click();
   await page.getByRole('button', { name: '启动果汁机', exact: true }).click();
   await supply(page, 'banana');
   await supply(page, 'apple');
@@ -34,8 +33,7 @@ test('wrong delivery, reserved capacity, cancel/multitouch and landscape keep re
   await page.getByRole('button', { name: '拿起苹果汁', exact: true }).click();
   const juice = (await state(page)).items.find((i) => i.product === 'juice');
   await page.getByRole('button', { name: '放回手中食品', exact: true }).click();
-  await expect(page.getByRole('dialog', { name: '收起成品' })).toBeVisible();
-  await page.getByRole('button', { name: '确认收起', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: '收起成品' })).toHaveCount(0);
   expect((await state(page)).recycle?.id).toBe(juice?.id);
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   await page.getByRole('button', { name: '恢复收起的成品', exact: true }).click();

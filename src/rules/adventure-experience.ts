@@ -107,13 +107,13 @@ export function experienceCommand(
       !visitor ||
       !['rabbit', 'hedgehog'].includes(visitor) ||
       (role !== 'cups' && role !== 'lantern') ||
-      !a.steps.some((x) => x.startsWith('served:')) ||
-      (role === 'lantern' && !e.tools.includes('lantern'))
+      !a.steps.some((x) => x.startsWith('served:'))
     )
       return result('blocked', '先接好食品，找出灯，再选朋友和帮忙的物件。');
     if (e.helpers.some((h) => h.visitor === visitor))
       return result('duplicate', '这位朋友已经帮忙了。');
     e.helpers.push({ visitor, role });
+    if (role === 'lantern' && !e.tools.includes('lantern')) e.tools.push('lantern');
     if (role === 'lantern') e.heldTool = null;
     use('cooperate');
     worldMoment(s, {

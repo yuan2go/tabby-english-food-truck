@@ -80,6 +80,12 @@ export function playCourse(state: CourseState): CourseState {
     support: [...new Set([...state.support, 'meaning-picture'])],
   };
 }
+export const enterCourse = (state: CourseState): CourseState =>
+  state.phase === 'intro'
+    ? playCourse(startCourse(state))
+    : state.phase === 'meaning'
+      ? playCourse(state)
+      : state;
 export interface Tile {
   id: string;
   text: string;
@@ -277,9 +283,9 @@ export function nextCourse(level: MiniLevel, state: CourseState): CourseState {
         round: next,
         assembled: [],
         carry: [...new Set([...(state.carry ?? []), ...state.support])],
-        phase: 'meaning',
+        phase: 'play',
         selected: [],
-        support: [...(state.carry ?? [])],
+        support: [...new Set([...(state.carry ?? []), 'meaning-picture'])],
         heard: false,
         feedback: '',
       };

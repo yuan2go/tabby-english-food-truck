@@ -23,6 +23,8 @@ test('actual picked fruit introduces meaning and fresh endless explicitly introd
   const s = await state(page);
   await page.reload();
   await page.locator('.yard-endless .entry-main').click();
+  await page.getByRole('button', { name: '暂停', exact: true }).click();
+  await page.getByRole('button', { name: '调整开店设置', exact: true }).click();
   await page.getByRole('button', { name: '开门 / 继续营业' }).click();
   expect((await state(page)).session.menu).toEqual(s.session.menu);
   expect((await state(page)).attempts).toEqual(s.attempts);

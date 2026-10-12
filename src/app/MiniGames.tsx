@@ -237,7 +237,7 @@ export function MiniGames({
         ]),
       ];
     setFreshKind(null);
-    update(fresh);
+    begin(fresh);
     void audio.play(kind === 'match' ? 'mini-match' : 'mini-spell');
   };
   const begin = (value: MiniState) => {
@@ -255,7 +255,7 @@ export function MiniGames({
         ]),
       ];
     }
-    update(next);
+    update(playRound(next));
     setSlot(null);
   };
   if (showScenes)
@@ -533,7 +533,7 @@ export function MiniGames({
             type="button"
             onClick={() => {
               audio.stop();
-              update(restartMini(state, crypto.randomUUID()));
+              begin(restartMini(state, crypto.randomUUID()));
               setRestart(false);
               setSlot(null);
             }}
@@ -576,7 +576,8 @@ export function MiniGames({
                 state.foundation,
                 crypto.randomUUID(),
               );
-              update(fresh);
+              fresh.carry = restartMini(state, fresh.id).carry;
+              begin(fresh);
             }}
           >
             再玩一组

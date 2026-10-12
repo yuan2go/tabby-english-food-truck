@@ -554,6 +554,11 @@ function actorJob(v: unknown): boolean {
     !record(v) ||
     !['helper', 'delivery', 'return'].includes(v.kind as string) ||
     !(v.fromHand === undefined || (v.fromHand === true && v.kind === 'delivery')) ||
+    !(v.creationGroup === undefined || (v.worldTarget === 'create' && str(v.creationGroup))) ||
+    !(
+      v.shareWith === undefined ||
+      (v.worldTarget === 'create' && ['rabbit', 'hedgehog', 'elder'].includes(String(v.shareWith)))
+    ) ||
     !number(v.elapsed, 120000) ||
     !strings(v.itemIds, 3) ||
     !unique(v.itemIds) ||
@@ -646,7 +651,9 @@ export function decodeSnapshot(raw: string): DecodeResult {
     const migratePositions =
       record(value) &&
       value.schemaVersion === 7 &&
-      ['playable-adventure-1', 'adventure-experience-2'].includes(String(value.contentVersion));
+      ['playable-adventure-1', 'adventure-experience-2', 'together-play-1'].includes(
+        String(value.contentVersion),
+      );
     if (migratePositions) value.contentVersion = CONTENT_VERSION;
     if (!validateState(value))
       return { ok: false, reason: '存档版本或物品关系不受支持，已保留原文。', raw };

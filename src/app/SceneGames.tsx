@@ -129,7 +129,14 @@ export function SceneGames({
     if (!level) return;
     stop();
     const saved = store.scenes[id];
-    update(saved ?? createScene(level, crypto.randomUUID(), Date.now() >>> 0));
+    const next = saved ?? createScene(level, crypto.randomUUID(), Date.now() >>> 0);
+    update(
+      next.phase === 'intro'
+        ? sceneCommand(next, { type: 'start' })
+        : next.phase === 'meaning'
+          ? sceneCommand(next, { type: 'play' })
+          : next,
+    );
   };
   const exportSave = () => {
     const blob = new Blob([JSON.stringify(store.export(), null, 2)], { type: 'application/json' }),
@@ -389,7 +396,7 @@ export function SceneGames({
             <button
               type="button"
               onClick={() => {
-                update(replayScene(state, crypto.randomUUID()));
+                update(sceneCommand(replayScene(state, crypto.randomUUID()), { type: 'start' }));
               }}
             >
               再玩这一组
@@ -476,7 +483,7 @@ export function SceneGames({
             type="button"
             onClick={() => {
               stop();
-              update(replayScene(state, crypto.randomUUID()));
+              update(sceneCommand(replayScene(state, crypto.randomUUID()), { type: 'start' }));
               setRestart(false);
             }}
           >
