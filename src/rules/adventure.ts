@@ -237,7 +237,9 @@ export function adventureCommand(
     if (
       c.action !== 'create' &&
       (has(c.action) ||
-        [s.actor.current, ...s.actor.queue].some((j) => j?.worldTarget === c.action))
+        [s.actor.current, ...s.actor.queue].some(
+          (j) => j?.worldTarget === c.action && (c.action !== 'pack' || j.itemIds.length > 0),
+        ))
     )
       return result('blocked', '这一份已经送出。');
     if (

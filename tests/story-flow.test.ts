@@ -172,6 +172,25 @@ test('new-format saves reject out-of-range progress and fabricated chapter archi
     ).ok,
   ).toBe(false);
 });
+test('a received partial picnic pack accepts its next food while Dami returns, without overfilling', () => {
+  let s = start(2);
+  s = serve(s, 'rabbit');
+  s = serve(s, 'hedgehog');
+  s = make(s, 'sandwich');
+  s = run(s, { type: 'put', target: { world: 'pack' } }).state;
+  s = tick(s, (s) => s.adventure?.foods.some((f) => f.place === 'basket') === true);
+  expect(s.actor.current?.worldTarget).toBe('pack');
+  expect(s.actor.current?.itemIds).toEqual([]);
+  s = make(s, 'banana');
+  const next = run(s, { type: 'put', target: { world: 'pack' } });
+  expect(next.kind).toBe('ok');
+  expect(decodeSnapshot(JSON.stringify(next.state)).ok).toBe(true);
+  s = tick(next.state, (s) => s.adventure?.foods.filter((f) => f.source === 'pack').length === 2);
+  s = make(s, 'apple');
+  const extra = run(s, { type: 'put', target: { world: 'pack' } });
+  expect(extra.kind).toBe('blocked');
+  expect(extra.state.items).toEqual(s.items);
+});
 test('valid prior content retains food, support and processing and does not infer new receipts', () => {
   let s = run(createGame('legacy', 0, {}, 'practice'), {
     type: 'adventure-start',
