@@ -1,0 +1,42 @@
+[
+  {
+    "original": "README.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/README.md",
+    "sha256": "f21e99500f3cc17a327d8fdd818afe26fdc5e78870ce65ebdb03bdc77c08781c"
+  },
+  {
+    "original": "docs/01-product.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/01-product.md",
+    "sha256": "25a0f3028be7422f98bfdc7df1e9148d53a52011a8dfc60f04a73a2a6c297c69"
+  },
+  {
+    "original": "docs/02-game-design.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/02-game-design.md",
+    "sha256": "74bdd24435201acbc7ea53e6696d1225b5e5f09831940940b89e63c8639c9611"
+  },
+  {
+    "original": "docs/03-experience-design.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/03-experience-design.md",
+    "sha256": "7146e367e13858a5994ec143b085f66ca78ceedd4bcd6622d2b9b84016bd7348"
+  },
+  {
+    "original": "docs/04-technical-design.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/04-technical-design.md",
+    "sha256": "dbb468372705458f7a804c5ae4daca9bb4555741ce93743e422354d2c4314671"
+  },
+  {
+    "original": "docs/05-delivery.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/05-delivery.md",
+    "sha256": "29b9db604b9fec843a2c09ba873c4428b595ee86438165364218f6b86a327d8d"
+  },
+  {
+    "original": "docs/STATUS.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/STATUS.md",
+    "sha256": "1c41ac34ebde647975d3eb014da565b3ea8dd574bbf3ac05daea3200a6702a1a"
+  },
+  {
+    "original": "docs/index.md",
+    "archive": "docs/archive/pre-direct-cooking-2026-10-12/index.md",
+    "sha256": "f12270d8ff999fc7c4e5aad3e367dba3611556f04ce70d923520fe8c31591436"
+  }
+]

@@ -7,7 +7,7 @@
 - rules/types/game：hand:0–2实际归属与拿放命令；调用现有move/deliver/adventure判定，副本预检多食品操作，失败不部分提交。
 - rules/cooking：设备输入由station/recipe真实输入决定，取消隐藏family前置；既有解锁、忙态、容量/预留保持。
 - rules/adventure/adventure-experience：早餐收尾不再依赖plant/water，野餐/晚餐接收即记录原位放置，保留不同实物同时占两席的验收；活动食品/奖励收据保持。
-- rules/snapshot/platform/save/profile：schema7保持、手中槽位/共享容量校验，显式接受本仓库旧content版本；空字段不推断完成；旧已接收餐位按核验过的served及原guest实物补位置事实，不移动食品、不补奖或尝试。内容版本together-play-1。旧完成奖、请求、食品、加工和支持原样保留；坏/未来档阻止覆盖并可导出。
+- rules/snapshot/platform/save/profile：schema7保持、手中槽位/共享容量校验，显式接受本仓库旧content版本；空字段不推断完成；旧已接收餐位按核验过的served及原guest实物补位置事实，不移动食品、不补奖或尝试。内容版本direct-cooking-1。旧完成奖、请求、食品、加工和支持原样保留；坏/未来档阻止覆盖并可导出。
 - app/TogetherStage及专职场景组件：同一舞台、空间坐标、物件输入和就近英文；接收/品尝表现复用收据，不派命令重播。旧独立Adventure/FriendTheatre及旧service操作入口不再并行供玩家使用。
 - Phaser现有生命周期与时钟继续负责游戏推进/暂停/后台/卸载；新DOM命令经过同一Controller，拖动取消不写业务状态。
 - content/dialogue与ForegroundAudio继续唯一完整句/前景通道，首次声音、失败、字幕、帮助、回访记录边界保持。自动代读不算用户提交。
@@ -21,3 +21,7 @@
 构建注入真实SHA/dirty/content/assets；发布从合并main进入既有Sites源仓库，保存GitHub→Sites source SHA→saved version→deployment映射与匿名新会话实测。既有project_id=appgprj_6ab141055ab8819186112dee423d0d04、static.directory=dist保持；网址必须仍为https://tabby-english-food-truck.aw9923299.chatgpt.site，public无邀请，无运行时登录依赖。
 
 旧技术合同/完整迁移和历史证据见[归档](archive/pre-simplified-play-2026-10-12/index.md)，并非新规则的平行实现。
+
+## 直接操作职责
+
+rules/direct-cooking.ts负责直接原料输入、冰淇淋可扩展组合与自然封合，复用recipes、move和station校验，不设第二份库存。TogetherKitchen投影已解锁设备和设备旁原料；TogetherStage只接线及场景活动。所有命令在dispatch副本中事务执行，失败不提交部分输入。肉饼/果汁保留原时钟，手工装配即时产生真实输出；旧processing装配快照仍由既有时钟完成，不重写在途任务。小游戏直接场景入口由规则函数转阶段，支持历史保留，UI不跳过提交判定。
