@@ -1,5 +1,10 @@
 # 项目状态
 
+## 2026-10-12 · 同桌共玩正式改版 · IN_PROGRESS
+
+最新main基线f817324da75f4fb96314af390014bb78f979aba9；隔离分支codex/simplified-play-2026-10-12。原工作区64f03fc和未跟踪docs/playtests保留。既有Sites项目appgprj_6ab141055ab8819186112dee423d0d04已实读owner/public/version3/原网址；新版尚未实施或部署。先治理冲突合同/索引并独立提交，再按05执行。当前用户已授权PR合并main与原站公开更新。正式改版、连续游玩、最终门禁、新版部署及桌面新材料待完成；历史结果下文均保留，不当新版证据。
+
+
 ## 2026-10-12 · 双工作包集成与公开站点交付 · PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING
 
 两工程聊天实际完整交付后，按负责人授权将两包全部代码/资源/报告/文档推送并经PR17整合main；Demo最终36200dd4d7bd931e4e5fedf8a25465d6b3f9e9e5、英语最终103c2bb2272ddaa86fe32e342fc20e86feeb3a80，两包531件原证据Git blob相同，无缺失/修改。发布baseline `0b249b04697b1df43d74bbe1a4f532175b2d04f1`，最终游戏代码main `7339c5119007e913327609fa6e24d89a5a86cb21`。本地310单元/typecheck/lint/资源818/构建/词库通过；PR17及最终PR18精确head完整33条云端浏览器、310单元和其他强制工程门禁全部通过。原失败、针对性复跑和实际线上发现/修正图带叠压的红绿回归保留，详见[完整记录](evidence/contest-release-2026-10-12/README.md)。
