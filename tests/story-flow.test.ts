@@ -299,6 +299,47 @@ test('clearing the completed carnival preserves its reward and a valid recoverab
   expect(r.state.adventure?.works).toEqual(works);
   expect(decodeSnapshot(JSON.stringify(r.state)).ok).toBe(true);
 });
+test('restoring a rewarded chapter without the separate profile recovers each actual chapter memory', async () => {
+  const { vi } = await import('vitest');
+  const { GameController } = await import('../src/platform/controller');
+  const { SaveStore, SAVE_KEY } = await import('../src/platform/save');
+  let s = start();
+  for (let i = 0; i < 4; i++) {
+    s = tick(s, (s) => s.orders.some((o) => o.status === 'waiting'));
+    s = serve(s);
+  }
+  s = tick(s, (s) => s.session.chapter === 1);
+  while (s.orders.some((o) => o.status !== 'done')) {
+    s = tick(s, (s) => s.orders.some((o) => o.status === 'waiting'));
+    s = serve(s);
+  }
+  s = tick(s, (s) => s.adventure?.flow?.wave === 2);
+  s = make(s, 'vanilla-cup');
+  s = run(s, { type: 'put', target: { world: 'cool' } }).state;
+  s = tick(s, (s) => s.adventure?.flow?.phase === 'reward');
+  const values = new Map([[SAVE_KEY, JSON.stringify(s)]]);
+  const storage = {
+    getItem: (k: string) => values.get(k) ?? null,
+    setItem: (k: string, v: string) => {
+      values.set(k, v);
+    },
+    removeItem: (k: string) => {
+      values.delete(k);
+    },
+  };
+  vi.stubGlobal('localStorage', storage);
+  try {
+    const c = new GameController(new SaveStore(() => storage));
+    c.enter('story', 1);
+    const memories = c.profile.value.activityMemories;
+    expect(memories.map((m) => m.state.chapter).sort()).toEqual([0, 1]);
+    expect(memories.find((m) => m.state.chapter === 0)?.state.foods.map((f) => f.product)).toEqual(
+      s.adventure?.flow?.archives[0]?.foods.map((f) => f.product),
+    );
+  } finally {
+    vi.unstubAllGlobals();
+  }
+});
 test('an already rewarded legacy feast gains no new sharing obligations on adoption', async () => {
   const { vi } = await import('vitest');
   const { GameController } = await import('../src/platform/controller');

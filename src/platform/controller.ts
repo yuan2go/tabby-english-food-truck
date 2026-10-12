@@ -166,12 +166,7 @@ export class GameController {
     const a = this.state.adventure;
     if (!a) return;
     for (const memory of a.flow?.archives ?? []) {
-      this.profile.rememberActivity(
-        this.state.runId,
-        a.flow?.completion
-          ? { ...a.flow.completion, works: memory.works, decor: memory.decor }
-          : memory,
-      );
+      this.profile.rememberActivity(this.state.runId, memory);
       this.profile.complete(memory.chapter);
     }
     const { flow: _, ...memory } = a;
