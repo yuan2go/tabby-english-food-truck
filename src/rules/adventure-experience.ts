@@ -26,9 +26,7 @@ export function worldMoment(s: GameState, moment: Omit<WorldMoment, 'id' | 'at'>
 export function experienceReady(a: AdventureState): boolean {
   const e = a.experience;
   if (!e || a.rewards.length) return true;
-  return a.chapter === 0
-    ? e.used.includes('water')
-    : a.chapter === 1
+  return a.chapter === 1
       ? e.used.includes('compare')
       : a.chapter === 3
         ? e.used.includes('cooperate')

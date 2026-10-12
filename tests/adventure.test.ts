@@ -317,7 +317,7 @@ it('new breakfast uses actual drawer tools and watering without duplicating food
   expect(act(s, 'plant', { seat: 1 }).kind).toBe('blocked');
   s = act(s, 'take-tool', { object: 'seed' }).state;
   s = act(s, 'plant', { seat: 1 }).state;
-  expect(act(s, 'finish').kind).toBe('blocked');
+  expect(act(s, 'finish').kind).toBe('ok'); // Breakfast can end before optional watering.
   expect(act(s, 'water').kind).toBe('blocked');
   s = act(s, 'take-tool', { object: 'watering-can' }).state;
   const ids = s.adventure?.foods.map((f) => f.id);

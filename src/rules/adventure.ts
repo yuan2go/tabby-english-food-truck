@@ -61,7 +61,7 @@ export function adventureReady(a: AdventureState): boolean {
     ([0, 1] as const).every((seat) => a.foods.some((f) => f.place === `table:${seat}`));
   switch (a.chapter) {
     case 0:
-      return has('served:rabbit') && has('served:hedgehog') && has('plant');
+      return has('served:rabbit') && has('served:hedgehog');
     case 1:
       return has('served:rabbit') && has('cool') && has('taste') && has('bunting');
     case 2:
@@ -222,7 +222,7 @@ export function adventureCommand(
       s.actor.queue.length >= 3
     )
       return result('blocked', '这只盘还在工作，等好或换一只盘。');
-    const items = s.items.filter((i) => i.location.startsWith(`tray:${c.tray}:`));
+    const items = s.items.filter((i) => i.location.startsWith(c.fromHand ? 'hand:' : `tray:${c.tray}:`));
     if (!items.length || (c.action === 'pack' && items.length < 2))
       return result('incomplete', '盘里还没准备齐，食物留在原处。');
     const products = items.map((i) => i.product);
@@ -258,9 +258,12 @@ export function adventureCommand(
       c.tray,
     );
     const job = s.actor.queue.at(-1) ?? s.actor.current;
-    if (job) job.worldTarget = c.action;
+    if (job) {
+      job.worldTarget = c.action;
+      if (c.fromHand) job.fromHand = true;
+    }
     for (const i of items)
-      i.location = `delivery:${c.tray}:${i.location.split(':')[2]}` as Item['location'];
+      i.location = `delivery:${c.tray}:${i.location.split(':')[c.fromHand ? 1 : 2]}` as Item['location'];
     s.trays[c.tray].remaining = duration;
     return result(
       'ok',

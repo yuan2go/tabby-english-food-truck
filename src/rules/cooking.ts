@@ -1,5 +1,4 @@
 import {
-  FAMILY_STATIONS,
   PREPARED,
   type Product,
   RAW,
@@ -16,7 +15,8 @@ export function stationDestination(
   id: StationId,
   product: Product,
 ): Location | { reason: string } {
-  if (!FAMILY_STATIONS[s.session.family].includes(id)) return { reason: '先选需要的备餐台。' };
+  if (!RECIPES.some(r => r.station === id && s.session.unlocked.includes(r.family)))
+    return { reason: '这台设备的做法还没有介绍。' };
   const station = s.stations[id];
   if (station.status === 'processing' || station.status === 'ready')
     return { reason: '等制作完成，取走成品后再准备。' };
@@ -24,7 +24,7 @@ export function stationDestination(
   if (items.length >= 5) return { reason: '备餐台满了，点选原料放回。' };
   if (
     !RECIPES.some(
-      (r) => r.station === id && r.family === s.session.family && r.inputs.includes(product),
+      (r) => r.station === id && s.session.unlocked.includes(r.family) && r.inputs.includes(product),
     )
   )
     return { reason: '这份食物不放在这里，可放到托盘或退回。' };

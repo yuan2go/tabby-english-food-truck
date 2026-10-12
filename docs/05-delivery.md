@@ -3,7 +3,7 @@
 > For agentic workers: use superpowers:executing-plans inline；一名实现负责人，完成后一次独立只读审查。
 
 **Goal:** 将同桌拿放贯穿五章和自由厨房，优化真实游玩，经PR合并main更新原公开站点，交付最新一页设计说明源稿/PDF至真实桌面。
-**Architecture:** 现规则核新增原子拿放适配及可校验carry；同桌舞台替代分离入口/独立剧场；生命周期、声音、存档和判定复用。
+**Architecture:** 现规则核新增原子拿放适配及可校验手中归属；同桌舞台替代分离入口/独立剧场；生命周期、声音、存档和判定复用。
 **Tech Stack:** 现有React/Phaser/TypeScript/Vite及真实锁文件。
 **Spec:** 本轮用户指令、01产品、02规则、03体验、04技术。
 
@@ -27,13 +27,13 @@ Files: README、01–05、STATUS、docs/index、docs/archive/pre-simplified-play
 
 ### Task 2: 原子拿放与早餐收尾
 
-Files: rules/types/game/cooking/snapshot/adventure/adventure-experience，tests/together-play.test.ts及受影响原测试。Interfaces: Command pickup(source)/put(target)/return-hand；GameState.carry?:TrayId|null，仍指真实盘实例。
-- [ ] RED：供给→手中唯一实例、已有手中物不可替换、原子失败、放回/错单、设备明确目标与预留、早餐无探索可完成、旧档/非法carry恢复。
+Files: rules/types/game/cooking/snapshot/adventure/adventure-experience，tests/together-play.test.ts及受影响原测试。Interfaces: Command pickup(source)/put(target)/return-hand；Item.location包含hand:0–2，持物来自真实实例，无额外镜像库存。
+- [ ] RED：供给→手中唯一实例、已有手中物不可替换、原子失败、放回/错单、设备明确目标与预留、早餐无探索可完成、旧档/非法手中槽位恢复。
 - [ ] Run `npx vitest run tests/together-play.test.ts`，核对具体缺行为失败；实现仅走既有规则；GREEN及必要完整`npm test`，阶段提交。
 
 ### Task 3: 同桌舞台贯通
 
-Files: app/TogetherStage及同桌场景/输入/CSS、App接线、替代旧入口、game资源轮廓投影，e2e/together-play.spec.ts及现行受影响E2E。Interfaces: 从Task2规则读取carry/物品/收据，使用Controller.command；后台时钟由既有Phaser生命周期。
+Files: app/TogetherStage及同桌场景/输入/CSS、App接线、替代旧入口、game资源轮廓投影，e2e/together-play.spec.ts及现行受影响E2E。Interfaces: 从Task2规则读取手中归属/物品/收据，使用Controller.command；后台时钟由既有Phaser生命周期。
 - [ ] RED：正常新入口第一章三核心点击/气泡重听/错物保留；一种料理输入→启动→取出；手机目标/角色不重复；观察失败后接入。
 - [ ] 第一章与真料理空间/恢复通过后，在同一舞台完整覆盖五章、另一野餐路线、活动工具/物品、自由制作/保存/回访/停止接客；清除被替代并行入口。旧E2E改正常入口/语义，保留食品/错误/守恒/恢复断言，不减少行为。
 - [ ] `npm run typecheck`、定向单元及浏览器，修真实失败并阶段提交。

@@ -27,6 +27,7 @@ import { emptyRouting, reserved, reserveOutput, routeReady } from './routing';
 import { applyPolicy, replenish } from './sessions';
 import type {
   Attempt,
+  Command,
   Destination,
   Envelope,
   GameState,
@@ -112,7 +113,8 @@ export function createGame(
 }
 export const trayItems = (s: GameState, tray: TrayId) =>
   s.items.filter((i) => i.location.startsWith(`tray:${tray}:`));
-export function freeSlots(s: GameState, tray: TrayId): (0 | 1 | 2)[] {
+export const handItems = (s: GameState) => s.items.filter(i => i.location.startsWith('hand:'));
+function emptyTraySlots(s: GameState, tray: TrayId): (0 | 1 | 2)[] {
   if (!MODES[s.mode].trays.includes(tray)) return [];
   return ([0, 1, 2] as const).filter(
     (slot) =>
@@ -120,6 +122,10 @@ export function freeSlots(s: GameState, tray: TrayId): (0 | 1 | 2)[] {
       !reserved(s, `tray:${tray}:${slot}`) &&
       !(s.helper?.tray === tray && s.helper.slots.includes(slot)),
   );
+}
+export function freeSlots(s: GameState, tray: TrayId): (0 | 1 | 2)[] {
+  const remaining = MODES[s.mode].trays.reduce<number>((n, t) => n + emptyTraySlots(s, t).length, 0) - handItems(s).length;
+  return emptyTraySlots(s, tray).slice(0, Math.max(0, remaining));
 }
 export function matchProducts(actual: readonly Product[], expected: readonly Product[]): boolean {
   return (
@@ -189,6 +195,42 @@ export function dispatch(current: GameState, e: Envelope): Result {
     return { state: s, kind, message };
   };
   const c = e.command;
+  if (c.type === 'pickup') {
+    if (!c.source || typeof c.source !== 'object' ||
+      (('item' in c.source) === ('supply' in c.source)))
+      return result('blocked', '点一份实际食品拿起。');
+    return dispatch(s, { ...e, id: `${e.id}:pickup`, command: { type: 'move', source: c.source, destination: { hand: true } } });
+  }
+  if (c.type === 'put' || c.type === 'return-hand') {
+    const items = handItems(s);
+    if (!items.length) return result('blocked', '手里还没有食品，先拿起一份。');
+    if (c.type === 'return-hand') {
+      const finished = items.filter(i => isFinished(i.product));
+      if (finished.length > 1 || (finished.length && s.recycle))
+        return result('blocked', '先把成品放到制作台，逐份收起或恢复已有成品。');
+    }
+    if (c.type === 'put' && c.target && ('order' in c.target || 'world' in c.target)) {
+      const tray = MODES[s.mode].trays.find(t => !s.trays[t].remaining && s.helper?.tray !== t &&
+        !Object.values(s.routing).some(r => r && 'tray' in r && r.tray === t));
+      if (tray === undefined) return result('blocked', '递送位置正在工作。食品仍在手里，稍等或放回制作台。');
+      const command: Command = 'order' in c.target
+        ? { type: 'deliver', tray, order: c.target.order, fromHand: true }
+        : { type: 'adventure', action: c.target.world, tray, fromHand: true };
+      return dispatch(s, { ...e, id: `${e.id}:offer`, command });
+    }
+    let candidate = s;
+    for (const [index, item] of items.entries()) {
+      const destination: Destination = c.type === 'return-hand'
+        ? { discard: true, confirmed: Boolean(c.confirmed) } : c.target as Destination;
+      if (!destination || typeof destination !== 'object' ||
+        !['tray', 'machine', 'station', 'discard'].some(key => key in destination))
+        return result('blocked', '点一个明确的承放目标。');
+      const r = dispatch(candidate, { ...e, id: `${e.id}:put:${index}`, command: { type: 'move', source: { item: item.id }, destination } });
+      if (r.kind !== 'ok') return result(r.kind, r.message);
+      candidate = r.state;
+    }
+    return { state: candidate, kind: 'ok', message: c.type === 'return-hand' ? '食品已放回；可以继续拿取。' : '食品放在你点的位置了。' };
+  }
   if (c.type === 'shop-policy') {
     if (
       s.session.activity !== 'endless' ||
@@ -511,7 +553,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
       return result('blocked', '这只盘正等机器的成品。可等做好，或先使用另一盘。');
     if (s.helper?.tray === c.tray)
       return result('blocked', '大咪预留了这只托盘。等它放好，或撤回便签。');
-    const items = trayItems(s, c.tray);
+    const items = c.fromHand ? handItems(s) : trayItems(s, c.tray);
     if (s.actor.queue.length >= 3) return result('blocked', '大咪正在递餐，稍等一下。');
     if (!canReceiveAdventure(s, items.length))
       return result('blocked', '活动桌满了，保存作品后收拾再送。');
@@ -552,8 +594,12 @@ export function dispatch(current: GameState, e: Envelope): Result {
       c.tray,
       order.id,
     );
+    if (c.fromHand) {
+      const job = s.actor.queue.at(-1) ?? s.actor.current;
+      if (job) job.fromHand = true;
+    }
     for (const item of items)
-      item.location = `delivery:${c.tray}:${item.location.split(':')[2]}` as Location;
+      item.location = `delivery:${c.tray}:${item.location.split(':')[c.fromHand ? 1 : 2]}` as Location;
     s.trays[c.tray].remaining = duration;
     order.status = 'leaving';
     order.remaining = duration;
@@ -562,6 +608,7 @@ export function dispatch(current: GameState, e: Envelope): Result {
   return result('blocked', '无法执行这次操作。');
 }
 function placementMessage(location: Location, product: Product): string {
+  if (location.startsWith('hand:')) return `拿起了${PRODUCT_NAMES[product]}。点目标放下或使用，也可以直接放回。`;
   if (location.startsWith('tray:'))
     return `${Number(location.split(':')[1]) + 1}号盘接住了${PRODUCT_NAMES[product]}。可以继续备餐或选择客人送餐。`;
   if (location.startsWith('machine:'))
@@ -586,12 +633,20 @@ function destination(
   product: Product,
   existing: Item | undefined,
 ): Location | { reason: string } {
+  if ('hand' in dest) {
+    if (existing?.location.startsWith('hand:')) return { reason: '这份已经在手里。' };
+    const hands = handItems(s);
+    const room = MODES[s.mode].trays.reduce<number>((n, tray) => n + emptyTraySlots(s, tray).length, 0) - hands.length + (existing?.location.startsWith('tray:') ? 1 : 0);
+    if (room <= 0 || hands.length >= 3) return { reason: '手里或承放区满了。先放到设备、交给朋友，或直接放回。' };
+    const slot = ([0, 1, 2] as const).find(n => !hands.some(i => i.location === `hand:${n}`));
+    return slot === undefined ? { reason: '手里满了。' } : `hand:${slot}`;
+  }
   if ('station' in dest) return stationDestination(s, dest.station, product);
   if ('tray' in dest) {
     if (!MODES[s.mode].trays.includes(dest.tray)) return { reason: '这次只用一只托盘。' };
-    if (product === 'cup') return { reason: '空杯放到果汁机右侧的杯座。' };
+    if (product === 'cup' && !existing?.location.startsWith('hand:')) return { reason: '空杯放到果汁机右侧的杯座。' };
     if (s.trays[dest.tray].remaining > 0) return { reason: '托盘正在回来，试试另一盘。' };
-    const slot = freeSlots(s, dest.tray)[0];
+    const slot = (existing?.location.startsWith('hand:') ? emptyTraySlots(s, dest.tray) : freeSlots(s, dest.tray))[0];
     if (slot === undefined) return { reason: '托盘满了。先选一个食品放回，或移到另一盘。' };
     return `tray:${dest.tray}:${slot}`;
   }
