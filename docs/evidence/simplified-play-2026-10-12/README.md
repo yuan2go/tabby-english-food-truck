@@ -29,7 +29,7 @@
 | 野餐长英文溢出气泡、压到角色，大咪提示遮头 | 竖屏当前说话者大气泡，其余朋友原位48px重听；增加整句边界断言；大咪提示上移；[修复后手机](phone-pack-after.jpg) |
 | 装饰两选项看起来一样，不知道选了什么 | 彩旗、桌布和灯光在拿取、手中和场景使用对应颜色；[月光晚餐](phone-dinner-moon.jpg) |
 | 第五章品尝必须往返食谱，分享后还继续索要 | 真实食品到场即开放桌边小勺；点原食品品尝；实际fulfilled后改为感谢，邀请与重听分清；[红](community-spoon-red.log)→[绿](community-spoon-green.log) |
-| 自由厨房已收到还显示“正在递送”，作品已到场仍显示运输 | 以真实新增世界食品/原订单完成事实结束过期提示，保留玩家后来操作反馈；[红](receipt-feedback-red.log)→[绿](receipt-feedback-green.log) |
+| 自由厨房已收到还显示“正在递送”，作品已到场仍显示运输 | 以本次实际交付job的食品ID收据/对应原订单完成事实结束过期提示，保留玩家后来操作反馈；[红](receipt-feedback-red.log)→[绿](receipt-feedback-green.log) |
 | 等待空跑、收据后多做一次拿放、菜单要再点一下才出现 | 手持交付跳过盘的拿起/放回段，仍由原队列加工/接收钟推进；原位摆餐事实取消重复搬运，归位结束主动notify；复杂料理仍真实煎制→取饼→组合、榨汁→取杯 |
 | 云端拖回字母后第一次点字母失效 | 增加每槽断言，保留失败；指针统一在release提交一次，合成click不再消费下一手势，键盘/无障碍click保留；本地3次与精确fe6ca85云端39条通过 |
 
@@ -37,7 +37,7 @@
 
 ## 独立代理代码审查
 
-一次代理全分支只读审查，随后仅复核原八项闭环，未并行实施。关闭：撤回便签重建队列丢失worldTarget/fromHand；承放区另一侧容量不可用；角色身份与seat造成递送投影错位；图示/同场示范缺入口；历史作品/英文组成不可达；实际回访invite失联；开放委托被其他会话吞掉/提前感谢；盘中旧食品遮挡同语义交付。新增原子容量、真实队列取消/存档解码、语义图示/示范、开放请求、五章历史作品回归。没有删原食品守恒、匹配、错误、恢复或阻断断言。领域和前端分别验证，审查不是外部验收。
+一次代理全分支只读审查，随后仅复核原八项闭环，未并行实施。关闭：撤回便签重建队列丢失worldTarget/fromHand；承放区另一侧容量不可用；角色身份与seat造成递送投影错位；图示/同场示范缺入口；历史作品/英文组成不可达；实际回访invite失联；开放委托被其他会话吞掉/提前感谢；盘中旧食品遮挡同语义交付。新增原子容量、真实队列取消/存档解码、语义图示/示范、开放请求、五章历史作品回归。最后增量复核还发现其他订单先接收会提前结束排队作品提示；已绑定本次原规则job的食品ID，跨订单/作品并发RED→GREEN10/10，完整339/339通过；不以食品总数猜完成。没有删原食品守恒、匹配、错误、恢复或阻断断言。领域和前端分别验证，审查不是外部验收。
 
 ## 检查与边界
 
@@ -46,9 +46,9 @@
 | 命令/范围 | 实际结果与原始证据 |
 |---|---|
 | baseline npm test | 310/310，退出0，[日志](baseline-tests.log) |
-| 最后规则/存档/输入 npm test | 338/338、26文件，退出0，[日志](unit-candidate-final.log) |
+| 最后规则/存档/输入 npm test | 339/339、26文件，退出0，[日志](unit-bound-receipt.log) |
 | npm run typecheck/build | 退出0，[候选构建](build-receipt-feedback.log)；本地证据未提交使metadata dirty=true，不冒称清洁发布构建 |
-| npm run lint | 退出0，130 warnings/21 infos，[日志](lint-candidate-final.log)，未放宽门禁 |
+| npm run lint | 退出0，130 warnings/21 infos，[日志](lint-bound-receipt.log)，未放宽门禁 |
 | npm run resources / 词库检查 | 818文件与hash/尺寸检查、120概念/50食品/51实际方案均退出0；素材字节和锁文件未改，[资源](resources.log)、[词库](vocabulary.log) |
 | 受影响五章/双路径/自由厨房/手机桌面/语义输入 | 冻结构建12/12退出0，[日志](frozen-affected.log)；其后小勺五章1/1、自由收据1/1退出0，见对应绿日志 |
 | 拼字触控与键盘 | 3/3退出0，[日志](letter-release-final.log)；云端精确`fe6ca85fd4e44806d86b6b1a7d838f388d843bb4`39/39、全部门禁success，[run38203732628](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38203732628) |
@@ -61,3 +61,5 @@
 ## 发布与材料
 
 [PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20) 当前待精确最终门禁/merge。原站发布、合并main SHA、Sites源SHA、版本/部署ID、匿名VPN实际游玩、最新线上截图、设计说明校验和桌面源稿/PDF的真实路径，均在完成后补记；当前PENDING。
+
+并发提示定向证据：[真实命令红](receipt-source-red.log)→[10/10绿](receipt-source-green.log)。第一绿轮的存档断言误传JSON对象而非API要求的原字符串，已纠正输入，未删解码断言；该测试编写失败保留在receipt-source-green-first.log，不冒称存档产品缺陷。
