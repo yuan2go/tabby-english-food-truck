@@ -1,16 +1,12 @@
-# 同桌共玩云端与桌面交付
+# 直接操作版云端与桌面交付
 
-游戏[PR20](https://github.com/yuan2go/tabby-english-food-truck/pull/20)正常merge，实际main `2e3f36442a54a564647632d6bf421ec58a3b6252`，已fetch核对。精确faf1955候选全部工程门禁success；没有强推、admin或绕过保护。材料分支codex/together-release-materials-2026-10-12从该合并main创建，只包含文档、必要证据与正式材料；[材料PR21](https://github.com/yuan2go/tabby-english-food-truck/pull/21)的动态合并回执与main full SHA由该PR及最终交付回复实际读回。
+游戏[PR22](https://github.com/yuan2go/tabby-english-food-truck/pull/22)已于2026-10-13北京时间合并main。代码head0a4c0d4dc81c060b758263a3c2a5bdba8e95d56f；合并main15191872c7ae6abeda95c9998893faedc2a403a0与该head整树相同。当前原站v5/public/active/succeeded，页面SHA1519187、dirty=false、direct-cooking-1；Sites来源a93bd4de240cfc247ed77e5f177f5cabbfd16a40。完整opaque版本与部署ID见[发布回执](../evidence/direct-cooking-2026-10-12/deployment.json)。
 
-原[公开游戏站点](https://tabby-english-food-truck.aw9923299.chatgpt.site)沿用，访问需要开启 VPN。project appgprj_6ab141055ab8819186112dee423d0d04，source49d307ef2573173b31a7f6225bab0380fedec574，version4，部署appgdep_6acc6e74a5508191955f926fc5c21532 succeeded。实际权限public，无登录/邀请；新匿名cookie0会话HTTP200、SHA/dirty=false读回、核心早餐/重听/误送/放回/存档PASS；不是仅根据部署命令作出上线结论。完整原始映射及失败记录见[本轮报告](../evidence/simplified-play-2026-10-12/README.md)。
+真实桌面最新材料：
 
-一页设计说明与可编辑UTF-8 Markdown采用同稿，全文/链接/全部渲染PASS。真实系统桌面文件：
+- PDF：/Users/dafangzi/Desktop/大咪的英语餐车-设计说明.pdf
+- 可编辑源稿：/Users/dafangzi/Desktop/大咪的英语餐车-设计说明源稿/大咪的英语餐车-设计说明.md
+- 源稿配图：上述源稿目录的assets/06-online-direct-cooking.png
+- 旧版备份：/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138
 
-- PDF：/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf
-- 源稿：/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明源稿/狸花猫英语餐车-设计说明.md
-- 配图：同源稿目录assets/05-online-together.png
-- 旧PDF备份：/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.备份-20261012-132827.pdf
-
-[复制回执](../evidence/simplified-play-2026-10-12/desktop-copy.json)记系统目录、时间、字节/hash一致与可读结果；[材料核验](validation.md)提供全文/字体/链接/截图来源证据。没有把仓库或沙箱目录冒称桌面。线上代码SHA2e3与后续纯材料main不同属正常版本层次；材料不影响运行产物，无重复站点发布。
-
-实体设备、成人真人、儿童观察、听审/教研/权利待验，报名或比赛接受NOT_RUN。所有历史报告与原用户工作区保留。
+正文/派生PDF文字相同，全部1页实际视觉检查通过；源稿和图可直接编辑，桌面文件与仓库字节一致。本材料分支codex/direct-cooking-release-materials-2026-10-13从上述最新main创建，仅文档/报告，无游戏行为变化。最终材料PR与main合并SHA以GitHub实际回执及任务最终回复为准，不把后续纯文档main SHA冒称运行版本。

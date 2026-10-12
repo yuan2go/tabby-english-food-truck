@@ -1,0 +1,26 @@
+[
+  {
+    "path": "render-description.py",
+    "sha256": "b0b6b4d988c129442568e85c5a3b2f8cd9d5e4a129b94c1485f67e6888c1c87f"
+  },
+  {
+    "path": "validation.md",
+    "sha256": "bee21bf99472cd8b4ab0703fe72505e3399c809f4e91a5945415355e84c1e30b"
+  },
+  {
+    "path": "design-description.md",
+    "sha256": "60415e958a88589cc3285164ad7add5d1f83799aaa7312545c31fbf8c0f756b3"
+  },
+  {
+    "path": "design-description.pdf",
+    "sha256": "bec9916388015425c9091ad05c73072d0952165003fb697fd97a5a8c09d08097"
+  },
+  {
+    "path": "index.original.md",
+    "sha256": "36264d915b4684f157e11d46ac816138be8e862df766738724ed003511673005"
+  },
+  {
+    "path": "assets/05-online-together.png",
+    "sha256": "8df2cb75646dafe53da29881cc592620de29e47a1973ebe10e049013e8bb0fea"
+  }
+]

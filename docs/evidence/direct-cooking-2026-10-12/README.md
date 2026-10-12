@@ -58,3 +58,14 @@ Baseline full SHA0164da67de128110b75c4a6fa2c414914faebfb3，2026-10-12；main已
 成人真人、3–6岁儿童观察、实体iPhone/Pad、人工听审、教研与无指导首次理解均NOT_RUN；资源/声音权利PENDING，开发语音UNREVIEWED。历史真机NEEDS_REVISION和60fps NOT_MET保留。代表视口与自动/代理真实操作证明当前路径可运行、可恢复，不证明儿童已可独立理解。公开部署与PR/main/桌面回执在后续归档中明确版本映射。
 
 最终布局候选：350/350单元、lint138warnings/26infos/0错误、build/typecheck退出0；直接厨房/五章/两路野餐/自由/落空/错单/恢复17/17定向浏览器2.8分钟退出0；同路正常92次触控再通过，1280×720与665×393所有制作控件边界内，真实原料中心命中检查通过。未重复无关全套；最终精确head云端仍运行完整42条，结果另归档。
+
+
+## Git、原站与最终材料
+
+代码head0a4c0d4dc81c060b758263a3c2a5bdba8e95d56f，分支codex/direct-cooking-experience-2026-10-12；[PR22](https://github.com/yuan2go/tabby-english-food-truck/pull/22)已MERGED（北京时间2026-10-13 00:26）。[精确head云端](https://github.com/yuan2go/tabby-english-food-truck/actions/runs/38276053732)350单元、42浏览器6.3分钟、lint/typecheck/build/818资源全部SUCCESS，[原日志](ci-game-success.log)保留。代码main15191872c7ae6abeda95c9998893faedc2a403a0与head整树同一；合并main干净重构建，仅构建身份变化，不重复无关本地全量。
+
+原[公开站](https://tabby-english-food-truck.aw9923299.chatgpt.site)沿用项目appgprj_6ab141055ab8819186112dee423d0d04，v5/public/active，部署appgdep_6acd0aa7bf5081919466e77b840dfd1b成功；来源a93bd4de240cfc247ed77e5f177f5cabbfd16a40。源包1135保留路径及723运行文件与main逐文件同一；2437历史原证据路径仅不进入Sites源包，全部保留GitHub main，部署archive724文件。完整保存版本ID、发布及源映射见[deployment](deployment.json)、[source integrity](site-source-integrity.json)。Sites helper第一次打开返回泛化Unable to prepare，原凭据原参数重试成功；没有改插件或绕权限。
+
+VPN代理127.0.0.1:1082，匿名新Chromium上下文初始cookie0/没有种存档；HTTP200、无登录或邀请。线上[92步正常操作](online/journey.json)从新入口贯通五章、自由作品与小游戏，实际单球4、pageerror0，SHA1519187/dirty=false/content direct-cooking-1/asset aee135...读回；代表393×665、1280×720、665×393全部料理控制可见。线上三张手机图与两张补查图保留；实体设备/真人/儿童仍NOT_RUN。
+
+最新[设计说明](../../submission/index.md)仅一页A4，覆盖四项/真实AI/原网址/“访问需要开启 VPN”，图06为实际匿名v5原图；源稿与PDF全文一致、链接/全部渲染PASS。系统接口确认真实桌面/Users/dafangzi/Desktop，旧版备份和新版PDF/MD/配图逐文件byte/hash一致，见[复制回执](desktop-copy.json)、[备份](desktop-backup.json)。材料分支codex/direct-cooking-release-materials-2026-10-13从游戏合并main创建；最终材料main合并回执以其实际GitHub PR及最终回复读回。材料提交不影响运行输入，不重复发布。

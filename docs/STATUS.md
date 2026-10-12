@@ -1,6 +1,10 @@
 # 2026-10-12 · 全游戏操作减负与游戏性重构
 
-READY_FOR_PR / LOCAL_PLAY_VERIFIED。最新远端main baseline0164da67de128110b75c4a6fa2c414914faebfb3；隔离codex/direct-cooking-experience-2026-10-12，原64f03fc试玩分支及未跟踪文件保留。先归档旧合同，再独立docs提交；现行01–05为唯一合同。已实现五章、双野餐、同屏真实料理、直接分享/保存、自由厨房默认开门和小游戏直接进入。独立只读审查发现的预留冲突、共享竞态与虚假意义曝光记录已实际修正，定向规则/UI已绿。350/350单元、lint、typecheck/build、资源、词库退出0；干净5b67版本完整42/42浏览器通过，正常393×665连续五章→自由厨房→小游戏92次触控/单球4次。短横屏后期全部设备裁切已实际修复，修正布局17/17定向回归与连续触控/1280×720/665×393复测通过。待精确最终head云端检查、PR合并及原站发布，尚未push/PR/发布。成人真人/儿童观察/真机/教研/听审NOT_RUN，原审核边界保留。详见[evidence](evidence/direct-cooking-2026-10-12/README.md)。
+PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING。baseline0164da67de128110b75c4a6fa2c414914faebfb3；文档治理先于编码，原64f03fc工作区及未跟踪文件保留。全五章、双野餐、自由厨房及小游戏已改为直接物件操作：单球7→4、三明治自然盖合、煎锅/果汁真实钟、全部设备同屏、原位比较/品尝/分享/保存、自由厨房默认开门。实测遮挡/拦截/竞态/记录问题已修正；最终代码head0a4c0d4dc81c060b758263a3c2a5bdba8e95d56f云端350/350单元与42/42浏览器、lint/资源/build门禁SUCCESS，经[PR22](https://github.com/yuan2go/tabby-english-food-truck/pull/22)合并main15191872c7ae6abeda95c9998893faedc2a403a0。默认画质正常新档393×665连续五章→自由厨房→小游戏92次触控、单球4次、0页面异常；两野餐路线、桌面键盘、短横屏全部原料命中与异常恢复已验证。
+
+原站公开v5部署succeeded/public/active，VPN匿名全新浏览器再次连续五章/自由/小游戏PASS，SHA1519187/dirty=false/direct-cooking-1实际读回。一页设计说明与可编辑MD、真实v5原图、全文/全页检查与真实桌面旧版备份/复制hash均PASS；最终材料通过本材料分支PR归档，合并回执以实际PR及交付回复为准。详见[完整报告](evidence/direct-cooking-2026-10-12/README.md)和[材料索引](submission/index.md)。
+
+成人真人、儿童观察、实体设备、教研、人工听审NOT_RUN，素材/声音权利PENDING，开发语音UNREVIEWED；历史真机NEEDS_REVISION与60fps NOT_MET保留。浏览器代理通过不等于儿童无指导理解已证明。
 
 # 同桌共玩 · 2026-10-12正式交付
 

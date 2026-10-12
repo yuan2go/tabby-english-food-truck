@@ -1,0 +1,23 @@
+{
+  "desktop": "/Users/dafangzi/Desktop",
+  "backup": "/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138",
+  "files": [
+    {
+      "source": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明.pdf",
+      "backup": "/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138/狸花猫英语餐车-设计说明.pdf",
+      "sha256": "bec9916388015425c9091ad05c73072d0952165003fb697fd97a5a8c09d08097"
+    },
+    {
+      "source": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明源稿/狸花猫英语餐车-设计说明.md",
+      "backup": "/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138/狸花猫英语餐车-设计说明源稿/狸花猫英语餐车-设计说明.md",
+      "sha256": "60415e958a88589cc3285164ad7add5d1f83799aaa7312545c31fbf8c0f756b3"
+    },
+    {
+      "source": "/Users/dafangzi/Desktop/狸花猫英语餐车-设计说明源稿/assets/05-online-together.png",
+      "backup": "/Users/dafangzi/Desktop/英语餐车设计说明-旧版备份-20261013-002138/狸花猫英语餐车-设计说明源稿/assets/05-online-together.png",
+      "sha256": "8df2cb75646dafe53da29881cc592620de29e47a1973ebe10e049013e8bb0fea"
+    }
+  ],
+  "hashMatch": true,
+  "latestFiles": "not copied until publication verified"
+}
