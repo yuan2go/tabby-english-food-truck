@@ -228,8 +228,10 @@ export async function drag(p: Page, from: string, to: string) {
 }
 
 export function evidencePath(original: string) {
-  if (!process.env.EVIDENCE_DIR) return original;
-  const dir = join(process.env.EVIDENCE_DIR, 'screenshots');
+  const dir = join(
+    process.env.EVIDENCE_DIR ?? 'docs/evidence/simplified-play-2026-10-12/browser',
+    'screenshots',
+  );
   mkdirSync(dir, { recursive: true });
   return join(dir, basename(original));
 }
