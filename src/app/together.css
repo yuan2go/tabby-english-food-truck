@@ -307,9 +307,6 @@
 .short-stage .local-bubble {
   height: 64px !important;
 }
-.short-stage .scene-finishing {
-  transform: translateX(-35%);
-}
 @media (prefers-reduced-motion: reduce) {
   .together-stage * {
     animation: none !important;
@@ -576,12 +573,17 @@
     height: 50px;
   }
 }
-.short-stage .direct-kitchen {
-  height: calc(100% - 150px) !important;
-}
 .short-stage .direct-equipment {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 3px;
+}
+.short-stage .device-juice,
+.short-stage .device-ice,
+.short-stage .device-board {
+  grid-column: span 2;
+}
+.short-stage .device-grill {
+  grid-column: span 1;
 }
 .short-stage .device-surface {
   height: 52px;

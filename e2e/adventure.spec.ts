@@ -123,6 +123,33 @@ test('visible activity entrance reaches all five chapters and saves a real creat
   await click(page, '下一院活动');
   await dinner(page, new Set(['grill', 'machine']));
   await click(page, '下一院活动');
+  for (const viewport of [
+    { width: 1280, height: 720 },
+    { width: 665, height: 393 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await expect
+      .poll(async () =>
+        page.locator('.direct-ingredient').evaluateAll((buttons) =>
+          buttons.every((button) => {
+            const r = button.getBoundingClientRect();
+            const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+            return (
+              r.width >= 48 &&
+              r.height >= 48 &&
+              r.x >= 0 &&
+              r.y >= 0 &&
+              r.right <= innerWidth &&
+              r.bottom <= innerHeight - 30 &&
+              !!hit &&
+              button.contains(hit)
+            );
+          }),
+        ),
+      )
+      .toBe(true);
+  }
+  await page.setViewportSize({ width: 393, height: 665 });
   await creation(page);
   const s = await state(page);
   expect(s.adventure?.rewards).toEqual(['feast-page']);

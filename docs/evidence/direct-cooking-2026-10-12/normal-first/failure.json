@@ -1,0 +1,581 @@
+{
+  "journal": [
+    {
+      "action": "正在准备 · 晨光开门",
+      "at": "2026-10-12T15:48:35.350Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T15:48:35.455Z"
+    },
+    {
+      "action": "拿起苹果",
+      "at": "2026-10-12T15:48:35.517Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T15:48:35.585Z"
+    },
+    {
+      "action": "先帮刺刺",
+      "at": "2026-10-12T15:48:38.549Z"
+    },
+    {
+      "action": "拿起香蕉",
+      "at": "2026-10-12T15:48:38.617Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T15:48:38.686Z"
+    },
+    {
+      "action": "一起吃早餐",
+      "at": "2026-10-12T15:48:41.671Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T15:48:41.738Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T15:48:41.821Z"
+    },
+    {
+      "action": "冰淇淋：蛋筒",
+      "at": "2026-10-12T15:48:41.887Z"
+    },
+    {
+      "action": "冰淇淋：香草球",
+      "at": "2026-10-12T15:48:41.952Z"
+    },
+    {
+      "action": "拿起香草蛋筒",
+      "at": "2026-10-12T15:48:42.022Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T15:48:42.107Z"
+    },
+    {
+      "action": "冰淇淋：空杯",
+      "at": "2026-10-12T15:48:45.084Z"
+    },
+    {
+      "action": "冰淇淋：草莓球",
+      "at": "2026-10-12T15:48:45.151Z"
+    },
+    {
+      "action": "拿起草莓冰淇淋杯",
+      "at": "2026-10-12T15:48:45.218Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T15:48:45.285Z"
+    },
+    {
+      "action": "比较两份甜点",
+      "at": "2026-10-12T15:48:47.234Z"
+    },
+    {
+      "action": "品尝香草蛋筒",
+      "at": "2026-10-12T15:48:47.301Z"
+    },
+    {
+      "action": "一起开席",
+      "at": "2026-10-12T15:48:47.434Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T15:48:47.502Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T15:48:47.567Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T15:48:47.636Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T15:48:47.702Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T15:48:47.767Z"
+    },
+    {
+      "action": "拿起芝士三明治",
+      "at": "2026-10-12T15:48:47.833Z"
+    },
+    {
+      "action": "交给兔兔",
+      "at": "2026-10-12T15:48:47.904Z"
+    },
+    {
+      "action": "检查野餐篮",
+      "at": "2026-10-12T15:48:50.883Z"
+    },
+    {
+      "action": "先帮刺刺",
+      "at": "2026-10-12T15:48:50.952Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T15:48:51.016Z"
+    },
+    {
+      "action": "组合板：生菜",
+      "at": "2026-10-12T15:48:51.083Z"
+    },
+    {
+      "action": "组合板：番茄",
+      "at": "2026-10-12T15:48:51.150Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T15:48:51.217Z"
+    },
+    {
+      "action": "拿起蔬菜三明治",
+      "at": "2026-10-12T15:48:51.284Z"
+    },
+    {
+      "action": "交给刺刺",
+      "at": "2026-10-12T15:48:51.350Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T15:48:54.300Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T15:48:54.366Z"
+    },
+    {
+      "action": "组合板：面包",
+      "at": "2026-10-12T15:48:54.432Z"
+    },
+    {
+      "action": "拿起芝士三明治",
+      "at": "2026-10-12T15:48:54.500Z"
+    },
+    {
+      "action": "把食品放进野餐篮",
+      "at": "2026-10-12T15:48:54.566Z"
+    },
+    {
+      "action": "拿起苹果",
+      "at": "2026-10-12T15:48:56.516Z"
+    },
+    {
+      "action": "把食品放进野餐篮",
+      "at": "2026-10-12T15:48:56.584Z"
+    },
+    {
+      "action": "把篮子摆上桌",
+      "at": "2026-10-12T15:48:58.548Z"
+    },
+    {
+      "action": "铺叶子桌布",
+      "at": "2026-10-12T15:48:58.617Z"
+    },
+    {
+      "action": "一起开席",
+      "at": "2026-10-12T15:48:58.684Z"
+    },
+    {
+      "action": "下一院活动",
+      "at": "2026-10-12T15:48:58.754Z"
+    },
+    {
+      "action": "先帮兔兔",
+      "at": "2026-10-12T15:48:58.832Z"
+    },
+    {
+      "action": "煎锅：生饼",
+      "at": "2026-10-12T15:48:58.899Z"
+    },
+    {
+      "action": "启动煎台",
+      "at": "2026-10-12T15:48:58.969Z"
+    },
+    {
+      "action": "果汁机：苹果",
+      "at": "2026-10-12T15:48:59.031Z"
+    },
+    {
+      "action": "果汁机：空杯",
+      "at": "2026-10-12T15:48:59.099Z"
+    },
+    {
+      "action": "启动果汁机",
+      "at": "2026-10-12T15:48:59.170Z"
+    },
+    {
+      "action": "组合板：圆面包",
+      "at": "2026-10-12T15:48:59.231Z"
+    },
+    {
+      "action": "组合板：芝士",
+      "at": "2026-10-12T15:48:59.301Z"
+    },
+    {
+      "action": "拿起熟饼",
+      "at": "2026-10-12T15:49:02.736Z"
+    }
+  ],
+  "error": "TimeoutError: locator.tap: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '放到组合板', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" aria-label=\"放到组合板\" class=\"direct-drop\" data-put-target=\"{\"kind\":\"station\",\"station\":\"board\"}\"></button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" aria-label=\"品尝芝士\" class=\"loose-food\">…</button> from <div class=\"direct-inputs\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" aria-label=\"品尝芝士\" class=\"loose-food\">…</button> from <div class=\"direct-inputs\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    54 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <button type=\"button\" aria-label=\"品尝芝士\" class=\"loose-food\">…</button> from <div class=\"direct-inputs\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying tap action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "state": {
+    "schemaVersion": 7,
+    "adventure": {
+      "chapter": 3,
+      "kind": "chapter",
+      "branch": null,
+      "explored": [],
+      "steps": [],
+      "rewards": [],
+      "foods": [],
+      "works": [],
+      "decor": {
+        "flower": 0,
+        "bunting": "warm",
+        "cloth": "leaf",
+        "light": "warm"
+      },
+      "invitations": [],
+      "experience": {
+        "version": 2,
+        "tools": [],
+        "used": [],
+        "helpers": [],
+        "needs": [],
+        "known": [
+          "apple",
+          "banana",
+          "vanilla-cone",
+          "strawberry-cup",
+          "sandwich",
+          "salad-sandwich"
+        ],
+        "picnic": "rabbit",
+        "moments": []
+      }
+    },
+    "routing": {
+      "machine": null,
+      "ice": null,
+      "board": null,
+      "grill": null
+    },
+    "session": {
+      "activity": "story",
+      "chapter": 3,
+      "support": "pictures",
+      "concurrency": 1,
+      "menu": [
+        "food-orange",
+        "food-pear",
+        "food-peach",
+        "food-strawberry",
+        "food-grape",
+        "food-watermelon",
+        "food-mango",
+        "food-pineapple",
+        "food-milk",
+        "food-yogurt",
+        "food-smoothie",
+        "food-milkshake",
+        "food-pizza",
+        "food-salad",
+        "food-cake",
+        "food-cookie",
+        "apple",
+        "banana",
+        "two",
+        "juice",
+        "fruit",
+        "banana-juice",
+        "cup-vanilla",
+        "cone-vanilla",
+        "vanilla-cup",
+        "vanilla-cone",
+        "strawberry-cup",
+        "double-cream",
+        "banana-cream",
+        "sandwich",
+        "salad-sandwich",
+        "burger",
+        "cheese-burger"
+      ],
+      "supplyPage": 0,
+      "language": "flavor",
+      "family": "burger",
+      "unlocked": [
+        "juice",
+        "ice",
+        "sandwich",
+        "burger"
+      ],
+      "seed": 1,
+      "cursor": 0,
+      "served": 0,
+      "lastRequest": ""
+    },
+    "stations": {
+      "ice": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      },
+      "board": {
+        "status": "loaded",
+        "recipe": null,
+        "remaining": 0
+      },
+      "grill": {
+        "status": "empty",
+        "recipe": null,
+        "remaining": 0
+      }
+    },
+    "actor": {
+      "point": {
+        "x": 0.73,
+        "y": 0.43
+      },
+      "current": null,
+      "queue": []
+    },
+    "recycle": null,
+    "contentVersion": "direct-cooking-1",
+    "mode": "service",
+    "history": {
+      "apple": [
+        "picture-request",
+        "caption-visible",
+        "seen-before",
+        "meaning-picture",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "banana": [
+        "picture-request",
+        "caption-visible",
+        "seen-before",
+        "meaning-picture",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "vanilla-cone": [
+        "picture-request",
+        "caption-visible",
+        "seen-before",
+        "meaning-picture",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "sandwich": [
+        "picture-request",
+        "caption-visible",
+        "seen-before",
+        "meaning-picture",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "salad-sandwich": [
+        "picture-request",
+        "caption-visible",
+        "seen-before",
+        "meaning-picture",
+        "audio-not-observed",
+        "seen-in-prior-run"
+      ],
+      "cheese-burger": [
+        "picture-request",
+        "caption-visible",
+        "seen-before",
+        "meaning-picture"
+      ]
+    },
+    "runId": "4eb4557a-06bb-4f54-a152-1cec9b74cd8a",
+    "revision": 25,
+    "nextId": 7,
+    "variant": 0,
+    "gameTime": 32182.1,
+    "items": [
+      {
+        "id": "food-3",
+        "product": "juice",
+        "location": "machine:cup"
+      },
+      {
+        "id": "food-5",
+        "product": "bun",
+        "location": "station:board:0"
+      },
+      {
+        "id": "food-6",
+        "product": "cheese",
+        "location": "station:board:1"
+      },
+      {
+        "id": "food-1",
+        "product": "cooked-patty",
+        "location": "hand:0"
+      }
+    ],
+    "orders": [
+      {
+        "id": "guest-0",
+        "request": "cheese-burger",
+        "visitor": "rabbit",
+        "seat": 0,
+        "status": "waiting",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": [
+          "picture-request",
+          "caption-visible",
+          "meaning-picture"
+        ]
+      },
+      {
+        "id": "guest-1",
+        "request": "juice",
+        "visitor": "hedgehog",
+        "seat": 1,
+        "status": "queued",
+        "remaining": 0,
+        "heard": false,
+        "revisit": false,
+        "support": []
+      }
+    ],
+    "machine": {
+      "status": "ready",
+      "remaining": 0,
+      "jobId": null
+    },
+    "helper": null,
+    "trays": [
+      {
+        "remaining": 0
+      },
+      {
+        "remaining": 0
+      }
+    ],
+    "receipts": [
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138771-116",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138829-117",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138829-118",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138829-119",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138830-120",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138853-121",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138896-122",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138896-122:ingredient",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138963-123",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138967-124",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820138985-125",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139029-126",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139029-126:ingredient",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139097-127",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139097-127:ingredient",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139164-128",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139168-129",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139181-130",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139229-131",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139229-131:ingredient",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139297-132",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820139297-132:ingredient",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820140620-133",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820142487-134",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820142734-135",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820142734-135:pickup",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820143521-136",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820144186-137",
+      "4eb4557a-06bb-4f54-a152-1cec9b74cd8a-cmd-1791820145229-138"
+    ],
+    "attempts": [],
+    "audio": [
+      {
+        "id": "imm-welcome",
+        "version": "samantha-dev-immersion-140",
+        "status": "started",
+        "gameTime": 16.69999999999709
+      },
+      {
+        "id": "imm-welcome",
+        "version": "samantha-dev-immersion-140",
+        "status": "interrupted",
+        "gameTime": 83.40000000000146
+      },
+      {
+        "id": "imm-order-cheese-burger",
+        "version": "samantha-dev-immersion-140",
+        "status": "started",
+        "order": "guest-0",
+        "gameTime": 100
+      },
+      {
+        "id": "imm-order-cheese-burger",
+        "version": "samantha-dev-immersion-140",
+        "status": "interrupted",
+        "order": "guest-0",
+        "gameTime": 216.79999999999563
+      },
+      {
+        "id": "imm-waiting",
+        "version": "samantha-dev-immersion-140",
+        "status": "started",
+        "gameTime": 233.40000000000146
+      },
+      {
+        "id": "imm-waiting",
+        "version": "samantha-dev-immersion-140",
+        "status": "interrupted",
+        "gameTime": 416.6999999999971
+      },
+      {
+        "id": "imm-waiting",
+        "version": "samantha-dev-immersion-140",
+        "status": "started",
+        "gameTime": 433.40000000000146
+      },
+      {
+        "id": "imm-waiting",
+        "version": "samantha-dev-immersion-140",
+        "status": "completed",
+        "gameTime": 1866.5999999999985
+      },
+      {
+        "id": "imm-ready",
+        "version": "samantha-dev-immersion-140",
+        "status": "started",
+        "gameTime": 3733.199999999997
+      },
+      {
+        "id": "imm-ready",
+        "version": "samantha-dev-immersion-140",
+        "status": "completed",
+        "gameTime": 4766.5
+      },
+      {
+        "id": "imm-ready",
+        "version": "samantha-dev-immersion-140",
+        "status": "started",
+        "gameTime": 5433.199999999997
+      },
+      {
+        "id": "imm-ready",
+        "version": "samantha-dev-immersion-140",
+        "status": "completed",
+        "gameTime": 6483.0999999999985
+      }
+    ],
+    "lessons": [],
+    "noteSupport": []
+  }
+}

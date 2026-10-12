@@ -22,7 +22,7 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
   const short = height < 500 && width > 600;
   const inset = Math.max(10, (width - 1040) / 2);
   const w = width - inset * 2;
-  const sceneWidth = short ? w * 0.42 : w;
+  const sceneWidth = short ? w * 0.36 : w;
   const tableY = short ? height * 0.56 : height * 0.27;
   const body = Math.min(
     short ? 125 : 205,
@@ -50,7 +50,7 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
     return { x: r.x + r.width / 2 - width / 2, y: short ? 47 : 49, width, height: short ? 58 : 75 };
   });
   const preparation = short
-    ? { x: inset + w * 0.48, y: 100, width: w * 0.52, height: height - 200 }
+    ? { x: inset + w * 0.4, y: 86, width: w * 0.6, height: height - 121 }
     : {
         x: inset,
         y: tableY + Math.min(60, height * 0.09) + 54,
@@ -58,7 +58,7 @@ export function togetherLayout(width: number, height: number, count = 2): Togeth
         height: Math.max(130, height - tableY - Math.min(60, height * 0.09) - 89),
       };
   const dami = short
-    ? { x: inset + w * 0.34, y: height - 172, width: w * 0.13, height: 135 }
+    ? { x: inset + w * 0.27, y: height - 172, width: w * 0.12, height: 135 }
     : {
         x: inset + w / 2 - Math.min(110, w * 0.26) / 2,
         y: tableY - 45,

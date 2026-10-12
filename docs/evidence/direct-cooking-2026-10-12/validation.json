@@ -1,0 +1,36 @@
+{
+  "baseline": "0164da67de128110b75c4a6fa2c414914faebfb3",
+  "frozenFullRegression": "5b67a7f33f2617c64761b13459c6ad7759ed04ab",
+  "fullBrowser": {
+    "passed": 42,
+    "total": 42,
+    "exit": 0,
+    "duration": "4.0min",
+    "configuration": "local CI-equivalent lowGraphics; normal default graphics separately"
+  },
+  "normalPlay": {
+    "input": "normal browser proxy touchscreen taps, known recipes; no state injection",
+    "viewport": "393x665",
+    "actions": 92,
+    "singleIce": 4,
+    "pageErrors": 0,
+    "realAdult": "NOT_RUN",
+    "child": "NOT_RUN",
+    "physicalDevice": "NOT_RUN"
+  },
+  "finalLayout": "candidate after actual 665x393 failure; source fingerprint retained",
+  "assetVersion": "aee135e9f33a2fa387ba5319e0f7ced101841b38207d06e2e303bf67db230caa",
+  "layoutRegression": {
+    "passed": 17,
+    "total": 17,
+    "exit": 0,
+    "duration": "2.8min"
+  },
+  "layoutFinal": {
+    "1280x720OutsideControls": 0,
+    "665x393OutsideControls": 0,
+    "physicalTargets": ">=48px",
+    "hitTesting": "actual center elementFromPoint in normal five-chapter E2E",
+    "normalTouchAgain": "PASS 92 actions, 4 ice actions, 0 pageErrors"
+  }
+}
