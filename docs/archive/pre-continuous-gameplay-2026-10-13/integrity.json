@@ -1,0 +1,47 @@
+[
+  {
+    "source": "README.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/README.md",
+    "sha256": "669b0a8ff28d6886cd88293dc8d470063b9c66ad7eead8b9de1adb03cf52cba7"
+  },
+  {
+    "source": "docs/01-product.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/01-product.md",
+    "sha256": "988da2653748ddf026e72572ba0d2049a126725169117145fe85c5c692ce327e"
+  },
+  {
+    "source": "docs/02-game-design.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/02-game-design.md",
+    "sha256": "dc2bcecd4185d0929ac7e884df34a344c01c5cb2cea6a7ba6ab0ed46211f6534"
+  },
+  {
+    "source": "docs/03-experience-design.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/03-experience-design.md",
+    "sha256": "fa72d6e7a40350137f8589707a8331e9477d97d6a2623582dce8652cfb838c11"
+  },
+  {
+    "source": "docs/04-technical-design.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/04-technical-design.md",
+    "sha256": "f2a266e982d0bc7be7faf86d8c0cfcfee79b5e861fccc4e76dc6ef3b9e856056"
+  },
+  {
+    "source": "docs/05-delivery.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/05-delivery.md",
+    "sha256": "a03bda0645d62fc8b8c881f580428b1d43f09f49dba839031e40f3cd6ce892c7"
+  },
+  {
+    "source": "docs/STATUS.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/STATUS.md",
+    "sha256": "3a78db10cd0e7f9099003843aff63dd5be6e0557f96d08afddddcdedad67e2be"
+  },
+  {
+    "source": "docs/index.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/docs/index.md",
+    "sha256": "4584b948e98100a2423f53ac5c80182eeb528c0f980f4df2ba20197a6267a42f"
+  },
+  {
+    "source": "e2e/README.md",
+    "archive": "docs/archive/pre-continuous-gameplay-2026-10-13/e2e/README.md",
+    "sha256": "b9e8eb86641d958addf4e7bd0dc7258b312e25f8648f48f99668683ea23fbbe4"
+  }
+]

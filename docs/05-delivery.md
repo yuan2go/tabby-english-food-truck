@@ -1,53 +1,49 @@
-# 全游戏操作重构 Implementation Plan
+# 连续游戏重构 Implementation Plan
 
-> For agentic workers: superpowers:executing-plans inline；一名实现负责人，末尾一次独立只读全分支审查。用户已授权自主设计/实现/验证/PR/按规则合并main/原站发布/桌面材料。
+> For agentic workers: superpowers:executing-plans inline，一名实现负责人，完成后独立只读全分支审查。用户已明确授权自主设计/实现/必要验证/推送/PR/正常合并main/原站发布/一致材料。
 
-**Goal:** 五章、双野餐、自由厨房及受影响小游戏均以直接物件操作持续可玩。
-**Architecture:** 单规则核直接输入和组合命令；各设备同屏投影；活动简化前置，实际行为/实例/收据继续判定。
-**Tech Stack:** 既有锁定React/Phaser/TypeScript/Vite，不加依赖或运行时AI。
-**Spec:** 01–04及本轮用户任务。
+**Goal:** 五章自然连续游玩、统一物件操作、可观察波次与真实奖励，整合自由厨房与原学习范围。
+**Architecture:** 配置与规则层持有有界连续进度，真实接收产生后果；表现投影，存档保存全部安全边界与历史记忆。
+**Tech Stack:** 现有锁定React/Phaser/TypeScript/Vite。
+**Spec:** [02](02-game-design.md)，体验03、架构04和本轮用户完整要求。
 
 ## Global Constraints
 
-保留严格订单/食品唯一归属/容量/有效时钟/原子失败/双客选择/两路野餐/学习历史/旧档迁移；完整英文/重听一致，操作错误不是英语错误。新知识先表意义，帮助留痕。保持既有角色资源及审核记录。无测试通关注入、不删关键断言、不强推/绕保护。
+不导入旧仓库，不增无关依赖。保留严格匹配/单归属/原子失败/加工钟/容量预留/双客分支/帮助与奖励历史/恢复迁移。无测试通关状态、强推或绕门禁。开发声音UNREVIEWED，真人/儿童/实体设备/教研/人工听审未执行写NOT_RUN，权利PENDING，历史真机NEEDS_REVISION与60fps NOT_MET不撤销。
 
 ## Review Focus
 
-持物点直接供给不丢物；冰淇淋追加非法组合保留原品；封合前误料可恢复；设备并发/满盘/旧加工预留不被重排；旧档迁移不补奖或洗白；逐份装篮不能多装或复制；小游戏减少阶段仍保留支持和物理前置。
+首次请求被自动演出抢断；波次重复入客/收据复发；跨章额外库存/在途加工丢失；旧档补新任务或伪造完成；第二个朋友/短横屏物件遮挡。各风险纳入对应规则/交互测试。
 
-### Task 1: 治理与修改前基线
+### Task 1: 文档治理
 
-- [x] 最新main完整SHA、原工作区保留、隔离分支；读现行合同/最新报告/实际源码状态机测试。
-- [x] 逐字节归档被替代八份合同、更新唯一01–05，独立docs提交先于代码。
-- [x] 正常手机入口测单球7点击，基线339单元通过；其余操作链源读回见本轮baseline。
+- [x] fetch最新origin/main完整SHA，保留原工作区未跟踪游玩材料，建立隔离分支/worktree，读权威/报告/E2E/资源及实际代码。
+- [x] 九份原文归档并核hash，重写唯一01–05与E2E/README/STATUS，独立文档提交先于代码。
+- [x] Node24.15/npm11.12/macOS arm64基线350/350单元退出0，npm ci audit0。
 
-### Task 2: 料理规则
+### Task 2: 连续规则与恢复
 
-Files: rules/direct-cooking/game/cooking/types/snapshot、content/recipes/catalog，tests/direct-cooking.test.ts。
-Interfaces: ingredient(product,target)明确设备原子投料；compose真实输入/输出，旧move仍有效；assemble自然完成、肉饼/果汁时钟不改。
-- [x] RED：杯筒/口味/追加球与非法追加、bread盖合、熟饼实际煎制、忙态/手持/容量/失败原子性、有效旧档恢复。
-- [x] 实现单规则命令与迁移；定向GREEN，必要完整单元回归，阶段提交。
+Files: content/story-flow.ts，rules/story-flow.ts、adventure/game/snapshot，platform/controller/profile；tests/story-flow.test.ts。
+Interfaces: enableStoryFlow(GameState)，advanceStoryFlow(GameState): boolean，validStoryFlow(AdventureState): boolean；AdventureState.flow可选兼容字段。
+- [ ] RED：自动首客与下一波、严格错单不推进、真实接收/两野餐路线、品尝奖励幂等、暂停/旧档/在途/跨章库存恢复。
+- [ ] 实现全部五章波次/自动后果与档案，定向GREEN；保留旧规则验证，阶段提交。
 
-### Task 3: 全场景与模式
+### Task 3: 输入与音画
 
-Files: app/TogetherKitchen/Stage/App、rules/adventure/experience/guidance、小游戏规则/组件，受影响E2E/helpers。
-Interfaces: 复用Task2命令/真实归属，活动实际食品判定，小游戏规则开场与下一轮。
-- [x] RED场景入口：无接好/盖合/设备轮换；四点击冰淇淋、同屏煎锅/果汁、一次自由入口与直接小游戏。
-- [x] 实现全部五章：场景对比/品尝，逐份篮/原位布置双路，直接协作/装饰，分享/保存；去除旧导航与冗余确认。保持高级拼写自选、记忆主动遮挡。
-- [x] 定向规则/UI GREEN、更新旧E2E正常语义但保留守恒/匹配/错单/恢复断言，阶段提交。
+Files: TogetherStage/Kitchen/Home、together.css、TogetherView、dialogue；e2e/continuous-gameplay.spec.ts及受影响helpers/套件。
+Interfaces: Task2状态投影，统一pickup/ingredient/put命令；进度无UI判定。
+- [ ] RED正常入口首客/反馈/无流程按钮、五章/两路/并行/自由/小游戏/视口和英语自动首次。
+- [ ] 各章固定可见设备与目标、食品/角色反馈、波次旅程、自然奖励过场；低动态/静音/触控/键盘不改变事实。更新旧UI路径，守恒/容量/错误/支持断言保留。
+- [ ] 定向GREEN、阶段提交。
 
-### Task 4: 正常游玩与质量
+### Task 4: 游戏性审查与工程门禁
 
-- [x] 正常新档393×665触控连续五章、自由厨房、受影响小游戏、另一野餐路；1280×720及短横屏必要补查。
-- [x] 记录看不懂/读说明/操作次数/重复动作/遮挡与恢复，实际修复→定向复测；少量必要截图和可复现操作记录。
-- [x] lint、typecheck/build、resources、词库、共享单元及当前42浏览器回归；一次独立只读全分支审查并处理实际问题。
-- [x] 代理/真人成人/儿童/实体设备/教研/听审分记；未执行NOT_RUN，不撤销历史真机NEEDS_REVISION与性能NOT_MET。
+- [ ] 正常新档393×665连续五章、另一路、自由厨房/受影响小游戏，665×393/1280×720/必要Pad；记录轨迹/有效动作/等待/中断/关键画面。
+- [ ] 修真实问题、定向复测，保存原失败。完整工程/浏览器仅最终稳定版运行必要一次；不重复无关矩阵。
+- [ ] 独立全分支代码审查、处理实质问题；最终lint/test/build/resources/词库与现行浏览器门禁。环境/退出码和未验边界如实记录。
 
-### Task 5: PR、发布与材料
+### Task 5: Git、发布与一致材料
 
-- [x] 提交push/PR、精确head检查success后按规则merge；核对main及完整SHA。原站appgprj_6ab141055ab8819186112dee423d0d04从merged main更新，不新建站、不绕保护。
-- [x] 原网址匿名VPN访问、SHA/content/dirty和真实核心料理复核，存版本/部署ID。
-- [x] 最新设计说明短稿及同稿PDF，真实AI与实有玩法，附原网址及“访问需要开启 VPN”；文字比对/渲染QA，真实桌面旧版备份+复制hash回读。
-- [x] 报告/材料通过PR归档main，最终前后对照、问题修复、测试退出码/限制、Git/部署/桌面绝对路径交付。
-
-交付回执：游戏PR22实际MERGED、云端350/42 SUCCESS、公开v5和匿名正常游玩PASS；PDF/源稿/桌面PASS。本材料的main归档以实际PR合并为完成条件，回执在GitHub及最终回复读回，不再次改动已验证游戏代码。
+- [ ] push/PR，精确head正常门禁通过后合并main；核验完整SHA和工作区保护。
+- [ ] 合并main干净构建更新原Sites，保存版本映射；匿名新会话真实版本/正常核心路径验证。
+- [ ] 更新STATUS/README/验收报告及参赛说明/PDF/真实同版配图，文字比对/渲染检查；材料归档PR，最终报告。
