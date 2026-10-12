@@ -1,0 +1,98 @@
+
+> tabby-english-food-truck@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/dafangzi/.codex/worktrees/direct-cooking-experience/tabby-english-food-truck
+
+ ❯ tests/direct-cooking.test.ts (5 tests | 1 failed) 17ms
+   × cup then flavor makes one real scoop; a legal second scoop extends it without a confirmation 12ms
+ ❯ tests/m2-world.test.ts (9 tests | 4 failed) 45ms
+     × every recipe consumes real inputs, makes one output and restores mid process 12ms
+     × all four chapters and community ending complete by commands, no product/answer injection 8ms
+     × 100 endless orders stay reachable, deterministic across refresh and bounded 8ms
+     × support changes preserve existing complex orders and reduce subsequent concurrency 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/direct-cooking.test.ts > cup then flavor makes one real scoop; a legal second scoop extends it without a confirmation
+AssertionError: expected undefined to be 'valid' // Object.is equality
+
+- Expected:
+"valid"
+
++ Received:
+undefined
+
+ ❯ tests/direct-cooking.test.ts:17:49
+     15|  expect(s.items).toEqual([{id:cup,product:'double-cream',location:'sta…
+     16|  expect(s.attempts).toEqual([]);
+     17|  expect(decodeSnapshot(JSON.stringify(s)).kind).toBe('valid');
+       |                                                 ^
+     18| });
+     19| test('invalid extra scoop, flavor before container and occupied hand p…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > every recipe consumes real inputs, makes one output and restores mid process
+Error: vanilla-cup
+ ❯ make tests/m2-world.test.ts:73:20
+     71|         : i.location.startsWith(`station:${r.station}:`)),
+     72|   );
+     73|   if (!item) throw Error(product);
+       |                    ^
+     74|   return [s, { item: item.id }];
+     75| }
+ ❯ tests/m2-world.test.ts:105:30
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > all four chapters and community ending complete by commands, no product/answer injection
+Error: vanilla-cup
+ ❯ make tests/m2-world.test.ts:73:20
+     71|         : i.location.startsWith(`station:${r.station}:`)),
+     72|   );
+     73|   if (!item) throw Error(product);
+       |                    ^
+     74|   return [s, { item: item.id }];
+     75| }
+ ❯ tests/m2-world.test.ts:136:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > 100 endless orders stay reachable, deterministic across refresh and bounded
+AssertionError: expected 'ok' to be 'blocked' // Object.is equality
+
+Expected: "blocked"
+Received: "ok"
+
+ ❯ make tests/m2-world.test.ts:59:26
+     57|       : { type: 'start-station', station: r.station },
+     58|   );
+     59|   expect(duplicate.kind).toBe('blocked');
+       |                          ^
+     60|   s = advance(s, Math.floor(r.ms / 2));
+     61|   const restored = decodeSnapshot(JSON.stringify(s));
+ ❯ tests/m2-world.test.ts:164:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/m2-world.test.ts > M2 content-driven world > support changes preserve existing complex orders and reduce subsequent concurrency
+Error: double-cream
+ ❯ make tests/m2-world.test.ts:73:20
+     71|         : i.location.startsWith(`station:${r.station}:`)),
+     72|   );
+     73|   if (!item) throw Error(product);
+       |                    ^
+     74|   return [s, { item: item.id }];
+     75| }
+ ❯ tests/m2-world.test.ts:205:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed | 25 passed (27)
+      Tests  5 failed | 339 passed (344)
+   Start at  23:13:51
+   Duration  1.09s (transform 1.39s, setup 0ms, import 2.86s, tests 710ms, environment 2ms)
+

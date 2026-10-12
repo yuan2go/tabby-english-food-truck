@@ -1,0 +1,24 @@
+- main [ref=f1e3]:
+  - img "同桌场景画面" [ref=f1e4]
+  - region "餐车小院" [ref=f1e6]:
+    - generic [ref=f1e7]:
+      - text: DAMI'S LITTLE KITCHEN
+      - heading "大咪的英语餐车" [level=1] [ref=f1e8]
+    - button "设置" [ref=f1e9] [cursor=pointer]: ⚙
+    - img "小主厨大咪" [ref=f1e10]
+    - generic [ref=f1e11]:
+      - button "正在准备 · 晨光开门" [ref=f1e12] [cursor=pointer]:
+        - generic [ref=f1e14]: 和大咪做第一份早餐
+      - button "听正在准备 · 晨光开门" [ref=f1e15] [cursor=pointer]: ♫
+    - navigation "自己选其他玩法" [ref=f1e16]:
+      - generic [ref=f1e17]:
+        - button "自由开店" [ref=f1e18] [cursor=pointer]
+        - button "听自由开店" [ref=f1e20] [cursor=pointer]: ♫
+      - button "旧食谱 · 回访活动与作品" [ref=f1e21] [cursor=pointer]
+      - generic [ref=f1e26]:
+        - button "教学练习" [ref=f1e27] [cursor=pointer]
+        - button "听教学练习" [ref=f1e29] [cursor=pointer]: ♫
+      - generic [ref=f1e30]:
+        - button "迷你游戏" [ref=f1e31] [cursor=pointer]
+        - button "听迷你游戏" [ref=f1e33] [cursor=pointer]: ♫
+    - generic: 开发素材与语音待审核

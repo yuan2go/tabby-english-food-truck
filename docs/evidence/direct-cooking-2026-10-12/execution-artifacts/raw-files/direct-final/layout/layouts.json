@@ -1,0 +1,402 @@
+[
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "controls": [
+      {
+        "label": "放入果汁机水果口",
+        "x": 122,
+        "y": 310.390625,
+        "width": 52,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "放到果汁机杯座",
+        "x": 273.5,
+        "y": 310.390625,
+        "width": 52,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "启动果汁机",
+        "x": 325.5,
+        "y": 372.390625,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "果汁机：苹果",
+        "x": 161.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "果汁机：香蕉",
+        "x": 219.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "果汁机：空杯",
+        "x": 277.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "放到冰淇淋台",
+        "x": 383.5,
+        "y": 310.390625,
+        "width": 251.5,
+        "height": 110,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：蛋筒",
+        "x": 394.25,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：空杯",
+        "x": 452.25,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：香草球",
+        "x": 510.25,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：草莓球",
+        "x": 568.25,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：香蕉",
+        "x": 481.25,
+        "y": 478.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "放到组合板",
+        "x": 645,
+        "y": 310.390625,
+        "width": 251.5,
+        "height": 110,
+        "inside": true
+      },
+      {
+        "label": "组合板：面包",
+        "x": 655.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "组合板：圆面包",
+        "x": 713.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "组合板：芝士",
+        "x": 771.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "组合板：生菜",
+        "x": 829.75,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "组合板：番茄",
+        "x": 742.75,
+        "y": 478.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "放到煎台",
+        "x": 906.5,
+        "y": 310.390625,
+        "width": 251.5,
+        "height": 110,
+        "inside": true
+      },
+      {
+        "label": "启动煎台",
+        "x": 1110,
+        "y": 372.390625,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "煎锅：生饼",
+        "x": 1004.25,
+        "y": 420.390625,
+        "width": 56,
+        "height": 56,
+        "inside": true
+      },
+      {
+        "label": "放到制作承放区",
+        "x": 120,
+        "y": 625.984375,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "拿起苹果",
+        "x": 1048,
+        "y": 619.984375,
+        "width": 56,
+        "height": 60,
+        "inside": true
+      },
+      {
+        "label": "拿起香蕉",
+        "x": 1104,
+        "y": 619.984375,
+        "width": 56,
+        "height": 60,
+        "inside": true
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 665,
+      "height": 393
+    },
+    "controls": [
+      {
+        "label": "放入果汁机水果口",
+        "x": 321.59375,
+        "y": 102,
+        "width": 52,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "放到果汁机杯座",
+        "x": 299.1875,
+        "y": 102,
+        "width": 52,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "启动果汁机",
+        "x": 351.1875,
+        "y": 106,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "果汁机：苹果",
+        "x": 336.390625,
+        "y": 154,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "果汁机：香蕉",
+        "x": 336.390625,
+        "y": 204,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "果汁机：空杯",
+        "x": 336.390625,
+        "y": 254,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "放到冰淇淋台",
+        "x": 406.1875,
+        "y": 102,
+        "width": 77.59375,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：蛋筒",
+        "x": 420.984375,
+        "y": 154,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：空杯",
+        "x": 420.984375,
+        "y": 204,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：香草球",
+        "x": 420.984375,
+        "y": 254,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：草莓球",
+        "x": 420.984375,
+        "y": 304,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "冰淇淋：香蕉",
+        "x": 420.984375,
+        "y": 354,
+        "width": 48,
+        "height": 48,
+        "inside": false
+      },
+      {
+        "label": "放到组合板",
+        "x": 490.78125,
+        "y": 102,
+        "width": 77.59375,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "组合板：面包",
+        "x": 505.578125,
+        "y": 154,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "组合板：圆面包",
+        "x": 505.578125,
+        "y": 204,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "组合板：芝士",
+        "x": 505.578125,
+        "y": 254,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "组合板：生菜",
+        "x": 505.578125,
+        "y": 304,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "组合板：番茄",
+        "x": 505.578125,
+        "y": 354,
+        "width": 48,
+        "height": 48,
+        "inside": false
+      },
+      {
+        "label": "放到煎台",
+        "x": 575.375,
+        "y": 102,
+        "width": 77.609375,
+        "height": 52,
+        "inside": true
+      },
+      {
+        "label": "启动煎台",
+        "x": 604.984375,
+        "y": 106,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "煎锅：生饼",
+        "x": 590.171875,
+        "y": 154,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "放到制作承放区",
+        "x": 319.59375,
+        "y": 287.5,
+        "width": 48,
+        "height": 48,
+        "inside": true
+      },
+      {
+        "label": "拿起苹果",
+        "x": 554.984375,
+        "y": 285,
+        "width": 50,
+        "height": 53,
+        "inside": true
+      },
+      {
+        "label": "拿起香蕉",
+        "x": 604.984375,
+        "y": 285,
+        "width": 50,
+        "height": 53,
+        "inside": true
+      }
+    ]
+  }
+]

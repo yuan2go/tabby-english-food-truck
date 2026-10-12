@@ -1,0 +1,59 @@
+scripts/play-direct-cooking.mjs:166:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    164 │   writeFileSync(
+    165 │     `${output}/journey.json`,
+  > 166 │     JSON.stringify(
+        │     ^^^^^^^^^^^^^^^
+  > 167 │       {
+         ...
+  > 180 │       2,
+  > 181 │     ) + '\n',
+        │     ^^^^^^^^
+    182 │   );
+    183 │   console.log(
+  
+  i Unsafe fix: Use a template literal.
+  
+    164 164 │     writeFileSync(
+    165 165 │       `${output}/journey.json`,
+    166     │ - ····JSON.stringify(
+        166 │ + ····`${JSON.stringify(
+    167 167 │         {
+    168 168 │           base,
+    ······· │ 
+    179 179 │         null,
+    180 180 │         2,
+    181     │ - ····)·+·'\n',
+        181 │ + ····)}\n`,
+    182 182 │     );
+    183 183 │     console.log(
+  
+
+scripts/play-direct-cooking.mjs:190:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    188 │   writeFileSync(
+    189 │     `${output}/failure.json`,
+  > 190 │     JSON.stringify({ journal, error: String(error), state: await state() }, null, 2) + '\n',
+        │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    191 │   );
+    192 │   throw error;
+  
+  i Unsafe fix: Use a template literal.
+  
+    188 188 │     writeFileSync(
+    189 189 │       `${output}/failure.json`,
+    190     │ - ····JSON.stringify({·journal,·error:·String(error),·state:·await·state()·},·null,·2)·+·'\n',
+        190 │ + ····`${JSON.stringify({·journal,·error:·String(error),·state:·await·state()·},·null,·2)}\n`,
+    191 191 │     );
+    192 192 │     throw error;
+  
+
+Skipped 4 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+Checked 2 files in 94ms. Fixed 1 file.
+Found 2 infos.

@@ -1,0 +1,1997 @@
+{
+  "date": "2026-10-13",
+  "baselineMain": "932a25a63b7a99e1962ae25a93abbb59e4311da8",
+  "branch": "codex/archive-execution-artifacts-2026-10-13",
+  "testsThisDelivery": "NOT_RUN (explicit user instruction)",
+  "sources": 31,
+  "archivedFiles": 283,
+  "archivedBytes": 186899514,
+  "historicalComparison": {
+    "identicalAlreadyInMain": 326,
+    "missingArchived": 66,
+    "differentArchivedSeparately": 0
+  },
+  "files": [
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "2dd6ebbb6cf3abf35327c1d989f5958962f0fad28271fa2b72f96dcbfa50c649"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/video.webm",
+      "bytes": 867557,
+      "sha256": "63e0dbef26e49b84150fa734a6e51554c9350c8cdfd1dc30275d1ed4450e3216"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm",
+      "bytes": 890890,
+      "sha256": "8a8e9149f6be8c29fe5d60a28c0a58727a5b24ba983a41482199111932c829c8"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/video.webm",
+      "bytes": 799612,
+      "sha256": "f5e158a9597fdc3a4ad723ba49c93050324fa99a574fe454e1b4fe2ade08d2c7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm",
+      "bytes": 550970,
+      "sha256": "6160348389fbe394fbaad3fe8e3142c046ba64d27c0356acf32d1c53f61344d1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/video.webm",
+      "bytes": 2013266,
+      "sha256": "99de92563e0bf77ed07d818e8127587def05395d874802bb3111dbe9b051855c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-receipt-presenta-30815-ion-never-repeat-settlement/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-receipt-presenta-30815-ion-never-repeat-settlement/video.webm",
+      "bytes": 989419,
+      "sha256": "33912857eb610129d1a1f1952717bc73573fd7eae7be11fa1e0acb387481b285"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/error-context.md",
+      "bytes": 14092,
+      "sha256": "246aa792f633179dc2b7dcdc6cd247488bf7bc44b7ebc257968c1ca31e98de58"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/test-failed-1.png",
+      "bytes": 338514,
+      "sha256": "3fb674cfd96d65f42f139e05afde2002160cd1dfa5b77c905c6a6a20ebb143b2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm",
+      "bytes": 3452393,
+      "sha256": "3b898e61246f18a907ff0f31f4a2f3416f01d53644c4cda70cdfad74e3012630"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "bytes": 183207,
+      "sha256": "647338987a1f3ee1fde8df6fe9694d9fea21d2763f2b35b662cfa3dc49434c12"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "bytes": 1276809,
+      "sha256": "2180d398d86d012aa4596a9085e87d23ba433c1bbc5f3d677bdf02116451e4e0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected-green/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected-green/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected-green/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected-green/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "bytes": 331424,
+      "sha256": "6b10c67d73af56edf632db1e2e8deb6269a419e41a710100981fc3a1fd961f26"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-affected-green/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-affected-green/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm",
+      "bytes": 4337172,
+      "sha256": "807150556c253c683b51b961b946b9b213fa2c0f00ef37d28ae391e15b521afc"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/design-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/design-phone.png",
+      "bytes": 87902,
+      "sha256": "572cb35334fe8cafdb8afef7a4c44bc6e447b11da395101146aeeaf92852864c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/designer-five-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/designer-five-phone.png",
+      "bytes": 78552,
+      "sha256": "4c255bff06b33313c3c63a14926fe740fa3af78eed92df5d231d82469f72187c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/hunt-desktop.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/hunt-desktop.png",
+      "bytes": 140282,
+      "sha256": "5ffdffcc3fa492b468f347b7ddcdf1d9d6e0df90bb2d52055af1d22b444e3821"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/memory-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/memory-phone.png",
+      "bytes": 68503,
+      "sha256": "9dcfbc8cf982285cecfcfaf418e3cb750cf1d884cd7a9681d71a89a558916232"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/mini-theme-phone-390x844.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/mini-theme-phone-390x844.png",
+      "bytes": 69236,
+      "sha256": "6275a0c028711e1ee9278b2a4bbdf29ca1d1d70e7776285d773c9dc14aa6e612"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/sort-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/sort-phone.png",
+      "bytes": 62961,
+      "sha256": "f044d9c585f094e642f2d50b42f805fbecd8ab4eae57a957ac959adecb34470e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/theatre-desktop.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/theatre-desktop.png",
+      "bytes": 114254,
+      "sha256": "cc7e152961cfd84a40b0a0124b48c70d73232c549ce6f9097310f12ced073750"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/theatre-help-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/theatre-help-phone.png",
+      "bytes": 89057,
+      "sha256": "98827e259e315cf2341c6629e93ef1dbe8ffb1c59d91b825032e8a05092ab143"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/screenshots/theatre-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/screenshots/theatre-phone.png",
+      "bytes": 77504,
+      "sha256": "0510347a05329096c7075808dac8ed0a68de91d40b463c20f2479b6691d34541"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/.last-run.json",
+      "bytes": 145,
+      "sha256": "84b7ad09c1f961e6c5392e55c499190d94e576c1b3fc5ff5fe512af5ea453d7a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-desktop-mouse-an-f7f64-nd-paused-cooking-on-reload/video.webm",
+      "bytes": 967469,
+      "sha256": "709e1b6a359dada74fae599caff44664dce89f5137471aae99a9449df0a2197a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-free-shop-stops--1a6e0-returns-to-a-natural-ending/video.webm",
+      "bytes": 927596,
+      "sha256": "97dd3475592e948446bfdf3a5086032f7bca0b58a2d3e916c25d8874d0197ed7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-low-motion-recei-0d37c-rols-across-compact-layouts/video.webm",
+      "bytes": 814387,
+      "sha256": "5b3c145eab50ae1e833cd2331180356b8f7f5fe1e3d9f41e94753bf73ae87941"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-opening-a-new-se-9dba4-guest-keeps-the-old-request/video.webm",
+      "bytes": 555587,
+      "sha256": "0946533dea06c85bea0b4ca7868d29cb81591b85702c283ce7980728b5d502ea"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-phone-replay-fol-b6b3f-al-food-and-no-packing-task/video.webm",
+      "bytes": 1989520,
+      "sha256": "2e96c52bcc778d0ff0d4fca9aee4c0303f3d293ec655b665b282ce8279afccc6"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-receipt-presenta-30815-ion-never-repeat-settlement/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-receipt-presenta-30815-ion-never-repeat-settlement/video.webm",
+      "bytes": 990590,
+      "sha256": "ada129339c7fb1188b6259396523ab719609bc6662ec648bec482fd5ba62f9e2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "bytes": 331507,
+      "sha256": "685433a3d7384da2050ecff7380898c39accf54766efc72f7d81b5f96581c99a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/video.webm",
+      "bytes": 4285191,
+      "sha256": "5a1b3fdbcfdd5d6cf9cda34fe6a2e3c4c29bd38a0155b90c58b350dbf9965453"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/demo-repair-home-invitatio-b5dc7-eachable-in-compact-layouts/video.webm",
+      "bytes": 165229,
+      "sha256": "c7193a036159ea01fd636306790e081527c3d1c5efbf109722b4f3b1f589ef31"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/demo-repair-individual-han-9a051-through-replay-and-delivery/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/demo-repair-individual-han-9a051-through-replay-and-delivery/video.webm",
+      "bytes": 480922,
+      "sha256": "bbd0dabdeb315bbab9948affb0d88ee36cf51791893f26a4bf7184a967121e83"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/demo-repair-optional-drag--7ea13-pty-release-does-not-submit/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/demo-repair-optional-drag--7ea13-pty-release-does-not-submit/video.webm",
+      "bytes": 497294,
+      "sha256": "ab3d9e8a20fdec743fbfa15552fce1acf34ae1eca6abbfab4d73f0813b7d4008"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/demo-repair-real-recipe-co-98b3c-ts-and-flavor-to-the-player/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/demo-repair-real-recipe-co-98b3c-ts-and-flavor-to-the-player/video.webm",
+      "bytes": 567875,
+      "sha256": "1ef771c4558a4f333afbe9052fdefdf0218fdfeb7e8109ae3fc49a4488c84c00"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/demo-repair-scene-pause-is-88248-d-restores-a-usable-trigger/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/demo-repair-scene-pause-is-88248-d-restores-a-usable-trigger/video.webm",
+      "bytes": 203794,
+      "sha256": "4370a94d0cd48cdb33e5e2a7021524cf421bbae5506d67ae6637946b85ff6ff1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "bytes": 183676,
+      "sha256": "523533b09cc4d3705e4d1b832bfc2aeb1f538ac18e6e83167621ff27ea5daa46"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "bytes": 1254953,
+      "sha256": "8502dca7b6ad0a61dcdfafe6c27fbb689e7c9549d4a8bd399084172ecbd6f259"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/experience-less-support-re-cabe0-nd-audio-failure-separately/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/experience-less-support-re-cabe0-nd-audio-failure-separately/video.webm",
+      "bytes": 219302,
+      "sha256": "c2eba8e7858228acc1c4739441eb9621a8d75d99690b580b5460decda07b7dae"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/experience-muting-through--eb2d9-ull-English-and-safe-replay/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/experience-muting-through--eb2d9-ull-English-and-safe-replay/video.webm",
+      "bytes": 219359,
+      "sha256": "276e0362ab78f5ac7599f9344a214494705ace641f9e65f4e18627cb661c5dd0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/experience-single-guest-ha-8e0fb-before-reading-instructions/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/experience-single-guest-ha-8e0fb-before-reading-instructions/video.webm",
+      "bytes": 452549,
+      "sha256": "6fdd3a30ac7f103cbe0ec906922ba45eebed5dcdb93271bc6a561c14b1423832"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/immersion-normal-entrance--3cb6d-onal-garden-and-real-memory/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/immersion-normal-entrance--3cb6d-onal-garden-and-real-memory/video.webm",
+      "bytes": 885794,
+      "sha256": "f24723c781f3482568a6bab584db3f69755db3ea966f68920c2dc0c16f54bf74"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/immersion-phone-actual-han-83216-nd-pause-preserve-ownership/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/immersion-phone-actual-han-83216-nd-pause-preserve-ownership/video.webm",
+      "bytes": 226838,
+      "sha256": "ef8ca051de17e16d422651b63afbbf43348f169d0a3c15790c6460cc860fe3c6"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/m22-boundaries-audio-failu-3549b-er-creates-a-language-error/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/m22-boundaries-audio-failu-3549b-er-creates-a-language-error/video.webm",
+      "bytes": 194634,
+      "sha256": "eaf75de5d6cca55283122080bf806bd72e6d0e5710244709a1dfa0f1c407edd7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/m22-boundaries-wrong-deliv-9a72d-ndscape-keep-real-inventory/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/m22-boundaries-wrong-deliv-9a72d-ndscape-keep-real-inventory/video.webm",
+      "bytes": 489134,
+      "sha256": "0cc7c180514f89aafb67f1647741a1339be4aaadb49984f70f456f480970477c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/m22-growth-actual-picked-f-d17d7-ntroduces-banana-then-juice/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/m22-growth-actual-picked-f-d17d7-ntroduces-banana-then-juice/video.webm",
+      "bytes": 1026542,
+      "sha256": "3d91ed5f197f41be4d738825b37f9c98567dff49187d971a715353c02bc5827d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-M2-bilingual-use-13dbe-reserves-business-inventory/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-M2-bilingual-use-13dbe-reserves-business-inventory/video.webm",
+      "bytes": 152629,
+      "sha256": "29300201ac49ef7f79142faee5a742f9d33f9d118514f3e82afb66067f8da1f3"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/match-feedback.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/match-feedback.png",
+      "bytes": 997472,
+      "sha256": "aa6f775bc7aa4d8727cbf5eec6ed3e8f6f81ccaf408a48d8ceb4b1c1644bccb5"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/video.webm",
+      "bytes": 524881,
+      "sha256": "4e4d33c76f5124ade5cdcc689657ddd2fb3f9e9125a2c629eb71560ccf2fa6f0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/spell-feedback.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/spell-feedback.png",
+      "bytes": 922207,
+      "sha256": "64cd6053ebc57573d4938a7cfe8680444b618217e0897ef98221acbc2191376d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/video.webm",
+      "bytes": 712612,
+      "sha256": "b3c1422fc37da3bedb74b2de15aa6b4c83c84b44ddbeb425a99a3fc216dcb9b0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-desktop-hu-4306b-overy-and-no-broken-artwork/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-desktop-hu-4306b-overy-and-no-broken-artwork/video.webm",
+      "bytes": 396233,
+      "sha256": "22b55198f06416a202c78df3bbbd4ce8d362f6e710bb9c089f7bfc668e6b0933"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-desktop-th-0fe19-tes-with-keyboard-operation/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-desktop-th-0fe19-tes-with-keyboard-operation/video.webm",
+      "bytes": 216419,
+      "sha256": "2b36b1f3b9ec797c65023ea4983ce630a110b7525e851220d70c97a012afa91d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/error-context.md",
+      "bytes": 13567,
+      "sha256": "53a6a9a840e7a469ceb27df02b81eb48b0aeb7ba7b71732e0beba0aa0d907f97"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/test-failed-1.png",
+      "bytes": 77557,
+      "sha256": "6d09fc097a8791f9154e79c1c4c28e5d9a974df123f673574b5f46626af3ca6b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/video.webm",
+      "bytes": 347498,
+      "sha256": "d24f2378640f10e95492fa0ad94fcc9f2a330ee5a578554ba67d5021f7b9e467"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-original-f-b37a3-racy-with-hands-on-quantity/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-original-f-b37a3-racy-with-hands-on-quantity/video.webm",
+      "bytes": 316426,
+      "sha256": "a86ea3dcb199cf4f32db06d730d13dd3b4df829a849c18f7138b65bcb89b3798"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-phone-desi-14918-ree-mode-use-actual-objects/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-phone-desi-14918-ree-mode-use-actual-objects/video.webm",
+      "bytes": 187774,
+      "sha256": "5529306c80a4edbb699e33ab8027647be2151548bb595576212e655f035e96db"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/video.webm",
+      "bytes": 393767,
+      "sha256": "2e7a4559e01323916246e03669e9b1f0654202961b6d3114fb20710dd581bdd6"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-phone-memo-4b5c4-rong-replacement-separately/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-phone-memo-4b5c4-rong-replacement-separately/video.webm",
+      "bytes": 221213,
+      "sha256": "ef2371c1b0726955c572c4d44f624b01d1095c2f377c702a01770cf9b5d2a55f"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-phone-sort-dd2f0-alties-for-incomplete-moves/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-phone-sort-dd2f0-alties-for-incomplete-moves/video.webm",
+      "bytes": 203847,
+      "sha256": "71558366cb1425aa511c93e6947b81773d4c9688581496be9157d6b22776273f"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/minigames-vocab-yard-minig-c900e-ture-and-free-kitchen-entry/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/minigames-vocab-yard-minig-c900e-ture-and-free-kitchen-entry/video.webm",
+      "bytes": 296618,
+      "sha256": "50a70ea263e58ab0d6a3f9203e74197738e2827bd8ced7861d4f8ae8101b1ca1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-breakfast-is-d0af7-em-and-optional-exploration/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-breakfast-is-d0af7-em-and-optional-exploration/video.webm",
+      "bytes": 741980,
+      "sha256": "f90c8f35ca8bcf6e54ad24039bef12278d63f9466b5199ac9602730e686efb1a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/error-context.md",
+      "bytes": 13330,
+      "sha256": "256a388fcda35ad53ffe8e92639f30ba69ee2dbc9d99ffed74521520fac56255"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/test-failed-1.png",
+      "bytes": 353887,
+      "sha256": "0ed6dde4cce24741ede63471fbeb02831ab8f3cca60302b8a7dcf9e1c5bea76c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm",
+      "bytes": 745181,
+      "sha256": "efa96225870418bfb489d4bf1a1e7348d0b2a39ae0941da637080a23eafdd867"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-open-request-f8a76-cannot-thank-before-receipt/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-open-request-f8a76-cannot-thank-before-receipt/video.webm",
+      "bytes": 823649,
+      "sha256": "6e0727f28f978d8394436827d04553aceb33a0cf5e2581cdca2c366223f2f852"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-speaker-mean-076cb-tory-or-language-submission/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-speaker-mean-076cb-tory-or-language-submission/video.webm",
+      "bytes": 623093,
+      "sha256": "6639b0d08782d3aa7de7641d8636c949117fa7896172473e6ccb1288dda8bb3f"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/together-play-visible-devi-0a660--hand-ownership-recoverable/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/together-play-visible-devi-0a660--hand-ownership-recoverable/video.webm",
+      "bytes": 651924,
+      "sha256": "d6dadc11bc011856bc618f61ca663f10b550725aa1f5600c32af7faa17d11533"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/wp-dual-growth-deferred-me-a69a1-ther-actual-completed-order/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/wp-dual-growth-deferred-me-a69a1-ther-actual-completed-order/video.webm",
+      "bytes": 818876,
+      "sha256": "339c9689a7cca245a0a94db1ade924bb8cf3855e0d0ffc79ae8c108175a17342"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-all/test-results/wp-dual-mini-course-theme--89567-l-and-restores-its-progress/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-all/test-results/wp-dual-mini-course-theme--89567-l-and-restores-its-progress/video.webm",
+      "bytes": 368886,
+      "sha256": "5bfba1cd13c69b9a93c819676e59cbcb537db86124647b30deec504d09ffcdf3"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-green/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-green/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-green/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-green/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "bytes": 179125,
+      "sha256": "018476823ca5429d9d21c0347dd65a611f693eaad44e1fc7d89d179e8eb9ef1e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-green/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-green/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "bytes": 1287955,
+      "sha256": "0a7b25805a6b6b56fa885276255018855b9b5a186de025aba5f4e78b2a40ee8d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-ledger/progress.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-ledger/progress.md",
+      "bytes": 1491,
+      "sha256": "203f4056088e0c27fcf01f66c62035df9bc7a31cfb8e11790bd64d47153c053e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/.last-run.json",
+      "bytes": 145,
+      "sha256": "c9f89a0769d45f60bc47685dab9a693ca33b970a3270acbac19a82573e725f93"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/error-context.md",
+      "bytes": 5042,
+      "sha256": "82e90741656de57bdcdd60287dd82e1f4213bee4da27b0a04190d88b5cceca17"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/test-failed-1.png",
+      "bytes": 232238,
+      "sha256": "7ee0c535e8c84ee82a47c5138ab14b2d236f3b746ad05d8cb4de055114ee92c8"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/direct-cooking-free-kitche-6ce27-d-configuration-is-optional/video.webm",
+      "bytes": 349300,
+      "sha256": "0bd6573b0bea337a73b1bf9daf8e26d5120770110ce853cc57386ed9a0943b91"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/error-context.md",
+      "bytes": 6716,
+      "sha256": "0dc9624194c15f18a4951fef56dcba22f1091321e9cf4fc694083ea00ab3d13d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/test-failed-1.png",
+      "bytes": 352260,
+      "sha256": "6ae86febf59a203cfbeb538239cd45fe82241e9b5f3aec7d860f81c5fac254a7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-red/test-results/direct-cooking-single-scoo-55258-sert-is-tasted-on-the-scene/video.webm",
+      "bytes": 1282987,
+      "sha256": "fee32d6f919731ddcb607c09292b4acb1c14b353059287946910bd2f5da258df"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-review.mjs",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-review.mjs",
+      "bytes": 146357,
+      "sha256": "5129006434fbbb6fda75456d55c6904eb8fe22636c2b930d9c0257f90b68ef8a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-site.tar.gz",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-site.tar.gz",
+      "bytes": 44403822,
+      "sha256": "0d7f65d2383ba6fd11acb45300b7125942ea174103388d6579320c61061316e6"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-cooking-unit-first.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-cooking-unit-first.log",
+      "bytes": 3976,
+      "sha256": "ce4e73a9bf7497d7a6ee0d2170fecbf3b3875037d1b709ad62774f8ea07fff48"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-dessert-comparison.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-dessert-comparison.png",
+      "bytes": 369335,
+      "sha256": "d4aa426427520265b7d526f2471a2fd7f2db87fb5ebdee4d612d9619b5105d69"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-dinner-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-dinner-phone.png",
+      "bytes": 360481,
+      "sha256": "c76d10702148818c991d59a9a54c6574a71da2dc62eb7b0779242218e44bb4e9"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/design-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/design-phone.png",
+      "bytes": 91484,
+      "sha256": "d092fd975ca50d381407a4e57d779fc06bd0eaa9e5d0ce433926c9fa2705621b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/designer-five-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/designer-five-phone.png",
+      "bytes": 78028,
+      "sha256": "792ad15870277ab52733334be387f12d0d1985a849bfb4987a6c6489b90d9544"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/hunt-desktop.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/hunt-desktop.png",
+      "bytes": 141233,
+      "sha256": "eff80d28730ca380999f6ad870620c7631cb2dc91ad63e432f4c6104bef80f86"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/memory-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/memory-phone.png",
+      "bytes": 68503,
+      "sha256": "9dcfbc8cf982285cecfcfaf418e3cb750cf1d884cd7a9681d71a89a558916232"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/mini-theme-phone-390x844.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/mini-theme-phone-390x844.png",
+      "bytes": 69236,
+      "sha256": "6275a0c028711e1ee9278b2a4bbdf29ca1d1d70e7776285d773c9dc14aa6e612"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/sort-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/sort-phone.png",
+      "bytes": 67488,
+      "sha256": "e85c745ad5022f0aaf1a0ec1f1c746f7a7a7b81256338f26a9fbaa88c7809f01"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/theatre-desktop.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/theatre-desktop.png",
+      "bytes": 116023,
+      "sha256": "074e8b698913791ef00b3c3c29c0985fc0b7c7431d074a3c2bb1a4541996e59c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/theatre-help-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/theatre-help-phone.png",
+      "bytes": 89164,
+      "sha256": "7987b6dd36c155d1cd42e562b449eb5ab32973ab3764b94a3618a4f9d1f6ecb0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/screenshots/theatre-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/screenshots/theatre-phone.png",
+      "bytes": 79769,
+      "sha256": "43a3aec6286b6ba7a5dcdd3bc4e2839871ac9c74efd020422c6fec427d1f8815"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "bytes": 331482,
+      "sha256": "756c2e4e9976d1b3f0f8ef33c9aab1c10b7f684f8af311458ba6afc0871cf78b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/match-feedback.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/test-results/minigames-M2-match-complet-11545-esume-settlement-and-return/match-feedback.png",
+      "bytes": 1003269,
+      "sha256": "b3397dbcb84af9a8aa21a9242aa34c1770d887cb8943f47ac78d91c8f578fd0f"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser/test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/spell-feedback.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser/test-results/minigames-M2-spell-complet-8427f-esume-settlement-and-return/spell-feedback.png",
+      "bytes": 908678,
+      "sha256": "d120c8894d35ad1da867d1dffe3c14d71c931bff8d434eab1f48f5f5d7582fbe"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/browser.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/browser.log",
+      "bytes": 6091,
+      "sha256": "b0e91bf304a087d3d9460fa897e023e059c7cc4868dc8489929ea5b50f1dd286"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/build.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/build.log",
+      "bytes": 888,
+      "sha256": "7e4dc9a0b6951423fa4aebe9d3641a68f024c4afb760967eb7b4d9caa0dfa3ab"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/burger-order-red.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/burger-order-red.log",
+      "bytes": 1303,
+      "sha256": "bb3db9774e6881db0cdf36cf509bde49e58b7ef77ce84f08bec6197900fcfbd0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-current.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-current.json",
+      "bytes": 2654,
+      "sha256": "66fe2b77b7e41e4f0596b3593c386bf450261d7ca69bd8f8523075bf33a6faf9"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-game-success.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-game-success.log",
+      "bytes": 132973,
+      "sha256": "d8116a331eff971dc89e31ed3f326c2071b492aaa5e2da6b9dcce3002c601017"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-main-current.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-main-current.json",
+      "bytes": 2460,
+      "sha256": "bdbe6639aea1e7bfe611c2dbe79b64fc2a7813c089d2c6e237dbce00f4fcc9eb"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-main-success.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-main-success.log",
+      "bytes": 131444,
+      "sha256": "5c20bb7df6a895dc235567fc0aa2c2cc119dd770c2e2ac324a6fb69903dcd991"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-material-current.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-material-current.json",
+      "bytes": 2654,
+      "sha256": "dc18d10f5263e06a0278720d8b03a9c581a711a017253d9715d513a8f54c1437"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-material-success.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-material-success.log",
+      "bytes": 131859,
+      "sha256": "3eb673aee70e2f8cf8c32271e726d9a76744bd8031382031f0d143cf41077050"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/ci-state.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/ci-state.json",
+      "bytes": 94,
+      "sha256": "13a56d9381ab8432566f9aaebbfcab44a312663d0a5fd02932526f1a92977cc1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/deployment.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/deployment.json",
+      "bytes": 1591,
+      "sha256": "2dfc81439de656ebeb1b3923af9460aec4540cda57340efb5aaab819c351298b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/desktop-backup.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/desktop-backup.json",
+      "bytes": 1318,
+      "sha256": "5bf684042039a1a56ea0d1bd063e33660c4d5dc9e4d3ae66867d7e3cd27409ee"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/desktop-copy.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/desktop-copy.json",
+      "bytes": 1469,
+      "sha256": "114b725b0d030c2c9c4543d3a7801a6b6aad306c12ec310483d088eee677472a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-browser/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-browser/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-browser/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-browser/test-results/adventure-visible-activity-ec0bd-s-and-saves-a-real-creation/five-chapters-phone.png",
+      "bytes": 331507,
+      "sha256": "685433a3d7384da2050ecff7380898c39accf54766efc72f7d81b5f96581c99a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-browser.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-browser.log",
+      "bytes": 2727,
+      "sha256": "538f8e3644156aff99f3d739d36f5895f81b8d4834f95ddf1cb2cd592ab18e80"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-build.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-build.log",
+      "bytes": 888,
+      "sha256": "908850b059aaa41ba64828e324eae61cd8aae680d4d2e6000cfd49331dc7be90"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-format.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-format.log",
+      "bytes": 9770,
+      "sha256": "aed2647005598adfe3dabca1189d47affbfa10faa6d0964277c2ea19cb800e4e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-lint.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-lint.log",
+      "bytes": 21893,
+      "sha256": "9d7d6ff6be222598adc9c9c6d49ff90220bc4bb39037948975d749b1f0c1206f"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/landscape-unit.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/landscape-unit.log",
+      "bytes": 327,
+      "sha256": "f42b4326cef6ba05d83d241dc2ee983228605487620c2e78ad1ac8faab46efb2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/02-desserts.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/02-desserts.png",
+      "bytes": 342636,
+      "sha256": "2ae59ea86802ffba59f63c05b59096702ad2b026cc8cc4f1882cb68110244408"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/04-dinner.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/04-dinner.png",
+      "bytes": 332030,
+      "sha256": "67dbd95b31784c568d983a05ae0f7d66b3707ce53dbb365ea5bc5b29891bd0fe"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/05-feast.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/05-feast.png",
+      "bytes": 331478,
+      "sha256": "c813b78d825ea739872a012687702baf8591defb870bacd78b3f66e5fc35ce1b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/journey.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/journey.json",
+      "bytes": 14755,
+      "sha256": "ef2e51612d8a3e2df41f4e830574b488c3e65992d4d3b94a3410fc918cf6009d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/landscape-before.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/landscape-before.png",
+      "bytes": 364730,
+      "sha256": "ae228dda474f92d5cca7d4bbe5e13f4d8ec3b060a4cbb17af0808339c8b83cc2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/layout-1280.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/layout-1280.png",
+      "bytes": 1288975,
+      "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/layout-665.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/layout-665.png",
+      "bytes": 364730,
+      "sha256": "ae228dda474f92d5cca7d4bbe5e13f4d8ec3b060a4cbb17af0808339c8b83cc2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout/layouts.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout/layouts.json",
+      "bytes": 8170,
+      "sha256": "e72b6f51a850f145fb145d9ab9e97a0d6e6e6314664ac4d27efafc0847bf9f6d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/02-desserts.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/02-desserts.png",
+      "bytes": 342636,
+      "sha256": "2ae59ea86802ffba59f63c05b59096702ad2b026cc8cc4f1882cb68110244408"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/04-dinner.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/04-dinner.png",
+      "bytes": 332030,
+      "sha256": "67dbd95b31784c568d983a05ae0f7d66b3707ce53dbb365ea5bc5b29891bd0fe"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/05-feast.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/05-feast.png",
+      "bytes": 331478,
+      "sha256": "c813b78d825ea739872a012687702baf8591defb870bacd78b3f66e5fc35ce1b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/journey.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/journey.json",
+      "bytes": 14766,
+      "sha256": "c0abe562f9c41c8a5e3be8379547ec56c5b6a47bd8528151ce6839e2c23112f7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/layout-1280.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/layout-1280.png",
+      "bytes": 1288975,
+      "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/layout-665.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/layout-665.png",
+      "bytes": 366116,
+      "sha256": "8c3b75ca96030ba65d2dca144418ff4604d1126723641098233061f953683de1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green/layouts.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green/layouts.json",
+      "bytes": 8112,
+      "sha256": "b363a89588d2ad6493a5e7447f7de0e97cc943c41ce0dde091545dc1ed9b4be5"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout-green.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout-green.log",
+      "bytes": 61,
+      "sha256": "274e68cb642cb545739035d614e03ca08c73237fb915716f27f82fb4ba712dd3"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/layout.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/layout.log",
+      "bytes": 61,
+      "sha256": "274e68cb642cb545739035d614e03ca08c73237fb915716f27f82fb4ba712dd3"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/lint.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/lint.log",
+      "bytes": 21893,
+      "sha256": "2fb5f3d25ac98688a05b6f8a800daf6673d90eb6eabd8b9be63a22cbe0d09e23"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/main-build.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/main-build.log",
+      "bytes": 888,
+      "sha256": "6366f08273417d79e17daa8c715639189811b52b310998e6245726014f8d03e0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/material-format.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/material-format.log",
+      "bytes": 43,
+      "sha256": "1f5dd0cdb030856c0f686e1d97c604c66ec2ac5a7bd5e9205d6d0b8986702d9e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/material-format2.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/material-format2.log",
+      "bytes": 38,
+      "sha256": "c9eb85e9464ad5094a8dd890088b8c3aa9acf2829f971b01707dc1c2da478a5f"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/material-lint.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/material-lint.log",
+      "bytes": 21893,
+      "sha256": "6fa71242a669a2245a60f3ca70ddb36a413a71895a3bd46c68780b975dcd3f43"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/material-pr-body.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/material-pr-body.md",
+      "bytes": 1112,
+      "sha256": "ec7557a437c6c29703f6da7fbb3ec83fcbea5df3f5a741bfcdb64f2d28c27c73"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/mcp-console/console-2026-10-12T15-10-23-577Z.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/mcp-console/console-2026-10-12T15-10-23-577Z.log",
+      "bytes": 276,
+      "sha256": "f11224e9f0f403ee5ca75123a2b2f5b995d30016a5f0c49d2a0cc1d1b49f1cdb"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/mcp-console/console-2026-10-12T15-22-44-949Z.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/mcp-console/console-2026-10-12T15-22-44-949Z.log",
+      "bytes": 5279,
+      "sha256": "5157805eef6cb94e4dc0fc6675bb90bd0d28a07f81a627fcdd66794b4c159ed1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/mcp-console/page-2026-10-12T15-22-45-833Z.yml",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/mcp-console/page-2026-10-12T15-22-45-833Z.yml",
+      "bytes": 1217,
+      "sha256": "4f95ae1cdfcbb1f59b8d31fbaf1420a27e53e8ce0d88902f0abc14a0f725ad13"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/normal/02-desserts.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/normal/02-desserts.png",
+      "bytes": 342636,
+      "sha256": "2ae59ea86802ffba59f63c05b59096702ad2b026cc8cc4f1882cb68110244408"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/normal/04-dinner.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/normal/04-dinner.png",
+      "bytes": 332056,
+      "sha256": "21e1eb125889f4fa03be200aaeaf4610608f9b9496a86343d96134768f25fa16"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/normal/05-feast.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/normal/05-feast.png",
+      "bytes": 331478,
+      "sha256": "c813b78d825ea739872a012687702baf8591defb870bacd78b3f66e5fc35ce1b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/normal/journey.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/normal/journey.json",
+      "bytes": 14789,
+      "sha256": "e4de5c829dd0fd6e176a3e90fea8c2988225ef0fd65d2ee530790f887a45666c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/normal.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/normal.log",
+      "bytes": 61,
+      "sha256": "274e68cb642cb545739035d614e03ca08c73237fb915716f27f82fb4ba712dd3"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/02-desserts.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/02-desserts.png",
+      "bytes": 342634,
+      "sha256": "f4f4dc38537f1dcf682d3ab7ca14944f7a91ff2ea2de1e66ab2bab46f10064c9"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/04-dinner.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/04-dinner.png",
+      "bytes": 332043,
+      "sha256": "8388f9c71bfa01812a9ea7f665fb23dd4ffed343f910669ae80bc2e3be87213e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/05-feast.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/05-feast.png",
+      "bytes": 331494,
+      "sha256": "59f968fbe0004f68d47608932a9e4f63afa3ca8878b033bdcdacfd11293aad29"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/journey.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/journey.json",
+      "bytes": 15185,
+      "sha256": "728e8712e677a5544610d36b0068199df3037b48fc55f0145e492a9ed2f47d57"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/layout-1280.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/layout-1280.png",
+      "bytes": 1288975,
+      "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/layout-665.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/layout-665.png",
+      "bytes": 366116,
+      "sha256": "8c3b75ca96030ba65d2dca144418ff4604d1126723641098233061f953683de1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online/layouts.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online/layouts.json",
+      "bytes": 8112,
+      "sha256": "b363a89588d2ad6493a5e7447f7de0e97cc943c41ce0dde091545dc1ed9b4be5"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online-old-index.html",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online-old-index.html",
+      "bytes": 1541,
+      "sha256": "2942ce2df94be0e2c83682b0e5ddb8d4d920f3d1030f48e9179e1284481c13d7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/online.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/online.log",
+      "bytes": 61,
+      "sha256": "274e68cb642cb545739035d614e03ca08c73237fb915716f27f82fb4ba712dd3"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/pdf-final/exported-text.txt",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/pdf-final/exported-text.txt",
+      "bytes": 2031,
+      "sha256": "80b5c9aba95d44543f42a340815148405c828a4357a09ebb6a59c38330675282"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/pdf-final/page-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/pdf-final/page-1.png",
+      "bytes": 626596,
+      "sha256": "d80def4d510b97b917c6ddc466a37f02591495b1f67cce13939f67af5203500c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/pdf-final/pdf-validation.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/pdf-final/pdf-validation.json",
+      "bytes": 467,
+      "sha256": "6fa8a685df649a2fb5198837901097e13060528d49672c3456e08c5a0901d7e1"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/pr-body.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/pr-body.md",
+      "bytes": 1562,
+      "sha256": "6d0f6318282143e0a2c7cf6307650a43fafef1d18d488de3531da08199688842"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/pr22-merged.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/pr22-merged.json",
+      "bytes": 174,
+      "sha256": "326b3a53b0076b1503bf51f36d1cb6582e29c5c578b3bd99919ffbf70e2e8ab4"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/pr23-merged.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/pr23-merged.json",
+      "bytes": 174,
+      "sha256": "cca8b3ecae84368aae21f81e57648aaa6b7e3c1a4bb81cd9eba2a865351e0d33"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/resources.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/resources.log",
+      "bytes": 467,
+      "sha256": "ec8030b8f6599e53977f3cf234830364ddbb261c651647f1047349a1e8115454"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/site-source-integrity.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/site-source-integrity.json",
+      "bytes": 398,
+      "sha256": "360e6a4de71ec9418e150163cb67007c11569884ad66bb563ff7f1961925a53d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/source-fingerprint.txt",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/source-fingerprint.txt",
+      "bytes": 91002,
+      "sha256": "3e5ebdd72ae65636d82443da5c3a89bd8800e12de0e367f566db5305bf3f9117"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/sync-site.py",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/sync-site.py",
+      "bytes": 1994,
+      "sha256": "626f999362083d3ca59870b8df67d513df6fc5176bbfa4e93707ca003b4af19a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/unit.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/unit.log",
+      "bytes": 327,
+      "sha256": "bdd94f8a3bc338a73380eaa4c9eb51d355f25bec65c35222fda45fb4e2b8ff24"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-final/vocabulary.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-final/vocabulary.log",
+      "bytes": 155,
+      "sha256": "447ec3383e405974432c7294cb2eab3b241c06f94b9a50a649efc27d6353a6f2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-format.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-format.log",
+      "bytes": 6894,
+      "sha256": "a9b5350fbf7fa277f2a7a26497aa0a82eecc011b90dd218ed0d5ebebf5bbe4b6"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-format2.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-format2.log",
+      "bytes": 3739,
+      "sha256": "cff0980e8e820b5235eddb2b8bb97a47fe8da5e297a6bf85d26ede1fcfd98168"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-format3.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-format3.log",
+      "bytes": 17078,
+      "sha256": "d470ca70dcc3eb29e235229da18cd6b8d91c9ba2c34625068cf6fe8fb0018107"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-format4.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-format4.log",
+      "bytes": 42,
+      "sha256": "4cba0b2b021311eb88f2d508f5906934bb6ce6758eaddf6fd34aee2c361667a8"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-ice-fixed.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-ice-fixed.png",
+      "bytes": 379560,
+      "sha256": "8f33767eebbf5dde9ecbc27988c155f2c97fec45b9a8f52f8fa9749b83ea1b3a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-ice-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-ice-phone.png",
+      "bytes": 327707,
+      "sha256": "9d491ed0168e1cb2728d7aba8d80714cec8c0473c97ffe33f975d4695ba193a9"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-ice-real.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-ice-real.png",
+      "bytes": 333836,
+      "sha256": "2927d2dd9ae8cf6f3a6f21734261e3bc342d89bfb36c78c38ed145ae74b03652"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-layout-play.mjs",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-layout-play.mjs",
+      "bytes": 7287,
+      "sha256": "63f7d406c0f36b6d0b33222b1e212347a85cb170d45acc1b671ab7f0d99f4d9c"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-lint-detail.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-lint-detail.log",
+      "bytes": 138176,
+      "sha256": "fd2a2744b02d7d3aaa18987c89016f55bf851a37ff6c791c9a0d4162de53d1a4"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/assets/06-online-direct-cooking.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/assets/06-online-direct-cooking.png",
+      "bytes": 1288975,
+      "sha256": "7e0d4b5c740b4d7d26bf1a75cae0e5330c2ef192d479ad70364387cfc94cce5d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/design-description.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/design-description.md",
+      "bytes": 2124,
+      "sha256": "58549c75134e43cf9ae4bb58e4a3b0bb1e23209aa29064f2fdbb6b67adb586aa"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/design-description.pdf",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/design-description.pdf",
+      "bytes": 2470665,
+      "sha256": "cbc4a06561b0d45c5e4e53ea370cb92058bebb5d158c7b0cf234dd2a8abb63b4"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/qa/exported-text.txt",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/qa/exported-text.txt",
+      "bytes": 2022,
+      "sha256": "ba2831d3d520add3ff7bf14ae0abead7374c7430c50e1787fdcf179650b9cb54"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/qa/page-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/qa/page-1.png",
+      "bytes": 625181,
+      "sha256": "aebd3a2853b03ced878db15824899eadf041f80712be7732441d492ea43d6ed4"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/qa/pdf-validation.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/qa/pdf-validation.json",
+      "bytes": 310,
+      "sha256": "cb69163058fbc55d27011a6b486e460e32665f3280959ce24228190a1cb5a04a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-materials/render-description.py",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-materials/render-description.py",
+      "bytes": 3591,
+      "sha256": "0b3f7a87f64c50a21c7713ffd5b69d2d4f7739131e035322b39257f724d73edc"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/screenshots/designer-five-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/screenshots/designer-five-phone.png",
+      "bytes": 78028,
+      "sha256": "792ad15870277ab52733334be387f12d0d1985a849bfb4987a6c6489b90d9544"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/screenshots/theatre-help-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/screenshots/theatre-help-phone.png",
+      "bytes": 89164,
+      "sha256": "7987b6dd36c155d1cd42e562b449eb5ab32973ab3764b94a3618a4f9d1f6ecb0"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/screenshots/theatre-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/screenshots/theatre-phone.png",
+      "bytes": 79758,
+      "sha256": "d1d6d1e599c42011186bf94c5bcf7ece4571e78f5682f2d3e77893f4ea129d40"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/.last-run.json",
+      "bytes": 145,
+      "sha256": "374a7f98041a7dadef84a605ce97b6a5e3d1444bd98a72d63aa405c68260b8b9"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/error-context.md",
+      "bytes": 8805,
+      "sha256": "303abc7e07aea77948c49a81fa135d8ff6357aa193725c4ff3a6b05fc178dda7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/test-failed-1.png",
+      "bytes": 207506,
+      "sha256": "dbd35cb7f281b8e5de6e649ea283c016b764d463477d48139f9cdc0a26b2ce21"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm",
+      "bytes": 609382,
+      "sha256": "3728549797a010b01b421837c6037e9d2dc58e2b35d44e53dced706fc25bb444"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/minigames-vocab-new-vocabu-f1999-eeps-support-through-replay/video.webm",
+      "bytes": 241406,
+      "sha256": "ad57abf7527f124accdd7be484c3668337bbaaa35edfdff215293272389c1d68"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/minigames-vocab-phone-five-d618e-ble-and-individually-usable/video.webm",
+      "bytes": 394801,
+      "sha256": "510f43cc943c359eb2f1ea5641d81303e50acdb3b85c8bcc65f9ac479282a334"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/error-context.md",
+      "bytes": 13225,
+      "sha256": "8d00a7b7534216277dbe5bbf164de40dd2e63749e832190f609960e2760b6c54"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/test-failed-1.png",
+      "bytes": 356608,
+      "sha256": "de45461c893505711804d4aa3483ceb4b9590bc139a6deea59166d293a6cf96b"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-green/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm",
+      "bytes": 752497,
+      "sha256": "4c7f0f5f02ff3a99b5a346380db6f99fb22ccb5fa777b723c8fcf7a2af6d1831"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-red/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-red/test-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "2a0779b4ee262f40ca1749af9c891280408f958b9ed3026ec95ffe014863997e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/error-context.md",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/error-context.md",
+      "bytes": 7021,
+      "sha256": "c5714bb316a493b9198819f0b43a7647c3495170248be7b925beee988961cb2d"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/test-failed-1.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/test-failed-1.png",
+      "bytes": 134202,
+      "sha256": "ab741d23d0340c4226d173e7aa3876cf8cb3eb31a57aeda92bcfa8914c231656"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-mini-red/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm",
+      "bytes": 319637,
+      "sha256": "4e781aa039dd55a27ac04904a8f4550243312a67179febe6e95dfe3050f759c2"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-normal-play/02-desserts.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-normal-play/02-desserts.png",
+      "bytes": 342634,
+      "sha256": "f4f4dc38537f1dcf682d3ab7ca14944f7a91ff2ea2de1e66ab2bab46f10064c9"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-normal-play/failure.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-normal-play/failure.json",
+      "bytes": 16186,
+      "sha256": "cb7aa6ad3178d142885193e2f8f73c595f8c5760cfce4320a53f4df97772d01e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-normal-play/failure.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-normal-play/failure.png",
+      "bytes": 337434,
+      "sha256": "75588cd0aef0543f262697283c637583e92d2c9e992af5e0bcb49af8a6e97eea"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-online-play.mjs",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-online-play.mjs",
+      "bytes": 7837,
+      "sha256": "8f6c550de36a61d8bb1da384c312180f047dec97d064f5d68d09576a2f3aea6e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-packed-phone.png",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-packed-phone.png",
+      "bytes": 332189,
+      "sha256": "612f27505ff9d09dc9a8aed772c2a58873bf9c91d74b8f2874bfe497db7d996e"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-play-script-format.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-play-script-format.log",
+      "bytes": 2166,
+      "sha256": "d63409729ee05d0c9db9cf0289ce00b1f06194d865894ebd80c5ed9a96260f44"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-script-format.log",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-script-format.log",
+      "bytes": 2163,
+      "sha256": "978aaf8337a1ec5bfff266f677229d31917dcf150a84f8e61b4d71e055d1a320"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-share-review.mjs",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-share-review.mjs",
+      "bytes": 156359,
+      "sha256": "6e7e8e910fb4813b07149661df681941ec32a37bfef18b07ac35a7da6080151a"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-ui-green2/test-results/.last-run.json",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-ui-green2/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-ui-green2/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-ui-green2/test-results/direct-cooking-direct-mini-1ee65-keeps-free-design-reachable/video.webm",
+      "bytes": 298168,
+      "sha256": "18cc546dfb355e7d086d4c4311d6f7637e30453819380e9e66d39953a484bfc7"
+    },
+    {
+      "group": "direct-cooking-task",
+      "source": "/tmp/direct-ui-green2/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm",
+      "repositoryPath": "docs/evidence/direct-cooking-2026-10-12/execution-artifacts/raw-files/direct-ui-green2/test-results/together-play-occupied-rec-0e583-the-remaining-real-capacity/video.webm",
+      "bytes": 772010,
+      "sha256": "d9d9dfd2a7c4a1201db09ff1294039ee56766c49e7b5f65f2a6c7d489514f195"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/01-fresh-home.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/01-fresh-home.png",
+      "bytes": 2190765,
+      "sha256": "b0d6647d53a75eab9bcf6b7f88bba909018008f83de3c056404ba1ad4ca12da2"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/02-chapter1-entry.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/02-chapter1-entry.png",
+      "bytes": 1661776,
+      "sha256": "079d3589738ffa7272d6171a408b69e6eeb3e319c67d1f8783f8aabce0b580c5"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/03-first-kitchen.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/03-first-kitchen.png",
+      "bytes": 1290812,
+      "sha256": "d199896ead487fe6b902357e7568ddb77e1bae228e87ea712ac5d4db70045c9a"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/04-first-teaching.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/04-first-teaching.png",
+      "bytes": 1269213,
+      "sha256": "d00d4709e06d18f4b87ed09a3d052f5fc1b5e9d89b7583455f4846c149b42159"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/05-first-ready-request.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/05-first-ready-request.png",
+      "bytes": 1510643,
+      "sha256": "4e3d6ea3c58831fddb9257f768585056097fda328c73a374914218bf941f7fc3"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/06-wrong-delivery.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/06-wrong-delivery.png",
+      "bytes": 1515258,
+      "sha256": "fc1e3be2400d12e7061609ada1efc6ddc85cbab72e614e64cdbb4e8f2f4e263d"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/07-b-request.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/07-b-request.png",
+      "bytes": 1499878,
+      "sha256": "17722179f23bf34907ef6ccec7856ef2ae81a15a9466280b8a4237762a18a181"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/08-breakfast-table.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/08-breakfast-table.png",
+      "bytes": 1671224,
+      "sha256": "3a9949ea862a9046ea5cbae5f2d9926a4f3a9fdf9d3b6ffa2752b791ee801f60"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/09-drawer-unlocks.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/09-drawer-unlocks.png",
+      "bytes": 1649715,
+      "sha256": "0e29039a1988f491e8ee817578cd71492b58d9250122bffb237de71063db9274"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/10-first-chapter-complete.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/10-first-chapter-complete.png",
+      "bytes": 1649561,
+      "sha256": "32fabae89291982e8ee2b67ff8e2e4e322960f28692b60d2154997cf1c80cf7f"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/11-icecream-demonstration.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/11-icecream-demonstration.png",
+      "bytes": 1317425,
+      "sha256": "a8aef17028adbb60352a199a2910ba8172f5b2a84055b94d7c79ee28deb7509d"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/12-icecream-ready.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/12-icecream-ready.png",
+      "bytes": 1519863,
+      "sha256": "4019fd1b83d42ad8aecf71569b27835ea413333a0f7a3ba5b25118e73bc4f43e"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/13-chapter2-complete.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/13-chapter2-complete.png",
+      "bytes": 1648854,
+      "sha256": "90a041f0a09b76a47d5cd8191e38448ad836a9fce69227fd791bd6d1e83ed1f2"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/14-picnic-mid-delivery.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/14-picnic-mid-delivery.png",
+      "bytes": 1293387,
+      "sha256": "1224fff9872cfc1780f59a49fc0c37c191e98fc4eaa6987c0c3f308c6ea977fd"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/15-picnic-rabbit-route.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/15-picnic-rabbit-route.png",
+      "bytes": 1670021,
+      "sha256": "cedba77e881b4889507a16a2d736d7c63dc79f7ae59f2e86c785caef03b68d37"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/16-item-options.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/16-item-options.png",
+      "bytes": 1501001,
+      "sha256": "7f2f9f6edc494449c92cb8ad533389d574e79d20809cff894e87965217865852"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/17-picnic-complete.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/17-picnic-complete.png",
+      "bytes": 1662619,
+      "sha256": "8e3814b5fe34f60563ba0332ce80d6f267487542babd243ac9f5ccbc0ed8dfa9"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/18-burger-and-juice.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/18-burger-and-juice.png",
+      "bytes": 1556813,
+      "sha256": "9f840b1686ddc0a99e4e689a83db9b190ffd471778825833f123d21b52ef9c27"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/19-mixed-tray-confusion.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/19-mixed-tray-confusion.png",
+      "bytes": 1554236,
+      "sha256": "1030c285de19d53581f1260247d9bada367302560d25b71567d3e2e48728a4ec"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/20-community-start.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/20-community-start.png",
+      "bytes": 1649873,
+      "sha256": "7176c5751bf05ef5939d8ff1b4f96a1e9e6152f2ffc223fd75237b4b7f1d878c"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/21-community-kitchen.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/21-community-kitchen.png",
+      "bytes": 1504665,
+      "sha256": "124a0ab64fc9c81a880b30c553c4264eef13ad69ff06cf063761772755900578"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/22-community-not-ready.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/22-community-not-ready.png",
+      "bytes": 1668351,
+      "sha256": "fe306ea28755d8c81b00f88f930a478293c117625f9475fd30bd88b9951ae952"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/23-five-chapters-complete.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/23-five-chapters-complete.png",
+      "bytes": 1669377,
+      "sha256": "3805de293e04251cd799217dc2d080d1d75d1b2acf8190e7159944c89b9aa939"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/25-home-overlap.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/25-home-overlap.png",
+      "bytes": 2021417,
+      "sha256": "7cc3b234ada71a0100acca1c6a6fec1f69c4ff30e9559e45ba6db9e870afe855"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/26-memories-keyboard.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/26-memories-keyboard.png",
+      "bytes": 2214175,
+      "sha256": "54a7d6b6939782dffdeb2ef73e09bf8c4053ee552721c9877adae5ea6893a73c"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/27-old-recipe-menu.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/27-old-recipe-menu.png",
+      "bytes": 125231,
+      "sha256": "8341aeb9bd9264b9dc230321a470312056acde7b1b4a4280e7ef705caa1944d1"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/28-picnic-hedgehog-route.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/28-picnic-hedgehog-route.png",
+      "bytes": 1671465,
+      "sha256": "8667c05b1cc8d72fa3bf53237ac6833efbc458e4e1f5f56798ef9699b5c8b733"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/29-free-shop-setup.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/29-free-shop-setup.png",
+      "bytes": 486559,
+      "sha256": "9ab893767932f75b53894eb9444a5d2b7211f5ab29e250b73071524363a80d0c"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/30-free-shop-independent.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/30-free-shop-independent.png",
+      "bytes": 1509195,
+      "sha256": "a07b44e4d677d46b66c733f482e1e5ad6681195d23fb29ce3e9e39283fb93b09"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/31-guess-feedback.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/31-guess-feedback.png",
+      "bytes": 1515450,
+      "sha256": "1c7dce3fad498877e41551d6a39bd7702b866042f9f8fa6118c806dbc0c48525"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/32-next-request.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/32-next-request.png",
+      "bytes": 1513326,
+      "sha256": "0a83b56b70e9a6d1c4e3eb61b03b074d4f1e120967cf1f592866778db24e164f"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/33-free-table-controls.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/33-free-table-controls.png",
+      "bytes": 1657495,
+      "sha256": "b57917a46972a9633718cacca450f0df6bd0ed4f4ae5a0104f8d2df36b05d204"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/34-mini-menu.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/34-mini-menu.png",
+      "bytes": 490131,
+      "sha256": "8b16ee827dc2c49d8f772cd4eb613801dab043234ff703a6c710421e06eb3ea3"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/35-mini-listen.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/35-mini-listen.png",
+      "bytes": 48576,
+      "sha256": "7a48e1931147ef783c7ad3c73202d707be402c82a04bd2953c4c8e51df533cdd"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/36-mini-choice.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/36-mini-choice.png",
+      "bytes": 67207,
+      "sha256": "1333157b247a04ca5a93d3b055a441ae71c66a6292d62624d646cea958222d0a"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/37-pairing.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/37-pairing.png",
+      "bytes": 74102,
+      "sha256": "ab50f3922fdcc66ceb70c30bf13edba4ae1328a99dffc68a24bca8298fc01e09"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/38-spelling.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/38-spelling.png",
+      "bytes": 55639,
+      "sha256": "378b4b5bab5f8d4e1012ed7025de454bfb8ed91d827dcffa35aa0c72954cb029"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/39-quantity.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/39-quantity.png",
+      "bytes": 62462,
+      "sha256": "09942cc10a27c88b974aa038fb8eb00036816340801a3d8c89696aafe8fe8a4e"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/40-sentence.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/40-sentence.png",
+      "bytes": 59027,
+      "sha256": "7c87e017c7e308a972ec61f26048ff1e66de950f6970a3fd8adf9aaed7f27033"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/41-noun-only-sentence.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/41-noun-only-sentence.png",
+      "bytes": 54344,
+      "sha256": "1a41ccde66e5862239f3bdb1a1327044285fcbddbf77bd3e8a28f0a4fe152ccf"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/42-phone-home.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/42-phone-home.png",
+      "bytes": 523117,
+      "sha256": "81e805367172abd1fc94560c67943dd120c19795f71da4e680caa8d6cce4a137"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/43-phone-activity.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/43-phone-activity.png",
+      "bytes": 383853,
+      "sha256": "8da524044d548e79732c5f6b917e481513f25c6875d8f777614045cf51406930"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/44-phone-teaching.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/44-phone-teaching.png",
+      "bytes": 266755,
+      "sha256": "ae8349b7436048be6afabb708388f9918e759ee9e236f848b34374a43550adfe"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/45-phone-wrong-recipient.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/45-phone-wrong-recipient.png",
+      "bytes": 432740,
+      "sha256": "a534621167dae15c9cc926510c9d38d9d36cb5e57eecbc1e27d6e5257ae0a35f"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/46-phone-chapter-complete.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/46-phone-chapter-complete.png",
+      "bytes": 378759,
+      "sha256": "7de8e6ba1a62b35f8cbad450e21775ca37c37d6b6e890330868e9a1c909f39a9"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/47-phone-icecream.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/47-phone-icecream.png",
+      "bytes": 434229,
+      "sha256": "61761acce554994025db25bec4f52cf93599f6615276b6a578e9805ed09f58e6"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/48-phone-drag-cancel.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/48-phone-drag-cancel.png",
+      "bytes": 434106,
+      "sha256": "58600ac73b4cbc728d248cee3d6714acba572a0323c0b4f1053935f22017ed1e"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/49-phone-chapter2.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/49-phone-chapter2.png",
+      "bytes": 379868,
+      "sha256": "2f15f6cfd3e678895d3603276e1a71db98cfaa89f5fcea561a87655f763526fa"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/50-phone-full-trays.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/50-phone-full-trays.png",
+      "bytes": 434714,
+      "sha256": "92310d4c00f1a42a4d59c122400e23e95af26842fceeade6986820d8173bc7aa"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/51-phone-capacity-recovered.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/51-phone-capacity-recovered.png",
+      "bytes": 431022,
+      "sha256": "9d18d0dff11b6d6dfd68ac9f339e4662f601b588bcd8abb3e7b1d35e38d4809f"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/52-phone-shelf-confirm.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/52-phone-shelf-confirm.png",
+      "bytes": 115083,
+      "sha256": "68eb974529a2df41a81c111f470f50ca521d2d1f91f192e8647814529b694c61"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/53-phone-landscape.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/53-phone-landscape.png",
+      "bytes": 477505,
+      "sha256": "626cafdf9d2ee6452c4af45684a523815f9ce963bcde7db715b5d8368b217001"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/54-phone-short.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/54-phone-short.png",
+      "bytes": 357911,
+      "sha256": "8e9d4ae3132142e5effc171e572e55ecee263c8c9fc5081d014e917b65807cc8"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/55-phone-note.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/55-phone-note.png",
+      "bytes": 282207,
+      "sha256": "7a3ed25814afcaf5c881b1d16003178e3ba7e46e9c01e425277dc17d0fec0577"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/56-phone-picnic.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/56-phone-picnic.png",
+      "bytes": 391861,
+      "sha256": "145d8393908cf6b1212391480502a0787311ccc08acc598453b8d8d1ccc443ee"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/R-00-current-repository-home.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/R-00-current-repository-home.png",
+      "bytes": 1958513,
+      "sha256": "1ea1ccf088b5125850066cdac0e1c0ef204a7e9378f80bd164afcbb01d7f205e"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/R-01-kitchen.png",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/R-01-kitchen.png",
+      "bytes": 1203984,
+      "sha256": "f89bf1e7b1518a0eb5d92278f961d87c13e8f5a9035d4850d2ffc33980e6f54f"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/desktop-journey.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/desktop-journey.json",
+      "bytes": 59522,
+      "sha256": "df828e8309bfd48838a2b020d5d172c197ebefb81a4924c58080cc8fc7ef3758"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/fresh-run-journal.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/fresh-run-journal.json",
+      "bytes": 1690,
+      "sha256": "0a75042c6a22b76b25bcf05747871211dcd24db4383972364d28e50982a3d96a"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/fresh-run-runtime.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/fresh-run-runtime.json",
+      "bytes": 757,
+      "sha256": "107f2b2ef9456983344db1b0a4bde6c802ee51ef782266760777f3f8ffcd3e41"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/fresh-run-video/page@e5d0b5b771ae98883b22abdeef16b621.webm",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/fresh-run-video/page@e5d0b5b771ae98883b22abdeef16b621.webm",
+      "bytes": 4718592,
+      "sha256": "e2978ec1a1a05a866cace41a4e61e2e856c9bf046621e87409d0475d7a6df662"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/journey.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/journey.json",
+      "bytes": 3326,
+      "sha256": "9a09651d2f6f14f5465f9f4254f60975107adc119846b9df9d5a5638ba73ddd4"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/natural-storage.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/natural-storage.json",
+      "bytes": 71092,
+      "sha256": "46d20f2b65e7bd867893696e1f3b79ae2779b10dbd51c85eb11f7b085d163e68"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/phone-journey.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/phone-journey.json",
+      "bytes": 17173,
+      "sha256": "67844fbafce106b82e872ea8374c53d0c34228148b96e64a323a7ed4152bff1e"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/phone-storage-capacity.json",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/phone-storage-capacity.json",
+      "bytes": 41695,
+      "sha256": "a5beb77bd622c13a88a9799bca7cb349a4eefa55f82015c0cd3b2638a021464b"
+    },
+    {
+      "group": "historical-player-review",
+      "source": "/Users/dafangzi/procjets/tabby-english-food-truck/docs/playtests/2026-10-11-player-review-evidence/video/page@2b8252d3ed396459a3ec4f917ae6cd45.webm",
+      "repositoryPath": "docs/playtests/2026-10-11-player-review-evidence/video/page@2b8252d3ed396459a3ec4f917ae6cd45.webm",
+      "bytes": 3269982,
+      "sha256": "2c5315724d69c027d3c782881e4eb59420a11f77d7e89bcc7b17da71d185bb88"
+    }
+  ]
+}

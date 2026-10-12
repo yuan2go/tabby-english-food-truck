@@ -1,3 +1,7 @@
+# 2026-10-13 · 执行产物补充归档
+
+已核对直接操作代码 PR22 与材料 PR23 均合并 main，最新远端 baseline `932a25a63b7a99e1962ae25a93abbb59e4311da8`，上任务共5个工作提交及2个合并提交。本次分支 `codex/archive-execution-artifacts-2026-10-13` 补充283件原始执行产物（217件直接操作任务、66件历史试玩），另326件历史文件已与main字节相同。逐文件来源/大小/hash与交付边界见[归档说明](evidence/direct-cooking-2026-10-12/execution-artifacts/README.md)。按负责人明确指令不测试，单元/浏览器/lint/typecheck/build/资源/词库均NOT_RUN，提交与PR使用skip-ci；实际PR、最终head及main合并SHA以GitHub回执和交付回复为准。原工作区保留，当前玩法/发布及外部待验状态沿用下文。
+
 # 2026-10-12 · 全游戏操作减负与游戏性重构
 
 PUBLISHED / DOCUMENTS_READY / EXTERNAL_ACCEPTANCE_PENDING。baseline0164da67de128110b75c4a6fa2c414914faebfb3；文档治理先于编码，原64f03fc工作区及未跟踪文件保留。全五章、双野餐、自由厨房及小游戏已改为直接物件操作：单球7→4、三明治自然盖合、煎锅/果汁真实钟、全部设备同屏、原位比较/品尝/分享/保存、自由厨房默认开门。实测遮挡/拦截/竞态/记录问题已修正；最终代码head0a4c0d4dc81c060b758263a3c2a5bdba8e95d56f云端350/350单元与42/42浏览器、lint/资源/build门禁SUCCESS，经[PR22](https://github.com/yuan2go/tabby-english-food-truck/pull/22)合并main15191872c7ae6abeda95c9998893faedc2a403a0。默认画质正常新档393×665连续五章→自由厨房→小游戏92次触控、单球4次、0页面异常；两野餐路线、桌面键盘、短横屏全部原料命中与异常恢复已验证。

@@ -1,0 +1,41 @@
+{
+  "githubCodeMainSha": "15191872c7ae6abeda95c9998893faedc2a403a0",
+  "sitesSource": {
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "checkout_path": "/private/tmp/tabby-direct-sites",
+    "commit_sha": "a93bd4de240cfc247ed77e5f177f5cabbfd16a40",
+    "archive": "/tmp/direct-cooking-site.tar.gz"
+  },
+  "version": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_136c2fb15648819181eb6effc6f4105a",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "version_number": 5,
+    "source": {
+      "commit_sha": "a93bd4de240cfc247ed77e5f177f5cabbfd16a40"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000038bc81fbbb66c8f0da389209",
+      "content_hash": "sha256:8caedba25c0eb12c5f86dacfce5b82eeeed99b32f8d0caf0579f395d0fb1bfc9",
+      "size_bytes": 53800960,
+      "file_count": 724
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6acd0aa7bf5081919466e77b840dfd1b",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "title": "狸花猫的英语餐车",
+    "version_id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_136c2fb15648819181eb6effc6f4105a",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ab141055ab8819186112dee423d0d04",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-12T16:28:32.659745+00:00"
+  }
+}
