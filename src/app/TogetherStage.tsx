@@ -103,6 +103,7 @@ export function TogetherStage({
   const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
   const [book, setBook] = useState(false),
     [confirm, setConfirm] = useState(false);
+  const [focusedSpeaker, setFocusedSpeaker] = useState<Visitor | null>(null);
   const [feedback, setFeedback] = useState('点朋友听需要，拿起食品，再点目标。');
   const say = (message: string) => {
     controller.message = message;
@@ -189,6 +190,15 @@ export function TogetherStage({
     extra: Omit<Extract<Command, { type: 'adventure' }>, 'type' | 'action'> = {},
   ) => run({ type: 'adventure', action, ...extra });
   const commission = a ? openCommission(a) : null;
+  const narrowPortrait = size.width < 600 && size.height >= size.width;
+  const currentRole = dialogue.current?.line.role;
+  const visibleSpeaker =
+    currentRole === 'rabbit' || currentRole === 'hedgehog' || currentRole === 'elder'
+      ? currentRole
+      : (focusedSpeaker ??
+        s.orders.find((o) => o.status === 'waiting')?.visitor ??
+        (commission?.action === 'cool' ? 'hedgehog' : 'rabbit'));
+  const focusedIndex = visibleSpeaker === 'rabbit' ? 0 : visibleSpeaker === 'hedgehog' ? 1 : 2;
   const commissionLine = (visitor: Visitor): DialogueLine | null =>
     commission &&
     ((commission.action === 'cool' && visitor === 'hedgehog') ||
@@ -246,6 +256,7 @@ export function TogetherStage({
       return;
     }
     if (target.kind === 'friend') {
+      setFocusedSpeaker(target.visitor);
       const order = orderFor(target.visitor, target.seat);
       if (tool === 'lantern') {
         act('cooperate', { visitor: target.visitor, object: 'lantern' });
@@ -515,12 +526,15 @@ export function TogetherStage({
             const line: DialogueLine | null =
               order?.status === 'waiting'
                 ? { ...REQUESTS[order.request], role: visitor, trigger: 'order' }
-                : current?.line.role === visitor
-                  ? current.line
-                  : need
-                    ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
-                    : commissionLine(visitor);
+                : commissionLine(visitor)
+                  ? commissionLine(visitor)
+                  : current?.line.role === visitor
+                    ? current.line
+                    : need
+                      ? { ...lineFor(`sharing-${need.kind}` as LineId), role: visitor }
+                      : commissionLine(visitor);
             const listen = () => {
+              setFocusedSpeaker(visitor);
               if (order?.status === 'waiting') dialogue.request(order);
               else if (line) dialogue.show({ key: `${s.runId}:need:${visitor}`, line }, true);
             };
@@ -541,8 +555,36 @@ export function TogetherStage({
             return (
               <div key={visitor}>
                 {line ? (
-                  <div className="local-bubble" style={position(l.bubbles[index] ?? rect)}>
-                    <Sentence line={line} audio={audio} play={listen} />
+                  <div
+                    className={`local-bubble${narrowPortrait && index !== focusedIndex ? ' speaker-mini' : ''}`}
+                    style={
+                      narrowPortrait
+                        ? {
+                            ...position(l.bubbles[index] ?? rect),
+                            left:
+                              index === focusedIndex
+                                ? 10 + focusedIndex * 58
+                                : index < focusedIndex
+                                  ? 10 + index * 58
+                                  : size.width - 10 - (count - index) * 58,
+                            width: index === focusedIndex ? size.width - 20 - (count - 1) * 58 : 48,
+                            height: index === focusedIndex ? 74 : 48,
+                          }
+                        : position(l.bubbles[index] ?? rect)
+                    }
+                  >
+                    {narrowPortrait && index !== focusedIndex ? (
+                      <button
+                        type="button"
+                        className="speaker-replay"
+                        aria-label={`重听${name}：${line.text}`}
+                        onClick={listen}
+                      >
+                        ↻
+                      </button>
+                    ) : (
+                      <Sentence line={line} audio={audio} play={listen} />
+                    )}
                   </div>
                 ) : null}
                 {order?.status === 'waiting' ? (
@@ -613,7 +655,7 @@ export function TogetherStage({
           >
             <SceneIcon kind="recipe" />
           </button>
-          {a?.chapter === 2 && a.branch === 'rabbit' ? (
+          {a?.chapter === 2 && a.branch === 'rabbit' && !a.rewards.length ? (
             <button
               type="button"
               {...drop({ kind: 'basket' })}
@@ -815,6 +857,15 @@ export function TogetherStage({
           {tool ? <SceneIcon kind={tool} /> : null}
           {decoration ? (
             <SceneIcon
+              tone={
+                decoration.value === 'cool'
+                  ? '#69aaa0'
+                  : decoration.value === 'leaf'
+                    ? '#719675'
+                    : decoration.value === 'moon'
+                      ? '#d2eafa'
+                      : '#f1d485'
+              }
               kind={
                 decoration.kind === 'cloth'
                   ? 'mat'
@@ -921,7 +972,7 @@ export function TogetherStage({
                   aria-label={value === 'warm' ? '拿起暖色彩旗' : '拿起清凉彩旗'}
                   onClick={() => act('take-decoration', { object: 'bunting', value })}
                 >
-                  <SceneIcon kind="bunting" />
+                  <SceneIcon kind="bunting" tone={value === 'cool' ? '#69aaa0' : '#eeb46d'} />
                 </button>
               ))
             : null}
@@ -935,7 +986,7 @@ export function TogetherStage({
                   aria-label={value === 'leaf' ? '拿起叶子桌布' : '拿起阳光桌布'}
                   onClick={() => act('take-decoration', { object: 'cloth', value })}
                 >
-                  <SceneIcon kind="mat" />
+                  <SceneIcon kind="mat" tone={value === 'leaf' ? '#719675' : '#f1d485'} />
                 </button>
               ))
             : null}
@@ -947,7 +998,7 @@ export function TogetherStage({
                   aria-label={value === 'warm' ? '拿起暖灯' : '拿起月光灯'}
                   onClick={() => act('take-decoration', { object: 'light', value })}
                 >
-                  <SceneIcon kind="lantern" />
+                  <SceneIcon kind="lantern" tone={value === 'moon' ? '#d2eafa' : '#ffde7d'} />
                 </button>
               ))
             : null}
@@ -975,7 +1026,7 @@ export function TogetherStage({
             className="local-bubble dami-bubble"
             style={{
               left: l.short ? l.table.x : size.width - Math.min(200, size.width * 0.38) - 10,
-              top: l.short ? size.height - 93 : l.preparation.y,
+              top: l.short ? size.height - 93 : l.preparation.y - 20,
               width: l.short ? 160 : Math.min(200, size.width * 0.38),
               minHeight: 78,
             }}

@@ -706,13 +706,13 @@ function destination(
     if (!MODES[s.mode].trays.includes(dest.tray)) return { reason: '制作承放区暂时没有这个位置。' };
     if (product === 'cup' && !existing?.location.startsWith('hand:'))
       return { reason: '空杯放到果汁机右侧的杯座。' };
-    if (s.trays[dest.tray].remaining > 0) return { reason: '托盘正在回来，试试另一盘。' };
+    if (s.trays[dest.tray].remaining > 0) return { reason: '这里还在递送，食品保留在手里。' };
     const slot = (
       existing?.location.startsWith('hand:')
         ? emptyTraySlots(s, dest.tray)
         : freeSlots(s, dest.tray)
     )[0];
-    if (slot === undefined) return { reason: '托盘满了。先选一个食品放回，或移到另一盘。' };
+    if (slot === undefined) return { reason: '制作承放区满了，先拿走一件食品或放回。' };
     return `tray:${dest.tray}:${slot}`;
   }
   if (s.machine.status === 'processing' || s.machine.status === 'ready')

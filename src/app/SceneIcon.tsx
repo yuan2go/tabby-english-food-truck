@@ -1,5 +1,13 @@
 /** Original vector scene symbols: no baked text and no third-party artwork. */
-export function SceneIcon({ kind, className = '' }: { kind: string; className?: string }) {
+export function SceneIcon({
+  kind,
+  className = '',
+  tone,
+}: {
+  kind: string;
+  className?: string;
+  tone?: string;
+}) {
   const shapes: Record<string, React.ReactNode> = {
     home: (
       <>
@@ -106,7 +114,7 @@ export function SceneIcon({ kind, className = '' }: { kind: string; className?: 
     ),
     mat: (
       <>
-        <path d="M4 17h24v36H4zm31 0h24v36H35z" fill="#9eb38d" />
+        <path d="M4 17h24v36H4zm31 0h24v36H35z" fill={tone ?? '#9eb38d'} />
         <circle cx="16" cy="35" r="9" />
         <circle cx="47" cy="35" r="9" />
       </>
@@ -121,14 +129,14 @@ export function SceneIcon({ kind, className = '' }: { kind: string; className?: 
     ),
     lantern: (
       <>
-        <path d="M19 19h27v35H19z" fill="#ffe086" />
+        <path d="M19 19h27v35H19z" fill={tone ?? '#ffe086'} />
         <path d="M23 19V9h19v10m-26 35h33M26 2h14M5 30H1m58 0h4M32 59v4" />
       </>
     ),
     bunting: (
       <>
         <path d="M3 7q29 17 58 0" />
-        <path d="m7 10 4 24 13-17m2 1 7 25 10-27m1-1 11 19 5-24" fill="#d89459" />
+        <path d="m7 10 4 24 13-17m2 1 7 25 10-27m1-1 11 19 5-24" fill={tone ?? '#d89459'} />
       </>
     ),
     cloth: (

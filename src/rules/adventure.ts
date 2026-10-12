@@ -280,7 +280,7 @@ export function adventureCommand(
     return result(
       'ok',
       c.action === 'pack'
-        ? '大咪正把整盘装进野餐篮。'
+        ? '大咪正把你拿的食品装进野餐篮。'
         : c.action === 'cool'
           ? '大咪把你选的口味带到树荫下。'
           : '大咪正把你的作品带到活动桌。',

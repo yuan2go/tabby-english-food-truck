@@ -42,6 +42,20 @@ async function picnic(p: Page, hedgehog = false) {
   await send(p, hedgehog ? 0 : 1);
   if (!hedgehog) {
     await click(p, '检查野餐篮');
+    await expect(p.getByRole('button', { name: /重听兔兔：Please pack a sandwich/ })).toBeVisible();
+    const requestFits = await p
+      .getByRole('button', { name: /重听兔兔：Please pack a sandwich/ })
+      .evaluate((node) => {
+        const text = node.getBoundingClientRect(),
+          bubble = node.closest('.local-bubble')?.getBoundingClientRect();
+        return (
+          !!bubble &&
+          text.top >= bubble.top &&
+          text.bottom <= bubble.bottom &&
+          text.right <= bubble.right
+        );
+      });
+    expect(requestFits).toBe(true);
     const id = await make(p, 'sandwich');
     if (!id) throw Error('sandwich');
     await supply(p, 'banana');

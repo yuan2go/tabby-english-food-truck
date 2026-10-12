@@ -98,6 +98,21 @@
   border-radius: 18px;
   padding: 3px 5px;
 }
+.together-stage .speaker-replay {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: #eccd7f;
+  border-radius: 50%;
+}
+.together-stage .speaker-mini {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.together-stage .speaker-mini:after {
+  display: none;
+}
 .together-stage .local-bubble:after {
   content: "";
   position: absolute;
