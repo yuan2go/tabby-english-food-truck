@@ -1,0 +1,77 @@
+{
+  "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+  "expectedSha": "829bb7ffe68d2110cf4a9165f85d45febf25e2bd",
+  "started": "2026-10-13T01:12:42.388Z",
+  "sessions": [
+    {
+      "viewport": {
+        "width": 393,
+        "height": 665
+      },
+      "httpStatus": 200,
+      "build": {
+        "sha": "829bb7ffe68d2110cf4a9165f85d45febf25e2bd",
+        "dirty": "false",
+        "content": "continuous-gameplay-1",
+        "assets": "aee135e9f33a2fa387ba5319e0f7ced101841b38207d06e2e303bf67db230caa"
+      },
+      "initialStorage": [
+        "tabby.foodtruck.save.m2.session.training-0",
+        "tabby.foodtruck.save.m2",
+        "tabby.foodtruck.save.m2.practice"
+      ],
+      "publicMetadata": {
+        "github_main_sha": "829bb7ffe68d2110cf4a9165f85d45febf25e2bd",
+        "github_pull_requests": [
+          25,
+          26
+        ],
+        "content_version": "continuous-gameplay-1",
+        "source_retained_paths": 1040,
+        "source_byte_identical": true,
+        "build_from_clean_github_main": true,
+        "built_at": "2026-10-13T01:10:33.015417+00:00"
+      },
+      "wrongDeliveryFoodRetained": true,
+      "actualAppleReceipt": true,
+      "errors": [],
+      "screenshot": "public-393x665.png"
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "httpStatus": 200,
+      "build": {
+        "sha": "829bb7ffe68d2110cf4a9165f85d45febf25e2bd",
+        "dirty": "false",
+        "content": "continuous-gameplay-1",
+        "assets": "aee135e9f33a2fa387ba5319e0f7ced101841b38207d06e2e303bf67db230caa"
+      },
+      "initialStorage": [
+        "tabby.foodtruck.save.m2.session.training-0",
+        "tabby.foodtruck.save.m2",
+        "tabby.foodtruck.save.m2.practice"
+      ],
+      "publicMetadata": {
+        "github_main_sha": "829bb7ffe68d2110cf4a9165f85d45febf25e2bd",
+        "github_pull_requests": [
+          25,
+          26
+        ],
+        "content_version": "continuous-gameplay-1",
+        "source_retained_paths": 1040,
+        "source_byte_identical": true,
+        "build_from_clean_github_main": true,
+        "built_at": "2026-10-13T01:10:33.015417+00:00"
+      },
+      "wrongDeliveryFoodRetained": true,
+      "actualAppleReceipt": true,
+      "errors": [],
+      "screenshot": "public-1280x720.png"
+    }
+  ],
+  "status": "PASS",
+  "finished": "2026-10-13T01:12:53.311Z"
+}

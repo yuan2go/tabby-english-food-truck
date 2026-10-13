@@ -1,8 +1,12 @@
 # 2026-10-13 · 连续游戏核心重构
 
-ENGINEERING_PASS / PUBLIC_V6_DEPLOYED / ANONYMOUS_NORMAL_PLAY_PASS / EXTERNAL_PENDING。
+ENGINEERING_PASS / PUBLIC_V7_DEPLOYED / ANONYMOUS_ENTRY_PASS / EXTERNAL_PENDING。
 
-基线origin/main `f10f4b5b58e4ae815c213fa5ac69bf0591630682`。治理独立提交409070ac40d04e9d7e31c1d834f6ed0189c6f660先于代码，九份原合同逐字节归档，现行01–05唯一。实现分支codex/continuous-gameplay-2026-10-13；[PR25](https://github.com/yuan2go/tabby-english-food-truck/pull/25)已正常合并，受测head `a7ab8ed6de9567d8610eafd0b15fa35005180e9a`，运行main `1c6af31fd2c109fca3cb36786f2e5232814b5839`，整树一致。原工作区64f03fc及未跟踪docs/playtests保留。
+2026-10-13重新发布：代码PR25、材料PR26均已合并main；发布基线及线上运行构建为`829bb7ffe68d2110cf4a9165f85d45febf25e2bd`，dirty=false，continuous-gameplay-1。原工作区392件试玩文件与该main逐字节相同，缺失/冲突均为0。干净隔离构建371/371单元、typecheck/build退出0；原站v7部署succeeded、权限public，两个新建匿名Chromium会话分别在393×665和1280×720验证HTTP200、真实版本、正常故事入口、错送留物与苹果实际接收。后续本次回执归档只改README/docs，不改运行源码/资源/依赖，运行SHA与纯材料main分别记录。完整版本/部署ID、截图、命令/环境和边界见[本次报告](evidence/release-sync-2026-10-13/README.md)。
+
+以下五章/双路线完整浏览器与人工边界是此前v6的记录；本次运行输入逐字节未变，只做上述发布所需验证，没有重跑45条全矩阵。
+
+基线origin/main `f10f4b5b58e4ae815c213fa5ac69bf0591630682`。治理独立提交409070ac40d04e9d7e31c1d834f6ed0189c6f660先于代码，九份原合同逐字节归档，现行01–05唯一。实现分支codex/continuous-gameplay-2026-10-13；[PR25](https://github.com/yuan2go/tabby-english-food-truck/pull/25)已正常合并，受测head `a7ab8ed6de9567d8610eafd0b15fa35005180e9a`，原v6运行main `1c6af31fd2c109fca3cb36786f2e5232814b5839`，当时整树一致。原工作区64f03fc及本地docs/playtests保留。
 
 全部五章、自然入客/短波/真实制作与接收/品尝/奖励/切章完成。保留两条野餐路线、并行加工、自由厨房、十类学习小游戏、50食品、120概念。无手动迎客、机械比较/开席/下一章门槛；规则决定进度，动画不结算。新完成收据与旧档迁移保留实际库存、在途、帮助、奖励和作品。
 

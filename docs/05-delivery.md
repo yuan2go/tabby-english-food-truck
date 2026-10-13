@@ -51,3 +51,5 @@ Interfaces: Task2状态投影，统一pickup/ingredient/put命令；进度无UI�
 本轮准确head a7ab8ed6de9567d8610eafd0b15fa35005180e9a的371/45正常CI通过，PR25已合并，原站v6和两个匿名正常五章/两路通过；最终事实/失败/版映射见evidence/continuous-gameplay-2026-10-13/README.md。最后纯材料PR不重跑同一游戏矩阵，执行PDF全文/全页/图hash/链接/范围核对。
 
 材料[PR26](https://github.com/yuan2go/tabby-english-food-truck/pull/26)仅README/docs；PDF文字与1页渲染/线上图byte、十文件旧档hash与30个当前本地引用通过。main正常推送门禁38292804117也通过371/45。外部验收状态不因交付改变。
+
+2026-10-13负责人再次明确授权全部提交/推送/PR/合并main及更新原公开站。最新main829bb7ffe68d2110cf4a9165f85d45febf25e2bd已包含代码和材料；392件本地试玩文件全部与main字节相同。以该干净main重新构建并发布v7，371单元及typecheck/build通过、匿名手机/桌面入口及实际送餐通过、权限public。本次回执归档分支codex/release-sync-2026-10-13只改README/docs，正常PR合并，不重复改变玩法。见[本次发布报告](evidence/release-sync-2026-10-13/README.md)。

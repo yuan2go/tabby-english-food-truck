@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-13",
+  "github_main_build_sha": "829bb7ffe68d2110cf4a9165f85d45febf25e2bd",
+  "implementation_pr": "https://github.com/yuan2go/tabby-english-food-truck/pull/25",
+  "materials_pr": "https://github.com/yuan2go/tabby-english-food-truck/pull/26",
+  "site_source_sha": "1b56dff39acd36aba40bcdc18864bdb15e45bbfc",
+  "version": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_f55f56f444dc8191a16e3700b9d344c5",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "version_number": 7,
+    "source": {
+      "commit_sha": "1b56dff39acd36aba40bcdc18864bdb15e45bbfc"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000763481f69605aa71ae12b658",
+      "content_hash": "sha256:feebc23a4f925a7badb0b23253b3f860b53300a8ada2fc6a9d5401dd1dc245b8",
+      "size_bytes": 53811200,
+      "file_count": 725
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6acd854ae60881918a1c6a88caa54e0a",
+    "project_id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "title": "狸花猫的英语餐车",
+    "version_id": "appgprj_6ab141055ab8819186112dee423d0d04~appgver_f55f56f444dc8191a16e3700b9d344c5",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ab141055ab8819186112dee423d0d04",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-13T01:11:47.530706+00:00"
+  },
+  "public_access": {
+    "id": "appgprj_6ab141055ab8819186112dee423d0d04",
+    "access_mode": "public",
+    "version": 7,
+    "url": "https://tabby-english-food-truck.aw9923299.chatgpt.site"
+  },
+  "local_archive_sha256": "a9c521d2a04cced73dd058b6f26568a66b4f2b6c2ee3d0bde4b3367223e6b17c",
+  "local_archive_note": "Native save receipt content_hash describes the normalized stored archive; local tar contains macOS metadata.",
+  "source_integrity": {
+    "retained_paths": 1040,
+    "byte_identical_to_github_main": true,
+    "clean_github_build": true
+  },
+  "local_playtest_integrity": {
+    "files": 392,
+    "bytes": 407529915,
+    "missing_from_main": 0,
+    "different_from_main": 0
+  },
+  "checks": [
+    {
+      "command": "npm ci",
+      "exit_code": 0,
+      "result": "67 installed; audit 0 vulnerabilities"
+    },
+    {
+      "command": "npm test",
+      "exit_code": 0,
+      "result": "371/371 tests; 29 files"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "result": "typecheck and Vite production build; retained large-chunk warning"
+    }
+  ],
+  "environment": {
+    "os": "macOS arm64",
+    "node": "24.15.0",
+    "npm": "11.12.1"
+  },
+  "limits": {
+    "full_browser_suite_this_release": "NOT_RUN (runtime unchanged; previous exact code CI 45/45 preserved)",
+    "physical_devices": "NOT_RUN",
+    "human_and_children": "NOT_RUN",
+    "teaching_and_listening_review": "NOT_RUN",
+    "distribution_rights": "PENDING"
+  }
+}
