@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3759,
+      "sha256": "db028803f51a975a6e37d36170a45da81e1e47e8140f3e896758dcad87264a2f"
+    },
+    {
+      "path": "anonymous-verification.json",
+      "bytes": 2383,
+      "sha256": "4105b3438a7301e3bc02d6a882265909edbe4a44230132c397b40acb734a14d7"
+    },
+    {
+      "path": "deployment.json",
+      "bytes": 3065,
+      "sha256": "63b45682779f3db82dc9e06bcbf681ca19321f4849089621b03dcc1c6ea39119"
+    },
+    {
+      "path": "public-1280x720.png",
+      "bytes": 1371458,
+      "sha256": "5981763be718f7021c5aea49543a9e6e63d3105cd35f01749facbeb9791230dc"
+    },
+    {
+      "path": "public-393x665.png",
+      "bytes": 359032,
+      "sha256": "05838a53ecb3beb60687ee7877f1e69babfa9df01131538ced933e4adfb3baa0"
+    },
+    {
+      "path": "verify-public.mjs",
+      "bytes": 3564,
+      "sha256": "da4d62a44fa5c22f6cd9b695391b60cc4c50d4c2ce908dce66dc8eda08fa9704"
+    }
+  ],
+  "verification": "Local references, receipt identities and docs-only scope passed"
+}

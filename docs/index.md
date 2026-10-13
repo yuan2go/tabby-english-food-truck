@@ -7,5 +7,6 @@
 - art/README、manifest：来源/审核/权利不因重构变化。
 - submission/index：最终真实玩法说明/PDF/同版配图。
 - [新版实证](evidence/continuous-gameplay-2026-10-13/README.md)：371/45准确head、独立审查、正常两路线/发布/说明核验。
+- [最新main重新发布v7](evidence/release-sync-2026-10-13/README.md)：完整文件交付核对、干净构建、公开权限及匿名手机/桌面送餐回执。
 - evidence/direct-cooking-2026-10-12及历史playtests：原发布/失败，不能当新版重测。
 - [说明更新前原文](archive/pre-continuous-description-2026-10-13/README.md)：十文件byte/hash保留。
